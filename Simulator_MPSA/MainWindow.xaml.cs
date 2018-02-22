@@ -105,7 +105,8 @@ namespace Simulator_MPSA
             foreach (string s in sAll.AllKeys) Debug.WriteLine("Key: " + s + " Value: " + sAll.Get(s));
             Debug.WriteLine("------------------------------------------------------------------");
 
-            dataGrid.DataContext = AIs; 
+            //dataGrid.ItemsSource = AIs;  
+           // dataGrid.DataContext = AIs; 
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -140,21 +141,11 @@ namespace Simulator_MPSA
                // Debug.WriteLine(s);
             }
 
-            //dataGrid.DataContext = clAI.AI;
+           // MainWindow.dataGrid.DataContext = MainWindow.AIs;
 
             while (true)   
             {
-                for (int i = 0; i < AIs.Length; i++)
-                {
-                    if (AIs[i].En || true)
-                    {
-                        //clAI.AI[i].updateAI(clAI.AI[i].fValAI + 1);
-                        string s = AIs[i].PrintAI();
-                        Debug.WriteLine(s);
-                    }
-                    
-                }
-
+                SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 Debug.WriteLine("Update() = 1000ms "); // + NReg + " " + tbStartAdress);
                 System.Threading.Thread.Sleep(1000 /*Sett.TPause*/ );
             }
@@ -350,14 +341,14 @@ namespace Simulator_MPSA
             }
         }
         #endregion
-        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        private void Grid_Loaded(object sender, RoutedEventArgs e) // выполняется при загрузке основной формы программы, то есть при Старте ПО
         {
-            for (int i = 0; i < WB.W.Length; i++)
+            for (int i = 0; i < WB.W.Length; i++)   // for Debug !!!
             {
-                WB.W[i] = (ushort)i;
+                WB.W[i] = (ushort)i; // заполняем массив для записи в ЦПУ значениями равными номеру элемента массива
             }
 
-            if (false) // !!!
+            if (false) // !!! false == Disable Modbus for Debug !!!
             {
                 // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
                 mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
@@ -451,6 +442,20 @@ namespace Simulator_MPSA
             private set;
         }
         #endregion
+        void SendAItoW()  // записываем значение АЦП в массив для записи CPU
+        {
+            for (int i = 0; i < AIs.Length; i++)
+            {
+                if (AIs[i].En /* || true */)
+                {
+                    AIs[i].updateAI(AIs[i].fValAI + 0.01F); // имитируем изменение значения аналогового сигнвала. for Debug !!!
+                    WB.W[(AIs[i].indxW)] = AIs[i].ValACD; // записываем значение АЦП в массив для записи CPU
+                    string s = AIs[i].PrintAI();
+                    s += ("ACD = " + WB.W[(AIs[i].indxW)] + " ; fValAI = " + AIs[i].fValAI);
+                    Debug.WriteLine(s);
+                }
+            }
+        }
         // -----------------------------------------------------------------
         clS S = new clS(); // settings;
         void SaveSettings(string Sxml= "settings.xml")
@@ -478,32 +483,49 @@ namespace Simulator_MPSA
             }
         }
         // -----------------------------------------------------------------
-       // public classAI clAI = new classAI(); // settings;
+        // public classAI clAI = new classAI(); // settings;  /* */
         public AIStruct[] AIs = new AIStruct[Sett.nAI];
-        void LoadSettAI(string Sxml = "AI_settings.xml")
+        //void LoadSettAI(string Sxml = "AI_settings.xml")
+        public void LoadSettAI(string Sxml = "AIsettings_AIStruct.xml")
         {
-           // XmlSerializer xml = new XmlSerializer(typeof(classAI));
+            //XmlSerializer xml = new XmlSerializer(typeof(classAI));  /* */
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-               // clAI = (classAI)xml.Deserialize(reader);
-                AIs = (AIStruct[])xml.Deserialize(reader);
+                // clAI = (classAI)xml.Deserialize(reader);  /* */
+                 AIs = (AIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
-                // System.Windows.Forms.MessageBox.Show("AI_settings.xml loaded.");
-
+                //for (int i = 0; i < Sett.nAI; i++)
+                //{
+                //    AIs[i].En = clAI.AI[i].En;
+                //    AIs[i].indxAI = clAI.AI[i].indxAI;
+                //    AIs[i].indxW = clAI.AI[i].indxW;
+                //    AIs[i].TegAI = clAI.AI[i].TegAI;
+                //    AIs[i].NameAI = clAI.AI[i].NameAI;
+                //    AIs[i].NameAI = clAI.AI[i].NameAI;
+                //    AIs[i].ValACD = clAI.AI[i].ValACD;
+                //    AIs[i].minACD = clAI.AI[i].minACD;
+                //    AIs[i].maxACD = clAI.AI[i].maxACD;
+                //    AIs[i].minPhis = clAI.AI[i].minPhis;
+                //    AIs[i].maxPhis = clAI.AI[i].maxPhis;
+                //    AIs[i].fValAI = clAI.AI[i].fValAI;
+                //    AIs[i].DelayAI = clAI.AI[i].DelayAI;
+                //}
+                //dataGrid.DataContext = AIs;
+                System.Windows.Forms.MessageBox.Show("AIsettings_AIStruct.xml loaded.");
             }
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-               // xml.Serialize(writer, clAI);
+               // xml.Serialize(writer, clAI);  /* */
                 xml.Serialize(writer, AIs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettAI(string Sxml = "AI_settings.xml")
+        void SaveSettAI(string Sxml = "AIsettings_AIStruct.xml")
         {
             // clAI.InitArrAI();
            // XmlSerializer xml = new XmlSerializer(typeof(classAI));
@@ -512,7 +534,7 @@ namespace Simulator_MPSA
            // xml.Serialize(writeStream, clAI);
             xml.Serialize(writeStream, AIs);
             writeStream.Dispose();
-            // System.Windows.Forms.MessageBox.Show("AI_settings.xml saved.");
+            System.Windows.Forms.MessageBox.Show("AIsettings_AIStruct.xml saved.");
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
         {
@@ -540,11 +562,15 @@ namespace Simulator_MPSA
             //         LoadSettings(ofd.FileName);
                     LoadSettings();
                     LoadSettAI();
+            dataGrid.DataContext = AIs;
+            dataGrid.ItemsSource = AIs;
+            dataGrid.UpdateLayout();
+            //dataGrid_SelectionChanged(this, e);
 
                     // The selected file is good; do something with it.
                     // ...
-           //     }
-           // }
+                    //     }
+                    // }
         }
         private void MenuItem_Click_1(object sender, RoutedEventArgs e) // Close App
         {
@@ -557,6 +583,26 @@ namespace Simulator_MPSA
             SaveSettAI();
         }
 
+        private void dataGrid_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            dataGrid.SelectedItem = 2;
+            
+          //  CL_ANALOG path = dataGrid.SelectedItem as CL_ANALOG;
+            System.Windows.Forms.MessageBox.Show("dataGrid");
+                //".En = " + path.En +
+                //" .indxAI = " + path.indxAI +
+                //" .indxW =  " + path.indxW +
+                //" .TegAI =  " + path.TegAI +
+                //" .NameAI = " + path.NameAI +
+                //" .NameAI = " + path.NameAI +
+                //" .ValACD = " + path.ValACD +
+                //" .minACD = " + path.minACD +
+                //" .maxACD = " + path.maxACD +
+                //" .minPhis = " + path.minPhis +
+                //" .maxPhis = " + path.maxPhis +
+                //" .fValAI = " + path.fValAI +
+                //" .DelayAI = " + path.DelayAI);
 
+        }
     }
 }

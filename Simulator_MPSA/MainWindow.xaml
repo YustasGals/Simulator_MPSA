@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Simulator_MPSA"
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" x:Class="Simulator_MPSA.MainWindow"
-        Title="Simulator_ASUPT" Height="479" Width="800" Icon="Simulator_MPSA.ico" Background="#FFE1E1E1" 
+        Title="Simulator_MPSA" Height="479" Width="800" Icon="Simulator_MPSA.ico" Background="#FFE1E1E1" 
         >
     <Window.Resources>
         <!--
@@ -83,7 +83,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="51" Margin="376,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
         <TextBox x:Name="textBoxTout" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Margin="749,53,0,0"/>
         <Label x:Name="label3_Copy" Content="Tout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750,29,0,0" Height="23" Width="32"/>
-        <DataGrid x:Name="dataGrid" Height="209" VerticalAlignment="Top" Margin="260,233,0,0" ItemsSource="{Binding}" AlternatingRowBackground="LightBlue" AlternationCount="2" />
+        <DataGrid x:Name="dataGrid" Height="209" VerticalAlignment="Top" Margin="260,233,0,0" ItemsSource="{Binding  IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" MouseUp="dataGrid_MouseUp" SelectedIndex="1" />
         <TreeView x:Name="dirTree"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
