@@ -36,7 +36,7 @@ namespace Simulator_MPSA
         public static int iNRackBeg = 3; // номер начальной корзины
         public static int iNRackEnd = 29; // номер конечной корзины
         public static int nAI = 1000; // count of AI 
-        public static int nDI = 100; // count of DI 
+        public static int nDI = 70; // count of DI 
         public static int nDO = 100; // count of DO 
     }
     public  class clS
@@ -152,6 +152,7 @@ namespace Simulator_MPSA
             while (true)   
             {
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
+                SendDItoW(); // записываем значение DI в массив для записи CPU
                 Debug.WriteLine("Update() = 1000ms "); // + NReg + " " + tbStartAdress);
                 System.Threading.Thread.Sleep(1000 /*Sett.TPause*/ );
             }
@@ -459,6 +460,37 @@ namespace Simulator_MPSA
                 }
             }
         }
+        void SendDItoW() // копирование значения сигналов DI в массив для записи в ЦПУ
+        {
+            for (int i = 0; i < DIs.Length; i++)
+            {
+                SetBit(ref (WB.W[(DIs[i].indxW)]), (DIs[i].indxBitDI), (DIs[i].ValDI));
+            }
+        }
+        #region SetBit/GetBit
+        // -----------------------------------------------------------------
+        public void SetBit(ref ushort b, int bitNumber, bool state) 
+        {
+            if (bitNumber < 0 || bitNumber > 15)
+                bitNumber = 0; //throw an Exception or return
+            if (state)
+            {
+                b |= (ushort)(1 << bitNumber);
+            }
+            else
+            {
+                int i = b;
+                i &= ~(1 << bitNumber);
+                b = (ushort)i;
+            }
+        }
+        public bool GetBit(ushort b, int bitNumber)
+        {
+            if (bitNumber < 0 || bitNumber > 15)
+                return false;//throw an Exception or just return false
+            return (b & (1 << bitNumber)) > 0;
+        }
+        #endregion
         // -----------------------------------------------------------------
         clS S = new clS(); // settings;
         void SaveSettings(string Sxml= "settings.xml")
@@ -486,7 +518,6 @@ namespace Simulator_MPSA
             }
         }
         // -----------------------------------------------------------------
-        // public classAI clAI = new classAI(); // settings;  /* */
         public AIStruct[] AIs = new AIStruct[Sett.nAI];
         //void LoadSettAI(string Sxml = "AI_settings.xml")
         public void LoadSettAI(string Sxml = "AIsettings.xml")
@@ -552,7 +583,7 @@ namespace Simulator_MPSA
             System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
         }
         // ---------------------------------------------------------------------
-        public DIStruct[] DIs = new DIStruct[Sett.nDI];
+        public DIStruct[] DIs = new DIStruct[Sett.nDI * 32];
         public void LoadSettDI(string Sxml = "DIsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
@@ -620,18 +651,6 @@ namespace Simulator_MPSA
                     LoadSettings();
                     LoadSettAI();
                     LoadSettDI();
-            for (int i = 0; i < DIs.Length; i++)
-            {
-                DIstruct DIs[i] = new DIstruct();
-            }
-
-
-
-
-            /*            dataGrid.DataContext = AIs;
-                        dataGrid.ItemsSource = AIs;
-                        dataGrid.UpdateLayout();*/
-            //dataGrid_SelectionChanged(this, e);
 
             // The selected file is good; do something with it.
             // ...
