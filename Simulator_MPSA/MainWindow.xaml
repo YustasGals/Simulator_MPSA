@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Simulator_MPSA"
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" x:Class="Simulator_MPSA.MainWindow"
-        Title="Simulator_MPSA" Height="479" Width="800" Icon="Simulator_MPSA.ico" Background="#FFE1E1E1" 
+        Title="Simulator_MPSA" Height="600" Width="800" Icon="Simulator_MPSA.ico" Background="#FFE1E1E1" 
         >
     <Window.Resources>
         <!--
@@ -57,53 +57,38 @@
     </Window.Resources>
 
     <Grid Loaded="Grid_Loaded"
-          DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" Height="442" VerticalAlignment="Bottom">
+          DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="800"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="600"/>
         </Grid.RowDefinitions>
-        <DockPanel Margin="0,20,0,402">
-            <Button x:Name="button" Content="Button" Height="20" VerticalAlignment="Top" Width="34"/>
-        </DockPanel>
-
-        <ProgressBar x:Name="progressBar" Minimum="0" Maximum="65535" Value="{Binding Reg0}"
-                     VerticalAlignment="Center" Height="20" Margin="580,88,14,334"/>
-        <TextBlock Text="{Binding Reg0, FallbackValue=Test}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="506,88,236,334" Width="50" Height="20"/>
-        <TextBox x:Name="textBoxIP" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.201.1" VerticalAlignment="Top" Width="120" Margin="376,53,0,0"/>
-        <TextBox x:Name="textBoxStartAdress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="23170" VerticalAlignment="Top" Width="54" Margin="502,53,0,0"/>
-        <TextBlock Text="{Binding Reg1, FallbackValue=Test}" x:Name="textBlockOut" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="113" Margin="377,88,0,0"/>
-        <TextBox x:Name="textBoxNReg" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="125" VerticalAlignment="Top" Width="72" Margin="580,53,0,0"/>
-        <TextBox x:Name="textBoxAreaR" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2000" VerticalAlignment="Top" Width="72" Margin="662,53,0,0"/>
-        <Label x:Name="label" Content="IP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,29,0,0" Height="23" Width="20"/>
-        <Label x:Name="label1" Content="StartAdr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="503,29,0,0" Height="23" Width="50"/>
-        <Label x:Name="label2" Content="NReg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="581,29,0,0" Height="23" Width="36"/>
-        <Label x:Name="label3" Content="AreaR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,29,0,0" Height="23" Width="39"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="376,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
-        <TextBox x:Name="textBoxTout" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Margin="749,53,0,0"/>
-        <Label x:Name="label3_Copy" Content="Tout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750,29,0,0" Height="23" Width="32"/>
-        <DataGrid x:Name="dataGrid" Height="299" VerticalAlignment="Top" Margin="260,143,0,0" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" MouseUp="dataGrid_MouseUp" SelectedIndex="1" />
-        <TreeView x:Name="dirTree"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                ItemsSource="{Binding Mode=OneWay, Source={StaticResource xmldata}}"
-                VirtualizingPanel.IsVirtualizing="False"
-                VirtualizingPanel.VirtualizationMode="Standard" Margin="0,40,0,0" Width="260" Height="392" />
-        <Menu Margin="0,0,0,422">
+        <Menu Margin="0,0,10,580">
             <MenuItem Header="_File">
                 <MenuItem Header="_New" />
-                <MenuItem Header="_Open" Click="MenuItem_Click" />
-                <MenuItem Header="_Save" Click="MenuItem_Click_2" />
+                <MenuItem Header="_Open" Click="MenuItem_Click_Open" />
+                <MenuItem Header="_Save" Click="MenuItem_Click_Save" />
                 <Separator />
-                <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
+                <MenuItem Header="_Exit" Click="MenuItem_Click_Exit" />
             </MenuItem>
             <MenuItem Header="_Edit">
                 <MenuItem Command="Cut" />
                 <MenuItem Command="Copy" />
                 <MenuItem Command="Paste" />
             </MenuItem>
-            <MenuItem Header="_Tools">
+            <MenuItem Header="_Tools" Margin="0">
+                <MenuItem Header="_Manage users">
+                    <!-- 
+                        <MenuItem.Icon>
+                            <Image Source="/WpfTutorialSamples;component/Images/user.png" />
+                        </MenuItem.Icon>
+                        -->
+                </MenuItem>
+                <MenuItem Header="_Show groups" IsCheckable="True" IsChecked="True" />
+            </MenuItem>
+            <Separator Margin="0" Width="646"/>
+            <MenuItem Header="_About" Margin="0">
                 <MenuItem Header="_Manage users">
                     <!-- 
                         <MenuItem.Icon>
@@ -115,5 +100,33 @@
             </MenuItem>
 
         </Menu>
+
+        <DockPanel Margin="0,20,10,560">
+            <Button x:Name="button" Content="Button" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="34"/>
+        </DockPanel>
+
+        <ProgressBar x:Name="progressBar" Minimum="0" Maximum="65535" Value="{Binding Reg0}"
+                     VerticalAlignment="Center" Height="20" Margin="504,505,90,75"/>
+        <TextBlock Text="{Binding Reg0, FallbackValue=Test}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="725,505,25,75" Width="50" Height="20"/>
+        <TextBox x:Name="textBoxIP" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.201.1" VerticalAlignment="Top" Width="120" Margin="376,473,0,0"/>
+        <TextBox x:Name="textBoxStartAdress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="23170" VerticalAlignment="Top" Width="54" Margin="502,473,0,0"/>
+        <TextBlock Text="{Binding Reg1, FallbackValue=Test}" x:Name="textBlockOut" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="113" Margin="377,508,0,0"/>
+        <TextBox x:Name="textBoxNReg" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="125" VerticalAlignment="Top" Width="72" Margin="580,473,0,0"/>
+        <TextBox x:Name="textBoxAreaR" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="2000" VerticalAlignment="Top" Width="72" Margin="662,473,0,0"/>
+        <Label x:Name="label" Content="IP" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="377,449,0,0" Height="23" Width="20"/>
+        <Label x:Name="label1" Content="StartAdr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="503,449,0,0" Height="23" Width="50"/>
+        <Label x:Name="label2" Content="NReg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="581,449,0,0" Height="23" Width="36"/>
+        <Label x:Name="label3" Content="AreaR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,449,0,0" Height="23" Width="39"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="376,535,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
+        <TextBox x:Name="textBoxTout" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Margin="749,473,0,0"/>
+        <Label x:Name="label3_Copy" Content="Tout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750,449,0,0" Height="23" Width="32"/>
+        <DataGrid x:Name="dataGrid" Height="400" VerticalAlignment="Top" Margin="210,40,5,0" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" SelectedIndex="1" />
+        <TreeView x:Name="dirTree"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                ItemsSource="{Binding Mode=OneWay, Source={StaticResource xmldata}}"
+                VirtualizingPanel.IsVirtualizing="False"
+                VirtualizingPanel.VirtualizationMode="Standard" Margin="0,40,0,0" Width="200" Height="500" />
+        <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Height="550" Margin="200,20,0,0" VerticalAlignment="Top" Width="10"/>
     </Grid>
 </Window>

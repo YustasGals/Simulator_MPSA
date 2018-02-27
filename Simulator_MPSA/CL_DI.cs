@@ -6,10 +6,6 @@ using System.Threading.Tasks;
 
 namespace Simulator_MPSA
 {
-    class CL_DI
-    {
-    }
-
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public struct DIStruct
@@ -39,8 +35,26 @@ namespace Simulator_MPSA
             InvertDI = InvertDI0;
             DelayDI = DelayDI0;
         }
+        public object[] all
+        {
+            get { return new object[] { En, ValDI, indxArrDI, indxBitDI, indxW, TegDI, NameDI, Nsign, InvertDI, DelayDI }; }
+            set
+            {
+                En = (bool)value[0];
+                ValDI = (bool)value[1];
+                indxArrDI = (int)value[2];
+                indxBitDI = (int)value[3]; 
+                indxW = (int)value[4]; 
+                TegDI = (string)value[5];
+                NameDI = (string)value[6];
+                Nsign = (int)value[7];
+                InvertDI = (bool)value[8];
+                DelayDI = (int)value[9];
+            }
+        }
+
     }
 
 
 
-    }
+}
