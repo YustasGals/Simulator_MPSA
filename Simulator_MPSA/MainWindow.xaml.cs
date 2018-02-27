@@ -36,7 +36,8 @@ namespace Simulator_MPSA
         public static int iNRackBeg = 3; // номер начальной корзины
         public static int iNRackEnd = 29; // номер конечной корзины
         public static int nAI = 1000; // count of AI 
-
+        public static int nDI = 100; // count of DI 
+        public static int nDO = 100; // count of DO 
     }
     public  class clS
     {
@@ -74,6 +75,8 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class MainWindow : Window
     {
+        //System.Data.DataTable gridData;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -90,6 +93,9 @@ namespace Simulator_MPSA
             TSR9 = new Depoller(Dispatcher);
             TSR10 = new Depoller(Dispatcher);
             TSW = new Depoller(Dispatcher);
+
+            //gridData = new System.Data.DataTable();
+            
 
             Debug.WriteLine("------------------------------------------------------------------");
             string sAttr, sAllAtr;
@@ -134,7 +140,7 @@ namespace Simulator_MPSA
         {
             for (int i = 0; i < AIs.Length; i++)
             {
-                AIs[i] = new AIStruct();
+               // AIs[i] = new AIStruct();
                 //clAI.AI[i].indxAI = i;
                 //clAI.AI[i].fValAI = i;
                // string s = clAI.AI[i].PrintAI();
@@ -175,7 +181,6 @@ namespace Simulator_MPSA
 
             }
         }
-
         private void UpdateR1()
         {
             while (true)
@@ -200,7 +205,6 @@ namespace Simulator_MPSA
 
             }
         }
-
         private void UpdateR2()
         {
             while (true)
@@ -225,7 +229,6 @@ namespace Simulator_MPSA
 
             }
         }
-
         private void UpdateR3()
         {
             while (true)
@@ -448,11 +451,11 @@ namespace Simulator_MPSA
             {
                 if (AIs[i].En /* || true */)
                 {
-                    AIs[i].updateAI(AIs[i].fValAI + 0.01F); // имитируем изменение значения аналогового сигнвала. for Debug !!!
+//  !!!                   AIs[i].updateAI(AIs[i].fValAI + 0.01F); // имитируем изменение значения аналогового сигнвала. for Debug !!!
                     WB.W[(AIs[i].indxW)] = AIs[i].ValACD; // записываем значение АЦП в массив для записи CPU
-                    string s = AIs[i].PrintAI();
-                    s += ("ACD = " + WB.W[(AIs[i].indxW)] + " ; fValAI = " + AIs[i].fValAI);
-                    Debug.WriteLine(s);
+    //                string s = AIs[i].PrintAI();
+      //              s += ("ACD = " + WB.W[(AIs[i].indxW)] + " ; fValAI = " + AIs[i].fValAI);
+        //            Debug.WriteLine(s);*/
                 }
             }
         }
@@ -486,7 +489,7 @@ namespace Simulator_MPSA
         // public classAI clAI = new classAI(); // settings;  /* */
         public AIStruct[] AIs = new AIStruct[Sett.nAI];
         //void LoadSettAI(string Sxml = "AI_settings.xml")
-        public void LoadSettAI(string Sxml = "AIsettings_AIStruct.xml")
+        public void LoadSettAI(string Sxml = "AIsettings.xml")
         {
             //XmlSerializer xml = new XmlSerializer(typeof(classAI));  /* */
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
@@ -513,8 +516,20 @@ namespace Simulator_MPSA
                 //    AIs[i].fValAI = clAI.AI[i].fValAI;
                 //    AIs[i].DelayAI = clAI.AI[i].DelayAI;
                 //}
-                //dataGrid.DataContext = AIs;
-                System.Windows.Forms.MessageBox.Show("AIsettings_AIStruct.xml loaded.");
+                // dataGrid.Columns.Add("title 1");
+                System.Data.DataTable gridData = new System.Data.DataTable();
+                
+                gridData.Clear();
+                for(int i=0;i<12;i++)
+                {
+                    gridData.Columns.Add("title" + i.ToString());
+                }
+
+                gridData.Rows.Add(AIs[0].GetType());
+                gridData.Rows.Add(AIs[1].ToString());
+                dataGrid.ItemsSource = gridData.DefaultView;
+
+                System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
             }
             catch
             {
@@ -525,7 +540,7 @@ namespace Simulator_MPSA
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettAI(string Sxml = "AIsettings_AIStruct.xml")
+        void SaveSettAI(string Sxml = "AIsettings.xml")
         {
             // clAI.InitArrAI();
            // XmlSerializer xml = new XmlSerializer(typeof(classAI));
@@ -534,8 +549,50 @@ namespace Simulator_MPSA
            // xml.Serialize(writeStream, clAI);
             xml.Serialize(writeStream, AIs);
             writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("AIsettings_AIStruct.xml saved.");
+            System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
         }
+        // ---------------------------------------------------------------------
+        public DIStruct[] DIs = new DIStruct[Sett.nDI];
+        public void LoadSettDI(string Sxml = "DIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                DIs = (DIStruct[])xml.Deserialize(reader);
+                reader.Dispose();
+
+                //System.Data.DataTable gridData = new System.Data.DataTable();
+                //gridData.Clear();
+                //for (int i = 0; i < 12; i++)
+                //{
+                //    gridData.Columns.Add("title" + i.ToString());
+                //}
+
+                //gridData.Rows.Add(AIs[0].GetType());
+                //gridData.Rows.Add(AIs[1].ToString());
+                //dataGrid.ItemsSource = gridData.DefaultView;
+
+                System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
+            }
+            catch
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, DIs);
+                writer.Dispose();
+            }
+        }
+        // ---------------------------------------------------------------------
+        void SaveSettDI(string Sxml = "DIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, DIs);
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
+        }
+        // ---------------------------------------------------------------------
         private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
         {
             // OpenFileDialog ofd = new OpenFileDialog();
@@ -562,15 +619,24 @@ namespace Simulator_MPSA
             //         LoadSettings(ofd.FileName);
                     LoadSettings();
                     LoadSettAI();
-            dataGrid.DataContext = AIs;
-            dataGrid.ItemsSource = AIs;
-            dataGrid.UpdateLayout();
+                    LoadSettDI();
+            for (int i = 0; i < DIs.Length; i++)
+            {
+                DIstruct DIs[i] = new DIstruct();
+            }
+
+
+
+
+            /*            dataGrid.DataContext = AIs;
+                        dataGrid.ItemsSource = AIs;
+                        dataGrid.UpdateLayout();*/
             //dataGrid_SelectionChanged(this, e);
 
-                    // The selected file is good; do something with it.
-                    // ...
-                    //     }
-                    // }
+            // The selected file is good; do something with it.
+            // ...
+            //     }
+            // }
         }
         private void MenuItem_Click_1(object sender, RoutedEventArgs e) // Close App
         {
@@ -581,11 +647,12 @@ namespace Simulator_MPSA
         {
             SaveSettings();
             SaveSettAI();
+            SaveSettDI();
         }
 
         private void dataGrid_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            dataGrid.SelectedItem = 2;
+           // dataGrid.SelectedItem = 2;
             
           //  CL_ANALOG path = dataGrid.SelectedItem as CL_ANALOG;
             System.Windows.Forms.MessageBox.Show("dataGrid");

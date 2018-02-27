@@ -80,8 +80,6 @@ namespace Simulator_MPSA
 "; minPhis=" + minPhis + "; maxPhis=" + maxPhis + "; fValAI=" + fValAI + "; DelauAI=" + DelayAI + "\n");
         }
     }
-
-    
     public  class classAI
     {
         public CL_ANALOG[] AI = new CL_ANALOG[Sett.nAI];
@@ -93,7 +91,6 @@ namespace Simulator_MPSA
             }
         }
     }
-
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public struct AIStruct
@@ -110,10 +107,9 @@ namespace Simulator_MPSA
         public float maxPhis;
         public float fValAI;
         public int DelayAI;
-
         
-        public AIStruct(bool En0 = false, int indxAI0 = 0, int indxW0 = 0, string TegAI0 = "",
-                 string NameAI0 = "", ushort ValACD0 = 4000, ushort minACD0 = 4000, ushort maxACD0 = 20000,
+        public AIStruct(bool En0 = false, int indxAI0 = 0, int indxW0 = 0, string TegAI0 = "Teg",
+                 string NameAI0 = "Name", ushort ValACD0 = 4000, ushort minACD0 = 4000, ushort maxACD0 = 20000,
                  float minPhis0 = 0.0F, float maxPhis0 = 100.0F, float fValAI0 = 0.0F, int DelayAI0 = 0)
         {
             En = En0;

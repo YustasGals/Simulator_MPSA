@@ -69,8 +69,8 @@
         </DockPanel>
 
         <ProgressBar x:Name="progressBar" Minimum="0" Maximum="65535" Value="{Binding Reg0}"
-                     VerticalAlignment="Center" Height="20" Margin="580,183,14,239"/>
-        <TextBlock Text="{Binding Reg0, FallbackValue=Test}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="525,183,217,239" Width="50" Height="20"/>
+                     VerticalAlignment="Center" Height="20" Margin="580,88,14,334"/>
+        <TextBlock Text="{Binding Reg0, FallbackValue=Test}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="506,88,236,334" Width="50" Height="20"/>
         <TextBox x:Name="textBoxIP" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="192.168.201.1" VerticalAlignment="Top" Width="120" Margin="376,53,0,0"/>
         <TextBox x:Name="textBoxStartAdress" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="23170" VerticalAlignment="Top" Width="54" Margin="502,53,0,0"/>
         <TextBlock Text="{Binding Reg1, FallbackValue=Test}" x:Name="textBlockOut" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="22" Width="113" Margin="377,88,0,0"/>
@@ -80,10 +80,10 @@
         <Label x:Name="label1" Content="StartAdr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="503,29,0,0" Height="23" Width="50"/>
         <Label x:Name="label2" Content="NReg" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="581,29,0,0" Height="23" Width="36"/>
         <Label x:Name="label3" Content="AreaR" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="662,29,0,0" Height="23" Width="39"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="51" Margin="376,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="376,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="416"/>
         <TextBox x:Name="textBoxTout" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="36" Margin="749,53,0,0"/>
         <Label x:Name="label3_Copy" Content="Tout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="750,29,0,0" Height="23" Width="32"/>
-        <DataGrid x:Name="dataGrid" Height="209" VerticalAlignment="Top" Margin="260,233,0,0" ItemsSource="{Binding  IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" MouseUp="dataGrid_MouseUp" SelectedIndex="1" />
+        <DataGrid x:Name="dataGrid" Height="299" VerticalAlignment="Top" Margin="260,143,0,0" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" MouseUp="dataGrid_MouseUp" SelectedIndex="1" />
         <TreeView x:Name="dirTree"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
