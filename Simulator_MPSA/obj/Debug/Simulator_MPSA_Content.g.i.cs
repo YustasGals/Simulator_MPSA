@@ -8,6 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("simulator_mpsa.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("aisettings.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("disettings.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("dosettings.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("settings.xml")]
 
 

@@ -49,7 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Simulator_MPSA.ico</ApplicationIcon>
+    <ApplicationIcon>IMG\Simulator_MPSA.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -59,7 +59,6 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -70,20 +69,19 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CL_ANALOG.cs" />
-    <Compile Include="CL_DI.cs" />
-    <Compile Include="Settings.cs" />
+    <Compile Include="CL\CL_ANALOG.cs" />
+    <Compile Include="CL\CL_DI.cs" />
+    <Compile Include="CL\CL_DO.cs" />
+    <Compile Include="CL\Settings.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -92,7 +90,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Depoller.cs" />
+    <Compile Include="CL\Depoller.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -116,7 +114,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -128,10 +125,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Simconfig.xml" />
+    <Resource Include="XMLs\Simconfig.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Simulator_MPSA.ico" />
+    <Resource Include="IMG\Simulator_MPSA.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -144,6 +141,21 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\close.png" />
+    <Resource Include="IMG\open.png" />
+    <Resource Include="IMG\PAUSE.png" />
+    <Resource Include="IMG\save.png" />
+    <Resource Include="IMG\saveAll.png" />
+    <Resource Include="IMG\START.png" />
+    <Resource Include="IMG\STOP.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLs\AIsettings.xml" />
+    <Resource Include="XMLs\DIsettings.xml" />
+    <Resource Include="XMLs\DOsettings.xml" />
+    <Resource Include="XMLs\settings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
