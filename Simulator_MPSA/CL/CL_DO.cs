@@ -38,23 +38,6 @@ namespace Simulator_MPSA
             InvertDO = InvertDO0;
             changedDO = changedDO0;
         }
-        public object[] all
-        {
-            get { return new object[] { En, ValDO, indxArrDO, indxBitDO, indxR, TegDO, NameDO, Nsign, InvertDO, changedDO }; }
-            set
-            {
-                En = (bool)value[0];
-                ValDO = (bool)value[1];
-                indxArrDO = (int)value[2];
-                indxBitDO = (int)value[3];
-                indxR = (int)value[4];
-                TegDO = (string)value[5];
-                NameDO = (string)value[6];
-                Nsign = (int)value[7];
-                InvertDO = (bool)value[8];
-                changedDO = (bool)value[9];
-            }
-        }
     }
 
 

@@ -112,25 +112,6 @@ namespace Simulator_MPSA
             fValAI = fValAI0;
             DelayAI = DelayAI0;
         }
-        public object[] all
-        {
-            get { return new object[] { En, indxAI, indxW, TegAI, NameAI, ValACD, minACD, maxACD, minPhis, maxPhis, fValAI, DelayAI }; }
-            set
-            {
-                En = (bool)value[0];
-                indxAI = (int)value[1];
-                indxW = (int)value[2];
-                TegAI = ((string)(value[3]));
-                NameAI = (string)value[4];
-                ValACD = (ushort)value[5];
-                minACD = (ushort)value[6];
-                maxACD = (ushort)value[7];
-                minPhis = (ushort)value[8];
-                maxPhis = (ushort)value[9];
-                fValAI = (float)value[10];
-                DelayAI = (int)value[11];
-            }
-        }
 
         public string PrintAI()
         {

@@ -188,20 +188,24 @@
                     <DataGrid x:Name="dataGridDO" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
-            <TabItem x:Name="TabZD" Header=" ZD " >
+            <TabItem Header=" ZD " >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" 
-                              Loaded="dataGridZD_Loaded" CellEditEnding="dataGridZD_CellEditEnding" RowEditEnding="dataGridZD_RowEditEnding" BeginningEdit="dataGridZD_BeginningEdit"/>
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="MPNA">
+            <TabItem Header=" KL ">
                 <Grid >
-                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
             <TabItem Header=" VS ">
                 <Grid >
                     <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="MPNA">
+                <Grid >
+                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
             <TabItem Header=" R ">
