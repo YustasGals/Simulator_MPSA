@@ -175,18 +175,29 @@
             </TabItem>
             <TabItem Header=" AI ">
                 <Grid >
-                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
             <TabItem Header=" DI ">
                 <Grid >
-                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
             <TabItem Header=" DO ">
                 <Grid >
-                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9">
-
+                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Value" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="indxArrDO" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="indxBitDO" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="indxR" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="TagDO" Binding="{Binding tegDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="ShortDesc" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Invert" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="changedDO" Binding="{Binding changedDO, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>

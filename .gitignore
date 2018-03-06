@@ -1,4 +1,10 @@
 *.exe
 *.pdb
 *.baml
+.vs/Simulator_MPSA/v15/Server/sqlite3/storage.ide
+Simulator_MPSA/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+*.cache
+*.exe
+*.pdb
+Simulator_MPSA/bin/Debug/Simulator_MPSA.exe
 *.cache

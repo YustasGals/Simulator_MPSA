@@ -36,14 +36,12 @@ namespace Simulator_MPSA.CL
         }
         private DOStruct[] SetupArray()
         {
-            DOStruct[] result = new DOStruct[4];
+            DOStruct[] result = new DOStruct[1];
             for (int i = 0; i < result.Length; i++)
                 result[i] = new DOStruct();
 
             result[0].NameDO = "Сигнал 1";
-            result[1].NameDO = "Сигнал 2";
-            result[2].NameDO = "Сигнал 3";
-            result[3].NameDO = "Сигнал 4";
+
             return result;
 
         }

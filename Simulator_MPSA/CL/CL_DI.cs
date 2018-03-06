@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 
-namespace Simulator_MPSA
+namespace Simulator_MPSA.CL
 {
     class CL_DI
     {
     }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public struct DIStruct
+    public class DIStruct
     {
         public bool En;
         public bool ValDI;
@@ -24,7 +24,8 @@ namespace Simulator_MPSA
         public int Nsign;
         public bool InvertDI;
         public int DelayDI;
-
+        public DIStruct()
+        { }
         public DIStruct(bool En0 = false, bool ValDI0 = false, int indxArrDI0 = 0, int indxBitDI0 = 0 , int indxW0 = 0, string TegDI0 = "Teg",
                  string NameDI0 = "Name", int Nsign0 = 0 , bool InvertDI0 = false, int DelayDI0 = 0)
         {

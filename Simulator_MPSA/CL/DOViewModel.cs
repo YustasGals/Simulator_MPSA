@@ -29,7 +29,38 @@ namespace Simulator_MPSA.CL
                 _do.ValDO = value; OnPropertyChanged("ValDO");
             }
         }
-
+        public int indxArrDO
+        {
+            get { return _do.indxArrDO; }
+            set
+            {
+                _do.indxArrDO = value; OnPropertyChanged("indxArrDO");
+            }
+        }
+        public int indxBitDO
+        {
+            get { return _do.indxBitDO; }
+            set
+            {
+                _do.indxBitDO = value; OnPropertyChanged("indxBitDO");
+            }
+        }
+        public int indxR
+        {
+            get { return _do.indxR; }
+            set
+            {
+                _do.indxR = value; OnPropertyChanged("indxR");
+            }
+        }
+        public string TegDO
+        {
+            get { return _do.TegDO; }
+            set
+            {
+                _do.TegDO = value; OnPropertyChanged("TegDO");
+            }
+        }
         public string ShortDesc
         {
             get { return _do.NameDO; }
@@ -38,5 +69,30 @@ namespace Simulator_MPSA.CL
                 _do.NameDO = value; OnPropertyChanged("NameDO");
             }
         }
+        public int Nsign
+        {
+            get { return _do.Nsign; }
+            set
+            {
+                _do.Nsign = value; OnPropertyChanged("Nsign");
+            }
+        }
+        public bool InvertDO
+        {
+            get { return _do.InvertDO; }
+            set
+            {
+                _do.InvertDO = value; OnPropertyChanged("InvertDO");
+            }
+        }
+        public bool changedDO
+        {
+            get { return _do.changedDO; }
+            set
+            {
+                _do.changedDO = value; OnPropertyChanged("chandegDO");
+            }
+        }
+
     }
 }

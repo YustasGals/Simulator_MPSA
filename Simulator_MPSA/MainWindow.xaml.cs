@@ -118,9 +118,17 @@ namespace Simulator_MPSA
             //foreach (string s in sAll.AllKeys) Debug.WriteLine("Key: " + s + " Value: " + sAll.Get(s));
             //Debug.WriteLine("------------------------------------------------------------------");
 
+            //начальная инициализация структур и моделей
             dataGridDO.DataContext = new DOTableViewModel();
             for (int i = 0; i < DOs.Length; i++)
                 DOs[i] = new DOStruct();
+
+            dataGridDI.DataContext = new DITableViewModel();
+            for (int i = 0; i < DIs.Length; i++)
+                DIs[i] = new DIStruct();
+            dataGridAI.DataContext = new AITableViewModel();
+            for (int i = 0; i < AIs.Length; i++)
+                AIs[i] = new AIStruct();
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -763,71 +771,73 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         void load_dataGridDI()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("En", typeof(bool));
-            dt.Columns.Add("ValDI", typeof(bool));
-            dt.Columns.Add("indxArrDI", typeof(int));
-            dt.Columns.Add("indxBitDI", typeof(int));
-            dt.Columns.Add("indxW", typeof(int));
-            dt.Columns.Add("TegDI", typeof(string));
-            dt.Columns.Add("NameDI", typeof(string));
-            dt.Columns.Add("Nsign", typeof(int));
-            dt.Columns.Add("InvertDI", typeof(bool));
-            dt.Columns.Add("DelayDI", typeof(int));
-            foreach (DIStruct DI_item in DIs)
-            {
-                DataRow row;
-                row = dt.NewRow();
-                row["En"] = DI_item.En;
-                row["ValDI"] = DI_item.ValDI;
-                row["indxArrDI"] = DI_item.indxArrDI;
-                row["indxBitDI"] = DI_item.indxBitDI;
-                row["indxW"] = DI_item.indxW;
-                row["TegDI"] = DI_item.TegDI;
-                row["NameDI"] = DI_item.NameDI;
-                row["Nsign"] = DI_item.Nsign;
-                row["InvertDI"] = DI_item.InvertDI;
-                row["DelayDI"] = DI_item.DelayDI;
-                dt.Rows.Add(row);
-            }
-            dataGridDI.ItemsSource = dt.DefaultView;
+            /*   DataTable dt = new DataTable();
+               dt.Columns.Add("En", typeof(bool));
+               dt.Columns.Add("ValDI", typeof(bool));
+               dt.Columns.Add("indxArrDI", typeof(int));
+               dt.Columns.Add("indxBitDI", typeof(int));
+               dt.Columns.Add("indxW", typeof(int));
+               dt.Columns.Add("TegDI", typeof(string));
+               dt.Columns.Add("NameDI", typeof(string));
+               dt.Columns.Add("Nsign", typeof(int));
+               dt.Columns.Add("InvertDI", typeof(bool));
+               dt.Columns.Add("DelayDI", typeof(int));
+               foreach (DIStruct DI_item in DIs)
+               {
+                   DataRow row;
+                   row = dt.NewRow();
+                   row["En"] = DI_item.En;
+                   row["ValDI"] = DI_item.ValDI;
+                   row["indxArrDI"] = DI_item.indxArrDI;
+                   row["indxBitDI"] = DI_item.indxBitDI;
+                   row["indxW"] = DI_item.indxW;
+                   row["TegDI"] = DI_item.TegDI;
+                   row["NameDI"] = DI_item.NameDI;
+                   row["Nsign"] = DI_item.Nsign;
+                   row["InvertDI"] = DI_item.InvertDI;
+                   row["DelayDI"] = DI_item.DelayDI;
+                   dt.Rows.Add(row);
+               }
+               dataGridDI.ItemsSource = dt.DefaultView;*/
+            dataGridDI.DataContext = new DITableViewModel(DIs);
         }
         // ---------------------------------------------------------------------
         void load_dataGridAI()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("En", typeof(bool));
-            dt.Columns.Add("indxAI", typeof(int));
-            dt.Columns.Add("indxW", typeof(int));
-            dt.Columns.Add("TegAI", typeof(string));
-            dt.Columns.Add("NameAI", typeof(string));
-            dt.Columns.Add("ValACD", typeof(ushort));
-            dt.Columns.Add("minACD", typeof(ushort));
-            dt.Columns.Add("maxACD", typeof(ushort));
-            dt.Columns.Add("minPhis", typeof(float));
-            dt.Columns.Add("maxPhis", typeof(float));
-            dt.Columns.Add("fValAI", typeof(float));
-            dt.Columns.Add("DelayAI", typeof(int));
-            foreach (AIStruct AI_item in AIs)
-            {
-                DataRow row;
-                row = dt.NewRow();
-                row["En"] = AI_item.En;
-                row["indxAI"] = AI_item.indxAI;
-                row["indxW"] = AI_item.indxW;
-                row["TegAI"] = AI_item.TegAI;
-                row["NameAI"] = AI_item.NameAI;
-                row["ValACD"] = AI_item.ValACD;
-                row["minACD"] = AI_item.minACD;
-                row["maxACD"] = AI_item.maxACD;
-                row["minPhis"] = AI_item.minPhis;
-                row["maxPhis"] = AI_item.maxPhis;
-                row["fValAI"] = AI_item.fValAI;
-                row["DelayAI"] = AI_item.DelayAI;
-                dt.Rows.Add(row);
-            }
+            /* DataTable dt = new DataTable();
+             dt.Columns.Add("En", typeof(bool));
+             dt.Columns.Add("indxAI", typeof(int));
+             dt.Columns.Add("indxW", typeof(int));
+             dt.Columns.Add("TegAI", typeof(string));
+             dt.Columns.Add("NameAI", typeof(string));
+             dt.Columns.Add("ValACD", typeof(ushort));
+             dt.Columns.Add("minACD", typeof(ushort));
+             dt.Columns.Add("maxACD", typeof(ushort));
+             dt.Columns.Add("minPhis", typeof(float));
+             dt.Columns.Add("maxPhis", typeof(float));
+             dt.Columns.Add("fValAI", typeof(float));
+             dt.Columns.Add("DelayAI", typeof(int));
+             foreach (AIStruct AI_item in AIs)
+             {
+                 DataRow row;
+                 row = dt.NewRow();
+                 row["En"] = AI_item.En;
+                 row["indxAI"] = AI_item.indxAI;
+                 row["indxW"] = AI_item.indxW;
+                 row["TegAI"] = AI_item.TegAI;
+                 row["NameAI"] = AI_item.NameAI;
+                 row["ValACD"] = AI_item.ValACD;
+                 row["minACD"] = AI_item.minACD;
+                 row["maxACD"] = AI_item.maxACD;
+                 row["minPhis"] = AI_item.minPhis;
+                 row["maxPhis"] = AI_item.maxPhis;
+                 row["fValAI"] = AI_item.fValAI;
+                 row["DelayAI"] = AI_item.DelayAI;
+                 dt.Rows.Add(row);
+             }
 
-            dataGridAI.ItemsSource = dt.DefaultView;
+             dataGridAI.ItemsSource = dt.DefaultView;*/
+            dataGridAI.DataContext = new AITableViewModel(AIs);
         }
         // ---------------------------------------------------------------------
         void OpenXMLs()

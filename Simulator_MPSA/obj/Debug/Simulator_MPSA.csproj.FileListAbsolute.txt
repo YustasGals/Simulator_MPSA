@@ -33,3 +33,4 @@ c:\Users\user\Documents\GitHub\Simulator_MPSA\Simulator_MPSA\obj\Debug\Simulator
 c:\Users\user\Documents\GitHub\Simulator_MPSA\Simulator_MPSA\obj\Debug\Simulator_MPSA.csproj.CoreCompileInputs.cache
 c:\Users\user\Documents\GitHub\Simulator_MPSA\Simulator_MPSA\obj\Debug\Simulator_MPSA.exe
 c:\Users\user\Documents\GitHub\Simulator_MPSA\Simulator_MPSA\obj\Debug\Simulator_MPSA.pdb
+c:\temp\Simulator_MPSA\Simulator_MPSA\obj\Debug\Simulator_MPSA.csproj.CoreCompileInputs.cache
