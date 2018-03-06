@@ -78,6 +78,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CL\BaseViewModel.cs" />
     <Compile Include="CL\CL_ANALOG.cs" />
     <Compile Include="CL\CL_DI.cs" />
     <Compile Include="CL\CL_DO.cs" />
@@ -85,6 +86,8 @@
     <Compile Include="CL\CL_MPNA.cs" />
     <Compile Include="CL\CL_VS.cs" />
     <Compile Include="CL\CL_ZD.cs" />
+    <Compile Include="CL\DOTableViewModel.cs" />
+    <Compile Include="CL\DOViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

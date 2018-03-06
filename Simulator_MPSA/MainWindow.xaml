@@ -185,7 +185,9 @@
             </TabItem>
             <TabItem Header=" DO ">
                 <Grid >
-                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9">
+
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header=" ZD " >

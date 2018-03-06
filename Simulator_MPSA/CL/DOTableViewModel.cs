@@ -25,9 +25,21 @@ namespace Simulator_MPSA.CL
             }
             DOs = DOViewModels;
         }
+        public DOTableViewModel(DOStruct[] table)
+        {
+            DOViewModel[] DOViewModels = new DOViewModel[table.Length];
+            for (int i = 0; i < table.Length; i++)
+            {
+                DOViewModels[i] = new DOViewModel(table[i]);
+            }
+            DOs = DOViewModels;
+        }
         private DOStruct[] SetupArray()
         {
             DOStruct[] result = new DOStruct[4];
+            for (int i = 0; i < result.Length; i++)
+                result[i] = new DOStruct();
+
             result[0].NameDO = "Сигнал 1";
             result[1].NameDO = "Сигнал 2";
             result[2].NameDO = "Сигнал 3";

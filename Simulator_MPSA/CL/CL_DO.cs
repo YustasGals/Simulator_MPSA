@@ -11,7 +11,7 @@ namespace Simulator_MPSA
     }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public struct DOStruct
+    public class DOStruct
     {
         public bool En;
         public bool ValDO;
@@ -23,7 +23,8 @@ namespace Simulator_MPSA
         public int Nsign;
         public bool InvertDO;
         public bool changedDO;
-
+        public DOStruct()
+        { }
         public DOStruct(bool En0 = false, bool ValDO0 = false, int indxArrDO0 = 0, int indxBitDO0 = 0, int indxR0 = 0, string TegDO0 = "Teg",
                  string NameDO0 = "Name", int Nsign0 = 0, bool InvertDO0 = false, bool changedDO0 = false)
         {
@@ -38,6 +39,7 @@ namespace Simulator_MPSA
             InvertDO = InvertDO0;
             changedDO = changedDO0;
         }
+        
     }
 
 
