@@ -13,7 +13,7 @@ namespace Simulator_MPSA.CL
         {
             _do = DOelement;
         }
-        public bool En
+        public bool Enabled
         {
             get { return _do.En; }
             set
@@ -21,18 +21,18 @@ namespace Simulator_MPSA.CL
                 _do.En = value; OnPropertyChanged("En");
             }
         }
-        public bool ValDO
+        public bool Value
         {
-            get { return _do.ValDO;  }
+            get { return _do.ValDO; }
             set
             {
                 _do.ValDO = value; OnPropertyChanged("ValDO");
             }
         }
 
-        public string NameDO
+        public string ShortDesc
         {
-            get { return _do.NameDO;  }
+            get { return _do.NameDO; }
             set
             {
                 _do.NameDO = value; OnPropertyChanged("NameDO");

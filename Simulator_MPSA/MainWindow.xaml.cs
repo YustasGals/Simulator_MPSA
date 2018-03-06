@@ -22,6 +22,7 @@ using System.Xml;
 using System.IO;
 using System.Xml.Serialization;
 using System.Data;
+using Simulator_MPSA.CL;
 
 namespace Simulator_MPSA
 {
@@ -117,6 +118,9 @@ namespace Simulator_MPSA
             //foreach (string s in sAll.AllKeys) Debug.WriteLine("Key: " + s + " Value: " + sAll.Get(s));
             //Debug.WriteLine("------------------------------------------------------------------");
 
+            dataGridDO.DataContext = new DOTableViewModel();
+            for (int i = 0; i < DOs.Length; i++)
+                DOs[i] = new DOStruct();
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -754,35 +758,36 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         void load_dataGridDO()
         {
-            DataTable dt = new DataTable();
-            dt.Columns.Add("En", typeof(bool));
-            dt.Columns.Add("ValDO", typeof(bool));
-            dt.Columns.Add("indxArrDO", typeof(int));
-            dt.Columns.Add("indxBitDO", typeof(int));
-            dt.Columns.Add("indxR", typeof(int));
-            dt.Columns.Add("TegDO", typeof(string));
-            dt.Columns.Add("NameDO", typeof(string));
-            dt.Columns.Add("Nsign", typeof(int));
-            dt.Columns.Add("InvertDO", typeof(bool));
-            dt.Columns.Add("changedDO", typeof(bool));
-            //foreach (DOStruct DOs in DOs) { dt.Rows.Add(DOs.all); }
-            foreach (DOStruct DO_item in DOs)
-            {
-                DataRow row;
-                row = dt.NewRow();
-                row["En"] = DO_item.En;
-                row["ValDO"] = DO_item.ValDO;
-                row["indxArrDO"] = DO_item.indxArrDO;
-                row["indxBitDO"] = DO_item.indxBitDO;
-                row["indxR"] = DO_item.indxR;
-                row["TegDO"] = DO_item.TegDO;
-                row["NameDO"] = DO_item.NameDO;
-                row["Nsign"] = DO_item.Nsign;
-                row["InvertDO"] = DO_item.InvertDO;
-                row["changedDO"] = DO_item.changedDO;
-                dt.Rows.Add(row);
-            }
-            dataGridDO.ItemsSource = dt.DefaultView;
+            /*  DataTable dt = new DataTable();
+              dt.Columns.Add("En", typeof(bool));
+              dt.Columns.Add("ValDO", typeof(bool));
+              dt.Columns.Add("indxArrDO", typeof(int));
+              dt.Columns.Add("indxBitDO", typeof(int));
+              dt.Columns.Add("indxR", typeof(int));
+              dt.Columns.Add("TegDO", typeof(string));
+              dt.Columns.Add("NameDO", typeof(string));
+              dt.Columns.Add("Nsign", typeof(int));
+              dt.Columns.Add("InvertDO", typeof(bool));
+              dt.Columns.Add("changedDO", typeof(bool));
+              //foreach (DOStruct DOs in DOs) { dt.Rows.Add(DOs.all); }
+              foreach (DOStruct DO_item in DOs)
+              {
+                  DataRow row;
+                  row = dt.NewRow();
+                  row["En"] = DO_item.En;
+                  row["ValDO"] = DO_item.ValDO;
+                  row["indxArrDO"] = DO_item.indxArrDO;
+                  row["indxBitDO"] = DO_item.indxBitDO;
+                  row["indxR"] = DO_item.indxR;
+                  row["TegDO"] = DO_item.TegDO;
+                  row["NameDO"] = DO_item.NameDO;
+                  row["Nsign"] = DO_item.Nsign;
+                  row["InvertDO"] = DO_item.InvertDO;
+                  row["changedDO"] = DO_item.changedDO;
+                  dt.Rows.Add(row);
+              }
+              dataGridDO.ItemsSource = dt.DefaultView;*/
+            dataGridDO.DataContext = new DOTableViewModel(DOs);
         }
         // ---------------------------------------------------------------------
         void load_dataGridDI()
@@ -867,13 +872,6 @@ namespace Simulator_MPSA
             load_dataGridDO();
         }
         // ---------------------------------------------------------------------
-        void SaveXMLs()
-        {
-            SaveSettings();
-            SaveSettAI();
-            SaveSettDI();
-            SaveSettDO();
-        }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
         {
@@ -914,6 +912,13 @@ namespace Simulator_MPSA
         {
             CloseApp();
         }
+        void SaveXMLs()
+        {
+            SaveSettings();
+            SaveSettAI();
+            SaveSettDI();
+            SaveSettDO();
+        }
         private void MenuItem_Click_2(object sender, RoutedEventArgs e) // Save Settings xml
         {
             SaveXMLs();
@@ -924,11 +929,13 @@ namespace Simulator_MPSA
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            SaveXMLs();
-            SaveSettZD();
-            SaveSettKL();
-            SaveSettVS();
-            SaveSettMPNA();
+            //временный код! сохранения DO таблицы
+            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
+            System.IO.StreamReader reader = null;
+
+            System.IO.StreamWriter writer = new System.IO.StreamWriter("NEW_DOsettings.xml");
+            xml.Serialize(writer, DOs);
+            writer.Dispose();
         }
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
