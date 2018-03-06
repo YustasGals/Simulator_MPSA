@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<clS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <HostName>192.168.201.1</HostName>
+  <MBPort>502</MBPort>
+  <TPause>50</TPause>
+  <nWrTask>4</nWrTask>
+  <iBegAddrR>23169</iBegAddrR>
+  <iBegAddrW>15099</iBegAddrW>
+  <iNRackBeg>3</iNRackBeg>
+  <iNRackEnd>29</iNRackEnd>
+  <nAI>1000</nAI>
+</clS>
