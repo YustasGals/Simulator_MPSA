@@ -161,6 +161,18 @@
     <Resource Include="XMLs\DOsettings.xml" />
     <Resource Include="XMLs\settings.xml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLs\ZDsettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLs\KLsettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLs\VSsettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="XMLs\MPNAsettings.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
