@@ -872,6 +872,13 @@ namespace Simulator_MPSA
             load_dataGridDO();
         }
         // ---------------------------------------------------------------------
+        void SaveXMLs()
+        {
+            SaveSettings();
+            SaveSettAI();
+            SaveSettDI();
+            SaveSettDO();
+        }
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
         {
@@ -912,13 +919,6 @@ namespace Simulator_MPSA
         {
             CloseApp();
         }
-        void SaveXMLs()
-        {
-            SaveSettings();
-            SaveSettAI();
-            SaveSettDI();
-            SaveSettDO();
-        }
         private void MenuItem_Click_2(object sender, RoutedEventArgs e) // Save Settings xml
         {
             SaveXMLs();
@@ -936,6 +936,13 @@ namespace Simulator_MPSA
             System.IO.StreamWriter writer = new System.IO.StreamWriter("NEW_DOsettings.xml");
             xml.Serialize(writer, DOs);
             writer.Dispose();
+
+           /* SaveXMLs();
+            SaveSettZD();
+            SaveSettKL();
+            SaveSettVS();
+            SaveSettMPNA();*/
+
         }
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
