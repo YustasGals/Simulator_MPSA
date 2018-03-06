@@ -11,24 +11,6 @@ namespace Simulator_MPSA
     {
     }
     // -------------------------------------------------------------------------------------------------
-    class MyTable
-    {
-        public MyTable(bool En, int Id, string Vocalist, string Album, int Year)
-        {
-            this.En = En;
-            this.Id = Id;
-            this.Vocalist = Vocalist;
-            this.Album = Album;
-            this.Year = Year;
-        }
-
-        public bool En { get; set; }
-        public int Id { get; set; }
-        public string Vocalist { get; set; }
-        public string Album { get; set; }
-        public int Year { get; set; }
-    }
-    // -------------------------------------------------------------------------------------------------
     [Serializable]
     public struct DIStruct
     {
