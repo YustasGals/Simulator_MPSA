@@ -542,7 +542,7 @@ namespace Simulator_MPSA
         }
         #endregion
         // -----------------------------------------------------------------
-        public AIStruct[] AIs = new AIStruct[Sett.nAI];
+        public static AIStruct[] AIs = new AIStruct[Sett.nAI];
         #region AIsettings.xml
         public void LoadSettAI(string Sxml = "AIsettings.xml")
         {
@@ -574,7 +574,7 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-        public DIStruct[] DIs = new DIStruct[Sett.nDI * 32];
+        public static DIStruct[] DIs = new DIStruct[Sett.nDI * 32];
         #region DIsettings.xml
         public void LoadSettDI(string Sxml = "DIsettings.xml")
         {
@@ -605,7 +605,7 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-        public DOStruct[] DOs = new DOStruct[Sett.nDO * 32];
+        public static DOStruct[] DOs = new DOStruct[Sett.nDO * 32];
         #region DOsettings.xml
         public void LoadSettDO(string Sxml = "DOsettings.xml")
         {
