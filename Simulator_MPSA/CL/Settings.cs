@@ -9,10 +9,12 @@ namespace Simulator_MPSA {
     {
         public string name;
         public object value;
-        public SettingsItem(string name, object value)
+        public Type tp;
+        public SettingsItem(string name, object value, Type t)
         {
             this.name = name;
             this.value = value;
+            tp = t;
         }
     }
     [Serializable()]
@@ -45,21 +47,21 @@ namespace Simulator_MPSA {
 
         public Sett()
         {
-            items.Add("HostName", new SettingsItem("IP", "192.168.201.1"));
-            items.Add("MBPort", new SettingsItem("Порт", 502));
-            items.Add("TPause", new SettingsItem("TPause", 50));
-            items.Add("nWrTask", new SettingsItem("nWrTask", 4));
-            items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1));
-            items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1));
-            items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3));
-            items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29));
-            items.Add("nAI", new SettingsItem("nAI", 1024));
-            items.Add("nDI", new SettingsItem("nDI", 128));
-            items.Add("nDO", new SettingsItem("nDO", 64));
-            items.Add("nZD", new SettingsItem("nZD", 64));
-            items.Add("nKL", new SettingsItem("nKL", 64));
-            items.Add("nVS", new SettingsItem("nVS", 256));
-            items.Add("nMPNA", new SettingsItem("nMPNA", 16));
+            items.Add("HostName", new SettingsItem("IP", "192.168.201.1",typeof(String)));
+            items.Add("MBPort", new SettingsItem("Порт", 502,typeof(int)));
+            items.Add("TPause", new SettingsItem("TPause", 50, typeof(int)));
+            items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
+            items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1, typeof(int)));
+            items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1, typeof(int)));
+            items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
+            items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
+            items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
+            items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
+            items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
+            items.Add("nZD", new SettingsItem("nZD", 64, typeof(int)));
+            items.Add("nKL", new SettingsItem("nKL", 64, typeof(int)));
+            items.Add("nVS", new SettingsItem("nVS", 256, typeof(int)));
+            items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));
         }
         public string HostName
         {
@@ -69,19 +71,19 @@ namespace Simulator_MPSA {
         public int MBPort
         {
             get { return (int)items["MBPort"].value; }
-            set { items["MBPort"].value = value; }
+            set { items["MBPort"].value = (int)value; }
         }
-        public int iBegAddrW
+        public int BegAddrW
         {
             get { return (int)items["iBegAddrW"].value; }
             set { items["iBegAddrW"].value = value; }
         }
-        public int iBegAddrR
+        public int BegAddrR
         {
             get { return (int)items["iBegAddrR"].value; }
             set { items["iBegAddrR"].value = value; }
         }
-        public int nWrTask
+        public int NWrTask
         {
             get { return (int)items["nWrTask"].value; }
             set { items["nWrTask"].value = value; }
@@ -91,47 +93,47 @@ namespace Simulator_MPSA {
             get { return (int)items["TPause"].value;  }
             set { items["TPause"].value = value; }
         }
-        public int iNRackBeg
+        public int NRackBeg
         {
             get { return (int)items["iNRackBeg"].value;  }
             set { items["iNRackBeg"].value = value; }
         }
-        public int iNRackEnd
+        public int NRackEnd
         {
             get { return (int)items["iNRackEnd"].value;  }
             set { items["iNRackEnd"].value = value; }
         }
-        public int nAI
+        public int NAI
         {
             get { return (int)items["nAI"].value; }
             set { items["nAI"].value = value; }
         }
-        public int nZD
+        public int NZD
         {
             get { return (int)items["nZD"].value; }
             set { items["nZD"].value = value; }
         }
-        public int nDO
+        public int NDO
         {
             get { return (int)items["nDO"].value; }
             set { items["nDO"].value = value; }
         }
-        public int nKL
+        public int NKL
         {
             get { return (int)items["nKL"].value; }
             set { items["nKL"].value = value; }
         }
-        public int nVS
+        public int NVS
         {
             get { return (int)items["nVS"].value; }
             set { items["nVS"].value = value; }
         }
-        public int nMPNA
+        public int NMPNA
         {
             get { return (int)items["nMPNA"].value; }
             set { items["nMPNA"].value = value; }
         }
-        public int nDI
+        public int NDI
         {
             get { return (int)items["nDI"].value; }
             set { items["nDI"].value = value; }
@@ -152,7 +154,12 @@ namespace Simulator_MPSA {
         public object Value
         {
             get { return item.value; }
-            set { item.value = value; }
+            //если тип элемента int то самостоятельно преобразуем его из string
+            set {
+                if (item.tp == typeof(int))
+                    item.value = Convert.ToInt32((string)value);
+                else item.value = (string)value;
+            }
         }
     }
 

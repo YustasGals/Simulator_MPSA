@@ -23,7 +23,7 @@ using System.IO;
 using System.Xml.Serialization;
 using System.Data;
 using Simulator_MPSA.CL;
-
+using System.Windows.Forms;
 namespace Simulator_MPSA
 {
    
@@ -113,6 +113,7 @@ namespace Simulator_MPSA
             dataGridAI.DataContext = new AITableViewModel();
             //for (int i = 0; i < AIs.Length; i++)
             //      AIs[i] = new AIStruct();
+            dataGridSettings.DataContext = new SettingsTableViewModel(settings);
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -257,10 +258,10 @@ namespace Simulator_MPSA
                 int n = 0; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.BegAddrW + n * NReg * settings.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / settings.nWrTask;
-                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.NWrTask;
+                for (int i = settings.NWrTask * n; i < (settings.NWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -279,10 +280,10 @@ namespace Simulator_MPSA
                 int n = 1; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.BegAddrW + n * NReg * settings.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / settings.nWrTask;
-                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.NWrTask;
+                for (int i = settings.NWrTask * n; i < (settings.NWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW1.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -301,10 +302,10 @@ namespace Simulator_MPSA
                 int n = 2; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.BegAddrW + n * NReg * settings.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / settings.nWrTask;
-                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.NWrTask;
+                for (int i = settings.NWrTask * n; i < (settings.NWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW2.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -323,10 +324,10 @@ namespace Simulator_MPSA
                 int n = 3; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.BegAddrW + n * NReg * settings.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / settings.nWrTask;
-                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.NWrTask;
+                for (int i = settings.NWrTask * n; i < (settings.NWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW3.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -501,43 +502,44 @@ namespace Simulator_MPSA
         // -----------------------------------------------------------------
        // clS S = new clS(); // settings; на самом деле настройки в Sett !!!
         #region settings.xml
-        void SaveSettings(string Sxml= "settings.xml")
+        void SaveSettings(string Sxml= "XMLs//" + "settings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(Sett));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, settings);
             writeStream.Dispose();
-            MessageBox.Show("Файл " + Sxml + " сохранен ");
+            System.Windows.MessageBox.Show("Файл " + Sxml + " сохранен ");
         }
-        void LoadSettings(string Sxml = "settings.xml")
+        void LoadSettings(string Sxml = "XMLs//" + "settings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(Sett));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 settings = (Sett)xml.Deserialize(reader);
                 reader.Dispose();
-                MessageBox.Show("Файл " + Sxml + " считан ");
+                System.Windows.MessageBox.Show("Файл " + Sxml + " считан ");
             }
             catch
             {
-                reader.Dispose();
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                if (reader != null)
+                    reader.Dispose();
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, settings);
                 writer.Dispose();
-                MessageBox.Show("Файл " + Sxml + " не считан !!! ");
+                System.Windows.MessageBox.Show("Файл " + Sxml + " не считан !!! ");
             }
-            RB.R = new ushort[(settings.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-            WB.W = new ushort[(settings.iNRackEnd - settings.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-            AIs = new AIStruct[settings.nAI];
-            ZDs = new ZDStruct[settings.nZD];
-            DOs =new DOStruct[settings.nDO * 32];
-            ZDs = new ZDStruct[settings.nZD];
-            KLs = new KLStruct[settings.nKL];
-            VSs = new VSStruct[settings.nVS];
-            MPNAs = new MPNAStruct[settings.nMPNA];
-            DIs = new DIStruct[settings.nDI * 32];
+            RB.R = new ushort[(settings.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            WB.W = new ushort[(settings.NRackEnd - settings.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+            AIs = new AIStruct[settings.NAI];
+            ZDs = new ZDStruct[settings.NZD];
+            DOs =new DOStruct[settings.NDO * 32];
+            ZDs = new ZDStruct[settings.NZD];
+            KLs = new KLStruct[settings.NKL];
+            VSs = new VSStruct[settings.NVS];
+            MPNAs = new MPNAStruct[settings.NMPNA];
+            DIs = new DIStruct[settings.NDI * 32];
             //TODO: вставить код активации кнопки
         }
         #endregion
@@ -546,13 +548,13 @@ namespace Simulator_MPSA
         public AIStruct[] AIs;// = new AIStruct[settings.nAI];
 
         #region AIsettings.xml
-        public void LoadSettAI(string Sxml = "AIsettings.xml")
+        public void LoadSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                  AIs = (AIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
 
@@ -560,16 +562,16 @@ namespace Simulator_MPSA
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, AIs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettAI(string Sxml = "AIsettings.xml")
+        void SaveSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, AIs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
@@ -580,29 +582,29 @@ namespace Simulator_MPSA
         public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
 
         #region DIsettings.xml
-        public void LoadSettDI(string Sxml = "DIsettings.xml")
+        public void LoadSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 DIs = (DIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, DIs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettDI(string Sxml = "DIsettings.xml")
+        void SaveSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, DIs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
@@ -613,29 +615,29 @@ namespace Simulator_MPSA
         public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
 
         #region DOsettings.xml
-        public void LoadSettDO(string Sxml = "DOsettings.xml")
+        public void LoadSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 DOs = (DOStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter( Sxml);
                 xml.Serialize(writer, DOs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettDO(string Sxml = "DOsettings.xml")
+        void SaveSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, DOs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DOsettings.xml saved.");
@@ -645,29 +647,29 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         public ZDStruct[] ZDs;// = new ZDStruct[Sett.nZD];
         #region ZDsettings.xml
-        public void LoadSettZD(string Sxml = "ZDsettings.xml")
+        public void LoadSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 ZDs = (ZDStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("ZDsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, ZDs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettZD(string Sxml = "ZDsettings.xml")
+        void SaveSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, ZDs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("ZDsettings.xml saved.");
@@ -677,29 +679,29 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         public KLStruct[] KLs;// = new KLStruct[Sett.nKL];
         #region KLsettings.xml
-        public void LoadSettKL(string Sxml = "KLsettings.xml")
+        public void LoadSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 KLs = (KLStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("KLsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, KLs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettKL(string Sxml = "KLsettings.xml")
+        void SaveSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, KLs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("KLsettings.xml saved.");
@@ -709,29 +711,29 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         public VSStruct[] VSs;// = new VSStruct[Sett.nVS];
         #region VSsettings.xml
-        public void LoadSettVS(string Sxml = "VSsettings.xml")
+        public void LoadSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader(Sxml);
                 VSs = (VSStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("VSsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, VSs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettVS(string Sxml = "VSsettings.xml")
+        void SaveSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, VSs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("VSsettings.xml saved.");
@@ -741,32 +743,32 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         public MPNAStruct[] MPNAs;// = new MPNAStruct[Sett.nMPNA];
         #region MPNAsettings.xml
-        public void LoadSettMPNA(string Sxml = "MPNAsettings.xml")
+        public void LoadSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
-                reader = new System.IO.StreamReader("XMLs//" + Sxml);
+                reader = new System.IO.StreamReader( Sxml);
                 MPNAs = (MPNAStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("MPNAsettings.xml loaded.");
             }
             catch
             {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, MPNAs);
                 writer.Dispose();
             }
         }
         // ---------------------------------------------------------------------
-        void SaveSettMPNA(string Sxml = "MPNAsettings.xml")
+        void SaveSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
         {
             XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
             xml.Serialize(writeStream, MPNAs);
             writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("MPNAsettings.xml saved.");
+            System.Windows.Forms.MessageBox.Show(Sxml + " saved.");
         }
         #endregion
         // ---------------------------------------------------------------------
@@ -784,13 +786,7 @@ namespace Simulator_MPSA
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
         }
         // ---------------------------------------------------------------------
-        void SaveXMLs()
-        {
-            SaveSettings();
-            SaveSettAI();
-            SaveSettDI();
-            SaveSettDO();
-        }
+
 
         private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
         {
@@ -831,29 +827,97 @@ namespace Simulator_MPSA
         {
             CloseApp();
         }
-        private void MenuItem_Click_2(object sender, RoutedEventArgs e) // Save Settings xml
-        {
-            SaveXMLs();
-        }
+
         private void btnOpen_Click(object sender, RoutedEventArgs e)
         {
              OpenXMLs();   
         }
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            //временный код! сохранения DO таблицы
-            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
-            System.IO.StreamReader reader = null;
+            SaveFileDialog dialog = new SaveFileDialog
+            {
+                InitialDirectory = Directory.GetCurrentDirectory() + "\\XMLs",
+                OverwritePrompt = true,
+                Filter = "xml-файл|*.xml"
+            };
 
-            System.IO.StreamWriter writer = new System.IO.StreamWriter("NEW_DOsettings.xml");
-            xml.Serialize(writer, DOs);
-            writer.Dispose();
+            string activeTabHeader = ((TabItem)tabControl.SelectedItem).Header.ToString();
+            Debug.WriteLine("save tab: "+ activeTabHeader);
+            if (activeTabHeader == "Settings")
+            {
+                dialog.Title = "Сохранение Settings";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettings(dialog.FileName);
+                return;
+            }
 
-           /* SaveXMLs();
-            SaveSettZD();
-            SaveSettKL();
-            SaveSettVS();
-            SaveSettMPNA();*/
+            if (activeTabHeader == "AI")
+            {
+                dialog.Title = "Сохранение таблицы AI";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettAI(dialog.FileName);
+                return;
+            }
+
+            if (activeTabHeader == "DI")
+            {
+                dialog.Title = "Сохранение таблицы DI";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettDI(dialog.FileName);
+                return;
+            }
+
+            if (activeTabHeader == "DO")
+            {
+                dialog.Title = "Сохранение таблицы DO";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettDO(dialog.FileName);
+                return;
+            }
+
+            if (activeTabHeader == "ZD")
+            {
+                dialog.Title = "Сохранение таблицы ZD";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettZD(dialog.FileName);
+                return;
+            }
+
+            if (activeTabHeader == "KL")
+            {
+                dialog.Title = "Сохранение таблицы KL";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettKL(dialog.FileName);
+                return;
+            }
+
+            if (activeTabHeader == "VS")
+            {
+                dialog.Title = "Сохранение таблицы VS";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettVS(dialog.FileName);
+                return;
+            }
+            if (activeTabHeader == "MPNA")
+            {
+                dialog.Title = "Сохранение таблицы MPNA";
+                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    SaveSettMPNA(dialog.FileName);
+                return;
+            }
+            /*   if (MessageBox.Show("Сохранить настройки в файл?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                   SaveSettings();*/
+
+            /*            
+             SaveSettings();
+             SaveSettAI();
+             SaveSettDI();
+             SaveSettDO();
+             SaveSettZD();
+             SaveSettKL();
+             SaveSettVS();
+             SaveSettMPNA();*/
+
 
         }
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
@@ -901,5 +965,9 @@ namespace Simulator_MPSA
         {
         }
 
+        private void MenuItem_Click_save(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

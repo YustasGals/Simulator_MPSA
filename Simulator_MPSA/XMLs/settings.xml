@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Sett xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <HostName>192.168.201.1</HostName>
+  <HostName>192.168.201.12</HostName>
   <MBPort>502</MBPort>
-  <TPause>50</TPause>
-  <nWrTask>4</nWrTask>
-  <iBegAddrR>23169</iBegAddrR>
   <iBegAddrW>15099</iBegAddrW>
+  <iBegAddrR>23169</iBegAddrR>
+  <nWrTask>4</nWrTask>
+  <TPause>50</TPause>
   <iNRackBeg>3</iNRackBeg>
   <iNRackEnd>29</iNRackEnd>
   <nAI>1024</nAI>
-  <nDI>128</nDI>
-  <nDO>64</nDO>
   <nZD>64</nZD>
+  <nDO>64</nDO>
   <nKL>64</nKL>
   <nVS>256</nVS>
   <nMPNA>16</nMPNA>
+  <nDI>128</nDI>
 </Sett>

@@ -36,7 +36,7 @@
             <MenuItem Header="_File">
                 <MenuItem Header="_New" />
                 <MenuItem Header="_Open" Click="MenuItem_Click" />
-                <MenuItem Header="_Save" Click="MenuItem_Click_2" />
+                <MenuItem Header="_Save" Click="MenuItem_Click_save" />
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
             </MenuItem>
@@ -138,21 +138,21 @@
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Settings">
-                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" AutoGenerateColumns="True">
+                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="11" AutoGenerateColumns="True">
         
                 </DataGrid>
             </TabItem>
-            <TabItem Header=" AI ">
+            <TabItem Header="AI">
                 <Grid >
-                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="11" />
                 </Grid>
             </TabItem>
-            <TabItem Header=" DI ">
+            <TabItem Header="DI">
                 <Grid >
                     <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
-            <TabItem Header=" DO ">
+            <TabItem Header="DO">
                 <Grid >
                     <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -170,17 +170,17 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header=" ZD " >
+            <TabItem Header="ZD" >
                 <Grid >
                     <DataGrid x:Name="dataGridZD" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9"/>
                 </Grid>
             </TabItem>
-            <TabItem Header=" KL ">
+            <TabItem Header="KL">
                 <Grid >
                     <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
-            <TabItem Header=" VS ">
+            <TabItem Header="VS">
                 <Grid >
                     <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
@@ -190,12 +190,12 @@
                     <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
-            <TabItem Header=" R ">
+            <TabItem Header="R">
                 <Grid >
                     <DataGrid x:Name="dataGridR" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
             </TabItem>
-            <TabItem Header=" W ">
+            <TabItem Header="W">
                 <Grid >
                     <DataGrid x:Name="dataGridW" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
                 </Grid>
