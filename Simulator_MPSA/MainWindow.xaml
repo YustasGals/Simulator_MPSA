@@ -26,7 +26,8 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="24"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="36"/>
             <RowDefinition />
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -56,7 +57,9 @@
             </MenuItem>
             <Separator />
             <MenuItem Header="_About" HorizontalAlignment="Right" ></MenuItem>
-            <Rectangle Width="600"/>
+
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
             <Button x:Name="btnOpen" Click="btnOpen_Click" ToolTip="Open">
                 <Image Source="IMG/open.png" />
             </Button>
@@ -86,13 +89,13 @@
             </Button>
             <Separator />
             <TextBox x:Name="tbFind" Foreground="LightGray" Width="100">Поиск...</TextBox>
-        </Menu>
+        </ToolBar>
 
-        <TreeView x:Name="dirTree"
+        <TreeView x:Name="dirTree" 
                 ItemsSource="{Binding Mode=OneWay, Source={StaticResource xmldata}}"
                 VirtualizingPanel.IsVirtualizing="False"
                 VirtualizingPanel.VirtualizationMode="Standard" 
-                  Grid.Row="1" Width="auto" >
+                  Grid.Row="2" Width="auto" >
             <TreeView.ItemTemplate>
             <!--
             Data Templates for each XML tag type expected in file.
@@ -133,7 +136,7 @@
             </TreeView.ItemTemplate>-->
         </TreeView>
 
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="1">
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Settings">
                 <Grid >
                     <Grid.ColumnDefinitions>
@@ -192,7 +195,7 @@
                             <DataGridTextColumn Header="indxArrDO" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="indxBitDO" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="indxR" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="TagDO" Binding="{Binding tegDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="TagDO" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="ShortDesc" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridCheckBoxColumn Header="Invert" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
@@ -233,6 +236,6 @@
             </TabItem>
         </TabControl>
 
-        <StatusBar Grid.Row="2" Grid.ColumnSpan="2" />
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="2" />
     </Grid>
 </Window>

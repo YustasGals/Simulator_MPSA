@@ -26,23 +26,23 @@ using Simulator_MPSA.CL;
 
 namespace Simulator_MPSA
 {
-    public static class Sett
+    public  class Sett
     {
-        public static string HostName = "192.168.201.1"; // IP adress CPU
-        public static int MBPort = 502; // Modbus TCP port adress
-        public static int TPause = 50; // задержка между циклами чтения
-        public static int nWrTask = 4; // потоков на запись в CPU
-        public static int iBegAddrR = 23170 - 1; // начальный адрес для чтения выходов CPU
-        public static int iBegAddrW = 15100 - 1; // начальный адрес для записи входов CPU
-        public static int iNRackBeg = 3; // номер начальной корзины
-        public static int iNRackEnd = 29; // номер конечной корзины
-        public static int nAI = 1024; // count of AI 1000
-        public static int nDI = 128; // count of DI 
-        public static int nDO = 64; // count of DO 
-        public static int nZD = 64; // count of ZD  200
-        public static int nKL = 64; // count of KL 100
-        public static int nVS = 256; // count of VS 200
-        public static int nMPNA = 16; // count of MPNA 
+        public  string HostName = "192.168.201.1"; // IP adress CPU
+        public  int MBPort = 502; // Modbus TCP port adress
+        public  int TPause = 50; // задержка между циклами чтения
+        public  int nWrTask = 4; // потоков на запись в CPU
+        public  int iBegAddrR = 23170 - 1; // начальный адрес для чтения выходов CPU
+        public  int iBegAddrW = 15100 - 1; // начальный адрес для записи входов CPU
+        public  int iNRackBeg = 3; // номер начальной корзины
+        public  int iNRackEnd = 29; // номер конечной корзины
+        public  int nAI = 1024; // count of AI 1000
+        public  int nDI = 128; // count of DI 
+        public  int nDO = 64; // count of DO 
+        public  int nZD = 64; // count of ZD  200
+        public  int nKL = 64; // count of KL 100
+        public  int nVS = 256; // count of VS 200
+        public  int nMPNA = 16; // count of MPNA 
                                     // public const string AI_file = "AIsettings.xml";
                                     // public static string DI_file = "";
                                     // public static string DO_file = "";
@@ -50,7 +50,7 @@ namespace Simulator_MPSA
                                     // public static string MPNA_file = "";
                                     // public static string VS_file = "";
     }
-    public  class clS
+    /*public  class clS
     {
         public string HostName = "192.168.201.1"; // IP adress CPU
         public  int MBPort = 502; // Modbus TCP port adress
@@ -61,16 +61,21 @@ namespace Simulator_MPSA
         public  int iNRackBeg = 3; // номер начальной корзины
         public  int iNRackEnd = 29; // номер конечной корзины
         public  int nAI = 1000; // count of AI 
-
-    }
+        public static int nDI = 128; // count of DI 
+        public static int nDO = 64; // count of DO 
+        public static int nZD = 64; // count of ZD  200
+        public static int nKL = 64; // count of KL 100
+        public static int nVS = 256; // count of VS 200
+        public static int nMPNA = 16; // count of MPNA
+    }*/
 
     public static class RB
     {
-        public static ushort[] R = new ushort[(Sett.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+        public static ushort[] R;// = new ushort[(Sett.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
     }
     public static class WB
     {
-        public static ushort[] W = new ushort[(Sett.iNRackEnd - Sett.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+        public static ushort[] W;// = new ushort[(Sett.iNRackEnd - Sett.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
     }
     public static class DeBag
     {
@@ -86,8 +91,10 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class MainWindow : Window
     {
+        Sett settings;
         public MainWindow()
         {
+            settings=new Sett();
             InitializeComponent();
             TagSource = new Depoller(Dispatcher);
             TSR0 = new Depoller(Dispatcher);
@@ -120,15 +127,15 @@ namespace Simulator_MPSA
 
             //начальная инициализация структур и моделей
             dataGridDO.DataContext = new DOTableViewModel();
-            for (int i = 0; i < DOs.Length; i++)
-                DOs[i] = new DOStruct();
+          //  for (int i = 0; i < DOs.Length; i++)
+            //    DOs[i] = new DOStruct();
 
             dataGridDI.DataContext = new DITableViewModel();
-            for (int i = 0; i < DIs.Length; i++)
-                DIs[i] = new DIStruct();
+           // for (int i = 0; i < DIs.Length; i++)
+           //     DIs[i] = new DIStruct();
             dataGridAI.DataContext = new AITableViewModel();
-            for (int i = 0; i < AIs.Length; i++)
-                AIs[i] = new AIStruct();
+            //for (int i = 0; i < AIs.Length; i++)
+            //      AIs[i] = new AIStruct();
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -170,7 +177,7 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 TSR0.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 TSR1.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 TSR2.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -184,7 +191,7 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR0() ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
 
             }
         }
@@ -194,7 +201,7 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 //TSR0.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -208,7 +215,7 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR1() ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
 
             }
         }
@@ -218,7 +225,7 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 //TSR0.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -232,7 +239,7 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR2() ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
 
             }
         }
@@ -242,7 +249,7 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 //TSR0.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -256,7 +263,7 @@ namespace Simulator_MPSA
                 TSR10.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR3() ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
 
             }
         }
@@ -269,10 +276,10 @@ namespace Simulator_MPSA
                 int n = 0; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrW + n * NReg * Sett.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.nWrTask;
-                for (int i = Sett.nWrTask * n; i < (Sett.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.nWrTask;
+                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -281,7 +288,7 @@ namespace Simulator_MPSA
                 }
                 DeBag.WW++;
                 Debug.WriteLine("W0()   WW= " + DeBag.WW + " /n");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
             }
         }
         private void UpdateW1()
@@ -291,10 +298,10 @@ namespace Simulator_MPSA
                 int n = 1; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrW + n * NReg * Sett.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.nWrTask;
-                for (int i = Sett.nWrTask * n; i < (Sett.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.nWrTask;
+                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW1.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -303,7 +310,7 @@ namespace Simulator_MPSA
                 }
                 //DeBag.WW++;
                 Debug.WriteLine("W1()");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
             }
         }
         private void UpdateW2()
@@ -313,10 +320,10 @@ namespace Simulator_MPSA
                 int n = 2; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrW + n * NReg * Sett.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.nWrTask;
-                for (int i = Sett.nWrTask * n; i < (Sett.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.nWrTask;
+                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW2.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -325,7 +332,7 @@ namespace Simulator_MPSA
                 }
                 //DeBag.WW++;
                 Debug.WriteLine("W2()   ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
             }
         }
         private void UpdateW3()
@@ -335,10 +342,10 @@ namespace Simulator_MPSA
                 int n = 3; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.iBegAddrW + n * NReg * Sett.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = settings.iBegAddrW + n * NReg * settings.nWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
                 ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.nWrTask;
-                for (int i = Sett.nWrTask * n; i < (Sett.nWrTask * n + c); i++)
+                int c = AreaW / NReg / settings.nWrTask;
+                for (int i = settings.nWrTask * n; i < (settings.nWrTask * n + c); i++)
                 {
                     Array.Copy(WB.W, (NReg * i), data, (0), NReg);
                     mbMasterW3.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
@@ -347,29 +354,29 @@ namespace Simulator_MPSA
                 }
                 //DeBag.WW++;
                 Debug.WriteLine("W3()   ");
-                System.Threading.Thread.Sleep(Sett.TPause);
+                System.Threading.Thread.Sleep(settings.TPause);
             }
         }
         #endregion
         private void Grid_Loaded(object sender, RoutedEventArgs e) // выполняется при загрузке основной формы программы, то есть при Старте ПО
         {
-            for (int i = 0; i < WB.W.Length; i++)   // for Debug !!!
+           /* for (int i = 0; i < WB.W.Length; i++)   // for Debug !!!
             {
                 WB.W[i] = (ushort)i; // заполняем массив для записи в ЦПУ значениями равными номеру элемента массива
-            }
+            }*/
 
-            if (false) // !!! false == Disable Modbus for Debug !!!
+         /*   if (false) // !!! false == Disable Modbus for Debug !!!
             {
                 // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
-                mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
+                mbMaster = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
 
                 masterLoop = Task.Factory.StartNew(new Action(Update));
                 masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0));
@@ -383,7 +390,7 @@ namespace Simulator_MPSA
             } else { 
             //mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
             masterLoop = Task.Factory.StartNew(new Action(Update));
-            }
+            }*/
         }
         #region Dedollers
         public Depoller TagSource
@@ -511,38 +518,50 @@ namespace Simulator_MPSA
         }
         #endregion
         // -----------------------------------------------------------------
-        clS S = new clS(); // settings; на самом деле настройки в Sett !!!
+       // clS S = new clS(); // settings; на самом деле настройки в Sett !!!
         #region settings.xml
         void SaveSettings(string Sxml= "settings.xml")
         {
-            XmlSerializer xml = new XmlSerializer(typeof(clS));
+            XmlSerializer xml = new XmlSerializer(typeof(Sett));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter("XMLs//" + Sxml);
-            xml.Serialize(writeStream, S);
+            xml.Serialize(writeStream, settings);
             writeStream.Dispose();
             MessageBox.Show("Файл " + Sxml + " сохранен ");
         }
         void LoadSettings(string Sxml = "settings.xml")
         {
-            XmlSerializer xml = new XmlSerializer(typeof(clS));
+            XmlSerializer xml = new XmlSerializer(typeof(Sett));
             System.IO.StreamReader reader = null;
             try
             {
                 reader = new System.IO.StreamReader("XMLs//" + Sxml);
-                S = (clS)xml.Deserialize(reader);
+                settings = (Sett)xml.Deserialize(reader);
                 reader.Dispose();
                 MessageBox.Show("Файл " + Sxml + " считан ");
             }
             catch
             {
+                reader.Dispose();
                 System.IO.StreamWriter writer = new System.IO.StreamWriter("XMLs//" + Sxml);
-                xml.Serialize(writer, S);
+                xml.Serialize(writer, settings);
                 writer.Dispose();
                 MessageBox.Show("Файл " + Sxml + " не считан !!! ");
             }
+            RB.R = new ushort[(settings.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            WB.W = new ushort[(settings.iNRackEnd - settings.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+            AIs = new AIStruct[settings.nAI];
+            ZDs = new ZDStruct[settings.nZD];
+            DOs =new DOStruct[settings.nDO * 32];
+            ZDs = new ZDStruct[settings.nZD];
+            KLs = new KLStruct[settings.nKL];
+            VSs = new VSStruct[settings.nVS];
+            MPNAs = new MPNAStruct[settings.nMPNA];
+            DIs = new DIStruct[settings.nDI * 32];
+            //TODO: вставить код активации кнопки
         }
         #endregion
         // -----------------------------------------------------------------
-        public AIStruct[] AIs = new AIStruct[Sett.nAI];
+        public AIStruct[] AIs;// = new AIStruct[settings.nAI];
         #region AIsettings.xml
         public void LoadSettAI(string Sxml = "AIsettings.xml")
         {
@@ -574,7 +593,7 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-        public DIStruct[] DIs = new DIStruct[Sett.nDI * 32];
+        public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
         #region DIsettings.xml
         public void LoadSettDI(string Sxml = "DIsettings.xml")
         {
@@ -605,7 +624,7 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-        public DOStruct[] DOs = new DOStruct[Sett.nDO * 32];
+        public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
         #region DOsettings.xml
         public void LoadSettDO(string Sxml = "DOsettings.xml")
         {
@@ -637,7 +656,7 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        public ZDStruct[] ZDs = new ZDStruct[Sett.nZD];
+        public ZDStruct[] ZDs;// = new ZDStruct[Sett.nZD];
         #region ZDsettings.xml
         public void LoadSettZD(string Sxml = "ZDsettings.xml")
         {
@@ -669,7 +688,7 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        public KLStruct[] KLs = new KLStruct[Sett.nKL];
+        public KLStruct[] KLs;// = new KLStruct[Sett.nKL];
         #region KLsettings.xml
         public void LoadSettKL(string Sxml = "KLsettings.xml")
         {
@@ -701,7 +720,7 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        public VSStruct[] VSs = new VSStruct[Sett.nVS];
+        public VSStruct[] VSs;// = new VSStruct[Sett.nVS];
         #region VSsettings.xml
         public void LoadSettVS(string Sxml = "VSsettings.xml")
         {
@@ -733,7 +752,7 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        public MPNAStruct[] MPNAs = new MPNAStruct[Sett.nMPNA];
+        public MPNAStruct[] MPNAs;// = new MPNAStruct[Sett.nMPNA];
         #region MPNAsettings.xml
         public void LoadSettMPNA(string Sxml = "MPNAsettings.xml")
         {
@@ -932,6 +951,34 @@ namespace Simulator_MPSA
         }
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            if (true) // !!! false == Disable Modbus for Debug !!!
+            {
+                // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
+                mbMaster = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
+
+                masterLoop = Task.Factory.StartNew(new Action(Update));
+                masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0));
+                masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1));
+                masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2));
+                masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3));
+                masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0));
+                masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1));
+                masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2));
+                masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3));
+            }
+            else
+            {
+                //mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
+                masterLoop = Task.Factory.StartNew(new Action(Update));
+            }
         }
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
