@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simulator_MPSA
 {
-    public class CL_ANALOG
+   /* public class CL_ANALOG
     {
         public bool En = false;
         public int indxAI=0; // index in AI
@@ -67,7 +67,7 @@ namespace Simulator_MPSA
 "; minPhis=" + minPhis + "; maxPhis=" + maxPhis + "; fValAI=" + fValAI + "; DelauAI=" + DelayAI + "\n");
         }
     }
-    public  class classAI
+ /*   public  class classAI
     {
         public CL_ANALOG[] AI = new CL_ANALOG[Sett.nAI];
         public void InitArrAI()
@@ -77,7 +77,7 @@ namespace Simulator_MPSA
                 AI[i] = new CL_ANALOG();
             }
         }
-    }
+    }*/
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public struct AIStruct

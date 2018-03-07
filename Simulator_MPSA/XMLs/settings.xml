@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<clS xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <Node name="HostName" value="192.168.201.1"> </Node>
-  <Node name="MBPort" value="502"> </Node>
-  <Node name="TPause" value="50"> </Node>
-  <Node name="nWrTask" value="4"> </Node>
-  <Node name="iBegAddrR" value="23169"> </Node>
-
-
+<Sett xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <HostName>192.168.201.1</HostName>
   <MBPort>502</MBPort>
   <TPause>50</TPause>
@@ -15,5 +8,11 @@
   <iBegAddrW>15099</iBegAddrW>
   <iNRackBeg>3</iNRackBeg>
   <iNRackEnd>29</iNRackEnd>
-  <nAI>1000</nAI>
-</clS>
+  <nAI>1024</nAI>
+  <nDI>128</nDI>
+  <nDO>64</nDO>
+  <nZD>64</nZD>
+  <nKL>64</nKL>
+  <nVS>256</nVS>
+  <nMPNA>16</nMPNA>
+</Sett>
