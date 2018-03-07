@@ -561,11 +561,9 @@ namespace Simulator_MPSA
         }
         #endregion
         // -----------------------------------------------------------------
-<<<<<<< HEAD
-        public static AIStruct[] AIs = new AIStruct[Sett.nAI];
-=======
+
         public AIStruct[] AIs;// = new AIStruct[settings.nAI];
->>>>>>> 6be81fe050c7780aa1f670b432bd4bc9ff1dafdc
+
         #region AIsettings.xml
         public void LoadSettAI(string Sxml = "AIsettings.xml")
         {
@@ -597,11 +595,9 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-<<<<<<< HEAD
-        public static DIStruct[] DIs = new DIStruct[Sett.nDI * 32];
-=======
+
         public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
->>>>>>> 6be81fe050c7780aa1f670b432bd4bc9ff1dafdc
+
         #region DIsettings.xml
         public void LoadSettDI(string Sxml = "DIsettings.xml")
         {
@@ -632,11 +628,9 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-<<<<<<< HEAD
-        public static DOStruct[] DOs = new DOStruct[Sett.nDO * 32];
-=======
+
         public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
->>>>>>> 6be81fe050c7780aa1f670b432bd4bc9ff1dafdc
+
         #region DOsettings.xml
         public void LoadSettDO(string Sxml = "DOsettings.xml")
         {
