@@ -31,7 +31,7 @@
             <RowDefinition />
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        
+
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
             <MenuItem Header="_File">
                 <MenuItem Header="_New" />
@@ -97,7 +97,7 @@
                 VirtualizingPanel.VirtualizationMode="Standard" 
                   Grid.Row="2" Width="auto" >
             <TreeView.ItemTemplate>
-            <!--
+                <!--
             Data Templates for each XML tag type expected in file.
             
             DataType        - Matches the tag name
@@ -111,15 +111,15 @@
         -->
                 <HierarchicalDataTemplate DataType="Node"
                                   ItemsSource="{Binding XPath=./*}">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="0"
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0"
                            Text="Node:" />
-                    <TextBlock Margin="5,0,0,0"
+                        <TextBlock Margin="5,0,0,0"
                            Text="{Binding XPath=@name}" />
-                </StackPanel>
-            </HierarchicalDataTemplate>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
             </TreeView.ItemTemplate>
-             <!--<TreeView.ItemTemplate>
+            <!--<TreeView.ItemTemplate>
             <HierarchicalDataTemplate DataType="leaf">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Margin="0"
@@ -138,43 +138,9 @@
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Settings">
-                <Grid >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition Width="150"/>
-                    </Grid.ColumnDefinitions>
-                    <!--  , XPath=./*   -->
-                    <DataGrid x:Name="dataGridSett" ItemsSource="{Binding Source={StaticResource settingsXDP}}" AutoGenerateColumns="True" Grid.Column="0" >
-                        <DataGrid.ItemTemplate>
-                            <HierarchicalDataTemplate DataType="Node" ItemsSource="{Binding XPath=./*}">
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock Margin="0" Text="Name:" />
-                                    <TextBlock Margin="5,0,0,0" Text="{Binding XPath=@name}" />
-                                    <TextBlock Margin="0" Text="Value:" />
-                                    <TextBlock Margin="5,0,0,0" Text="{Binding XPath=@value}" />
-                                </StackPanel>
-                            </HierarchicalDataTemplate>
-                        </DataGrid.ItemTemplate>
-                    </DataGrid>
-                    <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="Azure" BorderThickness="3" Grid.Column="1"  >
-                        <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                            <ProgressBar x:Name="progressBar" Minimum="0" Maximum="65535" Value="{Binding Reg0}" Height="12" Margin="3"/>
-                            <TextBlock Text="{Binding Reg0, FallbackValue=Test}" Margin="3" />
-                            <Label x:Name="label" Content="IP" HorizontalAlignment="Left" Margin="3" />
-                            <TextBox x:Name="textBoxIP" HorizontalAlignment="Left" Text="192.168.201.1" Margin="3"/>
-                            <Label x:Name="label1" Content="StartAdr" HorizontalAlignment="Left" Margin="3" />
-                            <TextBox x:Name="textBoxStartAdress" HorizontalAlignment="Left" Text="23170" Margin="3"/>
-                            <TextBlock Text="{Binding Reg1, FallbackValue=Test}" x:Name="textBlockOut" HorizontalAlignment="Left" Margin="3"/>
-                            <Label x:Name="label2" Content="NReg" HorizontalAlignment="Left" Margin="3" />
-                            <TextBox x:Name="textBoxNReg" HorizontalAlignment="Left" Text="125" Margin="3"/>
-                            <Label x:Name="label3" Content="AreaR" HorizontalAlignment="Left" Margin="3" />
-                            <TextBox x:Name="textBoxAreaR" HorizontalAlignment="Left" Text="2000" Margin="3"/>
-                            <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="3" TextWrapping="Wrap" Text="TextBox" />
-                            <Label x:Name="label3_Copy" Content="Tout" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="3" />
-                            <TextBox x:Name="textBoxTout" HorizontalAlignment="Left" Text="200" Margin="3"/>
-                        </StackPanel>
-                    </Border>
-                </Grid>
+                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" AutoGenerateColumns="True">
+        
+                </DataGrid>
             </TabItem>
             <TabItem Header=" AI ">
                 <Grid >

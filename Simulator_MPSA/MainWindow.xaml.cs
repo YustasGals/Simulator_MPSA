@@ -26,30 +26,7 @@ using Simulator_MPSA.CL;
 
 namespace Simulator_MPSA
 {
-    public  class Sett
-    {
-        public  string HostName = "192.168.201.1"; // IP adress CPU
-        public  int MBPort = 502; // Modbus TCP port adress
-        public  int TPause = 50; // задержка между циклами чтения
-        public  int nWrTask = 4; // потоков на запись в CPU
-        public  int iBegAddrR = 23170 - 1; // начальный адрес для чтения выходов CPU
-        public  int iBegAddrW = 15100 - 1; // начальный адрес для записи входов CPU
-        public  int iNRackBeg = 3; // номер начальной корзины
-        public  int iNRackEnd = 29; // номер конечной корзины
-        public  int nAI = 1024; // count of AI 1000
-        public  int nDI = 128; // count of DI 
-        public  int nDO = 64; // count of DO 
-        public  int nZD = 64; // count of ZD  200
-        public  int nKL = 64; // count of KL 100
-        public  int nVS = 256; // count of VS 200
-        public  int nMPNA = 16; // count of MPNA 
-                                    // public const string AI_file = "AIsettings.xml";
-                                    // public static string DI_file = "";
-                                    // public static string DO_file = "";
-                                    // public static string ZD_file = "";
-                                    // public static string MPNA_file = "";
-                                    // public static string VS_file = "";
-    }
+   
     /*public  class clS
     {
         public string HostName = "192.168.201.1"; // IP adress CPU
@@ -177,7 +154,8 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = (int)settings.items["iBegAddR"].value;
                 TSR0.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 TSR1.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 TSR2.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -191,8 +169,8 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR0() ");
-                System.Threading.Thread.Sleep(settings.TPause);
-
+                //System.Threading.Thread.Sleep(settings.TPause);
+                System.Threading.Thread.Sleep((int)settings.items["TPause"].value);
             }
         }
         private void UpdateR1()
@@ -201,7 +179,8 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = (int)settings.items["iBegAddrR"].value;
                 //TSR0.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -215,8 +194,8 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR1() ");
-                System.Threading.Thread.Sleep(settings.TPause);
-
+                //System.Threading.Thread.Sleep(settings.TPause);
+                System.Threading.Thread.Sleep((int)settings.items["TPause"].value);
             }
         }
         private void UpdateR2()
@@ -225,7 +204,8 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+               // int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = (int)settings.items["iBegAddrR"].value;
                 //TSR0.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -239,8 +219,8 @@ namespace Simulator_MPSA
                 //TSR10.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR2() ");
-                System.Threading.Thread.Sleep(settings.TPause);
-
+                //System.Threading.Thread.Sleep(settings.TPause);
+                System.Threading.Thread.Sleep((int)settings.items["TPause"].value);
             }
         }
         private void UpdateR3()
@@ -249,7 +229,8 @@ namespace Simulator_MPSA
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
+                int tbStartAdress = (int)settings.items["iBegAddrR"].value;
                 //TSR0.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
                 //TSR1.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
                 //TSR2.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
@@ -263,8 +244,8 @@ namespace Simulator_MPSA
                 TSR10.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
                 Debug.WriteLine("UpdateR3() ");
-                System.Threading.Thread.Sleep(settings.TPause);
-
+                //System.Threading.Thread.Sleep(settings.TPause);
+                System.Threading.Thread.Sleep((int)settings.items["TPause"].value);
             }
         }
         #endregion
@@ -789,91 +770,18 @@ namespace Simulator_MPSA
         }
         #endregion
         // ---------------------------------------------------------------------
-        void load_dataGridDO()
-        {
-            dataGridDO.DataContext = new DOTableViewModel(DOs);
-        }
-        // ---------------------------------------------------------------------
-        void load_dataGridDI()
-        {
-            /*   DataTable dt = new DataTable();
-               dt.Columns.Add("En", typeof(bool));
-               dt.Columns.Add("ValDI", typeof(bool));
-               dt.Columns.Add("indxArrDI", typeof(int));
-               dt.Columns.Add("indxBitDI", typeof(int));
-               dt.Columns.Add("indxW", typeof(int));
-               dt.Columns.Add("TegDI", typeof(string));
-               dt.Columns.Add("NameDI", typeof(string));
-               dt.Columns.Add("Nsign", typeof(int));
-               dt.Columns.Add("InvertDI", typeof(bool));
-               dt.Columns.Add("DelayDI", typeof(int));
-               foreach (DIStruct DI_item in DIs)
-               {
-                   DataRow row;
-                   row = dt.NewRow();
-                   row["En"] = DI_item.En;
-                   row["ValDI"] = DI_item.ValDI;
-                   row["indxArrDI"] = DI_item.indxArrDI;
-                   row["indxBitDI"] = DI_item.indxBitDI;
-                   row["indxW"] = DI_item.indxW;
-                   row["TegDI"] = DI_item.TegDI;
-                   row["NameDI"] = DI_item.NameDI;
-                   row["Nsign"] = DI_item.Nsign;
-                   row["InvertDI"] = DI_item.InvertDI;
-                   row["DelayDI"] = DI_item.DelayDI;
-                   dt.Rows.Add(row);
-               }
-               dataGridDI.ItemsSource = dt.DefaultView;*/
-            dataGridDI.DataContext = new DITableViewModel(DIs);
-        }
-        // ---------------------------------------------------------------------
-        void load_dataGridAI()
-        {
-            /* DataTable dt = new DataTable();
-             dt.Columns.Add("En", typeof(bool));
-             dt.Columns.Add("indxAI", typeof(int));
-             dt.Columns.Add("indxW", typeof(int));
-             dt.Columns.Add("TegAI", typeof(string));
-             dt.Columns.Add("NameAI", typeof(string));
-             dt.Columns.Add("ValACD", typeof(ushort));
-             dt.Columns.Add("minACD", typeof(ushort));
-             dt.Columns.Add("maxACD", typeof(ushort));
-             dt.Columns.Add("minPhis", typeof(float));
-             dt.Columns.Add("maxPhis", typeof(float));
-             dt.Columns.Add("fValAI", typeof(float));
-             dt.Columns.Add("DelayAI", typeof(int));
-             foreach (AIStruct AI_item in AIs)
-             {
-                 DataRow row;
-                 row = dt.NewRow();
-                 row["En"] = AI_item.En;
-                 row["indxAI"] = AI_item.indxAI;
-                 row["indxW"] = AI_item.indxW;
-                 row["TegAI"] = AI_item.TegAI;
-                 row["NameAI"] = AI_item.NameAI;
-                 row["ValACD"] = AI_item.ValACD;
-                 row["minACD"] = AI_item.minACD;
-                 row["maxACD"] = AI_item.maxACD;
-                 row["minPhis"] = AI_item.minPhis;
-                 row["maxPhis"] = AI_item.maxPhis;
-                 row["fValAI"] = AI_item.fValAI;
-                 row["DelayAI"] = AI_item.DelayAI;
-                 dt.Rows.Add(row);
-             }
-
-             dataGridAI.ItemsSource = dt.DefaultView;*/
-            dataGridAI.DataContext = new AITableViewModel(AIs);
-        }
         // ---------------------------------------------------------------------
         void OpenXMLs()
         {
             LoadSettings();
             LoadSettAI();
-            load_dataGridAI();
-            LoadSettDI();
-            load_dataGridDI();
+            LoadSettDI(); 
             LoadSettDO();
-            load_dataGridDO();
+
+            dataGridAI.DataContext = new AITableViewModel(AIs);
+            dataGridDI.DataContext = new DITableViewModel(DIs);
+            dataGridDO.DataContext = new DOTableViewModel(DOs);
+            dataGridSettings.DataContext = new SettingsTableViewModel(settings);
         }
         // ---------------------------------------------------------------------
         void SaveXMLs()
