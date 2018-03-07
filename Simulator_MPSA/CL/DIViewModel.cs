@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Simulator_MPSA.CL
 {
@@ -27,6 +28,7 @@ namespace Simulator_MPSA.CL
             set
             {
                 _di.ValDI = value; OnPropertyChanged("ValDI");
+                Debug.WriteLine("value changed to " + value);
             }
         }
         public int indxArrDI
