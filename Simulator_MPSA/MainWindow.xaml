@@ -138,23 +138,23 @@
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Settings">
-                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="11" AutoGenerateColumns="True">
+                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True">
         
                 </DataGrid>
             </TabItem>
             <TabItem Header="AI">
                 <Grid >
-                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="11" />
+                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="DI">
                 <Grid >
-                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="DO">
                 <Grid >
-                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn Header="Value" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
@@ -172,32 +172,32 @@
             </TabItem>
             <TabItem Header="ZD" >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9"/>
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12"/>
                 </Grid>
             </TabItem>
             <TabItem Header="KL">
                 <Grid >
-                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="MPNA">
                 <Grid >
-                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="R">
                 <Grid >
-                    <DataGrid x:Name="dataGridR" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridR" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="W">
                 <Grid >
-                    <DataGrid x:Name="dataGridW" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="9" />
+                    <DataGrid x:Name="dataGridW" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
         </TabControl>

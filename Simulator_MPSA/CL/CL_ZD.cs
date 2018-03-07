@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Simulator_MPSA.CL;
+using System.Xml;
+using System.Xml.Serialization;
 namespace Simulator_MPSA
 {
     class CL_ZD
@@ -11,28 +13,33 @@ namespace Simulator_MPSA
     }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public struct ZDStruct
+    public class ZDStruct
     {
-        public bool En ; // наличие в обработке задвижки
-        public int DOBindxArrDO; 
-        public int DKBindxArrDO;
-        public int DCBindxArrDO;
-        public int DCBZindxArrDO;
-        public bool changedDO; // наличие изменений во входных сигналах блока
-        public int OKCindxArrDI;
-        public int CKCindxArrDI;
-        public int ODCindxArrDI;
-        public int CDCindxArrDI;
-        public int DCindxArrDI;
-        public int VoltindxArrDI;
-        public int MCindxArrDI;
-        public int OPCindxArrDI;
-        public float ZDProc; // процент открытия задвижки
-        public bool changedDI; // наличие изменений в выходных сигналах блока
-        public int TmoveZD; // время полного хода звдвижки, сек
-        public int TscZD;  // время схода с концевиков, сек
+        private bool _En=false ; // наличие в обработке задвижки
+        private int _DOBindxArrDO=0;
+        private int _DKBindxArrDO=0;
+        private int _DCBindxArrDO=0;
+        private int _DCBZindxArrDO=0;
+        private bool _changedDO=false; // наличие изменений во входных сигналах блока
+        private int _OKCindxArrDI=0;
+        private int _CKCindxArrDI=0;
+        private int _ODCindxArrDI=0;
+        private int _CDCindxArrDI=0;
+        private int _DCindxArrDI=0;
+        private int _VoltindxArrDI=0;
+        private int _MCindxArrDI=0;
+        private int _OPCindxArrDI=0;
+        private float _ZDProc=0.0f; // процент открытия задвижки
+        private bool _changedDI=false; // наличие изменений в выходных сигналах блока
+        private int _TmoveZD=600; // время полного хода звдвижки, сек
+        private int _TscZD=3;  // время схода с концевиков, сек
+        private string _description="";  //название задвижки
+        private string _group="";    //название подсистемы в которую входи задвижка
+        public ZDStruct()
+        {
+        }
 
-        public ZDStruct( bool En0 = false ,
+       /* public ZDStruct( bool En0 = false ,
                          int DOBindxArrDO0 = 0,
                          int DKBindxArrDO0 = 0,
                          int DCBindxArrDO0 = 0,
@@ -69,14 +76,148 @@ namespace Simulator_MPSA
             changedDI= changedDI0;
             TmoveZD = TmoveZD0;
             TscZD = TscZD0;
-        }
+        }*/
 
         public float UpdateZD()
         {
             // тут будет логика задвижки !!!
-            return ZDProc;
+            return _ZDProc;
         }
 
+        public bool En
+        {
+            get { return _En; }
+            set { _En = value; }
+        }
+
+        public int DOBindxArrDO
+        {
+            get { return _DOBindxArrDO; }
+            set { _DOBindxArrDO = value; }
+        }
+        public int DKBindxArrDO
+        {
+            get { return _DKBindxArrDO; }
+            set { _DKBindxArrDO = value; }
+        }
+        public int DCBindxArrDO
+        {
+            get { return _DCBindxArrDO; }
+            set { _DCBindxArrDO = value; }
+        }
+        public int DCBZindxArrDO
+        {
+            get { return _DCBZindxArrDO; }
+            set { _DCBZindxArrDO = value; }
+        }
+        public bool ChangedDO
+        {
+            get { return _changedDO; }
+            set { _changedDO = value; }
+        }
+        public int OKCindxArrDI
+        {
+            get { return _OKCindxArrDI; }
+            set { _OKCindxArrDI = value; }
+        }
+        public int CKCindxArrDI
+        {
+            get { return _CKCindxArrDI; }
+            set { _CKCindxArrDI = value; }
+        }
+        public int ODCindxArrDI
+        {
+            get { return _ODCindxArrDI; }
+            set { _ODCindxArrDI = value; }
+        }
+        public int CDCindxArrDI
+        {
+            get { return _CDCindxArrDI; }
+            set { _CDCindxArrDI = value; }
+        }
+        public int DCindxArrDI
+        {
+            get { return _DCindxArrDI; }
+            set { _DCindxArrDI = value; }
+        }
+        public int VoltindxArrDI
+        {
+            get { return _VoltindxArrDI; }
+            set { _VoltindxArrDI = value; }
+        }
+        public int MCindxArrDI
+        {
+            get { return _MCindxArrDI; }
+            set { _MCindxArrDI = value; }
+        }
+        public int OPCindxArrDI
+        {
+            get { return _OPCindxArrDI; }
+            set { _OPCindxArrDI = value; }
+        }
+        public float ZDProc
+        {
+            get { return _ZDProc; }
+            set { _ZDProc = value; }
+        }
+        public bool ChangedDI
+        {
+            get { return _changedDI; }
+            set { _changedDI = value; }
+        }
+        public int TmoveZD
+        {
+            get { return _TmoveZD; }
+            set { _TmoveZD = value; }
+        }
+        public int TscZD
+        {
+            get { return _TscZD; }
+            set { _TscZD = value; }
+        }
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+        public string Group
+        {
+            get { return _group; }
+            set { _group = value; }
+        }
     }
 
+
+    class ZDTableViewModel : BaseViewModel
+    {
+        private List<ZDStruct> _zds;
+
+        public List<ZDStruct> ZDs
+        {
+            get { return _zds; }
+            set { _zds = value; }
+        }
+
+        public ZDTableViewModel()
+        {
+            ZDs = new List<ZDStruct>();
+        }
+
+        public ZDTableViewModel(List<ZDStruct> valves)
+        {
+            /* List<ZDStruct> temp = new List<ZDStruct>();
+             foreach (ZDStruct valve in valves)
+                 temp.Add(new ZDStruct(valve));
+             _zds = temp;*/
+            ZDs = valves;
+        }
+
+        public ZDTableViewModel(ZDStruct[] valves)
+        {
+            List<ZDStruct> temp = new List<ZDStruct>();
+            foreach (ZDStruct valve in valves)
+                temp.Add(valve);
+            _zds = temp;
+        }
+    }
 }

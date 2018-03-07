@@ -779,11 +779,13 @@ namespace Simulator_MPSA
             LoadSettAI();
             LoadSettDI(); 
             LoadSettDO();
+            LoadSettZD();
 
             dataGridAI.DataContext = new AITableViewModel(AIs);
             dataGridDI.DataContext = new DITableViewModel(DIs);
             dataGridDO.DataContext = new DOTableViewModel(DOs);
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
+            dataGridZD.DataContext = new ZDTableViewModel(ZDs);
         }
         // ---------------------------------------------------------------------
 
@@ -922,6 +924,17 @@ namespace Simulator_MPSA
         }
         private void btnSaveAll_Click(object sender, RoutedEventArgs e)
         {
+            if (System.Windows.MessageBox.Show("Внимание! Все таблицы будут сохранены в файлы по умолчанию.", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
+            {
+                SaveSettings();
+                SaveSettAI();
+                SaveSettDI();
+                SaveSettDO();
+                SaveSettZD();
+                SaveSettKL();
+                SaveSettVS();
+                SaveSettMPNA();
+            }
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
         {
