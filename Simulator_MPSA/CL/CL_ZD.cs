@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -188,36 +189,5 @@ namespace Simulator_MPSA
     }
 
 
-    class ZDTableViewModel : BaseViewModel
-    {
-        private List<ZDStruct> _zds;
-
-        public List<ZDStruct> ZDs
-        {
-            get { return _zds; }
-            set { _zds = value; }
-        }
-
-        public ZDTableViewModel()
-        {
-            ZDs = new List<ZDStruct>();
-        }
-
-        public ZDTableViewModel(List<ZDStruct> valves)
-        {
-            /* List<ZDStruct> temp = new List<ZDStruct>();
-             foreach (ZDStruct valve in valves)
-                 temp.Add(new ZDStruct(valve));
-             _zds = temp;*/
-            ZDs = valves;
-        }
-
-        public ZDTableViewModel(ZDStruct[] valves)
-        {
-            List<ZDStruct> temp = new List<ZDStruct>();
-            foreach (ZDStruct valve in valves)
-                temp.Add(valve);
-            _zds = temp;
-        }
-    }
+   
 }

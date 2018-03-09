@@ -172,7 +172,13 @@
             </TabItem>
             <TabItem Header="ZD" >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12"/>
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" KeyDown="ZDTable_keydown" CanUserResizeRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
+                            <DataGridTextColumn Header="enable" Binding="{Binding En}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="KL">

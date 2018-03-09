@@ -14,16 +14,26 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class DIStruct
     {
-        public bool En;
-        public bool ValDI;
-        public int indxArrDI; // index in AI
-        public int indxBitDI;
-        public int indxW;
-        public string TegDI;
-        public string NameDI;
-        public int Nsign;
-        public bool InvertDI;
-        public int DelayDI;
+        public bool En
+        { set; get; }
+        public bool ValDI
+        { set; get; }
+        public int IndxArrDI // index in AI
+        { set; get; }
+        public int IndxBitDI
+        { set; get; }
+        public int IndxW
+        { set; get; }
+        public string TegDI
+        { set; get; }
+        public string NameDI
+        { set; get; }
+        public int Nsign
+        { set; get; }
+        public bool InvertDI
+        { set; get; }
+        public int DelayDI
+        { set; get; }
         public DIStruct()
         { }
         public DIStruct(bool En0 = false, bool ValDI0 = false, int indxArrDI0 = 0, int indxBitDI0 = 0 , int indxW0 = 0, string TegDI0 = "Teg",
@@ -31,9 +41,9 @@ namespace Simulator_MPSA.CL
         {
             En = En0;
             ValDI = ValDI0;
-            indxArrDI = indxArrDI0;
-            indxBitDI = indxBitDI0;
-            indxW = indxW0;
+            IndxArrDI = indxArrDI0;
+            IndxBitDI = indxBitDI0;
+            IndxW = indxW0;
             TegDI = TegDI0;
             NameDI = NameDI0;
             Nsign = Nsign0;

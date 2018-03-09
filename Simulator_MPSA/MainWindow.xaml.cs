@@ -24,6 +24,8 @@ using System.Xml.Serialization;
 using System.Data;
 using Simulator_MPSA.CL;
 using System.Windows.Forms;
+using System.ComponentModel;
+
 namespace Simulator_MPSA
 {
    
@@ -69,6 +71,7 @@ namespace Simulator_MPSA
     public partial class MainWindow : Window
     {
         Sett settings;
+        ZDTableViewModel zdmodel = new ZDTableViewModel();
         public MainWindow()
         {
             settings=new Sett();
@@ -114,6 +117,7 @@ namespace Simulator_MPSA
             //for (int i = 0; i < AIs.Length; i++)
             //      AIs[i] = new AIStruct();
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
+            dataGridZD.DataContext = new ZDTableViewModel();
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -455,7 +459,7 @@ namespace Simulator_MPSA
         {
             for (int i = 0; i < DIs.Length; i++)
             {
-                SetBit(ref (WB.W[(DIs[i].indxW)]), (DIs[i].indxBitDI), (DIs[i].ValDI));
+                SetBit(ref (WB.W[(DIs[i].IndxW)]), (DIs[i].IndxBitDI), (DIs[i].ValDI));
             }
         }
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
@@ -533,9 +537,9 @@ namespace Simulator_MPSA
             RB.R = new ushort[(settings.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             WB.W = new ushort[(settings.NRackEnd - settings.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
             AIs = new AIStruct[settings.NAI];
-            ZDs = new ZDStruct[settings.NZD];
+            //ZDs = new ZDStruct[settings.NZD];
             DOs =new DOStruct[settings.NDO * 32];
-            ZDs = new ZDStruct[settings.NZD];
+            //ZDs = new ZDStruct[settings.NZD];
             KLs = new KLStruct[settings.NKL];
             VSs = new VSStruct[settings.NVS];
             MPNAs = new MPNAStruct[settings.NMPNA];
@@ -645,31 +649,41 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        public ZDStruct[] ZDs;// = new ZDStruct[Sett.nZD];
+        // = new ZDStruct[Sett.nZD];
         #region ZDsettings.xml
         public void LoadSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
         {
-            XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
+            ZDStruct[] ZDs;
+        XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
             System.IO.StreamReader reader = null;
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
                 ZDs = (ZDStruct[])xml.Deserialize(reader);
                 reader.Dispose();
+
+                zdmodel = new ZDTableViewModel(ZDs);
+                dataGridZD.DataContext = zdmodel;
+
                 System.Windows.Forms.MessageBox.Show("ZDsettings.xml loaded.");
             }
             catch
             {
+                /*
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
                 xml.Serialize(writer, ZDs);
-                writer.Dispose();
+                writer.Dispose();*/
             }
+        
         }
         // ---------------------------------------------------------------------
         void SaveSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
         {
+            ZDStruct[] ZDs = new ZDStruct[zdmodel.Count];
+            zdmodel.ZDs.CopyTo(ZDs, 0);
             XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+
             xml.Serialize(writeStream, ZDs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("ZDsettings.xml saved.");
@@ -785,7 +799,8 @@ namespace Simulator_MPSA
             dataGridDI.DataContext = new DITableViewModel(DIs);
             dataGridDO.DataContext = new DOTableViewModel(DOs);
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
-            dataGridZD.DataContext = new ZDTableViewModel(ZDs);
+
+
         }
         // ---------------------------------------------------------------------
 
@@ -981,6 +996,21 @@ namespace Simulator_MPSA
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void ZDTable_keydown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                if (System.Windows.MessageBox.Show("Удалить выбранные строки?","Подтверждение",System.Windows.MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
+                {
+                    ZDStruct[] selectedZDs = new ZDStruct[dataGridZD.SelectedItems.Count];
+                    dataGridZD.SelectedItems.CopyTo(selectedZDs, 0);
+
+                    foreach (ZDStruct zd in selectedZDs)
+                        zdmodel.ZDs.Remove(zd);
+                }
+            }
         }
     }
 }

@@ -89,7 +89,6 @@
     <Compile Include="CL\CL_VS.cs" />
     <Compile Include="CL\CL_ZD.cs" />
     <Compile Include="CL\DITableViewModel.cs" />
-    <Compile Include="CL\DIViewModel.cs" />
     <Compile Include="CL\DOTableViewModel.cs" />
     <Compile Include="CL\DOViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
@@ -102,6 +101,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CL\Depoller.cs" />
+    <Compile Include="CL\ZDTableViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

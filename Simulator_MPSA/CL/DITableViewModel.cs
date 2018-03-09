@@ -8,8 +8,8 @@ namespace Simulator_MPSA.CL
 {
     class DITableViewModel : BaseViewModel
     {
-        private DIViewModel[] _DIs;
-        public DIViewModel[] DIs
+        private DIStruct[] _DIs;
+        public DIStruct[] DIs
         {
             get { return _DIs;  }
             set { _DIs = value; OnPropertyChanged("DIs"); }
@@ -17,17 +17,17 @@ namespace Simulator_MPSA.CL
 
         public DITableViewModel()
         {
-            DIs = new DIViewModel[1];
-            _DIs[0] = new DIViewModel(new DIStruct());
-            _DIs[0].ShortDesc = "reserved";
+            DIs = new DIStruct[1];
+            _DIs[0] = new DIStruct();
+            _DIs[0].NameDI = "reserved";
         }
 
         public DITableViewModel(DIStruct[] table)
         {
-            DIViewModel[] DIViewModels = new DIViewModel[table.Length];
+            DIStruct[] DIViewModels = new DIStruct[table.Length];
             for (int i = 0; i < table.Length; i++)
             {
-                DIViewModels[i] = new DIViewModel(table[i]);
+                DIViewModels[i] =table[i];
             }
             DIs = DIViewModels;
         }
