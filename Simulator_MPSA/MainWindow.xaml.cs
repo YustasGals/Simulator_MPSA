@@ -118,6 +118,7 @@ namespace Simulator_MPSA
             //      AIs[i] = new AIStruct();
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
             dataGridZD.DataContext = new ZDTableViewModel();
+            dataGridVS.DataContext = new VSTableViewModel();
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -1011,6 +1012,17 @@ namespace Simulator_MPSA
                         zdmodel.ZDs.Remove(zd);
                 }
             }
+        }
+
+        SetupDialog dialog;
+        private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (dialog != null)
+                dialog.Close();
+
+            dialog = new SetupDialog(dataGridVS.SelectedItem as VSStruct);
+            dialog.Show();
+
         }
     }
 }

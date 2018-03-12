@@ -188,7 +188,7 @@
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" />
                 </Grid>
             </TabItem>
             <TabItem Header="MPNA">
