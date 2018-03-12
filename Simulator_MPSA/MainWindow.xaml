@@ -183,7 +183,15 @@
             </TabItem>
             <TabItem Header="KL">
                 <Grid >
-                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" MouseDoubleClick="dataGridKL_MouseDoubleClick" >
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding En}"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}"/>
+                            <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="VS">

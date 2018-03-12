@@ -33,20 +33,62 @@ namespace Simulator_MPSA
         }
 
         // состояния входов-выходов
+        /// <summary>
+        /// сигнал - оманда на включение
+        /// </summary>
+        private DOStruct ABB;
+        private int _ABBindxArrDO=-1;
+        public int ABBindxArrDO
+        {
+            get { return _ABBindxArrDO; }
+            set {
+                    _ABBindxArrDO = value;
+                    ABB = DOStruct.FindByIndex(_ABBindxArrDO);    
+                }
+        }
+        public string ABBName
+        { get
+            {
+                if (ABB != null)
+                    return ABB.NameDO;
+                else return "сигнал не назначен";
+            }
+        }
+        /// <summary>
+        /// сигнал - команда на отключение
+        /// </summary>
+        private DOStruct ABO;
+        private int _ABOindxArrDO=-1;
 
-        public int ABBindxArrDO;    //
-        public int ABOindxArrDO;
+        public int ABOindxArrDO
+        {
+            get { return _ABOindxArrDO; }
+            set
+            {
+                _ABOindxArrDO = value;
+                ABO = DOStruct.FindByIndex(_ABOindxArrDO);
+            }
+        }
+        public string ABOName
+        {  get
+            {
+                if (ABO != null)
+                    return ABO.NameDO;
+                else return "сигнал не назначен";
+            }
+        }
+
         public bool changedDO;
 
-        private int _ecindx;
+        private int _ecindx=-1;
         private bool _isECAnalog;
         private float _valueEC;
 
-        private int _MPCindxArrDI;
+        private int _MPCindxArrDI=-1;
         private bool _isMPCanalog;
         private float _valueMPC;
 
-        private int _PCindxArrDI;
+        private int _PCindxArrDI=-1;
         private bool _isPCAnalog;
         private float _valuePC;
 
@@ -255,17 +297,18 @@ namespace Simulator_MPSA
         {
             Description = "Empty";
             Group = "NoGroup";
-            ECindxArrDI = 0;
+            ECindxArrDI = -1;
             isECAnalog = false;
             valueEC = 0.0f;
 
-            MPCindxArrDI = 0;
+            MPCindxArrDI = -1;
             isMPCAnalog = false;
             valueMPC = 0.0f;
 
-            PCindxArrDI = 0;
+            PCindxArrDI = -1;
             isPCAnalog = false;
             valuePC = 0;
+
 
             state = VSState.Stop;
         }

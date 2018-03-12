@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulator_MPSA"
         mc:Ignorable="d"
-        Title="Настройка вспомсистемы" Height="300" Width="803.5">
+        Title="Настройка вспомсистемы" Height="532" Width="803.5">
     <Grid Margin="0,0,2,0">
-        <DataGrid x:Name="dataGrid" Margin="10,97,10,37" ItemsSource="{Binding Items}" AutoGenerateColumns="False" >
+        <DataGrid x:Name="dataGrid" Margin="10,97,10,0" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" Height="185" VerticalAlignment="Top" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -19,10 +19,12 @@
         <Button x:Name="button_OK" Content="Применить" Margin="0,0,79,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="93" Click="button_OK_Click"/>
         <Button x:Name="button_cancel" Content="Cancel" Margin="0,0,10,10" VerticalAlignment="Bottom" IsCancel="True" HorizontalAlignment="Right" Width="64" Click="button_cancel_Click"/>
         <Label Content="Наименование" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="99"/>
-        <TextBox x:Name="textBox_name" Text="{Binding Path =VSName }" Height="23" Margin="114,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="356"/>
+        <TextBox x:Name="textBox_name" Text="{Binding Path =Name }" Height="23" Margin="114,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="356"/>
         <Label Content="Группа" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="99"/>
-        <TextBox x:Name="textBox_group"  Text="{Binding Path = VSGroup}" Height="23" Margin="114,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
-        <Label Content="Настройка выходов:" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_group"  Text="{Binding Path = Group}" Height="23" Margin="114,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
+        <Label Content="Настройка выходов (AI, DI):" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" HorizontalAlignment="Left" Margin="10,313,0,37" Width="774"/>
+        <Label Content="Настройка входов (DO):" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

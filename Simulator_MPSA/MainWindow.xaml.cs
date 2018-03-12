@@ -803,6 +803,7 @@ namespace Simulator_MPSA
             dataGridDO.DataContext = new DOTableViewModel(DOStruct.DOs);
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
             dataGridVS.DataContext = new VSTableViewModel(VSs);
+            dataGridKL.DataContext = new KLTableViewModel(KLs);
 
         }
         // ---------------------------------------------------------------------
@@ -1030,6 +1031,19 @@ namespace Simulator_MPSA
                     dialog.Show();
                 }
 
+        }
+
+        private void dataGridKL_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+            }
+            else
+            {
+                dialog = new SetupDialog(dataGridKL.SelectedItem as KLStruct);
+                dialog.Show();
+            }
         }
     }
 }
