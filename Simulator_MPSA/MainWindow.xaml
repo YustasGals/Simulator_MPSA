@@ -188,22 +188,20 @@
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" />
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding En}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True"/>
+
+                        </DataGrid.Columns> 
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="MPNA">
                 <Grid >
                     <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="R">
-                <Grid >
-                    <DataGrid x:Name="dataGridR" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="W">
-                <Grid >
-                    <DataGrid x:Name="dataGridW" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
         </TabControl>

@@ -448,26 +448,26 @@ namespace Simulator_MPSA
         #endregion
         void SendAItoW()  // записываем значение АЦП в массив для записи CPU
         {
-            for (int i = 0; i < AIs.Length; i++)
+            for (int i = 0; i < AIStruct.AIs.Length; i++)
             {
-                if (AIs[i].En /* || true */)
+                if (AIStruct.AIs[i].En /* || true */)
                 {
-                    WB.W[(AIs[i].indxW)] = AIs[i].ValACD; // записываем значение АЦП в массив для записи CPU
+                    WB.W[(AIStruct.AIs[i].indxW)] = AIStruct.AIs[i].ValACD; // записываем значение АЦП в массив для записи CPU
                 }
             }
         }
         void SendDItoW() // копирование значения сигналов DI в массив для записи в ЦПУ
         {
-            for (int i = 0; i < DIs.Length; i++)
+            for (int i = 0; i < DIStruct.DIs.Length; i++)
             {
-                SetBit(ref (WB.W[(DIs[i].IndxW)]), (DIs[i].IndxBitDI), (DIs[i].ValDI));
+                SetBit(ref (WB.W[(DIStruct.DIs[i].IndxW)]), (DIStruct.DIs[i].indxBitDI), (DIStruct.DIs[i].ValDI));
             }
         }
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
         {
-            for (int i = 0; i < DOs.Length; i++)
+            for (int i = 0; i < DOStruct.DOs.Length; i++)
             {
-                DOs[i].ValDO = GetBit(RB.R[DOs[i].indxR], DOs[i].indxBitDO);
+                DOStruct.DOs[i].ValDO = GetBit(RB.R[DOStruct.DOs[i].indxR], DOStruct.DOs[i].indxBitDO);
             }
         }
 
@@ -537,20 +537,20 @@ namespace Simulator_MPSA
             }
             RB.R = new ushort[(settings.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             WB.W = new ushort[(settings.NRackEnd - settings.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-            AIs = new AIStruct[settings.NAI];
+            AIStruct.AIs = new AIStruct[settings.NAI];
             //ZDs = new ZDStruct[settings.NZD];
-            DOs =new DOStruct[settings.NDO * 32];
+            DOStruct.DOs =new DOStruct[settings.NDO * 32];
             //ZDs = new ZDStruct[settings.NZD];
             KLs = new KLStruct[settings.NKL];
             VSs = new VSStruct[settings.NVS];
             MPNAs = new MPNAStruct[settings.NMPNA];
-            DIs = new DIStruct[settings.NDI * 32];
+            DIStruct.DIs = new DIStruct[settings.NDI * 32];
             //TODO: вставить код активации кнопки
         }
         #endregion
         // -----------------------------------------------------------------
 
-        public AIStruct[] AIs;// = new AIStruct[settings.nAI];
+       // public AIStruct[] AIs;// = new AIStruct[settings.nAI];
 
         #region AIsettings.xml
         public void LoadSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
@@ -560,7 +560,7 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                 AIs = (AIStruct[])xml.Deserialize(reader);
+                AIStruct.AIs = (AIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
 
                 System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
@@ -568,7 +568,7 @@ namespace Simulator_MPSA
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, AIs);
+                xml.Serialize(writer, AIStruct.AIs);
                 writer.Dispose();
             }
         }
@@ -577,14 +577,14 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, AIs);
+            xml.Serialize(writeStream, AIStruct.AIs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
         }
         #endregion
         // ---------------------------------------------------------------------
 
-        public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
+       // public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
 
         #region DIsettings.xml
         public void LoadSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
@@ -594,14 +594,14 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DIs = (DIStruct[])xml.Deserialize(reader);
+                DIStruct.DIs = (DIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
             }
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, DIs);
+                xml.Serialize(writer, DIStruct.DIs);
                 writer.Dispose();
             }
         }
@@ -610,14 +610,14 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DIs);
+            xml.Serialize(writeStream, DIStruct.DIs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
         }
         #endregion
         // ---------------------------------------------------------------------
 
-        public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
+      //  public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
 
         #region DOsettings.xml
         public void LoadSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
@@ -627,14 +627,14 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DOs = (DOStruct[])xml.Deserialize(reader);
+                DOStruct.DOs = (DOStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
             }
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter( Sxml);
-                xml.Serialize(writer, DOs);
+                xml.Serialize(writer, DOStruct.DOs);
                 writer.Dispose();
             }
         }
@@ -643,7 +643,7 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DOs);
+            xml.Serialize(writeStream, DOStruct.DOs);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DOsettings.xml saved.");
         }
@@ -795,12 +795,14 @@ namespace Simulator_MPSA
             LoadSettDI(); 
             LoadSettDO();
             LoadSettZD();
+            LoadSettKL();
+            LoadSettVS();
 
-            dataGridAI.DataContext = new AITableViewModel(AIs);
-            dataGridDI.DataContext = new DITableViewModel(DIs);
-            dataGridDO.DataContext = new DOTableViewModel(DOs);
+            dataGridAI.DataContext = new AITableViewModel(AIStruct.AIs);
+            dataGridDI.DataContext = new DITableViewModel(DIStruct.DIs);
+            dataGridDO.DataContext = new DOTableViewModel(DOStruct.DOs);
             dataGridSettings.DataContext = new SettingsTableViewModel(settings);
-
+            dataGridVS.DataContext = new VSTableViewModel(VSs);
 
         }
         // ---------------------------------------------------------------------
@@ -1017,11 +1019,16 @@ namespace Simulator_MPSA
         SetupDialog dialog;
         private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (dialog != null)
-                dialog.Close();
-
-            dialog = new SetupDialog(dataGridVS.SelectedItem as VSStruct);
-            dialog.Show();
+            if ((dialog != null)&&(dialog.IsLoaded))
+                {
+                    dialog.Activate();
+                    //         dialog.Close();
+                }
+                else
+                {
+                    dialog = new SetupDialog(dataGridVS.SelectedItem as VSStruct);
+                    dialog.Show();
+                }
 
         }
     }

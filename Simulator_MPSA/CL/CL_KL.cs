@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel;
 namespace Simulator_MPSA
 {
     class CL_KL
@@ -11,44 +11,87 @@ namespace Simulator_MPSA
     }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public struct KLStruct
+    public class KLStruct : INotifyPropertyChanged
     {
-        public bool En;
-        public int DOBindxArrDO;
-        public int DKBindxArrDO;
-        public bool changedDO;
-        public int OKCindxArrDI;
-        public int CKCindxArrDI;
-        public bool changedDI;
-        public float KLProc;
-        public int TmoveKL;
-
-        public KLStruct(bool En0 = false,
-                        int DOBindxArrDO0 = 0,
-                        int DKBindxArrDO0 = 0,
-                        bool changedDO0 = false,
-                        int OKCindxArrDI0 = 0,
-                        int CKCindxArrDI0 = 0,
-                        bool changedDI0 = false,
-                        float KLProc0 = 0.0f,
-                        int TmoveKL0 = 3)
+        public bool En
+        { get; set; }
+        private string name;
+        public string Name
         {
-            En = En0;
-            DOBindxArrDO = DOBindxArrDO0;
-            DKBindxArrDO = DKBindxArrDO0;
-            changedDO = changedDO0;
-            OKCindxArrDI = OKCindxArrDI0;
-            CKCindxArrDI = CKCindxArrDI0;
-            changedDI = changedDI0;
-            KLProc = KLProc0;
-            TmoveKL = TmoveKL0;
+            get { return name; }
+            set { name = value; OnPropertyChanged("Name"); }
         }
 
-        public float UpdateKL()
+        private string group;
+        public string Group
+        {
+            get { return group; }
+            set { group = value; OnPropertyChanged("Group"); }
+        }
+
+        private DOStruct DOB=null;
+        private int _DOBindxArrDO;
+        public int DOBindxArrDO
+        {
+            get { return _DOBindxArrDO; }
+            set {
+                _DOBindxArrDO = value;
+                OnPropertyChanged("DOBindxArrDI");
+                DOB = DOStruct.FindByIndex(_DOBindxArrDO);
+            }
+        }
+        private int _DKBindxArrDO; 
+        public int DKBindxArrDO
+        {
+            get { return _DKBindxArrDO; }
+            set { _DKBindxArrDO = value; OnPropertyChanged("DKBindxArrDI"); }
+        }
+
+        public bool changedDO=false;
+
+        private int _OKCindxArrDI=0;
+        public int OKCindxArrDI
+        {
+            get { return _OKCindxArrDI; }
+            set { _OKCindxArrDI = value; OnPropertyChanged("OKCindxArrDI"); }
+        }
+        private int _CKCindxArrDI = 0;
+        public int CKCindxArrDI
+        {
+            get { return _CKCindxArrDI; }
+            set { _CKCindxArrDI = value; OnPropertyChanged("CKCindxArrDI"); }
+        }
+        public bool changedDI=false;
+
+        private float _KLProc=0.0f;
+        public float KLProc
+        {
+            get { return _KLProc; }
+            set { _KLProc = value; OnPropertyChanged("KLProc"); }
+        }
+        public int TmoveKL=0;
+
+        public KLStruct()
+        { }
+
+        /// <summary>
+        /// обновление состояния вспомсистемы
+        /// </summary>
+        /// <param name="dt">задержка между циклами обновления в секундах</param>
+        /// <returns></returns>
+        public float UpdateKL(float dt)
         {
             // тут будет логика  !!!
             return KLProc;
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
     }
 
 

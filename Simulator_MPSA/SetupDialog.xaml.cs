@@ -49,7 +49,10 @@ namespace Simulator_MPSA
 
             _agr.Description = model.VSName;
             _agr.Group = model.VSGroup;
-            this.Close();
+            // this.Close();
+            //чтобы обновить табличку заново вызовем конструктор модели
+            model = new SetupTableModel(_agr);
+            this.DataContext = model;
         }
 
         private void button_cancel_Click(object sender, RoutedEventArgs e)

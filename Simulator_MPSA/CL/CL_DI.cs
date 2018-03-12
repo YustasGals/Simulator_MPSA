@@ -7,20 +7,19 @@ using System.Runtime.InteropServices;
 
 namespace Simulator_MPSA.CL
 {
-    class CL_DI
-    {
-    }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public class DIStruct
     {
+        public static DIStruct[] DIs = new DIStruct[0];
+
         public bool En
         { set; get; }
         public bool ValDI
         { set; get; }
-        public int IndxArrDI // index in AI
+        public int indxArrDI // index in AI
         { set; get; }
-        public int IndxBitDI
+        public int indxBitDI
         { set; get; }
         public int IndxW
         { set; get; }
@@ -41,8 +40,8 @@ namespace Simulator_MPSA.CL
         {
             En = En0;
             ValDI = ValDI0;
-            IndxArrDI = indxArrDI0;
-            IndxBitDI = indxBitDI0;
+            indxArrDI = indxArrDI0;
+            indxBitDI = indxBitDI0;
             IndxW = indxW0;
             TegDI = TegDI0;
             NameDI = NameDI0;
@@ -50,7 +49,15 @@ namespace Simulator_MPSA.CL
             InvertDI = InvertDI0;
             DelayDI = DelayDI0;
         }
-
+        public static DIStruct FindByIndex(int index)
+        {
+            for (int i = 0; i < DIs.Length; i++)
+                if (DIs[i].indxArrDI == index)
+                {
+                    return DIs[i];
+                }
+            return null;
+        }
 
     }
 
