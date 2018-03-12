@@ -9,9 +9,9 @@ namespace Simulator_MPSA.CL
 {
     class ZDTableViewModel : BaseViewModel
     {
-        private ObservableCollection<ZDStruct> _zds;
+        private static ObservableCollection<ZDStruct> _zds;
 
-        public ObservableCollection<ZDStruct> ZDs
+        public static ObservableCollection<ZDStruct> ZDs
         {
             get { return _zds; }
             set { _zds = value; }
@@ -42,6 +42,13 @@ namespace Simulator_MPSA.CL
             foreach (ZDStruct valve in valves)
                 temp.Add(valve);
             _zds = temp;
+        }
+
+        public static ZDStruct[] GetArray()
+        {
+            ZDStruct[] temp = new ZDStruct[_zds.Count];
+            _zds.CopyTo(temp, 0);
+            return temp;
         }
     }
 }

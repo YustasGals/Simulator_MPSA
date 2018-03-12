@@ -33,6 +33,7 @@ namespace Simulator_MPSA
            // dataGrid.DataContext = model;
             this.DataContext = model;
             objectType = typeof(VSStruct);
+            Title = "Настройка вспомсистемы";
         }
         public SetupDialog(KLStruct klapan)
         {
@@ -41,6 +42,7 @@ namespace Simulator_MPSA
             model = new SetupTableModel(klapan);
             this.DataContext = model;
             objectType = typeof(KLStruct);
+            Title = "Настройка клапана (заслонки)";
         }
         private void button_OK_Click(object sender, RoutedEventArgs e)
         {

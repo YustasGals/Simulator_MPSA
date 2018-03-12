@@ -749,7 +749,7 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, VSs);
+            xml.Serialize(writeStream, VSTableViewModel.GetArray());
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("VSsettings.xml saved.");
         }
@@ -915,6 +915,7 @@ namespace Simulator_MPSA
             if (activeTabHeader == "VS")
             {
                 dialog.Title = "Сохранение таблицы VS";
+                
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     SaveSettVS(dialog.FileName);
                 return;
@@ -1027,8 +1028,12 @@ namespace Simulator_MPSA
                 }
                 else
                 {
-                    dialog = new SetupDialog(dataGridVS.SelectedItem as VSStruct);
-                    dialog.Show();
+                VSStruct temp = dataGridVS.SelectedItem as VSStruct;
+                    if (temp != null)
+                    {
+                        dialog = new SetupDialog(temp);
+                        dialog.Show();
+                    }
                 }
 
         }
@@ -1041,8 +1046,12 @@ namespace Simulator_MPSA
             }
             else
             {
-                dialog = new SetupDialog(dataGridKL.SelectedItem as KLStruct);
-                dialog.Show();
+                KLStruct temp = dataGridKL.SelectedItem as KLStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
             }
         }
     }

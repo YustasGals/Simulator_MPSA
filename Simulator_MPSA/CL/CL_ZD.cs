@@ -12,30 +12,39 @@ namespace Simulator_MPSA
     class CL_ZD
     {
     }
+    public enum StateZD { Opening, Open, Middle, Closing, Close, Undef };
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public class ZDStruct
     {
-        private bool _En=false ; // наличие в обработке задвижки
-        private int _DOBindxArrDO=0;
-        private int _DKBindxArrDO=0;
-        private int _DCBindxArrDO=0;
-        private int _DCBZindxArrDO=0;
-        private bool _changedDO=false; // наличие изменений во входных сигналах блока
-        private int _OKCindxArrDI=0;
-        private int _CKCindxArrDI=0;
-        private int _ODCindxArrDI=0;
-        private int _CDCindxArrDI=0;
-        private int _DCindxArrDI=0;
-        private int _VoltindxArrDI=0;
-        private int _MCindxArrDI=0;
-        private int _OPCindxArrDI=0;
-        private float _ZDProc=0.0f; // процент открытия задвижки
-        private bool _changedDI=false; // наличие изменений в выходных сигналах блока
-        private int _TmoveZD=600; // время полного хода звдвижки, сек
-        private int _TscZD=3;  // время схода с концевиков, сек
-        private string _description="";  //название задвижки
-        private string _group="";    //название подсистемы в которую входи задвижка
+        private bool _En = false; // наличие в обработке задвижки
+        private int _DOBindxArrDO = 0;
+        private int _DKBindxArrDO = 0;
+        private int _DCBindxArrDO = 0;
+        private int _DCBZindxArrDO = 0;
+        private bool _changedDO = false; // наличие изменений во входных сигналах блока
+        private int _OKCindxArrDI = 0;
+        private int _CKCindxArrDI = 0;
+        private int _ODCindxArrDI = 0;
+        private int _CDCindxArrDI = 0;
+        private int _DCindxArrDI = 0;
+        private int _VoltindxArrDI = 0;
+        private int _MCindxArrDI = 0;
+        private int _OPCindxArrDI = 0;
+        private float _ZDProc = 0.0f; // процент открытия задвижки
+        private bool _changedDI = false; // наличие изменений в выходных сигналах блока
+        private int _TmoveZD = 600; // время полного хода звдвижки, сек
+        private int _TscZD = 3;  // время схода с концевиков, сек
+        private string _description = "";  //название задвижки
+        private string _group = "";    //название подсистемы в которую входи задвижка
+
+        private StateZD _stateZD=StateZD.Undef;
+        private StateZD StateZD
+        {
+            get { return _stateZD; }
+            set { _stateZD = value; }
+        }
+
         public ZDStruct()
         {
         }

@@ -157,15 +157,15 @@
                     <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Value" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxArrDO" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxBitDO" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxR" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="TagDO" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="ShortDesc" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Модуль" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="Invert" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="changedDO" Binding="{Binding changedDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
+                           
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -174,9 +174,11 @@
                 <Grid >
                     <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" KeyDown="ZDTable_keydown" CanUserResizeRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
                         <DataGrid.Columns>
+                            <DataGridTextColumn Header="Включить" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="enable" Binding="{Binding En}"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -185,7 +187,7 @@
                 <Grid >
                     <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" MouseDoubleClick="dataGridKL_MouseDoubleClick" >
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding En}"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding State}"/>
@@ -198,10 +200,29 @@
                 <Grid >
                     <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding En}" IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="False">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="Stop">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Work">
+                                                <Setter Property="Background" Value="Green"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Starting">
+                                                <Setter Property="Background" Value="GreenYellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Stoping">
+                                                <Setter Property="Background" Value="YellowGreen"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
 
                         </DataGrid.Columns> 
                     </DataGrid>

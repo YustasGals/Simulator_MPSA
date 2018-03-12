@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Настройка вспомсистемы" Height="532" Width="803.5">
     <Grid Margin="0,0,2,0">
-        <DataGrid x:Name="dataGrid" Margin="10,97,10,0" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" Height="185" VerticalAlignment="Top" >
+        <DataGrid x:Name="dataGrid" Margin="10,97,10,0" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" Height="129" VerticalAlignment="Top" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -23,8 +23,18 @@
         <Label Content="Группа" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="99"/>
         <TextBox x:Name="textBox_group"  Text="{Binding Path = Group}" Height="23" Margin="114,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
         <Label Content="Настройка выходов (AI, DI):" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" HorizontalAlignment="Left" Margin="10,313,0,37" Width="774"/>
-        <Label Content="Настройка входов (DO):" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Margin="10,257,10,0" Height="101" VerticalAlignment="Top" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
+                <DataGridCheckBoxColumn Header="Аналоговый" Binding="{Binding IsAnalog}"/>
+                <DataGridTextColumn Header="Значение аналогового" Binding="{Binding ActivationValue}"/>
+                <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignal}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Настройка входов (DO):" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top"/>
+        <Label Content="Дополнительные настройки" HorizontalAlignment="Left" Margin="10,363,0,0" VerticalAlignment="Top"/>
+        <DataGrid Margin="10,389,10,46"/>
 
     </Grid>
 </Window>

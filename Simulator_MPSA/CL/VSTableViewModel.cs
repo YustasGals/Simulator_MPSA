@@ -10,8 +10,8 @@ namespace Simulator_MPSA.CL
 {
     public class VSTableViewModel
     {
-        private ObservableCollection<VSStruct> _vs;
-        public ObservableCollection<VSStruct> VS
+        private static ObservableCollection<VSStruct> _vs;
+        public static ObservableCollection<VSStruct> VS
         {
             get { return _vs; }
             set { _vs = value; }
@@ -34,6 +34,12 @@ namespace Simulator_MPSA.CL
             foreach (VSStruct agr in vs_arr)
                 temp.Add(agr);
             _vs = temp;
+        }
+        public static VSStruct[] GetArray()
+        {
+            VSStruct[] temp = new VSStruct[_vs.Count];
+            _vs.CopyTo(temp, 0);
+            return temp;
         }
     }
 }
