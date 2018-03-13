@@ -60,7 +60,7 @@ namespace Simulator_MPSA
             InitializeComponent();
             model = new SetupTableModel(agr);
             this.DataContext = model;
-            objectType = typeof(ZDStruct);
+            objectType = typeof(MPNAStruct);
             Title = "Настройка агрегата МНА/ПНА";
         }
         private void button_OK_Click(object sender, RoutedEventArgs e)

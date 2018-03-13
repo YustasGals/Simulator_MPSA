@@ -12,7 +12,6 @@ namespace Simulator_MPSA.CL
     public class DIStruct
     {
         public static DIStruct[] items = new DIStruct[0];
-
         public bool En
         { set; get; }
         public bool ValDI

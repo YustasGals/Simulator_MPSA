@@ -17,10 +17,12 @@ namespace Simulator_MPSA
     {
         public bool En
         { get; set; }
-
+        
         private KLState _state;
         public KLState State
-        { get { return _state; } }
+        { get { return _state; }
+          set { _state = value; }
+        }
 
         private string name;
         public string Description
@@ -175,6 +177,14 @@ namespace Simulator_MPSA
         {
             // тут будет логика  !!!
             return KLProc;
+        }
+
+        public void UpdateRefs()
+        {
+            DOBindxArrDO = _DOBindxArrDO;
+            DKBindxArrDO = _DKBindxArrDO;
+            OKCindxArrDI = _OKCindxArrDI;
+            CKCindxArrDI = _CKCindxArrDI;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

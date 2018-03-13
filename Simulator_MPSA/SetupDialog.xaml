@@ -17,7 +17,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="button_OK" Content="Применить" Margin="0,0,79,10" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="93" Click="button_OK_Click"/>
-        <Button x:Name="button_cancel" Content="Cancel" Margin="0,0,10,10" VerticalAlignment="Bottom" IsCancel="True" HorizontalAlignment="Right" Width="64" Click="button_cancel_Click"/>
+        <Button x:Name="button_cancel" Content="Отмена" Margin="0,0,10,10" VerticalAlignment="Bottom" IsCancel="True" HorizontalAlignment="Right" Width="64" Click="button_cancel_Click"/>
         <Label Content="Наименование" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="30" Width="99"/>
         <TextBox x:Name="textBox_name" Text="{Binding Path =Name }" Height="23" Margin="114,12,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="356"/>
         <Label Content="Группа" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="99"/>

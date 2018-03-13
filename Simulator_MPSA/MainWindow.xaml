@@ -36,8 +36,9 @@
             <MenuItem Header="Файл">
                 <MenuItem Header="Новый" />
                 <MenuItem Header="Открыть все" Click="Menu_OpenAll"/>
-                <MenuItem Header="Сохранить таблицу" Click="Menu_SaveSingle" />
-                <MenuItem Header="Сохранить всё" Click="Menu_SaveAll" />
+                <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
+                <MenuItem Header="Сохранить в отдельные xml" Click="Menu_SaveAll" />
+                <MenuItem Header="Загрузить из отдельных xml" Click="Menu_LoadSeq" />
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
             </MenuItem>
@@ -223,7 +224,15 @@
             </TabItem>
             <TabItem Header="MPNA">
                 <Grid >
-                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"></DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                 </Grid>
             </TabItem>
         </TabControl>

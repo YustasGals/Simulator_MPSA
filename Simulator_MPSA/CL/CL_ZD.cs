@@ -37,7 +37,7 @@ namespace Simulator_MPSA
         private bool _changedDI = false; // наличие изменений в выходных сигналах блока
         private int _TmoveZD = 600; // время полного хода звдвижки, сек
         private int _TscZD = 3;  // время схода с концевиков, сек
-        private string _description = "";  //название задвижки
+        private string _description = "Задвижка";  //название задвижки
         private string _group = "";    //название подсистемы в которую входи задвижка
 
         private StateZD _stateZD = StateZD.Undef;
@@ -379,6 +379,24 @@ namespace Simulator_MPSA
             set { _group = value; OnPropertyChanged("Group"); }
         }
 
+        /// <summary>
+        /// Обновление ссылок на сигналы DI,DO,AI, следует вызывать после загрузки файла настроек
+        /// </summary>
+        public void UpdateRefs()
+        {
+            
+            DOBindxArrDO = _DOBindxArrDO;
+            DCBindxArrDO = _DCBindxArrDO;
+            DKBindxArrDO = _DKBindxArrDO;
+            DCBZindxArrDO = _DCBZindxArrDO;
+            ODCindxArrDI = _ODCindxArrDI;
+            CDCindxArrDI = _CDCindxArrDI;
+            OKCindxArrDI = _OKCindxArrDI;
+            CKCindxArrDI = _CKCindxArrDI;
+            DCindxArrDI = _DCindxArrDI;
+            VoltindxArrDI = _VoltindxArrDI;
+            MCindxArrDI = _MCindxArrDI;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
         {

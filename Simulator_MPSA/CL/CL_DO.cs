@@ -13,7 +13,7 @@ namespace Simulator_MPSA
     [Serializable]
     public class DOStruct
     {
-        public static DOStruct[] items = new DOStruct[0];
+        public static DOStruct[] items= new DOStruct[0];
         public bool En;
         public bool ValDO;
         public int indxArrDO; // index in AI

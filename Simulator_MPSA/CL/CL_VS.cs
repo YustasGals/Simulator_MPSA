@@ -16,6 +16,7 @@ namespace Simulator_MPSA
     [Serializable]
     public class VSStruct : INotifyPropertyChanged
     {
+      
         public bool En
         { set; get; }
         private string _descr;
@@ -339,8 +340,18 @@ namespace Simulator_MPSA
 
             state = VSState.Stop;
         }
-      
 
+        /// <summary>
+        /// Обновление ссылок
+        /// </summary>
+        public void UpdateRefs()
+        {
+            ECindxArrDI = _ecindx;
+            MPCindxArrDI = _MPCindxArrDI;
+            PCindxArrDI = _PCindxArrDI;
+            ABOindxArrDO = _ABOindxArrDO;
+            ABBindxArrDO = _ABBindxArrDO;
+        }
         /// <summary>
         /// обновление состояния вспомсистемы
         /// </summary>

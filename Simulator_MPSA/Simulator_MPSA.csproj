@@ -92,6 +92,7 @@
     <Compile Include="CL\DOTableViewModel.cs" />
     <Compile Include="CL\DOViewModel.cs" />
     <Compile Include="CL\KLTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
     <Compile Include="CL\SetupTableModel.cs" />
     <Compile Include="CL\Station.cs" />

@@ -52903,6 +52903,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-Р с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>129</DOBindxArrDO>
@@ -52916,6 +52917,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-Р с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>131</DOBindxArrDO>
@@ -52929,6 +52931,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Жалюзи АВОА-Р с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>161</DOBindxArrDO>
@@ -52942,6 +52945,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Жалюзи АВОА-Р с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>163</DOBindxArrDO>
@@ -52955,6 +52959,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Жалюзи АВОА-Р с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>193</DOBindxArrDO>
@@ -52968,6 +52973,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Жалюзи АВОА-Р с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>195</DOBindxArrDO>
@@ -52981,6 +52987,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Жалюзи АВОА-Р с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>225</DOBindxArrDO>
@@ -52994,6 +53001,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Жалюзи АВОА-Р с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>227</DOBindxArrDO>
@@ -53007,6 +53015,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>133</DOBindxArrDO>
@@ -53020,6 +53029,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>135</DOBindxArrDO>
@@ -53033,6 +53043,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>165</DOBindxArrDO>
@@ -53046,6 +53057,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>167</DOBindxArrDO>
@@ -53059,6 +53071,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>197</DOBindxArrDO>
@@ -53072,6 +53085,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>199</DOBindxArrDO>
@@ -53085,6 +53099,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>229</DOBindxArrDO>
@@ -53098,6 +53113,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>231</DOBindxArrDO>
@@ -53111,6 +53127,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Воздушные клапаны АВОА-Р и АВОА-С</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53124,6 +53141,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Воздушные клапаны АВОА-Р и АВОА-С</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53137,6 +53155,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Воздушные клапаны АВОА-Р и АВОА-С</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53150,6 +53169,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Воздушные клапаны АВОА-Р и АВОА-С</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53163,6 +53183,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Байпасная заслонка подпорного вентилятора контура А</Description>
       <Group>Group</Group>
       <DOBindxArrDO>510</DOBindxArrDO>
@@ -53176,6 +53197,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Байпасная заслонка подпорного вентилятора контура А</Description>
       <Group>Group</Group>
       <DOBindxArrDO>574</DOBindxArrDO>
@@ -53189,6 +53211,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Байпасная заслонка подпорного вентилятора контура А</Description>
       <Group>Group</Group>
       <DOBindxArrDO>638</DOBindxArrDO>
@@ -53202,6 +53225,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Байпасная заслонка подпорного вентилятора контура А</Description>
       <Group>Group</Group>
       <DOBindxArrDO>702</DOBindxArrDO>
@@ -53215,6 +53239,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Байпасная заслонка подпорного вентилятора контура В</Description>
       <Group>Group</Group>
       <DOBindxArrDO>512</DOBindxArrDO>
@@ -53228,6 +53253,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Байпасная заслонка подпорного вентилятора контура В</Description>
       <Group>Group</Group>
       <DOBindxArrDO>576</DOBindxArrDO>
@@ -53241,6 +53267,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Байпасная заслонка подпорного вентилятора контура В</Description>
       <Group>Group</Group>
       <DOBindxArrDO>640</DOBindxArrDO>
@@ -53254,6 +53281,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Байпасная заслонка подпорного вентилятора контура В</Description>
       <Group>Group</Group>
       <DOBindxArrDO>704</DOBindxArrDO>
@@ -53267,6 +53295,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе подпорной установки МНА 003.1</Description>
       <Group>Group</Group>
       <DOBindxArrDO>513</DOBindxArrDO>
@@ -53280,6 +53309,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе подпорной установки МНА 003.2</Description>
       <Group>Group</Group>
       <DOBindxArrDO>577</DOBindxArrDO>
@@ -53293,6 +53323,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе подпорной установки МНА 003.3</Description>
       <Group>Group</Group>
       <DOBindxArrDO>641</DOBindxArrDO>
@@ -53306,6 +53337,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе подпорной установки МНА 003.4</Description>
       <Group>Group</Group>
       <DOBindxArrDO>705</DOBindxArrDO>
@@ -53319,6 +53351,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка подачи воздуха к осушителю МНА 003.1</Description>
       <Group>Group</Group>
       <DOBindxArrDO>514</DOBindxArrDO>
@@ -53332,6 +53365,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка подачи воздуха к осушителю МНА 003.2</Description>
       <Group>Group</Group>
       <DOBindxArrDO>578</DOBindxArrDO>
@@ -53345,6 +53379,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка подачи воздуха к осушителю МНА 003.3</Description>
       <Group>Group</Group>
       <DOBindxArrDO>642</DOBindxArrDO>
@@ -53358,6 +53393,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка подачи воздуха к осушителю МНА 003.4</Description>
       <Group>Group</Group>
       <DOBindxArrDO>706</DOBindxArrDO>
@@ -53371,6 +53407,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе системы осушки воздуха МНА 003.1</Description>
       <Group>Group</Group>
       <DOBindxArrDO>515</DOBindxArrDO>
@@ -53384,6 +53421,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе системы осушки воздуха МНА 003.2</Description>
       <Group>Group</Group>
       <DOBindxArrDO>579</DOBindxArrDO>
@@ -53397,6 +53435,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе системы осушки воздуха МНА 003.3</Description>
       <Group>Group</Group>
       <DOBindxArrDO>643</DOBindxArrDO>
@@ -53410,6 +53449,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Заслонка на входе системы осушки воздуха МНА 003.4</Description>
       <Group>Group</Group>
       <DOBindxArrDO>707</DOBindxArrDO>
@@ -53423,6 +53463,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.1. Клапан противопожарный подпорных вентиляторов (КЛОП-2-1)</Description>
       <Group>Group</Group>
       <DOBindxArrDO>384</DOBindxArrDO>
@@ -53436,6 +53477,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.2. Клапан противопожарный подпорных вентиляторов (КЛОП-2-2)</Description>
       <Group>Group</Group>
       <DOBindxArrDO>385</DOBindxArrDO>
@@ -53449,6 +53491,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.3. Клапан противопожарный подпорных вентиляторов (КЛОП-2-3)</Description>
       <Group>Group</Group>
       <DOBindxArrDO>448</DOBindxArrDO>
@@ -53462,6 +53505,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>МНА 003.4. Клапан противопожарный подпорных вентиляторов (КЛОП-2-4)</Description>
       <Group>Group</Group>
       <DOBindxArrDO>449</DOBindxArrDO>
@@ -53475,6 +53519,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Клапан противопожарный (КЛОП) насосного зала МНС</Description>
       <Group>Group</Group>
       <DOBindxArrDO>386</DOBindxArrDO>
@@ -53488,6 +53533,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Клапан КлПЕ9 приточной системы МНС</Description>
       <Group>Group</Group>
       <DOBindxArrDO>389</DOBindxArrDO>
@@ -53501,6 +53547,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Клапан КлПЕ10 приточной системы МНС</Description>
       <Group>Group</Group>
       <DOBindxArrDO>450</DOBindxArrDO>
@@ -53514,6 +53561,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
+      <State>Open</State>
       <Description>Проходной регулирующий клапан КР1 системы оборотного охлаждения</Description>
       <Group>Group</Group>
       <DOBindxArrDO>374</DOBindxArrDO>
@@ -53527,6 +53575,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №49</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53540,6 +53589,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №50</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53553,6 +53603,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №51</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53566,6 +53617,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №52</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53579,6 +53631,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №53</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53592,6 +53645,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №54</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53605,6 +53659,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №55</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53618,6 +53673,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №56</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53631,6 +53687,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №57</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53644,6 +53701,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №58</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53657,6 +53715,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №59</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53670,6 +53729,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №60</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53683,6 +53743,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №61</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53696,6 +53757,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №62</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53709,6 +53771,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №63</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53722,6 +53785,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №64</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53735,6 +53799,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №65</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53748,6 +53813,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №66</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53761,6 +53827,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №67</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53774,6 +53841,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №68</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53787,6 +53855,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №69</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53800,6 +53869,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №70</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53813,6 +53883,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №71</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53826,6 +53897,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №72</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53839,6 +53911,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №73</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53852,6 +53925,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №74</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53865,6 +53939,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №75</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53878,6 +53953,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №76</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53891,6 +53967,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №77</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53904,6 +53981,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №78</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53917,6 +53995,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №79</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53930,6 +54009,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №80</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53943,6 +54023,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №81</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53956,6 +54037,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №82</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53969,6 +54051,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №83</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53982,6 +54065,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №84</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -53995,6 +54079,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №85</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54008,6 +54093,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №86</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54021,6 +54107,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №87</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54034,6 +54121,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №88</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54047,6 +54135,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №89</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54060,6 +54149,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №90</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54073,6 +54163,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №91</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54086,6 +54177,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №92</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54099,6 +54191,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №93</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54112,6 +54205,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №94</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54125,6 +54219,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №95</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54138,6 +54233,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №96</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54151,6 +54247,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №97</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54164,6 +54261,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №98</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54177,6 +54275,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №99</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54190,6 +54289,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>false</En>
+      <State>Open</State>
       <Description>Клапан №100</Description>
       <Group>Group</Group>
       <DOBindxArrDO>0</DOBindxArrDO>
@@ -54201,7 +54301,7 @@
   </KLs>
   <MPNAs>
     <MPNAStruct>
-      <En>false</En>
+      <_En>false</_En>
       <ABBindxArrDO>0</ABBindxArrDO>
       <ABOindxArrDO>0</ABOindxArrDO>
       <changedDO>false</changedDO>
@@ -54218,9 +54318,12 @@
       <MPNAProc>0</MPNAProc>
       <changedDI>false</changedDI>
       <Tmove>0</Tmove>
+      <En>false</En>
+      <Description>MNA1</Description>
+      <Group>Группа</Group>
     </MPNAStruct>
     <MPNAStruct>
-      <En>false</En>
+      <_En>false</_En>
       <ABBindxArrDO>0</ABBindxArrDO>
       <ABOindxArrDO>0</ABOindxArrDO>
       <changedDO>false</changedDO>
@@ -54237,9 +54340,12 @@
       <MPNAProc>0</MPNAProc>
       <changedDI>false</changedDI>
       <Tmove>0</Tmove>
+      <En>false</En>
+      <Description>MNA2</Description>
+      <Group>Группа</Group>
     </MPNAStruct>
     <MPNAStruct>
-      <En>false</En>
+      <_En>false</_En>
       <ABBindxArrDO>0</ABBindxArrDO>
       <ABOindxArrDO>0</ABOindxArrDO>
       <changedDO>false</changedDO>
@@ -54256,253 +54362,31 @@
       <MPNAProc>0</MPNAProc>
       <changedDI>false</changedDI>
       <Tmove>0</Tmove>
+      <En>false</En>
+      <Description>MNA3</Description>
+      <Group>Группа</Group>
     </MPNAStruct>
     <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
+      <_En>false</_En>
+      <ABBindxArrDO>-1</ABBindxArrDO>
+      <ABOindxArrDO>-1</ABOindxArrDO>
       <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
+      <MBC12indxArrDI>-1</MBC12indxArrDI>
+      <MBC22indxArrDI>-1</MBC22indxArrDI>
+      <ECBindxArrDI>-1</ECBindxArrDI>
+      <ECO12indxArrDI>-1</ECO12indxArrDI>
+      <CTindxArrDI>-1</CTindxArrDI>
+      <MBC11indxArrDI>-1</MBC11indxArrDI>
+      <MBC21indxArrDI>-1</MBC21indxArrDI>
+      <ECxindxArrDI>-1</ECxindxArrDI>
+      <ECO11indxArrDI>-1</ECO11indxArrDI>
+      <ECindxArrDI>-1</ECindxArrDI>
       <MPNAProc>0</MPNAProc>
       <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
+      <Tmove>1</Tmove>
       <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
-    </MPNAStruct>
-    <MPNAStruct>
-      <En>false</En>
-      <ABBindxArrDO>0</ABBindxArrDO>
-      <ABOindxArrDO>0</ABOindxArrDO>
-      <changedDO>false</changedDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
-      <CTindxArrDI>0</CTindxArrDI>
-      <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
-      <ECindxArrDI>0</ECindxArrDI>
-      <MPNAProc>0</MPNAProc>
-      <changedDI>false</changedDI>
-      <Tmove>0</Tmove>
+      <Description>MNA4</Description>
+      <Group>Группа</Group>
     </MPNAStruct>
   </MPNAs>
   <settings>
@@ -59665,7 +59549,7 @@
       <TmoveZD>500</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №1м-1</Description>
-      <Group>Group</Group>
+      <Group>Группа</Group>
     </ZDStruct>
     <ZDStruct>
       <En>true</En>

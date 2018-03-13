@@ -143,8 +143,28 @@ namespace Simulator_MPSA.CL
 
         }
 
+
         public SetupTableModel(MPNAStruct agr)
         {
+            type = typeof(MPNAStruct);
+            obj = agr;
+            Name = agr.Description;
+            Group = agr.Group;
+
+            outputs = new List<InputOutputItem>();
+            outputs.Add(new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name));
+            outputs.Add(new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name));
+            outputs.Add(new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name));
+            outputs.Add(new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name));
+            outputs.Add(new InputOutputItem("Сила тока ЭД", agr.CTindxArrDI, true, 0, agr.CTName));
+            outputs.Add(new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName));
+            outputs.Add(new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name));
+            outputs.Add(new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name));
+            outputs.Add(new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName));
+
+            inputs = new List<InputOutputItem>();
+            inputs.Add(new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName));
+            inputs.Add(new InputOutputItem("Команда на отключение", agr.ABOindxArrDO, agr.ABOName));
         }
 
         public void ApplyChanges()
@@ -200,6 +220,25 @@ namespace Simulator_MPSA.CL
                 temp.DCBindxArrDO = inputs[1].Index;
                 temp.DKBindxArrDO = inputs[2].Index;
                 temp.DCBZindxArrDO = inputs[3].Index;
+            }
+            if (type == typeof(MPNAStruct))
+            {
+                MPNAStruct agr = obj as MPNAStruct;
+
+                agr.Description = Name;
+                agr.Group = Group;
+                agr.MBC11indxArrDI = outputs[0].Index;
+                agr.MBC12indxArrDI = outputs[1].Index;
+                agr.MBC21indxArrDI = outputs[2].Index;
+                agr.MBC22indxArrDI = outputs[3].Index;
+                agr.CTindxArrDI = outputs[4].Index;
+                agr.ECBindxArrDI = outputs[5].Index;
+                agr.ECO11indxArrDI = outputs[6].Index;
+                agr.ECO12indxArrDI = outputs[7].Index;
+                agr.ECxindxArrDI = outputs[8].Index;
+
+                agr.ABBindxArrDO = inputs[0].Index;
+                agr.ABOindxArrDO = inputs[1].Index;
             }
         }
     }

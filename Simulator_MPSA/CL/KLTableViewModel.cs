@@ -9,8 +9,21 @@ namespace Simulator_MPSA.CL
 {
     class KLTableViewModel
     {
-        private ObservableCollection<KLStruct> _kl;
-        public ObservableCollection<KLStruct> KL
+        private static KLTableViewModel _instance;
+        public static KLTableViewModel Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = new KLTableViewModel();
+                return _instance;
+            }           
+            
+        }
+
+
+        private static ObservableCollection<KLStruct> _kl;
+        public static ObservableCollection<KLStruct> KL
         {
             get { return _kl; }
             set { _kl = value; }
@@ -19,19 +32,31 @@ namespace Simulator_MPSA.CL
         public int Count
         { get { return _kl.Count; } }
 
-        public KLTableViewModel()
+        private KLTableViewModel()
         {
             _kl = new ObservableCollection<KLStruct>();
             _kl.Add(new KLStruct());
         }
 
-        public KLTableViewModel(KLStruct[] kl_arr)
+        private KLTableViewModel(KLStruct[] kl_arr)
         {
             ObservableCollection<KLStruct> temp = new ObservableCollection<KLStruct>();
             foreach (KLStruct kl in kl_arr)
                 temp.Add(kl);
 
             _kl = temp;
+        }
+
+        public static void Init(KLStruct[] kl_arr)
+        {
+            _instance = new KLTableViewModel(kl_arr);
+        }
+
+        public static KLStruct[] GetArray()
+        {
+            KLStruct[] temp = new KLStruct[KL.Count];
+            _kl.CopyTo(temp, 0);
+            return temp;
         }
     }
 }
