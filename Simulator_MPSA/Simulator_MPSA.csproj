@@ -94,6 +94,7 @@
     <Compile Include="CL\KLTableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
     <Compile Include="CL\SetupTableModel.cs" />
+    <Compile Include="CL\Station.cs" />
     <Compile Include="SetupDialog.xaml.cs">
       <DependentUpon>SetupDialog.xaml</DependentUpon>
     </Compile>

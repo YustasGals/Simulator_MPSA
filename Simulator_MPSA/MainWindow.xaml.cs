@@ -347,37 +347,6 @@ namespace Simulator_MPSA
         #endregion
         private void Grid_Loaded(object sender, RoutedEventArgs e) // выполняется при загрузке основной формы программы, то есть при Старте ПО
         {
-           /* for (int i = 0; i < WB.W.Length; i++)   // for Debug !!!
-            {
-                WB.W[i] = (ushort)i; // заполняем массив для записи в ЦПУ значениями равными номеру элемента массива
-            }*/
-
-         /*   if (false) // !!! false == Disable Modbus for Debug !!!
-            {
-                // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
-                mbMaster = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(settings.HostName, settings.MBPort));
-
-                masterLoop = Task.Factory.StartNew(new Action(Update));
-                masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0));
-                masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1));
-                masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2));
-                masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3));
-                masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0));
-                masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1));
-                masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2));
-                masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3));
-            } else { 
-            //mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-            masterLoop = Task.Factory.StartNew(new Action(Update));
-            }*/
         }
         #region Dedollers
         public Depoller TagSource
@@ -448,26 +417,26 @@ namespace Simulator_MPSA
         #endregion
         void SendAItoW()  // записываем значение АЦП в массив для записи CPU
         {
-            for (int i = 0; i < AIStruct.AIs.Length; i++)
+            for (int i = 0; i < AIStruct.items.Length; i++)
             {
-                if (AIStruct.AIs[i].En /* || true */)
+                if (AIStruct.items[i].En /* || true */)
                 {
-                    WB.W[(AIStruct.AIs[i].indxW)] = AIStruct.AIs[i].ValACD; // записываем значение АЦП в массив для записи CPU
+                    WB.W[(AIStruct.items[i].indxW)] = AIStruct.items[i].ValACD; // записываем значение АЦП в массив для записи CPU
                 }
             }
         }
         void SendDItoW() // копирование значения сигналов DI в массив для записи в ЦПУ
         {
-            for (int i = 0; i < DIStruct.DIs.Length; i++)
+            for (int i = 0; i < DIStruct.items.Length; i++)
             {
-                SetBit(ref (WB.W[(DIStruct.DIs[i].IndxW)]), (DIStruct.DIs[i].indxBitDI), (DIStruct.DIs[i].ValDI));
+                SetBit(ref (WB.W[(DIStruct.items[i].IndxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
             }
         }
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
         {
-            for (int i = 0; i < DOStruct.DOs.Length; i++)
+            for (int i = 0; i < DOStruct.items.Length; i++)
             {
-                DOStruct.DOs[i].ValDO = GetBit(RB.R[DOStruct.DOs[i].indxR], DOStruct.DOs[i].indxBitDO);
+                DOStruct.items[i].ValDO = GetBit(RB.R[DOStruct.items[i].indxR], DOStruct.items[i].indxBitDO);
             }
         }
 
@@ -537,14 +506,14 @@ namespace Simulator_MPSA
             }
             RB.R = new ushort[(settings.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             WB.W = new ushort[(settings.NRackEnd - settings.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-            AIStruct.AIs = new AIStruct[settings.NAI];
+            AIStruct.items = new AIStruct[settings.NAI];
             //ZDs = new ZDStruct[settings.NZD];
-            DOStruct.DOs =new DOStruct[settings.NDO * 32];
+            DOStruct.items =new DOStruct[settings.NDO * 32];
             //ZDs = new ZDStruct[settings.NZD];
             KLs = new KLStruct[settings.NKL];
             VSs = new VSStruct[settings.NVS];
             MPNAs = new MPNAStruct[settings.NMPNA];
-            DIStruct.DIs = new DIStruct[settings.NDI * 32];
+            DIStruct.items = new DIStruct[settings.NDI * 32];
             //TODO: вставить код активации кнопки
         }
         #endregion
@@ -560,7 +529,7 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                AIStruct.AIs = (AIStruct[])xml.Deserialize(reader);
+                AIStruct.items = (AIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
 
                 System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
@@ -568,7 +537,7 @@ namespace Simulator_MPSA
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, AIStruct.AIs);
+                xml.Serialize(writer, AIStruct.items);
                 writer.Dispose();
             }
         }
@@ -577,7 +546,7 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, AIStruct.AIs);
+            xml.Serialize(writeStream, AIStruct.items);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
         }
@@ -594,14 +563,14 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DIStruct.DIs = (DIStruct[])xml.Deserialize(reader);
+                DIStruct.items = (DIStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
             }
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, DIStruct.DIs);
+                xml.Serialize(writer, DIStruct.items);
                 writer.Dispose();
             }
         }
@@ -610,7 +579,7 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DIStruct.DIs);
+            xml.Serialize(writeStream, DIStruct.items);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
         }
@@ -627,14 +596,14 @@ namespace Simulator_MPSA
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DOStruct.DOs = (DOStruct[])xml.Deserialize(reader);
+                DOStruct.items = (DOStruct[])xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
             }
             catch
             {
                 System.IO.StreamWriter writer = new System.IO.StreamWriter( Sxml);
-                xml.Serialize(writer, DOStruct.DOs);
+                xml.Serialize(writer, DOStruct.items);
                 writer.Dispose();
             }
         }
@@ -643,7 +612,7 @@ namespace Simulator_MPSA
         {
             XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DOStruct.DOs);
+            xml.Serialize(writeStream, DOStruct.items);
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("DOsettings.xml saved.");
         }
@@ -680,12 +649,10 @@ namespace Simulator_MPSA
         // ---------------------------------------------------------------------
         void SaveSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
         {
-            ZDStruct[] ZDs = new ZDStruct[zdmodel.Count];
-            zdmodel.ZDs.CopyTo(ZDs, 0);
             XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
 
-            xml.Serialize(writeStream, ZDs);
+            xml.Serialize(writeStream, ZDTableViewModel.GetArray());
             writeStream.Dispose();
             System.Windows.Forms.MessageBox.Show("ZDsettings.xml saved.");
         }
@@ -788,57 +755,7 @@ namespace Simulator_MPSA
         #endregion
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
-        void OpenXMLs()
-        {
-            LoadSettings();
-            LoadSettAI();
-            LoadSettDI(); 
-            LoadSettDO();
-            LoadSettZD();
-            LoadSettKL();
-            LoadSettVS();
 
-            dataGridAI.DataContext = new AITableViewModel(AIStruct.AIs);
-            dataGridDI.DataContext = new DITableViewModel(DIStruct.DIs);
-            dataGridDO.DataContext = new DOTableViewModel(DOStruct.DOs);
-            dataGridSettings.DataContext = new SettingsTableViewModel(settings);
-            dataGridVS.DataContext = new VSTableViewModel(VSs);
-            dataGridKL.DataContext = new KLTableViewModel(KLs);
-
-        }
-        // ---------------------------------------------------------------------
-
-
-        private void MenuItem_Click(object sender, RoutedEventArgs e) // open xml
-        {
-            OpenXMLs();
-            // OpenFileDialog ofd = new OpenFileDialog();
-            // ofd.Filter = "XML Files (*.xml)|*.xml";
-            // ofd.FilterIndex = 0;
-            // ofd.DefaultExt = "xml";
-            // if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            // {
-            //     if (!String.Equals(System.IO.Path.GetExtension(ofd.FileName),
-            //                        ".xml",
-            //                        StringComparison.OrdinalIgnoreCase))
-            //     {
-            //         // Invalid file type selected; display an error.
-            //         System.Windows.Forms.MessageBox.Show("The type of the selected file is not supported by this application. You must select an XML file.",
-            //                         "Invalid File Type",
-            //                         MessageBoxButtons.OK,
-            //                         MessageBoxIcon.Error);
-            //
-            //         // Optionally, force the user to select another file.
-            //         // ...
-            //     }
-            //     else
-            //     {
-            //         LoadSettings(ofd.FileName);
-            // The selected file is good; do something with it.
-            // ...
-            //     }
-            // }
-        }
         void CloseApp()
         {
             System.Windows.Application curApp = System.Windows.Application.Current;
@@ -849,11 +766,55 @@ namespace Simulator_MPSA
             CloseApp();
         }
 
-        private void btnOpen_Click(object sender, RoutedEventArgs e)
+        private void Menu_OpenAll(object sender, RoutedEventArgs e)
         {
-             OpenXMLs();   
+            Station station = new Station();
+
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "XML Files (*.xml)|*.xml";
+            dialog.FilterIndex = 0;
+            dialog.DefaultExt = "xml";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                if (station.Load(dialog.FileName) == StationLoadResult.OK)
+                {
+
+                    AIStruct.items = station.AIs;
+                    DIStruct.items = station.DIs;
+                    DOStruct.items = station.DOs;
+
+                    VSs = station.VSs;
+                    KLs = station.KLs;
+                    MPNAs = station.MPNAs;
+                    settings = station.settings;
+
+                    RB.R = new ushort[(settings.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+                    WB.W = new ushort[(settings.NRackEnd - settings.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+
+
+
+                    dataGridAI.DataContext = new AITableViewModel(AIStruct.items);
+                    dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
+                    dataGridDO.DataContext = new DOTableViewModel(DOStruct.items);
+                    dataGridSettings.DataContext = new SettingsTableViewModel(settings);
+                    dataGridVS.DataContext = new VSTableViewModel(VSs);
+                    dataGridKL.DataContext = new KLTableViewModel(KLs);
+
+                    zdmodel = new ZDTableViewModel(station.ZDs);
+                    dataGridZD.DataContext = zdmodel;
+                }
+             
+             //старый способ загрузки
+           /* LoadSettings();
+            LoadSettDI();
+            LoadSettDO();
+            LoadSettAI();
+
+            LoadSettKL();
+            LoadSettVS();
+            LoadSettZD();
+            LoadSettMPNA();*/
         }
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void Menu_SaveSingle(object sender, RoutedEventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog
             {
@@ -861,8 +822,20 @@ namespace Simulator_MPSA
                 OverwritePrompt = true,
                 Filter = "xml-файл|*.xml"
             };
-
-            string activeTabHeader = ((TabItem)tabControl.SelectedItem).Header.ToString();
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Station s = new Station();
+                s.AIs = AIStruct.items;
+                s.DIs = DIStruct.items;
+                s.DOs = DOStruct.items;
+                s.VSs = VSs;
+                s.KLs = KLs;
+                s.MPNAs = MPNAs;
+                s.settings = settings;
+                s.ZDs = ZDTableViewModel.GetArray();
+                s.Save(dialog.FileName);
+            }
+           /* string activeTabHeader = ((TabItem)tabControl.SelectedItem).Header.ToString();
             Debug.WriteLine("save tab: "+ activeTabHeader);
             if (activeTabHeader == "Settings")
             {
@@ -926,7 +899,8 @@ namespace Simulator_MPSA
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                     SaveSettMPNA(dialog.FileName);
                 return;
-            }
+            }*/
+
             /*   if (MessageBox.Show("Сохранить настройки в файл?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                    SaveSettings();*/
 
@@ -942,18 +916,18 @@ namespace Simulator_MPSA
 
 
         }
-        private void btnSaveAll_Click(object sender, RoutedEventArgs e)
+        private void Menu_SaveAll(object sender, RoutedEventArgs e)
         {
             if (System.Windows.MessageBox.Show("Внимание! Все таблицы будут сохранены в файлы по умолчанию.", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
             {
-                SaveSettings();
+                /*SaveSettings();
                 SaveSettAI();
                 SaveSettDI();
                 SaveSettDO();
                 SaveSettZD();
                 SaveSettKL();
                 SaveSettVS();
-                SaveSettMPNA();
+                SaveSettMPNA();*/
             }
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -1003,21 +977,6 @@ namespace Simulator_MPSA
 
         }
 
-        private void ZDTable_keydown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Delete)
-            {
-                if (System.Windows.MessageBox.Show("Удалить выбранные строки?","Подтверждение",System.Windows.MessageBoxButton.YesNo,MessageBoxImage.Warning) == MessageBoxResult.Yes)
-                {
-                    ZDStruct[] selectedZDs = new ZDStruct[dataGridZD.SelectedItems.Count];
-                    dataGridZD.SelectedItems.CopyTo(selectedZDs, 0);
-
-                    foreach (ZDStruct zd in selectedZDs)
-                        zdmodel.ZDs.Remove(zd);
-                }
-            }
-        }
-
         SetupDialog dialog;
         private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
@@ -1047,6 +1006,23 @@ namespace Simulator_MPSA
             else
             {
                 KLStruct temp = dataGridKL.SelectedItem as KLStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
+            }
+        }
+
+        private void dataGridZD_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+            }
+            else
+            {
+                ZDStruct temp = dataGridZD.SelectedItem as ZDStruct;
                 if (temp != null)
                 {
                     dialog = new SetupDialog(temp);

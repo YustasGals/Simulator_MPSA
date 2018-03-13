@@ -11,7 +11,7 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class DIStruct
     {
-        public static DIStruct[] DIs = new DIStruct[0];
+        public static DIStruct[] items = new DIStruct[0];
 
         public bool En
         { set; get; }
@@ -51,10 +51,10 @@ namespace Simulator_MPSA.CL
         }
         public static DIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < DIs.Length; i++)
-                if (DIs[i].indxArrDI == index)
+            for (int i = 0; i < items.Length; i++)
+                if (items[i].indxArrDI == index)
                 {
-                    return DIs[i];
+                    return items[i];
                 }
             return null;
         }

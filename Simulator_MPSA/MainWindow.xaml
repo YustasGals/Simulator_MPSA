@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Simulator_MPSA" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
+        Title="Имитатор полевых сигналов МПСА v1.0" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -33,19 +33,16 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" Click="MenuItem_Click" />
-                <MenuItem Header="_Save" Click="MenuItem_Click_save" />
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новый" />
+                <MenuItem Header="Открыть все" Click="Menu_OpenAll"/>
+                <MenuItem Header="Сохранить таблицу" Click="Menu_SaveSingle" />
+                <MenuItem Header="Сохранить всё" Click="Menu_SaveAll" />
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Command="Cut" />
-                <MenuItem Command="Copy" />
-                <MenuItem Command="Paste" />
-            </MenuItem>
-            <MenuItem Header="_Tools">
+            
+            <MenuItem Header="Инструменты">
                 <MenuItem Header="_Manage users">
                     <!-- 
                         <MenuItem.Icon>
@@ -55,40 +52,36 @@
                 </MenuItem>
                 <MenuItem Header="_Show groups" IsCheckable="True" IsChecked="True" />
             </MenuItem>
-            <Separator />
-            <MenuItem Header="_About" HorizontalAlignment="Right" ></MenuItem>
+            <MenuItem Header="О программе" HorizontalAlignment="Right" ></MenuItem>
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
-            <Button x:Name="btnOpen" Click="btnOpen_Click" ToolTip="Open">
+            <Button x:Name="btnOpen" Click="Menu_OpenAll" ToolTip="Open">
                 <Image Source="IMG/open.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnSave" Click="btnSave_Click" ToolTip="Save">
+            <Button x:Name="btnSave" Click="Menu_SaveSingle" ToolTip="Save">
                 <Image Source="IMG/save.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnSaveAll" Click="btnSaveAll_Click" ToolTip="Save All">
+            <Button x:Name="btnSaveAll" Click="Menu_SaveAll" ToolTip="Save All">
                 <Image Source="IMG/saveAll.png" />
             </Button>
+            <Button x:Name="btnClose" Click="btnClose_Click" ToolTip="Close"/>
             <Separator />
-            <Button x:Name="btnClose" Click="btnClose_Click" ToolTip="Close">
-                <Image Source="IMG/close.png" />
-            </Button>
-            <Separator />
-            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Start">
+            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Start" AutomationProperties.HelpText="Пуск">
                 <Image Source="IMG/START.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="Pause">
+            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="Pause" AutomationProperties.HelpText="Пауза">
                 <Image Source="IMG/PAUSE.png" />
             </Button>
             <Separator />
             <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop">
-                <Image Source="IMG/STOP.png" />
+                <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Separator />
-            <TextBox x:Name="tbFind" Foreground="LightGray" Width="100">Поиск...</TextBox>
+
         </ToolBar>
 
         <TreeView x:Name="dirTree" 
@@ -137,7 +130,7 @@
         </TreeView>
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
-            <TabItem Header="Settings">
+            <TabItem Header="Настройки подключения">
                 <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True">
         
                 </DataGrid>
@@ -156,15 +149,15 @@
                 <Grid >
                     <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Модуль" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Модуль" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                            
                         </DataGrid.Columns>
                     </DataGrid>
@@ -172,12 +165,12 @@
             </TabItem>
             <TabItem Header="ZD" >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" KeyDown="ZDTable_keydown" CanUserResizeRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False" MouseDoubleClick="dataGridZD_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Включить" Binding="{Binding En}"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
 
                         </DataGrid.Columns>
                     </DataGrid>
@@ -188,10 +181,10 @@
                     <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" MouseDoubleClick="dataGridKL_MouseDoubleClick" >
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}"/>
-                            <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"  IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -200,23 +193,23 @@
                 <Grid >
                     <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="False">
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="False"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
-                                            <Trigger Property="Text" Value="Stop">
+                                            <Trigger Property="Text" Value="Остановлен">
                                                 <Setter Property="Background" Value="Yellow"/>
                                             </Trigger>
-                                            <Trigger Property="Text" Value="Work">
+                                            <Trigger Property="Text" Value="В работе">
                                                 <Setter Property="Background" Value="Green"/>
                                             </Trigger>
-                                            <Trigger Property="Text" Value="Starting">
+                                            <Trigger Property="Text" Value="Запускается">
                                                 <Setter Property="Background" Value="GreenYellow"/>
                                             </Trigger>
-                                            <Trigger Property="Text" Value="Stoping">
+                                            <Trigger Property="Text" Value="Останавливается">
                                                 <Setter Property="Background" Value="YellowGreen"/>
                                             </Trigger>
                                         </Style.Triggers>

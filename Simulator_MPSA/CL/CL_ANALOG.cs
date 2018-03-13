@@ -10,7 +10,7 @@ namespace Simulator_MPSA
     [Serializable]
     public class AIStruct
     {
-        public static AIStruct[] AIs = new AIStruct[0];
+        public static AIStruct[] items = new AIStruct[0];
         public bool En ;
         public int indxAI; // index in AI
         public int indxW;
@@ -45,10 +45,10 @@ namespace Simulator_MPSA
         }
         public static AIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < AIs.Length; i++)
-                if (AIs[i].indxAI == index)
+            for (int i = 0; i < items.Length; i++)
+                if (items[i].indxAI == index)
                 {
-                    return AIs[i];
+                    return items[i];
                 }
             return null;
         }

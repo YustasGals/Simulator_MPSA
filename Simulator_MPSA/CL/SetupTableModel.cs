@@ -54,15 +54,15 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// выходы системы (DI)
         /// </summary>
-        private InputOutputItem[] outputs;
-        public InputOutputItem[] Outputs
+        private List<InputOutputItem> outputs;
+        public List<InputOutputItem> Outputs
         {
             get { return outputs; }
             set { outputs = value; }
         }
 
-        private InputOutputItem[] inputs;
-        public InputOutputItem[] Inputs
+        private List<InputOutputItem> inputs;
+        public List<InputOutputItem> Inputs
         {
             get { return inputs; }
             set { inputs = value; }
@@ -91,31 +91,14 @@ namespace Simulator_MPSA.CL
             Name = vs.Description;
             Group = vs.Group;
 
-            outputs = new InputOutputItem[3];
-            outputs[0] = new InputOutputItem();
-            outputs[0].Name = "Наличие напряжения";
-            outputs[0].Index = vs.ECindxArrDI;
-            outputs[0].IsAnalog = vs.isECAnalog;
-            outputs[0].ActivationValue = vs.valueEC;
-            outputs[0].AssignedSignal = vs.ECName;
+            outputs = new List<InputOutputItem>();
+            outputs.Add( new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, vs.isECAnalog, vs.valueEC, vs.ECName));
+            outputs.Add( new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, vs.isMPCAnalog, vs.valueMPC, vs.MPCName));
+            outputs.Add( new InputOutputItem("Давление на выходе агрегата", vs.PCindxArrDI, vs.isPCAnalog, vs.valuePC, vs.PCName));
 
-            outputs[1] = new InputOutputItem();
-            outputs[1].Name = "Магнитный пускатель";
-            outputs[1].Index = vs.MPCindxArrDI;
-            outputs[1].IsAnalog = vs.isMPCAnalog;
-            outputs[1].ActivationValue = vs.valueMPC;
-            outputs[1].AssignedSignal = vs.MPCName;
-
-            outputs[2] = new InputOutputItem();
-            outputs[2].Name = "Давление на выходе агрегата";
-            outputs[2].Index = vs.PCindxArrDI;
-            outputs[2].IsAnalog = vs.isPCAnalog;
-            outputs[2].ActivationValue = vs.valuePC;
-            outputs[2].AssignedSignal = vs.PCName;
-
-            inputs = new InputOutputItem[2];
-            inputs[0] = new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, false, 0.0f, vs.ABBName);
-            inputs[1] = new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, false, 0.0f, vs.ABOName);
+            inputs = new List<InputOutputItem>();
+            inputs.Add( new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, false, 0.0f, vs.ABBName));
+            inputs.Add( new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, false, 0.0f, vs.ABOName));
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -126,15 +109,43 @@ namespace Simulator_MPSA.CL
             Name = klapan.Description;
             Group = klapan.Group;
 
-            outputs = new InputOutputItem[2];
-            outputs[0] = new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName);
-            outputs[1] = new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName);
+            outputs = new List<InputOutputItem>();
+            outputs.Add(new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName));
+            outputs.Add(new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName));
 
-            inputs = new InputOutputItem[2];
-            inputs[0] = new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName);
-            inputs[1] = new InputOutputItem("Команда - закрыть", klapan.DKBindxArrDO, klapan.DKBName);
+            inputs = new List<InputOutputItem>();
+            inputs.Add(new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName));
+            inputs.Add(new InputOutputItem("Команда - закрыть", klapan.DKBindxArrDO, klapan.DKBName));
         }
 
+        public SetupTableModel(ZDStruct zd)
+        {
+            type = typeof(ZDStruct);
+            obj = zd;
+
+            Name = zd.Description;
+            Group = zd.Group;
+
+            outputs = new List<InputOutputItem>();
+            outputs.Add(new InputOutputItem("КВО", zd.OKCindxArrDI, zd.OKCName));
+            outputs.Add(new InputOutputItem("КВЗ", zd.CKCindxArrDI, zd.CKCName));
+            outputs.Add(new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, zd.VoltName));
+            outputs.Add(new InputOutputItem("МПО", zd.ODCindxArrDI, zd.ODCName));
+            outputs.Add(new InputOutputItem("МПЗ", zd.CDCindxArrDI, zd.CDCName));
+            outputs.Add(new InputOutputItem("Муфта", zd.MCindxArrDI, zd.MCName));
+            outputs.Add(new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, zd.DCName));
+
+            inputs = new List<InputOutputItem>();
+            inputs.Add(new InputOutputItem("команда - открыть", zd.DOBindxArrDO, zd.DOBName));
+            inputs.Add(new InputOutputItem("команда - остановить", zd.DCBindxArrDO, zd.DCBName));
+            inputs.Add(new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, zd.DKBName));
+            inputs.Add(new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName));
+
+        }
+
+        public SetupTableModel(MPNAStruct agr)
+        {
+        }
 
         public void ApplyChanges()
         {
@@ -170,6 +181,25 @@ namespace Simulator_MPSA.CL
 
                 temp.Description = Name;
                 temp.Group = Group;
+            }
+            if (type == typeof(ZDStruct))
+            {
+                ZDStruct temp = obj as ZDStruct;
+
+                temp.Description = Name;
+                temp.Group = Group;
+                temp.OKCindxArrDI = outputs[0].Index;
+                temp.CKCindxArrDI = outputs[1].Index;
+                temp.VoltindxArrDI = outputs[2].Index;
+                temp.ODCindxArrDI = outputs[3].Index;
+                temp.CDCindxArrDI = outputs[4].Index;
+                temp.MCindxArrDI = outputs[5].Index;
+                temp.DCindxArrDI = outputs[6].Index;
+
+                temp.DOBindxArrDO = inputs[0].Index;
+                temp.DCBindxArrDO = inputs[1].Index;
+                temp.DKBindxArrDO = inputs[2].Index;
+                temp.DCBZindxArrDO = inputs[3].Index;
             }
         }
     }

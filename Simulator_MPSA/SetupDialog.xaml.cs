@@ -44,6 +44,25 @@ namespace Simulator_MPSA
             objectType = typeof(KLStruct);
             Title = "Настройка клапана (заслонки)";
         }
+        public SetupDialog(ZDStruct zd)
+        {
+            _object = zd;
+            InitializeComponent();
+            model = new SetupTableModel(zd);
+            this.DataContext = model;
+            objectType = typeof(ZDStruct);
+            Title = "Настройка задвижки";
+
+        }
+        public SetupDialog(MPNAStruct agr)
+        {
+            _object = agr;
+            InitializeComponent();
+            model = new SetupTableModel(agr);
+            this.DataContext = model;
+            objectType = typeof(ZDStruct);
+            Title = "Настройка агрегата МНА/ПНА";
+        }
         private void button_OK_Click(object sender, RoutedEventArgs e)
         {
 
@@ -60,7 +79,10 @@ namespace Simulator_MPSA
                 model = new SetupTableModel(_object as KLStruct);
             if (objectType == typeof(VSStruct))
                 model = new SetupTableModel(_object as VSStruct);
-
+            if (objectType == typeof(ZDStruct))
+                model = new SetupTableModel(_object as ZDStruct);
+            if (objectType == typeof(MPNAStruct))
+                model = new SetupTableModel(_object as MPNAStruct);
 
             this.DataContext = model;
          //   model = new SetupTableModel(_object as model.)

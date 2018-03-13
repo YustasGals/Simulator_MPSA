@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using Simulator_MPSA.CL;
 using System.Xml;
 using System.Xml.Serialization;
+using System.ComponentModel;
+
 namespace Simulator_MPSA
 {
     class CL_ZD
@@ -15,7 +17,7 @@ namespace Simulator_MPSA
     public enum StateZD { Opening, Open, Middle, Closing, Close, Undef };
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class ZDStruct
+    public class ZDStruct : INotifyPropertyChanged
     {
         private bool _En = false; // наличие в обработке задвижки
         private int _DOBindxArrDO = 0;
@@ -38,7 +40,7 @@ namespace Simulator_MPSA
         private string _description = "";  //название задвижки
         private string _group = "";    //название подсистемы в которую входи задвижка
 
-        private StateZD _stateZD=StateZD.Undef;
+        private StateZD _stateZD = StateZD.Undef;
         private StateZD StateZD
         {
             get { return _stateZD; }
@@ -49,46 +51,12 @@ namespace Simulator_MPSA
         {
         }
 
-       /* public ZDStruct( bool En0 = false ,
-                         int DOBindxArrDO0 = 0,
-                         int DKBindxArrDO0 = 0,
-                         int DCBindxArrDO0 = 0,
-                         int DCBZindxArrDO0 = 0,
-                         bool changedDO0 = false,
-                         int OKCindxArrDI0 = 0,
-                         int CKCindxArrDI0 = 0,
-                         int ODCindxArrDI0 = 0,
-                         int CDCindxArrDI0 = 0,
-                         int DCindxArrDI0 = 0,
-                         int VoltindxArrDI0 = 0,
-                         int MCindxArrDI0 = 0,
-                         int OPCindxArrDI0 = 0,
-                         float ZDProc0 = 0.0f ,
-                         bool changedDI0 = false,
-                         int TmoveZD0 = 600,
-                         int TscZD0 = 3)
-        {
-            En= En0;
-            DOBindxArrDO= DOBindxArrDO0;
-            DKBindxArrDO= DKBindxArrDO0;
-            DCBindxArrDO= DCBindxArrDO0;
-            DCBZindxArrDO= DCBZindxArrDO0;
-            changedDO= changedDO0;
-            OKCindxArrDI= OKCindxArrDI0;
-            CKCindxArrDI= CKCindxArrDI0;
-            ODCindxArrDI= ODCindxArrDI0;
-            CDCindxArrDI= CDCindxArrDI0;
-            DCindxArrDI= DCindxArrDI0;
-            VoltindxArrDI= VoltindxArrDI0;
-            MCindxArrDI= MCindxArrDI0;
-            OPCindxArrDI= OPCindxArrDI0;
-            ZDProc= ZDProc0;
-            changedDI= changedDI0;
-            TmoveZD = TmoveZD0;
-            TscZD = TscZD0;
-        }*/
-
-        public float UpdateZD()
+        /// <summary>
+        /// обновить состояние задвижки
+        /// </summary>
+        /// <param name="dt">задержка между циклами, сек </param>
+        /// <returns></returns>
+        public float UpdateZD(float dt)
         {
             // тут будет логика задвижки !!!
             return _ZDProc;
@@ -100,71 +68,286 @@ namespace Simulator_MPSA
             set { _En = value; }
         }
 
+        /// <summary>
+        /// команда открыть
+        /// </summary>
         public int DOBindxArrDO
         {
             get { return _DOBindxArrDO; }
-            set { _DOBindxArrDO = value; }
+            set {
+                _DOBindxArrDO = value;
+                OnPropertyChanged("DOBindxArrDO");
+                DOB = DOStruct.FindByIndex(_DOBindxArrDO);
+            }
         }
+        private DOStruct DOB;
+        public string DOBName
+            { 
+                get {
+                if (DOB != null)
+                    return DOB.NameDO;
+                else return "сигнал не назначен";
+                    }
+            }
+
+        /// <summary>
+        /// команда закрыть
+        /// </summary>
         public int DKBindxArrDO
         {
             get { return _DKBindxArrDO; }
-            set { _DKBindxArrDO = value; }
+            set {
+                _DKBindxArrDO = value;
+                OnPropertyChanged("DKBindxArrDO");
+                DKB = DOStruct.FindByIndex(_DKBindxArrDO);
+            }
         }
+        private DOStruct DKB;
+        public string DKBName
+        {
+            get
+            {
+                if (DKB != null)
+                    return DKB.NameDO;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// Команда - остановить
+        /// </summary>
         public int DCBindxArrDO
         {
             get { return _DCBindxArrDO; }
-            set { _DCBindxArrDO = value; }
+            set {
+                _DCBindxArrDO = value;
+                OnPropertyChanged("DCBindxArrDO");
+                DCB = DOStruct.FindByIndex(_DCBindxArrDO);
+            }
         }
+        private DOStruct DCB;
+        public string DCBName
+        {
+            get
+            {
+                if (DCB != null)
+                    return DCB.NameDO;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// команда стоп закрытия
+        /// </summary>
         public int DCBZindxArrDO
         {
             get { return _DCBZindxArrDO; }
-            set { _DCBZindxArrDO = value; }
+            set {
+                _DCBZindxArrDO = value;
+                OnPropertyChanged("DCBZindxArrDO");
+                DCBZ = DOStruct.FindByIndex(_DCBZindxArrDO);
+            }
         }
+        private DOStruct DCBZ;
+        public string DCBZName
+        {
+            get
+            {
+                if (DCBZ != null)
+                    return DCBZ.NameDO;
+                else return "сигнал не назначен";
+            }
+        }
+
         public bool ChangedDO
         {
             get { return _changedDO; }
             set { _changedDO = value; }
         }
+        /// <summary>
+        /// Концевой выключатель открытия
+        /// </summary>
         public int OKCindxArrDI
         {
             get { return _OKCindxArrDI; }
-            set { _OKCindxArrDI = value; }
+            set {
+                _OKCindxArrDI = value;
+                OnPropertyChanged("DCBZindxArrDO");
+                OKC = DIStruct.FindByIndex(_OKCindxArrDI);
+            }
         }
+        private DIStruct OKC;
+        public string OKCName
+        {
+            get
+            {
+                if (OKC != null)
+                    return OKC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// концевой выключатель закрытия
+        /// </summary>
         public int CKCindxArrDI
         {
             get { return _CKCindxArrDI; }
-            set { _CKCindxArrDI = value; }
+            set {
+                _CKCindxArrDI = value;
+                OnPropertyChanged("DCBZindxArrDO");
+                CKC = DIStruct.FindByIndex(_CKCindxArrDI);
+            }
         }
+        private DIStruct CKC;
+        public string CKCName
+        {
+            get
+            {
+                if (CKC != null)
+                    return CKC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+
+        /// <summary>
+        /// сигнал от МПО
+        /// </summary>
         public int ODCindxArrDI
         {
             get { return _ODCindxArrDI; }
-            set { _ODCindxArrDI = value; }
+            set {
+                _ODCindxArrDI = value;
+                OnPropertyChanged("ODCindxArrDI");
+                ODC = DIStruct.FindByIndex(_ODCindxArrDI);
+            }
         }
+        private DIStruct ODC;
+        public string ODCName
+        {
+            get
+            {
+                if (ODC != null)
+                    return ODC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// сигнал от МПЗ
+        /// </summary>
         public int CDCindxArrDI
         {
             get { return _CDCindxArrDI; }
-            set { _CDCindxArrDI = value; }
+            set {
+                _CDCindxArrDI = value;
+                OnPropertyChanged("CDCindxArrDI");
+                CDC = DIStruct.FindByIndex(_CDCindxArrDI);
+            }
         }
+        private DIStruct CDC;
+        public string CDCName
+        {
+            get
+            {
+                if (CDC != null)
+                    return CDC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// дистанционное управление
+        /// </summary>
         public int DCindxArrDI
         {
             get { return _DCindxArrDI; }
-            set { _DCindxArrDI = value; }
+            set {
+                _DCindxArrDI = value;
+                OnPropertyChanged("DCindxArrDI");
+                DC = DIStruct.FindByIndex(_DCindxArrDI);
+            }
         }
+        private DIStruct DC;
+        public string DCName
+        {
+            get
+            {
+                if (DC != null)
+                    return DC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+        /// <summary>
+        /// наличие напряжения
+        /// </summary>
         public int VoltindxArrDI
         {
             get { return _VoltindxArrDI; }
-            set { _VoltindxArrDI = value; }
+            set {
+                _VoltindxArrDI = value;
+                OnPropertyChanged("VolindxArrDI");
+                volt = DIStruct.FindByIndex(_VoltindxArrDI);
+            }
         }
+        private DIStruct volt;
+        public string VoltName
+        {
+            get
+            {
+                if (volt != null)
+                    return volt.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// сработала муфта 
+        /// </summary>
         public int MCindxArrDI
         {
             get { return _MCindxArrDI; }
-            set { _MCindxArrDI = value; }
+            set {
+                _MCindxArrDI = value;
+                OnPropertyChanged("MCindxArrDI");
+                MC = DIStruct.FindByIndex(_MCindxArrDI);
+            }
         }
+        private DIStruct MC;
+        public string MCName
+        {
+            get
+            {
+                if (MC != null)
+                    return MC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
+        /// <summary>
+        /// авария привода
+        /// </summary>
         public int OPCindxArrDI
         {
             get { return _OPCindxArrDI; }
-            set { _OPCindxArrDI = value; }
+            set {
+                _OPCindxArrDI = value;
+                OnPropertyChanged("OPCindxArrDI");
+                OPC = DIStruct.FindByIndex(_OPCindxArrDI);
+            }
         }
+        private DIStruct OPC;
+        public string OPCName
+        {
+            get
+            {
+                if (OPC != null)
+                    return OPC.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
+
         public float ZDProc
         {
             get { return _ZDProc; }
@@ -188,12 +371,19 @@ namespace Simulator_MPSA
         public string Description
         {
             get { return _description; }
-            set { _description = value; }
+            set { _description = value; OnPropertyChanged("Description"); }
         }
         public string Group
         {
             get { return _group; }
-            set { _group = value; }
+            set { _group = value; OnPropertyChanged("Group"); }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 

@@ -49,8 +49,11 @@ namespace Simulator_MPSA
         public string ABBName
         { get
             {
-                if (ABB != null)
+                /*if (ABB != null)
                     return ABB.NameDO;
+                else return "сигнал не назначен";*/
+                if (_ABBindxArrDO > -1)
+                    return DOStruct.items[_ABBindxArrDO].NameDO;
                 else return "сигнал не назначен";
             }
         }
@@ -72,8 +75,11 @@ namespace Simulator_MPSA
         public string ABOName
         {  get
             {
-                if (ABO != null)
+                /*if (ABO != null)
                     return ABO.NameDO;
+                else return "сигнал не назначен";*/
+                if (_ABOindxArrDO > -1)
+                    return DOStruct.items[_ABOindxArrDO].NameDO;
                 else return "сигнал не назначен";
             }
         }
@@ -226,13 +232,17 @@ namespace Simulator_MPSA
             {
                 if (isECAnalog)
                 {
-                    if (EC_AI != null)
-                        return EC_AI.NameAI;
+                    // if (EC_AI != null)
+                    //     return EC_AI.NameAI;
+                    if (_ecindx > -1)
+                        return AIStruct.items[_ecindx].NameAI;                    
                 }
                 else
                 {
-                    if (EC_DI != null)
-                        return EC_DI.NameDI;
+                    //if (EC_DI != null)
+                    //    return EC_DI.NameDI;
+                    if (_ecindx > -1)
+                        return DIStruct.items[_ecindx].NameDI;
                 }
 
                 return "сигнал не назначен";
@@ -247,13 +257,17 @@ namespace Simulator_MPSA
             {
                 if (isMPCAnalog)
                 {
-                    if (MPC_AI != null)
-                        return MPC_AI.NameAI;
+                    // if (MPC_AI != null)
+                    //     return MPC_AI.NameAI;
+                    if (_MPCindxArrDI > -1)
+                        return AIStruct.items[_MPCindxArrDI].NameAI;
                 }
                 else
                 {
-                    if (MPC_DI != null)
-                        return MPC_DI.NameDI;
+                    //if (MPC_DI != null)
+                    //    return MPC_DI.NameDI;
+                    if (_MPCindxArrDI > -1)
+                        return DIStruct.items[_MPCindxArrDI].NameDI;
                 }
 
                 return "сигнал не назначен";
@@ -268,13 +282,17 @@ namespace Simulator_MPSA
             {
                 if (isPCAnalog)
                 {
-                    if (PC_AI != null)
-                        return PC_AI.NameAI;
+                    //if (PC_AI != null)
+                    //    return PC_AI.NameAI;
+                    if (_PCindxArrDI > -1)
+                        return AIStruct.items[_PCindxArrDI].NameAI;
                 }
                 else
                 {
-                    if (PC_DI != null)
-                        return PC_DI.NameDI;
+                    // if (PC_DI != null)
+                    //     return PC_DI.NameDI;
+                    if (_PCindxArrDI > -1)
+                        return DIStruct.items[_PCindxArrDI].NameDI;
                 }
 
                 return "сигнал не назначен";
@@ -289,9 +307,18 @@ namespace Simulator_MPSA
         /// состояние вспомсистемы
         /// </summary>
         private VSState state;
-        public VSState State
-        { get { return state; }
-            set { state = value; }
+        public string State
+        { get {
+                switch (state)
+                {
+                    case VSState.Starting: return "Запускается";
+                    case VSState.Stop: return "Остановлен";
+                    case VSState.Stoping: return "Останавливается";
+                    case VSState.Work: return "В работе";
+                    default: return "";
+                }
+            }            
+            
         }
         public VSStruct()
         {
