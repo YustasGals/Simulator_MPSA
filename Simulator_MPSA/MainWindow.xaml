@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:Simulator_MPSA"
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
         Title="Имитатор полевых сигналов МПСА v1.0" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
@@ -29,7 +29,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="36"/>
             <RowDefinition />
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
@@ -42,7 +42,7 @@
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
             </MenuItem>
-            
+
             <MenuItem Header="Инструменты">
                 <MenuItem Header="_Manage users">
                     <!-- 
@@ -53,7 +53,7 @@
                 </MenuItem>
                 <MenuItem Header="_Show groups" IsCheckable="True" IsChecked="True" />
             </MenuItem>
-            <MenuItem Header="О программе" HorizontalAlignment="Right" ></MenuItem>
+            <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
@@ -78,7 +78,7 @@
                 <Image Source="IMG/PAUSE.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop">
+            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop" IsEnabled="False">
                 <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Separator />
@@ -132,9 +132,7 @@
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Настройки подключения">
-                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True">
-        
-                </DataGrid>
+                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True"/>
             </TabItem>
             <TabItem Header="AI">
                 <Grid >
@@ -159,7 +157,7 @@
                             <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
-                           
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -218,7 +216,7 @@
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
 
-                        </DataGrid.Columns> 
+                        </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
@@ -226,7 +224,7 @@
                 <Grid >
                     <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"></DataGridCheckBoxColumn>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" IsReadOnly="True"/>
@@ -237,6 +235,8 @@
             </TabItem>
         </TabControl>
 
-        <StatusBar Grid.Row="3" Grid.ColumnSpan="2" />
+        <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
+            <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
+        </StatusBar>
     </Grid>
 </Window>

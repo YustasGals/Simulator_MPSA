@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -64,12 +65,13 @@ namespace Simulator_MPSA
         public static ushort usW;
 
     }
-
+    enum SimState { Stop, Work};
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {        
+    {
+        SimState simState;
         public MainWindow()
         {
           
@@ -119,6 +121,10 @@ namespace Simulator_MPSA
             dataGridVS.DataContext = VSTableViewModel.Instance;
             dataGridKL.DataContext = KLTableViewModel.Instance;
             dataGridMPNA.DataContext = MPNATableViewModel.Instance;
+
+            statusText.Content = "Остановлен";
+            statusText.Background = System.Windows.Media.Brushes.Yellow;
+
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -144,8 +150,9 @@ namespace Simulator_MPSA
         #endregion
         private void Update()
         {
-            while (true)   
+            while (!cancelTokenSrc.IsCancellationRequested)   
             {
+               // ct1.ThrowIfCancellationRequested();                
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
@@ -156,7 +163,7 @@ namespace Simulator_MPSA
         #region UpdateReaders
         private void UpdateR0()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
@@ -181,7 +188,7 @@ namespace Simulator_MPSA
         }
         private void UpdateR1()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
@@ -206,7 +213,7 @@ namespace Simulator_MPSA
         }
         private void UpdateR2()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
@@ -231,7 +238,7 @@ namespace Simulator_MPSA
         }
         private void UpdateR3()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
                 int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
@@ -258,7 +265,7 @@ namespace Simulator_MPSA
         #region UpdateWriters
         private void UpdateW0()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int n = 0; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
@@ -280,7 +287,7 @@ namespace Simulator_MPSA
         }
         private void UpdateW1()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int n = 1; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
@@ -302,7 +309,7 @@ namespace Simulator_MPSA
         }
         private void UpdateW2()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int n = 2; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
@@ -324,7 +331,7 @@ namespace Simulator_MPSA
         }
         private void UpdateW3()
         {
-            while (true)
+            while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int n = 3; // W0
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
@@ -923,9 +930,17 @@ namespace Simulator_MPSA
         {
             CloseApp();
         }
+
+        /// <summary>
+        /// Токен отмены
+        /// </summary>
+        CancellationTokenSource cancelTokenSrc;
+        CancellationToken cancellationToken;
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (true) // !!! false == Disable Modbus for Debug !!!
+            cancelTokenSrc = new CancellationTokenSource();
+            cancellationToken = cancelTokenSrc.Token;
+            try
             {
                 // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
                 mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
@@ -938,27 +953,44 @@ namespace Simulator_MPSA
                 mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
-                masterLoop = Task.Factory.StartNew(new Action(Update));
-                masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0));
-                masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1));
-                masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2));
-                masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3));
-                masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0));
-                masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1));
-                masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2));
-                masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3));
+                masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
+                masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
+                masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
+                masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
+                masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
+                masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
+                masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
+                masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
+                masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);
+                statusText.Content = "Запущен";
+                statusText.Background = System.Windows.Media.Brushes.Green;
+                btnStart.IsEnabled = false;
+                btnStop.IsEnabled = true;
             }
-            else
+            catch(Exception ex)
             {
-                //mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.HostName, Sett.MBPort));
-                masterLoop = Task.Factory.StartNew(new Action(Update));
+                System.Windows.MessageBox.Show("Ошибка: " +Environment.NewLine + ex.Message, "Ошибка");
             }
         }
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
+            
         }
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
+            statusText.Content = "Остановлен";
+            statusText.Background = System.Windows.Media.Brushes.Yellow;
+
+            btnStart.IsEnabled = true;
+            btnStop.IsEnabled = false;
+            try
+            {
+                cancelTokenSrc.Cancel();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+            }
         }
 
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)
@@ -1058,6 +1090,12 @@ namespace Simulator_MPSA
                     dialog.Show();
                 }
             }
+        }
+
+        private void MenuItem_about_Click(object sender, RoutedEventArgs e)
+        {
+            AboutWindow w = new AboutWindow();
+            w.ShowDialog();
         }
     }
 }
