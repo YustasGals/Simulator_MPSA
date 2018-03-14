@@ -80,7 +80,8 @@ namespace Simulator_MPSA.CL
         { get; set; }
         public string Group
         { get; set; }
-
+        public bool En
+        { get; set; }
 
 
         public SetupTableModel(VSStruct vs)
@@ -88,6 +89,7 @@ namespace Simulator_MPSA.CL
             type = typeof(VSStruct);
             obj = vs;
 
+            En = vs.En;
             Name = vs.Description;
             Group = vs.Group;
 
@@ -106,6 +108,7 @@ namespace Simulator_MPSA.CL
             type = typeof(KLStruct);
             obj = klapan;
 
+            En = klapan.En;
             Name = klapan.Description;
             Group = klapan.Group;
 
@@ -123,6 +126,7 @@ namespace Simulator_MPSA.CL
             type = typeof(ZDStruct);
             obj = zd;
 
+            En = zd.En;
             Name = zd.Description;
             Group = zd.Group;
 
@@ -148,8 +152,10 @@ namespace Simulator_MPSA.CL
         {
             type = typeof(MPNAStruct);
             obj = agr;
+
             Name = agr.Description;
             Group = agr.Group;
+            En = agr.En;
 
             outputs = new List<InputOutputItem>();
             outputs.Add(new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name));
@@ -186,6 +192,7 @@ namespace Simulator_MPSA.CL
 
                 temp.Description = Name;
                 temp.Group = Group;
+                temp.En = En;
 
                 temp.ABBindxArrDO = inputs[0].Index;
                 temp.ABOindxArrDO = inputs[1].Index;
@@ -201,6 +208,7 @@ namespace Simulator_MPSA.CL
 
                 temp.Description = Name;
                 temp.Group = Group;
+                temp.En = En;
             }
             if (type == typeof(ZDStruct))
             {
@@ -208,6 +216,7 @@ namespace Simulator_MPSA.CL
 
                 temp.Description = Name;
                 temp.Group = Group;
+                temp.En = En;
                 temp.OKCindxArrDI = outputs[0].Index;
                 temp.CKCindxArrDI = outputs[1].Index;
                 temp.VoltindxArrDI = outputs[2].Index;
@@ -227,6 +236,7 @@ namespace Simulator_MPSA.CL
 
                 agr.Description = Name;
                 agr.Group = Group;
+                agr.En = En;
                 agr.MBC11indxArrDI = outputs[0].Index;
                 agr.MBC12indxArrDI = outputs[1].Index;
                 agr.MBC21indxArrDI = outputs[2].Index;

@@ -15,8 +15,9 @@ namespace Simulator_MPSA
     [Serializable]
     public class KLStruct : INotifyPropertyChanged
     {
+        private bool _en;
         public bool En
-        { get; set; }
+        { get { return _en; } set { _en = value; OnPropertyChanged("En"); } }
         
         private KLState _state;
         public KLState State

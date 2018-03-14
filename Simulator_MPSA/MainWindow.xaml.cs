@@ -107,10 +107,11 @@ namespace Simulator_MPSA
 
             //начальная инициализация структур и моделей
             dataGridDO.DataContext = new DOTableViewModel();
-          //  for (int i = 0; i < DOs.Length; i++)
+            //  for (int i = 0; i < DOs.Length; i++)
             //    DOs[i] = new DOStruct();
 
-            dataGridDI.DataContext = new DITableViewModel();
+            // dataGridDI.DataContext = new DITableViewModel();
+           dataGridDI.ItemsSource=  DITableViewModel.Instance.viewSource.View;
            // for (int i = 0; i < DIs.Length; i++)
            //     DIs[i] = new DIStruct();
             dataGridAI.DataContext = new AITableViewModel();
@@ -152,12 +153,24 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)   
             {
+
+                foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                    zd.UpdateZD((float)Sett.Instance.TPause/1000f);
+
+                foreach (KLStruct kl in KLTableViewModel.KL)
+                    kl.UpdateKL((float)Sett.Instance.TPause / 1000f);
+
+                foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
+                    mpna.UpdateMPNA((float)Sett.Instance.TPause / 1000f);
+
+                foreach (VSStruct vs in VSTableViewModel.VS)
+                    vs.UpdateVS((float)Sett.Instance.TPause / 1000f);
                // ct1.ThrowIfCancellationRequested();                
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
-                Debug.WriteLine("Update() = 1000ms "); // + NReg + " " + tbStartAdress);
-                System.Threading.Thread.Sleep(1000 /*Sett.TPause*/ );
+                Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause );
             }
         }
         #region UpdateReaders
@@ -352,9 +365,7 @@ namespace Simulator_MPSA
             }
         }
         #endregion
-        private void Grid_Loaded(object sender, RoutedEventArgs e) // выполняется при загрузке основной формы программы, то есть при Старте ПО
-        {
-        }
+   
         #region Dedollers
         public Depoller TagSource
         {
@@ -482,280 +493,6 @@ namespace Simulator_MPSA
         #endregion
         // -----------------------------------------------------------------
        // clS S = new clS(); // settings; на самом деле настройки в Sett !!!
-        #region settings.xml
-        void SaveSettings(string Sxml= "XMLs//" + "settings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(Sett));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, Sett.Instance);
-            writeStream.Dispose();
-            System.Windows.MessageBox.Show("Файл " + Sxml + " сохранен ");
-        }
-        void LoadSettings(string Sxml = "XMLs//" + "settings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(Sett));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                Sett.Instance = (Sett)xml.Deserialize(reader);
-                reader.Dispose();
-                System.Windows.MessageBox.Show("Файл " + Sxml + " считан ");
-            }
-            catch
-            {
-                if (reader != null)
-                    reader.Dispose();
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, Sett.Instance);
-                writer.Dispose();
-                System.Windows.MessageBox.Show("Файл " + Sxml + " не считан !!! ");
-            }
-            RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-            WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-            AIStruct.items = new AIStruct[Sett.Instance.NAI];
-            //ZDs = new ZDStruct[settings.NZD];
-            DOStruct.items =new DOStruct[Sett.Instance.NDO * 32];
-            //ZDs = new ZDStruct[settings.NZD];
-           /* KLStruct.KLs = new KLStruct[Sett.Instance.NKL];
-            VSStruct.VSs = new VSStruct[Sett.Instance.NVS];
-            MPNAStruct.MPNAs = new MPNAStruct[Sett.Instance.NMPNA];
-            DIStruct.items = new DIStruct[Sett.Instance.NDI * 32];*/
-            //TODO: вставить код активации кнопки
-        }
-        #endregion
-        // -----------------------------------------------------------------
-
-       // public AIStruct[] AIs;// = new AIStruct[settings.nAI];
-
-        #region AIsettings.xml
-        public void LoadSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                AIStruct.items = (AIStruct[])xml.Deserialize(reader);
-                reader.Dispose();
-
-                System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
-            }
-            catch
-            {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, AIStruct.items);
-                writer.Dispose();
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, AIStruct.items);
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-
-       // public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
-
-        #region DIsettings.xml
-        public void LoadSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                DIStruct.items = (DIStruct[])xml.Deserialize(reader);
-                reader.Dispose();
-                System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
-            }
-            catch
-            {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, DIStruct.items);
-                writer.Dispose();
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DIStruct.items);
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-
-      //  public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
-
-        #region DOsettings.xml
-        public void LoadSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                DOStruct.items = (DOStruct[])xml.Deserialize(reader);
-                reader.Dispose();
-                System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
-            }
-            catch
-            {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter( Sxml);
-                xml.Serialize(writer, DOStruct.items);
-                writer.Dispose();
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, DOStruct.items);
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("DOsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-        // ---------------------------------------------------------------------
-        // = new ZDStruct[Sett.nZD];
-        #region ZDsettings.xml
-        public void LoadSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
-        {            
-        XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                ZDTableViewModel.Init((ZDStruct[])xml.Deserialize(reader));
-                reader.Dispose();
-                                
-                dataGridZD.DataContext = ZDTableViewModel.Instance;
-
-                System.Windows.Forms.MessageBox.Show("ZDsettings.xml loaded.");
-            }
-            catch
-            {
-                /*
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, ZDs);
-                writer.Dispose();*/
-            }
-        
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-
-            xml.Serialize(writeStream, ZDTableViewModel.GetArray());
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("ZDsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-        // ---------------------------------------------------------------------
-        //public KLStruct[] KLs;// = new KLStruct[Sett.nKL];
-        #region KLsettings.xml
-        public void LoadSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                KLTableViewModel.Init((KLStruct[])xml.Deserialize(reader));
-                reader.Dispose();
-                System.Windows.Forms.MessageBox.Show("KLsettings.xml loaded.");
-            }
-            catch
-            {
-
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, KLTableViewModel.GetArray());
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("KLsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-        // ---------------------------------------------------------------------
-        //public VSStruct[] VSs;// = new VSStruct[Sett.nVS];
-        #region VSsettings.xml
-        public void LoadSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader(Sxml);
-                VSTableViewModel.Init((VSStruct[])xml.Deserialize(reader));
-                reader.Dispose();
-                System.Windows.Forms.MessageBox.Show("VSsettings.xml loaded.");
-            }
-            catch
-            {
-                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
-                xml.Serialize(writer, VSTableViewModel.GetArray());
-                writer.Dispose();
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, VSTableViewModel.GetArray());
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show("VSsettings.xml saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-        // ---------------------------------------------------------------------
-        //public MPNAStruct[] MPNAs;// = new MPNAStruct[Sett.nMPNA];
-        #region MPNAsettings.xml
-        public void LoadSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
-            System.IO.StreamReader reader = null;
-            try
-            {
-                reader = new System.IO.StreamReader( Sxml);
-                MPNATableViewModel.Init((MPNAStruct[])xml.Deserialize(reader));
-                reader.Dispose();
-                System.Windows.Forms.MessageBox.Show("MPNAsettings.xml loaded.");
-            }
-            catch(Exception e)
-            {
-                System.Windows.Forms.MessageBox.Show("Ошибка чтения "+Sxml + Environment.NewLine +  e.Message);
-            }
-        }
-        // ---------------------------------------------------------------------
-        void SaveSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
-        {
-            XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
-            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
-            xml.Serialize(writeStream, MPNATableViewModel.GetArray());
-            writeStream.Dispose();
-            System.Windows.Forms.MessageBox.Show(Sxml + " saved.");
-        }
-        #endregion
-        // ---------------------------------------------------------------------
-        // ---------------------------------------------------------------------
 
         void CloseApp()
         {
@@ -794,7 +531,12 @@ namespace Simulator_MPSA
 
 
                     dataGridAI.DataContext = new AITableViewModel(AIStruct.items);
-                    dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
+                    DITableViewModel.Instance.Init(DIStruct.items);
+                    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+
+                   // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
+
+
                     dataGridDO.DataContext = new DOTableViewModel(DOStruct.items);                    
                     dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
 
@@ -803,6 +545,7 @@ namespace Simulator_MPSA
                     dataGridMPNA.DataContext = MPNATableViewModel.Instance;
                     dataGridZD.DataContext = ZDTableViewModel.Instance; 
 
+                    
                 }
              
              //старый способ загрузки
@@ -916,14 +659,14 @@ namespace Simulator_MPSA
         {
             if (System.Windows.MessageBox.Show("Внимание! Все таблицы будут сохранены в файлы по умолчанию.", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
             {
-                SaveSettings();
-                SaveSettAI();
-                SaveSettDI();
-                SaveSettDO();
-                SaveSettZD();
-                SaveSettKL();
-                SaveSettVS();
-                SaveSettMPNA();
+               Station.SaveSettings();
+                Station.SaveSettAI();
+                Station.SaveSettDI();
+                Station.SaveSettDO();
+                Station.SaveSettZD();
+                Station.SaveSettKL();
+                Station.SaveSettVS();
+                Station.SaveSettMPNA();
             }
         }
         private void btnClose_Click(object sender, RoutedEventArgs e)
@@ -1054,18 +797,21 @@ namespace Simulator_MPSA
 
         private void Menu_LoadSeq(object sender, RoutedEventArgs e)
         {
-            LoadSettings();
-            LoadSettDI();
-            LoadSettDO();
-            LoadSettAI();
+           Station.LoadSettings();
+            Station.LoadSettDI();
+            Station.LoadSettDO();
+            Station.LoadSettAI();
 
-            LoadSettKL();
-            LoadSettVS();
-            LoadSettZD();
-            LoadSettMPNA();
+            Station.LoadSettKL();
+            Station.LoadSettVS();
+            Station.LoadSettZD();
+            Station.LoadSettMPNA();
 
             dataGridAI.DataContext = new AITableViewModel(AIStruct.items);
-            dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
+
+            DITableViewModel.Instance.Init(DIStruct.items);
+            dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+           // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
             dataGridDO.DataContext = new DOTableViewModel(DOStruct.items);
             dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
             dataGridVS.DataContext = VSTableViewModel.Instance;
@@ -1096,6 +842,16 @@ namespace Simulator_MPSA
         {
             AboutWindow w = new AboutWindow();
             w.ShowDialog();
+        }
+
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //  DIFilter = textBoxDIFilter.Text;
+            DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
+  //          dataGridDI.ItemsSource = null;
+   //         dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
         }
     }
 }

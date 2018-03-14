@@ -16,9 +16,12 @@ namespace Simulator_MPSA
     [Serializable]
     public class VSStruct : INotifyPropertyChanged
     {
-      
+
+        private bool _en;
         public bool En
-        { set; get; }
+        { get { return _en; } set { _en = value; OnPropertyChanged("En"); } }
+
+
         private string _descr;
         public string Description
         {

@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-
+using System.ComponentModel;
 namespace Simulator_MPSA.CL
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class DIStruct
+    public class DIStruct : INotifyPropertyChanged 
     {
         public static DIStruct[] items = new DIStruct[0];
         public bool En
         { set; get; }
+
+        private bool _valDI;
         public bool ValDI
-        { set; get; }
+        { set { _valDI = value; OnPropertyChanged("ValDI"); }  get { return _valDI; } }
         public int indxArrDI // index in AI
         { set; get; }
         public int indxBitDI
@@ -56,6 +58,12 @@ namespace Simulator_MPSA.CL
                     return items[i];
                 }
             return null;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
 
     }

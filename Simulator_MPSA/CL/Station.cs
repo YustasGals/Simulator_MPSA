@@ -97,5 +97,281 @@ namespace Simulator_MPSA.CL
                 return StationLoadResult.Fail;
             }
         }
+
+        #region settings.xml
+        public static void SaveSettings(string Sxml = "XMLs//" + "settings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(Sett));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, Sett.Instance);
+            writeStream.Dispose();
+            System.Windows.MessageBox.Show("Файл " + Sxml + " сохранен ");
+        }
+        public static void LoadSettings(string Sxml = "XMLs//" + "settings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(Sett));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                Sett.Instance = (Sett)xml.Deserialize(reader);
+                reader.Dispose();
+                System.Windows.MessageBox.Show("Файл " + Sxml + " считан ");
+            }
+            catch
+            {
+                if (reader != null)
+                    reader.Dispose();
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, Sett.Instance);
+                writer.Dispose();
+                System.Windows.MessageBox.Show("Файл " + Sxml + " не считан !!! ");
+            }
+            RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+            AIStruct.items = new AIStruct[Sett.Instance.NAI];
+            //ZDs = new ZDStruct[settings.NZD];
+            DOStruct.items = new DOStruct[Sett.Instance.NDO * 32];
+            //ZDs = new ZDStruct[settings.NZD];
+            /* KLStruct.KLs = new KLStruct[Sett.Instance.NKL];
+             VSStruct.VSs = new VSStruct[Sett.Instance.NVS];
+             MPNAStruct.MPNAs = new MPNAStruct[Sett.Instance.NMPNA];
+             DIStruct.items = new DIStruct[Sett.Instance.NDI * 32];*/
+            //TODO: вставить код активации кнопки
+        }
+        #endregion
+        // -----------------------------------------------------------------
+
+        // public AIStruct[] AIs;// = new AIStruct[settings.nAI];
+
+        #region AIsettings.xml
+        public  static void LoadSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                AIStruct.items = (AIStruct[])xml.Deserialize(reader);
+                reader.Dispose();
+
+                System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
+            }
+            catch
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, AIStruct.items);
+                writer.Dispose();
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettAI(string Sxml = "XMLs//" + "AIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(AIStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, AIStruct.items);
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("AIsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+
+        // public DIStruct[] DIs;// = new DIStruct[Sett.nDI * 32];
+
+        #region DIsettings.xml
+        public static void LoadSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                DIStruct.items = (DIStruct[])xml.Deserialize(reader);
+                reader.Dispose();
+                System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
+            }
+            catch
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, DIStruct.items);
+                writer.Dispose();
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettDI(string Sxml = "XMLs//" + "DIsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DIStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, DIStruct.items);
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("DIsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+
+        //  public DOStruct[] DOs;// new DOStruct[Sett.nDO * 32];
+
+        #region DOsettings.xml
+        public static void LoadSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                DOStruct.items = (DOStruct[])xml.Deserialize(reader);
+                reader.Dispose();
+                System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
+            }
+            catch
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, DOStruct.items);
+                writer.Dispose();
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettDO(string Sxml = "XMLs//" + "DOsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(DOStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, DOStruct.items);
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("DOsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        // = new ZDStruct[Sett.nZD];
+        #region ZDsettings.xml
+        public static void LoadSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                ZDTableViewModel.Init((ZDStruct[])xml.Deserialize(reader));
+                reader.Dispose();
+
+                //dataGridZD.DataContext = ZDTableViewModel.Instance;
+
+                System.Windows.Forms.MessageBox.Show("ZDsettings.xml loaded.");
+            }
+            catch
+            {
+                /*
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, ZDs);
+                writer.Dispose();*/
+            }
+
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettZD(string Sxml = "XMLs//" + "ZDsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(ZDStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+
+            xml.Serialize(writeStream, ZDTableViewModel.GetArray());
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("ZDsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        //public KLStruct[] KLs;// = new KLStruct[Sett.nKL];
+        #region KLsettings.xml
+        public static void LoadSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                KLTableViewModel.Init((KLStruct[])xml.Deserialize(reader));
+                reader.Dispose();
+                System.Windows.Forms.MessageBox.Show("KLsettings.xml loaded.");
+            }
+            catch
+            {
+
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettKL(string Sxml = "XMLs//" + "KLsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(KLStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, KLTableViewModel.GetArray());
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("KLsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        //public VSStruct[] VSs;// = new VSStruct[Sett.nVS];
+        #region VSsettings.xml
+        public static void LoadSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                VSTableViewModel.Init((VSStruct[])xml.Deserialize(reader));
+                reader.Dispose();
+                System.Windows.Forms.MessageBox.Show("VSsettings.xml loaded.");
+            }
+            catch
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter(Sxml);
+                xml.Serialize(writer, VSTableViewModel.GetArray());
+                writer.Dispose();
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void SaveSettVS(string Sxml = "XMLs//" + "VSsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(VSStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, VSTableViewModel.GetArray());
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show("VSsettings.xml saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+        //public MPNAStruct[] MPNAs;// = new MPNAStruct[Sett.nMPNA];
+        #region MPNAsettings.xml
+        public static void LoadSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
+            System.IO.StreamReader reader = null;
+            try
+            {
+                reader = new System.IO.StreamReader(Sxml);
+                MPNATableViewModel.Init((MPNAStruct[])xml.Deserialize(reader));
+                reader.Dispose();
+                System.Windows.Forms.MessageBox.Show("MPNAsettings.xml loaded.");
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("Ошибка чтения " + Sxml + Environment.NewLine + e.Message);
+            }
+        }
+        // ---------------------------------------------------------------------
+        public static void  SaveSettMPNA(string Sxml = "XMLs//" + "MPNAsettings.xml")
+        {
+            XmlSerializer xml = new XmlSerializer(typeof(MPNAStruct[]));
+            System.IO.StreamWriter writeStream = new System.IO.StreamWriter(Sxml);
+            xml.Serialize(writeStream, MPNATableViewModel.GetArray());
+            writeStream.Dispose();
+            System.Windows.Forms.MessageBox.Show(Sxml + " saved.");
+        }
+        #endregion
+        // ---------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+
     }
 }

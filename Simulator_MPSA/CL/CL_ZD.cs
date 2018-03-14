@@ -58,6 +58,9 @@ namespace Simulator_MPSA
         /// <returns></returns>
         public float UpdateZD(float dt)
         {
+
+            volt.ValDI = _En;
+
             // тут будет логика задвижки !!!
             return _ZDProc;
         }
@@ -65,7 +68,7 @@ namespace Simulator_MPSA
         public bool En
         {
             get { return _En; }
-            set { _En = value; }
+            set { _En = value; OnPropertyChanged("En"); }
         }
 
         /// <summary>

@@ -18,11 +18,12 @@
             to the application as a resource.
         -->
         <XmlDataProvider x:Key="xmldata" Source="XMLs/Simconfig.xml" XPath="/root" />
+
     </Window.Resources>
 
-    <Grid Loaded="Grid_Loaded" DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
+    <Grid DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -85,51 +86,6 @@
 
         </ToolBar>
 
-        <TreeView x:Name="dirTree" 
-                ItemsSource="{Binding Mode=OneWay, Source={StaticResource xmldata}}"
-                VirtualizingPanel.IsVirtualizing="False"
-                VirtualizingPanel.VirtualizationMode="Standard" 
-                  Grid.Row="2" Width="auto" >
-            <TreeView.ItemTemplate>
-                <!--
-            Data Templates for each XML tag type expected in file.
-            
-            DataType        - Matches the tag name
-            ItemsSource     - For tags that have descendents this
-                              Henables the tree view to find them.
-            XPath           - Specifies the attribute name to use.
-            
-            When the Xaml parser sees a tag with one of the names
-            specified in DataType, it will use the associated
-            template to display data about that node.
-        -->
-                <HierarchicalDataTemplate DataType="Node"
-                                  ItemsSource="{Binding XPath=./*}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0"
-                           Text="Node:" />
-                        <TextBlock Margin="5,0,0,0"
-                           Text="{Binding XPath=@name}" />
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-            <!--<TreeView.ItemTemplate>
-            <HierarchicalDataTemplate DataType="leaf">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="0"
-                           Text="Leaf:" />
-                    <TextBlock Margin="5,0,0,0"
-                           Text="{Binding XPath=@name}" />
-                </StackPanel>
-            </HierarchicalDataTemplate>
-           <HierarchicalDataTemplate DataType="root"
-                                  ItemsSource="{Binding XPath=./*}">
-                <TextBlock Margin="0"
-                       Text="ROOT" />
-            </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>-->
-        </TreeView>
-
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
             <TabItem Header="Настройки подключения">
                 <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True"/>
@@ -140,8 +96,30 @@
                 </Grid>
             </TabItem>
             <TabItem Header="DI">
-                <Grid >
-                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="auto"/>
+                                
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200"/>
+                            <Button Grid.Row="2" Grid.Column="1" Content="Применить" Click="Button_Click"></Button>
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridDI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="DO">
@@ -166,7 +144,7 @@
                 <Grid >
                     <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False" MouseDoubleClick="dataGridZD_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
@@ -179,7 +157,7 @@
                 <Grid >
                     <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" MouseDoubleClick="dataGridKL_MouseDoubleClick" >
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding State}"  IsReadOnly="True"/>
@@ -190,11 +168,11 @@
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False" Margin="0,87,0,0">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="False"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="False"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="False"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -221,6 +199,10 @@
                 </Grid>
             </TabItem>
             <TabItem Header="MPNA">
+                <StackPanel Height="453">
+                    <Expander Header="Фильтры">
+                        
+                    </Expander>
                 <Grid >
                     <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>
@@ -232,7 +214,9 @@
                     </DataGrid>
 
                 </Grid>
+                </StackPanel>
             </TabItem>
+           
         </TabControl>
 
         <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
