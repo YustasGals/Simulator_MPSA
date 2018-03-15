@@ -170,7 +170,7 @@ namespace Simulator_MPSA
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
                 Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
-                System.Threading.Thread.Sleep(/*Sett.Instance.TPause */1000);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         #region UpdateReaders
