@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
-
+using System.ComponentModel;
 namespace Simulator_MPSA.CL
 {
-    class CL_DI
-    {
-    }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class DIStruct
+    public class DIStruct : INotifyPropertyChanged 
     {
+        public static DIStruct[] items = new DIStruct[0];
         public bool En
         { set; get; }
+
+        private bool _valDI;
         public bool ValDI
+        { set { _valDI = value; OnPropertyChanged("ValDI"); }  get { return _valDI; } }
+        public int indxArrDI // index in AI
         { set; get; }
-        public int IndxArrDI // index in AI
-        { set; get; }
-        public int IndxBitDI
+        public int indxBitDI
         { set; get; }
         public int IndxW
         { set; get; }
@@ -41,8 +41,8 @@ namespace Simulator_MPSA.CL
         {
             En = En0;
             ValDI = ValDI0;
-            IndxArrDI = indxArrDI0;
-            IndxBitDI = indxBitDI0;
+            indxArrDI = indxArrDI0;
+            indxBitDI = indxBitDI0;
             IndxW = indxW0;
             TegDI = TegDI0;
             NameDI = NameDI0;
@@ -50,7 +50,21 @@ namespace Simulator_MPSA.CL
             InvertDI = InvertDI0;
             DelayDI = DelayDI0;
         }
-
+        public static DIStruct FindByIndex(int index)
+        {
+            for (int i = 0; i < items.Length; i++)
+                if (items[i].indxArrDI == index)
+                {
+                    return items[i];
+                }
+            return null;
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged(string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
 
     }
 

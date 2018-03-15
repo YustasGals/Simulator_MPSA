@@ -8,8 +8,9 @@ namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public struct AIStruct
+    public class AIStruct
     {
+        public static AIStruct[] items = new AIStruct[0];
         public bool En ;
         public int indxAI; // index in AI
         public int indxW;
@@ -22,7 +23,9 @@ namespace Simulator_MPSA
         public float maxPhis;
         public float fValAI;
         public int DelayAI;
-        
+
+        public AIStruct() {
+        }
         public AIStruct(bool En0 = false, int indxAI0 = 0, int indxW0 = 0, string TegAI0 = "Teg",
                  string NameAI0 = "Name", ushort ValACD0 = 4000, ushort minACD0 = 4000, ushort maxACD0 = 20000,
                  float minPhis0 = 0.0F, float maxPhis0 = 100.0F, float fValAI0 = 0.0F, int DelayAI0 = 0)
@@ -40,7 +43,15 @@ namespace Simulator_MPSA
             fValAI = fValAI0;
             DelayAI = DelayAI0;
         }
-
+        public static AIStruct FindByIndex(int index)
+        {
+            for (int i = 0; i < items.Length; i++)
+                if (items[i].indxAI == index)
+                {
+                    return items[i];
+                }
+            return null;
+        }
         public string PrintAI()
         {
             return ("En=" + En + "; indxAI=" + indxAI + "; indxW=" + indxW + "; TegAI=" + TegAI +

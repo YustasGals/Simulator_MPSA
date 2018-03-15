@@ -41,6 +41,17 @@ namespace Simulator_MPSA {
                          // public static string ZD_file = "";
                          // public static string MPNA_file = "";
                          // public static string VS_file = "";*/
+        private static Sett instance = null;
+        public static Sett Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new Sett();
+                return instance;
+            }
+            set { instance = value;}
+        }
         [XmlIgnore]
         [NonSerialized()]
         public Dictionary<string, SettingsItem> items = new Dictionary<string, SettingsItem>();

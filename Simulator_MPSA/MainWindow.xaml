@@ -4,8 +4,8 @@
         xmlns:local="clr-namespace:Simulator_MPSA"
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Simulator_MPSA" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
+        Title="Имитатор полевых сигналов МПСА v1.0" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -18,34 +18,33 @@
             to the application as a resource.
         -->
         <XmlDataProvider x:Key="xmldata" Source="XMLs/Simconfig.xml" XPath="/root" />
+
     </Window.Resources>
 
-    <Grid Loaded="Grid_Loaded" DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
+    <Grid DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150" />
+
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="36"/>
             <RowDefinition />
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
-            <MenuItem Header="_File">
-                <MenuItem Header="_New" />
-                <MenuItem Header="_Open" Click="MenuItem_Click" />
-                <MenuItem Header="_Save" Click="MenuItem_Click_save" />
+            <MenuItem Header="Файл">
+                <MenuItem Header="Новый" />
+                <MenuItem Header="Открыть все" Click="Menu_OpenAll"/>
+                <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
+                <MenuItem Header="Сохранить в отдельные xml" Click="Menu_SaveAll" />
+                <MenuItem Header="Загрузить из отдельных xml" Click="Menu_LoadSeq" />
                 <Separator />
                 <MenuItem Header="_Exit" Click="MenuItem_Click_1" />
             </MenuItem>
-            <MenuItem Header="_Edit">
-                <MenuItem Command="Cut" />
-                <MenuItem Command="Copy" />
-                <MenuItem Command="Paste" />
-            </MenuItem>
-            <MenuItem Header="_Tools">
+
+            <MenuItem Header="Инструменты">
                 <MenuItem Header="_Manage users">
                     <!-- 
                         <MenuItem.Icon>
@@ -55,92 +54,41 @@
                 </MenuItem>
                 <MenuItem Header="_Show groups" IsCheckable="True" IsChecked="True" />
             </MenuItem>
-            <Separator />
-            <MenuItem Header="_About" HorizontalAlignment="Right" ></MenuItem>
+            <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
-            <Button x:Name="btnOpen" Click="btnOpen_Click" ToolTip="Open">
+            <Button x:Name="btnOpen" Click="Menu_OpenAll" ToolTip="Open">
                 <Image Source="IMG/open.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnSave" Click="btnSave_Click" ToolTip="Save">
+            <Button x:Name="btnSave" Click="Menu_SaveSingle" ToolTip="Save">
                 <Image Source="IMG/save.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnSaveAll" Click="btnSaveAll_Click" ToolTip="Save All">
+            <Button x:Name="btnSaveAll" Click="Menu_SaveAll" ToolTip="Save All">
                 <Image Source="IMG/saveAll.png" />
             </Button>
+            <Button x:Name="btnClose" Click="btnClose_Click" ToolTip="Close"/>
             <Separator />
-            <Button x:Name="btnClose" Click="btnClose_Click" ToolTip="Close">
-                <Image Source="IMG/close.png" />
-            </Button>
-            <Separator />
-            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Start">
+            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Start" AutomationProperties.HelpText="Пуск">
                 <Image Source="IMG/START.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="Pause">
+            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="Pause" AutomationProperties.HelpText="Пауза">
                 <Image Source="IMG/PAUSE.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop">
-                <Image Source="IMG/STOP.png" />
+            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop" IsEnabled="False">
+                <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Separator />
-            <TextBox x:Name="tbFind" Foreground="LightGray" Width="100">Поиск...</TextBox>
+
         </ToolBar>
 
-        <TreeView x:Name="dirTree" 
-                ItemsSource="{Binding Mode=OneWay, Source={StaticResource xmldata}}"
-                VirtualizingPanel.IsVirtualizing="False"
-                VirtualizingPanel.VirtualizationMode="Standard" 
-                  Grid.Row="2" Width="auto" >
-            <TreeView.ItemTemplate>
-                <!--
-            Data Templates for each XML tag type expected in file.
-            
-            DataType        - Matches the tag name
-            ItemsSource     - For tags that have descendents this
-                              Henables the tree view to find them.
-            XPath           - Specifies the attribute name to use.
-            
-            When the Xaml parser sees a tag with one of the names
-            specified in DataType, it will use the associated
-            template to display data about that node.
-        -->
-                <HierarchicalDataTemplate DataType="Node"
-                                  ItemsSource="{Binding XPath=./*}">
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Margin="0"
-                           Text="Node:" />
-                        <TextBlock Margin="5,0,0,0"
-                           Text="{Binding XPath=@name}" />
-                    </StackPanel>
-                </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>
-            <!--<TreeView.ItemTemplate>
-            <HierarchicalDataTemplate DataType="leaf">
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Margin="0"
-                           Text="Leaf:" />
-                    <TextBlock Margin="5,0,0,0"
-                           Text="{Binding XPath=@name}" />
-                </StackPanel>
-            </HierarchicalDataTemplate>
-           <HierarchicalDataTemplate DataType="root"
-                                  ItemsSource="{Binding XPath=./*}">
-                <TextBlock Margin="0"
-                       Text="ROOT" />
-            </HierarchicalDataTemplate>
-            </TreeView.ItemTemplate>-->
-        </TreeView>
-
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
-            <TabItem Header="Settings">
-                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True">
-        
-                </DataGrid>
+            <TabItem Header="Настройки подключения">
+                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True"/>
             </TabItem>
             <TabItem Header="AI">
                 <Grid >
@@ -148,66 +96,131 @@
                 </Grid>
             </TabItem>
             <TabItem Header="DI">
-                <Grid >
-                    <DataGrid x:Name="dataGridDI" ItemsSource="{Binding DIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="auto"/>
+                                
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200"/>
+                            <Button Grid.Row="2" Grid.Column="1" Content="Применить" Click="Button_Click"></Button>
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridDI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="DO">
                 <Grid >
                     <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Value" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxArrDO" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxBitDO" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="indxR" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="TagDO" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="ShortDesc" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="Invert" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridCheckBoxColumn Header="changedDO" Binding="{Binding changedDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Модуль" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="ZD" >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" KeyDown="ZDTable_keydown" CanUserResizeRows="False" CanUserDeleteRows="False" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False" MouseDoubleClick="dataGridZD_MouseDoubleClick">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="enable" Binding="{Binding En}"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="KL">
                 <Grid >
-                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" MouseDoubleClick="dataGridKL_MouseDoubleClick" >
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"  IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False" Margin="0,87,0,0">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="Остановлен">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="В работе">
+                                                <Setter Property="Background" Value="Green"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Запускается">
+                                                <Setter Property="Background" Value="GreenYellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="Останавливается">
+                                                <Setter Property="Background" Value="YellowGreen"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem Header="MPNA">
+                <StackPanel Height="453">
+                    <Expander Header="Фильтры">
+                        
+                    </Expander>
                 <Grid >
-                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
                 </Grid>
+                </StackPanel>
             </TabItem>
-            <TabItem Header="R">
-                <Grid >
-                    <DataGrid x:Name="dataGridR" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
-                </Grid>
-            </TabItem>
-            <TabItem Header="W">
-                <Grid >
-                    <DataGrid x:Name="dataGridW" ItemsSource="{Binding IsAsync=True}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
-                </Grid>
-            </TabItem>
+           
         </TabControl>
 
-        <StatusBar Grid.Row="3" Grid.ColumnSpan="2" />
+        <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
+            <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
+        </StatusBar>
     </Grid>
 </Window>

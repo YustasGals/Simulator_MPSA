@@ -13,6 +13,7 @@ namespace Simulator_MPSA
     [Serializable]
     public class DOStruct
     {
+        public static DOStruct[] items= new DOStruct[0];
         public bool En;
         public bool ValDO;
         public int indxArrDO; // index in AI
@@ -39,10 +40,18 @@ namespace Simulator_MPSA
             InvertDO = InvertDO0;
             changedDO = changedDO0;
         }
-        
+        public static DOStruct FindByIndex(int index)
+        {
+            for (int i = 0; i < items.Length; i++)
+                if (items[i].indxArrDO == index)
+                {
+                    return items[i];
+                }
+            return null;
+
+        }
+
+
     }
-
-
-
 
 }

@@ -59,6 +59,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -78,7 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CL\AITableViewModel.cs" />
+    <Compile Include="AboutWindow.xaml.cs">
+      <DependentUpon>AboutWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
     <Compile Include="CL\AIViewModel.cs" />
     <Compile Include="CL\BaseViewModel.cs" />
     <Compile Include="CL\CL_ANALOG.cs" />
@@ -88,10 +92,21 @@
     <Compile Include="CL\CL_MPNA.cs" />
     <Compile Include="CL\CL_VS.cs" />
     <Compile Include="CL\CL_ZD.cs" />
-    <Compile Include="CL\DITableViewModel.cs" />
-    <Compile Include="CL\DOTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\DITableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\DOTableViewModel.cs" />
     <Compile Include="CL\DOViewModel.cs" />
+    <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
+    <Compile Include="CL\TableViewModels\SetupTableModel.cs" />
+    <Compile Include="CL\Station.cs" />
+    <Compile Include="SetupDialog.xaml.cs">
+      <DependentUpon>SetupDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,11 +116,16 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CL\Depoller.cs" />
-    <Compile Include="CL\ZDTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\VSTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\ZDTableViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SetupDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -122,7 +142,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -179,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="XMLs\MPNAsettings.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
