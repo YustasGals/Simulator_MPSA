@@ -112,9 +112,9 @@ namespace Simulator_MPSA
 
             // dataGridDI.DataContext = new DITableViewModel();
            dataGridDI.ItemsSource=  DITableViewModel.Instance.viewSource.View;
-           // for (int i = 0; i < DIs.Length; i++)
-           //     DIs[i] = new DIStruct();
-            dataGridAI.DataContext = new AITableViewModel();
+            // for (int i = 0; i < DIs.Length; i++)
+            //     DIs[i] = new DIStruct();
+            dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
             //for (int i = 0; i < AIs.Length; i++)
             //      AIs[i] = new AIStruct();
             dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
@@ -528,16 +528,18 @@ namespace Simulator_MPSA
                     RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
                     WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
 
+                    AITableViewModel.Instance.Init(AIStruct.items);
+                    dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
-
-                    dataGridAI.DataContext = new AITableViewModel(AIStruct.items);
                     DITableViewModel.Instance.Init(DIStruct.items);
                     dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
 
-                   // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
 
+                    // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
 
-                    dataGridDO.DataContext = new DOTableViewModel(DOStruct.items);                    
+                    DOTableViewModel.Instance.Init(DOStruct.items);
+                    dataGridDO.ItemsSource = DOTableViewModel.Instance.viewSource.View;  
+                    
                     dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
 
                     dataGridVS.DataContext = VSTableViewModel.Instance;
@@ -807,12 +809,17 @@ namespace Simulator_MPSA
             Station.LoadSettZD();
             Station.LoadSettMPNA();
 
-            dataGridAI.DataContext = new AITableViewModel(AIStruct.items);
+            AITableViewModel.Instance.Init(AIStruct.items);
+            dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
             DITableViewModel.Instance.Init(DIStruct.items);
             dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
-           // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
-            dataGridDO.DataContext = new DOTableViewModel(DOStruct.items);
+            // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
+
+            DOTableViewModel.Instance.Init(DOStruct.items);
+            dataGridDO.ItemsSource = DOTableViewModel.Instance.viewSource.View;
+
+
             dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
             dataGridVS.DataContext = VSTableViewModel.Instance;
             dataGridKL.DataContext = KLTableViewModel.Instance;
@@ -849,9 +856,28 @@ namespace Simulator_MPSA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //  DIFilter = textBoxDIFilter.Text;
-            DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
+           
   //          dataGridDI.ItemsSource = null;
    //         dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+        }
+
+
+        private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+                DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
+        }
+
+        private void textBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+                AITableViewModel.Instance.NameFilter = textBoxAIFilter.Text;
+        }
+
+        private void textBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+                DOTableViewModel.Instance.NameFilter = textBoxDOFilter.Text;
         }
     }
 }

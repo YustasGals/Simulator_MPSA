@@ -66,7 +66,7 @@ namespace Simulator_MPSA.CL
             get { return _do.NameDO; }
             set
             {
-                _do.NameDO = value; OnPropertyChanged("NameDO");
+                _do.NameDO = value; OnPropertyChanged("ShortDesc");
             }
         }
         public int Nsign

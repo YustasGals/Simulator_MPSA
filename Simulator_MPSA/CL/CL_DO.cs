@@ -19,8 +19,8 @@ namespace Simulator_MPSA
         public int indxArrDO; // index in AI
         public int indxBitDO;
         public int indxR;
-        public string TegDO;
-        public string NameDO;
+        public string TegDO="";
+        public string NameDO="";
         public int Nsign;
         public bool InvertDO;
         public bool changedDO;

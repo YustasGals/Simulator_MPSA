@@ -92,7 +92,28 @@
             </TabItem>
             <TabItem Header="AI">
                 <Grid >
-                    <DataGrid x:Name="dataGridAI" ItemsSource="{Binding AIs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр по имени" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxAIFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxAIFilter_KeyDown"/>
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridAI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" />
                 </Grid>
             </TabItem>
             <TabItem Header="DI">
@@ -104,7 +125,7 @@
                     <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="110"/>
                                 <ColumnDefinition Width="auto"/>
                                 
                             </Grid.ColumnDefinitions>
@@ -113,9 +134,8 @@
                                 <RowDefinition/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Label Content="Фильтр" Grid.Row="1"/>
-                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200"/>
-                            <Button Grid.Row="2" Grid.Column="1" Content="Применить" Click="Button_Click"></Button>
+                            <Label Content="Фильтр по имени" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxDIFilter_KeyDown"/>
                         </Grid>
 
                     </Expander>
@@ -124,7 +144,28 @@
             </TabItem>
             <TabItem Header="DO">
                 <Grid >
-                    <DataGrid x:Name="dataGridDO" ItemsSource="{Binding DOs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр по имени" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxDOFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxDOFilter_KeyDown"/>
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
@@ -168,7 +209,7 @@
             </TabItem>
             <TabItem Header="VS">
                 <Grid >
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False" Margin="0,87,0,0">
+                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridVS_MouseDoubleClick" AutoGenerateColumns="False" Margin="0,0,0,0">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="true"/>

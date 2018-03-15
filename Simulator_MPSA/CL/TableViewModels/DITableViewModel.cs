@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
+
 namespace Simulator_MPSA.CL
 {
     class DITableViewModel
@@ -45,7 +46,7 @@ namespace Simulator_MPSA.CL
 
         public CollectionViewSource viewSource = new CollectionViewSource();
 
-        public string _nameFilter = "";
+        private string _nameFilter = "";
         public string NameFilter
         { get { return _nameFilter; }
             set
@@ -62,7 +63,7 @@ namespace Simulator_MPSA.CL
             if ((di != null) && (di.NameDI != null))
             {
 
-                if (di.NameDI.Contains(NameFilter))
+                if (di.NameDI.ToLower().Contains(NameFilter.ToLower()))
                     e.Accepted = true;
                 else e.Accepted = false;
             }
