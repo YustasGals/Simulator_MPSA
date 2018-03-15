@@ -22,7 +22,7 @@ namespace Simulator_MPSA.CL
         { set; get; }
         public int indxBitDI
         { set; get; }
-        public int IndxW
+        public int indxW
         { set; get; }
         public string TegDI
         { set; get; }
@@ -43,7 +43,7 @@ namespace Simulator_MPSA.CL
             ValDI = ValDI0;
             indxArrDI = indxArrDI0;
             indxBitDI = indxBitDI0;
-            IndxW = indxW0;
+            indxW = indxW0;
             TegDI = TegDI0;
             NameDI = NameDI0;
             Nsign = Nsign0;

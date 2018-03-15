@@ -170,7 +170,7 @@ namespace Simulator_MPSA
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
                 Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
-                System.Threading.Thread.Sleep(Sett.Instance.TPause );
+                System.Threading.Thread.Sleep(/*Sett.Instance.TPause */1000);
             }
         }
         #region UpdateReaders
@@ -447,7 +447,7 @@ namespace Simulator_MPSA
         {
             for (int i = 0; i < DIStruct.items.Length; i++)
             {
-                SetBit(ref (WB.W[(DIStruct.items[i].IndxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
+                SetBit(ref (WB.W[(DIStruct.items[i].indxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
             }
         }
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
