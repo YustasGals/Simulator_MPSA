@@ -42,7 +42,7 @@ namespace Simulator_MPSA.CL
         public ushort ValADC
         {
             get { return _ai.ValACD; }
-            set { _ai.ValACD=value; OnPropertyChanged("ValACD"); }
+            set { _ai.ValACD=value; OnPropertyChanged("ValADC"); }
         }
         public ushort minADC
         {
@@ -67,7 +67,7 @@ namespace Simulator_MPSA.CL
         public float fValAI
         {
             get { return _ai.fValAI; }
-            set { _ai.fValAI = value; OnPropertyChanged("fValAI"); }
+            set { _ai.fValAI = value; OnPropertyChanged("fValAI"); OnPropertyChanged("ValADC"); }
         }
         public int DelayAI
         {

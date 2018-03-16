@@ -16,7 +16,19 @@ namespace Simulator_MPSA
         public int indxW;
         public string TegAI;
         public string NameAI;
-        public ushort ValACD;
+
+        private ushort _valADC;
+        public ushort ValACD
+        {
+            get {
+                float df = (fValAI - minPhis) / (maxPhis - minPhis);
+                float dadc = ((float)maxACD - (float)minACD) * df;
+                int res = (int)dadc + minACD;
+                return (ushort)res;
+            }
+            set { _valADC = value; }
+        }
+
         public ushort minACD;
         public ushort maxACD;
         public float minPhis;

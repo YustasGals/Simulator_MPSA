@@ -439,6 +439,7 @@ namespace Simulator_MPSA
             {
                 if (AIStruct.items[i].En /* || true */)
                 {
+                //    AIStruct.items[i].updateAI();
                     WB.W[(AIStruct.items[i].indxW)] = AIStruct.items[i].ValACD; // записываем значение АЦП в массив для записи CPU
                 }
             }
