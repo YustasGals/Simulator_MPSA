@@ -94,11 +94,17 @@ namespace Simulator_MPSA {
             get { return (int)items["iBegAddrR"].value; }
             set { items["iBegAddrR"].value = value; }
         }
+        /// <summary>
+        /// количество потоков на запись
+        /// </summary>
         public int NWrTask
         {
             get { return (int)items["nWrTask"].value; }
             set { items["nWrTask"].value = value; }
         }
+        /// <summary>
+        /// задержка мсек
+        /// </summary>
         public int TPause
         {
             get { return (int)items["TPause"].value;  }

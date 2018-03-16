@@ -57,7 +57,7 @@ namespace Simulator_MPSA
     {
         public static ushort[] W;// = new ushort[(Sett.iNRackEnd - Sett.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
     }
-    public static class DeBag
+    public static class DebugInfo
     {
         public static ulong RR;
         public static ulong WW;
@@ -280,21 +280,22 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)
             {
-                int n = 0; // W0
+                int nTask = 0; // Номер потока
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.Instance.BegAddrW + n * NReg * Sett.Instance.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.Instance.NWrTask;
-                for (int i = Sett.Instance.NWrTask * n; i < (Sett.Instance.NWrTask * n + c); i++)
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, (NReg * i), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
-                    //TSW.Wr(mbMasterW.WriteMultipleRegisters(1, (ushort)(tbStartAdress + 125 * 4), data )); 
-                    //System.Threading.Thread.Sleep(Sett.TPause);
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                DeBag.WW++;
-                Debug.WriteLine("W0()   WW= " + DeBag.WW + " /n");
+                DebugInfo.WW++;
+                Debug.WriteLine("W0()   WW= " + DebugInfo.WW + " /n");
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -302,21 +303,23 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)
             {
-                int n = 1; // W0
+                int nTask = 1; // Номер потока
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.Instance.BegAddrW + n * NReg * Sett.Instance.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.Instance.NWrTask;
-                for (int i = Sett.Instance.NWrTask * n; i < (Sett.Instance.NWrTask * n + c); i++)
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                //адрес в ПЛК для данного потока
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount;
+                //coil_i номер бочки передаваемой в потоке 0..7
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, (NReg * i), data, (0), NReg);
-                    mbMasterW1.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
-                    //TSW.Wr(mbMasterW.WriteMultipleRegisters(1, (ushort)(tbStartAdress + 125 * 4), data )); 
-                    //System.Threading.Thread.Sleep(Sett.TPause);
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask*TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                //DeBag.WW++;
-                Debug.WriteLine("W1()");
+                DebugInfo.WW++;
+                Debug.WriteLine("W1()   WW= " + DebugInfo.WW + " /n");
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -324,21 +327,22 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)
             {
-                int n = 2; // W0
+                int nTask = 2; // Номер потока
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.Instance.BegAddrW + n * NReg * Sett.Instance.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.Instance.NWrTask;
-                for (int i = Sett.Instance.NWrTask * n; i < (Sett.Instance.NWrTask * n + c); i++)
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, (NReg * i), data, (0), NReg);
-                    mbMasterW2.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
-                    //TSW.Wr(mbMasterW.WriteMultipleRegisters(1, (ushort)(tbStartAdress + 125 * 4), data )); 
-                    //System.Threading.Thread.Sleep(Sett.TPause);
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                //DeBag.WW++;
-                Debug.WriteLine("W2()   ");
+                DebugInfo.WW++;
+                Debug.WriteLine("W2()   WW= " + DebugInfo.WW + " /n");
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -346,21 +350,31 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)
             {
-                int n = 3; // W0
+                int nTask = 3; // Номер потока
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // Convert.ToInt32(textBoxNReg.Text);
-                int tbStartAdress = Sett.Instance.BegAddrW + n * NReg * Sett.Instance.NWrTask; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                ushort[] data = new ushort[NReg];
-                int c = AreaW / NReg / Sett.Instance.NWrTask;
-                for (int i = Sett.Instance.NWrTask * n; i < (Sett.Instance.NWrTask * n + c); i++)
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, (NReg * i), data, (0), NReg);
-                    mbMasterW3.WriteMultipleRegisters(1, (ushort)(tbStartAdress + NReg * i), data);
-                    //TSW.Wr(mbMasterW.WriteMultipleRegisters(1, (ushort)(tbStartAdress + 125 * 4), data )); 
-                    //System.Threading.Thread.Sleep(Sett.TPause);
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                //DeBag.WW++;
-                Debug.WriteLine("W3()   ");
+
+                //запись последней бочки размером менее 120 рег
+                int halfCoilLength = AreaW / (TaskCoilCount*NReg*Sett.Instance.NWrTask);
+                if (halfCoilLength > 0)
+                {
+                    Array.Copy(WB.W, (NReg * TaskCoilCount * Sett.Instance.NWrTask), data, (0), halfCoilLength);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg * Sett.Instance.NWrTask), data);
+                }
+
+                DebugInfo.WW++;
+                Debug.WriteLine("W3()   WW= " + DebugInfo.WW + " /n");
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -577,84 +591,6 @@ namespace Simulator_MPSA
                 
                 s.Save(dialog.FileName);
             }
-           /* string activeTabHeader = ((TabItem)tabControl.SelectedItem).Header.ToString();
-            Debug.WriteLine("save tab: "+ activeTabHeader);
-            if (activeTabHeader == "Settings")
-            {
-                dialog.Title = "Сохранение Settings";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettings(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "AI")
-            {
-                dialog.Title = "Сохранение таблицы AI";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettAI(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "DI")
-            {
-                dialog.Title = "Сохранение таблицы DI";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettDI(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "DO")
-            {
-                dialog.Title = "Сохранение таблицы DO";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettDO(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "ZD")
-            {
-                dialog.Title = "Сохранение таблицы ZD";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettZD(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "KL")
-            {
-                dialog.Title = "Сохранение таблицы KL";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettKL(dialog.FileName);
-                return;
-            }
-
-            if (activeTabHeader == "VS")
-            {
-                dialog.Title = "Сохранение таблицы VS";
-                
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettVS(dialog.FileName);
-                return;
-            }
-            if (activeTabHeader == "MPNA")
-            {
-                dialog.Title = "Сохранение таблицы MPNA";
-                if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                    SaveSettMPNA(dialog.FileName);
-                return;
-            }*/
-
-            /*   if (MessageBox.Show("Сохранить настройки в файл?", "Подтверждение", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-                   SaveSettings();*/
-
-            /*            
-             SaveSettings();
-             SaveSettAI();
-             SaveSettDI();
-             SaveSettDO();
-             SaveSettZD();
-             SaveSettKL();
-             SaveSettVS();
-             SaveSettMPNA();*/
 
 
         }
