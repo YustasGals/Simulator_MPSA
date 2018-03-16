@@ -83,7 +83,6 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
-    <Compile Include="CL\AIViewModel.cs" />
     <Compile Include="CL\BaseViewModel.cs" />
     <Compile Include="CL\CL_ANALOG.cs" />
     <Compile Include="CL\CL_DI.cs" />
@@ -94,7 +93,6 @@
     <Compile Include="CL\CL_ZD.cs" />
     <Compile Include="CL\TableViewModels\DITableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DOTableViewModel.cs" />
-    <Compile Include="CL\DOViewModel.cs" />
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />

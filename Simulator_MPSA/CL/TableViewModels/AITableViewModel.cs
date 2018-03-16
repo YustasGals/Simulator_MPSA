@@ -20,25 +20,25 @@ namespace Simulator_MPSA.CL
             }
         }
 
-        private AIViewModel[] _AIs;
-        public AIViewModel[] AIs
+        private AIStruct[] _AIs;
+        public AIStruct[] AIs
         {
             get { return _AIs; }
             set { _AIs = value; OnPropertyChanged("AIs"); }
         }
         private AITableViewModel()
         {
-            AIs = new AIViewModel[1];
-            _AIs[0] = new AIViewModel(new AIStruct());
+            AIs = new AIStruct[1];
+            _AIs[0] = new AIStruct();
             _AIs[0].NameAI = "empty";
         }
 
         public void Init(AIStruct[] table)
         {
-            AIViewModel[] AIViewModels = new AIViewModel[table.Length];
+            AIStruct[] AIViewModels = new AIStruct[table.Length];
             for (int i = 0; i < table.Length; i++)
             {
-                AIViewModels[i] = new AIViewModel(table[i]);
+                AIViewModels[i] = table[i];
             }
 
             AIs = AIViewModels;
@@ -61,7 +61,7 @@ namespace Simulator_MPSA.CL
         }
         private void Name_Filter(object sender, FilterEventArgs e)
         {
-            AIViewModel item = e.Item as AIViewModel;
+            AIStruct item = e.Item as AIStruct;
 
             if ((item != null) && (item.NameAI != null))
             {

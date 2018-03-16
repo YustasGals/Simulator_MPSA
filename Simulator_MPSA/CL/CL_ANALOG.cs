@@ -4,40 +4,86 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simulator_MPSA
+namespace Simulator_MPSA.CL
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class AIStruct
+    public class AIStruct : BaseViewModel
     {
         public static AIStruct[] items = new AIStruct[0];
-        public bool En ;
-        public int indxAI; // index in AI
-        public int indxW;
-        public string TegAI;
-        public string NameAI;
+        private bool _En;
+        public bool En
+        {
+            get { return _En; }
+            set { _En = value; OnPropertyChanged("En"); }
+        }
+
+        private int _indxAI; // index in AI
+        public int indxAI
+        {
+            get { return _indxAI; }
+            set { _indxAI = value; OnPropertyChanged("indxAI"); }
+        }
+        private int _indxW;
+        public int indxW
+        {
+            get { return _indxW; }
+            set { _indxW = value; OnPropertyChanged("indxW"); }
+        }
+        private string _TegAI;
+        public string TegAI
+        {
+            get { return _TegAI; }
+            set { _TegAI = value; OnPropertyChanged("TegAI"); }
+        }
+
+        private string _nameai;
+        public string NameAI
+        {
+            get {
+                return _nameai;
+                  }
+            set { _nameai = value; OnPropertyChanged("NameAI"); }
+        }
 
         private ushort _valADC;
         public ushort ValACD
         {
             get {
-                float df = (fValAI - minPhis) / (maxPhis - minPhis);
-                float dadc = ((float)maxACD - (float)minACD) * df;
-                int res = (int)dadc + minACD;
-                return (ushort)res;
+                return _valADC;  
             }
-            set { _valADC = value; }
+            set { _valADC = value; OnPropertyChanged("ValACD"); }
         }
 
-        public ushort minACD;
-        public ushort maxACD;
-        public float minPhis;
-        public float maxPhis;
+        public ushort minACD
+        {
+            get; set;
+        }
+        public ushort maxACD
+        {
+            get; set;
+        }
+        public float minPhis
+        {
+            get; set;
+        }
+        public float maxPhis
+        {
+            get; set;
+        }
         private float _fValAI;
         public float fValAI
         {
             get { return _fValAI; }
-            set { _fValAI = value; }
+            set
+            {
+                _fValAI = value;
+                float df = (fValAI - minPhis) / (maxPhis - minPhis);
+                float dadc = ((float)maxACD - (float)minACD) * df;
+                int res = (int)dadc + minACD;
+                ValACD= (ushort)res;
+                OnPropertyChanged("fValAI");
+            }
         }
 
         public int DelayAI;
@@ -76,7 +122,7 @@ namespace Simulator_MPSA
 "; NameAI=" + NameAI + "; ValACD=" + ValACD + "; minACD=" + minACD + "; maxACD=" + maxACD +
 "; minPhis=" + minPhis + "; maxPhis=" + maxPhis + "; fValAI=" + fValAI + "; DelauAI=" + DelayAI + "\n");
         }
-        public ushort getValACD() { return ValACD; }
+
         public void updateAI(float fValAI0)
         {
             fValAI = fValAI0;
