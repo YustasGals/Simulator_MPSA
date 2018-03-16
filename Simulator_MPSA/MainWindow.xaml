@@ -189,8 +189,9 @@
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="%" Binding="{Binding ZDProc}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
+                           
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

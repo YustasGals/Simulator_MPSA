@@ -188,7 +188,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
                     }
             }
-
+        public bool DOBState { get { if (DOB != null) return DOB.ValDO; else return false; } set { } }
         /// <summary>
         /// команда закрыть
         /// </summary>
@@ -211,7 +211,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-
+        public bool DKBState { get { if (DKB != null) return DKB.ValDO; else return false; } set { } }
         /// <summary>
         /// Команда - остановить
         /// </summary>
@@ -234,7 +234,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-
+        public bool DCBState { get { if (DCB != null) return DCB.ValDO; else return false; } set { } }
         /// <summary>
         /// команда стоп закрытия
         /// </summary>
@@ -257,6 +257,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool DCBZState { get { if (DCBZ != null) return DCBZ.ValDO; else return false; } set { } }
 
         public bool ChangedDO
         {
@@ -285,6 +286,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool OKCState { get { if (OKC != null) return OKC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// концевой выключатель закрытия
@@ -308,7 +310,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-
+        public bool CKCState { get { if (CKC != null) return CKC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// сигнал от МПО
@@ -332,6 +334,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool ODCState { get { if (ODC != null) return ODC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// сигнал от МПЗ
@@ -355,6 +358,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool CDCState { get { if (CDC != null) return CDC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// дистанционное управление
@@ -378,6 +382,8 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool DCState { get { if (DC != null) return DC.ValDI; else return false; } set { } }
+
         /// <summary>
         /// наличие напряжения
         /// </summary>
@@ -400,6 +406,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool VoltState { get { if (volt != null) return volt.ValDI; else return false; } set { } }
 
         /// <summary>
         /// сработала муфта 
@@ -423,6 +430,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        public bool MCState { get { if (MC != null) return MC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// авария привода
@@ -437,6 +445,8 @@ namespace Simulator_MPSA
             }
         }
         private DIStruct OPC;
+        public bool OPCState { get { if (OPC != null) return OPC.ValDI; else return false; } set { } }
+
         public string OPCName
         {
             get
@@ -450,8 +460,13 @@ namespace Simulator_MPSA
         public float ZDProc
         {
             get { return _ZDProc; }
-            set { _ZDProc = value; OnPropertyChanged("ZDProc"); }
+            set { _ZDProc = value; OnPropertyChanged("Percent"); }
         }
+        /// <summary>
+        /// процент открытия для вывода на экран
+        /// </summary>
+        public int Percent { get { return (int)_ZDProc; } set { } }
+
         public bool ChangedDI
         {
             get { return _changedDI; }

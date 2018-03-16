@@ -18,11 +18,11 @@ namespace Simulator_MPSA
         private bool _en;
         public bool En
         { get { return _en; } set { _en = value; OnPropertyChanged("En"); } }
-        
+
         private KLState _state;
         public KLState State
         { get { return _state; }
-          set { _state = value; }
+            set { _state = value; OnPropertyChanged("State"); }
         }
 
         private string name;
@@ -40,8 +40,20 @@ namespace Simulator_MPSA
         }
 
 
-        private DOStruct DOB=null;
+        private DOStruct DOB = null;
         private int _DOBindxArrDO;
+        /// <summary>
+        /// для вывода состояиня в datagrid
+        /// </summary>
+        public bool DOBState
+        {
+            get
+            {
+                if (DOB != null)
+                    return DOB.ValDO;
+                else return false;
+            }
+        }
         /// <summary>
         /// команда "клапан открыть" индекс сигнала
         /// </summary>
@@ -68,6 +80,15 @@ namespace Simulator_MPSA
 
         private DOStruct DKB = null;
         private int _DKBindxArrDO;
+        public bool DKBState
+        {
+            get
+            {
+                if (DKB != null)
+                    return DKB.ValDO;
+                else return false;
+            }
+        }
         /// <summary>
         /// команда "клапан закрыть" индекс сигнала
         /// </summary>
@@ -99,6 +120,15 @@ namespace Simulator_MPSA
 
         private DIStruct OKC = null;
         private int _OKCindxArrDI=0;
+        public bool OKCState
+        {
+            get
+            {
+                if (OKC != null)
+                    return OKC.ValDI;
+                else return false;
+            }
+        }
         /// <summary>
         /// сигнал "клапан открыт" индекс сигнала
         /// </summary>
@@ -127,6 +157,15 @@ namespace Simulator_MPSA
 
         private DIStruct CKC = null;
         private int _CKCindxArrDI = 0;
+        public bool CKCState
+        {
+            get
+            {
+                if (CKC != null)
+                    return CKC.ValDI;
+                else return false;
+            }
+        }
         /// <summary>
         /// сигнал "клапан закрыт"
         /// </summary>
@@ -167,17 +206,62 @@ namespace Simulator_MPSA
         public int TmoveKL=0;
 
         public KLStruct()
-        { }
+        {
+            KLProc = 0f;
+            State = KLState.Close;
+
+
+        }//
 
         /// <summary>
         /// обновление состояния вспомсистемы
         /// </summary>
         /// <param name="dt">задержка между циклами обновления в секундах</param>
         /// <returns></returns>
-        public float UpdateKL(float dt)
+        public void UpdateKL(float dt)
         {
-            // тут будет логика  !!!
-            return KLProc;
+            //открыть
+            if ((DOB != null) && (DOB.ValDO))
+            {
+                if (State == KLState.Close || State == KLState.Middle)
+                {
+                    State = KLState.Opening;
+                }
+            }
+
+            //закрыть
+            if ((DKB != null) && (DKB.ValDO))
+            {
+                if (State == KLState.Open || State == KLState.Middle)
+                {
+                    State = KLState.Closing;
+                }
+            }
+
+            //состояние - открывается
+            if (State == KLState.Opening)
+            {
+                KLProc += dt / TmoveKL * 100;
+                if (KLProc > 100f)
+                {
+                    KLProc = 100;
+                    State = KLState.Open;
+                }
+
+            }
+
+            //состояние - закрывается
+            if (State == KLState.Closing)
+            {
+                KLProc -= dt / TmoveKL * 100;
+                if (KLProc < 0f)
+                {
+                    KLProc = 0f;
+                    State = KLState.Close;
+                }
+            }
+
+
         }
 
         public void UpdateRefs()
