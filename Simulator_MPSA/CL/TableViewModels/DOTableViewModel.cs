@@ -20,8 +20,9 @@ namespace Simulator_MPSA.CL
             }
         }
 
-        private DOViewModel[] _DOs;
-        public DOViewModel[] DOs
+        private DOStruct[] _DOs;
+        //public DOViewModel[] DOs
+        DOStruct[] DOs
         {
             get { return _DOs; }
             set { _DOs = value; OnPropertyChanged("DOs"); }
@@ -30,19 +31,19 @@ namespace Simulator_MPSA.CL
         public DOTableViewModel()
         {
             var dos = SetupArray();
-            DOViewModel[] DOViewModels = new DOViewModel[dos.Length];
+            DOStruct[] DOViewModels = new DOStruct[dos.Length];
             for (int i = 0; i < dos.Length; i++)
             {
-                DOViewModels[i] = new DOViewModel(dos[i]);
+                DOViewModels[i] = dos[i];
             }
             DOs = DOViewModels;
         }
         public void Init(DOStruct[] table)
         {
-            DOViewModel[] DOViewModels = new DOViewModel[table.Length];
+            DOStruct[] DOViewModels = new DOStruct[table.Length];
             for (int i = 0; i < table.Length; i++)
             {
-                DOViewModels[i] = new DOViewModel(table[i]);
+                DOViewModels[i] = table[i];
             }
             DOs = DOViewModels;
 
@@ -76,14 +77,14 @@ namespace Simulator_MPSA.CL
         }
         private void Name_Filter(object sender, FilterEventArgs e)
         {
-            DOViewModel item = e.Item as DOViewModel;
+            DOStruct item = e.Item as DOStruct;
 
             if (item != null) 
-                if (item.ShortDesc != null)
+                if (item.NameDO != null)
                     {
                         {
                         //if (item.NameAI.Contains(_nameFilter)) 
-                        if (item.ShortDesc.ToLower().Contains(NameFilter.ToLower()))
+                        if (item.NameDO.ToLower().Contains(NameFilter.ToLower()))
                             e.Accepted = true;
                         else e.Accepted = false;
                         }

@@ -167,13 +167,13 @@
                     </Expander>
                     <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding Enabled, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding Value, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Enable" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" />
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="False" />
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
-                            <DataGridTextColumn Header="Модуль" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="indxR" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding ShortDesc, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridTextColumn Header="Nsign" Binding="{Binding Nsign, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridCheckBoxColumn Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
 
@@ -189,7 +189,8 @@
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
-
+                            <DataGridTextColumn Header="%" Binding="{Binding ZDProc}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

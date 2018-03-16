@@ -33,7 +33,13 @@ namespace Simulator_MPSA
         public ushort maxACD;
         public float minPhis;
         public float maxPhis;
-        public float fValAI;
+        private float _fValAI;
+        public float fValAI
+        {
+            get { return _fValAI; }
+            set { _fValAI = value; }
+        }
+
         public int DelayAI;
 
         public AIStruct() {

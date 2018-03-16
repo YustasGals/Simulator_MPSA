@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Simulator_MPSA.CL
 {
-    class DOViewModel : BaseViewModel
+   /* class DOViewModel : BaseViewModel
     {
         private DOStruct _do;
         public DOViewModel(DOStruct DOelement)
@@ -26,7 +26,7 @@ namespace Simulator_MPSA.CL
             get { return _do.ValDO; }
             set
             {
-                _do.ValDO = value; OnPropertyChanged("ValDO");
+                _do.ValDO = value; OnPropertyChanged("Value");
             }
         }
         public int indxArrDO
@@ -94,5 +94,5 @@ namespace Simulator_MPSA.CL
             }
         }
 
-    }
+    }*/
 }

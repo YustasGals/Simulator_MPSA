@@ -7,7 +7,7 @@ using System.ComponentModel;
 
 namespace Simulator_MPSA.CL
 {
-    class BaseViewModel
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
 

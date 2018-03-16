@@ -35,20 +35,21 @@ namespace Simulator_MPSA
         private int _OPCindxArrDI = 0;
         private float _ZDProc = 0.0f; // процент открытия задвижки
         private bool _changedDI = false; // наличие изменений в выходных сигналах блока
-        private int _TmoveZD = 600; // время полного хода звдвижки, сек
-        private int _TscZD = 3;  // время схода с концевиков, сек
+        private float _TmoveZD = 10; // время полного хода звдвижки, сек
+        private int _TscZD = 1;  // время схода с концевиков, сек
         private string _description = "Задвижка";  //название задвижки
         private string _group = "";    //название подсистемы в которую входи задвижка
 
-        private StateZD _stateZD = StateZD.Undef;
-        private StateZD StateZD
+        private StateZD _stateZD = StateZD.Close;
+        public StateZD StateZD
         {
             get { return _stateZD; }
-            set { _stateZD = value; }
+            set { _stateZD = value; OnPropertyChanged("StateZD"); }
         }
 
         public ZDStruct()
         {
+
         }
 
         /// <summary>
@@ -58,9 +59,104 @@ namespace Simulator_MPSA
         /// <returns></returns>
         public float UpdateZD(float dt)
         {
+            if (volt !=null)
+                volt.ValDI = _En;
 
-            volt.ValDI = _En;
+            if (_stateZD == StateZD.Close)
+            {
+                //состояние - закрыто
+                if (OKC != null)
+                    OKC.ValDI = true;
+                if (CKC != null)
+                    CKC.ValDI = false;
+            }
 
+            //состояние - открыто
+            if (_stateZD == StateZD.Open)
+            {
+                //состояние - закрыто
+                if (OKC != null)
+                    OKC.ValDI = false;
+                if (CKC != null)
+                    CKC.ValDI = true;
+            }
+
+            //состояние -открывается
+            if (_stateZD == StateZD.Opening)
+            {
+                ZDProc += dt / TmoveZD * 100;
+
+                if (ZDProc > 100f)
+                {
+                    StateZD = StateZD.Open;
+                    ZDProc = 100f;
+                    //отключить мпо
+                    if (ODC != null) ODC.ValDI = false;
+                }
+            }
+
+            //состояние -закрывается
+            if (_stateZD == StateZD.Closing)
+            {
+                ZDProc -= dt / TmoveZD * 100;
+
+                if (ZDProc < 0f)
+                {
+                    StateZD = StateZD.Close;
+                    ZDProc = 0f;
+                    //отключить мпз
+                    if (CDC != null) CDC.ValDI = false;
+                }
+            }
+
+            //команда открыть
+            if ((DOB != null) && (DOB.ValDO))
+            {
+                //если закрыта или в промежутке
+                if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
+                {
+                    //вкл мпо
+                    StateZD = StateZD.Opening;
+                    if (ODC != null) ODC.ValDI = true;
+
+                    //вкл концевики
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+                }
+            }
+
+            //команда закрыть
+            if ((DKB != null) && (DKB.ValDO))
+            {
+                //если открыта или в промежутке
+                if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
+                {
+                    //вкл мпз
+                    StateZD = StateZD.Closing;
+                    if (CDC != null) CDC.ValDI = true;
+
+                    //вкл концевики
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+
+                }
+            }
+
+            //команда стоп
+            if ((DCB != null) && (DCB.ValDO))
+            {
+                if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
+                {
+                    if (ODC != null) ODC.ValDI = false;
+                    if (CDC != null) CDC.ValDI = false;
+
+                    StateZD = StateZD.Middle;
+                }
+            }
             // тут будет логика задвижки !!!
             return _ZDProc;
         }
@@ -354,14 +450,14 @@ namespace Simulator_MPSA
         public float ZDProc
         {
             get { return _ZDProc; }
-            set { _ZDProc = value; }
+            set { _ZDProc = value; OnPropertyChanged("ZDProc"); }
         }
         public bool ChangedDI
         {
             get { return _changedDI; }
             set { _changedDI = value; }
         }
-        public int TmoveZD
+        public float TmoveZD
         {
             get { return _TmoveZD; }
             set { _TmoveZD = value; }

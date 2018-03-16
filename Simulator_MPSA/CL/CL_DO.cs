@@ -3,26 +3,83 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Simulator_MPSA
+namespace Simulator_MPSA.CL
 {
     class CL_DO
     {
     }
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class DOStruct
+    public class DOStruct : BaseViewModel
     {
-        public static DOStruct[] items= new DOStruct[0];
-        public bool En;
-        public bool ValDO;
-        public int indxArrDO; // index in AI
-        public int indxBitDO;
-        public int indxR;
-        public string TegDO="";
-        public string NameDO="";
-        public int Nsign;
-        public bool InvertDO;
+        public static DOStruct[] items = new DOStruct[0];
+        private bool _En;
+        public bool En
+        {
+            get { return _En; }
+            set { _En = value; OnPropertyChanged("En"); }
+        }
+        private bool _ValDO;
+        public bool ValDO
+        {
+            get { return _ValDO; }
+            set { _ValDO = value; OnPropertyChanged("ValDO"); }
+        }
+        private int _indxArrDO;
+        public int indxArrDO
+        {
+            get { return _indxArrDO; }
+            set { _indxArrDO = value; OnPropertyChanged("indxArrDO"); }
+        }
+
+
+        private int _indxBitDO;
+        public int indxBitDO
+        {
+            get { return _indxBitDO; }
+            set { _indxBitDO = value; OnPropertyChanged("indxBitDO"); }
+        }
+
+        private int _indxR;
+        public int indxR
+        {
+            get { return _indxR; }
+            set { _indxR = value; OnPropertyChanged("indxR"); }
+        }
+
+
+        private string _TegDO = "";
+        public string TegDO
+        {
+            get { return _TegDO; }
+            set { _TegDO = value; OnPropertyChanged("TegDO"); }
+        }
+
+        public string _NameDO = "";
+        public string NameDO
+        {
+            get { return _NameDO; }
+            set
+            {
+                _NameDO = value; OnPropertyChanged("NameDO");
+            }
+        }
+
+        private int _Nsign;
+        public int Nsign
+        {
+            get { return _Nsign; }
+            set { _Nsign = value; OnPropertyChanged("Nsign"); }
+        }
+      
+
+        private bool _InvertDO;
+        public bool InvertDO
+        {
+            get { return _InvertDO; }
+            set { _InvertDO = value; OnPropertyChanged("InvertDO"); }
+        }
+
         public bool changedDO;
         public DOStruct()
         { }
