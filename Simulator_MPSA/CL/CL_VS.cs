@@ -293,10 +293,20 @@ namespace Simulator_MPSA
         {
             get
             {
-              if (_PCindxArrDI > -1)
-                return AIStruct.items[_PCindxArrDI].NameAI;
+              if (_PCindxArrAI > -1)
+                return AIStruct.items[_PCindxArrAI].NameAI;
               else
                 return "сигнал не назначен";
+            }
+        }
+        public string PCNameDI
+        {
+            get
+            {
+                if (_PCindxArrDI > -1)
+                    return DIStruct.items[_PCindxArrDI].NameDI;
+                else
+                    return "сигнал не назначен";
             }
         }
 
@@ -315,6 +325,7 @@ namespace Simulator_MPSA
             set
             {
                 state = value;
+                OnPropertyChanged("State");
             }
         }
 
@@ -397,7 +408,7 @@ namespace Simulator_MPSA
                     {
                         PC_AI.fValAI += valuePCspd*dt ;
                         if (PC_AI.fValAI >= valuePC)
-                            state = VSState.Work;
+                            State = VSState.Work;
                     }
                     
                 }
@@ -409,7 +420,7 @@ namespace Simulator_MPSA
                     {
                         PC_AI.fValAI -= valuePCspd * dt;
                         if (PC_AI.fValAI <= 0)
-                            state = VSState.Stop;
+                            State = VSState.Stop;
                     }
 
                 }

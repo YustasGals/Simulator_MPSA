@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Simulator_MPSA.CL;
+using System;
 using System.ComponentModel;
-using Simulator_MPSA.CL;
 namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------
@@ -34,7 +30,7 @@ namespace Simulator_MPSA
         { get { if (ABB != null)
                     return ABB.NameDO;
                 else return "сигнал не назначен";
-                        }
+            }
         }
         /// <summary>
         /// команда на отключение
@@ -58,6 +54,22 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+
+        /// <summary>
+        /// команда на отключение 2
+        /// </summary>
+        private DOStruct ABO2;
+        private int _ABO2indxArrDO = -1;
+        public int ABO2indxArrDO
+        {
+            get { return _ABO2indxArrDO; }
+            set { _ABO2indxArrDO = value; OnPropertyChanged("ABO2indxArrDO"); ABO2 = DOStruct.FindByIndex(_ABO2indxArrDO); }
+        }
+        public string ABO2Name
+        {
+            get { if (ABO2 != null) return ABO2.NameDO; else return "сигнал не назначен"; }
+        }
+
         /// <summary>
         /// ВВ включен 2
         /// </summary>
@@ -280,6 +292,10 @@ namespace Simulator_MPSA
             get { return _current_indexArrAi; }
             set { _current_indexArrAi = value; OnPropertyChanged("CurrentIndx"); current = AIStruct.FindByIndex(_current_indexArrAi); }
         }
+        public string TokName
+        {
+            get { if (current != null) return current.NameAI; else return "сигнал не назначен"; }
+        }
         //рабочая сила тока
         public float Current_nominal
         {
@@ -295,14 +311,21 @@ namespace Simulator_MPSA
         /// <summary>
         /// частота вращения, аналоговый сигнал
         /// </summary>
-        private int _RPMindxArrDI;
+        private int _RPMindxArrAI;
         private AIStruct RPM;
-        public int RPMindxArrDI
+        public int RPMindxArrAI
         {
-            get { return _RPMindxArrDI; }
-            set { _RPMindxArrDI = value; RPM = AIStruct.FindByIndex(_RPMindxArrDI); OnPropertyChanged("RPM"); }
+            get { return _RPMindxArrAI; }
+            set { _RPMindxArrAI = value; RPM = AIStruct.FindByIndex(_RPMindxArrAI); OnPropertyChanged("RPM"); }
         }
-
+        public string RPMSignalName
+        {
+            get
+            {
+                if (RPM != null) return RPM.NameAI;
+                else return "сигнал не назначен";
+            }
+        }
         //номинальая частота вращения
         public float RPM_nominal
         {
@@ -360,6 +383,8 @@ namespace Simulator_MPSA
             ECx = DIStruct.FindByIndex(_ECxindxArrDI);
             ECO11 = DIStruct.FindByIndex(_ECO11indxArrDI);
             EC = DIStruct.FindByIndex(_ECindxArrDI);
+            current = AIStruct.FindByIndex(_current_indexArrAi);
+            RPM = AIStruct.FindByIndex(_RPMindxArrAI);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
