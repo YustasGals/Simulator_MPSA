@@ -75,11 +75,11 @@
                 <Image Source="IMG/START.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="Pause" AutomationProperties.HelpText="Пауза">
+            <Button x:Name="btnPause" Click="btnPause_Click" ToolTip="остановка без сброса состояний" AutomationProperties.HelpText="Пауза" IsEnabled="False">
                 <Image Source="IMG/PAUSE.png" />
             </Button>
             <Separator />
-            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="Stop" IsEnabled="False">
+            <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="остановка со сбросом" IsEnabled="False">
                 <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Separator />
@@ -190,8 +190,7 @@
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
-                           
+                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>                           
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

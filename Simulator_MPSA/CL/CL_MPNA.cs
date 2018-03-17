@@ -9,7 +9,7 @@ namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]
-    public class MPNAStruct : INotifyPropertyChanged
+    public partial class MPNAStruct : INotifyPropertyChanged
     {
         //  public static MPNAStruct[] MPNAs;
 
@@ -17,11 +17,13 @@ namespace Simulator_MPSA
         public bool changedDI = false; // наличие изменений в выходных сигналах блока
         public bool changedDO = false; // наличие изменений во входных сигналах блока
 
-        private DOStruct ABB;
-        private int _ABBindxArrDO = -1; // ABB101  включение
-
         /// <summary>
         /// команда на включение
+        /// </summary>
+        private DOStruct ABB;
+        private int _ABBindxArrDO = -1; // ABB101  включение
+        /// <summary>
+        /// индекс сигнала "включить"
         /// </summary>
         public int ABBindxArrDO
         {
@@ -34,10 +36,13 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
                         }
         }
+        /// <summary>
+        /// команда на отключение
+        /// </summary>
         private DOStruct ABO;
         private int _ABOindxArrDO = -1; // ABO101-2  отключение
         /// <summary>
-        /// команда на отключение
+        /// индекс сигнала "выкл"
         /// </summary>
         public int ABOindxArrDO
         {
@@ -53,7 +58,9 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-
+        /// <summary>
+        /// ВВ включен 2
+        /// </summary>
         private DIStruct MBC12;
         private int _MBC12indxArrDI = -1; // MBC101-2 ВВ включен 2
         /// <summary>
@@ -73,6 +80,9 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        /// <summary>
+        /// вв отключен 2
+        /// </summary>
         private DIStruct MBC22;
         private int _MBC22indxArrDI = -1; // MBC102-2 ВВ отключен 2
         /// <summary>
@@ -153,6 +163,9 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// ВВ включен 1
+        /// </summary>
         private DIStruct MBC11;
         private int _MBC11indxArrDI = -1; // MBC101-1 ВВ включен 1
         /// <summary>
@@ -173,6 +186,9 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// вв отключен 1
+        /// </summary>
         private DIStruct MBC21;
         private int _MBC21indxArrDI = -1; // MBC102-1 ВВ отключен 1
         /// <summary>
@@ -254,6 +270,51 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// сила тока, индекс в массиве AIStruct
+        /// </summary>
+        private int _current_indexArrAi;
+        private AIStruct current;
+        public int CurrentIndx
+        {
+            get { return _current_indexArrAi; }
+            set { _current_indexArrAi = value; OnPropertyChanged("CurrentIndx"); current = AIStruct.FindByIndex(_current_indexArrAi); }
+        }
+        //рабочая сила тока
+        public float Current_nominal
+        {
+            set; get;
+        }
+
+        //скорость изменеия силы тока  А/сек
+        public float Current_spd
+        {
+            set; get;
+        }
+
+        /// <summary>
+        /// частота вращения, аналоговый сигнал
+        /// </summary>
+        private int _RPMindxArrDI;
+        private AIStruct RPM;
+        public int RPMindxArrDI
+        {
+            get { return _RPMindxArrDI; }
+            set { _RPMindxArrDI = value; RPM = AIStruct.FindByIndex(_RPMindxArrDI); OnPropertyChanged("RPM"); }
+        }
+
+        //номинальая частота вращения
+        public float RPM_nominal
+        {
+            get; set;
+        }
+
+        //скорость изменения частоты вращения  об/мин / сек
+        public float RPM_spd
+        {
+            get; set;
+        }
+
 
         public float MPNAProc = 0.0f; // процент включенности МПНА
 
@@ -281,17 +342,7 @@ namespace Simulator_MPSA
         public MPNAStruct()
         {
         }
-        /// <summary>
-        /// Обновить состояние агрегата
-        /// </summary>
-        /// <param name="dt">время между циклами сек </param>
-        /// <returns></returns>
-        public float UpdateMPNA(float dt)
-        {
-            // тут будет логика задвижки !!!
-            return MPNAProc;
-        }
-
+       
         /// <summary>
         /// Обновление ссылок
         /// </summary>
@@ -318,6 +369,4 @@ namespace Simulator_MPSA
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
-
-
 }

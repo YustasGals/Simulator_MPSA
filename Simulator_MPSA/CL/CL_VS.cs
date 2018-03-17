@@ -98,8 +98,15 @@ namespace Simulator_MPSA
         private bool _isMPCanalog;
         private float _valueMPC;
 
+        /// <summary>
+        /// наличие давления индекс дискретного сигнала
+        /// </summary>
         private int _PCindxArrDI = -1;
-        private bool _isPCAnalog;
+        /// <summary>
+        /// наличие давления индекс аналогового сигнала
+        /// </summary>
+        private int _PCindxArrAI = -1;
+       // private bool _isPCAnalog;
         private float _valuePC;
 
         private DIStruct MPC_DI = null;
@@ -153,7 +160,7 @@ namespace Simulator_MPSA
 
         }
         /// <summary>
-        /// Индекс сигнала магнитного пускателя в таблице DI или AI
+        /// Индекс сигнала магнитного пускателя в таблице DI
         /// </summary>
         public int MPCindxArrDI    //
         {
@@ -161,12 +168,11 @@ namespace Simulator_MPSA
             set
             {
                 _MPCindxArrDI = value; OnPropertyChanged("MPCindxArrDI");
-                if (_isMPCanalog)
-                    MPC_AI = AIStruct.FindByIndex(_MPCindxArrDI);
-                else
                     MPC_DI = DIStruct.FindByIndex(_MPCindxArrDI);
             }
         }
+
+
         /// <summary>
         /// тип сигнала магнитного пускателя, аналог/дискрет
         /// </summary>
@@ -190,34 +196,31 @@ namespace Simulator_MPSA
             set { _valueMPC = value; OnPropertyChanged("valueMPC"); }
         }
         /// <summary>
-        /// индекс сигнала давления в таблице DI, AI
+        /// индекс сигнала давления в таблице DI
         /// </summary>
         public int PCindxArrDI
         {
             get { return _PCindxArrDI; }
             set { _PCindxArrDI = value;
                 OnPropertyChanged("PCindxArrDI");
-                if (_isPCAnalog)
-                    PC_AI = AIStruct.FindByIndex(value);
-                else
                     PC_DI = DIStruct.FindByIndex(value);
             }
         }
+
         /// <summary>
-        /// тип сигнала давления аналог/дискрет
+        /// индекс сигнала давления в таблице AI
         /// </summary>
-        public bool isPCAnalog
+        public int PCindxArrAI
         {
-            get { return _isPCAnalog; }
-            set {
-                _isPCAnalog = value;
-                OnPropertyChanged("isPCAnalog");
-                if (_isPCAnalog)
-                    PC_AI = AIStruct.FindByIndex(_PCindxArrDI);
-                else
-                    PC_DI = DIStruct.FindByIndex(_PCindxArrDI);
+            get { return _PCindxArrAI; }
+            set
+            {
+                _PCindxArrAI = value;
+                OnPropertyChanged("PCindxArrAI");
+                PC_AI = AIStruct.FindByIndex(value);
             }
         }
+
         /// <summary>
         /// значение давления на выходе если это аналог
         /// </summary>
@@ -225,6 +228,12 @@ namespace Simulator_MPSA
         {
             get { return _valuePC; }
             set { _valuePC = value; OnPropertyChanged("valuePC"); }
+        }
+
+        //скорость изменения давления физ.ед/сек
+        public float valuePCspd
+        {
+            get; set;
         }
 
         /// <summary>
@@ -280,25 +289,13 @@ namespace Simulator_MPSA
         /// <summary>
         /// Возвращает название присвоенного сигнала давления на выходе
         /// </summary>
-        public string PCName
+        public string PCNameAI
         {
             get
             {
-                if (isPCAnalog)
-                {
-                    //if (PC_AI != null)
-                    //    return PC_AI.NameAI;
-                    if (_PCindxArrDI > -1)
-                        return AIStruct.items[_PCindxArrDI].NameAI;
-                }
-                else
-                {
-                    // if (PC_DI != null)
-                    //     return PC_DI.NameDI;
-                    if (_PCindxArrDI > -1)
-                        return DIStruct.items[_PCindxArrDI].NameDI;
-                }
-
+              if (_PCindxArrDI > -1)
+                return AIStruct.items[_PCindxArrDI].NameAI;
+              else
                 return "сигнал не назначен";
             }
         }
@@ -311,22 +308,16 @@ namespace Simulator_MPSA
         /// состояние вспомсистемы
         /// </summary>
         private VSState state;
-        public string State
+        public VSState State
         { get {
-                switch (state)
-                {
-                    case VSState.Starting: return "Запускается";
-                    case VSState.Stop: return "Остановлен";
-                    case VSState.Stoping: return "Останавливается";
-                    case VSState.Work: return "В работе";
-                    default: return "";
-                }
+                return state;
+            }
+            set
+            {
+                state = value;
             }
         }
-        private VSState SetState
-            {
-            set { state = value; OnPropertyChanged("State"); }
-            }
+
         public VSStruct()
         {
             Description = "Empty";
@@ -340,7 +331,7 @@ namespace Simulator_MPSA
             valueMPC = 0.0f;
 
             PCindxArrDI = -1;
-            isPCAnalog = false;
+          
             valuePC = 0;
 
 
@@ -355,6 +346,7 @@ namespace Simulator_MPSA
             ECindxArrDI = _ecindx;
             MPCindxArrDI = _MPCindxArrDI;
             PCindxArrDI = _PCindxArrDI;
+            PCindxArrAI = _PCindxArrAI;
             ABOindxArrDO = _ABOindxArrDO;
             ABBindxArrDO = _ABBindxArrDO;
         }
@@ -374,50 +366,58 @@ namespace Simulator_MPSA
                 //команда включить - включить пускатель
                 if ((ABB!=null)&&(ABB.ValDO))
                 {
-                    if (MPC_DI !=null)
-                     MPC_DI.ValDI = true;
+                    if (state == VSState.Stop || state== VSState.Stoping)
+                    {
+                        if (MPC_DI != null)
+                            MPC_DI.ValDI = true;
 
-                    SetState = VSState.Starting;
-                    PCOnTimeout = 0.0f;
+                        State = VSState.Starting;
+                    }
                 }
+
                 //команда выключить - отключить пускатель
                 if ((ABO != null) && (ABO.ValDO))
                 {
-                    if (MPC_DI != null)
-                        MPC_DI.ValDI = false;
-
-                    SetState = VSState.Stop;
-                    
-
-                    if (PC_DI != null) PC_DI.ValDI = false;
-                    if (PC_AI !=null) PC_AI.fValAI = 0f;
-                }
-
-                //пускатель включен?
-                if ((MPC_DI != null) && (MPC_DI.ValDI))
-                {
-                    //если агрегат включен и уже есть давление на выходе
-                    if ((PC_DI != null) && (PC_DI.ValDI))
-                        SetState = VSState.Work;
-
-                    //если он только включается выждать пару сек и подать давление
-                    PCOnTimeout += dt;
-                    if (PCOnTimeout > 2f)
+                    if (State == VSState.Starting || State == VSState.Work)
                     {
-                        SetState = VSState.Work;
-                        if (PC_DI != null) PC_DI.ValDI = true;
-                        if (PC_AI != null) PC_AI.fValAI = _valuePC;
+                        if (MPC_DI != null)
+                            MPC_DI.ValDI = false;
+
+                        State = VSState.Stoping;
+
+                        if (PC_DI != null) PC_DI.ValDI = false;
+
                     }
                 }
-                //пускатель отключен - режим стоп
-                if ((MPC_DI != null) && (!MPC_DI.ValDI))
+
+                //запускается
+                if (state== VSState.Starting)
                 {
-                    SetState = VSState.Stop;
+                    if (PC_AI != null)
+                    {
+                        PC_AI.fValAI += valuePCspd*dt ;
+                        if (PC_AI.fValAI >= valuePC)
+                            state = VSState.Work;
+                    }
+                    
                 }
+
+                //останавливается
+                if (state == VSState.Stoping)
+                {
+                    if (PC_AI != null)
+                    {
+                        PC_AI.fValAI -= valuePCspd * dt;
+                        if (PC_AI.fValAI <= 0)
+                            state = VSState.Stop;
+                    }
+
+                }
+
+
             }
             
-            // тут будет логика  !!!
-            return;
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

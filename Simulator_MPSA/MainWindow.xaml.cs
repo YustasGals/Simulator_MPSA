@@ -647,7 +647,9 @@ namespace Simulator_MPSA
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
+
                 btnStop.IsEnabled = true;
+                btnPause.IsEnabled = true;
             }
             catch(Exception ex)
             {
@@ -656,7 +658,20 @@ namespace Simulator_MPSA
         }
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
-            
+            statusText.Content = "пауза";
+            statusText.Background = System.Windows.Media.Brushes.Blue;
+
+            btnStart.IsEnabled = true;
+            btnStop.IsEnabled = false;
+            btnPause.IsEnabled = false;
+            try
+            {
+                cancelTokenSrc.Cancel();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
@@ -665,6 +680,7 @@ namespace Simulator_MPSA
 
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
+            btnPause.IsEnabled = false;
             try
             {
                 cancelTokenSrc.Cancel();
@@ -673,6 +689,17 @@ namespace Simulator_MPSA
             {
                 System.Windows.MessageBox.Show(ex.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
             }
+
+            foreach (AIStruct ai in AIStruct.items)
+                ai.fValAI = 0f;
+
+            foreach (DIStruct di in DIStruct.items)
+                di.ValDI = false;
+
+            foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                zd.Reset();
+
+            //TODO: добавить сброс остальных систем
         }
 
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)

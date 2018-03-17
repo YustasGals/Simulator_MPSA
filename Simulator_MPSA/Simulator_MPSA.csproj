@@ -82,6 +82,7 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CL\MPNA_Logic.cs" />
     <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
     <Compile Include="CL\BaseViewModel.cs" />
     <Compile Include="CL\CL_ANALOG.cs" />

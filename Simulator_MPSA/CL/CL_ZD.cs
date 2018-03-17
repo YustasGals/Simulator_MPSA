@@ -53,6 +53,22 @@ namespace Simulator_MPSA
         }
 
         /// <summary>
+        /// сброс состояния в "закрыто"
+        /// </summary>
+        public void Reset()
+        {
+            if (ODC != null) ODC.ValDI = false;
+            if (CDC != null) CDC.ValDI = false;
+
+            //состояние - закрыто
+            if (OKC != null)
+                OKC.ValDI = true;
+            if (CKC != null)
+                CKC.ValDI = false;
+
+            ZDProc = 0f;
+        }
+        /// <summary>
         /// обновить состояние задвижки
         /// </summary>
         /// <param name="dt">задержка между циклами, сек </param>
@@ -221,7 +237,7 @@ namespace Simulator_MPSA
             set {
                 _DCBindxArrDO = value;
                 OnPropertyChanged("DCBindxArrDO");
-                DCB = DOStruct.FindByIndex(_DCBindxArrDO);
+                DCB = DOStruct.FindByIndex(_DCBindxArrDO);           
             }
         }
         private DOStruct DCB;
@@ -257,7 +273,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-        public bool DCBZState { get { if (DCBZ != null) return DCBZ.ValDO; else return false; } set { } }
+        //public bool DCBZState { get { if (DCBZ != null) return DCBZ.ValDO; else return false; } set { } }
 
         public bool ChangedDO
         {
@@ -274,8 +290,18 @@ namespace Simulator_MPSA
                 _OKCindxArrDI = value;
                 OnPropertyChanged("DCBZindxArrDO");
                 OKC = DIStruct.FindByIndex(_OKCindxArrDI);
+
+                //подписываем наш метод на событие чтобы видеть изменения дискретов в таблице задвижек
+                if (OKC != null)
+                    OKC.PropertyChanged += OKC_PropertyChanged;
             }
         }
+
+        private void OKC_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("OKCState");
+        }
+
         private DIStruct OKC;
         public string OKCName
         {

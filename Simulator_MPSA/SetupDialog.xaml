@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulator_MPSA"
         mc:Ignorable="d"
-        Title="Настройка вспомсистемы" Height="595" Width="803.5">
+        Title="Настройка вспомсистемы" Height="608" Width="803.5">
     <Grid Margin="0,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Content="Настройка выходов (DI):" HorizontalAlignment="Left" Margin="16,107,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="dataGrid" Margin="16,133,4,0" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" Height="129" VerticalAlignment="Top" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
-                <DataGridCheckBoxColumn Header="Аналог." Binding="{Binding IsAnalog}"/>
-                <DataGridTextColumn Header="Уровень сработки" Binding="{Binding ActivationValue}"/>
-                <DataGridTextColumn Header="Значение" IsReadOnly="True" Foreground="Gray" />
                 <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignal}" IsReadOnly="True" Foreground="Gray"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -23,7 +27,7 @@
         <TextBox x:Name="textBox_name" Text="{Binding Path =Name }" Height="23" Margin="120,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left" Width="670"/>
         <Label Content="Группа" HorizontalAlignment="Left" Margin="16,75,0,0" VerticalAlignment="Top" Width="99"/>
         <TextBox x:Name="textBox_group"  Text="{Binding Path = Group}" Height="23" Margin="120,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
-        <Label Content="Настройка выходов (AI, DI):" HorizontalAlignment="Left" Margin="16,107,0,0" VerticalAlignment="Top"/>
+        
         <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Margin="16,293,4,0" Height="101" VerticalAlignment="Top" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
@@ -32,7 +36,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label Content="Настройка входов (DO):" HorizontalAlignment="Left" Margin="16,267,0,0" VerticalAlignment="Top"/>
-        <Label Content="Дополнительные настройки" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top"/>
+        <Label Content="Настройка аналогов (AI)" HorizontalAlignment="Left" Margin="16,399,0,0" VerticalAlignment="Top"/>
         <DataGrid Margin="16,425,4,48"/>
         <CheckBox Content="Включить обработку" IsChecked="{Binding Path=En}"  HorizontalAlignment="Left" Margin="16,21,0,0" VerticalAlignment="Top" Height="20" Width="156"/>
 
