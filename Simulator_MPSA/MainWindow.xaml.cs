@@ -149,22 +149,36 @@ namespace Simulator_MPSA
         Task masterLoopW2;
         Task masterLoopW3;
         #endregion
+
+        
+        float prevTime;
+        float nowTime;
+        float dt_sec;
         private void Update()
         {
+          
             while (!cancelTokenSrc.IsCancellationRequested)   
             {
+                nowTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+
+                
+                if ((nowTime - prevTime) < 0)
+                    dt_sec = 60f - prevTime + nowTime;
+                else
+                    dt_sec = nowTime - prevTime;
+                prevTime = nowTime;
 
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
-                    zd.UpdateZD((float)Sett.Instance.TPause/1000f);
+                    zd.UpdateZD(dt_sec);
 
                 foreach (KLStruct kl in KLTableViewModel.KL)
-                    kl.UpdateKL((float)Sett.Instance.TPause / 1000f);
+                    kl.UpdateKL(dt_sec);
 
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
-                    mpna.UpdateMPNA((float)Sett.Instance.TPause / 1000f);
+                    mpna.UpdateMPNA(dt_sec);
 
                 foreach (VSStruct vs in VSTableViewModel.VS)
-                    vs.UpdateVS((float)Sett.Instance.TPause / 1000f);
+                    vs.UpdateVS(dt_sec);
                // ct1.ThrowIfCancellationRequested();                
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU

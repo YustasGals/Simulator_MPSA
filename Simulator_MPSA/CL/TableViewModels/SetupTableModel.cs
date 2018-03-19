@@ -181,7 +181,7 @@ namespace Simulator_MPSA.CL
             inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName);
 
             _analogs = new List<AnalogIOItem>();
-            _analogs.Add(new AnalogIOItem("Положение затвора", 0,0,0, ""));
+         ///   _analogs.Add(new AnalogIOItem("Положение затвора", 0,0,0, ""));
         }
 
 
