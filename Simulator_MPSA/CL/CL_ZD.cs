@@ -288,7 +288,7 @@ namespace Simulator_MPSA
             get { return _OKCindxArrDI; }
             set {
                 _OKCindxArrDI = value;
-                OnPropertyChanged("DCBZindxArrDO");
+               // OnPropertyChanged("DCBZindxArrDO");
                 OKC = DIStruct.FindByIndex(_OKCindxArrDI);
 
                 //подписываем наш метод на событие чтобы видеть изменения дискретов в таблице задвижек
@@ -307,9 +307,10 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (OKC != null)
+                /*if (OKC != null)
                     return OKC.NameDI;
-                else return "сигнал не назначен";
+                else return "сигнал не назначен";*/
+                return DIStruct.GetNameByIndex(_OKCindxArrDI);
             }
         }
         public bool OKCState { get { if (OKC != null) return OKC.ValDI; else return false; } set { } }
@@ -322,7 +323,7 @@ namespace Simulator_MPSA
             get { return _CKCindxArrDI; }
             set {
                 _CKCindxArrDI = value;
-                OnPropertyChanged("DCBZindxArrDO");
+                //OnPropertyChanged("DCBZindxArrDO");
                 CKC = DIStruct.FindByIndex(_CKCindxArrDI);
             }
         }
@@ -331,9 +332,7 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (CKC != null)
-                    return CKC.NameDI;
-                else return "сигнал не назначен";
+                return DIStruct.GetNameByIndex(_CKCindxArrDI);
             }
         }
         public bool CKCState { get { if (CKC != null) return CKC.ValDI; else return false; } set { } }

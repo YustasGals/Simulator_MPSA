@@ -278,6 +278,7 @@ namespace Simulator_MPSA
         #region UpdateWriters
         private void UpdateW0()
         {
+            int counter = 0;
             while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int nTask = 0; // Номер потока
@@ -292,12 +293,22 @@ namespace Simulator_MPSA
                 for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
                     Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    try
+                    {
+                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }
+                    catch (Exception exp)
+                    {
+                        System.Windows.MessageBox.Show(exp.Message);
+                    }
                 }
                 DebugInfo.WW++;
                 Debug.WriteLine("W0()   WW= " + DebugInfo.WW + " /n");
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
+               // counter++;
+               // StatusR0.Content = counter.ToString();
             }
+
         }
         private void UpdateW1()
         {

@@ -59,6 +59,13 @@ namespace Simulator_MPSA.CL
                 }
             return null;
         }
+        public static string GetNameByIndex(int index)
+        {
+            if (index > 0 && index < items.Length)
+                return items[index].NameDI;
+            else return "сигнал не определен";
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
         {

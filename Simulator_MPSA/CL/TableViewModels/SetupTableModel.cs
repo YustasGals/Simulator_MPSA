@@ -7,29 +7,50 @@ using System.ComponentModel;
 
 namespace Simulator_MPSA.CL
 {
+   
+    /// <summary>
+    /// класс дискретного сигнала
+    /// используется для отображения в таблице настроек
+    /// </summary>
     class InputOutputItem : INotifyPropertyChanged
     {
+        /// <summary>
+        /// название сигнала в таблице настроек (короткое название)
+        /// </summary>
         public string Name
         { get; set; }
+        /// <summary>
+        /// индекс в общей таблице DO или DI
+        /// </summary>
         public int Index
         { get; set; }
 
-        private string _assignedsignal;
-        public string AssignedSignal
-        { get { return _assignedsignal; }
+        /// <summary>
+        /// исправность сигнала
+        /// </summary>
+        public bool IsOK
+        { get; set; }
+
+        /// <summary>
+        /// название сигнала в таблице DI, DO, необходимо для отображения в таблицах настроек
+        /// </summary>
+        private string _assignedsignalName;
+        public string AssignedSignalName
+        { get { return _assignedsignalName; }
             set
             {
-                _assignedsignal = value;
+                _assignedsignalName = value;
                 OnPropertyChanged("AssignedSignal");
             }
         }
         public InputOutputItem() { }
 
-        public InputOutputItem(string name, int index, string assignedSignalName)
+        public InputOutputItem(string name, int index, string assignedSignalName, bool isOk=true)
         {
             Name = name;
             Index = index;
-            _assignedsignal = assignedSignalName;
+            _assignedsignalName = assignedSignalName;
+            IsOK = isOk;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
@@ -38,12 +59,17 @@ namespace Simulator_MPSA.CL
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
+
+    /// <summary>
+    /// класс аналогового сигнала
+    /// используется для отображения в таблице настроек
+    /// </summary>
     class AnalogIOItem : InputOutputItem
     {
         
         float _nomValue;
         /// <summary>
-        /// Номинальное значение параметра для агрегата в работе
+        /// Номинальное значение которое постепенно достигается при пуске агрегата
         /// </summary>
         public float ValueNom
         {
@@ -54,7 +80,7 @@ namespace Simulator_MPSA.CL
 
         float _spdValue;
         /// <summary>
-        /// скорость изменения аналога
+        /// скорость изменения аналогового параметра
         /// </summary>
         public float ValueSpd
         {
@@ -66,7 +92,7 @@ namespace Simulator_MPSA.CL
         {
             Name = name;
             Index = index;
-            AssignedSignal = assignedSignalName;
+            AssignedSignalName = assignedSignalName;
             ValueNom = value;
             ValueSpd = spdVal;
         }
@@ -78,8 +104,8 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// выходы системы (DI)
         /// </summary>
-        private List<InputOutputItem> outputs;
-        public List<InputOutputItem> Outputs
+        private InputOutputItem[] outputs;
+        public InputOutputItem[] Outputs
         {
             get { return outputs; }
             set { outputs = value; }
@@ -91,8 +117,8 @@ namespace Simulator_MPSA.CL
             get { return inputs; }
             set { inputs = value; }
         }
-        private List<AnalogIOItem> _analogs;
-        public List<AnalogIOItem> Analogs
+        private AnalogIOItem[] _analogs;
+        public AnalogIOItem[] Analogs
         {
             get { return _analogs; }
             set { _analogs = value; }
@@ -124,17 +150,17 @@ namespace Simulator_MPSA.CL
             Name = vs.Description;
             Group = vs.Group;
 
-            outputs = new List<InputOutputItem>();
-            outputs.Add( new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, vs.ECName));
-            outputs.Add( new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, vs.MPCName));
-            outputs.Add( new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, vs.PCNameDI));
+            outputs = new InputOutputItem[3];
+            outputs[0] = new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, vs.ECName);
+            outputs[1] =  new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, vs.MPCName);
+            outputs[2] = new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, vs.PCNameDI);
 
             inputs = new InputOutputItem[2];
             inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, vs.ABBName);
             inputs[1]= new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, vs.ABOName);
 
-            _analogs = new List<AnalogIOItem>();
-            _analogs.Add(new AnalogIOItem("Давление на выходе", vs.PCindxArrAI,vs.valuePC,vs.valuePCspd, vs.PCNameAI));
+            _analogs = new AnalogIOItem[1];
+            _analogs[0] = new AnalogIOItem("Давление на выходе", vs.PCindxArrAI,vs.valuePC,vs.valuePCspd, vs.PCNameAI);
 
         }
 
@@ -147,9 +173,9 @@ namespace Simulator_MPSA.CL
             Name = klapan.Description;
             Group = klapan.Group;
 
-            outputs = new List<InputOutputItem>();
-            outputs.Add(new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName));
-            outputs.Add(new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName));
+            outputs = new InputOutputItem[2];
+            outputs[0] = new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName);
+            outputs[1] = new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName);
 
             inputs = new InputOutputItem[2];
             inputs[0] = new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName);
@@ -165,14 +191,14 @@ namespace Simulator_MPSA.CL
             Name = zd.Description;
             Group = zd.Group;
 
-            outputs = new List<InputOutputItem>();
-            outputs.Add(new InputOutputItem("КВО", zd.OKCindxArrDI, zd.OKCName));
-            outputs.Add(new InputOutputItem("КВЗ", zd.CKCindxArrDI, zd.CKCName));
-            outputs.Add(new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, zd.VoltName));
-            outputs.Add(new InputOutputItem("МПО", zd.ODCindxArrDI, zd.ODCName));
-            outputs.Add(new InputOutputItem("МПЗ", zd.CDCindxArrDI, zd.CDCName));
-            outputs.Add(new InputOutputItem("Муфта", zd.MCindxArrDI, zd.MCName));
-            outputs.Add(new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, zd.DCName));
+            outputs = new InputOutputItem[7];
+            outputs[0] = new InputOutputItem("КВО", zd.OKCindxArrDI, zd.OKCName);
+            outputs[1] = new InputOutputItem("КВЗ", zd.CKCindxArrDI, zd.CKCName);
+            outputs[2] = new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, zd.VoltName);
+            outputs[3] = new InputOutputItem("МПО", zd.ODCindxArrDI, zd.ODCName);
+            outputs[4] = new InputOutputItem("МПЗ", zd.CDCindxArrDI, zd.CDCName);
+            outputs[5] = new InputOutputItem("Муфта", zd.MCindxArrDI, zd.MCName);
+            outputs[6] = new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, zd.DCName);
 
             inputs = new InputOutputItem[4];
             inputs[0] = new InputOutputItem("команда - открыть", zd.DOBindxArrDO, zd.DOBName);
@@ -180,8 +206,8 @@ namespace Simulator_MPSA.CL
             inputs[2] = new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, zd.DKBName);
             inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName);
 
-            _analogs = new List<AnalogIOItem>();
-            _analogs.Add(new AnalogIOItem("Положение затвора", 0,0,0, ""));
+            _analogs = new AnalogIOItem[1];
+            _analogs[0] = new AnalogIOItem("Положение затвора", 0,0,0, "");
         }
 
 
@@ -194,16 +220,16 @@ namespace Simulator_MPSA.CL
             Group = agr.Group;
             En = agr.En;
 
-            outputs = new List<InputOutputItem>();
-            outputs.Add(new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name));
-            outputs.Add(new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name));
-            outputs.Add(new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name));
-            outputs.Add(new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name));
+            outputs = new InputOutputItem[4];
+            outputs[0] = new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name);
+            outputs[1] = new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name);
+            outputs[2] = new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name);
+            outputs[3] = new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name);
          
-            outputs.Add(new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName));
-            outputs.Add(new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name));
-            outputs.Add(new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name));
-            outputs.Add(new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName));
+            outputs[0] = new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName);
+            outputs[1] = new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name);
+            outputs[2] = new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name);
+            outputs[3] = new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName);
 
             inputs = new InputOutputItem[3];
             inputs[0] = new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName);
@@ -211,9 +237,9 @@ namespace Simulator_MPSA.CL
             inputs[2] = new InputOutputItem("Команда на отключение 2", agr.ABO2indxArrDO, agr.ABO2Name);
 
 
-            _analogs = new List<AnalogIOItem>();
-            _analogs.Add(new AnalogIOItem("Сила тока", agr.CurrentIndx, agr.Current_nominal, agr.Current_spd, agr.TokName));
-            _analogs.Add(new AnalogIOItem("Частота вращения", agr.RPMindxArrAI, agr.RPM_nominal, agr.RPM_spd, agr.RPMSignalName));
+            _analogs = new AnalogIOItem[2];
+            _analogs[0] = new AnalogIOItem("Сила тока", agr.CurrentIndx, agr.Current_nominal, agr.Current_spd, agr.TokName);
+            _analogs[1] = new AnalogIOItem("Частота вращения", agr.RPMindxArrAI, agr.RPM_nominal, agr.RPM_spd, agr.RPMSignalName);
         }
 
         public void ApplyChanges()

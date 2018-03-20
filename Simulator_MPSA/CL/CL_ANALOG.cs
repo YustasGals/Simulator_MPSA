@@ -116,6 +116,13 @@ namespace Simulator_MPSA.CL
                 }
             return null;
         }
+        public static string GetNameByIndex(int index)
+        {
+            if (index > 0 && index < items.Length)
+                return items[index].NameAI;
+            else return "сигнал не определен";
+        }
+
         public string PrintAI()
         {
             return ("En=" + En + "; indxAI=" + indxAI + "; indxW=" + indxW + "; TegAI=" + TegAI +

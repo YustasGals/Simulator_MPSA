@@ -181,7 +181,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="ZD" >
+            <TabItem Header="Задвижки" >
                 <Grid >
                     <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False" MouseDoubleClick="dataGridZD_MouseDoubleClick">
                         <DataGrid.Columns>
@@ -190,7 +190,151 @@
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>                           
+                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
+                            <DataGridTextColumn Header="КВО" Binding="{Binding OKCState}" IsReadOnly="true" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding OKCState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding OKCState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="КВЗ" Binding="{Binding CKCState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CKCState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CKCState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="МПО" Binding="{Binding ODCState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ODCState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding ODCState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="МПЗ" Binding="{Binding CDCState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding CDCState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding CDCState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="ДУ" Binding="{Binding DCState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DCState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding DCState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Открыть" Binding="{Binding DOBState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DOBState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding DOBState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Закрыть" Binding="{Binding DKBState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DKBState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding DKBState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Стоп" Binding="{Binding DCBState}" IsReadOnly="True" CanUserSort="False">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="{x:Type DataGridCell}">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding DCBState}" Value="false">
+                                                <Setter Property="Background" Value="Yellow"/>
+
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding DCBState}" Value="true">
+                                                <Setter Property="Background" Value="Green"/>
+                                                <Setter Property="Foreground" Value="Green"/>
+                                            </DataTrigger>
+
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -261,6 +405,15 @@
 
         <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
             <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
+            <Label x:Name="StatusR0" Content="Поток R0"></Label>
+            <Label x:Name="StatusR1" Content="Поток R0"></Label>
+            <Label x:Name="StatusR2" Content="Поток R0"></Label>
+            <Label x:Name="StatusR3" Content="Поток R0"></Label>
+            <Label x:Name="StatusR4" Content="Поток R0"></Label>
+            <Label x:Name="StatusW0" Content="Поток R0"></Label>
+            <Label x:Name="StatusW1" Content="Поток R0"></Label>
+            <Label x:Name="StatusW2" Content="Поток R0"></Label>
+            <Label x:Name="StatusW3" Content="Поток R0"></Label>
         </StatusBar>
     </Grid>
 </Window>

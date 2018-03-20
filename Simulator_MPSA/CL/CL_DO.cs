@@ -108,6 +108,13 @@ namespace Simulator_MPSA.CL
 
         }
 
+        public static string GetNameByIndex(int index)
+        {
+            if (index > 0 && index < items.Length)
+                return items[index].NameDO;
+            else return "сигнал не определен";
+        }
+
 
     }
 
