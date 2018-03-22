@@ -151,6 +151,7 @@ namespace Simulator_MPSA
         #endregion
         private void Update()
         {
+
             while (!cancelTokenSrc.IsCancellationRequested)   
             {
 
@@ -169,7 +170,7 @@ namespace Simulator_MPSA
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
-                Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
+               // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -194,7 +195,7 @@ namespace Simulator_MPSA
                 //TSR9.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
                 //TSR10.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-                Debug.WriteLine("UpdateR0() ");
+              //  Debug.WriteLine("UpdateR0() ");
                 //System.Threading.Thread.Sleep(settings.TPause);
                 System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
             }
@@ -219,7 +220,7 @@ namespace Simulator_MPSA
                 //TSR9.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
                 //TSR10.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-                Debug.WriteLine("UpdateR1() ");
+              //  Debug.WriteLine("UpdateR1() ");
                 //System.Threading.Thread.Sleep(settings.TPause);
                 System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
             }
@@ -244,7 +245,7 @@ namespace Simulator_MPSA
                 //TSR9.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
                 //TSR10.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 //TagSource.Input(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-                Debug.WriteLine("UpdateR2() ");
+             //   Debug.WriteLine("UpdateR2() ");
                 //System.Threading.Thread.Sleep(settings.TPause);
                 System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
             }
@@ -269,7 +270,7 @@ namespace Simulator_MPSA
                 TSR9.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
                 TSR10.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
                 TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-                Debug.WriteLine("UpdateR3() ");
+            //    Debug.WriteLine("UpdateR3() ");
                 //System.Threading.Thread.Sleep(settings.TPause);
                 System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
             }
@@ -278,9 +279,16 @@ namespace Simulator_MPSA
         #region UpdateWriters
         private void UpdateW0()
         {
+            //измерение времени цикла записи
+            float prevTime=0;
+            float nowTime;
             int counter = 0;
+            float dt;   //время цикла в сек
+
             while (!cancelTokenSrc.IsCancellationRequested)
             {
+                
+
                 int nTask = 0; // Номер потока
                 int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
                 int NReg = 120; // количество регистров на запись не более 120
@@ -302,8 +310,12 @@ namespace Simulator_MPSA
                         System.Windows.MessageBox.Show(exp.Message);
                     }
                 }
-                DebugInfo.WW++;
-                Debug.WriteLine("W0()   WW= " + DebugInfo.WW + " /n");
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+                
+                Debug.WriteLine("W0 time = " + dt.ToString() );
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
                // counter++;
                // StatusR0.Content = counter.ToString();
@@ -312,6 +324,11 @@ namespace Simulator_MPSA
         }
         private void UpdateW1()
         {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
             while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int nTask = 1; // Номер потока
@@ -329,13 +346,22 @@ namespace Simulator_MPSA
                     Array.Copy(WB.W, NReg * (Coil_i + nTask*TaskCoilCount), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                DebugInfo.WW++;
-                Debug.WriteLine("W1()   WW= " + DebugInfo.WW + " /n");
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W1 time = " + dt.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         private void UpdateW2()
         {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
             while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int nTask = 2; // Номер потока
@@ -352,13 +378,21 @@ namespace Simulator_MPSA
                     Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
-                DebugInfo.WW++;
-                Debug.WriteLine("W2()   WW= " + DebugInfo.WW + " /n");
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W2 time = " + dt.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         private void UpdateW3()
         {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
             while (!cancelTokenSrc.IsCancellationRequested)
             {
                 int nTask = 3; // Номер потока
@@ -384,8 +418,11 @@ namespace Simulator_MPSA
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg * Sett.Instance.NWrTask), data);
                 }
 
-                DebugInfo.WW++;
-                Debug.WriteLine("W3()   WW= " + DebugInfo.WW + " /n");
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W3 time = " + dt.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }

@@ -220,16 +220,16 @@ namespace Simulator_MPSA.CL
             Group = agr.Group;
             En = agr.En;
 
-            outputs = new InputOutputItem[4];
+            outputs = new InputOutputItem[8];
             outputs[0] = new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name);
             outputs[1] = new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name);
             outputs[2] = new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name);
             outputs[3] = new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name);
          
-            outputs[0] = new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName);
-            outputs[1] = new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name);
-            outputs[2] = new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name);
-            outputs[3] = new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName);
+            outputs[4] = new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName);
+            outputs[5] = new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name);
+            outputs[6] = new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name);
+            outputs[7] = new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName);
 
             inputs = new InputOutputItem[3];
             inputs[0] = new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName);
