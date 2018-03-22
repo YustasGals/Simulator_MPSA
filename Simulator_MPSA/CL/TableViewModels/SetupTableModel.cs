@@ -206,7 +206,7 @@ namespace Simulator_MPSA.CL
             inputs[2] = new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, zd.DKBName);
             inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName);
 
-<<<<<<< HEAD
+
             _analogs = new AnalogIOItem[1];
             _analogs[0] = new AnalogIOItem("Положение затвора", 0,0,0, "");
         }

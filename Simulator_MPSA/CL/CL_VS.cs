@@ -293,9 +293,10 @@ namespace Simulator_MPSA
         {
             get
             {
-              if (_PCindxArrAI > -1)
-                return AIStruct.items[_PCindxArrAI].NameAI;
-              else
+                if (_PCindxArrAI > -1)
+                    if (AIStruct.FindByIndex(_PCindxArrAI) != null)
+                        return AIStruct.FindByIndex(_PCindxArrAI).NameAI;
+            
                 return "сигнал не назначен";
             }
         }
@@ -304,8 +305,9 @@ namespace Simulator_MPSA
             get
             {
                 if (_PCindxArrDI > -1)
-                    return DIStruct.items[_PCindxArrDI].NameDI;
-                else
+                    if (DIStruct.FindByIndex(_PCindxArrDI) != null)
+                        return DIStruct.FindByIndex(_PCindxArrDI).NameDI;
+                
                     return "сигнал не назначен";
             }
         }
@@ -408,7 +410,10 @@ namespace Simulator_MPSA
                     {
                         PC_AI.fValAI += valuePCspd*dt ;
                         if (PC_AI.fValAI >= valuePC)
+                        {
                             State = VSState.Work;
+                            PC_AI.fValAI = valuePC;
+                        }
                     }
                     
                 }
@@ -420,7 +425,11 @@ namespace Simulator_MPSA
                     {
                         PC_AI.fValAI -= valuePCspd * dt;
                         if (PC_AI.fValAI <= 0)
+                        {
+                            PC_AI.fValAI = 0;
                             State = VSState.Stop;
+
+                        }
                     }
 
                 }

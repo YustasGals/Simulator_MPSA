@@ -137,6 +137,11 @@ namespace Simulator_MPSA
         ModbusIpMaster mbMasterW1;
         ModbusIpMaster mbMasterW2;
         ModbusIpMaster mbMasterW3;
+        ModbusIpMaster mbMasterW4;
+        ModbusIpMaster mbMasterW5;
+        ModbusIpMaster mbMasterW6;
+        ModbusIpMaster mbMasterW7;
+
         #endregion
         #region Loops
         Task masterLoop;
@@ -148,19 +153,18 @@ namespace Simulator_MPSA
         Task masterLoopW1;
         Task masterLoopW2;
         Task masterLoopW3;
+        Task masterLoopW4;
+        Task masterLoopW5;
+        Task masterLoopW6;
+        Task masterLoopW7;
         #endregion
 
-        
+
         float prevTime;
         float nowTime;
         float dt_sec;
         private void Update()
         {
-<<<<<<< HEAD
-
-=======
-          
->>>>>>> bf070ebbf70ee5921a2f0f9a747e710a90a2c443
             while (!cancelTokenSrc.IsCancellationRequested)   
             {
                 nowTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
@@ -171,6 +175,8 @@ namespace Simulator_MPSA
                 else
                     dt_sec = nowTime - prevTime;
                 prevTime = nowTime;
+                if (dt_sec > 60)
+                    dt_sec = 0;
 
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                     zd.UpdateZD(dt_sec);
@@ -183,12 +189,25 @@ namespace Simulator_MPSA
 
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateVS(dt_sec);
+
+
                // ct1.ThrowIfCancellationRequested();                
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
                 SendAItoW(); // записываем значение АЦП в массив для записи CPU
                 SendDItoW(); // записываем значение DI в массив для записи CPU
-               // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+
+                //записываем счетчики УСО
+                foreach (USOCounter c in CountersTableViewModel.Counters)
+                {
+
+                    if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
+                    {
+                        c.Update(dt_sec);
+                        WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
+                    }
+                }
+                        // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause * 2);
             }
         }
         #region UpdateReaders
@@ -426,9 +445,151 @@ namespace Simulator_MPSA
                     Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
+                //запись последней бочки размером менее 120 рег
+                int halfCoilLength = AreaW / (TaskCoilCount * NReg * Sett.Instance.NWrTask);
+                if (halfCoilLength > 0)
+                {
+                    Array.Copy(WB.W, (NReg * TaskCoilCount * Sett.Instance.NWrTask), data, (0), halfCoilLength);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg * Sett.Instance.NWrTask), data);
+                }
+
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W3 time = " + dt.ToString());
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+            }
+        }
+        private void UpdateW4()
+        {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
+            while (!cancelTokenSrc.IsCancellationRequested)
+            {
+                int nTask = 4; // Номер потока
+                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
+                {
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                }
+
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W4 time = " + dt.ToString());
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+            }
+        }
+        private void UpdateW5()
+        {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
+            while (!cancelTokenSrc.IsCancellationRequested)
+            {
+                int nTask = 5; // Номер потока
+                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
+                {
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                }
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W5 time = " + dt.ToString());
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+            }
+        }
+
+        private void UpdateW6()
+        {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
+            while (!cancelTokenSrc.IsCancellationRequested)
+            {
+                int nTask = 6; // Номер потока
+                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
+                {
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                }
+
+                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+                dt = nowTime - prevTime;
+                prevTime = nowTime;
+
+                Debug.WriteLine("W6 time = " + dt.ToString());
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+            }
+        }
+
+        private void UpdateW7()
+        {
+            //измерение времени цикла записи
+            float prevTime = 0;
+            float nowTime;
+            int counter = 0;
+            float dt;   //время цикла в сек
+            while (!cancelTokenSrc.IsCancellationRequested)
+            {
+                int nTask = 7; // Номер потока
+                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
+                int NReg = 120; // количество регистров на запись не более 120
+
+                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
+
+                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
+                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
+
+
+
+                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
+                {
+                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                }
 
                 //запись последней бочки размером менее 120 рег
-                int halfCoilLength = AreaW / (TaskCoilCount*NReg*Sett.Instance.NWrTask);
+                int halfCoilLength = AreaW / (TaskCoilCount * NReg * Sett.Instance.NWrTask);
                 if (halfCoilLength > 0)
                 {
                     Array.Copy(WB.W, (NReg * TaskCoilCount * Sett.Instance.NWrTask), data, (0), halfCoilLength);
@@ -439,12 +600,12 @@ namespace Simulator_MPSA
                 dt = nowTime - prevTime;
                 prevTime = nowTime;
 
-                Debug.WriteLine("W3 time = " + dt.ToString());
+                Debug.WriteLine("W7 time = " + dt.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         #endregion
-   
+
         #region Dedollers
         public Depoller TagSource
         {
@@ -527,8 +688,20 @@ namespace Simulator_MPSA
         {
             for (int i = 0; i < DIStruct.items.Length; i++)
             {
-                SetBit(ref (WB.W[(DIStruct.items[i].indxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
+
+                    SetBit(ref (WB.W[(DIStruct.items[i].indxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
             }
+           /* foreach (DIStruct item in DIStruct.items)
+            {
+                if (item.En)
+                {
+                    if (item.InvertDI)
+                        SetBit(ref (WB.W[(item.indxW)]), (item.indxBitDI),  (!item.ValDI));
+                    else
+                        SetBit(ref (WB.W[(item.indxW)]), (item.indxBitDI), (item.ValDI));
+                }
+            }*/
+
         }
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
         {
@@ -614,7 +787,7 @@ namespace Simulator_MPSA
                     DITableViewModel.Instance.Init(DIStruct.items);
                     dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
 
-
+                    dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
                     // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
 
                     DOTableViewModel.Instance.Init(DOStruct.items);
@@ -695,20 +868,25 @@ namespace Simulator_MPSA
                 mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+
                 mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+
 
                 masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
                 masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
                 masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
                 masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
                 masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
+
                 masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
                 masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
                 masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
                 masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);
+
+
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;

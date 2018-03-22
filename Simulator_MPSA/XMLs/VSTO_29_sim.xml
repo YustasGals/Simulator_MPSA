@@ -1071,7 +1071,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>89</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>173</indxW>
@@ -1083,7 +1083,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>90</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>173</indxW>
@@ -1551,7 +1551,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>129</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>298</indxW>
@@ -1935,7 +1935,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>161</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>424</indxW>
@@ -6399,7 +6399,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>533</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>1100</indxW>
@@ -6411,7 +6411,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>534</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>1100</indxW>
@@ -6423,7 +6423,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>535</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1100</indxW>
@@ -7551,7 +7551,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>629</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>1226</indxW>
@@ -8451,7 +8451,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>704</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1351</indxW>
@@ -8463,7 +8463,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>705</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>1351</indxW>
@@ -8535,7 +8535,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>711</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1351</indxW>
@@ -8547,7 +8547,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>712</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>1351</indxW>
@@ -9111,7 +9111,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>759</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1354</indxW>
@@ -10047,7 +10047,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>837</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>1416</indxW>
@@ -10059,7 +10059,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>838</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>1416</indxW>
@@ -10071,7 +10071,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>839</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1416</indxW>
@@ -11199,7 +11199,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>933</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>1560</indxW>
@@ -11211,7 +11211,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>934</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>1560</indxW>
@@ -18435,7 +18435,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1536</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2739</indxW>
@@ -18447,7 +18447,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1537</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>2739</indxW>
@@ -20367,7 +20367,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1697</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>2989</indxW>
@@ -21027,7 +21027,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1752</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>2992</indxW>
@@ -21039,7 +21039,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1753</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>2992</indxW>
@@ -21051,7 +21051,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1754</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>2992</indxW>
@@ -21135,7 +21135,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1761</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>3115</indxW>
@@ -21315,7 +21315,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1776</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>3116</indxW>
@@ -21327,7 +21327,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1777</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>3116</indxW>
@@ -21339,7 +21339,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1778</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>3116</indxW>
@@ -22275,7 +22275,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1856</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>3198</indxW>
@@ -22287,7 +22287,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1857</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>3198</indxW>
@@ -22359,7 +22359,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1863</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>3198</indxW>
@@ -23523,7 +23523,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1960</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>3324</indxW>
@@ -23535,7 +23535,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1961</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>3324</indxW>
@@ -23607,7 +23607,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1967</indxArrDI>
       <indxBitDI>0</indxBitDI>
       <indxW>3324</indxW>
@@ -23667,7 +23667,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1972</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>3325</indxW>
@@ -23691,7 +23691,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1974</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>3325</indxW>
@@ -24578,11 +24578,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2048</indxArrDI>
       <indxBitDI>15</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>MPC761</TegDI>
       <NameDI>Насос артскважины Н1 - включен</NameDI>
       <Nsign>3049</Nsign>
@@ -24590,11 +24590,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2049</indxArrDI>
       <indxBitDI>14</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>OPC761</TegDI>
       <NameDI>Насос артскважины Н1 - авария по насосной I подъема воды</NameDI>
       <Nsign>3050</Nsign>
@@ -24602,11 +24602,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2050</indxArrDI>
       <indxBitDI>13</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI />
       <NameDI>Резерв</NameDI>
       <Nsign>3051</Nsign>
@@ -24614,11 +24614,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2051</indxArrDI>
       <indxBitDI>12</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-1</TegDI>
       <NameDI>Отсутствие питания на вводе 1 шкафа МНС.УСО.5 </NameDI>
       <Nsign>3052</Nsign>
@@ -24626,11 +24626,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2052</indxArrDI>
       <indxBitDI>11</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-3</TegDI>
       <NameDI>Сработало УЗИП или отсутствие питания на вводе 1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3053</Nsign>
@@ -24638,11 +24638,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2053</indxArrDI>
       <indxBitDI>10</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-5</TegDI>
       <NameDI>Отсутствие питания на выходе выключателя 1QF1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3054</Nsign>
@@ -24650,11 +24650,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2054</indxArrDI>
       <indxBitDI>9</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-7</TegDI>
       <NameDI>Отсутствие питания на выходе выключателя 1QF3 шкафа МНС.УСО.5</NameDI>
       <Nsign>3055</Nsign>
@@ -24662,11 +24662,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2055</indxArrDI>
       <indxBitDI>8</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-9</TegDI>
       <NameDI>Неисправность источника питания G1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3056</Nsign>
@@ -24674,11 +24674,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2056</indxArrDI>
       <indxBitDI>7</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-11</TegDI>
       <NameDI>Неисправность  ИБП =24В G3 шкафа МНС.УСО.5</NameDI>
       <Nsign>3057</Nsign>
@@ -24686,11 +24686,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2057</indxArrDI>
       <indxBitDI>6</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-13</TegDI>
       <NameDI>Работа от батареи  ИБП =24В G3 шкафа МНС.УСО.5</NameDI>
       <Nsign>3058</Nsign>
@@ -24698,11 +24698,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2058</indxArrDI>
       <indxBitDI>5</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-15</TegDI>
       <NameDI>Батарея разряжена ИБП =24В G3 шкафа МНС.УСО.5</NameDI>
       <Nsign>3059</Nsign>
@@ -24710,11 +24710,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2059</indxArrDI>
       <indxBitDI>4</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-17</TegDI>
       <NameDI>Отсутствие питания на выходе выключателя 3QF1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3060</Nsign>
@@ -24722,11 +24722,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2060</indxArrDI>
       <indxBitDI>3</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-19</TegDI>
       <NameDI>Неисправность преобразователя постоянного тока G5 шкафа МНС.УСО.5</NameDI>
       <Nsign>3061</Nsign>
@@ -24734,11 +24734,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2061</indxArrDI>
       <indxBitDI>2</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-21</TegDI>
       <NameDI>Отсутствие питания на входе диодного "ИЛИ"  1VD шкафа МНС.УСО.5</NameDI>
       <Nsign>3062</Nsign>
@@ -24746,11 +24746,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2062</indxArrDI>
       <indxBitDI>1</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-23</TegDI>
       <NameDI>ПКСИ PR1 шкафа МНС.УСО.5. Низкое сопротивление изоляции</NameDI>
       <Nsign>3063</Nsign>
@@ -24758,11 +24758,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2063</indxArrDI>
       <indxBitDI>0</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3330</indxW>
       <TegDI>EC950-27</TegDI>
       <NameDI>Неисправность УЗИП после диодного "ИЛИ" 2VD1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3064</Nsign>
@@ -24770,11 +24770,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2064</indxArrDI>
       <indxBitDI>15</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>OPC950</TegDI>
       <NameDI>Двери шкафа МНС.УСО.5 открыты</NameDI>
       <Nsign>3065</Nsign>
@@ -24782,11 +24782,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2065</indxArrDI>
       <indxBitDI>14</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>EC950-31(1)</TegDI>
       <NameDI>Неисправность предохранителя схемы  распределения питания =24В оборудования шкафа МНС.УСО.5</NameDI>
       <Nsign>3066</Nsign>
@@ -24794,11 +24794,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2066</indxArrDI>
       <indxBitDI>13</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>EC950-32</TegDI>
       <NameDI>Отсутствие питания на выходе выключателя 1QF5 шкафа МНС.УСО.5</NameDI>
       <Nsign>3067</Nsign>
@@ -24806,11 +24806,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2067</indxArrDI>
       <indxBitDI>12</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>EC950-35</TegDI>
       <NameDI>Отсутствие питания на выходе выключателя 2QF2 шкафа МНС.УСО.5</NameDI>
       <Nsign>3068</Nsign>
@@ -24818,11 +24818,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2068</indxArrDI>
       <indxBitDI>11</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>EC950-50</TegDI>
       <NameDI>Неисправность УЗИП сигналов клеммного поля 2XT1 шкафа МНС.УСО.5</NameDI>
       <Nsign>3069</Nsign>
@@ -24830,11 +24830,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2069</indxArrDI>
       <indxBitDI>10</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3070</Nsign>
@@ -24842,11 +24842,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2070</indxArrDI>
       <indxBitDI>9</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3071</Nsign>
@@ -24854,11 +24854,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2071</indxArrDI>
       <indxBitDI>8</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3072</Nsign>
@@ -24866,11 +24866,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2072</indxArrDI>
       <indxBitDI>7</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3073</Nsign>
@@ -24878,11 +24878,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2073</indxArrDI>
       <indxBitDI>6</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3074</Nsign>
@@ -24890,11 +24890,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2074</indxArrDI>
       <indxBitDI>5</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3075</Nsign>
@@ -24902,11 +24902,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2075</indxArrDI>
       <indxBitDI>4</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3076</Nsign>
@@ -24914,11 +24914,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2076</indxArrDI>
       <indxBitDI>3</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3077</Nsign>
@@ -24926,11 +24926,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2077</indxArrDI>
       <indxBitDI>2</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI />
       <Nsign>3078</Nsign>
@@ -24938,11 +24938,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
-      <ValDI>false</ValDI>
+      <En>false</En>
+      <ValDI>true</ValDI>
       <indxArrDI>2078</indxArrDI>
       <indxBitDI>1</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI>EC761c</TegDI>
       <NameDI>Наличие напряжения на СШ 500.1 РЩ</NameDI>
       <Nsign>3079</Nsign>
@@ -24950,11 +24950,11 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2079</indxArrDI>
       <indxBitDI>0</indxBitDI>
-      <indxW>3329</indxW>
+      <indxW>3331</indxW>
       <TegDI />
       <NameDI>Резерв</NameDI>
       <Nsign>3080</Nsign>
@@ -24962,7 +24962,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2080</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -24972,7 +24972,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2081</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -24982,7 +24982,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2082</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -24992,7 +24992,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2083</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25002,7 +25002,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2084</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25012,7 +25012,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2085</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25022,7 +25022,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2086</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25032,7 +25032,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2087</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25042,7 +25042,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2088</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25052,7 +25052,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2089</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25062,7 +25062,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2090</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25072,7 +25072,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2091</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25082,7 +25082,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2092</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25092,7 +25092,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2093</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25102,7 +25102,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2094</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -25112,7 +25112,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2095</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25122,7 +25122,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2096</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25132,7 +25132,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2097</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25142,7 +25142,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2098</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25152,7 +25152,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2099</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25162,7 +25162,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2100</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25172,7 +25172,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2101</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25182,7 +25182,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2102</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25192,7 +25192,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2103</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25202,7 +25202,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2104</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25212,7 +25212,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2105</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25222,7 +25222,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2106</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25232,7 +25232,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2107</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25242,7 +25242,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2108</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25252,7 +25252,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2109</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25262,7 +25262,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2110</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -25272,7 +25272,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2111</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25282,7 +25282,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2112</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25294,7 +25294,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2113</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25306,7 +25306,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2114</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25317,7 +25317,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2115</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25329,7 +25329,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2116</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25341,7 +25341,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2117</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25353,7 +25353,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2118</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25365,7 +25365,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2119</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25377,7 +25377,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2120</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25389,7 +25389,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2121</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25401,7 +25401,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2122</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25413,7 +25413,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2123</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25425,7 +25425,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2124</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25437,7 +25437,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2125</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25449,7 +25449,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2126</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -25461,7 +25461,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2127</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25473,7 +25473,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2128</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25483,7 +25483,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2129</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25495,7 +25495,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2130</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25507,7 +25507,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2131</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25519,7 +25519,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2132</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25529,7 +25529,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2133</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25539,7 +25539,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2134</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25549,7 +25549,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2135</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25559,7 +25559,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2136</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25569,7 +25569,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2137</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25579,7 +25579,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2138</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25589,7 +25589,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2139</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25599,7 +25599,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2140</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25609,7 +25609,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2141</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25619,8 +25619,8 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
-      <ValDI>false</ValDI>
+      <En>false</En>
+      <ValDI>true</ValDI>
       <indxArrDI>2142</indxArrDI>
       <indxBitDI>1</indxBitDI>
       <indxW>3329</indxW>
@@ -25631,7 +25631,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2143</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25641,7 +25641,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2144</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25651,7 +25651,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2145</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25661,7 +25661,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2146</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25671,7 +25671,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2147</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25681,7 +25681,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2148</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25691,7 +25691,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2149</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25701,7 +25701,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2150</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25711,7 +25711,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2151</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25721,7 +25721,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2152</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25731,7 +25731,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2153</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25741,7 +25741,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2154</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25751,7 +25751,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2155</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25761,7 +25761,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2156</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25771,7 +25771,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2157</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25781,7 +25781,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2158</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -25791,7 +25791,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2159</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25801,7 +25801,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2160</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25811,7 +25811,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2161</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25821,7 +25821,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2162</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25831,7 +25831,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2163</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -25841,7 +25841,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2164</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -25851,7 +25851,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2165</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -25861,7 +25861,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2166</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -25871,7 +25871,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2167</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25881,7 +25881,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2168</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -25891,7 +25891,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2169</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -25901,7 +25901,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2170</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -25911,7 +25911,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2171</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -25921,7 +25921,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2172</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -25931,7 +25931,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2173</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -25941,7 +25941,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2174</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -25951,7 +25951,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2175</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -25961,7 +25961,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2176</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -25973,7 +25973,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2177</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -25985,7 +25985,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2178</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -25997,7 +25997,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2179</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -26009,7 +26009,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2180</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -26021,7 +26021,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2181</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -26033,7 +26033,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2182</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -26045,7 +26045,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2183</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -26057,7 +26057,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2184</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -26067,7 +26067,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2185</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -26077,7 +26077,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2186</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -26089,7 +26089,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2187</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -26099,7 +26099,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2188</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -26109,7 +26109,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2189</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -26119,7 +26119,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2190</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -26129,7 +26129,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2191</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -26139,7 +26139,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2192</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -26151,7 +26151,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2193</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -26163,7 +26163,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2194</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -26175,7 +26175,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2195</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -26187,7 +26187,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2196</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -26199,7 +26199,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2197</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -26211,7 +26211,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2198</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -26221,7 +26221,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2199</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -26233,7 +26233,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2200</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -26245,7 +26245,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2201</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -26257,7 +26257,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2202</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -26269,7 +26269,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2203</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -26281,7 +26281,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2204</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -26291,7 +26291,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2205</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -26301,7 +26301,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2206</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -26311,7 +26311,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2207</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -26321,7 +26321,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2208</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -26333,7 +26333,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2209</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -26345,7 +26345,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2210</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -26357,7 +26357,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2211</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -26369,7 +26369,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2212</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -26381,7 +26381,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2213</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -26393,7 +26393,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2214</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -26405,7 +26405,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2215</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -26417,7 +26417,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2216</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -26427,7 +26427,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2217</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -26437,7 +26437,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2218</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -26447,7 +26447,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2219</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -26457,7 +26457,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2220</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -26467,7 +26467,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2221</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -26477,7 +26477,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2222</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -26487,7 +26487,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2223</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -26497,7 +26497,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2224</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -26507,7 +26507,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2225</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -26519,7 +26519,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2226</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -26531,7 +26531,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2227</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -27804,7 +27804,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2342</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -27814,7 +27814,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2343</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -27824,7 +27824,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2344</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -27834,7 +27834,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2345</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -27844,7 +27844,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2346</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -27854,7 +27854,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2347</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -27864,7 +27864,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2348</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -27874,7 +27874,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2349</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -27884,7 +27884,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2350</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -27894,7 +27894,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2351</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -27904,7 +27904,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2352</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -27914,7 +27914,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2353</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -27924,7 +27924,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2354</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -27934,7 +27934,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2355</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -27944,7 +27944,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2356</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -27954,7 +27954,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2357</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -27964,7 +27964,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2358</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -27974,7 +27974,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2359</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -27984,7 +27984,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2360</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -27994,7 +27994,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2361</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -28004,7 +28004,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2362</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -28014,7 +28014,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2363</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -28024,7 +28024,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2364</indxArrDI>
       <indxBitDI>3</indxBitDI>
@@ -28034,7 +28034,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2365</indxArrDI>
       <indxBitDI>2</indxBitDI>
@@ -28044,7 +28044,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2366</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -28054,7 +28054,7 @@
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
-      <En>true</En>
+      <En>false</En>
       <ValDI>false</ValDI>
       <indxArrDI>2367</indxArrDI>
       <indxBitDI>0</indxBitDI>
@@ -28105,7 +28105,7 @@
       <_NameDO>Включение звонка «Авария»</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>2</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>1</indxR>
@@ -31563,7 +31563,7 @@
       <_NameDO>Насос откачки Н1 - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>268</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <indxR>401</indxR>
@@ -31654,7 +31654,7 @@
       <_NameDO>Разрешить включение ЭН емкости 029.1</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>275</indxArrDO>
       <indxBitDO>12</indxBitDO>
       <indxR>402</indxR>
@@ -31667,7 +31667,7 @@
       <_NameDO>Разрешить включение ЭН емкости 029.3</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>276</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <indxR>402</indxR>
@@ -32577,7 +32577,7 @@
       <_NameDO>Разрешить включение ЭН емкости 029.2</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>346</indxArrDO>
       <indxBitDO>5</indxBitDO>
       <indxR>502</indxR>
@@ -34319,7 +34319,7 @@
       <_NameDO>МНА №003.1. Насос системы затвора торцевых уплотнений  №1 (АР001-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>480</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>651</indxR>
@@ -34943,7 +34943,7 @@
       <_NameDO>МНА №003.1. Насос системы затвора уплотнений №2 (АР002-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>528</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>702</indxR>
@@ -37101,7 +37101,7 @@
       <_NameDO>МНА №003.4. Питание блока взрывозащиты ЭД - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>694</indxArrDO>
       <indxBitDO>9</indxBitDO>
       <indxR>952</indxR>
@@ -39493,7 +39493,7 @@
       <_NameDO>Задвижка №1К - команда на остановку </_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>878</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <indxR>1251</indxR>
@@ -39948,7 +39948,7 @@
       <_NameDO>Задвижка №2К - команда на остановку </_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>913</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>1302</indxR>
@@ -40156,7 +40156,7 @@
       <_NameDO>Насос артскважины Н1 -отключить</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>929</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>1302</indxR>
@@ -40364,7 +40364,7 @@
       <_NameDO />
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>945</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>1302</indxR>
@@ -40572,7 +40572,7 @@
       <_NameDO>Насос артскважины Н2 -отключить</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>961</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>1302</indxR>
@@ -40780,7 +40780,7 @@
       <_NameDO />
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>977</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>1302</indxR>
@@ -46542,8 +46542,8 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>4</maxPhis>
-      <fValAI>-3.611669E-08</fValAI>
+      <maxPhis>6</maxPhis>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -46556,7 +46556,7 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>6</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -46650,12 +46650,12 @@
       <indxW>1013</indxW>
       <TegAI>LT651</TegAI>
       <NameAI>Уровень в емкости для сбора утечек нефти и дренажа ЕП-40 №1</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>9953</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <maxPhis>2150</maxPhis>
+      <fValAI>800</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -46664,12 +46664,12 @@
       <indxW>1139</indxW>
       <TegAI>LT652</TegAI>
       <NameAI>Уровень в емкости для сбора утечек нефти и дренажа ЕП-40 №2</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>9953</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <maxPhis>1790</maxPhis>
+      <fValAI>800</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -55701,7 +55701,7 @@
       <ECindxArrDI>0</ECindxArrDI>
       <CurrentIndx>38</CurrentIndx>
       <Current_nominal>500</Current_nominal>
-      <Current_spd>50</Current_spd>
+      <Current_spd>200</Current_spd>
       <RPMindxArrAI>498</RPMindxArrAI>
       <RPM_nominal>2000</RPM_nominal>
       <RPM_spd>100</RPM_spd>
@@ -57615,7 +57615,7 @@
       <isMPCAnalog>false</isMPCAnalog>
       <valueMPC>0</valueMPC>
       <PCindxArrDI>-1</PCindxArrDI>
-      <PCindxArrAI>-1</PCindxArrAI>
+      <PCindxArrAI>397</PCindxArrAI>
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
@@ -57681,9 +57681,9 @@
       <isMPCAnalog>false</isMPCAnalog>
       <valueMPC>0</valueMPC>
       <PCindxArrDI>-1</PCindxArrDI>
-      <PCindxArrAI>-1</PCindxArrAI>
-      <valuePC>0</valuePC>
-      <valuePCspd>0</valuePCspd>
+      <PCindxArrAI>399</PCindxArrAI>
+      <valuePC>1</valuePC>
+      <valuePCspd>3</valuePCspd>
       <State>Stop</State>
     </VSStruct>
     <VSStruct>
@@ -58833,7 +58833,7 @@
   </VSs>
   <ZDs>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>736</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -58844,9 +58844,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1536</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>1537</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>1540</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1541</CDCindxArrDI>
@@ -58859,8 +58859,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1539</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59428,20 +59428,20 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>911</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>912</DKBindxArrDO>
       <DKBState>false</DKBState>
       <DCBindxArrDO>913</DCBindxArrDO>
-      <DCBState>false</DCBState>
+      <DCBState>true</DCBState>
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1960</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>1961</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>1964</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1965</CDCindxArrDI>
@@ -59454,8 +59454,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1963</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59463,20 +59463,20 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>876</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>877</DKBindxArrDO>
       <DKBState>false</DKBState>
       <DCBindxArrDO>878</DCBindxArrDO>
-      <DCBState>false</DCBState>
+      <DCBState>true</DCBState>
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1856</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>1857</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>1860</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1861</CDCindxArrDI>
@@ -59489,8 +59489,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1859</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59533,7 +59533,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>265</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -59544,9 +59544,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>534</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>535</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>538</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>539</CDCindxArrDI>
@@ -59559,8 +59559,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>537</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59708,7 +59708,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>320</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -59719,9 +59719,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>704</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>705</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>708</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>709</CDCindxArrDI>
@@ -59734,8 +59734,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>707</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59743,7 +59743,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>323</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -59754,9 +59754,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>711</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>712</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>715</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>716</CDCindxArrDI>
@@ -59769,8 +59769,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>714</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -60163,4 +60163,41 @@
       <Group>Group</Group>
     </ZDStruct>
   </ZDs>
-</Station>
+<Counters>
+	<USOCounter>
+	<En>true</En>
+	<Value>0</Value>
+	<PLCAddr>15100</PLCAddr>
+	<Name>УСО1(1) Модуль А1.07</Name>
+	</USOCounter>
+	<USOCounter>
+	<En>true</En>
+	<Value>0</Value>
+	<PLCAddr>15226</PLCAddr>
+	<Name>УСО</Name>
+	</USOCounter>
+	
+	<USOCounter>
+	<En>true</En>
+	<Value>0</Value>
+	<PLCAddr>15352</PLCAddr>
+	<Name>УСО</Name>
+	</USOCounter>
+	
+	<USOCounter>
+	<En>true</En>
+	<Value>0</Value>
+	<PLCAddr>15352</PLCAddr>
+	<Name>УСО</Name>
+	</USOCounter>
+	
+	<USOCounter>
+	<En>true</En>
+	<Value>0</Value>
+	<PLCAddr>15478</PLCAddr>
+	<Name>УСО</Name>
+	</USOCounter>
+	
+	
+</Counters>
+  </Station>

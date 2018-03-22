@@ -19,7 +19,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
-                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignal}" IsReadOnly="True" Foreground="Gray"/>
+                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" IsReadOnly="True" Foreground="Gray"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>
@@ -38,18 +38,18 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
-                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignal}" Foreground="Gray"/>
+                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" Foreground="Gray"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>
-        <Expander Header="Настройка аналоговых выходов (AI):" Grid.Row="3" HorizontalAlignment="Left" Margin="0,5,0,10" VerticalAlignment="Top" IsExpanded="True">
+        <Expander Header="Настройка аналоговых выходов (AI):" Grid.Row="3" HorizontalAlignment="Left" Margin="0,5,0,10"  IsExpanded="True">
             <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" Height="101" VerticalAlignment="Top" AutoGenerateColumns="False" Width="750">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Номинальное значение" Binding="{Binding ValueNom}"/>
                     <DataGridTextColumn Header="Скорость изменения ед/сек" Binding="{Binding ValueSpd}"/>
-                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignal}" Foreground="Gray"/>
+                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" Foreground="Gray"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>

@@ -26,7 +26,7 @@ namespace Simulator_MPSA.CL
        public Sett settings;
        public VSStruct[] VSs;
        public ZDStruct[] ZDs;
-       
+        public USOCounter[] Counters;
         
 
         public Station()
@@ -44,6 +44,7 @@ namespace Simulator_MPSA.CL
             VSs = VSTableViewModel.GetArray();
             ZDs = ZDTableViewModel.GetArray();
             settings = Sett.Instance;
+            Counters = CountersTableViewModel.Counters;
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(filename);
@@ -85,7 +86,10 @@ namespace Simulator_MPSA.CL
                 MPNATableViewModel.Init(station.MPNAs);
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
                     mpna.UpdateRefs();
-                
+
+                CountersTableViewModel.Init(station.Counters);
+                    
+
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;
             }
