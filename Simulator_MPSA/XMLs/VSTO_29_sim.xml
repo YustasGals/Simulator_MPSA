@@ -999,7 +999,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>83</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>173</indxW>
@@ -7755,7 +7755,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>646</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>1227</indxW>
@@ -7767,7 +7767,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>647</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1227</indxW>
@@ -18435,7 +18435,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1536</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2739</indxW>
@@ -18447,7 +18447,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1537</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>2739</indxW>
@@ -55688,7 +55688,7 @@
       <State>Stop</State>
       <ABBindxArrDO>778</ABBindxArrDO>
       <ABOindxArrDO>32</ABOindxArrDO>
-      <ABO2indxArrDO>-1</ABO2indxArrDO>
+      <ABO2indxArrDO>777</ABO2indxArrDO>
       <MBC12indxArrDI>1600</MBC12indxArrDI>
       <MBC22indxArrDI>1601</MBC22indxArrDI>
       <ECBindxArrDI>1654</ECBindxArrDI>
@@ -58833,7 +58833,7 @@
   </VSs>
   <ZDs>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <DOBindxArrDO>736</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -58844,9 +58844,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1536</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1537</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1540</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1541</CDCindxArrDI>
@@ -58859,8 +58859,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1539</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -59002,7 +59002,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №3м-1</Description>
       <Group>Group</Group>
@@ -59037,7 +59037,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №3м-2</Description>
       <Group>Group</Group>
@@ -59072,7 +59072,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №4м-1</Description>
       <Group>Group</Group>
@@ -59107,7 +59107,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №4м-2</Description>
       <Group>Group</Group>
@@ -59142,7 +59142,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №44</Description>
       <Group>Group</Group>
@@ -59177,7 +59177,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №43</Description>
       <Group>Group</Group>
@@ -59212,7 +59212,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №9К</Description>
       <Group>Group</Group>
@@ -59247,7 +59247,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №8К</Description>
       <Group>Group</Group>
@@ -59282,7 +59282,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №7К</Description>
       <Group>Group</Group>
@@ -59317,7 +59317,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №4К</Description>
       <Group>Group</Group>
@@ -59352,7 +59352,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №3К</Description>
       <Group>Group</Group>
@@ -59387,7 +59387,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №6К</Description>
       <Group>Group</Group>
@@ -59422,7 +59422,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №5К</Description>
       <Group>Group</Group>
@@ -59457,7 +59457,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №2К</Description>
       <Group>Group</Group>
@@ -59492,7 +59492,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №1К</Description>
       <Group>Group</Group>
@@ -59527,7 +59527,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №5.1</Description>
       <Group>Group</Group>
@@ -59562,7 +59562,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №1</Description>
       <Group>Group</Group>
@@ -59597,7 +59597,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №1ф-1</Description>
       <Group>Group</Group>
@@ -59632,7 +59632,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №1ф-2</Description>
       <Group>Group</Group>
@@ -59667,7 +59667,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №2ф-1</Description>
       <Group>Group</Group>
@@ -59702,7 +59702,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №2ф-2</Description>
       <Group>Group</Group>
@@ -59737,7 +59737,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №3ф-1</Description>
       <Group>Group</Group>
@@ -59772,7 +59772,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Задвижка №3ф-2</Description>
       <Group>Group</Group>
@@ -59842,7 +59842,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №7Е</Description>
       <Group>Group</Group>
@@ -59918,7 +59918,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <DOBindxArrDO>304</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -59929,9 +59929,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>646</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>647</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>650</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>651</CDCindxArrDI>
@@ -59944,10 +59944,10 @@
       <MCState>false</MCState>
       <OPCindxArrDI>649</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №106.3</Description>
       <Group>Group</Group>
@@ -59982,7 +59982,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №КШ5</Description>
       <Group>Group</Group>
@@ -60017,7 +60017,7 @@
       <ZDProc>0.879999459</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №КШ6</Description>
       <Group>Group</Group>
@@ -60087,7 +60087,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №КШ8</Description>
       <Group>Group</Group>
@@ -60122,7 +60122,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №КШ9</Description>
       <Group>Group</Group>
@@ -60157,7 +60157,7 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>500</TmoveZD>
+      <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
       <Description>Шаровый кран №КШ10</Description>
       <Group>Group</Group>
