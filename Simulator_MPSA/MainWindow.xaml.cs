@@ -331,15 +331,24 @@ namespace Simulator_MPSA
                 
                 for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    try
+                    bool isChanged = false;
+                    for (int i_reg = NReg * (Coil_i + nTask * TaskCoilCount); i_reg < NReg * (Coil_i + 1 + nTask * TaskCoilCount); i_reg++)
+                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        {
+                            isChanged = true;
+                            WB.WB_old[i_reg] = WB.W[i_reg];
+                            break;
+                        }
+
+                    if (isChanged)
                     {
+
+                        Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
                         mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                     }
-                    catch (Exception exp)
-                    {
-                        System.Windows.MessageBox.Show(exp.Message);
-                    }
+                    else
+                        Debug.WriteLine("W1 skip");
+
                 }
 
                 nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
@@ -374,8 +383,22 @@ namespace Simulator_MPSA
                 //coil_i номер бочки передаваемой в потоке 0..7
                 for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask*TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    bool isChanged = false;
+                    for (int i_reg = NReg * (Coil_i + nTask * TaskCoilCount); i_reg < NReg * (Coil_i + 1 + nTask * TaskCoilCount); i_reg++)
+                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        {
+                            WB.WB_old[i_reg] = WB.W[i_reg];
+                            isChanged = true;
+                            break;
+                        }
+
+                    if (isChanged)
+                    {
+                        Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }
+                    else
+                        Debug.WriteLine("W1 skip");
                 }
 
                 nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
@@ -406,8 +429,24 @@ namespace Simulator_MPSA
                 //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
                 for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    bool isChanged = false;
+                    for (int i_reg = NReg * (Coil_i + nTask * TaskCoilCount); i_reg < NReg * (Coil_i + 1 + nTask * TaskCoilCount); i_reg++)
+                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        {
+                            WB.WB_old[i_reg] = WB.W[i_reg];
+                            isChanged = true;
+                            break;
+                        }
+
+                    if (isChanged)
+                    {
+                        Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("W2 skip");
+                    }
                 }
                 nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
                 dt = nowTime - prevTime;
@@ -437,8 +476,22 @@ namespace Simulator_MPSA
                                                                                            //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
                 for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
                 {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    bool isChanged = false;
+                    for (int i_reg = NReg * (Coil_i + nTask * TaskCoilCount); i_reg < NReg * (Coil_i + 1 + nTask * TaskCoilCount); i_reg++)
+                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        {
+                            WB.WB_old[i_reg] = WB.W[i_reg];
+                            isChanged = true;
+                            break;
+                        }
+
+                    if (isChanged)
+                    {
+                        Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
+                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }else
+                        Debug.WriteLine("W3 skip");
+
                 }
 
                 //запись последней бочки размером менее 120 рег
@@ -636,7 +689,7 @@ namespace Simulator_MPSA
 
                     RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
                     WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-
+                    WB.WB_old  = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];
                     AITableViewModel.Instance.Init(AIStruct.items);
                     dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
@@ -733,7 +786,7 @@ namespace Simulator_MPSA
                 mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 //   mbMasterWLast = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
-                /* masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
+                 masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
                      masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
                      masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
                      masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
@@ -742,9 +795,9 @@ namespace Simulator_MPSA
                      masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
                      masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
                      masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
-                     masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
+                     masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);
                 //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
-                Thread[] threadPool = new Thread[9];
+               /* Thread[] threadPool = new Thread[9];
 
                     threadPool[0] = new Thread(new ThreadStart(Update));
                 threadPool[1] = new Thread(new ThreadStart(UpdateR0));
@@ -756,12 +809,12 @@ namespace Simulator_MPSA
                 threadPool[5] = new Thread(new ThreadStart(UpdateW0));
                 threadPool[6] = new Thread(new ThreadStart(UpdateW1));
                 threadPool[7] = new Thread(new ThreadStart(UpdateW2));
-                threadPool[8] = new Thread(new ThreadStart(UpdateW3));
+                threadPool[8] = new Thread(new ThreadStart(UpdateW3));*/
 
-                foreach (Thread thread in threadPool)
+                /*foreach (Thread thread in threadPool)
                     thread.Start();
 
-                
+                */
 
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;

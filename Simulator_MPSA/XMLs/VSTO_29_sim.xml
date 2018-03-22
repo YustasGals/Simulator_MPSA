@@ -40980,12 +40980,12 @@
       <indxW>2</indxW>
       <TegAI>PT001.1</TegAI>
       <NameAI>Давление нефти на приеме МНС (точка 1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>6666</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <maxPhis>6</maxPhis>
+      <fValAI>1</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -40994,12 +40994,12 @@
       <indxW>128</indxW>
       <TegAI>PT001.2</TegAI>
       <NameAI>Давление нефти на приеме МНС (точка 2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>6666</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <maxPhis>6</maxPhis>
+      <fValAI>1</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -46664,7 +46664,7 @@
       <indxW>1139</indxW>
       <TegAI>LT652</TegAI>
       <NameAI>Уровень в емкости для сбора утечек нефти и дренажа ЕП-40 №2</NameAI>
-      <ValACD>9953</ValACD>
+      <ValACD>11150</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -60163,41 +60163,36 @@
       <Group>Group</Group>
     </ZDStruct>
   </ZDs>
-<Counters>
-	<USOCounter>
-	<En>true</En>
-	<Value>0</Value>
-	<PLCAddr>15100</PLCAddr>
-	<Name>УСО1(1) Модуль А1.07</Name>
-	</USOCounter>
-	<USOCounter>
-	<En>true</En>
-	<Value>0</Value>
-	<PLCAddr>15226</PLCAddr>
-	<Name>УСО</Name>
-	</USOCounter>
-	
-	<USOCounter>
-	<En>true</En>
-	<Value>0</Value>
-	<PLCAddr>15352</PLCAddr>
-	<Name>УСО</Name>
-	</USOCounter>
-	
-	<USOCounter>
-	<En>true</En>
-	<Value>0</Value>
-	<PLCAddr>15352</PLCAddr>
-	<Name>УСО</Name>
-	</USOCounter>
-	
-	<USOCounter>
-	<En>true</En>
-	<Value>0</Value>
-	<PLCAddr>15478</PLCAddr>
-	<Name>УСО</Name>
-	</USOCounter>
-	
-	
-</Counters>
-  </Station>
+  <Counters>
+    <USOCounter>
+      <En>false</En>
+      <Value>144</Value>
+      <PLCAddr>15100</PLCAddr>
+      <Name>УСО1(1) Модуль А1.07</Name>
+    </USOCounter>
+    <USOCounter>
+      <En>false</En>
+      <Value>106</Value>
+      <PLCAddr>15226</PLCAddr>
+      <Name>УСО</Name>
+    </USOCounter>
+    <USOCounter>
+      <En>false</En>
+      <Value>95</Value>
+      <PLCAddr>15352</PLCAddr>
+      <Name>УСО</Name>
+    </USOCounter>
+    <USOCounter>
+      <En>false</En>
+      <Value>80</Value>
+      <PLCAddr>15352</PLCAddr>
+      <Name>УСО</Name>
+    </USOCounter>
+    <USOCounter>
+      <En>false</En>
+      <Value>88</Value>
+      <PLCAddr>15478</PLCAddr>
+      <Name>УСО</Name>
+    </USOCounter>
+  </Counters>
+</Station>

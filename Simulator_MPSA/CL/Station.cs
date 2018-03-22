@@ -133,6 +133,7 @@ namespace Simulator_MPSA.CL
             }
             RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+            WB.WB_old = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];
             AIStruct.items = new AIStruct[Sett.Instance.NAI];
             //ZDs = new ZDStruct[settings.NZD];
             DOStruct.items = new DOStruct[Sett.Instance.NDO * 32];
