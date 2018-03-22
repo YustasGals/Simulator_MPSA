@@ -56,6 +56,7 @@ namespace Simulator_MPSA
     public static class WB
     {
         public static ushort[] W;// = new ushort[(Sett.iNRackEnd - Sett.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+        public static ushort[] WB_old;   
     }
     public static class DebugInfo
     {
@@ -137,10 +138,7 @@ namespace Simulator_MPSA
         ModbusIpMaster mbMasterW1;
         ModbusIpMaster mbMasterW2;
         ModbusIpMaster mbMasterW3;
-        ModbusIpMaster mbMasterW4;
-        ModbusIpMaster mbMasterW5;
-        ModbusIpMaster mbMasterW6;
-        ModbusIpMaster mbMasterW7;
+
 
         #endregion
         #region Loops
@@ -153,10 +151,7 @@ namespace Simulator_MPSA
         Task masterLoopW1;
         Task masterLoopW2;
         Task masterLoopW3;
-        Task masterLoopW4;
-        Task masterLoopW5;
-        Task masterLoopW6;
-        Task masterLoopW7;
+
         #endregion
 
 
@@ -445,6 +440,7 @@ namespace Simulator_MPSA
                     Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
+
                 //запись последней бочки размером менее 120 рег
                 int halfCoilLength = AreaW / (TaskCoilCount * NReg * Sett.Instance.NWrTask);
                 if (halfCoilLength > 0)
@@ -452,7 +448,6 @@ namespace Simulator_MPSA
                     Array.Copy(WB.W, (NReg * TaskCoilCount * Sett.Instance.NWrTask), data, (0), halfCoilLength);
                     mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg * Sett.Instance.NWrTask), data);
                 }
-
 
                 nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
                 dt = nowTime - prevTime;
@@ -462,148 +457,9 @@ namespace Simulator_MPSA
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
-        private void UpdateW4()
-        {
-            //измерение времени цикла записи
-            float prevTime = 0;
-            float nowTime;
-            int counter = 0;
-            float dt;   //время цикла в сек
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                int nTask = 4; // Номер потока
-                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // количество регистров на запись не более 120
+  
 
-                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
-
-                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
-                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
-                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
-                {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                }
-
-
-                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                dt = nowTime - prevTime;
-                prevTime = nowTime;
-
-                Debug.WriteLine("W4 time = " + dt.ToString());
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
-            }
-        }
-        private void UpdateW5()
-        {
-            //измерение времени цикла записи
-            float prevTime = 0;
-            float nowTime;
-            int counter = 0;
-            float dt;   //время цикла в сек
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                int nTask = 5; // Номер потока
-                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // количество регистров на запись не более 120
-
-                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
-
-                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
-
-                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
-                {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                }
-
-                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                dt = nowTime - prevTime;
-                prevTime = nowTime;
-
-                Debug.WriteLine("W5 time = " + dt.ToString());
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
-            }
-        }
-
-        private void UpdateW6()
-        {
-            //измерение времени цикла записи
-            float prevTime = 0;
-            float nowTime;
-            int counter = 0;
-            float dt;   //время цикла в сек
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                int nTask = 6; // Номер потока
-                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // количество регистров на запись не более 120
-
-                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
-
-                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
-                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
-                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
-                {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                }
-
-                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                dt = nowTime - prevTime;
-                prevTime = nowTime;
-
-                Debug.WriteLine("W6 time = " + dt.ToString());
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
-            }
-        }
-
-        private void UpdateW7()
-        {
-            //измерение времени цикла записи
-            float prevTime = 0;
-            float nowTime;
-            int counter = 0;
-            float dt;   //время цикла в сек
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                int nTask = 7; // Номер потока
-                int AreaW = WB.W.Length; //  (29 - 3 + 1) * 126]; // 3402 
-                int NReg = 120; // количество регистров на запись не более 120
-
-                ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-                int TaskCoilCount = AreaW / NReg / Sett.Instance.NWrTask;   //количество бочек по 120 регистров которые записываются в данном потоке
-
-                int destStartAddr = Sett.Instance.BegAddrW + nTask * NReg * TaskCoilCount; //адрес в ПЛК 
-                                                                                           //coil_i номер бочки передаваемой в потоке, coil_i - сквозная нумерация по всем потокам
-
-
-
-                for (int Coil_i = 0; Coil_i < TaskCoilCount; Coil_i++)
-                {
-                    Array.Copy(WB.W, NReg * (Coil_i + nTask * TaskCoilCount), data, (0), NReg);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                }
-
-                //запись последней бочки размером менее 120 рег
-                int halfCoilLength = AreaW / (TaskCoilCount * NReg * Sett.Instance.NWrTask);
-                if (halfCoilLength > 0)
-                {
-                    Array.Copy(WB.W, (NReg * TaskCoilCount * Sett.Instance.NWrTask), data, (0), halfCoilLength);
-                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg * Sett.Instance.NWrTask), data);
-                }
-
-                nowTime = (float)DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                dt = nowTime - prevTime;
-                prevTime = nowTime;
-
-                Debug.WriteLine("W7 time = " + dt.ToString());
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
-            }
-        }
+   
         #endregion
 
         #region Dedollers
@@ -862,6 +718,8 @@ namespace Simulator_MPSA
             cancellationToken = cancelTokenSrc.Token;
             try
             {
+                TcpClient myTcp = new TcpClient();
+                
                 // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
                 mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
@@ -873,19 +731,37 @@ namespace Simulator_MPSA
                 mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+                //   mbMasterWLast = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
+                /* masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
+                     masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
+                     masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
+                     masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
+                     masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
 
-                masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
-                masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
-                masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
-                masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
-                masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
+                     masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
+                     masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
+                     masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
+                     masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
+                //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
+                Thread[] threadPool = new Thread[9];
 
-                masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
-                masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
-                masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
-                masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);
+                    threadPool[0] = new Thread(new ThreadStart(Update));
+                threadPool[1] = new Thread(new ThreadStart(UpdateR0));
+                threadPool[2] = new Thread(new ThreadStart(UpdateR1));
+                threadPool[3] = new Thread(new ThreadStart(UpdateR2));
 
+                threadPool[4] = new Thread(new ThreadStart(UpdateR3));
+
+                threadPool[5] = new Thread(new ThreadStart(UpdateW0));
+                threadPool[6] = new Thread(new ThreadStart(UpdateW1));
+                threadPool[7] = new Thread(new ThreadStart(UpdateW2));
+                threadPool[8] = new Thread(new ThreadStart(UpdateW3));
+
+                foreach (Thread thread in threadPool)
+                    thread.Start();
+
+                
 
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
