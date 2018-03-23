@@ -64,6 +64,10 @@ namespace Simulator_MPSA {
             items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
             items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1, typeof(int)));
             items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1, typeof(int)));
+
+            items.Add("iBegAddrA3", new SettingsItem("iBegAddrA3", 28850-1,typeof(int)));
+            items.Add("A3BufSize", new SettingsItem("A3BufSize", 600, typeof(int)));
+
             items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
             items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
             items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
@@ -154,6 +158,16 @@ namespace Simulator_MPSA {
         {
             get { return (int)items["nDI"].value; }
             set { items["nDI"].value = value; }
+        }
+        public int iBegAddrA3
+        {
+            get { return (int)items["iBegAddrA3"].value;  }
+            set { items["iBegAddrA3"].value = value; }
+        }
+        public int A3BufSize
+        {
+            get { return (int)items["A3BufSize"].value;  }
+            set { items["A3BufSize"].value = value; }
         }
     }
     class SettingsViewModel : BaseViewModel

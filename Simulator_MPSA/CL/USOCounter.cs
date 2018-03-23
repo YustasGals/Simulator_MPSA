@@ -8,6 +8,8 @@ using System.Collections.ObjectModel;
 
 namespace Simulator_MPSA.CL
 {
+
+
     [Serializable]
     public class USOCounter : BaseViewModel
     {
@@ -15,10 +17,13 @@ namespace Simulator_MPSA.CL
         private ushort _value=0;
         private int _PLCAddr = 0;
 
+        public BufType buffer
+        { set; get; }
 
         public USOCounter(int PLCAddr)
         {
             _PLCAddr = PLCAddr;
+            buffer = BufType.USO;
         }
 
         public bool En

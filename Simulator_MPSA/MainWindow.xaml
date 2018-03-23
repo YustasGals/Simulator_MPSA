@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Имитатор полевых сигналов МПСА v1.0" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" >
+        Title="Имитатор полевых сигналов МПСА v1.0" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -284,15 +284,7 @@
 
         <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
             <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
-            <Label x:Name="StatusR0" Content="Поток R0"></Label>
-            <Label x:Name="StatusR1" Content="Поток R0"></Label>
-            <Label x:Name="StatusR2" Content="Поток R0"></Label>
-            <Label x:Name="StatusR3" Content="Поток R0"></Label>
-            <Label x:Name="StatusR4" Content="Поток R0"></Label>
-            <Label x:Name="StatusW0" Content="Поток R0"></Label>
-            <Label x:Name="StatusW1" Content="Поток R0"></Label>
-            <Label x:Name="StatusW2" Content="Поток R0"></Label>
-            <Label x:Name="StatusW3" Content="Поток R0"></Label>
+            <Label x:Name="StatusW" Content="Время записи:"></Label>
         </StatusBar>
     </Grid>
 </Window>

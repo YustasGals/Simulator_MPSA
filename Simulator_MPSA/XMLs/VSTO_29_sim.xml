@@ -2499,7 +2499,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>208</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>551</indxW>
@@ -2535,7 +2535,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>211</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>551</indxW>
@@ -2559,7 +2559,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>213</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>551</indxW>
@@ -2571,7 +2571,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>214</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>551</indxW>
@@ -2607,7 +2607,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>217</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>551</indxW>
@@ -2619,7 +2619,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>218</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>551</indxW>
@@ -3663,7 +3663,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>305</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>677</indxW>
@@ -3687,7 +3687,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>307</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>677</indxW>
@@ -3711,7 +3711,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>309</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>677</indxW>
@@ -3735,7 +3735,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>311</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>677</indxW>
@@ -3759,7 +3759,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>313</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>677</indxW>
@@ -3771,7 +3771,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>314</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>677</indxW>
@@ -4815,7 +4815,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>401</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>803</indxW>
@@ -4839,7 +4839,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>403</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>803</indxW>
@@ -4863,7 +4863,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>405</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>803</indxW>
@@ -4875,7 +4875,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>406</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>803</indxW>
@@ -4911,7 +4911,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>409</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>803</indxW>
@@ -4923,7 +4923,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>410</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>803</indxW>
@@ -5583,7 +5583,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>465</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>929</indxW>
@@ -5607,7 +5607,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>467</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>929</indxW>
@@ -5619,7 +5619,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>468</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>929</indxW>
@@ -5655,7 +5655,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>471</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>929</indxW>
@@ -5679,7 +5679,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>473</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>929</indxW>
@@ -5691,7 +5691,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>474</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>929</indxW>
@@ -10119,7 +10119,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>843</indxArrDI>
       <indxBitDI>4</indxBitDI>
       <indxW>1416</indxW>
@@ -10179,7 +10179,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>848</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1417</indxW>
@@ -10203,7 +10203,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>850</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>1417</indxW>
@@ -10227,7 +10227,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>852</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>1417</indxW>
@@ -10275,7 +10275,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>856</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>1417</indxW>
@@ -11331,7 +11331,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>944</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1561</indxW>
@@ -11355,7 +11355,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>946</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>1561</indxW>
@@ -11427,7 +11427,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>952</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>1561</indxW>
@@ -12531,7 +12531,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1044</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>1696</indxW>
@@ -12675,7 +12675,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1056</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1855</indxW>
@@ -12699,7 +12699,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1058</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>1855</indxW>
@@ -12723,7 +12723,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1060</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>1855</indxW>
@@ -13299,7 +13299,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1108</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>1858</indxW>
@@ -14067,7 +14067,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1172</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>1948</indxW>
@@ -14211,7 +14211,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1184</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2107</indxW>
@@ -14235,7 +14235,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1186</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>2107</indxW>
@@ -14259,7 +14259,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1188</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2107</indxW>
@@ -14835,7 +14835,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1236</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2110</indxW>
@@ -15603,7 +15603,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1300</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2200</indxW>
@@ -15747,7 +15747,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1312</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2359</indxW>
@@ -15771,7 +15771,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1314</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>2359</indxW>
@@ -15795,7 +15795,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1316</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2359</indxW>
@@ -16371,7 +16371,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1364</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2362</indxW>
@@ -17139,7 +17139,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1428</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2452</indxW>
@@ -17283,7 +17283,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1440</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2611</indxW>
@@ -17307,7 +17307,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1442</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <indxW>2611</indxW>
@@ -17331,7 +17331,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1444</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2611</indxW>
@@ -17907,7 +17907,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1492</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2614</indxW>
@@ -32876,7 +32876,7 @@
       <_NameDO>Приточную установку МНС П1.1 отключить</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>369</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>552</indxR>
@@ -33708,7 +33708,7 @@
       <_NameDO>Приточную установку МНС П1.2 отключить</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>433</indxArrDO>
       <indxBitDO>14</indxBitDO>
       <indxR>602</indxR>
@@ -34943,7 +34943,7 @@
       <_NameDO>МНА №003.1. Насос системы затвора уплотнений №2 (АР002-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>528</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>702</indxR>
@@ -54980,7 +54980,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Open</State>
+      <State>Close</State>
       <Description>МНА 003.1. Жалюзи АВОА-Р с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>129</DOBindxArrDO>
@@ -55106,7 +55106,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Open</State>
+      <State>Close</State>
       <Description>МНА 003.1. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>135</DOBindxArrDO>
@@ -55162,7 +55162,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Open</State>
+      <State>Close</State>
       <Description>МНА 003.3. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>199</DOBindxArrDO>
@@ -55176,7 +55176,7 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Open</State>
+      <State>Close</State>
       <Description>МНА 003.4. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>229</DOBindxArrDO>
@@ -55726,6 +55726,8 @@
     <NVS>256</NVS>
     <NMPNA>16</NMPNA>
     <NDI>128</NDI>
+    <iBegAddrA3>28849</iBegAddrA3>
+    <A3BufSize>600</A3BufSize>
   </settings>
   <VSs>
     <VSStruct>
@@ -60165,34 +60167,75 @@
   </ZDs>
   <Counters>
     <USOCounter>
-      <En>false</En>
-      <Value>144</Value>
+      <buffer>USO</buffer>
+      <En>true</En>
+      <Value>267</Value>
       <PLCAddr>15100</PLCAddr>
       <Name>УСО1(1) Модуль А1.07</Name>
     </USOCounter>
     <USOCounter>
-      <En>false</En>
-      <Value>106</Value>
+      <buffer>USO</buffer>
+      <En>true</En>
+      <Value>231</Value>
       <PLCAddr>15226</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <En>false</En>
-      <Value>95</Value>
+      <buffer>USO</buffer>
+      <En>true</En>
+      <Value>221</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <En>false</En>
-      <Value>80</Value>
+      <buffer>USO</buffer>
+      <En>true</En>
+      <Value>206</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <En>false</En>
-      <Value>88</Value>
+      <buffer>USO</buffer>
+      <En>true</En>
+      <Value>216</Value>
       <PLCAddr>15478</PLCAddr>
       <Name>УСО</Name>
+    </USOCounter>
+
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1637</Value>
+      <PLCAddr>28850</PLCAddr>
+      <Name>А5</Name>
+    </USOCounter>
+	    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1637</Value>
+      <PLCAddr>29379</PLCAddr>
+      <Name>А5 рез</Name>
+    </USOCounter>
+	    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1637</Value>
+      <PLCAddr>29475</PLCAddr>
+      <Name>А6</Name>
+    </USOCounter>
+	    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1637</Value>
+      <PLCAddr>30004</PLCAddr>
+      <Name>А6 рез</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1095</Value>
+      <PLCAddr>29024</PLCAddr>
+      <Name>САРД осн.</Name>
     </USOCounter>
   </Counters>
 </Station>

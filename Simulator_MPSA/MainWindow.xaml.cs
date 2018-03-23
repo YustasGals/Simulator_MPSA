@@ -17,7 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics; // for DEBAG 
+using System.Diagnostics; // for DEBUG 
 using System.Xml;
 //using System.Windows.Forms;
 using System.IO;
@@ -29,25 +29,16 @@ using System.ComponentModel;
 
 namespace Simulator_MPSA
 {
-   
-    /*public  class clS
+    //тип буфера
+    public enum BufType
     {
-        public string HostName = "192.168.201.1"; // IP adress CPU
-        public  int MBPort = 502; // Modbus TCP port adress
-        public  int TPause = 50; // задержка между циклами чтения
-        public  int nWrTask = 4; // потоков на запись в CPU
-        public  int iBegAddrR = 23170 - 1; // начальный адрес для чтения выходов CPU
-        public  int iBegAddrW = 15100 - 1; // начальный адрес для записи входов CPU
-        public  int iNRackBeg = 3; // номер начальной корзины
-        public  int iNRackEnd = 29; // номер конечной корзины
-        public  int nAI = 1000; // count of AI 
-        public static int nDI = 128; // count of DI 
-        public static int nDO = 64; // count of DO 
-        public static int nZD = 64; // count of ZD  200
-        public static int nKL = 64; // count of KL 100
-        public static int nVS = 256; // count of VS 200
-        public static int nMPNA = 16; // count of MPNA
-    }*/
+        USO,      //буферы УСО
+        Diagnostic,//диагностика
+        A3,         //
+        A4,
+        Custom     //регистры формируемые
+    };
+
 
     public static class RB
     {
@@ -55,8 +46,23 @@ namespace Simulator_MPSA
     }
     public static class WB
     {
+        /// <summary>
+        /// буфер записи физических сигналов
+        /// </summary>
         public static ushort[] W;// = new ushort[(Sett.iNRackEnd - Sett.iNRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-        public static ushort[] WB_old;   
+        public static ushort[] WB_old;   // предыдущее состояние буфера записи
+
+        public static ushort[] W_a3;       //буфер записи корзины А3 осн
+        public static ushort[] W_a3_prev;  //сохраненное состояние буфера
+
+        public static void InitBuffers(Sett settings)
+        {
+            RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            WB.W = new ushort[/*(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126*/3480]; // =3402 From IOScaner CPU
+            WB.WB_old = new ushort[/*(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126*/3480];
+            WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
+            WB.W_a3_prev = new ushort[WB.W_a3.Length];
+        }
     }
     public static class DebugInfo
     {
@@ -73,6 +79,13 @@ namespace Simulator_MPSA
     public partial class MainWindow : Window
     {
         SimState simState;
+
+        public delegate void DEndCycle(float dt);
+        public DEndCycle EndCycle;
+
+        public delegate void DDisconnected();
+        public DDisconnected delegateDisconnected;
+
         public MainWindow()
         {
           
@@ -127,6 +140,9 @@ namespace Simulator_MPSA
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
+            EndCycle += new DEndCycle(On_writingCycleEnd);
+            delegateDisconnected += new DDisconnected(On_Disconnected);
+
         }
         #region IPMasters
         ModbusIpMaster mbMaster;
@@ -162,7 +178,7 @@ namespace Simulator_MPSA
         {
             while (!cancelTokenSrc.IsCancellationRequested)   
             {
-                nowTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
+               /* nowTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
 
                 
                 if ((nowTime - prevTime) < 0)
@@ -184,15 +200,15 @@ namespace Simulator_MPSA
 
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateVS(dt_sec);
-
+                    */
 
                // ct1.ThrowIfCancellationRequested();                
                 GetDOfromR(); // записываем значение DO из массива для чтения CPU
-                SendAItoW(); // записываем значение АЦП в массив для записи CPU
-                SendDItoW(); // записываем значение DI в массив для записи CPU
+              //  SendAItoW(); // записываем значение АЦП в массив для записи CPU
+             //   SendDItoW(); // записываем значение DI в массив для записи CPU
 
                 //записываем счетчики УСО
-                foreach (USOCounter c in CountersTableViewModel.Counters)
+               /* foreach (USOCounter c in CountersTableViewModel.Counters)
                 {
 
                     if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
@@ -201,7 +217,7 @@ namespace Simulator_MPSA
                         WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
                     }
                 }
-                        // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);
+                        // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);*/
                 System.Threading.Thread.Sleep(Sett.Instance.TPause * 2);
             }
         }
@@ -685,11 +701,13 @@ namespace Simulator_MPSA
                      VSStruct.VSs = station.VSs;
                      KLStruct.KLs = station.KLs;
                      MPNAStruct.MPNAs = station.MPNAs;*/
-                    //Sett.Instance = station.settings;
+                   // Sett.Instance = station.settings;
 
-                    RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-                    WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-                    WB.WB_old  = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];
+                    /* RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+                     WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
+                     WB.WB_old  = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];*/
+
+                    WB.InitBuffers(Sett.Instance);
                     AITableViewModel.Instance.Init(AIStruct.items);
                     dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
@@ -765,6 +783,8 @@ namespace Simulator_MPSA
         /// </summary>
         CancellationTokenSource cancelTokenSrc;
         CancellationToken cancellationToken;
+        WritingThread wrThread;
+
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
             cancelTokenSrc = new CancellationTokenSource();
@@ -780,10 +800,10 @@ namespace Simulator_MPSA
                 mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
-                mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+               /* mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));*/
                 //   mbMasterWLast = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
                  masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
@@ -792,34 +812,22 @@ namespace Simulator_MPSA
                      masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
                      masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
 
-                     masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
-                     masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
-                     masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
-                     masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);
+                /*         masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
+                         masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
+                         masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
+                         masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
                 //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
-               /* Thread[] threadPool = new Thread[9];
 
-                    threadPool[0] = new Thread(new ThreadStart(Update));
-                threadPool[1] = new Thread(new ThreadStart(UpdateR0));
-                threadPool[2] = new Thread(new ThreadStart(UpdateR1));
-                threadPool[3] = new Thread(new ThreadStart(UpdateR2));
+               wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                wrThread.refMainWindow = this;
 
-                threadPool[4] = new Thread(new ThreadStart(UpdateR3));
 
-                threadPool[5] = new Thread(new ThreadStart(UpdateW0));
-                threadPool[6] = new Thread(new ThreadStart(UpdateW1));
-                threadPool[7] = new Thread(new ThreadStart(UpdateW2));
-                threadPool[8] = new Thread(new ThreadStart(UpdateW3));*/
-
-                /*foreach (Thread thread in threadPool)
-                    thread.Start();
-
-                */
+                wrThread.Start();
 
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
-
+                
                 btnStop.IsEnabled = true;
                 btnPause.IsEnabled = true;
             }
@@ -827,6 +835,17 @@ namespace Simulator_MPSA
             {
                 System.Windows.MessageBox.Show("Ошибка: " +Environment.NewLine + ex.Message, "Ошибка");
             }
+        }
+
+        //------------ вызывается каждую итерацию цикла записи ----------------
+        private void On_writingCycleEnd(float dt)
+        {
+            StatusW.Content = "Время цикла: " + dt.ToString();
+        }
+        private void On_Disconnected()
+        {
+            btnStop_Click(null,null);
+            System.Windows.MessageBox.Show("Соединение потеряно!");
         }
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -862,11 +881,12 @@ namespace Simulator_MPSA
                 System.Windows.MessageBox.Show(ex.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
-            foreach (AIStruct ai in AIStruct.items)
-                ai.fValAI = 0f;
+            wrThread.Stop();
+           // foreach (AIStruct ai in AIStruct.items)
+           //     ai.fValAI = 0f;
 
-            foreach (DIStruct di in DIStruct.items)
-                di.ValDI = false;
+            //foreach (DIStruct di in DIStruct.items)
+           //     di.ValDI = false;
 
             foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                 zd.Reset();
@@ -1014,6 +1034,12 @@ namespace Simulator_MPSA
         {
             if (e.Key == Key.Return)
                 DOTableViewModel.Instance.NameFilter = textBoxDOFilter.Text;
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (wrThread != null)
+            wrThread.Stop();
         }
     }
 }

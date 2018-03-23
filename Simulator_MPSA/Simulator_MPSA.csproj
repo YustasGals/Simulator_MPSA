@@ -102,6 +102,7 @@
     <Compile Include="CL\TableViewModels\SetupTableModel.cs" />
     <Compile Include="CL\Station.cs" />
     <Compile Include="CL\USOCounter.cs" />
+    <Compile Include="CL\WritingThread.cs" />
     <Compile Include="SetupDialog.xaml.cs">
       <DependentUpon>SetupDialog.xaml</DependentUpon>
     </Compile>

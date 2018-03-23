@@ -19,7 +19,7 @@ namespace Simulator_MPSA
         public bool En
         { get { return _en; } set { _en = value; OnPropertyChanged("En"); } }
 
-        private KLState _state;
+        private KLState _state=KLState.Close;
         public KLState State
         { get { return _state; }
             set { _state = value; OnPropertyChanged("State"); }
@@ -203,7 +203,7 @@ namespace Simulator_MPSA
             get { return _KLProc; }
             set { _KLProc = value; OnPropertyChanged("KLProc"); }
         }
-        public int TmoveKL=0;
+        public int TmoveKL = 5;
 
         public KLStruct()
         {
@@ -241,11 +241,15 @@ namespace Simulator_MPSA
             //состояние - открывается
             if (State == KLState.Opening)
             {
+                if (CKC !=null) CKC.ValDI = true;
+                if (OKC !=null)  OKC.ValDI = true;
+
                 KLProc += dt / TmoveKL * 100;
                 if (KLProc > 100f)
                 {
                     KLProc = 100;
                     State = KLState.Open;
+                  
                 }
 
             }
@@ -253,12 +257,34 @@ namespace Simulator_MPSA
             //состояние - закрывается
             if (State == KLState.Closing)
             {
+                if (CKC != null) CKC.ValDI = true;
+                if (OKC != null) OKC.ValDI = true;
+
                 KLProc -= dt / TmoveKL * 100;
                 if (KLProc < 0f)
                 {
                     KLProc = 0f;
                     State = KLState.Close;
+                  
                 }
+            }
+
+            if (State == KLState.Close)
+            {
+                if (CKC != null) CKC.ValDI = true;
+                if (OKC != null) OKC.ValDI = false;
+            }
+
+            if (State == KLState.Open)
+            {
+                if (CKC != null) CKC.ValDI = false;
+                if (OKC != null) OKC.ValDI = true;
+            }
+
+            if (State == KLState.Middle)
+            {
+                if (CKC != null) CKC.ValDI = true;
+                if (OKC != null) OKC.ValDI = true;
             }
 
 

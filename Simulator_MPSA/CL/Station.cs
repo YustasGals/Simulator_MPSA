@@ -131,9 +131,13 @@ namespace Simulator_MPSA.CL
                 writer.Dispose();
                 System.Windows.MessageBox.Show("Файл " + Sxml + " не считан !!! ");
             }
-            RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            /*RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
             WB.WB_old = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];
+            WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
+            WB.W_a3_prev = new ushort[WB.W_a3.Length];*/
+            WB.InitBuffers(Sett.Instance);
+
             AIStruct.items = new AIStruct[Sett.Instance.NAI];
             //ZDs = new ZDStruct[settings.NZD];
             DOStruct.items = new DOStruct[Sett.Instance.NDO * 32];
