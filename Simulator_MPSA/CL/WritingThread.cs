@@ -198,7 +198,7 @@ namespace Simulator_MPSA
                     {
                         isChanged = true;
                         WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                        break;
+                       // break;
                     }
                 }
 

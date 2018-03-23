@@ -95,10 +95,11 @@ namespace Simulator_MPSA.CL
             }
             catch(Exception e)
             {
-        //        if (reader != null)
-        //            reader.Dispose();
+                if (reader != null)
+                    reader.Dispose();
                 System.Windows.MessageBox.Show("Ошибка чтения" + Environment.NewLine + e.Message,"Ошибка",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);
                 return StationLoadResult.Fail;
+                
             }
         }
 

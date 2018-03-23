@@ -107,7 +107,7 @@ namespace Simulator_MPSA
                     StateZD = StateZD.Open;
                     ZDProc = 100f;
                     //отключить мпо
-                    if (ODC != null) ODC.ValDI = false;
+                //    if (ODC != null) ODC.ValDI = false;
                 }
             }
 
@@ -121,7 +121,7 @@ namespace Simulator_MPSA
                     StateZD = StateZD.Close;
                     ZDProc = 0f;
                     //отключить мпз
-                    if (CDC != null) CDC.ValDI = false;
+                  //  if (CDC != null) CDC.ValDI = false;
                 }
             }
 
@@ -166,12 +166,14 @@ namespace Simulator_MPSA
             if ((DCB != null) && (DCB.ValDO))
             {
                 if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
-                {
-                    if (ODC != null) ODC.ValDI = false;
-                    if (CDC != null) CDC.ValDI = false;
+                StateZD = StateZD.Middle;
+                //  {
+                //отключить МП
+                if (ODC != null) ODC.ValDI = false;
+                if (CDC != null) CDC.ValDI = false;
 
-                    StateZD = StateZD.Middle;
-                }
+                    
+              //  }
             }
             // тут будет логика задвижки !!!
             return _ZDProc;

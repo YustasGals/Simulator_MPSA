@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+//using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -33,10 +33,8 @@ namespace Simulator_MPSA
     public enum BufType
     {
         USO,      //буферы УСО
-        Diagnostic,//диагностика
-        A3,         //
-        A4,
-        Custom     //регистры формируемые
+        A3,         //буфер КК 1
+        A4          //буфер КК 2
     };
 
 
@@ -55,13 +53,24 @@ namespace Simulator_MPSA
         public static ushort[] W_a3;       //буфер записи корзины А3 осн
         public static ushort[] W_a3_prev;  //сохраненное состояние буфера
 
+        public static ushort[] W_a4;       //буфер записи корзины А3 осн
+        public static ushort[] W_a4_prev;  //сохраненное состояние буфера
+
         public static void InitBuffers(Sett settings)
         {
             RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-            WB.W = new ushort[/*(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126*/3480]; // =3402 From IOScaner CPU
-            WB.WB_old = new ushort[/*(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126*/3480];
+
+            int regCount = (Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126;
+            int coilCount = (int)Math.Ceiling((float)regCount / 120f);
+
+            WB.W = new ushort[coilCount]; // =3402 From IOScaner CPU
+            WB.WB_old = new ushort[coilCount];
+
             WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a3_prev = new ushort[WB.W_a3.Length];
+
+            WB.W_a4 = new ushort[Sett.Instance.A3BufSize];
+            WB.W_a4_prev = new ushort[WB.W_a4.Length];
         }
     }
     public static class DebugInfo
@@ -1040,6 +1049,20 @@ namespace Simulator_MPSA
         {
             if (wrThread != null)
             wrThread.Stop();
+        }
+
+        //
+        private void VSMenu_stop_Click(object sender, RoutedEventArgs e)
+        {
+            //          e.Source.ToString();
+            //          (e.Source as VSStruct).ManualStart();
+            (dataGridVS.SelectedItem as VSStruct).ManualStop();
+        }
+
+        private void VSMenu_start_Click(object sender, RoutedEventArgs e)
+        {
+            //         (e.Source as VSStruct).ManualStop();
+            (dataGridVS.SelectedItem as VSStruct).ManualStart();
         }
     }
 }

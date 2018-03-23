@@ -273,12 +273,14 @@ namespace Simulator_MPSA
             {
                 if (CKC != null) CKC.ValDI = true;
                 if (OKC != null) OKC.ValDI = false;
+                KLProc = 0f;
             }
 
             if (State == KLState.Open)
             {
                 if (CKC != null) CKC.ValDI = false;
                 if (OKC != null) OKC.ValDI = true;
+                KLProc = 100f;
             }
 
             if (State == KLState.Middle)

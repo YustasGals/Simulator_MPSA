@@ -37439,7 +37439,7 @@
       <_NameDO>МНА №003.4. Насос системы затвора уплотнений №2 (АР002-4) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>720</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>1002</indxR>
@@ -60168,74 +60168,111 @@
   <Counters>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>267</Value>
+      <En>false</En>
+      <Value>492</Value>
       <PLCAddr>15100</PLCAddr>
       <Name>УСО1(1) Модуль А1.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>231</Value>
+      <En>false</En>
+      <Value>456</Value>
       <PLCAddr>15226</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>221</Value>
+      <En>false</En>
+      <Value>447</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>206</Value>
+      <En>false</En>
+      <Value>432</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>216</Value>
+      <En>false</En>
+      <Value>444</Value>
       <PLCAddr>15478</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
-
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>1637</Value>
+      <Value>2455</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
-	    <USOCounter>
+    <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>1637</Value>
+      <Value>2457</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
-	    <USOCounter>
+    <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>1637</Value>
+      <Value>2461</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
-	    <USOCounter>
+    <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>1637</Value>
+      <Value>2435</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>1095</Value>
-      <PLCAddr>29024</PLCAddr>
+      <Value>1948</Value>
+      <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>2023</Value>
+      <PLCAddr>29637</PLCAddr>
+      <Name>САРД рез.</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>1615</Value>
+      <PLCAddr>29024</PLCAddr>
+      <Name>А5 МПСА -- А5 САРД</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>1095</Value>
+      <PLCAddr>29637</PLCAddr>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>1095</Value>
+      <PLCAddr>29637</PLCAddr>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>1095</Value>
+      <PLCAddr>29637</PLCAddr>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>1095</Value>
+      <PLCAddr>29637</PLCAddr>
     </USOCounter>
   </Counters>
 </Station>

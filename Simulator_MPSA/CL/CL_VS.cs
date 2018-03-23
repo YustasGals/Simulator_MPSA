@@ -439,6 +439,26 @@ namespace Simulator_MPSA
             
 
         }
+        /// <summary>
+        /// пуск по месту
+        /// </summary>
+        public void ManualStart()
+        {
+            if (state == VSState.Stop || state == VSState.Stoping)
+            if (MPC_DI != null) MPC_DI.ValDI = true;
+            State = VSState.Starting;
+        }
+
+        /// <summary>
+        /// стоп по месту
+        /// </summary>
+        public void ManualStop()
+        {
+            if (MPC_DI != null) MPC_DI.ValDI = false;
+
+            if (state == VSState.Starting || state == VSState.Work)
+                State = VSState.Stoping;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
