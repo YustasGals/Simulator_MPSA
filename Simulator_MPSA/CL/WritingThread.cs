@@ -78,12 +78,20 @@ namespace Simulator_MPSA
                     vs.UpdateVS(dt_sec);
 
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
-                for (int i = 0; i < AIStruct.items.Length; i++)
+                //for (int i = 0; i < AIStruct.items.Length; i++)
+                foreach(AIStruct ai in AIStruct.items)
                 {
-                    if (AIStruct.items[i].En /* || true */)
+                    if (ai.En /* || true */)
                     {
                         //    AIStruct.items[i].updateAI();
-                        WB.W[(AIStruct.items[i].indxW)] = AIStruct.items[i].ValACD; // записываем значение АЦП в массив для записи CPU
+                        if (ai.Buffer == BufType.USO)
+                            WB.W[(ai.PLCAddr- Sett.Instance.BegAddrW - 1)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
+
+                        if (ai.Buffer == BufType.A3)
+                            WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1)] = ai.ValACD;
+
+                        if (ai.Buffer == BufType.A4)
+                            WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1)] = ai.ValACD;
                     }
                 }
 

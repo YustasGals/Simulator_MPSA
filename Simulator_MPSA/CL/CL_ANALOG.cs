@@ -19,12 +19,46 @@ namespace Simulator_MPSA.CL
         }
 
         private int _indxAI; // index in AI
+        /// <summary>
+        /// индекс сигнала должен быть уникальным
+        /// </summary>
         public int indxAI
         {
             get { return _indxAI; }
             set { _indxAI = value; OnPropertyChanged("indxAI"); }
         }
+        private BufType _buffer;
+        public BufType Buffer
+        {
+            get { return _buffer; }
+            set { _buffer = value; }
+        }
+
+        private int _plcAddr=0;
+        /// <summary>
+        /// MODBUS адрес
+        /// </summary>
+        public int PLCAddr
+        {
+            get { return _plcAddr; }
+            set {
+                _plcAddr = value;
+
+                if ((_plcAddr > Sett.Instance.iBegAddrA3) && (_plcAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
+                    Buffer = BufType.A3;
+
+                if ((_plcAddr > Sett.Instance.iBegAddrA4) && (_plcAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                    Buffer = BufType.A4;
+
+                if ((_plcAddr > Sett.Instance.BegAddrW) && (_plcAddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize)))
+                    Buffer = BufType.USO;
+            }
+        }
+
         private int _indxW;
+        /// <summary>
+        /// индекс в массиве буфера записи (WB.W)
+        /// </summary>
         public int indxW
         {
             get { return _indxW; }
@@ -142,7 +176,7 @@ namespace Simulator_MPSA.CL
 "; minPhis=" + minPhis + "; maxPhis=" + maxPhis + "; fValAI=" + fValAI + "; DelauAI=" + DelayAI + "\n");
         }
 
-        public void updateAI(float fValAI0)
+        /*public void updateAI(float fValAI0)
         {
             fValAI = fValAI0;
             if (En)
@@ -159,7 +193,7 @@ namespace Simulator_MPSA.CL
                 fValAI = (minPhis + ((maxPhis - minPhis) * ((ValACD - minACD) / (maxACD - minACD))));
             }
             else { }
-        }
+        }*/
 
     }
     // public AIStruct[] AIs = AIStruct[Sett.nAI] ;

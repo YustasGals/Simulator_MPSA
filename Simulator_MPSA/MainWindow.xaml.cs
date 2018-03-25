@@ -32,9 +32,22 @@ namespace Simulator_MPSA
     //тип буфера
     public enum BufType
     {
+        /// <summary>
+        /// не определен
+        /// </summary>
+        Undefined,
+        /// <summary>
+        /// буффер УСО
+        /// </summary>
         USO,      //буферы УСО
-        A3,         //буфер КК 1
-        A4          //буфер КК 2
+        /// <summary>
+        /// буффер КК 1
+        /// </summary>
+        A3,  
+        /// <summary>
+        /// буффер КК 2
+        /// </summary>
+        A4     
     };
 
 
@@ -751,6 +764,11 @@ namespace Simulator_MPSA
             LoadSettZD();
             LoadSettMPNA();*/
         }
+        /// <summary>
+        /// сохранение в один xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Menu_SaveSingle(object sender, RoutedEventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog
@@ -769,6 +787,11 @@ namespace Simulator_MPSA
 
 
         }
+        /// <summary>
+        /// сохранение в раздельные xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Menu_SaveAll(object sender, RoutedEventArgs e)
         {
             if (System.Windows.MessageBox.Show("Внимание! Все таблицы будут сохранены в файлы по умолчанию.", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)

@@ -106,8 +106,10 @@
                     </Expander>
                     <DataGrid x:Name="dataGridAI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Вкл" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" />
+                            <DataGridTextColumn Header="Буффер" Binding="{Binding Buffer}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" />
@@ -281,17 +283,17 @@
                 </StackPanel>
             </TabItem>
             <TabItem Header="Счетчики связи">
-                <StackPanel Height="auto">
-                    
-                        <DataGrid x:Name="dataGridCounters" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
+                <Grid>
+
+                    <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
                             <DataGrid.Columns>
-                            <DataGridComboBoxColumn Header="Буфер"/>
+                            <DataGridTextColumn Header="Буфер" Binding ="{Binding buffer}" IsReadOnly="true"/>
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Адрес ПЛК" Binding="{Binding PLCAddr}"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                         </DataGrid.Columns>
                         </DataGrid>               
-                </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
 

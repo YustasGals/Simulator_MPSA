@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
-
+using System.Collections.ObjectModel;
 namespace Simulator_MPSA.CL
 {
     class AITableViewModel : BaseViewModel
@@ -19,29 +19,31 @@ namespace Simulator_MPSA.CL
                 return _instance;
             }
         }
-
-        private AIStruct[] _AIs;
-        public AIStruct[] AIs
+        private ObservableCollection<AIStruct> _AIs;
+        //private AIStruct[] _AIs;
+        //public AIStruct[] AIs
+        public ObservableCollection<AIStruct> AIs
         {
             get { return _AIs; }
             set { _AIs = value; OnPropertyChanged("AIs"); }
         }
         private AITableViewModel()
         {
-            AIs = new AIStruct[1];
-            _AIs[0] = new AIStruct();
+            //AIs = new AIStruct[1];
+            AIs = new ObservableCollection<AIStruct>();
+            _AIs.Add(new AIStruct());
             _AIs[0].NameAI = "empty";
         }
 
         public void Init(AIStruct[] table)
         {
             AIStruct[] AIViewModels = new AIStruct[table.Length];
-            for (int i = 0; i < table.Length; i++)
-            {
-                AIViewModels[i] = table[i];
-            }
 
-            AIs = AIViewModels;
+            _AIs = new ObservableCollection<AIStruct>();
+            foreach (AIStruct ai in table)
+                _AIs.Add(ai);
+            
+
             viewSource.Source = _AIs;
             viewSource.Filter += new FilterEventHandler(Name_Filter);
         }

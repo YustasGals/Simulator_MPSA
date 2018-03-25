@@ -36,6 +36,8 @@ namespace Simulator_MPSA.CL
         {
             DIs = DIStruct.items;
             DOs = DOStruct.items;
+
+            AIStruct.items = AITableViewModel.Instance.AIs.ToArray();
             AIs = AIStruct.items;
 
             KLs = KLTableViewModel.GetArray();
@@ -66,8 +68,16 @@ namespace Simulator_MPSA.CL
 
                 DIStruct.items = station.DIs;
                 DOStruct.items = station.DOs;
+
+                
                 AIStruct.items = station.AIs;
+
                 Sett.Instance = station.settings;
+
+                //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
+                foreach (AIStruct ai in AIStruct.items)
+                    if (ai.PLCAddr == 0)
+                        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
 
                 KLTableViewModel.Init(station.KLs);
                 foreach (KLStruct kl in KLTableViewModel.KL)
@@ -88,7 +98,8 @@ namespace Simulator_MPSA.CL
                     mpna.UpdateRefs();
 
                 CountersTableViewModel.Init(station.Counters);
-                    
+                foreach (USOCounter counter in CountersTableViewModel.Counters)
+                    counter.Refresh();
 
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;
