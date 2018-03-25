@@ -31,7 +31,7 @@ namespace Simulator_MPSA.CL
         public BufType Buffer
         {
             get { return _buffer; }
-            set { _buffer = value; }
+            set { _buffer = value; OnPropertyChanged("Buffer"); }
         }
 
         private int _plcAddr=0;

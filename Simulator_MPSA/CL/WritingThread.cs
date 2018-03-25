@@ -174,14 +174,13 @@ namespace Simulator_MPSA
                     if (WB.W[i_reg] != WB.WB_old[i_reg])
                     {
                         isChanged = true;
-                        WB.WB_old[i_reg] = WB.W[i_reg];
-                      //  break;
+                        break;
                     }
                 }
 
                 if (isChanged)
                 {
-
+                    Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                     Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
                     try
                     {
@@ -195,15 +194,6 @@ namespace Simulator_MPSA
                 else
                     Debug.WriteLine("skip");
             }
-
-            //запись последней бочки размером менее 120 рег
-           /* int halfCoilLength = WB.W.Length / (TaskCoilCount * NReg);
-            if (halfCoilLength > 0)
-            {
-                Array.Copy(WB.W, (NReg * TaskCoilCount), data, (0), halfCoilLength);
-                mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + TaskCoilCount * NReg), data);
-            }
-            */
             //------------------------ Запись буфера А3 -------------------------------------------------------
             destStartAddr = Sett.Instance.iBegAddrA3;
             TaskCoilCount = WB.W_a3.Length / NReg;

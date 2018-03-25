@@ -208,7 +208,7 @@ namespace Simulator_MPSA.CL
 
 
             _analogs = new AnalogIOItem[1];
-            _analogs[0] = new AnalogIOItem("Положение затвора", 0,0,0, "");
+            _analogs[0] = new AnalogIOItem("Положение затвора",zd.ZD_Pos_index, 100,0, zd.PositionAIName);
         }
 
 
@@ -295,6 +295,8 @@ namespace Simulator_MPSA.CL
                 temp.DCBindxArrDO = inputs[1].Index;
                 temp.DKBindxArrDO = inputs[2].Index;
                 temp.DCBZindxArrDO = inputs[3].Index;
+
+                temp.ZD_Pos_index = _analogs[0].Index;
 
                 //TODO: добавить запись настроек аналогов
             }

@@ -938,58 +938,9 @@ namespace Simulator_MPSA
         }
 
         SetupDialog dialog;
-        private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if ((dialog != null)&&(dialog.IsLoaded))
-                {
-                    dialog.Activate();
-                    //         dialog.Close();
-                }
-                else
-                {
-                VSStruct temp = dataGridVS.SelectedItem as VSStruct;
-                    if (temp != null)
-                    {
-                        dialog = new SetupDialog(temp);
-                        dialog.Show();
-                    }
-                }
 
-        }
+ 
 
-        private void dataGridKL_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if ((dialog != null) && (dialog.IsLoaded))
-            {
-                dialog.Activate();
-            }
-            else
-            {
-                KLStruct temp = dataGridKL.SelectedItem as KLStruct;
-                if (temp != null)
-                {
-                    dialog = new SetupDialog(temp);
-                    dialog.Show();
-                }
-            }
-        }
-
-        private void dataGridZD_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if ((dialog != null) && (dialog.IsLoaded))
-            {
-                dialog.Activate();
-            }
-            else
-            {
-                ZDStruct temp = dataGridZD.SelectedItem as ZDStruct;
-                if (temp != null)
-                {
-                    dialog = new SetupDialog(temp);
-                    dialog.Show();
-                }
-            }
-        }
 
         private void Menu_LoadSeq(object sender, RoutedEventArgs e)
         {
@@ -1093,5 +1044,93 @@ namespace Simulator_MPSA
             //         (e.Source as VSStruct).ManualStop();
             (dataGridVS.SelectedItem as VSStruct).ManualStart();
         }
+
+        private void VSMenu_settings_Click(object sender, RoutedEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+                //         dialog.Close();
+            }
+            else
+            {
+                VSStruct temp = dataGridVS.SelectedItem as VSStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
+            }
+        }
+
+        private void ZDMenu_open_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ManualOpen();
+        }
+
+        private void ZDMenu_close_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ManualClose();
+        }
+
+        private void ZDMenu_stop_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ManualStop();
+
+        }
+        private void ZDMenu_dist_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ToggleDist();
+        }
+        private void ZDMenu_settings_Click(object sender, RoutedEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+            }
+            else
+            {
+                ZDStruct temp = dataGridZD.SelectedItem as ZDStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
+            }
+        }
+
+        private void KLMenu_open_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridKL.SelectedItem as KLStruct).ManualOpen();
+        }
+
+        private void KLMenu_close_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridKL.SelectedItem as KLStruct).ManualClose();
+        }
+
+        private void KLMenu_stop_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridKL.SelectedItem as KLStruct).ManualStop();
+        }
+
+        private void KLMenu_settings_Click(object sender, RoutedEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+            }
+            else
+            {
+                KLStruct temp = dataGridKL.SelectedItem as KLStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
+            }
+        }
+
+
     }
 }

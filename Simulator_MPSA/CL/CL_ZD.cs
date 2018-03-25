@@ -40,6 +40,7 @@ namespace Simulator_MPSA
         private string _description = "Задвижка";  //название задвижки
         private string _group = "";    //название подсистемы в которую входи задвижка
 
+        
         private StateZD _stateZD = StateZD.Close;
         public StateZD StateZD
         {
@@ -83,6 +84,8 @@ namespace Simulator_MPSA
             if (!En)
                 return;
 
+            if (ZD_position_ai != null) ZD_position_ai.fValAI = _ZDProc;
+
             if (volt !=null)
                 volt.ValDI = _En;
 
@@ -118,25 +121,39 @@ namespace Simulator_MPSA
             //состояние -открывается
             if (_stateZD == StateZD.Opening)
             {
+                
+
                 ZDProc += dt / TmoveZD * 100;
 
-                if (ZDProc > 100f)
+                if (ZDProc >= 100f)
                 {
                     StateZD = StateZD.Open;
                     ZDProc = 100f;
 
                     MPDelay = MPDelay_timeout;
                     //отключить мпо
-                //    if (ODC != null) ODC.ValDI = false;
+                    //    if (ODC != null) ODC.ValDI = false;
+                }
+                else
+                {
+                    //включить МПО
+                    if (ODC != null) ODC.ValDI = true;
+                    //вкл концевики
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = true;
                 }
             }
 
             //состояние -закрывается
             if (_stateZD == StateZD.Closing)
             {
+                
+
                 ZDProc -= dt / TmoveZD * 100;
 
-                if (ZDProc < 0f)
+                if (ZDProc <= 0f)
                 {
                     StateZD = StateZD.Close;
                     ZDProc = 0f;
@@ -144,6 +161,23 @@ namespace Simulator_MPSA
                     //отключить мпз
                     //  if (CDC != null) CDC.ValDI = false;
                 }
+                else
+                {
+                    //включить МПЗ
+                    if (CDC != null) CDC.ValDI = true;
+                    //вкл концевики
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+                }
+            }
+
+            if (_stateZD == StateZD.Middle)
+            {
+                //отключить МП
+                if (CDC != null) CDC.ValDI = false;
+                if (ODC != null) ODC.ValDI = false;
             }
 
             //команда открыть
@@ -153,14 +187,8 @@ namespace Simulator_MPSA
                 if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
                 {
                     //вкл мпо
-                    StateZD = StateZD.Opening;
-                    if (ODC != null) ODC.ValDI = true;
-
-                    //вкл концевики
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = true;
+                    StateZD = StateZD.Opening;                 
+                                       
                 }
             }
 
@@ -169,17 +197,8 @@ namespace Simulator_MPSA
             {
                 //если открыта или в промежутке
                 if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
-                {
-                    //вкл мпз
+                {                   
                     StateZD = StateZD.Closing;
-                    if (CDC != null) CDC.ValDI = true;
-
-                    //вкл концевики
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = true;
-
                 }
             }
 
@@ -196,11 +215,74 @@ namespace Simulator_MPSA
             }
  
         }
+        public void ManualOpen()
+        {
+            if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
+                StateZD = StateZD.Opening;
+        }
+
+        public void ManualClose()
+        {
+            if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
+                StateZD = StateZD.Closing;
+        }
+
+        public void ManualStop()
+        {
+            if (_stateZD == StateZD.Opening || _stateZD == StateZD.Closing)
+                StateZD = StateZD.Middle;
+        }
+
+        /// <summary>
+        /// переключение режима "дистанционный"
+        /// </summary>
+        public void ToggleDist()
+        {
+            if (DC != null)
+                DC.ValDI = !DC.ValDI;
+        }
 
         public bool En
         {
             get { return _En; }
             set { _En = value; OnPropertyChanged("En"); }
+        }
+
+        private int _ZD_Pos_index;
+        public int ZD_Pos_index
+        {
+            get { return _ZD_Pos_index; }
+            set {
+                _ZD_Pos_index = value;
+                ZD_position_ai = AIStruct.FindByIndex(_ZD_Pos_index); }
+        }
+        /// <summary>
+        /// положение затвора ссылка на аналоговый сигнал
+        /// </summary>
+        private AIStruct ZD_position_ai;
+
+        /// <summary>
+        /// положение затвора, свойство для таблицы
+        /// </summary>
+        public int Position
+        {
+            get {
+                if (ZD_position_ai != null)
+                    return (int)ZD_position_ai.fValAI;
+                return 0;
+            }
+            set { }
+        }
+
+        public string PositionAIName
+        {
+            get
+            {
+                if (ZD_position_ai != null)
+                    return ZD_position_ai.NameAI;
+                return "сигнал не назначен";
+            }
+            set { }
         }
 
         /// <summary>
@@ -555,6 +637,7 @@ namespace Simulator_MPSA
             DCindxArrDI = _DCindxArrDI;
             VoltindxArrDI = _VoltindxArrDI;
             MCindxArrDI = _MCindxArrDI;
+            ZD_Pos_index = _ZD_Pos_index;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")

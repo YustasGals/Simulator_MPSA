@@ -292,6 +292,20 @@ namespace Simulator_MPSA
 
         }
 
+        public void ManualOpen()
+        {
+            State = KLState.Opening;
+        }
+        public void ManualClose()
+        {
+            State = KLState.Closing;
+        }
+        public void ManualStop()
+        {
+            if (State == KLState.Opening || State == KLState.Closing)
+            State = KLState.Middle;
+        }
+
         public void UpdateRefs()
         {
             DOBindxArrDO = _DOBindxArrDO;
