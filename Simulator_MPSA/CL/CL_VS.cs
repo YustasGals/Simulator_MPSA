@@ -327,7 +327,21 @@ namespace Simulator_MPSA
             set
             {
                 state = value;
-                OnPropertyChanged("State");
+                OnPropertyChanged("StateRUS");
+            }
+        }
+        public string StateRUS
+        {
+            set { }
+            get
+            {
+                switch (state)
+                {
+                    case VSState.Work: return "В работе";
+                    case VSState.Stop: return "Остановлен";
+                    default:
+                        return "не определено";
+                }
             }
         }
 
@@ -384,7 +398,7 @@ namespace Simulator_MPSA
                         if (MPC_DI != null)
                             MPC_DI.ValDI = true;
 
-                        State = VSState.Starting;
+                        State = VSState.Work;
                     }
                 }
 
@@ -396,7 +410,7 @@ namespace Simulator_MPSA
                         if (MPC_DI != null)
                             MPC_DI.ValDI = false;
 
-                        State = VSState.Stoping;
+                        State = VSState.Stop;
 
                         if (PC_DI != null) PC_DI.ValDI = false;
 
@@ -404,24 +418,24 @@ namespace Simulator_MPSA
                 }
 
                 //запускается
-                if (state== VSState.Starting)
-                {
-                    if (PC_AI != null)
-                    {
-                        PC_AI.fValAI += valuePCspd * dt;
-                        if (PC_AI.fValAI >= valuePC)
-                        {
-                            State = VSState.Work;
-                            PC_AI.fValAI = valuePC;
-                        }
-                    }
-                    else
-                        State = VSState.Work;
-                    
-                }
+                /* if (state== VSState.Starting)
+                 {
+                     if (PC_AI != null)
+                     {
+                         PC_AI.fValAI += valuePCspd * dt;
+                         if (PC_AI.fValAI >= valuePC)
+                         {
+                             State = VSState.Work;
+                             PC_AI.fValAI = valuePC;
+                         }
+                     }
+                     else
+                         State = VSState.Work;
 
+                 }
+                 */
                 //останавливается
-                if (state == VSState.Stoping)
+                /*if (state == VSState.Stoping)
                 {
                     if (PC_AI != null)
                     {
@@ -436,8 +450,27 @@ namespace Simulator_MPSA
                     else
                         State = VSState.Stop;
 
+                }*/
+
+                if (state == VSState.Work)
+                {
+                    if (PC_AI != null)
+                    {
+                        PC_AI.fValAI += (valuePC - PC_AI.fValAI + valuePC/10f) * valuePCspd * dt;
+                        if (PC_AI.fValAI > valuePC)
+                            PC_AI.fValAI = valuePC;
+                    }
                 }
 
+                if (state == VSState.Stop)
+                {
+                    if (PC_AI != null)
+                    {
+                        PC_AI.fValAI -= (PC_AI.fValAI + valuePC / 10f) * valuePCspd * dt;
+                        if (PC_AI.fValAI <=0)
+                            PC_AI.fValAI = 0;
+                    }
+                }
 
             }
             
@@ -458,7 +491,7 @@ namespace Simulator_MPSA
         {
             if (state == VSState.Stop || state == VSState.Stoping)
             if (MPC_DI != null) MPC_DI.ValDI = true;
-            State = VSState.Starting;
+            State = VSState.Work;
         }
 
         /// <summary>
@@ -469,7 +502,7 @@ namespace Simulator_MPSA
             if (MPC_DI != null) MPC_DI.ValDI = false;
 
             if (state == VSState.Starting || state == VSState.Work)
-                State = VSState.Stoping;
+                State = VSState.Stop;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -208,7 +208,7 @@
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZD}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZDRus}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
                            
@@ -257,7 +257,7 @@
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" />
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding State}" IsReadOnly="True">
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateRUS}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>

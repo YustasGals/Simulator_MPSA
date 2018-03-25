@@ -45,9 +45,26 @@ namespace Simulator_MPSA
         public StateZD StateZD
         {
             get { return _stateZD; }
-            set { _stateZD = value; OnPropertyChanged("StateZD"); }
+            set { _stateZD = value; OnPropertyChanged("StateZDRus"); }
         }
 
+        public string StateZDRus
+        {
+            set { }
+            get
+            {
+                switch (_stateZD)
+                {
+                    case StateZD.Close: return "Закрыта";
+                    case StateZD.Open: return "Открыта";
+                    case StateZD.Opening: return "Открывается";
+                    case StateZD.Closing: return "Закрывается";
+                    case StateZD.Middle: return "В промежуточном";
+                    default:
+                        return "не определено";
+                }
+            }
+        }
         public ZDStruct()
         {
 

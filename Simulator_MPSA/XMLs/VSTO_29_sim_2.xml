@@ -28105,7 +28105,7 @@
       <_NameDO>Включение звонка «Авария»</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>2</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>1</indxR>
@@ -35151,7 +35151,7 @@
       <_NameDO>МНА №003.2. Насос системы затвора торцевых уплотнений  №1 (АР001-2) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>544</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>751</indxR>
@@ -42330,7 +42330,7 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>15</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -42346,7 +42346,7 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>15</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -42362,7 +42362,7 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>15</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -42378,7 +42378,7 @@
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>15</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -51238,9 +51238,9 @@
       <isMPCAnalog>false</isMPCAnalog>
       <valueMPC>0</valueMPC>
       <PCindxArrDI>0</PCindxArrDI>
-      <PCindxArrAI>-1</PCindxArrAI>
-      <valuePC>0</valuePC>
-      <valuePCspd>0</valuePCspd>
+      <PCindxArrAI>85</PCindxArrAI>
+      <valuePC>7</valuePC>
+      <valuePCspd>2</valuePCspd>
       <State>Stop</State>
     </VSStruct>
     <VSStruct>
@@ -55311,7 +55311,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2765</Value>
+      <Value>2874</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
@@ -55332,7 +55332,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2511</Value>
+      <Value>2620</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>счетчик сард</Name>
     </USOCounter>
@@ -55486,49 +55486,49 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9883</Value>
+      <Value>9992</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9885</Value>
+      <Value>9994</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9889</Value>
+      <Value>9998</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9863</Value>
+      <Value>9972</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9376</Value>
+      <Value>9485</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9451</Value>
+      <Value>9560</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>САРД рез.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9043</Value>
+      <Value>9152</Value>
       <PLCAddr>29024</PLCAddr>
       <Name>А5 МПСА -- А5 САРД</Name>
     </USOCounter>
