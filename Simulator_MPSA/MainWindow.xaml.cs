@@ -63,8 +63,9 @@ namespace Simulator_MPSA
             int regCount = (Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126;
             int coilCount = (int)Math.Ceiling((float)regCount / 120f);
 
-            WB.W = new ushort[coilCount]; // =3402 From IOScaner CPU
-            WB.WB_old = new ushort[coilCount];
+            int regCountRounded = coilCount * 120;
+            WB.W = new ushort[regCountRounded]; // =3402 From IOScaner CPU
+            WB.WB_old = new ushort[regCountRounded];
 
             WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a3_prev = new ushort[WB.W_a3.Length];
@@ -864,6 +865,8 @@ namespace Simulator_MPSA
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
+
+            wrThread.Stop();
             try
             {
                 cancelTokenSrc.Cancel();
@@ -881,6 +884,8 @@ namespace Simulator_MPSA
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
+
+            wrThread.Stop();
             try
             {
                 cancelTokenSrc.Cancel();
@@ -890,7 +895,6 @@ namespace Simulator_MPSA
                 System.Windows.MessageBox.Show(ex.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
             }
 
-            wrThread.Stop();
            // foreach (AIStruct ai in AIStruct.items)
            //     ai.fValAI = 0f;
 
@@ -900,6 +904,8 @@ namespace Simulator_MPSA
             foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                 zd.Reset();
 
+            //foreach (MPNAStruct mna in MPNATableViewModel.MPNAs)
+                
             //TODO: добавить сброс остальных систем
         }
 

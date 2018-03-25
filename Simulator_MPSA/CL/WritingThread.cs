@@ -87,10 +87,20 @@ namespace Simulator_MPSA
                     }
                 }
 
-                for (int i = 0; i < DIStruct.items.Length; i++)
+                /*for (int i = 0; i < DIStruct.items.Length; i++)
                 {
-
+                   
                     SetBit(ref (WB.W[(DIStruct.items[i].indxW)]), (DIStruct.items[i].indxBitDI), (DIStruct.items[i].ValDI));
+                }*/
+                foreach (DIStruct di in DIStruct.items)
+                {
+                    if (di.En)
+                    {
+                        if (di.InvertDI)
+                            SetBit(ref (WB.W[(di.indxW)]), (di.indxBitDI), !(di.ValDI));
+                        else 
+                            SetBit(ref (WB.W[(di.indxW)]), (di.indxBitDI), (di.ValDI));
+                    }
                 }
 
                 //записываем счетчики УСО

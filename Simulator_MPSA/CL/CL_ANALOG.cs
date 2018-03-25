@@ -54,22 +54,29 @@ namespace Simulator_MPSA.CL
             }
             set { _valADC = value; OnPropertyChanged("ValACD"); }
         }
-
+        private ushort _minACD;
         public ushort minACD
         {
-            get; set;
+            get { return _minACD; }
+            set { _minACD = value; OnPropertyChanged("minACD"); RefreshADC(); }
         }
+        private ushort _maxACD;
         public ushort maxACD
         {
-            get; set;
+            get { return _maxACD; }
+            set { _maxACD = value; OnPropertyChanged("maxACD"); RefreshADC(); }
         }
+        private float _minPhis;
         public float minPhis
         {
-            get; set;
+            get { return _minPhis; }
+            set { _minPhis = value; OnPropertyChanged("minPhis"); RefreshADC(); }
         }
+        private float _maxPhis;
         public float maxPhis
         {
-            get; set;
+            get { return _maxPhis; }
+            set { _maxPhis = value; OnPropertyChanged("maxPhis"); RefreshADC(); }
         }
         private float _fValAI;
         public float fValAI
@@ -78,12 +85,17 @@ namespace Simulator_MPSA.CL
             set
             {
                 _fValAI = value;
-                float df = (fValAI - minPhis) / (maxPhis - minPhis);
-                float dadc = ((float)maxACD - (float)minACD) * df;
-                int res = (int)dadc + minACD;
-                ValACD= (ushort)res;
+                RefreshADC();
                 OnPropertyChanged("fValAI");
             }
+        }
+
+        private void RefreshADC()
+        {
+            float df = (fValAI - minPhis) / (maxPhis - minPhis);
+            float dadc = ((float)maxACD - (float)minACD) * df;
+            int res = (int)dadc + minACD;
+            ValACD = (ushort)res;
         }
 
         public int DelayAI;

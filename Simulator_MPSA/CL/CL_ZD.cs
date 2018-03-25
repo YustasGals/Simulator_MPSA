@@ -69,12 +69,20 @@ namespace Simulator_MPSA
             ZDProc = 0f;
         }
         /// <summary>
+        /// задержка отключения МПО МПЗ после появления сигнала с концевика (открыо закрыто)
+        /// </summary>
+        const float MPDelay_timeout = 1f;
+        float MPDelay = 0f;
+        /// <summary>
         /// обновить состояние задвижки
         /// </summary>
         /// <param name="dt">задержка между циклами, сек </param>
         /// <returns></returns>
-        public float UpdateZD(float dt)
+        public void UpdateZD(float dt)
         {
+            if (!En)
+                return;
+
             if (volt !=null)
                 volt.ValDI = _En;
 
@@ -85,6 +93,11 @@ namespace Simulator_MPSA
                     OKC.ValDI = true;
                 if (CKC != null)
                     CKC.ValDI = false;
+
+                //выключить МП после задержки
+                MPDelay -= dt;
+                if ((MPDelay < 0) && (CDC != null))
+                    CDC.ValDI = false;
             }
 
             //состояние - открыто
@@ -95,6 +108,11 @@ namespace Simulator_MPSA
                     OKC.ValDI = false;
                 if (CKC != null)
                     CKC.ValDI = true;
+
+                //выключить МП после задержки
+                MPDelay -= dt;
+                if ((MPDelay < 0) && (ODC != null))
+                    ODC.ValDI = false;
             }
 
             //состояние -открывается
@@ -106,6 +124,8 @@ namespace Simulator_MPSA
                 {
                     StateZD = StateZD.Open;
                     ZDProc = 100f;
+
+                    MPDelay = MPDelay_timeout;
                     //отключить мпо
                 //    if (ODC != null) ODC.ValDI = false;
                 }
@@ -120,8 +140,9 @@ namespace Simulator_MPSA
                 {
                     StateZD = StateZD.Close;
                     ZDProc = 0f;
+                    MPDelay = MPDelay_timeout;
                     //отключить мпз
-                  //  if (CDC != null) CDC.ValDI = false;
+                    //  if (CDC != null) CDC.ValDI = false;
                 }
             }
 
@@ -172,11 +193,8 @@ namespace Simulator_MPSA
                 if (ODC != null) ODC.ValDI = false;
                 if (CDC != null) CDC.ValDI = false;
 
-                    
-              //  }
             }
-            // тут будет логика задвижки !!!
-            return _ZDProc;
+ 
         }
 
         public bool En

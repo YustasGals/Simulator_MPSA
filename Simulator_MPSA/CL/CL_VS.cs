@@ -408,13 +408,15 @@ namespace Simulator_MPSA
                 {
                     if (PC_AI != null)
                     {
-                        PC_AI.fValAI += valuePCspd*dt ;
+                        PC_AI.fValAI += valuePCspd * dt;
                         if (PC_AI.fValAI >= valuePC)
                         {
                             State = VSState.Work;
                             PC_AI.fValAI = valuePC;
                         }
                     }
+                    else
+                        State = VSState.Work;
                     
                 }
 
@@ -431,6 +433,8 @@ namespace Simulator_MPSA
 
                         }
                     }
+                    else
+                        State = VSState.Stop;
 
                 }
 
@@ -438,6 +442,14 @@ namespace Simulator_MPSA
             }
             
 
+        }
+        /// <summary>
+        /// сброс состояния
+        /// </summary>
+        public void Reset()
+        {
+            State = VSState.Stop;
+            if (MPC_DI != null) MPC_DI.ValDI = false;
         }
         /// <summary>
         /// пуск по месту
