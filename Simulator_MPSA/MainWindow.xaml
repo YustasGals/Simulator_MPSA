@@ -36,10 +36,8 @@
         <Menu Grid.Row="0" Grid.ColumnSpan="2">
             <MenuItem Header="Файл">
                 <MenuItem Header="Новый" />
-                <MenuItem Header="Открыть все" Click="Menu_OpenAll"/>
+                <MenuItem Header="Открыть" Click="Menu_OpenAll"/>
                 <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
-                <MenuItem Header="Сохранить в отдельные xml" Click="Menu_SaveAll" />
-                <MenuItem Header="Загрузить из отдельных xml" Click="Menu_LoadSeq" />
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" />
             </MenuItem>
@@ -56,11 +54,7 @@
             <Button x:Name="btnSave" Click="Menu_SaveSingle" ToolTip="Сохранить">
                 <Image Source="IMG/save.png" />
             </Button>
-            <Separator />
-            <Button x:Name="btnSaveAll" Click="Menu_SaveAll" ToolTip="Раздельное сохранение">
-                <Image Source="IMG/saveAll.png" />
-            </Button>
-         
+        
             <Separator />
             <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Запуск симулятора" AutomationProperties.HelpText="Запуск симулятора">
                 <Image Source="IMG/START.png" />
@@ -313,6 +307,7 @@
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
                             <DataGridTextColumn Header="Адрес ПЛК" Binding="{Binding PLCAddr}"/>
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="значение" Binding="{Binding Value}"/>
                         </DataGrid.Columns>
                         </DataGrid>               
                 </Grid>

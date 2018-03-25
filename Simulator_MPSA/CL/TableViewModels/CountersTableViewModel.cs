@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Collections.ObjectModel;
 namespace Simulator_MPSA.CL
 {
     class CountersTableViewModel
     {
+        
         private static USOCounter[] _counters;
         public static USOCounter[] Counters
         {

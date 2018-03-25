@@ -65,12 +65,13 @@ namespace Simulator_MPSA.CL
 
             if ((_PLCAddr > Sett.Instance.iBegAddrA3) && (_PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                 buffer = BufType.A3;
-
+            else
             if ((_PLCAddr > Sett.Instance.iBegAddrA4) && (_PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
                 buffer = BufType.A4;
-
+            else
             if ((_PLCAddr > Sett.Instance.BegAddrW) && (_PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize)))
                 buffer = BufType.USO;
+            else buffer = BufType.Undefined;
         }
         public string Name
         { set; get;

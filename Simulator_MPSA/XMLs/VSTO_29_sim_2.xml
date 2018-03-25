@@ -39,7 +39,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>3</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>46</indxW>
@@ -51,7 +51,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>4</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>46</indxW>
@@ -75,7 +75,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>6</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>46</indxW>
@@ -87,7 +87,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>7</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>46</indxW>
@@ -807,7 +807,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>67</indxArrDI>
       <indxBitDI>12</indxBitDI>
       <indxW>172</indxW>
@@ -819,7 +819,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>68</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>172</indxW>
@@ -843,7 +843,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>70</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>172</indxW>
@@ -855,7 +855,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>71</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>172</indxW>
@@ -970,7 +970,7 @@
       <TegDI>KKC201</TegDI>
       <NameDI>МНА №003.2. Аварийное отключение МНА кнопкой «Стоп» с БРУ</NameDI>
       <Nsign>1081</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -982,7 +982,7 @@
       <TegDI>KKC203</TegDI>
       <NameDI>МНА №003.2. Аварийное отключение МНА кнопкой «Стоп» по месту</NameDI>
       <Nsign>1082</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -1011,7 +1011,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>84</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>173</indxW>
@@ -6411,7 +6411,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>534</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>1100</indxW>
@@ -6423,7 +6423,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>535</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>1100</indxW>
@@ -18435,7 +18435,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1536</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2739</indxW>
@@ -18447,7 +18447,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1537</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>2739</indxW>
@@ -18519,7 +18519,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1543</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>2739</indxW>
@@ -18531,7 +18531,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1544</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>2739</indxW>
@@ -19335,7 +19335,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1611</indxArrDI>
       <indxBitDI>4</indxBitDI>
       <indxW>2863</indxW>
@@ -19587,7 +19587,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1632</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>2865</indxW>
@@ -19599,7 +19599,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1633</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>2865</indxW>
@@ -19659,7 +19659,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1638</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>2865</indxW>
@@ -22275,7 +22275,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1856</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>3198</indxW>
@@ -22287,7 +22287,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1857</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <indxW>3198</indxW>
@@ -23523,7 +23523,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1960</indxArrDI>
       <indxBitDI>7</indxBitDI>
       <indxW>3324</indxW>
@@ -23535,7 +23535,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1961</indxArrDI>
       <indxBitDI>6</indxBitDI>
       <indxW>3324</indxW>
@@ -28105,7 +28105,7 @@
       <_NameDO>Включение звонка «Авария»</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>2</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>1</indxR>
@@ -34475,7 +34475,7 @@
       <_NameDO>МНА №003.1. Пуско-резервный масляный насос (АР004-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>492</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <indxR>651</indxR>
@@ -34553,7 +34553,7 @@
       <_NameDO>МНА №003.1. Охладитель системы затвора торцевых уплотнений (АВС001-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>498</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>652</indxR>
@@ -38089,7 +38089,7 @@
       <_NameDO>Задвижка №003.2.1 - команда на остановку </_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>770</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>1101</indxR>
@@ -48977,16 +48977,16 @@
       <DelayAI>0</DelayAI>
       <En>false</En>
       <indxAI>501</indxAI>
-      <Buffer>USO</Buffer>
-      <PLCAddr>15100</PLCAddr>
+      <Buffer>A3</Buffer>
+      <PLCAddr>28962</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI101</TegAI>
       <NameAI>МНА 003.1. Частота вращения выходного вала гидромуфты</NameAI>
-      <ValACD>4000</ValACD>
-      <minACD>4000</minACD>
-      <maxACD>20000</maxACD>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>3000</maxACD>
       <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
+      <maxPhis>3000</maxPhis>
       <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
@@ -49956,12 +49956,12 @@
       <PLCAddr>15158</PLCAddr>
       <indxW>0</indxW>
       <NameAI>Задвижка 2М-1. Положение затвора</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>1000</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>100</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -50661,18 +50661,18 @@
       <MPNAProc>0</MPNAProc>
       <Tmove>0</Tmove>
       <State>Stop</State>
-      <ABBindxArrDO>0</ABBindxArrDO>
+      <ABBindxArrDO>746</ABBindxArrDO>
       <ABOindxArrDO>0</ABOindxArrDO>
-      <ABO2indxArrDO>-1</ABO2indxArrDO>
-      <MBC12indxArrDI>0</MBC12indxArrDI>
-      <MBC22indxArrDI>0</MBC22indxArrDI>
-      <ECBindxArrDI>0</ECBindxArrDI>
-      <ECO12indxArrDI>0</ECO12indxArrDI>
+      <ABO2indxArrDO>745</ABO2indxArrDO>
+      <MBC12indxArrDI>1504</MBC12indxArrDI>
+      <MBC22indxArrDI>1505</MBC22indxArrDI>
+      <ECBindxArrDI>1558</ECBindxArrDI>
+      <ECO12indxArrDI>1557</ECO12indxArrDI>
       <CTindxArrDI>0</CTindxArrDI>
       <MBC11indxArrDI>0</MBC11indxArrDI>
-      <MBC21indxArrDI>0</MBC21indxArrDI>
-      <ECxindxArrDI>0</ECxindxArrDI>
-      <ECO11indxArrDI>0</ECO11indxArrDI>
+      <MBC21indxArrDI>1</MBC21indxArrDI>
+      <ECxindxArrDI>-1</ECxindxArrDI>
+      <ECO11indxArrDI>19</ECO11indxArrDI>
       <ECindxArrDI>0</ECindxArrDI>
       <CurrentIndx>0</CurrentIndx>
       <Current_nominal>0</Current_nominal>
@@ -53842,11 +53842,11 @@
   </VSs>
   <ZDs>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>736</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>737</DKBindxArrDO>
@@ -53856,9 +53856,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1536</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1537</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1540</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1541</CDCindxArrDI>
@@ -53871,8 +53871,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1539</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -53880,11 +53880,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>739</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>740</DKBindxArrDO>
@@ -53894,9 +53894,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1543</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1544</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1547</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1548</CDCindxArrDI>
@@ -53909,8 +53909,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1546</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -53918,37 +53918,37 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Close</StateZD>
+      <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>562</ZD_Pos_index>
-      <Position>0</Position>
+      <Position>100</Position>
       <PositionAIName>Задвижка 2М-1. Положение затвора</PositionAIName>
       <DOBindxArrDO>768</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>769</DKBindxArrDO>
       <DKBState>false</DKBState>
       <DCBindxArrDO>770</DCBindxArrDO>
-      <DCBState>false</DCBState>
+      <DCBState>true</DCBState>
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1632</OKCindxArrDI>
-      <OKCState>true</OKCState>
+      <OKCState>false</OKCState>
       <CKCindxArrDI>1633</CKCindxArrDI>
-      <CKCState>false</CKCState>
+      <CKCState>true</CKCState>
       <ODCindxArrDI>1636</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1637</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1638</DCindxArrDI>
-      <DCState>false</DCState>
+      <DCState>true</DCState>
       <VoltindxArrDI>0</VoltindxArrDI>
       <VoltState>false</VoltState>
       <MCindxArrDI>1634</MCindxArrDI>
       <MCState>false</MCState>
       <OPCindxArrDI>1635</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0</ZDProc>
-      <Percent>0</Percent>
+      <ZDProc>100</ZDProc>
+      <Percent>100</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -53960,7 +53960,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>771</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>772</DKBindxArrDO>
@@ -53998,7 +53998,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>800</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>801</DKBindxArrDO>
@@ -54036,7 +54036,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>803</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>804</DKBindxArrDO>
@@ -54074,7 +54074,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>832</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>833</DKBindxArrDO>
@@ -54112,7 +54112,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>835</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>836</DKBindxArrDO>
@@ -54150,7 +54150,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>870</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>871</DKBindxArrDO>
@@ -54188,7 +54188,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>864</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>865</DKBindxArrDO>
@@ -54226,7 +54226,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>899</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>900</DKBindxArrDO>
@@ -54264,7 +54264,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>902</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>903</DKBindxArrDO>
@@ -54302,7 +54302,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>867</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>868</DKBindxArrDO>
@@ -54340,7 +54340,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>905</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>906</DKBindxArrDO>
@@ -54378,7 +54378,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>896</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>897</DKBindxArrDO>
@@ -54416,7 +54416,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>908</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>909</DKBindxArrDO>
@@ -54454,7 +54454,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>873</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>874</DKBindxArrDO>
@@ -54488,11 +54488,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>911</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>912</DKBindxArrDO>
@@ -54502,9 +54502,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1960</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1961</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1964</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1965</CDCindxArrDI>
@@ -54517,8 +54517,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1963</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -54526,11 +54526,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>876</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>877</DKBindxArrDO>
@@ -54540,9 +54540,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1856</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1857</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1860</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>1861</CDCindxArrDI>
@@ -54555,8 +54555,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1859</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -54568,7 +54568,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>326</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>327</DKBindxArrDO>
@@ -54602,11 +54602,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>265</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>266</DKBindxArrDO>
@@ -54616,9 +54616,9 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>534</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>535</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>538</ODCindxArrDI>
       <ODCState>false</ODCState>
       <CDCindxArrDI>539</CDCindxArrDI>
@@ -54631,8 +54631,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>537</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -54644,7 +54644,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>256</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>257</DKBindxArrDO>
@@ -54682,7 +54682,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>259</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>260</DKBindxArrDO>
@@ -54720,7 +54720,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>288</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>289</DKBindxArrDO>
@@ -54758,7 +54758,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>291</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>292</DKBindxArrDO>
@@ -54796,7 +54796,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>320</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>321</DKBindxArrDO>
@@ -54834,7 +54834,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>323</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>324</DKBindxArrDO>
@@ -54872,7 +54872,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>297</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>298</DKBindxArrDO>
@@ -54910,7 +54910,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>262</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>263</DKBindxArrDO>
@@ -54948,7 +54948,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>294</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>295</DKBindxArrDO>
@@ -54986,7 +54986,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>272</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>273</DKBindxArrDO>
@@ -55024,7 +55024,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>304</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>305</DKBindxArrDO>
@@ -55062,7 +55062,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>352</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>353</DKBindxArrDO>
@@ -55100,7 +55100,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>355</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>356</DKBindxArrDO>
@@ -55138,7 +55138,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>416</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>417</DKBindxArrDO>
@@ -55176,7 +55176,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>419</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>420</DKBindxArrDO>
@@ -55214,7 +55214,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>422</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>423</DKBindxArrDO>
@@ -55252,7 +55252,7 @@
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
-      <PositionAIName>сигнал не назначен</PositionAIName>
+      <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>425</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>426</DKBindxArrDO>
@@ -55295,115 +55295,115 @@
       <Name>УСО1(1) Модуль А1.07</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>456</Value>
-      <PLCAddr>15226</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>29000</PLCAddr>
+      <Name>состояние связи САРД осн</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>29001</PLCAddr>
+      <Name>состояние связи САРД рез</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>2765</Value>
+      <PLCAddr>28850</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>447</Value>
-      <PLCAddr>15352</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>28857</PLCAddr>
+      <Name>состояние модулей КС</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28858</PLCAddr>
+      <Name>состояние модбас КС</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>true</En>
+      <Value>2511</Value>
+      <PLCAddr>29012</PLCAddr>
+      <Name>счетчик сард</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28992</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>432</Value>
-      <PLCAddr>15352</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>28993</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>444</Value>
-      <PLCAddr>15478</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>28994</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>448</Value>
-      <PLCAddr>15604</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>28995</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>448</Value>
-      <PLCAddr>15730</PLCAddr>
+      <Value>3</Value>
+      <PLCAddr>28988</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>448</Value>
-      <PLCAddr>15856</PLCAddr>
-      <Name>УСО</Name>
+      <Value>387</Value>
+      <PLCAddr>29023</PLCAddr>
+      <Name>наличие связи по канала ethernet и modbus</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>448</Value>
-      <PLCAddr>15982</PLCAddr>
-      <Name>УСО</Name>
+      <Value>65535</Value>
+      <PLCAddr>29003</PLCAddr>
+      <Name>резе КК САРД</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>448</Value>
-      <PLCAddr>16108</PLCAddr>
-      <Name>УСО</Name>
+      <Value>65535</Value>
+      <PLCAddr>28983</PLCAddr>
+      <Name>резе КЦ САРД</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16234</PLCAddr>
-      <Name>УСО</Name>
+      <Value>1</Value>
+      <PLCAddr>28985</PLCAddr>
+      <Name>RIO 2 сард</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>USO</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16360</PLCAddr>
-      <Name>УСО</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16486</PLCAddr>
-      <Name>УСО</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16612</PLCAddr>
-      <Name>УСО</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16738</PLCAddr>
-      <Name>УСО</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>449</Value>
-      <PLCAddr>16864</PLCAddr>
-      <Name>УСО</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>450</Value>
-      <PLCAddr>16990</PLCAddr>
+      <Value>768</Value>
+      <PLCAddr>29006</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
     <USOCounter>
@@ -55486,75 +55486,142 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>3152</Value>
+      <Value>9883</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>3154</Value>
+      <Value>9885</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>3158</Value>
+      <Value>9889</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>3132</Value>
+      <Value>9863</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2645</Value>
+      <Value>9376</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>2720</Value>
+      <Value>9451</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>САРД рез.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2312</Value>
+      <Value>9043</Value>
       <PLCAddr>29024</PLCAddr>
       <Name>А5 МПСА -- А5 САРД</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>A4</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>1095</Value>
-      <PLCAddr>29637</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>29022</PLCAddr>
+      <Name>состояиние модулей сар</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>A4</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>1095</Value>
-      <PLCAddr>29637</PLCAddr>
+      <Value>65535</Value>
+      <PLCAddr>28969</PLCAddr>
+      <Name>диагностика частотного модуля 1</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>A4</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>1095</Value>
-      <PLCAddr>29637</PLCAddr>
+      <Value>5</Value>
+      <PLCAddr>28961</PLCAddr>
+      <Name>значение част канала 0</Name>
     </USOCounter>
     <USOCounter>
-      <buffer>A4</buffer>
+      <buffer>A3</buffer>
       <En>false</En>
-      <Value>1095</Value>
-      <PLCAddr>29637</PLCAddr>
+      <Value>3</Value>
+      <PLCAddr>28962</PLCAddr>
+      <Name>знач част. канала 1</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>29002</PLCAddr>
+      <Name>диагностика осн кк сард</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28984</PLCAddr>
+      <Name>диагностика rio 1 сард</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28970</PLCAddr>
+      <Name>диаг част модуля 2</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>100</Value>
+      <PLCAddr>28963</PLCAddr>
+      <Name>обороты ЭД мна 2</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>100</Value>
+      <PLCAddr>28964</PLCAddr>
+      <Name>обороты муфты мна 2</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28985</PLCAddr>
+      <Name>RIO 2 sard</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>4095</Value>
+      <PLCAddr>29004</PLCAddr>
+      <Name>регистр диагностики связи 1</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>0</Value>
+      <PLCAddr>29005</PLCAddr>
+      <Name>регистр диагностики связи 2</Name>
+    </USOCounter>
+    <USOCounter>
+      <buffer>A3</buffer>
+      <En>false</En>
+      <Value>65535</Value>
+      <PLCAddr>28982</PLCAddr>
+      <Name>корзина 1 САРД</Name>
     </USOCounter>
   </Counters>
 </Station>

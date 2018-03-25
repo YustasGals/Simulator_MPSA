@@ -851,12 +851,19 @@ namespace Simulator_MPSA
                          masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
                 //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
 
-               wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                wrThread.refMainWindow = this;
+                if (wrThread == null)
+                {
+                    wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                    wrThread.refMainWindow = this;
 
 
-                wrThread.Start();
-
+                    wrThread.Start();
+                }
+                else
+                {
+                    if (wrThread.Paused)
+                        wrThread.Paused = false;
+                }
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
@@ -878,7 +885,7 @@ namespace Simulator_MPSA
         private void On_Disconnected()
         {
             btnStop_Click(null,null);
-            System.Windows.MessageBox.Show("Соединение потеряно!");
+            System.Windows.MessageBox.Show("Соединение сброшено!");
         }
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
@@ -889,7 +896,7 @@ namespace Simulator_MPSA
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
 
-            wrThread.Stop();
+            wrThread.Paused = true;
             try
             {
                 cancelTokenSrc.Cancel();
@@ -908,7 +915,8 @@ namespace Simulator_MPSA
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
 
-            wrThread.Stop();
+            // wrThread.Stop();
+            wrThread.Paused = true;
             try
             {
                 cancelTokenSrc.Cancel();

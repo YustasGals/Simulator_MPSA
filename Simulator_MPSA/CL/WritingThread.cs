@@ -13,7 +13,12 @@ namespace Simulator_MPSA
 {
     class WritingThread
     {
-
+        bool paused = false;
+        public bool Paused
+        {
+            get { return paused; }
+            set { paused = value; }
+        }
         public MainWindow refMainWindow;
 
         float prevCycleTime;
@@ -50,6 +55,7 @@ namespace Simulator_MPSA
             if (wrThread != null && wrThread.ThreadState == System.Threading.ThreadState.Running)
                 wrThread.Abort();
         }
+       
 
         public void WritingJob()
         {
@@ -58,6 +64,8 @@ namespace Simulator_MPSA
             
             while (true)
             {
+                if (paused) continue;
+
                 if (!tcp.Connected)
                 {
                     refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
