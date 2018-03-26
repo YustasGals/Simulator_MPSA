@@ -11907,7 +11907,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>992</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1693</indxW>
@@ -12867,7 +12867,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1072</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <indxW>1856</indxW>
@@ -34319,7 +34319,7 @@
       <_NameDO>МНА №003.1. Насос системы затвора торцевых уплотнений  №1 (АР001-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>480</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>651</indxR>
@@ -34475,7 +34475,7 @@
       <_NameDO>МНА №003.1. Пуско-резервный масляный насос (АР004-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>492</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <indxR>651</indxR>
@@ -34501,7 +34501,7 @@
       <_NameDO>МНА №003.1. Погружной нагреватель маслобака гидромуфты (НЕ002-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>494</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <indxR>651</indxR>
@@ -34553,7 +34553,7 @@
       <_NameDO>МНА №003.1. Охладитель системы затвора торцевых уплотнений (АВС001-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>498</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <indxR>652</indxR>
@@ -34943,7 +34943,7 @@
       <_NameDO>МНА №003.1. Насос системы затвора уплотнений №2 (АР002-1) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>528</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>702</indxR>
@@ -40978,6 +40978,7 @@
       <En>true</En>
       <indxAI>1</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15102</PLCAddr>
       <indxW>2</indxW>
       <TegAI>PT001.1</TegAI>
@@ -40994,6 +40995,7 @@
       <En>true</En>
       <indxAI>2</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15228</PLCAddr>
       <indxW>128</indxW>
       <TegAI>PT001.2</TegAI>
@@ -41010,6 +41012,7 @@
       <En>false</En>
       <indxAI>3</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41026,6 +41029,7 @@
       <En>true</En>
       <indxAI>4</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15103</PLCAddr>
       <indxW>3</indxW>
       <TegAI>PT003.1</TegAI>
@@ -41042,6 +41046,7 @@
       <En>true</En>
       <indxAI>5</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15229</PLCAddr>
       <indxW>129</indxW>
       <TegAI>PT003.2</TegAI>
@@ -41058,6 +41063,7 @@
       <En>false</En>
       <indxAI>6</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41074,6 +41080,7 @@
       <En>true</En>
       <indxAI>7</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18254</PLCAddr>
       <indxW>3154</indxW>
       <TegAI>PT501</TegAI>
@@ -41090,6 +41097,7 @@
       <En>true</En>
       <indxAI>8</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18255</PLCAddr>
       <indxW>3155</indxW>
       <TegAI>PT502</TegAI>
@@ -41106,6 +41114,7 @@
       <En>true</En>
       <indxAI>9</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18260</PLCAddr>
       <indxW>3160</indxW>
       <TegAI>AT504</TegAI>
@@ -41122,6 +41131,7 @@
       <En>true</En>
       <indxAI>10</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18262</PLCAddr>
       <indxW>3162</indxW>
       <TegAI>AT505</TegAI>
@@ -41138,6 +41148,7 @@
       <En>true</En>
       <indxAI>11</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18261</PLCAddr>
       <indxW>3161</indxW>
       <TegAI>TT504</TegAI>
@@ -41154,6 +41165,7 @@
       <En>true</En>
       <indxAI>12</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18263</PLCAddr>
       <indxW>3163</indxW>
       <TegAI>TT505</TegAI>
@@ -41170,6 +41182,7 @@
       <En>true</En>
       <indxAI>13</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18251</PLCAddr>
       <indxW>3151</indxW>
       <TegAI>TT003</TegAI>
@@ -41186,6 +41199,7 @@
       <En>true</En>
       <indxAI>14</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18252</PLCAddr>
       <indxW>3152</indxW>
       <TegAI>TT004</TegAI>
@@ -41202,6 +41216,7 @@
       <En>true</En>
       <indxAI>15</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16363</PLCAddr>
       <indxW>1263</indxW>
       <TegAI>PT005</TegAI>
@@ -41218,6 +41233,7 @@
       <En>false</En>
       <indxAI>16</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT106</TegAI>
@@ -41234,6 +41250,7 @@
       <En>false</En>
       <indxAI>17</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT206</TegAI>
@@ -41250,6 +41267,7 @@
       <En>false</En>
       <indxAI>18</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT306</TegAI>
@@ -41266,6 +41284,7 @@
       <En>false</En>
       <indxAI>19</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT406</TegAI>
@@ -41282,6 +41301,7 @@
       <En>false</En>
       <indxAI>20</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41298,6 +41318,7 @@
       <En>false</En>
       <indxAI>21</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41314,6 +41335,7 @@
       <En>false</En>
       <indxAI>22</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41330,6 +41352,7 @@
       <En>false</En>
       <indxAI>23</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41346,6 +41369,7 @@
       <En>false</En>
       <indxAI>24</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41362,6 +41386,7 @@
       <En>false</En>
       <indxAI>25</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41378,6 +41403,7 @@
       <En>false</En>
       <indxAI>26</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41394,6 +41420,7 @@
       <En>false</En>
       <indxAI>27</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41410,6 +41437,7 @@
       <En>false</En>
       <indxAI>28</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -41426,6 +41454,7 @@
       <En>true</En>
       <indxAI>29</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16922</PLCAddr>
       <indxW>1822</indxW>
       <TegAI>PT111</TegAI>
@@ -41442,6 +41471,7 @@
       <En>true</En>
       <indxAI>30</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17174</PLCAddr>
       <indxW>2074</indxW>
       <TegAI>PT211</TegAI>
@@ -41458,6 +41488,7 @@
       <En>true</En>
       <indxAI>31</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17426</PLCAddr>
       <indxW>2326</indxW>
       <TegAI>PT311</TegAI>
@@ -41474,6 +41505,7 @@
       <En>true</En>
       <indxAI>32</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17678</PLCAddr>
       <indxW>2578</indxW>
       <TegAI>PT411</TegAI>
@@ -41490,6 +41522,7 @@
       <En>true</En>
       <indxAI>33</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16923</PLCAddr>
       <indxW>1823</indxW>
       <TegAI>PT112</TegAI>
@@ -41506,6 +41539,7 @@
       <En>true</En>
       <indxAI>34</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17175</PLCAddr>
       <indxW>2075</indxW>
       <TegAI>PT212</TegAI>
@@ -41522,6 +41556,7 @@
       <En>true</En>
       <indxAI>35</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17427</PLCAddr>
       <indxW>2327</indxW>
       <TegAI>PT312</TegAI>
@@ -41538,6 +41573,7 @@
       <En>true</En>
       <indxAI>36</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17679</PLCAddr>
       <indxW>2579</indxW>
       <TegAI>PT412</TegAI>
@@ -41554,6 +41590,7 @@
       <En>true</En>
       <indxAI>37</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17747</PLCAddr>
       <indxW>2647</indxW>
       <TegAI>CT101</TegAI>
@@ -41570,6 +41607,7 @@
       <En>true</En>
       <indxAI>38</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17873</PLCAddr>
       <indxW>2773</indxW>
       <TegAI>CT201</TegAI>
@@ -41586,6 +41624,7 @@
       <En>true</En>
       <indxAI>39</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17999</PLCAddr>
       <indxW>2899</indxW>
       <TegAI>CT301</TegAI>
@@ -41602,6 +41641,7 @@
       <En>true</En>
       <indxAI>40</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18125</PLCAddr>
       <indxW>3025</indxW>
       <TegAI>CT401</TegAI>
@@ -41618,6 +41658,7 @@
       <En>true</En>
       <indxAI>41</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17748</PLCAddr>
       <indxW>2648</indxW>
       <TegAI>MT101</TegAI>
@@ -41634,6 +41675,7 @@
       <En>true</En>
       <indxAI>42</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17874</PLCAddr>
       <indxW>2774</indxW>
       <TegAI>MT201</TegAI>
@@ -41650,6 +41692,7 @@
       <En>true</En>
       <indxAI>43</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18000</PLCAddr>
       <indxW>2900</indxW>
       <TegAI>MT301</TegAI>
@@ -41666,6 +41709,7 @@
       <En>true</En>
       <indxAI>44</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18126</PLCAddr>
       <indxW>3026</indxW>
       <TegAI>MT401</TegAI>
@@ -41682,6 +41726,7 @@
       <En>true</En>
       <indxAI>45</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16924</PLCAddr>
       <indxW>1824</indxW>
       <TegAI>PT103</TegAI>
@@ -41698,6 +41743,7 @@
       <En>true</En>
       <indxAI>46</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17176</PLCAddr>
       <indxW>2076</indxW>
       <TegAI>PT203</TegAI>
@@ -41714,6 +41760,7 @@
       <En>true</En>
       <indxAI>47</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17428</PLCAddr>
       <indxW>2328</indxW>
       <TegAI>PT303</TegAI>
@@ -41730,6 +41777,7 @@
       <En>true</En>
       <indxAI>48</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17680</PLCAddr>
       <indxW>2580</indxW>
       <TegAI>PT403</TegAI>
@@ -41746,6 +41794,7 @@
       <En>true</En>
       <indxAI>49</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16885</PLCAddr>
       <indxW>1785</indxW>
       <TegAI>PT101</TegAI>
@@ -41762,6 +41811,7 @@
       <En>true</En>
       <indxAI>50</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16886</PLCAddr>
       <indxW>1786</indxW>
       <TegAI>PT102</TegAI>
@@ -41778,6 +41828,7 @@
       <En>true</En>
       <indxAI>51</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16887</PLCAddr>
       <indxW>1787</indxW>
       <TegAI>PT113</TegAI>
@@ -41794,6 +41845,7 @@
       <En>true</En>
       <indxAI>52</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16888</PLCAddr>
       <indxW>1788</indxW>
       <TegAI>PT114</TegAI>
@@ -41810,6 +41862,7 @@
       <En>true</En>
       <indxAI>53</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16889</PLCAddr>
       <indxW>1789</indxW>
       <TegAI>PT115</TegAI>
@@ -41826,6 +41879,7 @@
       <En>true</En>
       <indxAI>54</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17137</PLCAddr>
       <indxW>2037</indxW>
       <TegAI>PT201</TegAI>
@@ -41842,6 +41896,7 @@
       <En>true</En>
       <indxAI>55</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17138</PLCAddr>
       <indxW>2038</indxW>
       <TegAI>PT202</TegAI>
@@ -41858,6 +41913,7 @@
       <En>true</En>
       <indxAI>56</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17139</PLCAddr>
       <indxW>2039</indxW>
       <TegAI>PT213</TegAI>
@@ -41874,6 +41930,7 @@
       <En>true</En>
       <indxAI>57</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17140</PLCAddr>
       <indxW>2040</indxW>
       <TegAI>PT214</TegAI>
@@ -41890,6 +41947,7 @@
       <En>true</En>
       <indxAI>58</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17141</PLCAddr>
       <indxW>2041</indxW>
       <TegAI>PT215</TegAI>
@@ -41906,6 +41964,7 @@
       <En>true</En>
       <indxAI>59</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17389</PLCAddr>
       <indxW>2289</indxW>
       <TegAI>PT301</TegAI>
@@ -41922,6 +41981,7 @@
       <En>true</En>
       <indxAI>60</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17390</PLCAddr>
       <indxW>2290</indxW>
       <TegAI>PT302</TegAI>
@@ -41938,6 +41998,7 @@
       <En>true</En>
       <indxAI>61</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17391</PLCAddr>
       <indxW>2291</indxW>
       <TegAI>PT313</TegAI>
@@ -41954,6 +42015,7 @@
       <En>true</En>
       <indxAI>62</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17392</PLCAddr>
       <indxW>2292</indxW>
       <TegAI>PT314</TegAI>
@@ -41970,6 +42032,7 @@
       <En>true</En>
       <indxAI>63</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17393</PLCAddr>
       <indxW>2293</indxW>
       <TegAI>PT315</TegAI>
@@ -41986,6 +42049,7 @@
       <En>true</En>
       <indxAI>64</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17641</PLCAddr>
       <indxW>2541</indxW>
       <TegAI>PT401</TegAI>
@@ -42002,6 +42066,7 @@
       <En>true</En>
       <indxAI>65</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17642</PLCAddr>
       <indxW>2542</indxW>
       <TegAI>PT402</TegAI>
@@ -42018,6 +42083,7 @@
       <En>true</En>
       <indxAI>66</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17643</PLCAddr>
       <indxW>2543</indxW>
       <TegAI>PT413</TegAI>
@@ -42034,6 +42100,7 @@
       <En>true</En>
       <indxAI>67</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17644</PLCAddr>
       <indxW>2544</indxW>
       <TegAI>PT414</TegAI>
@@ -42050,6 +42117,7 @@
       <En>true</En>
       <indxAI>68</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17645</PLCAddr>
       <indxW>2545</indxW>
       <TegAI>PT415</TegAI>
@@ -42066,6 +42134,7 @@
       <En>true</En>
       <indxAI>69</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16868</PLCAddr>
       <indxW>1768</indxW>
       <TegAI>PT131</TegAI>
@@ -42082,6 +42151,7 @@
       <En>true</En>
       <indxAI>70</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16773</PLCAddr>
       <indxW>1673</indxW>
       <TegAI>PT132</TegAI>
@@ -42098,6 +42168,7 @@
       <En>true</En>
       <indxAI>71</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16869</PLCAddr>
       <indxW>1769</indxW>
       <TegAI>PT133</TegAI>
@@ -42114,6 +42185,7 @@
       <En>true</En>
       <indxAI>72</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17120</PLCAddr>
       <indxW>2020</indxW>
       <TegAI>PT231</TegAI>
@@ -42130,6 +42202,7 @@
       <En>true</En>
       <indxAI>73</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17025</PLCAddr>
       <indxW>1925</indxW>
       <TegAI>PT232</TegAI>
@@ -42146,6 +42219,7 @@
       <En>true</En>
       <indxAI>74</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17121</PLCAddr>
       <indxW>2021</indxW>
       <TegAI>PT233</TegAI>
@@ -42162,6 +42236,7 @@
       <En>true</En>
       <indxAI>75</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17372</PLCAddr>
       <indxW>2272</indxW>
       <TegAI>PT331</TegAI>
@@ -42178,6 +42253,7 @@
       <En>true</En>
       <indxAI>76</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17277</PLCAddr>
       <indxW>2177</indxW>
       <TegAI>PT332</TegAI>
@@ -42194,6 +42270,7 @@
       <En>true</En>
       <indxAI>77</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17373</PLCAddr>
       <indxW>2273</indxW>
       <TegAI>PT333</TegAI>
@@ -42210,6 +42287,7 @@
       <En>true</En>
       <indxAI>78</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17624</PLCAddr>
       <indxW>2524</indxW>
       <TegAI>PT431</TegAI>
@@ -42226,6 +42304,7 @@
       <En>true</En>
       <indxAI>79</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17529</PLCAddr>
       <indxW>2429</indxW>
       <TegAI>PT432</TegAI>
@@ -42242,6 +42321,7 @@
       <En>true</En>
       <indxAI>80</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17625</PLCAddr>
       <indxW>2525</indxW>
       <TegAI>PT433</TegAI>
@@ -42258,6 +42338,7 @@
       <En>true</En>
       <indxAI>81</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16894</PLCAddr>
       <indxW>1794</indxW>
       <TegAI>PT141</TegAI>
@@ -42274,6 +42355,7 @@
       <En>true</En>
       <indxAI>82</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16895</PLCAddr>
       <indxW>1795</indxW>
       <TegAI>PT142</TegAI>
@@ -42290,6 +42372,7 @@
       <En>true</En>
       <indxAI>83</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16896</PLCAddr>
       <indxW>1796</indxW>
       <TegAI>PT143</TegAI>
@@ -42306,6 +42389,7 @@
       <En>true</En>
       <indxAI>84</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16897</PLCAddr>
       <indxW>1797</indxW>
       <TegAI>PT144</TegAI>
@@ -42322,6 +42406,7 @@
       <En>true</En>
       <indxAI>85</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17146</PLCAddr>
       <indxW>2046</indxW>
       <TegAI>PT241</TegAI>
@@ -42338,6 +42423,7 @@
       <En>true</En>
       <indxAI>86</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17147</PLCAddr>
       <indxW>2047</indxW>
       <TegAI>PT242</TegAI>
@@ -42354,6 +42440,7 @@
       <En>true</En>
       <indxAI>87</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17148</PLCAddr>
       <indxW>2048</indxW>
       <TegAI>PT243</TegAI>
@@ -42370,6 +42457,7 @@
       <En>true</En>
       <indxAI>88</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17149</PLCAddr>
       <indxW>2049</indxW>
       <TegAI>PT244</TegAI>
@@ -42386,6 +42474,7 @@
       <En>true</En>
       <indxAI>89</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17398</PLCAddr>
       <indxW>2298</indxW>
       <TegAI>PT341</TegAI>
@@ -42402,6 +42491,7 @@
       <En>true</En>
       <indxAI>90</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17399</PLCAddr>
       <indxW>2299</indxW>
       <TegAI>PT342</TegAI>
@@ -42418,6 +42508,7 @@
       <En>true</En>
       <indxAI>91</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17400</PLCAddr>
       <indxW>2300</indxW>
       <TegAI>PT343</TegAI>
@@ -42434,6 +42525,7 @@
       <En>true</En>
       <indxAI>92</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17401</PLCAddr>
       <indxW>2301</indxW>
       <TegAI>PT344</TegAI>
@@ -42450,6 +42542,7 @@
       <En>true</En>
       <indxAI>93</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17650</PLCAddr>
       <indxW>2550</indxW>
       <TegAI>PT441</TegAI>
@@ -42466,6 +42559,7 @@
       <En>true</En>
       <indxAI>94</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17651</PLCAddr>
       <indxW>2551</indxW>
       <TegAI>PT442</TegAI>
@@ -42482,6 +42576,7 @@
       <En>true</En>
       <indxAI>95</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17652</PLCAddr>
       <indxW>2552</indxW>
       <TegAI>PT443</TegAI>
@@ -42498,6 +42593,7 @@
       <En>true</En>
       <indxAI>96</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17653</PLCAddr>
       <indxW>2553</indxW>
       <TegAI>PT444</TegAI>
@@ -42514,6 +42610,7 @@
       <En>true</En>
       <indxAI>97</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16874</PLCAddr>
       <indxW>1774</indxW>
       <TegAI>AT101</TegAI>
@@ -42530,6 +42627,7 @@
       <En>true</En>
       <indxAI>98</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17126</PLCAddr>
       <indxW>2026</indxW>
       <TegAI>AT201</TegAI>
@@ -42546,6 +42644,7 @@
       <En>true</En>
       <indxAI>99</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17378</PLCAddr>
       <indxW>2278</indxW>
       <TegAI>AT301</TegAI>
@@ -42562,6 +42661,7 @@
       <En>true</En>
       <indxAI>100</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17630</PLCAddr>
       <indxW>2530</indxW>
       <TegAI>AT401</TegAI>
@@ -42578,6 +42678,7 @@
       <En>true</En>
       <indxAI>101</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16875</PLCAddr>
       <indxW>1775</indxW>
       <TegAI>AT102</TegAI>
@@ -42594,6 +42695,7 @@
       <En>true</En>
       <indxAI>102</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17127</PLCAddr>
       <indxW>2027</indxW>
       <TegAI>AT202</TegAI>
@@ -42610,6 +42712,7 @@
       <En>true</En>
       <indxAI>103</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17379</PLCAddr>
       <indxW>2279</indxW>
       <TegAI>AT302</TegAI>
@@ -42626,6 +42729,7 @@
       <En>true</En>
       <indxAI>104</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17631</PLCAddr>
       <indxW>2531</indxW>
       <TegAI>AT402</TegAI>
@@ -42642,6 +42746,7 @@
       <En>true</En>
       <indxAI>105</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16876</PLCAddr>
       <indxW>1776</indxW>
       <TegAI>AT103</TegAI>
@@ -42658,6 +42763,7 @@
       <En>true</En>
       <indxAI>106</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17128</PLCAddr>
       <indxW>2028</indxW>
       <TegAI>AT203</TegAI>
@@ -42674,6 +42780,7 @@
       <En>true</En>
       <indxAI>107</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17380</PLCAddr>
       <indxW>2280</indxW>
       <TegAI>AT303</TegAI>
@@ -42690,6 +42797,7 @@
       <En>true</En>
       <indxAI>108</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17632</PLCAddr>
       <indxW>2532</indxW>
       <TegAI>AT403</TegAI>
@@ -42706,22 +42814,24 @@
       <En>true</En>
       <indxAI>109</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16865</PLCAddr>
       <indxW>1765</indxW>
       <TegAI>LT131</TegAI>
       <NameAI>МНА 003.1. Уровень масла в маслобаке гидромуфты</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>13760</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>73</minPhis>
+      <maxPhis>773</maxPhis>
+      <fValAI>500</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>110</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17117</PLCAddr>
       <indxW>2017</indxW>
       <TegAI>LT231</TegAI>
@@ -42738,6 +42848,7 @@
       <En>true</En>
       <indxAI>111</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17369</PLCAddr>
       <indxW>2269</indxW>
       <TegAI>LT331</TegAI>
@@ -42754,6 +42865,7 @@
       <En>true</En>
       <indxAI>112</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17621</PLCAddr>
       <indxW>2521</indxW>
       <TegAI>LT431</TegAI>
@@ -42770,6 +42882,7 @@
       <En>true</En>
       <indxAI>113</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16898</PLCAddr>
       <indxW>1798</indxW>
       <TegAI>LT141</TegAI>
@@ -42786,6 +42899,7 @@
       <En>true</En>
       <indxAI>114</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17150</PLCAddr>
       <indxW>2050</indxW>
       <TegAI>LT241</TegAI>
@@ -42802,6 +42916,7 @@
       <En>true</En>
       <indxAI>115</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17402</PLCAddr>
       <indxW>2302</indxW>
       <TegAI>LT341</TegAI>
@@ -42818,6 +42933,7 @@
       <En>true</En>
       <indxAI>116</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17654</PLCAddr>
       <indxW>2554</indxW>
       <TegAI>LT441</TegAI>
@@ -42834,6 +42950,7 @@
       <En>false</En>
       <indxAI>117</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -42850,6 +42967,7 @@
       <En>false</En>
       <indxAI>118</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -42866,6 +42984,7 @@
       <En>false</En>
       <indxAI>119</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -42882,6 +43001,7 @@
       <En>true</En>
       <indxAI>120</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16743</PLCAddr>
       <indxW>1643</indxW>
       <TegAI>XT101</TegAI>
@@ -42898,6 +43018,7 @@
       <En>true</En>
       <indxAI>121</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16753</PLCAddr>
       <indxW>1653</indxW>
       <TegAI>XT102</TegAI>
@@ -42914,6 +43035,7 @@
       <En>true</En>
       <indxAI>122</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16763</PLCAddr>
       <indxW>1663</indxW>
       <TegAI>XT103</TegAI>
@@ -42930,6 +43052,7 @@
       <En>true</En>
       <indxAI>123</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16771</PLCAddr>
       <indxW>1671</indxW>
       <TegAI>XT104</TegAI>
@@ -42946,6 +43069,7 @@
       <En>true</En>
       <indxAI>124</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16780</PLCAddr>
       <indxW>1680</indxW>
       <TegAI>XT105</TegAI>
@@ -42962,6 +43086,7 @@
       <En>true</En>
       <indxAI>125</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16870</PLCAddr>
       <indxW>1770</indxW>
       <TegAI>XT121</TegAI>
@@ -42978,6 +43103,7 @@
       <En>true</En>
       <indxAI>126</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16879</PLCAddr>
       <indxW>1779</indxW>
       <TegAI>XT122</TegAI>
@@ -42994,6 +43120,7 @@
       <En>true</En>
       <indxAI>127</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16871</PLCAddr>
       <indxW>1771</indxW>
       <TegAI>XT123</TegAI>
@@ -43010,6 +43137,7 @@
       <En>true</En>
       <indxAI>128</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16880</PLCAddr>
       <indxW>1780</indxW>
       <TegAI>XT124</TegAI>
@@ -43026,6 +43154,7 @@
       <En>true</En>
       <indxAI>129</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16744</PLCAddr>
       <indxW>1644</indxW>
       <TegAI>XT111</TegAI>
@@ -43042,6 +43171,7 @@
       <En>true</En>
       <indxAI>130</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16754</PLCAddr>
       <indxW>1654</indxW>
       <TegAI>XT112</TegAI>
@@ -43058,6 +43188,7 @@
       <En>true</En>
       <indxAI>131</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16764</PLCAddr>
       <indxW>1664</indxW>
       <TegAI>XT113</TegAI>
@@ -43074,6 +43205,7 @@
       <En>true</En>
       <indxAI>132</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16772</PLCAddr>
       <indxW>1672</indxW>
       <TegAI>XT114</TegAI>
@@ -43090,6 +43222,7 @@
       <En>true</En>
       <indxAI>133</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16781</PLCAddr>
       <indxW>1681</indxW>
       <TegAI>XT115</TegAI>
@@ -43106,6 +43239,7 @@
       <En>false</En>
       <indxAI>134</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -43122,6 +43256,7 @@
       <En>true</En>
       <indxAI>135</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16995</PLCAddr>
       <indxW>1895</indxW>
       <TegAI>XT201</TegAI>
@@ -43138,6 +43273,7 @@
       <En>true</En>
       <indxAI>136</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17005</PLCAddr>
       <indxW>1905</indxW>
       <TegAI>XT202</TegAI>
@@ -43154,6 +43290,7 @@
       <En>true</En>
       <indxAI>137</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17015</PLCAddr>
       <indxW>1915</indxW>
       <TegAI>XT203</TegAI>
@@ -43170,6 +43307,7 @@
       <En>true</En>
       <indxAI>138</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17023</PLCAddr>
       <indxW>1923</indxW>
       <TegAI>XT204</TegAI>
@@ -43186,6 +43324,7 @@
       <En>true</En>
       <indxAI>139</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17032</PLCAddr>
       <indxW>1932</indxW>
       <TegAI>XT205</TegAI>
@@ -43202,6 +43341,7 @@
       <En>true</En>
       <indxAI>140</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17122</PLCAddr>
       <indxW>2022</indxW>
       <TegAI>XT221</TegAI>
@@ -43218,6 +43358,7 @@
       <En>true</En>
       <indxAI>141</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17131</PLCAddr>
       <indxW>2031</indxW>
       <TegAI>XT222</TegAI>
@@ -43234,6 +43375,7 @@
       <En>true</En>
       <indxAI>142</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17123</PLCAddr>
       <indxW>2023</indxW>
       <TegAI>XT223</TegAI>
@@ -43250,6 +43392,7 @@
       <En>true</En>
       <indxAI>143</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17132</PLCAddr>
       <indxW>2032</indxW>
       <TegAI>XT224</TegAI>
@@ -43266,6 +43409,7 @@
       <En>true</En>
       <indxAI>144</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16996</PLCAddr>
       <indxW>1896</indxW>
       <TegAI>XT211</TegAI>
@@ -43282,6 +43426,7 @@
       <En>true</En>
       <indxAI>145</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17006</PLCAddr>
       <indxW>1906</indxW>
       <TegAI>XT212</TegAI>
@@ -43298,6 +43443,7 @@
       <En>true</En>
       <indxAI>146</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17016</PLCAddr>
       <indxW>1916</indxW>
       <TegAI>XT213</TegAI>
@@ -43314,6 +43460,7 @@
       <En>true</En>
       <indxAI>147</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17024</PLCAddr>
       <indxW>1924</indxW>
       <TegAI>XT214</TegAI>
@@ -43330,6 +43477,7 @@
       <En>true</En>
       <indxAI>148</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17033</PLCAddr>
       <indxW>1933</indxW>
       <TegAI>XT215</TegAI>
@@ -43346,6 +43494,7 @@
       <En>false</En>
       <indxAI>149</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -43362,6 +43511,7 @@
       <En>true</En>
       <indxAI>150</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17247</PLCAddr>
       <indxW>2147</indxW>
       <TegAI>XT301</TegAI>
@@ -43378,6 +43528,7 @@
       <En>true</En>
       <indxAI>151</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17257</PLCAddr>
       <indxW>2157</indxW>
       <TegAI>XT302</TegAI>
@@ -43394,6 +43545,7 @@
       <En>true</En>
       <indxAI>152</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17267</PLCAddr>
       <indxW>2167</indxW>
       <TegAI>XT303</TegAI>
@@ -43410,6 +43562,7 @@
       <En>true</En>
       <indxAI>153</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17275</PLCAddr>
       <indxW>2175</indxW>
       <TegAI>XT304</TegAI>
@@ -43426,6 +43579,7 @@
       <En>true</En>
       <indxAI>154</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17284</PLCAddr>
       <indxW>2184</indxW>
       <TegAI>XT305</TegAI>
@@ -43442,6 +43596,7 @@
       <En>true</En>
       <indxAI>155</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17374</PLCAddr>
       <indxW>2274</indxW>
       <TegAI>XT321</TegAI>
@@ -43458,6 +43613,7 @@
       <En>true</En>
       <indxAI>156</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17383</PLCAddr>
       <indxW>2283</indxW>
       <TegAI>XT322</TegAI>
@@ -43474,6 +43630,7 @@
       <En>true</En>
       <indxAI>157</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17375</PLCAddr>
       <indxW>2275</indxW>
       <TegAI>XT323</TegAI>
@@ -43490,6 +43647,7 @@
       <En>true</En>
       <indxAI>158</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17384</PLCAddr>
       <indxW>2284</indxW>
       <TegAI>XT324</TegAI>
@@ -43506,6 +43664,7 @@
       <En>true</En>
       <indxAI>159</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17248</PLCAddr>
       <indxW>2148</indxW>
       <TegAI>XT311</TegAI>
@@ -43522,6 +43681,7 @@
       <En>true</En>
       <indxAI>160</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17258</PLCAddr>
       <indxW>2158</indxW>
       <TegAI>XT312</TegAI>
@@ -43538,6 +43698,7 @@
       <En>true</En>
       <indxAI>161</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17268</PLCAddr>
       <indxW>2168</indxW>
       <TegAI>XT313</TegAI>
@@ -43554,6 +43715,7 @@
       <En>true</En>
       <indxAI>162</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17276</PLCAddr>
       <indxW>2176</indxW>
       <TegAI>XT314</TegAI>
@@ -43570,6 +43732,7 @@
       <En>true</En>
       <indxAI>163</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17285</PLCAddr>
       <indxW>2185</indxW>
       <TegAI>XT315</TegAI>
@@ -43586,6 +43749,7 @@
       <En>false</En>
       <indxAI>164</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -43602,6 +43766,7 @@
       <En>true</En>
       <indxAI>165</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17499</PLCAddr>
       <indxW>2399</indxW>
       <TegAI>XT401</TegAI>
@@ -43618,6 +43783,7 @@
       <En>true</En>
       <indxAI>166</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17509</PLCAddr>
       <indxW>2409</indxW>
       <TegAI>XT402</TegAI>
@@ -43634,6 +43800,7 @@
       <En>true</En>
       <indxAI>167</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17519</PLCAddr>
       <indxW>2419</indxW>
       <TegAI>XT403</TegAI>
@@ -43650,6 +43817,7 @@
       <En>true</En>
       <indxAI>168</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17527</PLCAddr>
       <indxW>2427</indxW>
       <TegAI>XT404</TegAI>
@@ -43666,6 +43834,7 @@
       <En>true</En>
       <indxAI>169</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17536</PLCAddr>
       <indxW>2436</indxW>
       <TegAI>XT405</TegAI>
@@ -43682,6 +43851,7 @@
       <En>true</En>
       <indxAI>170</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17626</PLCAddr>
       <indxW>2526</indxW>
       <TegAI>XT421</TegAI>
@@ -43698,6 +43868,7 @@
       <En>true</En>
       <indxAI>171</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17635</PLCAddr>
       <indxW>2535</indxW>
       <TegAI>XT422</TegAI>
@@ -43714,6 +43885,7 @@
       <En>true</En>
       <indxAI>172</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17627</PLCAddr>
       <indxW>2527</indxW>
       <TegAI>XT423</TegAI>
@@ -43730,6 +43902,7 @@
       <En>true</En>
       <indxAI>173</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17636</PLCAddr>
       <indxW>2536</indxW>
       <TegAI>XT424</TegAI>
@@ -43746,6 +43919,7 @@
       <En>true</En>
       <indxAI>174</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17500</PLCAddr>
       <indxW>2400</indxW>
       <TegAI>XT411</TegAI>
@@ -43762,6 +43936,7 @@
       <En>true</En>
       <indxAI>175</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17510</PLCAddr>
       <indxW>2410</indxW>
       <TegAI>XT412</TegAI>
@@ -43778,6 +43953,7 @@
       <En>true</En>
       <indxAI>176</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17520</PLCAddr>
       <indxW>2420</indxW>
       <TegAI>XT413</TegAI>
@@ -43794,6 +43970,7 @@
       <En>true</En>
       <indxAI>177</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17528</PLCAddr>
       <indxW>2428</indxW>
       <TegAI>XT414</TegAI>
@@ -43810,6 +43987,7 @@
       <En>true</En>
       <indxAI>178</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17537</PLCAddr>
       <indxW>2437</indxW>
       <TegAI>XT415</TegAI>
@@ -43826,6 +44004,7 @@
       <En>false</En>
       <indxAI>179</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -43842,6 +44021,7 @@
       <En>true</En>
       <indxAI>180</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16748</PLCAddr>
       <indxW>1648</indxW>
       <TegAI>TT101</TegAI>
@@ -43858,6 +44038,7 @@
       <En>true</En>
       <indxAI>181</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16749</PLCAddr>
       <indxW>1649</indxW>
       <TegAI>TT102</TegAI>
@@ -43874,6 +44055,7 @@
       <En>true</En>
       <indxAI>182</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16750</PLCAddr>
       <indxW>1650</indxW>
       <TegAI>TT103</TegAI>
@@ -43890,6 +44072,7 @@
       <En>true</En>
       <indxAI>183</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17000</PLCAddr>
       <indxW>1900</indxW>
       <TegAI>TT201</TegAI>
@@ -43906,6 +44089,7 @@
       <En>true</En>
       <indxAI>184</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17001</PLCAddr>
       <indxW>1901</indxW>
       <TegAI>TT202</TegAI>
@@ -43922,6 +44106,7 @@
       <En>true</En>
       <indxAI>185</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17002</PLCAddr>
       <indxW>1902</indxW>
       <TegAI>TT203</TegAI>
@@ -43938,6 +44123,7 @@
       <En>true</En>
       <indxAI>186</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17252</PLCAddr>
       <indxW>2152</indxW>
       <TegAI>TT301</TegAI>
@@ -43954,6 +44140,7 @@
       <En>true</En>
       <indxAI>187</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17253</PLCAddr>
       <indxW>2153</indxW>
       <TegAI>TT302</TegAI>
@@ -43970,6 +44157,7 @@
       <En>true</En>
       <indxAI>188</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17254</PLCAddr>
       <indxW>2154</indxW>
       <TegAI>TT303</TegAI>
@@ -43986,6 +44174,7 @@
       <En>true</En>
       <indxAI>189</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17504</PLCAddr>
       <indxW>2404</indxW>
       <TegAI>TT401</TegAI>
@@ -44002,6 +44191,7 @@
       <En>true</En>
       <indxAI>190</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17505</PLCAddr>
       <indxW>2405</indxW>
       <TegAI>TT402</TegAI>
@@ -44018,6 +44208,7 @@
       <En>true</En>
       <indxAI>191</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17506</PLCAddr>
       <indxW>2406</indxW>
       <TegAI>TT403</TegAI>
@@ -44034,6 +44225,7 @@
       <En>true</En>
       <indxAI>192</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16751</PLCAddr>
       <indxW>1651</indxW>
       <TegAI>TT104-1</TegAI>
@@ -44050,6 +44242,7 @@
       <En>true</En>
       <indxAI>193</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16901</PLCAddr>
       <indxW>1801</indxW>
       <TegAI>TT104-2</TegAI>
@@ -44066,6 +44259,7 @@
       <En>true</En>
       <indxAI>194</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17003</PLCAddr>
       <indxW>1903</indxW>
       <TegAI>TT204-1</TegAI>
@@ -44082,6 +44276,7 @@
       <En>true</En>
       <indxAI>195</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17153</PLCAddr>
       <indxW>2053</indxW>
       <TegAI>TT204-2</TegAI>
@@ -44098,6 +44293,7 @@
       <En>true</En>
       <indxAI>196</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17255</PLCAddr>
       <indxW>2155</indxW>
       <TegAI>TT304-1</TegAI>
@@ -44114,6 +44310,7 @@
       <En>true</En>
       <indxAI>197</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17405</PLCAddr>
       <indxW>2305</indxW>
       <TegAI>TT304-2</TegAI>
@@ -44130,6 +44327,7 @@
       <En>true</En>
       <indxAI>198</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17507</PLCAddr>
       <indxW>2407</indxW>
       <TegAI>TT404-1</TegAI>
@@ -44146,6 +44344,7 @@
       <En>true</En>
       <indxAI>199</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17657</PLCAddr>
       <indxW>2557</indxW>
       <TegAI>TT404-2</TegAI>
@@ -44162,6 +44361,7 @@
       <En>true</En>
       <indxAI>200</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16757</PLCAddr>
       <indxW>1657</indxW>
       <TegAI>TT105-1</TegAI>
@@ -44178,6 +44378,7 @@
       <En>true</En>
       <indxAI>201</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16902</PLCAddr>
       <indxW>1802</indxW>
       <TegAI>TT105-2</TegAI>
@@ -44194,6 +44395,7 @@
       <En>true</En>
       <indxAI>202</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17009</PLCAddr>
       <indxW>1909</indxW>
       <TegAI>TT205-1</TegAI>
@@ -44210,6 +44412,7 @@
       <En>true</En>
       <indxAI>203</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17154</PLCAddr>
       <indxW>2054</indxW>
       <TegAI>TT205-2</TegAI>
@@ -44226,6 +44429,7 @@
       <En>true</En>
       <indxAI>204</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17261</PLCAddr>
       <indxW>2161</indxW>
       <TegAI>TT305-1</TegAI>
@@ -44242,6 +44446,7 @@
       <En>true</En>
       <indxAI>205</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17406</PLCAddr>
       <indxW>2306</indxW>
       <TegAI>TT305-2</TegAI>
@@ -44258,6 +44463,7 @@
       <En>true</En>
       <indxAI>206</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17513</PLCAddr>
       <indxW>2413</indxW>
       <TegAI>TT405-1</TegAI>
@@ -44274,6 +44480,7 @@
       <En>true</En>
       <indxAI>207</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17658</PLCAddr>
       <indxW>2558</indxW>
       <TegAI>TT405-2</TegAI>
@@ -44290,6 +44497,7 @@
       <En>true</En>
       <indxAI>208</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16759</PLCAddr>
       <indxW>1659</indxW>
       <TegAI>TT106-1</TegAI>
@@ -44306,6 +44514,7 @@
       <En>true</En>
       <indxAI>209</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16903</PLCAddr>
       <indxW>1803</indxW>
       <TegAI>TT106-2</TegAI>
@@ -44322,6 +44531,7 @@
       <En>true</En>
       <indxAI>210</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16761</PLCAddr>
       <indxW>1661</indxW>
       <TegAI>TT107-1</TegAI>
@@ -44338,6 +44548,7 @@
       <En>true</En>
       <indxAI>211</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16904</PLCAddr>
       <indxW>1804</indxW>
       <TegAI>TT107-2</TegAI>
@@ -44354,134 +44565,143 @@
       <En>true</En>
       <indxAI>212</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16767</PLCAddr>
       <indxW>1667</indxW>
       <TegAI>TT112-1</TegAI>
       <NameAI>МНА 003.1. Температура переднего опорного подшипника насоса (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>213</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16905</PLCAddr>
       <indxW>1805</indxW>
       <TegAI>TT112-2</TegAI>
       <NameAI>МНА 003.1. Температура переднего опорного подшипника насоса (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>214</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16769</PLCAddr>
       <indxW>1669</indxW>
       <TegAI>TT113-1</TegAI>
       <NameAI>МНА 003.1. Температура заднего опорного подшипника насоса (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>215</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16906</PLCAddr>
       <indxW>1806</indxW>
       <TegAI>TT113-2</TegAI>
       <NameAI>МНА 003.1. Температура заднего опорного подшипника насоса (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>216</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16775</PLCAddr>
       <indxW>1675</indxW>
       <TegAI>TT114-1</TegAI>
       <NameAI>МНА 003.1. Температура упорного подшипника насоса со стороны МНА (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>217</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16907</PLCAddr>
       <indxW>1807</indxW>
       <TegAI>TT114-2</TegAI>
       <NameAI>МНА 003.1. Температура упорного подшипника насоса со стороны МНА (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>218</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16777</PLCAddr>
       <indxW>1677</indxW>
       <TegAI>TT115-1</TegAI>
       <NameAI>МНА 003.1. Температура упорного подшипника насоса со стороны свободного конца вала (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>219</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16908</PLCAddr>
       <indxW>1808</indxW>
       <TegAI>TT115-2</TegAI>
       <NameAI>МНА 003.1. Температура упорного подшипника насоса со стороны свободного конца вала (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>7840</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>10</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>220</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16883</PLCAddr>
       <indxW>1783</indxW>
       <TegAI>TT121</TegAI>
@@ -44498,6 +44718,7 @@
       <En>true</En>
       <indxAI>221</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16884</PLCAddr>
       <indxW>1784</indxW>
       <TegAI>TT122</TegAI>
@@ -44514,6 +44735,7 @@
       <En>true</En>
       <indxAI>222</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16892</PLCAddr>
       <indxW>1792</indxW>
       <TegAI>TT123</TegAI>
@@ -44530,6 +44752,7 @@
       <En>true</En>
       <indxAI>223</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16893</PLCAddr>
       <indxW>1793</indxW>
       <TegAI>TT124</TegAI>
@@ -44546,6 +44769,7 @@
       <En>true</En>
       <indxAI>224</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16752</PLCAddr>
       <indxW>1652</indxW>
       <TegAI>TT125</TegAI>
@@ -44562,6 +44786,7 @@
       <En>true</En>
       <indxAI>225</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16758</PLCAddr>
       <indxW>1658</indxW>
       <TegAI>TT126</TegAI>
@@ -44578,6 +44803,7 @@
       <En>true</En>
       <indxAI>226</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16760</PLCAddr>
       <indxW>1660</indxW>
       <TegAI>TT127</TegAI>
@@ -44594,6 +44820,7 @@
       <En>true</En>
       <indxAI>227</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16762</PLCAddr>
       <indxW>1662</indxW>
       <TegAI>TT128</TegAI>
@@ -44610,6 +44837,7 @@
       <En>true</En>
       <indxAI>228</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17011</PLCAddr>
       <indxW>1911</indxW>
       <TegAI>TT206-1</TegAI>
@@ -44626,6 +44854,7 @@
       <En>true</En>
       <indxAI>229</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17155</PLCAddr>
       <indxW>2055</indxW>
       <TegAI>TT206-2</TegAI>
@@ -44642,6 +44871,7 @@
       <En>true</En>
       <indxAI>230</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17013</PLCAddr>
       <indxW>1913</indxW>
       <TegAI>TT207-1</TegAI>
@@ -44658,6 +44888,7 @@
       <En>true</En>
       <indxAI>231</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17156</PLCAddr>
       <indxW>2056</indxW>
       <TegAI>TT207-2</TegAI>
@@ -44674,6 +44905,7 @@
       <En>true</En>
       <indxAI>232</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17019</PLCAddr>
       <indxW>1919</indxW>
       <TegAI>TT212-1</TegAI>
@@ -44690,6 +44922,7 @@
       <En>true</En>
       <indxAI>233</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17157</PLCAddr>
       <indxW>2057</indxW>
       <TegAI>TT212-2</TegAI>
@@ -44706,6 +44939,7 @@
       <En>true</En>
       <indxAI>234</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17021</PLCAddr>
       <indxW>1921</indxW>
       <TegAI>TT213-1</TegAI>
@@ -44722,6 +44956,7 @@
       <En>true</En>
       <indxAI>235</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17158</PLCAddr>
       <indxW>2058</indxW>
       <TegAI>TT213-2</TegAI>
@@ -44738,6 +44973,7 @@
       <En>true</En>
       <indxAI>236</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17027</PLCAddr>
       <indxW>1927</indxW>
       <TegAI>TT214-1</TegAI>
@@ -44754,6 +44990,7 @@
       <En>true</En>
       <indxAI>237</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17159</PLCAddr>
       <indxW>2059</indxW>
       <TegAI>TT214-2</TegAI>
@@ -44770,6 +45007,7 @@
       <En>true</En>
       <indxAI>238</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17029</PLCAddr>
       <indxW>1929</indxW>
       <TegAI>TT215-1</TegAI>
@@ -44786,6 +45024,7 @@
       <En>true</En>
       <indxAI>239</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17160</PLCAddr>
       <indxW>2060</indxW>
       <TegAI>TT215-2</TegAI>
@@ -44802,6 +45041,7 @@
       <En>true</En>
       <indxAI>240</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17135</PLCAddr>
       <indxW>2035</indxW>
       <TegAI>TT221</TegAI>
@@ -44818,6 +45058,7 @@
       <En>true</En>
       <indxAI>241</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17136</PLCAddr>
       <indxW>2036</indxW>
       <TegAI>TT222</TegAI>
@@ -44834,6 +45075,7 @@
       <En>true</En>
       <indxAI>242</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17144</PLCAddr>
       <indxW>2044</indxW>
       <TegAI>TT223</TegAI>
@@ -44850,6 +45092,7 @@
       <En>true</En>
       <indxAI>243</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17145</PLCAddr>
       <indxW>2045</indxW>
       <TegAI>TT224</TegAI>
@@ -44866,6 +45109,7 @@
       <En>true</En>
       <indxAI>244</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17004</PLCAddr>
       <indxW>1904</indxW>
       <TegAI>TT225</TegAI>
@@ -44882,6 +45126,7 @@
       <En>true</En>
       <indxAI>245</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17010</PLCAddr>
       <indxW>1910</indxW>
       <TegAI>TT226</TegAI>
@@ -44898,6 +45143,7 @@
       <En>true</En>
       <indxAI>246</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17012</PLCAddr>
       <indxW>1912</indxW>
       <TegAI>TT227</TegAI>
@@ -44914,6 +45160,7 @@
       <En>true</En>
       <indxAI>247</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17014</PLCAddr>
       <indxW>1914</indxW>
       <TegAI>TT228</TegAI>
@@ -44930,6 +45177,7 @@
       <En>true</En>
       <indxAI>248</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17263</PLCAddr>
       <indxW>2163</indxW>
       <TegAI>TT306-1</TegAI>
@@ -44946,6 +45194,7 @@
       <En>true</En>
       <indxAI>249</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17407</PLCAddr>
       <indxW>2307</indxW>
       <TegAI>TT306-2</TegAI>
@@ -44962,6 +45211,7 @@
       <En>true</En>
       <indxAI>250</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17265</PLCAddr>
       <indxW>2165</indxW>
       <TegAI>TT307-1</TegAI>
@@ -44978,6 +45228,7 @@
       <En>true</En>
       <indxAI>251</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17408</PLCAddr>
       <indxW>2308</indxW>
       <TegAI>TT307-2</TegAI>
@@ -44994,6 +45245,7 @@
       <En>true</En>
       <indxAI>252</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17271</PLCAddr>
       <indxW>2171</indxW>
       <TegAI>TT312-1</TegAI>
@@ -45010,6 +45262,7 @@
       <En>true</En>
       <indxAI>253</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17409</PLCAddr>
       <indxW>2309</indxW>
       <TegAI>TT312-2</TegAI>
@@ -45026,6 +45279,7 @@
       <En>true</En>
       <indxAI>254</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17273</PLCAddr>
       <indxW>2173</indxW>
       <TegAI>TT313-1</TegAI>
@@ -45042,6 +45296,7 @@
       <En>true</En>
       <indxAI>255</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17410</PLCAddr>
       <indxW>2310</indxW>
       <TegAI>TT313-2</TegAI>
@@ -45058,6 +45313,7 @@
       <En>true</En>
       <indxAI>256</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17279</PLCAddr>
       <indxW>2179</indxW>
       <TegAI>TT314-1</TegAI>
@@ -45074,6 +45330,7 @@
       <En>true</En>
       <indxAI>257</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17411</PLCAddr>
       <indxW>2311</indxW>
       <TegAI>TT314-2</TegAI>
@@ -45090,6 +45347,7 @@
       <En>true</En>
       <indxAI>258</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17281</PLCAddr>
       <indxW>2181</indxW>
       <TegAI>TT315-1</TegAI>
@@ -45106,6 +45364,7 @@
       <En>true</En>
       <indxAI>259</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17412</PLCAddr>
       <indxW>2312</indxW>
       <TegAI>TT315-2</TegAI>
@@ -45122,6 +45381,7 @@
       <En>true</En>
       <indxAI>260</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17387</PLCAddr>
       <indxW>2287</indxW>
       <TegAI>TT321</TegAI>
@@ -45138,6 +45398,7 @@
       <En>true</En>
       <indxAI>261</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17388</PLCAddr>
       <indxW>2288</indxW>
       <TegAI>TT322</TegAI>
@@ -45154,6 +45415,7 @@
       <En>true</En>
       <indxAI>262</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17396</PLCAddr>
       <indxW>2296</indxW>
       <TegAI>TT323</TegAI>
@@ -45170,6 +45432,7 @@
       <En>true</En>
       <indxAI>263</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17397</PLCAddr>
       <indxW>2297</indxW>
       <TegAI>TT324</TegAI>
@@ -45186,6 +45449,7 @@
       <En>true</En>
       <indxAI>264</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17256</PLCAddr>
       <indxW>2156</indxW>
       <TegAI>TT325</TegAI>
@@ -45202,6 +45466,7 @@
       <En>true</En>
       <indxAI>265</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17262</PLCAddr>
       <indxW>2162</indxW>
       <TegAI>TT326</TegAI>
@@ -45218,6 +45483,7 @@
       <En>true</En>
       <indxAI>266</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17264</PLCAddr>
       <indxW>2164</indxW>
       <TegAI>TT327</TegAI>
@@ -45234,6 +45500,7 @@
       <En>true</En>
       <indxAI>267</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17266</PLCAddr>
       <indxW>2166</indxW>
       <TegAI>TT328</TegAI>
@@ -45250,6 +45517,7 @@
       <En>true</En>
       <indxAI>268</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17515</PLCAddr>
       <indxW>2415</indxW>
       <TegAI>TT406-1</TegAI>
@@ -45266,6 +45534,7 @@
       <En>true</En>
       <indxAI>269</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17659</PLCAddr>
       <indxW>2559</indxW>
       <TegAI>TT406-2</TegAI>
@@ -45282,6 +45551,7 @@
       <En>true</En>
       <indxAI>270</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17517</PLCAddr>
       <indxW>2417</indxW>
       <TegAI>TT407-1</TegAI>
@@ -45298,6 +45568,7 @@
       <En>true</En>
       <indxAI>271</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17660</PLCAddr>
       <indxW>2560</indxW>
       <TegAI>TT407-2</TegAI>
@@ -45314,6 +45585,7 @@
       <En>true</En>
       <indxAI>272</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17523</PLCAddr>
       <indxW>2423</indxW>
       <TegAI>TT412-1</TegAI>
@@ -45330,6 +45602,7 @@
       <En>true</En>
       <indxAI>273</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17661</PLCAddr>
       <indxW>2561</indxW>
       <TegAI>TT412-2</TegAI>
@@ -45346,6 +45619,7 @@
       <En>true</En>
       <indxAI>274</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17525</PLCAddr>
       <indxW>2425</indxW>
       <TegAI>TT413-1</TegAI>
@@ -45362,6 +45636,7 @@
       <En>true</En>
       <indxAI>275</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17662</PLCAddr>
       <indxW>2562</indxW>
       <TegAI>TT413-2</TegAI>
@@ -45378,6 +45653,7 @@
       <En>true</En>
       <indxAI>276</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17531</PLCAddr>
       <indxW>2431</indxW>
       <TegAI>TT414-1</TegAI>
@@ -45394,6 +45670,7 @@
       <En>true</En>
       <indxAI>277</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17663</PLCAddr>
       <indxW>2563</indxW>
       <TegAI>TT414-2</TegAI>
@@ -45410,6 +45687,7 @@
       <En>true</En>
       <indxAI>278</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17533</PLCAddr>
       <indxW>2433</indxW>
       <TegAI>TT415-1</TegAI>
@@ -45426,6 +45704,7 @@
       <En>true</En>
       <indxAI>279</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17664</PLCAddr>
       <indxW>2564</indxW>
       <TegAI>TT415-2</TegAI>
@@ -45442,6 +45721,7 @@
       <En>true</En>
       <indxAI>280</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17639</PLCAddr>
       <indxW>2539</indxW>
       <TegAI>TT421</TegAI>
@@ -45458,6 +45738,7 @@
       <En>true</En>
       <indxAI>281</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17640</PLCAddr>
       <indxW>2540</indxW>
       <TegAI>TT422</TegAI>
@@ -45474,6 +45755,7 @@
       <En>true</En>
       <indxAI>282</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17648</PLCAddr>
       <indxW>2548</indxW>
       <TegAI>TT423</TegAI>
@@ -45490,6 +45772,7 @@
       <En>true</En>
       <indxAI>283</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17649</PLCAddr>
       <indxW>2549</indxW>
       <TegAI>TT424</TegAI>
@@ -45506,6 +45789,7 @@
       <En>true</En>
       <indxAI>284</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17508</PLCAddr>
       <indxW>2408</indxW>
       <TegAI>TT425</TegAI>
@@ -45522,6 +45806,7 @@
       <En>true</En>
       <indxAI>285</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17514</PLCAddr>
       <indxW>2414</indxW>
       <TegAI>TT426</TegAI>
@@ -45538,6 +45823,7 @@
       <En>true</En>
       <indxAI>286</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17516</PLCAddr>
       <indxW>2416</indxW>
       <TegAI>TT427</TegAI>
@@ -45554,6 +45840,7 @@
       <En>true</En>
       <indxAI>287</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17518</PLCAddr>
       <indxW>2418</indxW>
       <TegAI>TT428</TegAI>
@@ -45570,6 +45857,7 @@
       <En>true</En>
       <indxAI>288</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16766</PLCAddr>
       <indxW>1666</indxW>
       <TegAI>TT111</TegAI>
@@ -45586,6 +45874,7 @@
       <En>true</En>
       <indxAI>289</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17018</PLCAddr>
       <indxW>1918</indxW>
       <TegAI>TT211</TegAI>
@@ -45602,6 +45891,7 @@
       <En>true</En>
       <indxAI>290</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17270</PLCAddr>
       <indxW>2170</indxW>
       <TegAI>TT311</TegAI>
@@ -45618,6 +45908,7 @@
       <En>true</En>
       <indxAI>291</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17522</PLCAddr>
       <indxW>2422</indxW>
       <TegAI>TT411</TegAI>
@@ -45634,6 +45925,7 @@
       <En>true</En>
       <indxAI>292</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16768</PLCAddr>
       <indxW>1668</indxW>
       <TegAI>TT131</TegAI>
@@ -45650,6 +45942,7 @@
       <En>true</En>
       <indxAI>293</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16770</PLCAddr>
       <indxW>1670</indxW>
       <TegAI>TT132</TegAI>
@@ -45666,6 +45959,7 @@
       <En>true</En>
       <indxAI>294</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16776</PLCAddr>
       <indxW>1676</indxW>
       <TegAI>TT133</TegAI>
@@ -45682,6 +45976,7 @@
       <En>true</En>
       <indxAI>295</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16778</PLCAddr>
       <indxW>1678</indxW>
       <TegAI>TT134</TegAI>
@@ -45698,22 +45993,24 @@
       <En>true</En>
       <indxAI>296</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16910</PLCAddr>
       <indxW>1810</indxW>
       <TegAI>TT135</TegAI>
       <NameAI>МНА 003.1. Температура масла в маслобаке гидромуфты</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>9440</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
-      <minPhis>0</minPhis>
-      <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <minPhis>-50</minPhis>
+      <maxPhis>200</maxPhis>
+      <fValAI>35</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
       <indxAI>297</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17020</PLCAddr>
       <indxW>1920</indxW>
       <TegAI>TT231</TegAI>
@@ -45730,6 +46027,7 @@
       <En>true</En>
       <indxAI>298</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17022</PLCAddr>
       <indxW>1922</indxW>
       <TegAI>TT232</TegAI>
@@ -45746,6 +46044,7 @@
       <En>true</En>
       <indxAI>299</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17028</PLCAddr>
       <indxW>1928</indxW>
       <TegAI>TT233</TegAI>
@@ -45762,6 +46061,7 @@
       <En>true</En>
       <indxAI>300</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17030</PLCAddr>
       <indxW>1930</indxW>
       <TegAI>TT234</TegAI>
@@ -45778,6 +46078,7 @@
       <En>true</En>
       <indxAI>301</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17162</PLCAddr>
       <indxW>2062</indxW>
       <TegAI>TT235</TegAI>
@@ -45794,6 +46095,7 @@
       <En>true</En>
       <indxAI>302</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17272</PLCAddr>
       <indxW>2172</indxW>
       <TegAI>TT331</TegAI>
@@ -45810,6 +46112,7 @@
       <En>true</En>
       <indxAI>303</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17274</PLCAddr>
       <indxW>2174</indxW>
       <TegAI>TT332</TegAI>
@@ -45826,6 +46129,7 @@
       <En>true</En>
       <indxAI>304</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17280</PLCAddr>
       <indxW>2180</indxW>
       <TegAI>TT333</TegAI>
@@ -45842,6 +46146,7 @@
       <En>true</En>
       <indxAI>305</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17282</PLCAddr>
       <indxW>2182</indxW>
       <TegAI>TT334</TegAI>
@@ -45858,6 +46163,7 @@
       <En>true</En>
       <indxAI>306</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17414</PLCAddr>
       <indxW>2314</indxW>
       <TegAI>TT335</TegAI>
@@ -45874,6 +46180,7 @@
       <En>true</En>
       <indxAI>307</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17524</PLCAddr>
       <indxW>2424</indxW>
       <TegAI>TT431</TegAI>
@@ -45890,6 +46197,7 @@
       <En>true</En>
       <indxAI>308</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17526</PLCAddr>
       <indxW>2426</indxW>
       <TegAI>TT432</TegAI>
@@ -45906,6 +46214,7 @@
       <En>true</En>
       <indxAI>309</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17532</PLCAddr>
       <indxW>2432</indxW>
       <TegAI>TT433</TegAI>
@@ -45922,6 +46231,7 @@
       <En>true</En>
       <indxAI>310</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17534</PLCAddr>
       <indxW>2434</indxW>
       <TegAI>TT434</TegAI>
@@ -45938,6 +46248,7 @@
       <En>true</En>
       <indxAI>311</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17666</PLCAddr>
       <indxW>2566</indxW>
       <TegAI>TT435</TegAI>
@@ -45954,6 +46265,7 @@
       <En>true</En>
       <indxAI>312</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16779</PLCAddr>
       <indxW>1679</indxW>
       <TegAI>TT141</TegAI>
@@ -45970,6 +46282,7 @@
       <En>true</En>
       <indxAI>313</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16784</PLCAddr>
       <indxW>1684</indxW>
       <TegAI>TT142</TegAI>
@@ -45986,6 +46299,7 @@
       <En>true</En>
       <indxAI>314</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16785</PLCAddr>
       <indxW>1685</indxW>
       <TegAI>TT143</TegAI>
@@ -46002,6 +46316,7 @@
       <En>true</En>
       <indxAI>315</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16786</PLCAddr>
       <indxW>1686</indxW>
       <TegAI>TT144</TegAI>
@@ -46018,6 +46333,7 @@
       <En>true</En>
       <indxAI>316</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17031</PLCAddr>
       <indxW>1931</indxW>
       <TegAI>TT241</TegAI>
@@ -46034,6 +46350,7 @@
       <En>true</En>
       <indxAI>317</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17036</PLCAddr>
       <indxW>1936</indxW>
       <TegAI>TT242</TegAI>
@@ -46050,6 +46367,7 @@
       <En>true</En>
       <indxAI>318</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17037</PLCAddr>
       <indxW>1937</indxW>
       <TegAI>TT243</TegAI>
@@ -46066,6 +46384,7 @@
       <En>true</En>
       <indxAI>319</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17038</PLCAddr>
       <indxW>1938</indxW>
       <TegAI>TT244</TegAI>
@@ -46082,6 +46401,7 @@
       <En>true</En>
       <indxAI>320</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17283</PLCAddr>
       <indxW>2183</indxW>
       <TegAI>TT341</TegAI>
@@ -46098,6 +46418,7 @@
       <En>true</En>
       <indxAI>321</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17288</PLCAddr>
       <indxW>2188</indxW>
       <TegAI>TT342</TegAI>
@@ -46114,6 +46435,7 @@
       <En>true</En>
       <indxAI>322</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17289</PLCAddr>
       <indxW>2189</indxW>
       <TegAI>TT343</TegAI>
@@ -46130,6 +46452,7 @@
       <En>true</En>
       <indxAI>323</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17290</PLCAddr>
       <indxW>2190</indxW>
       <TegAI>TT344</TegAI>
@@ -46146,6 +46469,7 @@
       <En>true</En>
       <indxAI>324</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17535</PLCAddr>
       <indxW>2435</indxW>
       <TegAI>TT441</TegAI>
@@ -46162,6 +46486,7 @@
       <En>true</En>
       <indxAI>325</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17540</PLCAddr>
       <indxW>2440</indxW>
       <TegAI>TT442</TegAI>
@@ -46178,6 +46503,7 @@
       <En>true</En>
       <indxAI>326</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17541</PLCAddr>
       <indxW>2441</indxW>
       <TegAI>TT443</TegAI>
@@ -46194,6 +46520,7 @@
       <En>true</En>
       <indxAI>327</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17542</PLCAddr>
       <indxW>2442</indxW>
       <TegAI>TT444</TegAI>
@@ -46210,6 +46537,7 @@
       <En>true</En>
       <indxAI>328</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16911</PLCAddr>
       <indxW>1811</indxW>
       <TegAI>TT171</TegAI>
@@ -46226,6 +46554,7 @@
       <En>true</En>
       <indxAI>329</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16912</PLCAddr>
       <indxW>1812</indxW>
       <TegAI>TT172</TegAI>
@@ -46242,6 +46571,7 @@
       <En>true</En>
       <indxAI>330</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15605</PLCAddr>
       <indxW>505</indxW>
       <TegAI>TT173</TegAI>
@@ -46258,6 +46588,7 @@
       <En>true</En>
       <indxAI>331</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15614</PLCAddr>
       <indxW>514</indxW>
       <TegAI>TT174</TegAI>
@@ -46274,6 +46605,7 @@
       <En>true</En>
       <indxAI>332</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16913</PLCAddr>
       <indxW>1813</indxW>
       <TegAI>TT181</TegAI>
@@ -46290,6 +46622,7 @@
       <En>true</En>
       <indxAI>333</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16914</PLCAddr>
       <indxW>1814</indxW>
       <TegAI>TT182</TegAI>
@@ -46306,6 +46639,7 @@
       <En>true</En>
       <indxAI>334</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15606</PLCAddr>
       <indxW>506</indxW>
       <TegAI>TT183</TegAI>
@@ -46322,6 +46656,7 @@
       <En>true</En>
       <indxAI>335</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15615</PLCAddr>
       <indxW>515</indxW>
       <TegAI>TT184</TegAI>
@@ -46338,6 +46673,7 @@
       <En>true</En>
       <indxAI>336</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17163</PLCAddr>
       <indxW>2063</indxW>
       <TegAI>TT271</TegAI>
@@ -46354,6 +46690,7 @@
       <En>true</En>
       <indxAI>337</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17164</PLCAddr>
       <indxW>2064</indxW>
       <TegAI>TT272</TegAI>
@@ -46370,6 +46707,7 @@
       <En>true</En>
       <indxAI>338</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15731</PLCAddr>
       <indxW>631</indxW>
       <TegAI>TT273</TegAI>
@@ -46386,6 +46724,7 @@
       <En>true</En>
       <indxAI>339</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15740</PLCAddr>
       <indxW>640</indxW>
       <TegAI>TT274</TegAI>
@@ -46402,6 +46741,7 @@
       <En>true</En>
       <indxAI>340</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17165</PLCAddr>
       <indxW>2065</indxW>
       <TegAI>TT281</TegAI>
@@ -46418,6 +46758,7 @@
       <En>true</En>
       <indxAI>341</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17166</PLCAddr>
       <indxW>2066</indxW>
       <TegAI>TT282</TegAI>
@@ -46434,6 +46775,7 @@
       <En>true</En>
       <indxAI>342</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15732</PLCAddr>
       <indxW>632</indxW>
       <TegAI>TT283</TegAI>
@@ -46450,6 +46792,7 @@
       <En>true</En>
       <indxAI>343</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15741</PLCAddr>
       <indxW>641</indxW>
       <TegAI>TT284</TegAI>
@@ -46466,6 +46809,7 @@
       <En>true</En>
       <indxAI>344</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17415</PLCAddr>
       <indxW>2315</indxW>
       <TegAI>TT371</TegAI>
@@ -46482,6 +46826,7 @@
       <En>true</En>
       <indxAI>345</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17416</PLCAddr>
       <indxW>2316</indxW>
       <TegAI>TT372</TegAI>
@@ -46498,6 +46843,7 @@
       <En>true</En>
       <indxAI>346</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15857</PLCAddr>
       <indxW>757</indxW>
       <TegAI>TT373</TegAI>
@@ -46514,6 +46860,7 @@
       <En>true</En>
       <indxAI>347</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15866</PLCAddr>
       <indxW>766</indxW>
       <TegAI>TT374</TegAI>
@@ -46530,6 +46877,7 @@
       <En>true</En>
       <indxAI>348</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17417</PLCAddr>
       <indxW>2317</indxW>
       <TegAI>TT381</TegAI>
@@ -46546,6 +46894,7 @@
       <En>true</En>
       <indxAI>349</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17418</PLCAddr>
       <indxW>2318</indxW>
       <TegAI>TT382</TegAI>
@@ -46562,6 +46911,7 @@
       <En>true</En>
       <indxAI>350</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15858</PLCAddr>
       <indxW>758</indxW>
       <TegAI>TT383</TegAI>
@@ -46578,6 +46928,7 @@
       <En>true</En>
       <indxAI>351</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15867</PLCAddr>
       <indxW>767</indxW>
       <TegAI>TT384</TegAI>
@@ -46594,6 +46945,7 @@
       <En>true</En>
       <indxAI>352</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17667</PLCAddr>
       <indxW>2567</indxW>
       <TegAI>TT471</TegAI>
@@ -46610,6 +46962,7 @@
       <En>true</En>
       <indxAI>353</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17668</PLCAddr>
       <indxW>2568</indxW>
       <TegAI>TT472</TegAI>
@@ -46626,6 +46979,7 @@
       <En>true</En>
       <indxAI>354</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15983</PLCAddr>
       <indxW>883</indxW>
       <TegAI>TT473</TegAI>
@@ -46642,6 +46996,7 @@
       <En>true</En>
       <indxAI>355</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15992</PLCAddr>
       <indxW>892</indxW>
       <TegAI>TT474</TegAI>
@@ -46658,6 +47013,7 @@
       <En>true</En>
       <indxAI>356</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17669</PLCAddr>
       <indxW>2569</indxW>
       <TegAI>TT481</TegAI>
@@ -46674,6 +47030,7 @@
       <En>true</En>
       <indxAI>357</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17670</PLCAddr>
       <indxW>2570</indxW>
       <TegAI>TT482</TegAI>
@@ -46690,6 +47047,7 @@
       <En>true</En>
       <indxAI>358</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15984</PLCAddr>
       <indxW>884</indxW>
       <TegAI>TT483</TegAI>
@@ -46706,6 +47064,7 @@
       <En>true</En>
       <indxAI>359</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15993</PLCAddr>
       <indxW>893</indxW>
       <TegAI>TT484</TegAI>
@@ -46722,6 +47081,7 @@
       <En>true</En>
       <indxAI>360</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16920</PLCAddr>
       <indxW>1820</indxW>
       <TegAI>HT161</TegAI>
@@ -46738,6 +47098,7 @@
       <En>true</En>
       <indxAI>361</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17172</PLCAddr>
       <indxW>2072</indxW>
       <TegAI>HT262</TegAI>
@@ -46754,6 +47115,7 @@
       <En>true</En>
       <indxAI>362</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17424</PLCAddr>
       <indxW>2324</indxW>
       <TegAI>HT362</TegAI>
@@ -46770,6 +47132,7 @@
       <En>true</En>
       <indxAI>363</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17676</PLCAddr>
       <indxW>2576</indxW>
       <TegAI>HT462</TegAI>
@@ -46786,6 +47149,7 @@
       <En>true</En>
       <indxAI>364</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16919</PLCAddr>
       <indxW>1819</indxW>
       <TegAI>TT161</TegAI>
@@ -46802,6 +47166,7 @@
       <En>true</En>
       <indxAI>365</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17171</PLCAddr>
       <indxW>2071</indxW>
       <TegAI>TT261</TegAI>
@@ -46818,6 +47183,7 @@
       <En>true</En>
       <indxAI>366</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17423</PLCAddr>
       <indxW>2323</indxW>
       <TegAI>TT361</TegAI>
@@ -46834,6 +47200,7 @@
       <En>true</En>
       <indxAI>367</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17675</PLCAddr>
       <indxW>2575</indxW>
       <TegAI>TT461</TegAI>
@@ -46850,6 +47217,7 @@
       <En>true</En>
       <indxAI>368</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16921</PLCAddr>
       <indxW>1821</indxW>
       <TegAI>TT162</TegAI>
@@ -46866,6 +47234,7 @@
       <En>true</En>
       <indxAI>369</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17173</PLCAddr>
       <indxW>2073</indxW>
       <TegAI>TT262</TegAI>
@@ -46882,6 +47251,7 @@
       <En>true</En>
       <indxAI>370</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17425</PLCAddr>
       <indxW>2325</indxW>
       <TegAI>TT362</TegAI>
@@ -46898,6 +47268,7 @@
       <En>true</En>
       <indxAI>371</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17677</PLCAddr>
       <indxW>2577</indxW>
       <TegAI>TT462</TegAI>
@@ -46914,6 +47285,7 @@
       <En>true</En>
       <indxAI>372</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15608</PLCAddr>
       <indxW>508</indxW>
       <TegAI>PT173</TegAI>
@@ -46930,6 +47302,7 @@
       <En>true</En>
       <indxAI>373</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15734</PLCAddr>
       <indxW>634</indxW>
       <TegAI>PT273</TegAI>
@@ -46946,6 +47319,7 @@
       <En>true</En>
       <indxAI>374</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15860</PLCAddr>
       <indxW>760</indxW>
       <TegAI>PT373</TegAI>
@@ -46962,6 +47336,7 @@
       <En>true</En>
       <indxAI>375</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15986</PLCAddr>
       <indxW>886</indxW>
       <TegAI>PT473</TegAI>
@@ -46978,6 +47353,7 @@
       <En>true</En>
       <indxAI>376</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15735</PLCAddr>
       <indxW>635</indxW>
       <TegAI>PT183</TegAI>
@@ -46994,6 +47370,7 @@
       <En>true</En>
       <indxAI>377</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15609</PLCAddr>
       <indxW>509</indxW>
       <TegAI>PT283</TegAI>
@@ -47010,6 +47387,7 @@
       <En>true</En>
       <indxAI>378</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15987</PLCAddr>
       <indxW>887</indxW>
       <TegAI>PT383</TegAI>
@@ -47026,6 +47404,7 @@
       <En>true</En>
       <indxAI>379</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15861</PLCAddr>
       <indxW>761</indxW>
       <TegAI>PT483</TegAI>
@@ -47042,6 +47421,7 @@
       <En>true</En>
       <indxAI>380</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15616</PLCAddr>
       <indxW>516</indxW>
       <TegAI>PT171</TegAI>
@@ -47058,6 +47438,7 @@
       <En>true</En>
       <indxAI>381</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15744</PLCAddr>
       <indxW>644</indxW>
       <TegAI>PT172</TegAI>
@@ -47074,6 +47455,7 @@
       <En>true</En>
       <indxAI>382</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15617</PLCAddr>
       <indxW>517</indxW>
       <TegAI>PT181</TegAI>
@@ -47090,6 +47472,7 @@
       <En>true</En>
       <indxAI>383</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15745</PLCAddr>
       <indxW>645</indxW>
       <TegAI>PT182</TegAI>
@@ -47106,6 +47489,7 @@
       <En>true</En>
       <indxAI>384</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15742</PLCAddr>
       <indxW>642</indxW>
       <TegAI>PT271</TegAI>
@@ -47122,6 +47506,7 @@
       <En>true</En>
       <indxAI>385</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15618</PLCAddr>
       <indxW>518</indxW>
       <TegAI>PT272</TegAI>
@@ -47138,6 +47523,7 @@
       <En>true</En>
       <indxAI>386</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15743</PLCAddr>
       <indxW>643</indxW>
       <TegAI>PT281</TegAI>
@@ -47154,6 +47540,7 @@
       <En>true</En>
       <indxAI>387</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15619</PLCAddr>
       <indxW>519</indxW>
       <TegAI>PT282</TegAI>
@@ -47170,6 +47557,7 @@
       <En>true</En>
       <indxAI>388</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15868</PLCAddr>
       <indxW>768</indxW>
       <TegAI>PT371</TegAI>
@@ -47186,6 +47574,7 @@
       <En>true</En>
       <indxAI>389</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15996</PLCAddr>
       <indxW>896</indxW>
       <TegAI>PT372</TegAI>
@@ -47202,6 +47591,7 @@
       <En>true</En>
       <indxAI>390</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15869</PLCAddr>
       <indxW>769</indxW>
       <TegAI>PT381</TegAI>
@@ -47218,6 +47608,7 @@
       <En>true</En>
       <indxAI>391</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15997</PLCAddr>
       <indxW>897</indxW>
       <TegAI>PT382</TegAI>
@@ -47234,6 +47625,7 @@
       <En>true</En>
       <indxAI>392</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15994</PLCAddr>
       <indxW>894</indxW>
       <TegAI>PT471</TegAI>
@@ -47250,6 +47642,7 @@
       <En>true</En>
       <indxAI>393</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15870</PLCAddr>
       <indxW>770</indxW>
       <TegAI>PT472</TegAI>
@@ -47266,6 +47659,7 @@
       <En>true</En>
       <indxAI>394</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15995</PLCAddr>
       <indxW>895</indxW>
       <TegAI>PT481</TegAI>
@@ -47282,6 +47676,7 @@
       <En>true</En>
       <indxAI>395</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15871</PLCAddr>
       <indxW>771</indxW>
       <TegAI>PT482</TegAI>
@@ -47298,6 +47693,7 @@
       <En>true</En>
       <indxAI>396</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16489</PLCAddr>
       <indxW>1389</indxW>
       <TegAI>PT611</TegAI>
@@ -47314,6 +47710,7 @@
       <En>true</En>
       <indxAI>397</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16615</PLCAddr>
       <indxW>1515</indxW>
       <TegAI>PT612</TegAI>
@@ -47330,6 +47727,7 @@
       <En>true</En>
       <indxAI>398</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16121</PLCAddr>
       <indxW>1021</indxW>
       <TegAI>PT651</TegAI>
@@ -47346,6 +47744,7 @@
       <En>true</En>
       <indxAI>399</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16247</PLCAddr>
       <indxW>1147</indxW>
       <TegAI>PT652</TegAI>
@@ -47362,6 +47761,7 @@
       <En>true</En>
       <indxAI>400</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16122</PLCAddr>
       <indxW>1022</indxW>
       <TegAI>PT751</TegAI>
@@ -47378,6 +47778,7 @@
       <En>true</En>
       <indxAI>401</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16248</PLCAddr>
       <indxW>1148</indxW>
       <TegAI>PT752</TegAI>
@@ -47394,6 +47795,7 @@
       <En>true</En>
       <indxAI>402</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16366</PLCAddr>
       <indxW>1266</indxW>
       <TegAI>PT753</TegAI>
@@ -47410,6 +47812,7 @@
       <En>true</En>
       <indxAI>403</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16365</PLCAddr>
       <indxW>1265</indxW>
       <TegAI>PT754</TegAI>
@@ -47426,6 +47829,7 @@
       <En>false</En>
       <indxAI>404</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT761</TegAI>
@@ -47442,6 +47846,7 @@
       <En>false</En>
       <indxAI>405</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT762</TegAI>
@@ -47458,6 +47863,7 @@
       <En>true</En>
       <indxAI>406</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16113</PLCAddr>
       <indxW>1013</indxW>
       <TegAI>LT651</TegAI>
@@ -47474,6 +47880,7 @@
       <En>true</En>
       <indxAI>407</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16239</PLCAddr>
       <indxW>1139</indxW>
       <TegAI>LT652</TegAI>
@@ -47490,6 +47897,7 @@
       <En>true</En>
       <indxAI>408</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16114</PLCAddr>
       <indxW>1014</indxW>
       <TegAI>LT691</TegAI>
@@ -47506,6 +47914,7 @@
       <En>true</En>
       <indxAI>409</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16240</PLCAddr>
       <indxW>1140</indxW>
       <TegAI>LT692</TegAI>
@@ -47522,6 +47931,7 @@
       <En>false</En>
       <indxAI>410</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -47538,6 +47948,7 @@
       <En>false</En>
       <indxAI>411</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -47554,6 +47965,7 @@
       <En>false</En>
       <indxAI>412</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -47570,6 +47982,7 @@
       <En>false</En>
       <indxAI>413</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -47586,6 +47999,7 @@
       <En>false</En>
       <indxAI>414</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT0020</TegAI>
@@ -47602,6 +48016,7 @@
       <En>true</En>
       <indxAI>415</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16109</PLCAddr>
       <indxW>1009</indxW>
       <TegAI>TT651п</TegAI>
@@ -47618,6 +48033,7 @@
       <En>true</En>
       <indxAI>416</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16110</PLCAddr>
       <indxW>1010</indxW>
       <TegAI>TT651н</TegAI>
@@ -47634,6 +48050,7 @@
       <En>true</En>
       <indxAI>417</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16235</PLCAddr>
       <indxW>1135</indxW>
       <TegAI>TT652п</TegAI>
@@ -47650,6 +48067,7 @@
       <En>true</En>
       <indxAI>418</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16236</PLCAddr>
       <indxW>1136</indxW>
       <TegAI>TT652н</TegAI>
@@ -47666,6 +48084,7 @@
       <En>true</En>
       <indxAI>419</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16111</PLCAddr>
       <indxW>1011</indxW>
       <TegAI>TT691</TegAI>
@@ -47682,6 +48101,7 @@
       <En>true</En>
       <indxAI>420</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16237</PLCAddr>
       <indxW>1137</indxW>
       <TegAI>TT692</TegAI>
@@ -47698,6 +48118,7 @@
       <En>true</En>
       <indxAI>421</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16361</PLCAddr>
       <indxW>1261</indxW>
       <TegAI>TT601</TegAI>
@@ -47714,6 +48135,7 @@
       <En>true</En>
       <indxAI>422</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16491</PLCAddr>
       <indxW>1391</indxW>
       <TegAI>TT611</TegAI>
@@ -47730,6 +48152,7 @@
       <En>true</En>
       <indxAI>423</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15479</PLCAddr>
       <indxW>379</indxW>
       <TegAI>TT002</TegAI>
@@ -47746,6 +48169,7 @@
       <En>true</En>
       <indxAI>424</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15227</PLCAddr>
       <indxW>127</indxW>
       <TegAI>TT003.1</TegAI>
@@ -47762,6 +48186,7 @@
       <En>true</En>
       <indxAI>425</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15101</PLCAddr>
       <indxW>1</indxW>
       <TegAI>TT003.2</TegAI>
@@ -47778,6 +48203,7 @@
       <En>true</En>
       <indxAI>426</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16364</PLCAddr>
       <indxW>1264</indxW>
       <TegAI>TT026</TegAI>
@@ -47794,6 +48220,7 @@
       <En>true</En>
       <indxAI>427</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16249</PLCAddr>
       <indxW>1149</indxW>
       <TegAI>TT029</TegAI>
@@ -47810,6 +48237,7 @@
       <En>true</En>
       <indxAI>428</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18256</PLCAddr>
       <indxW>3156</indxW>
       <TegAI>TT015.1</TegAI>
@@ -47826,6 +48254,7 @@
       <En>true</En>
       <indxAI>429</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18257</PLCAddr>
       <indxW>3157</indxW>
       <TegAI>TT015.2</TegAI>
@@ -47842,6 +48271,7 @@
       <En>true</En>
       <indxAI>430</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16614</PLCAddr>
       <indxW>1514</indxW>
       <TegAI>TT612</TegAI>
@@ -47858,6 +48288,7 @@
       <En>true</En>
       <indxAI>431</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16490</PLCAddr>
       <indxW>1390</indxW>
       <TegAI>TT621</TegAI>
@@ -47874,6 +48305,7 @@
       <En>true</En>
       <indxAI>432</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16613</PLCAddr>
       <indxW>1513</indxW>
       <TegAI>TT622</TegAI>
@@ -47890,6 +48322,7 @@
       <En>true</En>
       <indxAI>433</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16367</PLCAddr>
       <indxW>1267</indxW>
       <TegAI>TT751</TegAI>
@@ -47906,6 +48339,7 @@
       <En>false</En>
       <indxAI>434</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT761</TegAI>
@@ -47922,6 +48356,7 @@
       <En>false</En>
       <indxAI>435</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT762</TegAI>
@@ -47938,6 +48373,7 @@
       <En>true</En>
       <indxAI>436</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15353</PLCAddr>
       <indxW>253</indxW>
       <TegAI>TT901</TegAI>
@@ -47954,6 +48390,7 @@
       <En>false</En>
       <indxAI>437</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT900</TegAI>
@@ -47970,6 +48407,7 @@
       <En>true</En>
       <indxAI>438</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15354</PLCAddr>
       <indxW>254</indxW>
       <TegAI>TT911</TegAI>
@@ -47986,6 +48424,7 @@
       <En>true</En>
       <indxAI>439</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15610</PLCAddr>
       <indxW>510</indxW>
       <TegAI>TT912</TegAI>
@@ -48002,6 +48441,7 @@
       <En>true</En>
       <indxAI>440</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16123</PLCAddr>
       <indxW>1023</indxW>
       <TegAI>TT913</TegAI>
@@ -48018,6 +48458,7 @@
       <En>true</En>
       <indxAI>441</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16617</PLCAddr>
       <indxW>1517</indxW>
       <TegAI>TT921</TegAI>
@@ -48034,6 +48475,7 @@
       <En>true</En>
       <indxAI>442</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16755</PLCAddr>
       <indxW>1655</indxW>
       <TegAI>TT922</TegAI>
@@ -48050,6 +48492,7 @@
       <En>true</En>
       <indxAI>443</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17007</PLCAddr>
       <indxW>1907</indxW>
       <TegAI>TT923</TegAI>
@@ -48066,6 +48509,7 @@
       <En>true</En>
       <indxAI>444</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17259</PLCAddr>
       <indxW>2159</indxW>
       <TegAI>TT924</TegAI>
@@ -48082,6 +48526,7 @@
       <En>true</En>
       <indxAI>445</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17511</PLCAddr>
       <indxW>2411</indxW>
       <TegAI>TT925</TegAI>
@@ -48098,6 +48543,7 @@
       <En>true</En>
       <indxAI>446</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17754</PLCAddr>
       <indxW>2654</indxW>
       <TegAI>TT930</TegAI>
@@ -48114,6 +48560,7 @@
       <En>true</En>
       <indxAI>447</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18258</PLCAddr>
       <indxW>3158</indxW>
       <TegAI>TT940</TegAI>
@@ -48130,6 +48577,7 @@
       <En>false</En>
       <indxAI>448</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT950</TegAI>
@@ -48146,6 +48594,7 @@
       <En>false</En>
       <indxAI>449</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>TT670</TegAI>
@@ -48162,6 +48611,7 @@
       <En>false</En>
       <indxAI>450</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48178,6 +48628,7 @@
       <En>false</En>
       <indxAI>451</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48194,6 +48645,7 @@
       <En>true</En>
       <indxAI>452</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18386</PLCAddr>
       <indxW>3286</indxW>
       <TegAI>ET503</TegAI>
@@ -48210,6 +48662,7 @@
       <En>true</En>
       <indxAI>453</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18387</PLCAddr>
       <indxW>3287</indxW>
       <TegAI>ET502</TegAI>
@@ -48226,6 +48679,7 @@
       <En>true</En>
       <indxAI>454</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18264</PLCAddr>
       <indxW>3164</indxW>
       <TegAI>ET501</TegAI>
@@ -48242,6 +48696,7 @@
       <En>true</En>
       <indxAI>455</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17749</PLCAddr>
       <indxW>2649</indxW>
       <TegAI>CT051</TegAI>
@@ -48258,6 +48713,7 @@
       <En>true</En>
       <indxAI>456</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17750</PLCAddr>
       <indxW>2650</indxW>
       <TegAI>MT051</TegAI>
@@ -48274,6 +48730,7 @@
       <En>true</En>
       <indxAI>457</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17751</PLCAddr>
       <indxW>2651</indxW>
       <TegAI>MT053</TegAI>
@@ -48290,6 +48747,7 @@
       <En>true</En>
       <indxAI>458</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17752</PLCAddr>
       <indxW>2652</indxW>
       <TegAI>BT051</TegAI>
@@ -48306,6 +48764,7 @@
       <En>true</En>
       <indxAI>459</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17875</PLCAddr>
       <indxW>2775</indxW>
       <TegAI>CT052</TegAI>
@@ -48322,6 +48781,7 @@
       <En>true</En>
       <indxAI>460</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17876</PLCAddr>
       <indxW>2776</indxW>
       <TegAI>MT052</TegAI>
@@ -48338,6 +48798,7 @@
       <En>true</En>
       <indxAI>461</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17877</PLCAddr>
       <indxW>2777</indxW>
       <TegAI>MT054</TegAI>
@@ -48354,6 +48815,7 @@
       <En>true</En>
       <indxAI>462</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17878</PLCAddr>
       <indxW>2778</indxW>
       <TegAI>BT052</TegAI>
@@ -48370,6 +48832,7 @@
       <En>false</En>
       <indxAI>463</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48386,6 +48849,7 @@
       <En>false</En>
       <indxAI>464</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48402,6 +48866,7 @@
       <En>false</En>
       <indxAI>465</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>ICC621</TegAI>
@@ -48418,6 +48883,7 @@
       <En>false</En>
       <indxAI>466</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>ICC622</TegAI>
@@ -48434,6 +48900,7 @@
       <En>false</En>
       <indxAI>467</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>ICC623</TegAI>
@@ -48450,6 +48917,7 @@
       <En>false</En>
       <indxAI>468</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>ICC624</TegAI>
@@ -48466,6 +48934,7 @@
       <En>false</En>
       <indxAI>469</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48482,6 +48951,7 @@
       <En>false</En>
       <indxAI>470</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48498,6 +48968,7 @@
       <En>false</En>
       <indxAI>471</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -48514,6 +48985,7 @@
       <En>true</En>
       <indxAI>472</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15105</PLCAddr>
       <indxW>5</indxW>
       <TegAI>DC7014</TegAI>
@@ -48530,6 +49002,7 @@
       <En>true</En>
       <indxAI>473</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15231</PLCAddr>
       <indxW>131</indxW>
       <TegAI>DC7024</TegAI>
@@ -48546,6 +49019,7 @@
       <En>true</En>
       <indxAI>474</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15355</PLCAddr>
       <indxW>255</indxW>
       <TegAI>DC7034</TegAI>
@@ -48562,6 +49036,7 @@
       <En>true</En>
       <indxAI>475</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16487</PLCAddr>
       <indxW>1387</indxW>
       <TegAI>LC0014</TegAI>
@@ -48578,6 +49053,7 @@
       <En>true</En>
       <indxAI>476</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16118</PLCAddr>
       <indxW>1018</indxW>
       <TegAI>LT6514</TegAI>
@@ -48594,6 +49070,7 @@
       <En>true</En>
       <indxAI>477</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16244</PLCAddr>
       <indxW>1144</indxW>
       <TegAI>LT6524</TegAI>
@@ -48610,6 +49087,7 @@
       <En>true</En>
       <indxAI>478</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16739</PLCAddr>
       <indxW>1639</indxW>
       <TegAI>LT1411</TegAI>
@@ -48626,6 +49104,7 @@
       <En>true</En>
       <indxAI>479</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16740</PLCAddr>
       <indxW>1640</indxW>
       <TegAI>OPC101</TegAI>
@@ -48642,6 +49121,7 @@
       <En>true</En>
       <indxAI>480</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16741</PLCAddr>
       <indxW>1641</indxW>
       <TegAI>OPC111</TegAI>
@@ -48658,6 +49138,7 @@
       <En>true</En>
       <indxAI>481</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16991</PLCAddr>
       <indxW>1891</indxW>
       <TegAI>LT2411</TegAI>
@@ -48674,6 +49155,7 @@
       <En>true</En>
       <indxAI>482</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16992</PLCAddr>
       <indxW>1892</indxW>
       <TegAI>OPC201</TegAI>
@@ -48690,6 +49172,7 @@
       <En>true</En>
       <indxAI>483</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>16993</PLCAddr>
       <indxW>1893</indxW>
       <TegAI>OPC211</TegAI>
@@ -48706,6 +49189,7 @@
       <En>true</En>
       <indxAI>484</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17243</PLCAddr>
       <indxW>2143</indxW>
       <TegAI>LT3411</TegAI>
@@ -48722,6 +49206,7 @@
       <En>true</En>
       <indxAI>485</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17244</PLCAddr>
       <indxW>2144</indxW>
       <TegAI>OPC301</TegAI>
@@ -48738,6 +49223,7 @@
       <En>true</En>
       <indxAI>486</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17245</PLCAddr>
       <indxW>2145</indxW>
       <TegAI>OPC311</TegAI>
@@ -48754,6 +49240,7 @@
       <En>true</En>
       <indxAI>487</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17495</PLCAddr>
       <indxW>2395</indxW>
       <TegAI>LT4411</TegAI>
@@ -48770,6 +49257,7 @@
       <En>true</En>
       <indxAI>488</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17496</PLCAddr>
       <indxW>2396</indxW>
       <TegAI>OPC401</TegAI>
@@ -48786,6 +49274,7 @@
       <En>true</En>
       <indxAI>489</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>17497</PLCAddr>
       <indxW>2397</indxW>
       <TegAI>OPC411</TegAI>
@@ -48802,6 +49291,7 @@
       <En>true</En>
       <indxAI>490</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18377</PLCAddr>
       <indxW>3277</indxW>
       <TegAI>LT5013</TegAI>
@@ -48818,6 +49308,7 @@
       <En>true</En>
       <indxAI>491</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18382</PLCAddr>
       <indxW>3282</indxW>
       <TegAI>LT5063</TegAI>
@@ -48834,6 +49325,7 @@
       <En>true</En>
       <indxAI>492</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18378</PLCAddr>
       <indxW>3278</indxW>
       <TegAI>LT5023</TegAI>
@@ -48850,6 +49342,7 @@
       <En>true</En>
       <indxAI>493</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18383</PLCAddr>
       <indxW>3283</indxW>
       <TegAI>LT5073</TegAI>
@@ -48866,6 +49359,7 @@
       <En>true</En>
       <indxAI>494</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18379</PLCAddr>
       <indxW>3279</indxW>
       <TegAI>LT5033</TegAI>
@@ -48882,6 +49376,7 @@
       <En>true</En>
       <indxAI>495</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18380</PLCAddr>
       <indxW>3280</indxW>
       <TegAI>LC5043</TegAI>
@@ -48898,6 +49393,7 @@
       <En>true</En>
       <indxAI>496</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>18381</PLCAddr>
       <indxW>3281</indxW>
       <TegAI>LC5053</TegAI>
@@ -48914,6 +49410,7 @@
       <En>false</En>
       <indxAI>497</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI121</TegAI>
@@ -48930,6 +49427,7 @@
       <En>false</En>
       <indxAI>498</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI221</TegAI>
@@ -48946,6 +49444,7 @@
       <En>false</En>
       <indxAI>499</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI321</TegAI>
@@ -48962,6 +49461,7 @@
       <En>false</En>
       <indxAI>500</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI421</TegAI>
@@ -48978,6 +49478,7 @@
       <En>false</En>
       <indxAI>501</indxAI>
       <Buffer>A3</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>28962</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI101</TegAI>
@@ -48994,6 +49495,7 @@
       <En>false</En>
       <indxAI>502</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI201</TegAI>
@@ -49010,6 +49512,7 @@
       <En>false</En>
       <indxAI>503</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI301</TegAI>
@@ -49026,6 +49529,7 @@
       <En>false</En>
       <indxAI>504</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SI401</TegAI>
@@ -49042,6 +49546,7 @@
       <En>false</En>
       <indxAI>505</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QT101</TegAI>
@@ -49058,6 +49563,7 @@
       <En>false</En>
       <indxAI>506</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QT201</TegAI>
@@ -49074,6 +49580,7 @@
       <En>false</En>
       <indxAI>507</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QT301</TegAI>
@@ -49090,6 +49597,7 @@
       <En>false</En>
       <indxAI>508</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QT401</TegAI>
@@ -49106,6 +49614,7 @@
       <En>false</En>
       <indxAI>509</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QB101</TegAI>
@@ -49122,6 +49631,7 @@
       <En>false</En>
       <indxAI>510</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QB201</TegAI>
@@ -49138,6 +49648,7 @@
       <En>false</En>
       <indxAI>511</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QB301</TegAI>
@@ -49154,6 +49665,7 @@
       <En>false</En>
       <indxAI>512</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>QB401</TegAI>
@@ -49170,6 +49682,7 @@
       <En>false</En>
       <indxAI>513</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SB101</TegAI>
@@ -49186,6 +49699,7 @@
       <En>false</En>
       <indxAI>514</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SB201</TegAI>
@@ -49202,6 +49716,7 @@
       <En>false</En>
       <indxAI>515</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SB301</TegAI>
@@ -49218,6 +49733,7 @@
       <En>false</En>
       <indxAI>516</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>SB401</TegAI>
@@ -49234,6 +49750,7 @@
       <En>false</En>
       <indxAI>517</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT001.2p</TegAI>
@@ -49250,6 +49767,7 @@
       <En>false</En>
       <indxAI>518</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT003.2p</TegAI>
@@ -49266,6 +49784,7 @@
       <En>false</En>
       <indxAI>519</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT001.1p</TegAI>
@@ -49282,6 +49801,7 @@
       <En>false</En>
       <indxAI>520</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>PT003.1p</TegAI>
@@ -49298,6 +49818,7 @@
       <En>false</En>
       <indxAI>521</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT171</TegAI>
@@ -49314,6 +49835,7 @@
       <En>false</En>
       <indxAI>522</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT172</TegAI>
@@ -49330,6 +49852,7 @@
       <En>false</En>
       <indxAI>523</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT181</TegAI>
@@ -49346,6 +49869,7 @@
       <En>false</En>
       <indxAI>524</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT182</TegAI>
@@ -49362,6 +49886,7 @@
       <En>false</En>
       <indxAI>525</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT271</TegAI>
@@ -49378,6 +49903,7 @@
       <En>false</En>
       <indxAI>526</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT272</TegAI>
@@ -49394,6 +49920,7 @@
       <En>false</En>
       <indxAI>527</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT281</TegAI>
@@ -49410,6 +49937,7 @@
       <En>false</En>
       <indxAI>528</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT282</TegAI>
@@ -49426,6 +49954,7 @@
       <En>false</En>
       <indxAI>529</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT371</TegAI>
@@ -49442,6 +49971,7 @@
       <En>false</En>
       <indxAI>530</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT372</TegAI>
@@ -49458,6 +49988,7 @@
       <En>false</En>
       <indxAI>531</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT381</TegAI>
@@ -49474,6 +50005,7 @@
       <En>false</En>
       <indxAI>532</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT382</TegAI>
@@ -49490,6 +50022,7 @@
       <En>false</En>
       <indxAI>533</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT471</TegAI>
@@ -49506,6 +50039,7 @@
       <En>false</En>
       <indxAI>534</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT472</TegAI>
@@ -49522,6 +50056,7 @@
       <En>false</En>
       <indxAI>535</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT481</TegAI>
@@ -49538,6 +50073,7 @@
       <En>false</En>
       <indxAI>536</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DPT482</TegAI>
@@ -49554,6 +50090,7 @@
       <En>false</En>
       <indxAI>537</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DQT101</TegAI>
@@ -49570,6 +50107,7 @@
       <En>false</En>
       <indxAI>538</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DQT201</TegAI>
@@ -49586,6 +50124,7 @@
       <En>false</En>
       <indxAI>539</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DQT301</TegAI>
@@ -49602,6 +50141,7 @@
       <En>false</En>
       <indxAI>540</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>DQT401</TegAI>
@@ -49618,6 +50158,7 @@
       <En>false</En>
       <indxAI>541</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL101</TegAI>
@@ -49634,6 +50175,7 @@
       <En>false</En>
       <indxAI>542</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL102</TegAI>
@@ -49650,6 +50192,7 @@
       <En>false</En>
       <indxAI>543</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL105</TegAI>
@@ -49666,6 +50209,7 @@
       <En>false</En>
       <indxAI>544</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL108</TegAI>
@@ -49682,6 +50226,7 @@
       <En>false</En>
       <indxAI>545</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL109</TegAI>
@@ -49698,6 +50243,7 @@
       <En>false</En>
       <indxAI>546</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL106</TegAI>
@@ -49714,6 +50260,7 @@
       <En>false</En>
       <indxAI>547</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL107</TegAI>
@@ -49730,6 +50277,7 @@
       <En>false</En>
       <indxAI>548</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL104</TegAI>
@@ -49746,6 +50294,7 @@
       <En>false</En>
       <indxAI>549</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL103</TegAI>
@@ -49762,6 +50311,7 @@
       <En>false</En>
       <indxAI>550</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -49778,6 +50328,7 @@
       <En>false</En>
       <indxAI>551</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL201</TegAI>
@@ -49794,6 +50345,7 @@
       <En>false</En>
       <indxAI>552</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL202</TegAI>
@@ -49810,6 +50362,7 @@
       <En>false</En>
       <indxAI>553</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL205</TegAI>
@@ -49826,6 +50379,7 @@
       <En>false</En>
       <indxAI>554</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL208</TegAI>
@@ -49842,6 +50396,7 @@
       <En>false</En>
       <indxAI>555</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL209</TegAI>
@@ -49858,6 +50413,7 @@
       <En>false</En>
       <indxAI>556</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL206</TegAI>
@@ -49874,6 +50430,7 @@
       <En>false</En>
       <indxAI>557</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL207</TegAI>
@@ -49890,6 +50447,7 @@
       <En>false</En>
       <indxAI>558</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL204</TegAI>
@@ -49906,6 +50464,7 @@
       <En>false</En>
       <indxAI>559</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI>FL203</TegAI>
@@ -49922,6 +50481,7 @@
       <En>false</En>
       <indxAI>560</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <TegAI />
@@ -49938,6 +50498,7 @@
       <En>false</En>
       <indxAI>561</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <NameAI>Задвижка 1М-2. Положение затвора</NameAI>
@@ -49953,6 +50514,7 @@
       <En>true</En>
       <indxAI>562</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15158</PLCAddr>
       <indxW>0</indxW>
       <NameAI>Задвижка 2М-1. Положение затвора</NameAI>
@@ -49968,6 +50530,7 @@
       <En>false</En>
       <indxAI>0</indxAI>
       <Buffer>USO</Buffer>
+      <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15100</PLCAddr>
       <indxW>0</indxW>
       <NameAI>Задвижка 2М-2. Положение затвора</NameAI>
@@ -49977,6 +50540,21 @@
       <minPhis>0</minPhis>
       <maxPhis>0</maxPhis>
       <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>564</indxAI>
+      <Buffer>A3</Buffer>
+      <PLCDestType>Float</PLCDestType>
+      <PLCAddr>29281</PLCAddr>
+      <indxW>0</indxW>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>0</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>0</maxPhis>
+      <fValAI>500</fValAI>
     </AIStruct>
   </AIs>
   <KLs>
@@ -50758,6 +51336,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50780,6 +51359,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50802,6 +51382,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50824,6 +51405,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50846,6 +51428,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50868,6 +51451,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50890,6 +51474,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50912,6 +51497,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50934,6 +51520,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50956,6 +51543,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -50978,6 +51566,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51000,6 +51589,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51022,6 +51612,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51044,6 +51635,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51066,6 +51658,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51088,6 +51681,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51110,6 +51704,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51132,6 +51727,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51154,6 +51750,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51176,6 +51773,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51197,7 +51795,8 @@
       <PCindxArrAI>-1</PCindxArrAI>
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
-      <State>Stop</State>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51219,7 +51818,8 @@
       <PCindxArrAI>-1</PCindxArrAI>
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
-      <State>Stop</State>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51242,6 +51842,7 @@
       <valuePC>7</valuePC>
       <valuePCspd>2</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51264,6 +51865,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51286,6 +51888,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51308,6 +51911,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51330,6 +51934,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51352,6 +51957,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51374,6 +51980,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51396,6 +52003,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51418,6 +52026,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51440,6 +52049,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51462,6 +52072,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51484,6 +52095,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51506,6 +52118,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51528,6 +52141,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51550,6 +52164,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51572,6 +52187,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51594,6 +52210,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51616,6 +52233,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51638,6 +52256,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51660,6 +52279,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51682,6 +52302,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51704,6 +52325,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51726,6 +52348,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51748,6 +52371,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51770,6 +52394,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51792,6 +52417,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51814,6 +52440,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51836,6 +52463,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51858,6 +52486,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51880,6 +52509,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51902,6 +52532,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51924,6 +52555,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51946,6 +52578,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51968,6 +52601,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -51990,6 +52624,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52012,6 +52647,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52034,6 +52670,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52056,6 +52693,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52078,6 +52716,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52100,6 +52739,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52122,6 +52762,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52144,6 +52785,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52166,6 +52808,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52188,6 +52831,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52210,6 +52854,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52232,6 +52877,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52254,6 +52900,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52276,6 +52923,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52298,6 +52946,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52320,6 +52969,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52342,6 +52992,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52364,6 +53015,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52386,6 +53038,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52408,6 +53061,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52430,6 +53084,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52452,6 +53107,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52474,6 +53130,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52496,6 +53153,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52518,6 +53176,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52540,6 +53199,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52562,6 +53222,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52584,6 +53245,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52606,6 +53268,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52628,6 +53291,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52650,6 +53314,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52672,6 +53337,7 @@
       <valuePC>2</valuePC>
       <valuePCspd>0.1</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52694,6 +53360,7 @@
       <valuePC>1</valuePC>
       <valuePCspd>3</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52716,6 +53383,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52738,6 +53406,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52760,6 +53429,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52782,6 +53452,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52804,6 +53475,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52826,6 +53498,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52848,6 +53521,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52870,6 +53544,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52892,6 +53567,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52914,6 +53590,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52936,6 +53613,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52958,6 +53636,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -52980,6 +53659,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53002,6 +53682,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53024,6 +53705,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53046,6 +53728,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53068,6 +53751,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53090,6 +53774,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53112,6 +53797,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53134,6 +53820,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53156,6 +53843,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53178,6 +53866,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53200,6 +53889,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53222,6 +53912,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53244,6 +53935,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53266,6 +53958,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53288,6 +53981,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53310,6 +54004,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53332,6 +54027,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53354,6 +54050,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53376,6 +54073,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53398,6 +54096,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53420,6 +54119,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53442,6 +54142,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53464,6 +54165,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53486,6 +54188,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53508,6 +54211,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53530,6 +54234,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53552,6 +54257,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53574,6 +54280,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53596,6 +54303,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53618,6 +54326,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53640,6 +54349,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53662,6 +54372,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53684,6 +54395,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53706,6 +54418,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53728,6 +54441,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53750,6 +54464,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53772,6 +54487,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53794,6 +54510,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53816,6 +54533,7 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -53838,11 +54556,13 @@
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
       <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
     </VSStruct>
   </VSs>
   <ZDs>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -53881,6 +54601,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -53919,6 +54640,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>562</ZD_Pos_index>
       <Position>100</Position>
@@ -53957,6 +54679,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -53995,6 +54718,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54033,6 +54757,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54071,6 +54796,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54109,6 +54835,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54147,6 +54874,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54185,6 +54913,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54223,6 +54952,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54261,6 +54991,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54299,6 +55030,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54337,6 +55069,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54375,6 +55108,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54413,6 +55147,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54451,6 +55186,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54489,6 +55225,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54527,6 +55264,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54565,6 +55303,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54603,6 +55342,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54641,6 +55381,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54679,6 +55420,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54717,6 +55459,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54755,6 +55498,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54793,6 +55537,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54831,6 +55576,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54869,6 +55615,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54907,6 +55654,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54945,6 +55693,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -54983,6 +55732,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55021,6 +55771,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55059,6 +55810,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55097,6 +55849,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Middle</StateZD>
+      <StateZDRus>В промежуточном</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55135,6 +55888,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Open</StateZD>
+      <StateZDRus>Открыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55173,6 +55927,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55211,6 +55966,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55249,6 +56005,7 @@
     </ZDStruct>
     <ZDStruct>
       <StateZD>Close</StateZD>
+      <StateZDRus>Закрыта</StateZDRus>
       <En>true</En>
       <ZD_Pos_index>0</ZD_Pos_index>
       <Position>0</Position>
@@ -55311,7 +56068,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2874</Value>
+      <Value>4469</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
@@ -55332,7 +56089,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2620</Value>
+      <Value>4215</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>счетчик сард</Name>
     </USOCounter>
@@ -55486,49 +56243,49 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9992</Value>
+      <Value>1586</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9994</Value>
+      <Value>1588</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9998</Value>
+      <Value>1592</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9972</Value>
+      <Value>1566</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9485</Value>
+      <Value>1079</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>9560</Value>
+      <Value>1154</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>САРД рез.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9152</Value>
+      <Value>746</Value>
       <PLCAddr>29024</PLCAddr>
       <Name>А5 МПСА -- А5 САРД</Name>
     </USOCounter>

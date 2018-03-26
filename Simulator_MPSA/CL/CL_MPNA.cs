@@ -1,6 +1,7 @@
 ﻿using Simulator_MPSA.CL;
 using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------
@@ -282,6 +283,8 @@ namespace Simulator_MPSA
             }
         }
 
+        public AnalogIOItem[] controledAIs;
+        /*
         /// <summary>
         /// сила тока, индекс в массиве AIStruct
         /// </summary>
@@ -342,7 +345,8 @@ namespace Simulator_MPSA
         public float MPNAProc = 0.0f; // процент включенности МПНА
 
         public int Tmove = 1; // время включения , сек
-                       
+               */
+        
         public bool En
         {
             get { return _En; }
@@ -383,8 +387,8 @@ namespace Simulator_MPSA
             ECx = DIStruct.FindByIndex(_ECxindxArrDI);
             ECO11 = DIStruct.FindByIndex(_ECO11indxArrDI);
             EC = DIStruct.FindByIndex(_ECindxArrDI);
-            current = AIStruct.FindByIndex(_current_indexArrAi);
-            RPM = AIStruct.FindByIndex(_RPMindxArrAI);
+            /*current = AIStruct.FindByIndex(_current_indexArrAi);
+            RPM = AIStruct.FindByIndex(_RPMindxArrAI);*/
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

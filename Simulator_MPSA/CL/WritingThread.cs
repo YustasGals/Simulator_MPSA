@@ -91,17 +91,47 @@ namespace Simulator_MPSA
                 {
                     if (ai.En /* || true */)
                     {
-                        //    AIStruct.items[i].updateAI();
-                        if (ai.Buffer == BufType.USO)
-                            WB.W[(ai.PLCAddr- Sett.Instance.BegAddrW - 1)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
 
-                        if (ai.Buffer == BufType.A3)
-                            WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1)] = ai.ValACD;
+                        if (ai.PLCDestType == EPLCDestType.ADC)
+                        {
 
-                        if (ai.Buffer == BufType.A4)
-                            WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1)] = ai.ValACD;
-                    }
-                }
+                            if (ai.Buffer == BufType.USO)
+                                WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW - 1)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
+
+                            if (ai.Buffer == BufType.A3)
+                                WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1)] = ai.ValACD;
+
+                            if (ai.Buffer == BufType.A4)
+                                WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1)] = ai.ValACD;
+                        }
+                        else
+                        if (ai.PLCDestType == EPLCDestType.Float)
+                        {
+                            //разибиваем float на 2 word'a
+                            byte[] bytes = BitConverter.GetBytes(ai.fValAI);
+                            ushort w1 = BitConverter.ToUInt16(bytes, 0);
+                            ushort w2 = BitConverter.ToUInt16(bytes, 2);
+
+                            if (ai.Buffer == BufType.USO)
+                            {
+                                WB.W[ai.PLCAddr - Sett.Instance.BegAddrW - 1] = w1;
+                                WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w2;
+                            }
+
+                            if (ai.Buffer == BufType.A3)
+                            {
+                                WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = w1;
+                                WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w2;
+                            }
+
+                            if (ai.Buffer == BufType.A4)
+                            {
+                                WB.W_a4[ ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1 ] = w1;
+                                WB.W_a4[ ai.PLCAddr - Sett.Instance.iBegAddrA4 ] = w2;
+                            }
+                        }
+                    }//ai.en
+                }//foreach
 
                 /*for (int i = 0; i < DIStruct.items.Length; i++)
                 {

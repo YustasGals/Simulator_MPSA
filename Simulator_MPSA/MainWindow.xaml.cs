@@ -732,6 +732,10 @@ namespace Simulator_MPSA
 
                     WB.InitBuffers(Sett.Instance);
                     AITableViewModel.Instance.Init(AIStruct.items);
+
+                    if (AITableViewModel.Instance.AIs == null)
+                        AITableViewModel.Instance.AIs.CollectionChanged +=new NotifyCollectionChangedEventHandler(OnAITableChanged);
+
                     dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
                     DITableViewModel.Instance.Init(DIStruct.items);
@@ -947,10 +951,7 @@ namespace Simulator_MPSA
 
         SetupDialog dialog;
 
- 
-
-
-        private void Menu_LoadSeq(object sender, RoutedEventArgs e)
+       /* private void Menu_LoadSeq(object sender, RoutedEventArgs e)
         {
            Station.LoadSettings();
             Station.LoadSettDI();
@@ -980,7 +981,7 @@ namespace Simulator_MPSA
             dataGridZD.DataContext = ZDTableViewModel.Instance;
             dataGridMPNA.DataContext = MPNATableViewModel.Instance;
         }
-
+        */
         private void dataGridMPNA_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if ((dialog != null) && (dialog.IsLoaded))
@@ -1004,16 +1005,7 @@ namespace Simulator_MPSA
             w.ShowDialog();
         }
 
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //  DIFilter = textBoxDIFilter.Text;
-           
-  //          dataGridDI.ItemsSource = null;
-   //         dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
-        }
-
+       
 
         private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
@@ -1035,10 +1027,18 @@ namespace Simulator_MPSA
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            if (wrThread != null)
-            wrThread.Stop();
+            if (System.Windows.MessageBox.Show("Все несохраненные данные будут утеряны. Выйти из программы?", "Подтверждение выхода", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                if (wrThread != null)
+                    wrThread.Stop();
+            }
+            else
+            {
+                e.Cancel = true;
+            }            
         }
 
+        #region context_menus
         //
         private void VSMenu_stop_Click(object sender, RoutedEventArgs e)
         {
@@ -1138,7 +1138,11 @@ namespace Simulator_MPSA
                 }
             }
         }
-
+        #endregion
+        private void OnAITableChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            AIStruct.items = AITableViewModel.Instance.AIs.ToArray();
+        }
 
     }
 }

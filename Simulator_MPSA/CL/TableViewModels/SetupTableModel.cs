@@ -4,99 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Collections.ObjectModel;
 
 namespace Simulator_MPSA.CL
 {
    
-    /// <summary>
-    /// класс дискретного сигнала
-    /// используется для отображения в таблице настроек
-    /// </summary>
-    class InputOutputItem : INotifyPropertyChanged
-    {
-        /// <summary>
-        /// название сигнала в таблице настроек (короткое название)
-        /// </summary>
-        public string Name
-        { get; set; }
-        /// <summary>
-        /// индекс в общей таблице DO или DI
-        /// </summary>
-        public int Index
-        { get; set; }
-
-        /// <summary>
-        /// исправность сигнала
-        /// </summary>
-        public bool IsOK
-        { get; set; }
-
-        /// <summary>
-        /// название сигнала в таблице DI, DO, необходимо для отображения в таблицах настроек
-        /// </summary>
-        private string _assignedsignalName;
-        public string AssignedSignalName
-        { get { return _assignedsignalName; }
-            set
-            {
-                _assignedsignalName = value;
-                OnPropertyChanged("AssignedSignal");
-            }
-        }
-        public InputOutputItem() { }
-
-        public InputOutputItem(string name, int index, string assignedSignalName, bool isOk=true)
-        {
-            Name = name;
-            Index = index;
-            _assignedsignalName = assignedSignalName;
-            IsOK = isOk;
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-    }
-
-    /// <summary>
-    /// класс аналогового сигнала
-    /// используется для отображения в таблице настроек
-    /// </summary>
-    class AnalogIOItem : InputOutputItem
-    {
-        
-        float _nomValue;
-        /// <summary>
-        /// Номинальное значение которое постепенно достигается при пуске агрегата
-        /// </summary>
-        public float ValueNom
-        {
-            get { return _nomValue; }
-            set { _nomValue = value; OnPropertyChanged("ValueNom"); }
-        }
-
-
-        float _spdValue;
-        /// <summary>
-        /// скорость изменения аналогового параметра
-        /// </summary>
-        public float ValueSpd
-        {
-            get { return _spdValue; }
-            set { _spdValue = value; OnPropertyChanged("ValueSpd"); }
-        }
-
-        public AnalogIOItem(string name, int index, float value, float spdVal, string assignedSignalName)
-        {
-            Name = name;
-            Index = index;
-            AssignedSignalName = assignedSignalName;
-            ValueNom = value;
-            ValueSpd = spdVal;
-        }
-    }
+    
 
    
     class SetupTableModel
@@ -117,8 +30,9 @@ namespace Simulator_MPSA.CL
             get { return inputs; }
             set { inputs = value; }
         }
-        private AnalogIOItem[] _analogs;
-        public AnalogIOItem[] Analogs
+        private ObservableCollection<AnalogIOItem> _analogs;
+       // private AnalogIOItem[] _analogs;
+        public ObservableCollection<AnalogIOItem> Analogs
         {
             get { return _analogs; }
             set { _analogs = value; }
@@ -159,8 +73,8 @@ namespace Simulator_MPSA.CL
             inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, vs.ABBName);
             inputs[1]= new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, vs.ABOName);
 
-            _analogs = new AnalogIOItem[1];
-            _analogs[0] = new AnalogIOItem("Давление на выходе", vs.PCindxArrAI,vs.valuePC,vs.valuePCspd, vs.PCNameAI);
+            _analogs = new ObservableCollection<AnalogIOItem>();
+            _analogs.Add(new AnalogIOItem("Давление на выходе", vs.PCindxArrAI, vs.valuePC, vs.valuePCspd, vs.PCNameAI));
 
         }
 
@@ -207,8 +121,8 @@ namespace Simulator_MPSA.CL
             inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName);
 
 
-            _analogs = new AnalogIOItem[1];
-            _analogs[0] = new AnalogIOItem("Положение затвора",zd.ZD_Pos_index, 100,0, zd.PositionAIName);
+            _analogs = new ObservableCollection<AnalogIOItem>();
+            _analogs.Add( new AnalogIOItem("Положение затвора",zd.ZD_Pos_index, 100,0, zd.PositionAIName));
         }
 
 
@@ -237,10 +151,11 @@ namespace Simulator_MPSA.CL
             inputs[1] = new InputOutputItem("Команда на отключение", agr.ABOindxArrDO, agr.ABOName);
             inputs[2] = new InputOutputItem("Команда на отключение 2", agr.ABO2indxArrDO, agr.ABO2Name);
 
-
-            _analogs = new AnalogIOItem[2];
-            _analogs[0] = new AnalogIOItem("Сила тока", agr.CurrentIndx, agr.Current_nominal, agr.Current_spd, agr.TokName);
-            _analogs[1] = new AnalogIOItem("Частота вращения", agr.RPMindxArrAI, agr.RPM_nominal, agr.RPM_spd, agr.RPMSignalName);
+            if (agr.controledAIs != null)
+                _analogs = new ObservableCollection<AnalogIOItem>(agr.controledAIs);
+            else _analogs = new ObservableCollection<AnalogIOItem>();
+           /* _analogs[0] = new AnalogIOItem("Сила тока", agr.CurrentIndx, agr.Current_nominal, agr.Current_spd, agr.TokName);
+            _analogs[1] = new AnalogIOItem("Частота вращения", agr.RPMindxArrAI, agr.RPM_nominal, agr.RPM_spd, agr.RPMSignalName);*/
         }
 
         public void ApplyChanges()
@@ -321,13 +236,14 @@ namespace Simulator_MPSA.CL
                 agr.ABOindxArrDO = inputs[1].Index;
                 agr.ABO2indxArrDO = inputs[2].Index;
 
-                agr.CurrentIndx = Analogs[0].Index;
-                agr.Current_nominal = Analogs[0].ValueNom;
-                agr.Current_spd = Analogs[0].ValueSpd;
+                /*  agr.CurrentIndx = Analogs[0].Index;
+                  agr.Current_nominal = Analogs[0].ValueNom;
+                  agr.Current_spd = Analogs[0].ValueSpd;
 
-                agr.RPMindxArrAI = Analogs[1].Index;
-                agr.RPM_nominal = Analogs[1].ValueNom;
-                agr.RPM_spd = Analogs[1].ValueSpd;
+                  agr.RPMindxArrAI = Analogs[1].Index;
+                  agr.RPM_nominal = Analogs[1].ValueNom;
+                  agr.RPM_spd = Analogs[1].ValueSpd;*/
+                agr.controledAIs = Analogs.ToArray();
             }
         }
     }

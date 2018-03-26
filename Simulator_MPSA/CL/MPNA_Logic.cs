@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using Simulator_MPSA.CL;
 namespace Simulator_MPSA
 {
     public enum MPNAState { Work, Starting, Stoping, Stop};
@@ -17,7 +18,19 @@ namespace Simulator_MPSA
             set { _state = value; OnPropertyChanged("State"); }
         }
 
-
+        public string StateRus
+        {
+            set { }
+            get
+            {
+                switch (_state)
+                {
+                    case MPNAState.Work: return "в работе";
+                    case MPNAState.Stop: return "остановлен";
+                    default: return "не определено";
+                }
+            }
+        }
         /// <summary>
         /// Обновить состояние агрегата
         /// </summary>
@@ -44,8 +57,17 @@ namespace Simulator_MPSA
                 if (MBC21 != null) MBC21.ValDI = true;
                 if (MBC22 != null) MBC22.ValDI = true;
 
-                if (current != null) current.fValAI = 0f;
-                if (RPM != null) RPM.fValAI = 0f;
+                /* if (current != null) current.fValAI = 0f;
+                 if (RPM != null) RPM.fValAI = 0f;*/
+                if (controledAIs != null)
+                    foreach (AnalogIOItem analog in controledAIs)
+                    {
+                        if (analog.AI != null)
+                        {
+                            analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                            if (analog.AI.fValAI <0) analog.AI.fValAI = 0;
+                        }
+                    }
             }
 
             if (_state == MPNAState.Work)
@@ -57,14 +79,31 @@ namespace Simulator_MPSA
                 //вв отключен
                 if (MBC21 != null) MBC21.ValDI = false;
                 if (MBC22 != null) MBC22.ValDI = false;
-            }
 
+                /* if (current != null)
+                 {
+                     current.fValAI += (Current_nominal - current.fValAI )*Current_spd * dt;
+                     if (current.fValAI > Current_nominal)
+                     {
+                     }
+                     */
+                if (controledAIs != null)
+                    foreach (AnalogIOItem analog in controledAIs)
+                    {
+                        if (analog.AI != null)
+                        {
+                            analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom/20f) * dt * analog.ValueSpd;
+                            if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
+                        }
+                    }
+            }
             //команда на включение
             if ((ABB != null) && (ABB.ValDO))
             {
                 if (_state == MPNAState.Stop || _state == MPNAState.Stoping)
                 {
-                    State = MPNAState.Starting;
+                    //  State = MPNAState.Starting;
+                    State = MPNAState.Work;
                     if (MBC11 != null) MBC11.ValDI = true;
                     if (MBC12 != null) MBC12.ValDI = true;
 
@@ -77,13 +116,14 @@ namespace Simulator_MPSA
             {
                 if (_state == MPNAState.Work || _state == MPNAState.Starting)
                 {
-                    State = MPNAState.Stoping;
+                    //  State = MPNAState.Stoping;
+                    State = MPNAState.Stop;
                 }
 
             }
 
             //запуск
-            if (_state == MPNAState.Starting)
+           /* if (_state == MPNAState.Starting)
             {
                 if (current != null)
                 {
@@ -105,9 +145,9 @@ namespace Simulator_MPSA
                 }
 
             }
-
+            */
             //останов
-            if (_state == MPNAState.Stoping)
+           /* if (_state == MPNAState.Stoping)
             {
                 if (current != null)
                 {
@@ -130,7 +170,7 @@ namespace Simulator_MPSA
                     }
                 }
 
-            }
+            }*/
 
             
 

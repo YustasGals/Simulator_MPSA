@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Simulator_MPSA.CL
 {
+    /// <summary>
+    /// тип записываемого значения в плк - единицы ацп, либо float
+    /// </summary>
+    public enum EPLCDestType { ADC, Float};
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public class AIStruct : BaseViewModel
@@ -34,6 +38,16 @@ namespace Simulator_MPSA.CL
             set { _buffer = value; OnPropertyChanged("Buffer"); }
         }
 
+        private EPLCDestType _plcDestType = EPLCDestType.ADC;
+        /// <summary>
+        /// тип данных в ПЛК
+        /// </summary>
+        public EPLCDestType PLCDestType
+        {
+            get { return _plcDestType; }
+            set { _plcDestType = value; OnPropertyChanged("PLCDestType"); }
+        }
+
         private int _plcAddr=0;
         /// <summary>
         /// MODBUS адрес
@@ -54,6 +68,8 @@ namespace Simulator_MPSA.CL
                     Buffer = BufType.USO;
             }
         }
+
+        
 
         private int _indxW;
         /// <summary>

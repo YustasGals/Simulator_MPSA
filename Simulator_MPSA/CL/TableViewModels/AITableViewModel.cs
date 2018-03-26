@@ -19,9 +19,10 @@ namespace Simulator_MPSA.CL
                 return _instance;
             }
         }
-        private ObservableCollection<AIStruct> _AIs;
+        private ObservableCollection<AIStruct> _AIs = new ObservableCollection<AIStruct>();
         //private AIStruct[] _AIs;
         //public AIStruct[] AIs
+        
         public ObservableCollection<AIStruct> AIs
         {
             get { return _AIs; }
@@ -38,8 +39,8 @@ namespace Simulator_MPSA.CL
         public void Init(AIStruct[] table)
         {
             AIStruct[] AIViewModels = new AIStruct[table.Length];
-
-            _AIs = new ObservableCollection<AIStruct>();
+            _AIs.Clear();
+            //_AIs = new ObservableCollection<AIStruct>();
             foreach (AIStruct ai in table)
                 _AIs.Add(ai);
             

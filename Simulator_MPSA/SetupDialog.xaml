@@ -14,8 +14,8 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Expander Header="Настройка выходов (DI):" Grid.Row="1" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" IsExpanded="True">
-            <DataGrid x:Name="dataGrid" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" Height="129" VerticalAlignment="Top" Width="750" >
+        <Expander Header="Настройка выходов (DI):" Grid.Row="1" Margin="0,5,0,0" IsExpanded="True">
+            <DataGrid x:Name="dataGrid" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -33,8 +33,8 @@
         <Label Content="Группа" Grid.Row="0" HorizontalAlignment="Left" Margin="16,75,0,0" VerticalAlignment="Top" Width="99"/>
         <TextBox x:Name="textBox_group" Grid.Row="0" Text="{Binding Path = Group}" Height="23" Margin="120,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
 
-        <Expander Header="Настройка входов (DO):" Grid.Row="2" HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top" IsExpanded="True">
-            <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Grid.Row="2" Margin="16,0,0,0" Height="101" VerticalAlignment="Top" AutoGenerateColumns="False" Width="749">
+        <Expander Header="Настройка входов (DO):" Grid.Row="2" Margin="0,5,0,0" IsExpanded="True">
+            <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Grid.Row="2" Margin="16,0,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" MinHeight="50">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -42,14 +42,14 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>
-        <Expander Header="Настройка аналоговых выходов (AI):" Grid.Row="3" HorizontalAlignment="Left" Margin="0,5,0,10"  IsExpanded="True">
-            <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" Height="101" VerticalAlignment="Top" AutoGenerateColumns="False" Width="750">
+        <Expander Header="Настройка аналоговых выходов (AI):" Grid.Row="3" Margin="0,5,0,10"  IsExpanded="True">
+            <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Номинальное значение" Binding="{Binding ValueNom}"/>
                     <DataGridTextColumn Header="Скорость изменения ед/сек" Binding="{Binding ValueSpd}"/>
-                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" Foreground="Gray"/>
+                    <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AIName}" Foreground="Gray"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>

@@ -24,6 +24,22 @@ namespace Simulator_MPSA
         { get { return _state; }
             set { _state = value; OnPropertyChanged("State"); }
         }
+        public string StateRus
+        {
+            set { }
+            get
+            {
+                switch (_state)
+                {
+                    case KLState.Close: return "Закрыто";
+                    case KLState.Open: return "Открыто";
+                    case KLState.Opening: return "Открывается";
+                    case KLState.Closing: return "Закрывается";
+                    case KLState.Middle: return "Промежуточное";
+                    default: return "не определено";
+                }
+            }
+        }
 
         private string name;
         public string Description
