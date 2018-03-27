@@ -21,14 +21,13 @@ namespace Simulator_MPSA
         }
         public MainWindow refMainWindow;
 
-        float prevCycleTime;
+        DateTime prevCycleTime;
 
-        float endCycleTime;
         float dt_sec;
 
 
         ModbusIpMaster mbMasterW0;
-        Task masterLoopW0;
+ 
         Thread wrThread;
         public TcpClient tcp;
         public WritingThread(string hostname, int port)
@@ -39,19 +38,15 @@ namespace Simulator_MPSA
 
             // masterLoopW0 = Task.Factory.StartNew(new Action(WritingJob));
             wrThread = new Thread(new ThreadStart(WritingJob));
-            wrThread.Start();
+
         }
 
-      /*  public void Start(Sett settings=null)
+        public void Start()
         {
-            if (settings != null)
-            {
-                tcp = new TcpClient(settings.HostName, settings.MBPort);
-            }
 
             if (wrThread != null)
                 wrThread.Start();
-        }*/
+        }
 
         public void Stop()
         {
@@ -65,9 +60,9 @@ namespace Simulator_MPSA
         bool isFirstCycle = true;
         public void WritingJob()
         {
-            prevCycleTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-            endCycleTime = prevCycleTime;
-            
+            prevCycleTime = DateTime.Now;
+
+            dt_sec = 0f;
             while (true)
             {
                 if (paused) continue;
@@ -78,7 +73,7 @@ namespace Simulator_MPSA
                     refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
                 }
                 
-                prevCycleTime = endCycleTime;
+
                 //-------- обновление структур --------------------------
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                     zd.UpdateZD(dt_sec);
@@ -173,26 +168,16 @@ namespace Simulator_MPSA
                         }
                 }
 
-                //----- время на момент формирования массивов --------------------------
-                float formingTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                Debug.WriteLine("время перекладки: " + (formingTime - prevCycleTime).ToString());
+            
                 //------------------ запись в ПЛК ----------------------------------------
                 WriteToPLC();
 
                 //---------- вычисление время с момента предыдущей итерации ----------------
-                endCycleTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
-                
-                if ((endCycleTime - prevCycleTime) < 0)
-                    dt_sec = 60f - prevCycleTime + endCycleTime;
-                else
-                    dt_sec = endCycleTime - prevCycleTime;
-
-                if (dt_sec > 60)
-                    dt_sec = 0;
-
+                dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
+                prevCycleTime = DateTime.Now;
                 //------------------- сигнализируем о завершении цикла ---------------------------------
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, dt_sec);
+             //   if (refMainWindow != null)              
+             //       refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
 
                 Debug.WriteLine("W0 time = " + dt_sec.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);

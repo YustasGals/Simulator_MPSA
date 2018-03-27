@@ -31,6 +31,7 @@ namespace Simulator_MPSA.CL
         public bool IsOK
         { get; set; }
 
+
         /// <summary>
         /// название сигнала в таблице DI, DO, необходимо для отображения в таблицах настроек
         /// </summary>

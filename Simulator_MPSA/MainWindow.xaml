@@ -21,7 +21,7 @@
 
     </Window.Resources>
 
-    <Grid DataContext="{Binding TagSource, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type local:MainWindow}}}" >
+    <Grid>
         <Grid.ColumnDefinitions>
 
             <ColumnDefinition />
@@ -181,7 +181,8 @@
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}" />                            
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Индекс в массиве" Binding="{Binding indxR, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Канал" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />                            
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}" />                           

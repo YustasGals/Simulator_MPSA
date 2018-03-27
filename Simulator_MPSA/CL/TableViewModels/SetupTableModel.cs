@@ -163,9 +163,9 @@ namespace Simulator_MPSA.CL
             if (type == typeof(VSStruct))
             {
                 VSStruct temp = obj as VSStruct;
-                temp.ECindxArrDI = Outputs[0].Index;
-                temp.MPCindxArrDI = Outputs[1].Index;
-                temp.PCindxArrDI = Outputs[2].Index;
+                temp.ECindxArrDI = outputs[0].Index;
+                temp.MPCindxArrDI = outputs[1].Index;
+                temp.PCindxArrDI = outputs[2].Index;
 
              //   temp.PCindxArrAI = Analogs[0].Index;
                 temp.valuePC = Analogs[0].ValueNom;
@@ -178,7 +178,10 @@ namespace Simulator_MPSA.CL
                 temp.ABBindxArrDO = inputs[0].Index;
                 temp.ABOindxArrDO = inputs[1].Index;
 
-                temp.controledAIs = _analogs.ToArray();
+                if (_analogs.Count > 0)
+                    temp.controledAIs = _analogs.ToArray();
+                else
+                    temp.controledAIs = null;
             }
             if (type == typeof(KLStruct))
             {
@@ -245,7 +248,10 @@ namespace Simulator_MPSA.CL
                   agr.RPMindxArrAI = Analogs[1].Index;
                   agr.RPM_nominal = Analogs[1].ValueNom;
                   agr.RPM_spd = Analogs[1].ValueSpd;*/
-                agr.controledAIs = Analogs.ToArray();
+                if (Analogs.Count > 0)
+                    agr.controledAIs = Analogs.ToArray();
+                else
+                    agr.controledAIs = null;
             }
         }
     }

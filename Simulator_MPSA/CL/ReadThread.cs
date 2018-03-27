@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using Modbus.Device;
 using System.Threading;
-namespace Simulator_MPSA.CL
+using Simulator_MPSA.CL;
+namespace Simulator_MPSA
 {
     class ReadThread
     {
@@ -60,7 +61,10 @@ namespace Simulator_MPSA.CL
         {
             for (int i = 0; i < DOStruct.items.Length; i++)
             {
-                DOStruct.items[i].ValDO = GetBit(RB.R[DOStruct.items[i].indxR], DOStruct.items[i].indxBitDO);
+                bool res = GetBit(RB.R[DOStruct.items[i].indxR], DOStruct.items[i].indxBitDO);
+
+
+                DOStruct.items[i].ValDO = DOStruct.items[i].InvertDO ? !res : res;
             }
         }
         public bool GetBit(ushort b, int bitNumber)
