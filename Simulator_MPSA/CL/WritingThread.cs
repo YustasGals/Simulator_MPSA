@@ -26,20 +26,23 @@ namespace Simulator_MPSA
         float endCycleTime;
         float dt_sec;
 
+
         ModbusIpMaster mbMasterW0;
         Task masterLoopW0;
         Thread wrThread;
-        TcpClient tcp;
+        public TcpClient tcp;
         public WritingThread(string hostname, int port)
         {
             tcp = new TcpClient(hostname, port);
+            
             mbMasterW0 = ModbusIpMaster.CreateIp(tcp);
 
             // masterLoopW0 = Task.Factory.StartNew(new Action(WritingJob));
             wrThread = new Thread(new ThreadStart(WritingJob));
+            wrThread.Start();
         }
 
-        public void Start(Sett settings=null)
+      /*  public void Start(Sett settings=null)
         {
             if (settings != null)
             {
@@ -48,15 +51,18 @@ namespace Simulator_MPSA
 
             if (wrThread != null)
                 wrThread.Start();
-        }
+        }*/
 
         public void Stop()
         {
-            if (wrThread != null && wrThread.ThreadState == System.Threading.ThreadState.Running)
+            refMainWindow = null;
+            if (wrThread != null)
                 wrThread.Abort();
+            tcp.Close();
         }
-       
 
+        //первая итерация цикла следует записывать все включая нули
+        bool isFirstCycle = true;
         public void WritingJob()
         {
             prevCycleTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
@@ -68,6 +74,7 @@ namespace Simulator_MPSA
 
                 if (!tcp.Connected)
                 {
+                    if (refMainWindow!=null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
                 }
                 
@@ -189,6 +196,8 @@ namespace Simulator_MPSA
 
                 Debug.WriteLine("W0 time = " + dt_sec.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
+
+                isFirstCycle = false;
             }
         }
 
@@ -216,7 +225,7 @@ namespace Simulator_MPSA
                     }
                 }
 
-                if (isChanged)
+                if (isChanged || isFirstCycle)
                 {
                     Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                     Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
@@ -226,6 +235,7 @@ namespace Simulator_MPSA
                     }
                     catch (Exception ex)
                     {
+                        if (refMainWindow!=null)
                         refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
                     }
                 }
@@ -248,7 +258,7 @@ namespace Simulator_MPSA
                     }
                 }
 
-                if (isChanged)
+                if (isChanged || isFirstCycle)
                 {
 
                     Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
@@ -258,6 +268,7 @@ namespace Simulator_MPSA
                     }
                     catch (Exception ex)
                     {
+                        if (refMainWindow!=null)
                         refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
                     }
                 }

@@ -396,6 +396,7 @@ namespace Simulator_MPSA
                         if (PC_AI.fValAI > valuePC)
                             PC_AI.fValAI = valuePC;
                     }*/
+                    if (MPC_DI != null) MPC_DI.ValDI = true;
                     if (controledAIs != null)
                         foreach (AnalogIOItem analog in controledAIs)
                         {
@@ -415,8 +416,8 @@ namespace Simulator_MPSA
                          if (PC_AI.fValAI <=0)
                              PC_AI.fValAI = 0;
                      }*/
-                     //управление всеми аналогами
-              
+                    //управление всеми аналогами
+                    if (MPC_DI != null) MPC_DI.ValDI = false;
                     if (controledAIs != null)
                         foreach (AnalogIOItem analog in controledAIs)
                         {

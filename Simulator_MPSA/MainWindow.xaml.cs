@@ -109,23 +109,14 @@ namespace Simulator_MPSA
         public delegate void DDisconnected();
         public DDisconnected delegateDisconnected;
 
+        public delegate void DEndRead();
+        public DEndRead delegateEndRead;
+
         public MainWindow()
         {
           
             InitializeComponent();
-            TagSource = new Depoller(Dispatcher);
-            TSR0 = new Depoller(Dispatcher);
-            TSR1 = new Depoller(Dispatcher);
-            TSR2 = new Depoller(Dispatcher);
-            TSR3 = new Depoller(Dispatcher);
-            TSR4 = new Depoller(Dispatcher);
-            TSR5 = new Depoller(Dispatcher);
-            TSR6 = new Depoller(Dispatcher);
-            TSR7 = new Depoller(Dispatcher);
-            TSR8 = new Depoller(Dispatcher);
-            TSR9 = new Depoller(Dispatcher);
-            TSR10 = new Depoller(Dispatcher);
-            TSW = new Depoller(Dispatcher);
+
 
 
             //Debug.WriteLine("------------------------------------------------------------------");
@@ -163,46 +154,33 @@ namespace Simulator_MPSA
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
-            EndCycle += new DEndCycle(On_writingCycleEnd);
+            EndCycle += new DEndCycle(On_WritingCycleEnd);
             delegateDisconnected += new DDisconnected(On_Disconnected);
-
+            delegateEndRead += new DEndRead(On_ReadingCycleEnd);
         }
-        #region IPMasters
-        ModbusIpMaster mbMaster;
-        ModbusIpMaster mbMasterR0;
-        ModbusIpMaster mbMasterR1;
-        ModbusIpMaster mbMasterR2;
-        ModbusIpMaster mbMasterR3;
-        ModbusIpMaster mbMasterW0;
-        ModbusIpMaster mbMasterW1;
-        ModbusIpMaster mbMasterW2;
-        ModbusIpMaster mbMasterW3;
 
 
-        #endregion
-        #region Loops
         Task masterLoop;
-        Task masterLoopR0;
-        Task masterLoopR1;
-        Task masterLoopR2;
-        Task masterLoopR3;
-        Task masterLoopW0;
-        Task masterLoopW1;
-        Task masterLoopW2;
-        Task masterLoopW3;
-
-        #endregion
 
 
-        float prevTime;
-        float nowTime;
-        float dt_sec;
-        private void Update()
+
+        /// <summary>
+        /// время последней записи в ПЛК
+        /// </summary>
+        DateTime writingTime;
+
+        /// <summary>
+        /// время последнего чтения из ПЛК
+        /// </summary>
+        DateTime readingTime;
+        private void Watchdog()
         {
-            while (!cancelTokenSrc.IsCancellationRequested)   
+            while (true)   
             {
+                
                /* nowTime = DateTime.Now.Second + ((float)DateTime.Now.Millisecond) / 1000f;
 
+                
                 
                 if ((nowTime - prevTime) < 0)
                     dt_sec = 60f - prevTime + nowTime;
@@ -226,128 +204,40 @@ namespace Simulator_MPSA
                     */
 
                // ct1.ThrowIfCancellationRequested();                
-                GetDOfromR(); // записываем значение DO из массива для чтения CPU
-              //  SendAItoW(); // записываем значение АЦП в массив для записи CPU
-             //   SendDItoW(); // записываем значение DI в массив для записи CPU
+              //  GetDOfromR(); // записываем значение DO из массива для чтения CPU
+                              //  SendAItoW(); // записываем значение АЦП в массив для записи CPU
+                              //   SendDItoW(); // записываем значение DI в массив для записи CPU
 
                 //записываем счетчики УСО
-               /* foreach (USOCounter c in CountersTableViewModel.Counters)
-                {
+                /* foreach (USOCounter c in CountersTableViewModel.Counters)
+                 {
 
-                    if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
+                     if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
+                     {
+                         c.Update(dt_sec);
+                         WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
+                     }
+                 }
+                         // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);*/
+
+                //-------------  проверка связи  -----------------------
+                if (wrThread != null && !wrThread.Paused)
+                {
+                    if ((DateTime.Now - writingTime).TotalSeconds > 6f)
                     {
-                        c.Update(dt_sec);
-                        WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
+                        // wrThread.Stop();
+                        // btnPause_Click(null, new RoutedEventArgs());
+                        this.Dispatcher.Invoke(delegateDisconnected);
+                       // btnStop_Click(null, new RoutedEventArgs());
                     }
                 }
-                        // Debug.WriteLine("Update()"); // + NReg + " " + tbStartAdress);*/
+
                 System.Threading.Thread.Sleep(Sett.Instance.TPause * 2);
             }
         }
-        #region UpdateReaders
-        private void UpdateR0()
-        {
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
-                int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                int tbStartAdress = (int)Sett.Instance.BegAddrR;
-                TSR0.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
-                TSR1.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
-                TSR2.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
-                //TSR3.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 3), (ushort)NReg), 3);
-                //TSR4.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 4), (ushort)NReg), 4);
-                //TSR5.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 5), (ushort)NReg), 5);
-                //TSR6.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 6), (ushort)NReg), 6);
-                //TSR7.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 7), (ushort)NReg), 7);
-                //TSR8.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 8), (ushort)NReg), 8);
-                //TSR9.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
-                //TSR10.Inp(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
-                //TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-              //  Debug.WriteLine("UpdateR0() ");
-                //System.Threading.Thread.Sleep(settings.TPause);
-                System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
-            }
-        }
-        private void UpdateR1()
-        {
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
-                int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                int tbStartAdress = (int)Sett.Instance.BegAddrR;
-                //TSR0.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
-                //TSR1.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
-                //TSR2.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
-                TSR3.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 3), (ushort)NReg), 3);
-                TSR4.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 4), (ushort)NReg), 4);
-                TSR5.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 5), (ushort)NReg), 5);
-                //TSR6.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 6), (ushort)NReg), 6);
-                //TSR7.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 7), (ushort)NReg), 7);
-                //TSR8.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 8), (ushort)NReg), 8);
-                //TSR9.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
-                //TSR10.Inp(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
-                //TagSource.Input(mbMasterR1.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-              //  Debug.WriteLine("UpdateR1() ");
-                //System.Threading.Thread.Sleep(settings.TPause);
-                System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
-            }
-        }
-        private void UpdateR2()
-        {
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
-                int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-               // int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                int tbStartAdress = Sett.Instance.BegAddrR;
-                //TSR0.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
-                //TSR1.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
-                //TSR2.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
-                //TSR3.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 3), (ushort)NReg), 3);
-                //TSR4.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 4), (ushort)NReg), 4);
-                //TSR5.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 5), (ushort)NReg), 5);
-                TSR6.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 6), (ushort)NReg), 6);
-                TSR7.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 7), (ushort)NReg), 7);
-                TSR8.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 8), (ushort)NReg), 8);
-                //TSR9.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
-                //TSR10.Inp(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
-                //TagSource.Input(mbMasterR2.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-             //   Debug.WriteLine("UpdateR2() ");
-                //System.Threading.Thread.Sleep(settings.TPause);
-                System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
-            }
-        }
-        private void UpdateR3()
-        {
-            while (!cancelTokenSrc.IsCancellationRequested)
-            {
-                //  int AreaR = (29 - 3 + 1) * 50; //    2000; // Convert.ToInt32(textBoxAreaR.Text); // 
-                int NReg = 125; // Convert.ToInt32(textBoxNReg.Text);
-                //int tbStartAdress = settings.iBegAddrR; // (Convert.ToUInt16(textBoxStartAdress.Text))
-                int tbStartAdress = Sett.Instance.BegAddrR;
-                //TSR0.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg), 0);
-                //TSR1.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 1), (ushort)NReg), 1);
-                //TSR2.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 2), (ushort)NReg), 2);
-                //TSR3.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 3), (ushort)NReg), 3);
-                //TSR4.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 4), (ushort)NReg), 4);
-                //TSR5.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 5), (ushort)NReg), 5);
-                //TSR6.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 6), (ushort)NReg), 6);
-                //TSR7.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 7), (ushort)NReg), 7);
-                //TSR8.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 8), (ushort)NReg), 8);
-                TSR9.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 9), (ushort)NReg), 9);
-                TSR10.Inp(mbMasterR3.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 10), (ushort)NReg), 10);
-                TagSource.Input(mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + 125 * 0), (ushort)NReg));
-            //    Debug.WriteLine("UpdateR3() ");
-                //System.Threading.Thread.Sleep(settings.TPause);
-                System.Threading.Thread.Sleep((int)Sett.Instance.TPause);
-            }
-        }
-        #endregion
-        #region UpdateWriters
-        private void UpdateW0()
+       
+   
+       /* private void UpdateW0()
         {
             //измерение времени цикла записи
             float prevTime=0;
@@ -550,77 +440,9 @@ namespace Simulator_MPSA
             }
         }
   
-
+        */
    
-        #endregion
 
-        #region Dedollers
-        public Depoller TagSource
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR0
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR1
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR2
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR3
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR4
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR5
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR6
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR7
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR8
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR9
-        {
-            get;
-            private set;
-        }
-        public Depoller TSR10
-        {
-            get;
-            private set;
-        }
-        public Depoller TSW
-        {
-            get;
-            private set;
-        }
-        #endregion
         void SendAItoW()  // записываем значение АЦП в массив для записи CPU
         {
             for (int i = 0; i < AIStruct.items.Length; i++)
@@ -705,6 +527,7 @@ namespace Simulator_MPSA
             CloseApp();
         }
 
+        bool isConfigLoaded = false;
         private void Menu_OpenAll(object sender, RoutedEventArgs e)
         {
             Station station = new Station();
@@ -716,7 +539,7 @@ namespace Simulator_MPSA
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
-
+                    isConfigLoaded = true;
                     /* AIStruct.items = station.AIs;
                      DIStruct.items = station.DIs;
                      DOStruct.items = station.DOs;
@@ -810,10 +633,6 @@ namespace Simulator_MPSA
                 Station.SaveSettMPNA();
             }
         }
-        private void btnClose_Click(object sender, RoutedEventArgs e)
-        {
-            CloseApp();
-        }
 
         /// <summary>
         /// Токен отмены
@@ -821,21 +640,23 @@ namespace Simulator_MPSA
         CancellationTokenSource cancelTokenSrc;
         CancellationToken cancellationToken;
         WritingThread wrThread;
+        ReadThread rdThread;
+        Thread watchThread;
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            if (!isConfigLoaded)
+            {
+                System.Windows.MessageBox.Show("Конфигурация не загружена!","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+                return;
+            }
+
+            
             cancelTokenSrc = new CancellationTokenSource();
             cancellationToken = cancelTokenSrc.Token;
             try
             {
-                TcpClient myTcp = new TcpClient();
-                
-                // mbMaster = ModbusIpMaster.CreateIp(new TcpClient("192.168.201.1", 502));  
-                mbMaster = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterR0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterR1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterR2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterR3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
+               
 
                /* mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
                 mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
@@ -843,11 +664,11 @@ namespace Simulator_MPSA
                 mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));*/
                 //   mbMasterWLast = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
 
-                 masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
-                     masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
-                     masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
-                     masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
-                     masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);
+                // masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
+                /*   masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
+                   masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
+                   masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
+                   masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);*/
 
                 /*         masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
                          masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
@@ -855,19 +676,19 @@ namespace Simulator_MPSA
                          masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
                 //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
 
-                if (wrThread == null)
-                {
+                rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                rdThread.refMainWindow = this;
+
                     wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                     wrThread.refMainWindow = this;
 
 
-                    wrThread.Start();
-                }
-                else
-                {
-                    if (wrThread.Paused)
-                        wrThread.Paused = false;
-                }
+                readingTime = DateTime.Now;
+                    writingTime = DateTime.Now;
+
+                watchThread = new Thread(new ThreadStart(Watchdog));
+                watchThread.Start();
+
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
@@ -882,15 +703,27 @@ namespace Simulator_MPSA
         }
 
         //------------ вызывается каждую итерацию цикла записи ----------------
-        private void On_writingCycleEnd(float dt)
+        private void On_WritingCycleEnd(float dt)
         {
-            StatusW.Content = "Время цикла: " + dt.ToString();
+            StatusW.Content = "Время записи: " + dt.ToString("F2");
+            writingTime = DateTime.Now;
         }
+        //--------------------------------------------------------------------
+
         private void On_Disconnected()
         {
             btnStop_Click(null,null);
-            System.Windows.MessageBox.Show("Соединение сброшено!");
+            System.Windows.MessageBox.Show("Соединение разорвано!");
         }
+
+        //---------------------------- 
+        private void On_ReadingCycleEnd()
+        {
+            TimeSpan ts = DateTime.Now - readingTime;
+            StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
+            readingTime = DateTime.Now;
+        }
+
         private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             statusText.Content = "пауза";
@@ -919,11 +752,19 @@ namespace Simulator_MPSA
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
 
-            // wrThread.Stop();
-            wrThread.Paused = true;
+            wrThread.Stop();
+            wrThread = null;
+            rdThread.Stop();
+            rdThread = null;
+
+            if (watchThread!=null)
+            watchThread.Abort();
+
+        
             try
             {
                 cancelTokenSrc.Cancel();
+               // wrThread = null;
             }
             catch (Exception ex)
             {
@@ -951,37 +792,7 @@ namespace Simulator_MPSA
 
         SetupDialog dialog;
 
-       /* private void Menu_LoadSeq(object sender, RoutedEventArgs e)
-        {
-           Station.LoadSettings();
-            Station.LoadSettDI();
-            Station.LoadSettDO();
-            Station.LoadSettAI();
-
-            Station.LoadSettKL();
-            Station.LoadSettVS();
-            Station.LoadSettZD();
-            Station.LoadSettMPNA();
-
-            AITableViewModel.Instance.Init(AIStruct.items);
-            dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
-
-            DITableViewModel.Instance.Init(DIStruct.items);
-            dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
-            // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
-
-            DOTableViewModel.Instance.Init(DOStruct.items);
-            dataGridDO.ItemsSource = DOTableViewModel.Instance.viewSource.View;
-
-
-            dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
-            dataGridVS.DataContext = VSTableViewModel.Instance;
-            dataGridKL.DataContext = KLTableViewModel.Instance;
-
-            dataGridZD.DataContext = ZDTableViewModel.Instance;
-            dataGridMPNA.DataContext = MPNATableViewModel.Instance;
-        }
-        */
+     
         private void dataGridMPNA_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if ((dialog != null) && (dialog.IsLoaded))
@@ -1031,6 +842,10 @@ namespace Simulator_MPSA
             {
                 if (wrThread != null)
                     wrThread.Stop();
+                if (rdThread != null)
+                    rdThread.Stop();
+                if (watchThread != null)
+                    watchThread.Abort();
             }
             else
             {
