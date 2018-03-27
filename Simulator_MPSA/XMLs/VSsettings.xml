@@ -7,7 +7,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1005</ECindxArrDI>
 		<MPCindxArrDI>1004</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -21,7 +21,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1133</ECindxArrDI>
 		<MPCindxArrDI>1132</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -35,7 +35,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1261</ECindxArrDI>
 		<MPCindxArrDI>1260</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -49,7 +49,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1389</ECindxArrDI>
 		<MPCindxArrDI>1388</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -63,7 +63,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>225</ECindxArrDI>
 		<MPCindxArrDI>224</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -77,7 +77,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>325</ECindxArrDI>
 		<MPCindxArrDI>324</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -91,7 +91,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>227</ECindxArrDI>
 		<MPCindxArrDI>226</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -105,7 +105,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>327</ECindxArrDI>
 		<MPCindxArrDI>326</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -119,7 +119,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>321</ECindxArrDI>
 		<MPCindxArrDI>320</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -133,7 +133,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>229</ECindxArrDI>
 		<MPCindxArrDI>228</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -147,7 +147,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>323</ECindxArrDI>
 		<MPCindxArrDI>322</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -161,7 +161,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>231</ECindxArrDI>
 		<MPCindxArrDI>230</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -175,7 +175,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>417</ECindxArrDI>
 		<MPCindxArrDI>416</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -189,7 +189,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>485</ECindxArrDI>
 		<MPCindxArrDI>484</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -203,7 +203,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>419</ECindxArrDI>
 		<MPCindxArrDI>418</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -217,7 +217,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>487</ECindxArrDI>
 		<MPCindxArrDI>486</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -231,7 +231,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>481</ECindxArrDI>
 		<MPCindxArrDI>480</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -245,7 +245,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>421</ECindxArrDI>
 		<MPCindxArrDI>420</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -259,7 +259,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>483</ECindxArrDI>
 		<MPCindxArrDI>482</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -273,7 +273,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>423</ECindxArrDI>
 		<MPCindxArrDI>422</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -287,7 +287,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>993</ECindxArrDI>
 		<MPCindxArrDI>992</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -301,7 +301,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1073</ECindxArrDI>
 		<MPCindxArrDI>1072</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -315,7 +315,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1121</ECindxArrDI>
 		<MPCindxArrDI>1120</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -329,7 +329,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1201</ECindxArrDI>
 		<MPCindxArrDI>1200</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -343,7 +343,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1249</ECindxArrDI>
 		<MPCindxArrDI>1248</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -357,7 +357,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1329</ECindxArrDI>
 		<MPCindxArrDI>1328</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -371,7 +371,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1377</ECindxArrDI>
 		<MPCindxArrDI>1376</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -385,7 +385,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1457</ECindxArrDI>
 		<MPCindxArrDI>1456</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -399,7 +399,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1015</ECindxArrDI>
 		<MPCindxArrDI>1014</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -413,7 +413,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1143</ECindxArrDI>
 		<MPCindxArrDI>1142</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -427,7 +427,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1271</ECindxArrDI>
 		<MPCindxArrDI>1270</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -441,7 +441,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1399</ECindxArrDI>
 		<MPCindxArrDI>1398</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -567,7 +567,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>997</ECindxArrDI>
 		<MPCindxArrDI>996</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -581,7 +581,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1125</ECindxArrDI>
 		<MPCindxArrDI>1124</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -595,7 +595,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1253</ECindxArrDI>
 		<MPCindxArrDI>1252</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -609,7 +609,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1381</ECindxArrDI>
 		<MPCindxArrDI>1380</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -623,7 +623,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>999</ECindxArrDI>
 		<MPCindxArrDI>998</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -637,7 +637,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1077</ECindxArrDI>
 		<MPCindxArrDI>1076</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -651,7 +651,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1127</ECindxArrDI>
 		<MPCindxArrDI>1126</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -665,7 +665,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1205</ECindxArrDI>
 		<MPCindxArrDI>1204</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -679,7 +679,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1255</ECindxArrDI>
 		<MPCindxArrDI>1254</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -693,7 +693,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1333</ECindxArrDI>
 		<MPCindxArrDI>1332</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -707,7 +707,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1383</ECindxArrDI>
 		<MPCindxArrDI>1382</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -721,7 +721,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1461</ECindxArrDI>
 		<MPCindxArrDI>1460</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -735,7 +735,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1017</ECindxArrDI>
 		<MPCindxArrDI>1016</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -749,7 +749,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1145</ECindxArrDI>
 		<MPCindxArrDI>1144</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -763,7 +763,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1273</ECindxArrDI>
 		<MPCindxArrDI>1272</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -777,7 +777,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1401</ECindxArrDI>
 		<MPCindxArrDI>1400</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -791,7 +791,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1001</ECindxArrDI>
 		<MPCindxArrDI>1000</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -805,7 +805,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1129</ECindxArrDI>
 		<MPCindxArrDI>1128</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -819,7 +819,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1257</ECindxArrDI>
 		<MPCindxArrDI>1256</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -833,7 +833,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1385</ECindxArrDI>
 		<MPCindxArrDI>1384</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -847,7 +847,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1013</ECindxArrDI>
 		<MPCindxArrDI>1012</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -861,7 +861,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1141</ECindxArrDI>
 		<MPCindxArrDI>1140</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -875,7 +875,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1269</ECindxArrDI>
 		<MPCindxArrDI>1268</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -889,7 +889,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1397</ECindxArrDI>
 		<MPCindxArrDI>1396</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -903,7 +903,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1007</ECindxArrDI>
 		<MPCindxArrDI>1006</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -917,7 +917,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1135</ECindxArrDI>
 		<MPCindxArrDI>1134</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -931,7 +931,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1263</ECindxArrDI>
 		<MPCindxArrDI>1262</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -945,7 +945,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1391</ECindxArrDI>
 		<MPCindxArrDI>1390</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -959,7 +959,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>233</ECindxArrDI>
 		<MPCindxArrDI>232</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -973,7 +973,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>331</ECindxArrDI>
 		<MPCindxArrDI>330</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -987,7 +987,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>425</ECindxArrDI>
 		<MPCindxArrDI>424</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1001,7 +1001,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>491</ECindxArrDI>
 		<MPCindxArrDI>490</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1015,7 +1015,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>329</ECindxArrDI>
 		<MPCindxArrDI>328</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1029,7 +1029,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>235</ECindxArrDI>
 		<MPCindxArrDI>234</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1043,7 +1043,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>489</ECindxArrDI>
 		<MPCindxArrDI>488</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1057,7 +1057,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>427</ECindxArrDI>
 		<MPCindxArrDI>426</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1071,7 +1071,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1011</ECindxArrDI>
 		<MPCindxArrDI>1010</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1085,7 +1085,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1139</ECindxArrDI>
 		<MPCindxArrDI>1138</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1099,7 +1099,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1267</ECindxArrDI>
 		<MPCindxArrDI>1266</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1113,7 +1113,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>1395</ECindxArrDI>
 		<MPCindxArrDI>1394</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1127,7 +1127,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>836</ECindxArrDI>
 		<MPCindxArrDI>834</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1141,7 +1141,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>932</ECindxArrDI>
 		<MPCindxArrDI>930</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1183,6 +1183,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>830</ECindxArrDI>
 		<MPCindxArrDI>828</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1196,6 +1197,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>926</ECindxArrDI>
 		<MPCindxArrDI>924</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1209,7 +1211,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>943</ECindxArrDI>
 		<MPCindxArrDI>941</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1223,6 +1225,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>546</ECindxArrDI>
 		<MPCindxArrDI>544</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1236,6 +1239,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>642</ECindxArrDI>
 		<MPCindxArrDI>640</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1249,6 +1253,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>549</ECindxArrDI>
 		<MPCindxArrDI>547</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1262,6 +1267,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>645</ECindxArrDI>
 		<MPCindxArrDI>643</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1275,6 +1281,7 @@
 		<changedDO>false</changedDO>
 		<ECindxArrDI>734</ECindxArrDI>
 		<MPCindxArrDI>732</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1286,7 +1293,9 @@
 		<ABBindxArrDO>928</ABBindxArrDO>
 		<ABOindxArrDO>929</ABOindxArrDO>
 		<changedDO>false</changedDO>
+		<ECindxArrDI>-1</ECindxArrDI>
 		<MPCindxArrDI>2048</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1298,7 +1307,9 @@
 		<ABBindxArrDO>960</ABBindxArrDO>
 		<ABOindxArrDO>961</ABOindxArrDO>
 		<changedDO>false</changedDO>
+		<ECindxArrDI>-1</ECindxArrDI>
 		<MPCindxArrDI>2112</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1307,12 +1318,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1321,12 +1332,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1335,12 +1346,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1349,12 +1360,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1363,12 +1374,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1377,12 +1388,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1391,12 +1402,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1405,12 +1416,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1419,12 +1430,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1433,12 +1444,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1447,12 +1458,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1461,12 +1472,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1475,12 +1486,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1489,12 +1500,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1503,12 +1514,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1517,12 +1528,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1531,12 +1542,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1545,12 +1556,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1559,12 +1570,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1573,12 +1584,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1587,12 +1598,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1601,12 +1612,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1615,12 +1626,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1629,12 +1640,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1643,12 +1654,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1657,12 +1668,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1671,12 +1682,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1685,12 +1696,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1699,12 +1710,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1713,12 +1724,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1727,12 +1738,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1741,12 +1752,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1755,12 +1766,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1769,12 +1780,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1783,12 +1794,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1797,12 +1808,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1811,12 +1822,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1825,12 +1836,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1839,12 +1850,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1853,12 +1864,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1867,12 +1878,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1881,12 +1892,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1895,12 +1906,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1909,12 +1920,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1923,12 +1934,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1937,12 +1948,12 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
@@ -1951,1514 +1962,16 @@
 	</VSStruct>
 	<VSStruct>
 		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
+		<ABBindxArrDO>-1</ABBindxArrDO>
+		<ABOindxArrDO>-1</ABOindxArrDO>
 		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
+		<ECindxArrDI>-1</ECindxArrDI>
+		<MPCindxArrDI>-1</MPCindxArrDI>
+		<PCindxArrDI>-1</PCindxArrDI>
 		<changedDI>false</changedDI>
 		<VSProc>0</VSProc>
 		<TmoveVS>3</TmoveVS>
 		<Description>Вентилятор В4 АВОА3 системы охлаждения э/д МНА</Description>
 		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>3</TmoveVS>
-		<Description/>
-		<Group>Group</Group>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
-	</VSStruct>
-	<VSStruct>
-		<En>false</En>
-		<ABBindxArrDO>0</ABBindxArrDO>
-		<ABOindxArrDO>0</ABOindxArrDO>
-		<changedDO>false</changedDO>
-		<ECindxArrDI>0</ECindxArrDI>
-		<MPCindxArrDI>0</MPCindxArrDI>
-		<PCindxArrDI>0</PCindxArrDI>
-		<changedDI>false</changedDI>
-		<VSProc>0</VSProc>
-		<TmoveVS>0</TmoveVS>
 	</VSStruct>
 </ArrayOfVSStruct>

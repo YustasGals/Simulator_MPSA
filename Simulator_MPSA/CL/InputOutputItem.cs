@@ -110,14 +110,18 @@ namespace Simulator_MPSA.CL
         AIStruct ai;
         public AIStruct AI
         {
-            set { ai = value; }
+            set {}
             get
             {
                 if (ai == null)
                 {
-                    ai = AIStruct.FindByIndex(Index);
+                    if (Index > -1)
+                        ai = AIStruct.FindByIndex(Index);
+                    else
+                        ai = new AIStruct();
                 }
-                return ai;
+
+                    return ai;
             }
         }
         /// <summary>
@@ -126,7 +130,7 @@ namespace Simulator_MPSA.CL
         public string AIName
         {
             set { }
-            get { if (ai != null) return ai.NameAI; else return "не определен"; }
+            get { if (AI != null) return AI.NameAI; else return "не определен"; }
         }
 
         float _spdValue;

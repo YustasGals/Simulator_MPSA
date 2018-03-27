@@ -210,8 +210,8 @@
 	</KLStruct>
 	<KLStruct>
 		<En>true</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DOBindxArrDO>-1</DOBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>217</OKCindxArrDI>
 		<CKCindxArrDI>216</CKCindxArrDI>
@@ -223,8 +223,8 @@
 	</KLStruct>
 	<KLStruct>
 		<En>true</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DOBindxArrDO>-1</DOBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>313</OKCindxArrDI>
 		<CKCindxArrDI>312</CKCindxArrDI>
@@ -236,8 +236,8 @@
 	</KLStruct>
 	<KLStruct>
 		<En>true</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DOBindxArrDO>-1</DOBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>409</OKCindxArrDI>
 		<CKCindxArrDI>408</CKCindxArrDI>
@@ -249,8 +249,8 @@
 	</KLStruct>
 	<KLStruct>
 		<En>true</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DOBindxArrDO>-1</DOBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>473</OKCindxArrDI>
 		<CKCindxArrDI>472</CKCindxArrDI>
@@ -263,7 +263,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>510</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1044</OKCindxArrDI>
 		<CKCindxArrDI>1045</CKCindxArrDI>
@@ -276,7 +276,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>574</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1172</OKCindxArrDI>
 		<CKCindxArrDI>1173</CKCindxArrDI>
@@ -289,7 +289,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>638</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1300</OKCindxArrDI>
 		<CKCindxArrDI>1301</CKCindxArrDI>
@@ -302,7 +302,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>702</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1428</OKCindxArrDI>
 		<CKCindxArrDI>1429</CKCindxArrDI>
@@ -315,7 +315,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>512</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1108</OKCindxArrDI>
 		<CKCindxArrDI>1109</CKCindxArrDI>
@@ -328,7 +328,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>576</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1236</OKCindxArrDI>
 		<CKCindxArrDI>1237</CKCindxArrDI>
@@ -341,7 +341,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>640</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1364</OKCindxArrDI>
 		<CKCindxArrDI>1365</CKCindxArrDI>
@@ -354,7 +354,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>704</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1492</OKCindxArrDI>
 		<CKCindxArrDI>1493</CKCindxArrDI>
@@ -367,7 +367,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>513</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1056</OKCindxArrDI>
 		<CKCindxArrDI>1057</CKCindxArrDI>
@@ -380,7 +380,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>577</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1184</OKCindxArrDI>
 		<CKCindxArrDI>1185</CKCindxArrDI>
@@ -393,7 +393,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>641</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1312</OKCindxArrDI>
 		<CKCindxArrDI>1313</CKCindxArrDI>
@@ -406,7 +406,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>705</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1440</OKCindxArrDI>
 		<CKCindxArrDI>1441</CKCindxArrDI>
@@ -419,7 +419,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>514</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1058</OKCindxArrDI>
 		<CKCindxArrDI>1059</CKCindxArrDI>
@@ -432,7 +432,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>578</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1186</OKCindxArrDI>
 		<CKCindxArrDI>1187</CKCindxArrDI>
@@ -445,7 +445,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>642</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1314</OKCindxArrDI>
 		<CKCindxArrDI>1315</CKCindxArrDI>
@@ -458,7 +458,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>706</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1442</OKCindxArrDI>
 		<CKCindxArrDI>1443</CKCindxArrDI>
@@ -471,7 +471,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>515</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1060</OKCindxArrDI>
 		<CKCindxArrDI>1061</CKCindxArrDI>
@@ -484,7 +484,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>579</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1188</OKCindxArrDI>
 		<CKCindxArrDI>1189</CKCindxArrDI>
@@ -497,7 +497,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>643</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1316</OKCindxArrDI>
 		<CKCindxArrDI>1317</CKCindxArrDI>
@@ -510,7 +510,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>707</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>1444</OKCindxArrDI>
 		<CKCindxArrDI>1445</CKCindxArrDI>
@@ -523,7 +523,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>384</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>848</OKCindxArrDI>
 		<CKCindxArrDI>849</CKCindxArrDI>
@@ -536,7 +536,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>385</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>850</OKCindxArrDI>
 		<CKCindxArrDI>851</CKCindxArrDI>
@@ -549,7 +549,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>448</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>944</OKCindxArrDI>
 		<CKCindxArrDI>945</CKCindxArrDI>
@@ -562,7 +562,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>449</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>946</OKCindxArrDI>
 		<CKCindxArrDI>947</CKCindxArrDI>
@@ -575,7 +575,7 @@
 	<KLStruct>
 		<En>true</En>
 		<DOBindxArrDO>386</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
+		<DKBindxArrDO>-1</DKBindxArrDO>
 		<changedDO>false</changedDO>
 		<OKCindxArrDI>852</OKCindxArrDI>
 		<CKCindxArrDI>853</CKCindxArrDI>
@@ -624,680 +624,5 @@
 		<Description>Проходной регулирующий клапан КР1 системы оборотного охлаждения</Description>
 		<Group>Group</Group>
 	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №49</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №50</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №51</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №52</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №53</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №54</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №55</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №56</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №57</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №58</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №59</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №60</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №61</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №62</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №63</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №64</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №65</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №66</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №67</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №68</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №69</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №70</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №71</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №72</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №73</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №74</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №75</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №76</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №77</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №78</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №79</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №80</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №81</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №82</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №83</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №84</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №85</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №86</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №87</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №88</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №89</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №90</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №91</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №92</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №93</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №94</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №95</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №96</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №97</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №98</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №99</Description>
-		<Group>Group</Group>
-	</KLStruct>
-	<KLStruct>
-		<En>false</En>
-		<DOBindxArrDO>0</DOBindxArrDO>
-		<DKBindxArrDO>0</DKBindxArrDO>
-		<changedDO>false</changedDO>
-		<OKCindxArrDI>0</OKCindxArrDI>
-		<CKCindxArrDI>0</CKCindxArrDI>
-		<changedDI>false</changedDI>
-		<KLProc>0</KLProc>
-		<TmoveKL>3</TmoveKL>
-		<Description>Клапан №100</Description>
-		<Group>Group</Group>
-	</KLStruct>
+
 </ArrayOfKLStruct>

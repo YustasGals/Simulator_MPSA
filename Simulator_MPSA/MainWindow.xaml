@@ -295,10 +295,10 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Счетчики связи">
+            <TabItem Header="Счетчики">
                 <Grid>
 
-                    <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                             <DataGrid.Columns>
                             <DataGridTextColumn Header="Буфер" Binding ="{Binding buffer}" IsReadOnly="true"/>
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>

@@ -15,7 +15,7 @@ namespace Simulator_MPSA
         public MPNAState State
         {
             get { return _state;  }
-            set { _state = value; OnPropertyChanged("State"); }
+            set { _state = value; OnPropertyChanged("StateRus"); }
         }
 
         public string StateRus

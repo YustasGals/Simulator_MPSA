@@ -11,3 +11,8 @@ Simulator_MPSA/obj/*
 Simulator_MPSA/bin/*
 *.suo
 *.ide
+Simulator_MPSA/Properties/app.manifest
+*.deploy
+*.application
+*.manifest
+*.pfx

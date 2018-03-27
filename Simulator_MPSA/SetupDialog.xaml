@@ -48,7 +48,7 @@
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Номинальное значение" Binding="{Binding ValueNom}"/>
-                    <DataGridTextColumn Header="Скорость изменения ед/сек" Binding="{Binding ValueSpd}"/>
+                    <DataGridTextColumn Header="Скорость изменения" Binding="{Binding ValueSpd}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AIName}" Foreground="Gray"/>
                 </DataGrid.Columns>
             </DataGrid>

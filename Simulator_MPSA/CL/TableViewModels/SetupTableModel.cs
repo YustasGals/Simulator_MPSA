@@ -73,9 +73,9 @@ namespace Simulator_MPSA.CL
             inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, vs.ABBName);
             inputs[1]= new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, vs.ABOName);
 
-            _analogs = new ObservableCollection<AnalogIOItem>();
-            _analogs.Add(new AnalogIOItem("Давление на выходе", vs.PCindxArrAI, vs.valuePC, vs.valuePCspd, vs.PCNameAI));
-
+            if (vs.controledAIs != null)
+                _analogs = new ObservableCollection<AnalogIOItem>(vs.controledAIs);
+            else _analogs = new ObservableCollection<AnalogIOItem>();
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -167,7 +167,7 @@ namespace Simulator_MPSA.CL
                 temp.MPCindxArrDI = Outputs[1].Index;
                 temp.PCindxArrDI = Outputs[2].Index;
 
-                temp.PCindxArrAI = Analogs[0].Index;
+             //   temp.PCindxArrAI = Analogs[0].Index;
                 temp.valuePC = Analogs[0].ValueNom;
                 temp.valuePCspd = Analogs[0].ValueSpd;
 
@@ -177,6 +177,8 @@ namespace Simulator_MPSA.CL
 
                 temp.ABBindxArrDO = inputs[0].Index;
                 temp.ABOindxArrDO = inputs[1].Index;
+
+                temp.controledAIs = _analogs.ToArray();
             }
             if (type == typeof(KLStruct))
             {

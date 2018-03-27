@@ -110,19 +110,18 @@ namespace Simulator_MPSA
         private float _valuePC;
 
         private DIStruct MPC_DI = null;
-        private AIStruct MPC_AI = null;
 
         private DIStruct EC_DI = null;
-        private AIStruct EC_AI = null;
 
         /// <summary>
         /// ссылка на сигнал DI наличие давления
         /// </summary>
         private DIStruct PC_DI = null;
+
         /// <summary>
         /// ссылка на аналоговый сигнал давления на выходе
         /// </summary>
-        private AIStruct PC_AI = null;
+        public AnalogIOItem[] controledAIs;
 
         /// <summary>
         /// индекс сигнала напряжения в таблице DI, AI
@@ -131,25 +130,10 @@ namespace Simulator_MPSA
         { get { return _ecindx; }
             set {
                 _ecindx = value; OnPropertyChanged("ECindxArrDI");
-                if (_isECAnalog)
-                    EC_AI = AIStruct.FindByIndex(value);
-                else
                     EC_DI = DIStruct.FindByIndex(value);
             }
         }
-        /// <summary>
-        /// тип сигнала наличия напряжения
-        /// </summary>
-        public bool isECAnalog
-        { get { return _isECAnalog; }
-            set {
-                _isECAnalog = value; OnPropertyChanged("isECAnalog");
-                if (_isECAnalog)
-                    EC_AI = AIStruct.FindByIndex(_ecindx);
-                else
-                    EC_DI = DIStruct.FindByIndex(_ecindx);
-            }
-        }
+
         /// <summary>
         /// Значение напряжения если это аналог
         /// </summary>
@@ -172,21 +156,6 @@ namespace Simulator_MPSA
             }
         }
 
-
-        /// <summary>
-        /// тип сигнала магнитного пускателя, аналог/дискрет
-        /// </summary>
-        public bool isMPCAnalog
-        {
-            get { return _isMPCanalog; }
-            set {
-                _isMPCanalog = value; OnPropertyChanged("isMPCanalog");
-                if (_isMPCanalog)
-                    MPC_AI = AIStruct.FindByIndex(_MPCindxArrDI);
-                else
-                    MPC_DI = DIStruct.FindByIndex(_MPCindxArrDI);
-            }
-        }
         /// <summary>
         /// значение сигнала МП если это аналог
         /// </summary>
@@ -206,21 +175,7 @@ namespace Simulator_MPSA
                     PC_DI = DIStruct.FindByIndex(value);
             }
         }
-
-        /// <summary>
-        /// индекс сигнала давления в таблице AI
-        /// </summary>
-        public int PCindxArrAI
-        {
-            get { return _PCindxArrAI; }
-            set
-            {
-                _PCindxArrAI = value;
-                OnPropertyChanged("PCindxArrAI");
-                PC_AI = AIStruct.FindByIndex(value);
-            }
-        }
-
+        
         /// <summary>
         /// значение давления на выходе если это аналог
         /// </summary>
@@ -243,20 +198,12 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (isECAnalog)
-                {
-                    // if (EC_AI != null)
-                    //     return EC_AI.NameAI;
-                    if (_ecindx > -1)
-                        return AIStruct.items[_ecindx].NameAI;
-                }
-                else
-                {
+               
                     //if (EC_DI != null)
                     //    return EC_DI.NameDI;
                     if (_ecindx > -1)
                         return DIStruct.items[_ecindx].NameDI;
-                }
+               
 
                 return "сигнал не назначен";
             }
@@ -268,22 +215,12 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (isMPCAnalog)
-                {
-                    // if (MPC_AI != null)
-                    //     return MPC_AI.NameAI;
-                    if (_MPCindxArrDI > -1)
-                        return AIStruct.items[_MPCindxArrDI].NameAI;
-                }
-                else
-                {
                     //if (MPC_DI != null)
                     //    return MPC_DI.NameDI;
                     if (_MPCindxArrDI > -1)
                         return DIStruct.items[_MPCindxArrDI].NameDI;
-                }
-
-                return "сигнал не назначен";
+                    else
+                    return "сигнал не назначен";
             }
         }
         /// <summary>
@@ -350,11 +287,11 @@ namespace Simulator_MPSA
             Description = "Empty";
             Group = "NoGroup";
             ECindxArrDI = -1;
-            isECAnalog = false;
+         
             valueEC = 0.0f;
 
             MPCindxArrDI = -1;
-            isMPCAnalog = false;
+           // isMPCAnalog = false;
             valueMPC = 0.0f;
 
             PCindxArrDI = -1;
@@ -373,7 +310,6 @@ namespace Simulator_MPSA
             ECindxArrDI = _ecindx;
             MPCindxArrDI = _MPCindxArrDI;
             PCindxArrDI = _PCindxArrDI;
-            PCindxArrAI = _PCindxArrAI;
             ABOindxArrDO = _ABOindxArrDO;
             ABBindxArrDO = _ABBindxArrDO;
         }
@@ -454,22 +390,42 @@ namespace Simulator_MPSA
 
                 if (state == VSState.Work)
                 {
-                    if (PC_AI != null)
+                    /*if (PC_AI != null)
                     {
                         PC_AI.fValAI += (valuePC - PC_AI.fValAI + valuePC/10f) * valuePCspd * dt;
                         if (PC_AI.fValAI > valuePC)
                             PC_AI.fValAI = valuePC;
-                    }
+                    }*/
+                    if (controledAIs != null)
+                        foreach (AnalogIOItem analog in controledAIs)
+                        {
+                            if (analog.AI != null)
+                            {
+                                analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
+                            }
+                        }
                 }
 
                 if (state == VSState.Stop)
                 {
-                    if (PC_AI != null)
-                    {
-                        PC_AI.fValAI -= (PC_AI.fValAI + valuePC / 10f) * valuePCspd * dt;
-                        if (PC_AI.fValAI <=0)
-                            PC_AI.fValAI = 0;
-                    }
+                    /* if (PC_AI != null)
+                     {
+                         PC_AI.fValAI -= (PC_AI.fValAI + valuePC / 10f) * valuePCspd * dt;
+                         if (PC_AI.fValAI <=0)
+                             PC_AI.fValAI = 0;
+                     }*/
+                     //управление всеми аналогами
+              
+                    if (controledAIs != null)
+                        foreach (AnalogIOItem analog in controledAIs)
+                        {
+                            if (analog.AI != null)
+                            {
+                                analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
+                            }
+                        }
                 }
 
             }

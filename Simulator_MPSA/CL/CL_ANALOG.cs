@@ -142,7 +142,14 @@ namespace Simulator_MPSA.CL
 
         private void RefreshADC()
         {
-            float df = (fValAI - minPhis) / (maxPhis - minPhis);
+            float df = 0f;
+            try
+            {
+                df = (fValAI - minPhis) / (maxPhis - minPhis);
+            }
+            catch (Exception ex)
+            {
+            }
             float dadc = ((float)maxACD - (float)minACD) * df;
             int res = (int)dadc + minACD;
             ValACD = (ushort)res;
