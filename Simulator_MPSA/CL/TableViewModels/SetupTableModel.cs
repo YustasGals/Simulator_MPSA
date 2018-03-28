@@ -168,9 +168,9 @@ namespace Simulator_MPSA.CL
                 temp.PCindxArrDI = outputs[2].Index;
 
              //   temp.PCindxArrAI = Analogs[0].Index;
-                temp.valuePC = Analogs[0].ValueNom;
+              /*  temp.valuePC = Analogs[0].ValueNom;
                 temp.valuePCspd = Analogs[0].ValueSpd;
-
+                */
                 temp.Description = Name;
                 temp.Group = Group;
                 temp.En = En;

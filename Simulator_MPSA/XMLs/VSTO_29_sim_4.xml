@@ -1011,7 +1011,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>84</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>173</indxW>
@@ -1582,7 +1582,7 @@
       <TegDI>EC301D</TegDI>
       <NameDI>МНА №003.3. Неисправность датчика частоты вращения выходного вала ЭД</NameDI>
       <Nsign>1132</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -1594,7 +1594,7 @@
       <TegDI>EC321</TegDI>
       <NameDI>МНА №003.3. Неисправность датчика частоты вращения выходного вала гидромуфты</NameDI>
       <Nsign>1133</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -1611,7 +1611,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>134</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>298</indxW>
@@ -1623,7 +1623,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>135</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>298</indxW>
@@ -1779,7 +1779,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>148</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>299</indxW>
@@ -1966,7 +1966,7 @@
       <TegDI>EC401D</TegDI>
       <NameDI>МНА №003.4. Неисправность датчика частоты вращения выходного вала ЭД</NameDI>
       <Nsign>1164</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -1978,7 +1978,7 @@
       <TegDI>EC421</TegDI>
       <NameDI>МНА №003.4. Неисправность датчика частоты вращения выходного вала гидромуфты</NameDI>
       <Nsign>1165</Nsign>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
       <DelayDI>0</DelayDI>
     </DIStruct>
     <DIStruct>
@@ -1995,7 +1995,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>166</indxArrDI>
       <indxBitDI>9</indxBitDI>
       <indxW>424</indxW>
@@ -2007,7 +2007,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>167</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>424</indxW>
@@ -2163,7 +2163,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>180</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>425</indxW>
@@ -13611,7 +13611,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1134</indxArrDI>
       <indxBitDI>1</indxBitDI>
       <indxW>1945</indxW>
@@ -14367,7 +14367,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1197</indxArrDI>
       <indxBitDI>2</indxBitDI>
       <indxW>2107</indxW>
@@ -14379,7 +14379,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1198</indxArrDI>
       <indxBitDI>1</indxBitDI>
       <indxW>2107</indxW>
@@ -14835,7 +14835,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1236</indxArrDI>
       <indxBitDI>11</indxBitDI>
       <indxW>2110</indxW>
@@ -14847,7 +14847,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <indxArrDI>1237</indxArrDI>
       <indxBitDI>10</indxBitDI>
       <indxW>2110</indxW>
@@ -15903,7 +15903,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1325</indxArrDI>
       <indxBitDI>2</indxBitDI>
       <indxW>2359</indxW>
@@ -15915,7 +15915,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1326</indxArrDI>
       <indxBitDI>1</indxBitDI>
       <indxW>2359</indxW>
@@ -17439,7 +17439,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1453</indxArrDI>
       <indxBitDI>2</indxBitDI>
       <indxW>2611</indxW>
@@ -17451,7 +17451,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1454</indxArrDI>
       <indxBitDI>1</indxBitDI>
       <indxW>2611</indxW>
@@ -19287,7 +19287,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1607</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>2863</indxW>
@@ -19323,7 +19323,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1610</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>2863</indxW>
@@ -20439,7 +20439,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1703</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>2989</indxW>
@@ -20475,7 +20475,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1706</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>2989</indxW>
@@ -21207,7 +21207,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1767</indxArrDI>
       <indxBitDI>8</indxBitDI>
       <indxW>3115</indxW>
@@ -21243,7 +21243,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <indxArrDI>1770</indxArrDI>
       <indxBitDI>5</indxBitDI>
       <indxW>3115</indxW>
@@ -35307,7 +35307,7 @@
       <_NameDO>МНА №003.2. Пуско-резервный масляный насос (АР004-2) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>556</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <indxR>751</indxR>
@@ -35333,7 +35333,7 @@
       <_NameDO>МНА №003.2. Погружной нагреватель маслобака гидромуфты (НЕ002-2) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>558</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <indxR>751</indxR>
@@ -35567,7 +35567,7 @@
       <_NameDO>МНА №003.2. Байпасная заслонка подпорного вентилятора контура В (GE-14B-1-2) открыть (при подаче напряжения) / закрыть (при съеме напляжения)</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>576</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>801</indxR>
@@ -35645,7 +35645,7 @@
       <_NameDO>МНА №003.2. Байпасная заслонка подпорного вентилятора контура В - закрыть</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>582</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>801</indxR>
@@ -35983,7 +35983,7 @@
       <_NameDO>МНА №003.3. Насос системы затвора торцевых уплотнений  №1 (АР001-3) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>608</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>851</indxR>
@@ -36607,7 +36607,7 @@
       <_NameDO>МНА №003.3. Насос системы затвора уплотнений №2 (АР002-3) - команда на отключение</_NameDO>
       <changedDO>false</changedDO>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>656</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <indxR>902</indxR>
@@ -42458,12 +42458,12 @@
       <indxW>2298</indxW>
       <TegAI>PT341</TegAI>
       <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>12533</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42475,12 +42475,12 @@
       <indxW>2299</indxW>
       <TegAI>PT342</TegAI>
       <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>12533</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42492,12 +42492,12 @@
       <indxW>2300</indxW>
       <TegAI>PT343</TegAI>
       <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>12533</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42509,12 +42509,12 @@
       <indxW>2301</indxW>
       <TegAI>PT344</TegAI>
       <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>12533</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42526,12 +42526,12 @@
       <indxW>2550</indxW>
       <TegAI>PT441</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42543,12 +42543,12 @@
       <indxW>2551</indxW>
       <TegAI>PT442</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42560,12 +42560,12 @@
       <indxW>2552</indxW>
       <TegAI>PT443</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42577,12 +42577,12 @@
       <indxW>2553</indxW>
       <TegAI>PT444</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-      <ValACD>4000</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>8</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -51311,15 +51311,15 @@
       <changedDI>false</changedDI>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Close</State>
-      <StateRus>Закрыто</StateRus>
+      <State>Open</State>
+      <StateRus>Открыто</StateRus>
       <Description>МНА 003.2. Байпасная заслонка подпорного вентилятора контура В</Description>
       <Group>Group</Group>
       <DOBindxArrDO>576</DOBindxArrDO>
       <DKBindxArrDO>582</DKBindxArrDO>
       <OKCindxArrDI>1236</OKCindxArrDI>
       <CKCindxArrDI>1237</CKCindxArrDI>
-      <KLProc>0</KLProc>
+      <KLProc>100</KLProc>
     </KLStruct>
     <KLStruct>
       <changedDO>false</changedDO>
@@ -52552,104 +52552,6 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
-      <controledAIs>
-        <AnalogIOItem>
-          <Index>89</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>89</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17398</PLCAddr>
-            <indxW>2298</indxW>
-            <TegAI>PT341</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>90</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>90</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17399</PLCAddr>
-            <indxW>2299</indxW>
-            <TegAI>PT342</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>91</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>91</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17400</PLCAddr>
-            <indxW>2300</indxW>
-            <TegAI>PT343</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>92</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>92</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17401</PLCAddr>
-            <indxW>2301</indxW>
-            <TegAI>PT344</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
@@ -52670,104 +52572,6 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
-      <controledAIs>
-        <AnalogIOItem>
-          <Index>89</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>89</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17398</PLCAddr>
-            <indxW>2298</indxW>
-            <TegAI>PT341</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>90</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>90</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17399</PLCAddr>
-            <indxW>2299</indxW>
-            <TegAI>PT342</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>91</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>91</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17400</PLCAddr>
-            <indxW>2300</indxW>
-            <TegAI>PT343</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-        <AnalogIOItem>
-          <Index>92</Index>
-          <IsOK>false</IsOK>
-          <ValueNom>7.2</ValueNom>
-          <AI>
-            <DelayAI>0</DelayAI>
-            <En>true</En>
-            <indxAI>92</indxAI>
-            <Buffer>USO</Buffer>
-            <PLCDestType>ADC</PLCDestType>
-            <PLCAddr>17401</PLCAddr>
-            <indxW>2301</indxW>
-            <TegAI>PT344</TegAI>
-            <NameAI>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-            <ValACD>4000</ValACD>
-            <minACD>4000</minACD>
-            <maxACD>20000</maxACD>
-            <minPhis>0</minPhis>
-            <maxPhis>15</maxPhis>
-            <fValAI>0</fValAI>
-          </AI>
-          <AIName>МНА 003.3. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</AIName>
-          <ValueSpd>0.05</ValueSpd>
-        </AnalogIOItem>
-      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
@@ -53583,8 +53387,8 @@
       <PCindxArrDI>-1</PCindxArrDI>
       <valuePC>0</valuePC>
       <valuePCspd>0</valuePCspd>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -56596,7 +56400,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>7247</Value>
+      <Value>7723</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
@@ -56617,7 +56421,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>6993</Value>
+      <Value>7469</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>счетчик сард</Name>
     </USOCounter>
@@ -56771,49 +56575,49 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4364</Value>
+      <Value>4840</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4366</Value>
+      <Value>4842</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4370</Value>
+      <Value>4846</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4344</Value>
+      <Value>4820</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>3857</Value>
+      <Value>4333</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>3932</Value>
+      <Value>4408</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>САРД рез.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>3524</Value>
+      <Value>4000</Value>
       <PLCAddr>29024</PLCAddr>
       <Name>А5 МПСА -- А5 САРД</Name>
     </USOCounter>
