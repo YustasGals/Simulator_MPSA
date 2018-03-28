@@ -46,7 +46,7 @@ namespace Simulator_MPSA.CL
             VSs = VSTableViewModel.GetArray();
             ZDs = ZDTableViewModel.GetArray();
             settings = Sett.Instance;
-            Counters = CountersTableViewModel.Counters;
+            Counters = CountersTableViewModel.Counters.ToArray();
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(filename);
@@ -58,13 +58,14 @@ namespace Simulator_MPSA.CL
         public StationLoadResult Load(string filename)
         {
             XmlSerializer xml = new XmlSerializer(typeof(Station));
-            System.IO.StreamReader reader=null;            
+            System.IO.StreamReader reader=null;
+            FileStream stream=null;
             try
             {
-                var stream = File.OpenRead(filename); 
+                stream = File.OpenRead(filename); 
                 Station station = (Station)xml.Deserialize(stream);
-              //  reader.Dispose();
-               
+                //  reader.Dispose();
+                stream.Dispose();
 
                 DIStruct.items = station.DIs;
                 DOStruct.items = station.DOs;
@@ -75,9 +76,9 @@ namespace Simulator_MPSA.CL
                 Sett.Instance = station.settings;
 
                 //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
-                foreach (AIStruct ai in AIStruct.items)
-                    if (ai.PLCAddr == 0)
-                        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
+                //foreach (AIStruct ai in AIStruct.items)
+                //    if (ai.PLCAddr == 0)
+                //        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
 
                 KLTableViewModel.Init(station.KLs);
                 foreach (KLStruct kl in KLTableViewModel.KL)
@@ -106,6 +107,8 @@ namespace Simulator_MPSA.CL
             }
             catch(Exception e)
             {
+                if (stream != null)
+                 stream.Dispose();
                 if (reader != null)
                     reader.Dispose();
                 System.Windows.MessageBox.Show("Ошибка чтения" + Environment.NewLine + e.Message,"Ошибка",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);

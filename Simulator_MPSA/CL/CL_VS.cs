@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Simulator_MPSA.CL;
+using System.Xml.Serialization;
 namespace Simulator_MPSA
 {
     public enum VSState {  Stop,   //остановлен
@@ -34,6 +35,32 @@ namespace Simulator_MPSA
         {
             get { return _group; }
             set { _group = value; OnPropertyChanged("Group"); }
+        }
+
+        /// <summary>
+        /// Наличие напряжения на секции шин
+        /// </summary>
+        private DIStruct BS;
+        private int _bussec_index=-1;
+        public int BusSecIndex
+        {
+            get { return _bussec_index; }
+            set
+            {
+                _bussec_index = value;
+                if (value > -1)
+                    BS = DIStruct.FindByIndex(value);
+            }
+        }
+        public string BusSectionName
+        {
+            get
+            {
+                if (BS != null)
+                    return BS.NameDI;
+                else return "сигнал не назначен";
+            }
+            set { }
         }
 
         // состояния входов-выходов
@@ -156,14 +183,7 @@ namespace Simulator_MPSA
             }
         }
 
-        /// <summary>
-        /// значение сигнала МП если это аналог
-        /// </summary>
-        public float valueMPC
-        {
-            get { return _valueMPC; }
-            set { _valueMPC = value; OnPropertyChanged("valueMPC"); }
-        }
+
         /// <summary>
         /// индекс сигнала давления в таблице DI
         /// </summary>
@@ -175,21 +195,7 @@ namespace Simulator_MPSA
                     PC_DI = DIStruct.FindByIndex(value);
             }
         }
-        
-        /// <summary>
-        /// значение давления на выходе если это аналог
-        /// </summary>
-        public float valuePC
-        {
-            get { return _valuePC; }
-            set { _valuePC = value; OnPropertyChanged("valuePC"); }
-        }
-
-        //скорость изменения давления физ.ед/сек
-        public float valuePCspd
-        {
-            get; set;
-        }
+       
 
         /// <summary>
         /// Возвращает название присвоенного сигнала наличия напряжения
@@ -292,11 +298,11 @@ namespace Simulator_MPSA
 
             MPCindxArrDI = -1;
            // isMPCAnalog = false;
-            valueMPC = 0.0f;
+      
 
             PCindxArrDI = -1;
           
-            valuePC = 0;
+  
 
 
             state = VSState.Stop;
@@ -321,15 +327,24 @@ namespace Simulator_MPSA
         /// <returns></returns>
         public void UpdateVS(float dt)
         {
-            if (EC_DI != null)
-                EC_DI.ValDI = _en;
+
 
             if (_en)
             {
+                // нет напряжения на секции шин
+                if (BS != null)
+                    if (BS.ValDI == false)
+                    {
+                        if (MPC_DI != null) MPC_DI.ValDI = false;
+                        if (EC_DI != null) EC_DI.ValDI = false;
+                        if (PC_DI != null) PC_DI.ValDI = false;
+                        State = VSState.Stop;
+                    }
+
                 //команда включить - включить пускатель
                 if ((ABB!=null)&&(ABB.ValDO))
                 {
-                    if (state == VSState.Stop || state== VSState.Stoping)
+                    if ((state == VSState.Stop || state== VSState.Stoping) && (BS!=null && BS.ValDI==true ))
                     {
                         if (MPC_DI != null)
                             MPC_DI.ValDI = true;
@@ -353,40 +368,7 @@ namespace Simulator_MPSA
                     }
                 }
 
-                //запускается
-                /* if (state== VSState.Starting)
-                 {
-                     if (PC_AI != null)
-                     {
-                         PC_AI.fValAI += valuePCspd * dt;
-                         if (PC_AI.fValAI >= valuePC)
-                         {
-                             State = VSState.Work;
-                             PC_AI.fValAI = valuePC;
-                         }
-                     }
-                     else
-                         State = VSState.Work;
-
-                 }
-                 */
-                //останавливается
-                /*if (state == VSState.Stoping)
-                {
-                    if (PC_AI != null)
-                    {
-                        PC_AI.fValAI -= valuePCspd * dt;
-                        if (PC_AI.fValAI <= 0)
-                        {
-                            PC_AI.fValAI = 0;
-                            State = VSState.Stop;
-
-                        }
-                    }
-                    else
-                        State = VSState.Stop;
-
-                }*/
+           
 
                 if (state == VSState.Work)
                 {

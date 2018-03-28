@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 namespace Simulator_MPSA.CL
 {
     class CL_DO
@@ -41,7 +42,7 @@ namespace Simulator_MPSA.CL
         }
 
         private int _indxR;
-        public int indxR
+        private int indxR
         {
             get { return _indxR; }
             set { _indxR = value; OnPropertyChanged("indxR"); }
@@ -66,7 +67,7 @@ namespace Simulator_MPSA.CL
             set { _TegDO = value; OnPropertyChanged("TegDO"); }
         }
 
-        public string _NameDO = "";
+        private string _NameDO = "";
         public string NameDO
         {
             get { return _NameDO; }
@@ -77,6 +78,7 @@ namespace Simulator_MPSA.CL
         }
 
         private int _Nsign;
+    
         public int Nsign
         {
             get { return _Nsign; }
@@ -90,7 +92,7 @@ namespace Simulator_MPSA.CL
             get { return _InvertDO; }
             set { _InvertDO = value; OnPropertyChanged("InvertDO"); }
         }
-
+        [XmlIgnore]
         public bool changedDO;
         public DOStruct()
         { }

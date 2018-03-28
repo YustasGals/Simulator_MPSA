@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulator_MPSA"
         mc:Ignorable="d"
-        Title="О программе" Height="176" Width="421" ResizeMode="NoResize">
+        Title="О программе" Height="188" Width="421" ResizeMode="NoResize">
     <Window.Resources>
         <BitmapImage x:Key="logo" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\temp\Simulator_MPSA\Simulator_MPSA\Resources\logo.png"/>
     </Window.Resources>
-    <Grid Margin="0,0,4,0" Height="146" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="89" Width="381" FontWeight="Bold"><Run FontWeight="Normal"/><LineBreak/><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot; 2018г."/><LineBreak/><Run/></TextBlock>
-        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="308,99,0,0" VerticalAlignment="Top" Width="93" Height="38" FontSize="14" Click="Button_Click"/>
+    <Grid Margin="0,0,4,0" Height="144" VerticalAlignment="Top">
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="109" Width="381" FontWeight="Bold"><Run FontWeight="Normal"/><LineBreak/><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot; 2018г."/><LineBreak/><Run/></TextBlock>
+        <Button Content="Закрыть" HorizontalAlignment="Left" Margin="308,104,0,0" VerticalAlignment="Top" Width="93" Height="33" FontSize="14" Click="Button_Click"/>
 
     </Grid>
 </Window>

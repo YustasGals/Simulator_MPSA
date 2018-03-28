@@ -2,6 +2,7 @@
 using System;
 using System.ComponentModel;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------
@@ -11,7 +12,9 @@ namespace Simulator_MPSA
         //  public static MPNAStruct[] MPNAs;
 
         public bool _En = false; // наличие в обработке задвижки
+        [XmlIgnore]
         public bool changedDI = false; // наличие изменений в выходных сигналах блока
+        [XmlIgnore]
         public bool changedDO = false; // наличие изменений во входных сигналах блока
 
         /// <summary>

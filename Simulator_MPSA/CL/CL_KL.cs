@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Simulator_MPSA.CL;
+using System.Xml.Serialization;
 namespace Simulator_MPSA
 {
     class CL_KL
@@ -24,6 +25,7 @@ namespace Simulator_MPSA
         { get { return _state; }
             set { _state = value; OnPropertyChanged("State"); }
         }
+        [XmlIgnore]
         public string StateRus
         {
             set { }
@@ -131,6 +133,7 @@ namespace Simulator_MPSA
             }
         }
 
+        [XmlIgnore]
         public bool changedDO=false;
 
 
@@ -207,7 +210,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
-
+        [XmlIgnore]
         public bool changedDI=false;
 
         private float _KLProc=0.0f;

@@ -144,19 +144,17 @@ namespace Simulator_MPSA
                 {
                     if (di.En)
                     {
-                        int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
+                       /* int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
                         if (indx > 0 && indx < WB.W.Length)
-
-                        if (di.InvertDI)
-                        {
-                            
-                            SetBit(ref (WB.W[indx]), (di.indxBitDI), !(di.ValDI));
-                        }
+                        */
+                        if (di.Buffer == BufType.USO)
+                            SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), di.ValDI^di.InvertDI);
                         else
-                        {
-                    
-                            SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), (di.ValDI));
-                        }
+                        if (di.Buffer == BufType.A3)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                        else
+                        if (di.Buffer == BufType.A4)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                     }
                 }
 

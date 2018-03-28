@@ -64,10 +64,11 @@ namespace Simulator_MPSA.CL
             Name = vs.Description;
             Group = vs.Group;
 
-            outputs = new InputOutputItem[3];
+            outputs = new InputOutputItem[4];
             outputs[0] = new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, vs.ECName);
             outputs[1] =  new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, vs.MPCName);
             outputs[2] = new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, vs.PCNameDI);
+            outputs[3] = new InputOutputItem("Наличие напряжения на СШ", vs.BusSecIndex, vs.BusSectionName);
 
             inputs = new InputOutputItem[2];
             inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, vs.ABBName);
@@ -105,7 +106,7 @@ namespace Simulator_MPSA.CL
             Name = zd.Description;
             Group = zd.Group;
 
-            outputs = new InputOutputItem[7];
+            outputs = new InputOutputItem[8];
             outputs[0] = new InputOutputItem("КВО", zd.OKCindxArrDI, zd.OKCName);
             outputs[1] = new InputOutputItem("КВЗ", zd.CKCindxArrDI, zd.CKCName);
             outputs[2] = new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, zd.VoltName);
@@ -113,6 +114,7 @@ namespace Simulator_MPSA.CL
             outputs[4] = new InputOutputItem("МПЗ", zd.CDCindxArrDI, zd.CDCName);
             outputs[5] = new InputOutputItem("Муфта", zd.MCindxArrDI, zd.MCName);
             outputs[6] = new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, zd.DCName);
+            outputs[7] = new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,zd.BSName);
 
             inputs = new InputOutputItem[4];
             inputs[0] = new InputOutputItem("команда - открыть", zd.DOBindxArrDO, zd.DOBName);
@@ -166,7 +168,7 @@ namespace Simulator_MPSA.CL
                 temp.ECindxArrDI = outputs[0].Index;
                 temp.MPCindxArrDI = outputs[1].Index;
                 temp.PCindxArrDI = outputs[2].Index;
-
+                temp.BusSecIndex = outputs[3].Index;
              //   temp.PCindxArrAI = Analogs[0].Index;
               /*  temp.valuePC = Analogs[0].ValueNom;
                 temp.valuePCspd = Analogs[0].ValueSpd;
@@ -210,6 +212,7 @@ namespace Simulator_MPSA.CL
                 temp.CDCindxArrDI = outputs[4].Index;
                 temp.MCindxArrDI = outputs[5].Index;
                 temp.DCindxArrDI = outputs[6].Index;
+                temp.BSIndex = outputs[7].Index;
 
                 temp.DOBindxArrDO = inputs[0].Index;
                 temp.DCBindxArrDO = inputs[1].Index;

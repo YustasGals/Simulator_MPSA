@@ -64,7 +64,7 @@ namespace Simulator_MPSA
                 int indx = _do.PLCAddr - Sett.Instance.BegAddrR - 1;
                 if (indx > 0 && indx < RB.R.Length)
                 {
-                    bool res = GetBit(RB.R[_do.indxR], _do.indxBitDO);
+                    bool res = GetBit(RB.R[indx], _do.indxBitDO);
                     _do.ValDO = _do.InvertDO ? !res : res;
                 }
             }

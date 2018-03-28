@@ -104,7 +104,7 @@
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" />
                             <DataGridTextColumn Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}"/>
-                            <DataGridTextColumn Header="Буффер" Binding="{Binding Buffer}" IsReadOnly="true"/>
+                            <DataGridTextColumn Header="Буфер" Binding="{Binding Buffer}" IsReadOnly="true"/>
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" />
@@ -145,6 +145,7 @@
                             <DataGridCheckBoxColumn Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="буфер" Binding="{Binding Buffer, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDI, UpdateSourceTrigger=PropertyChanged}" />

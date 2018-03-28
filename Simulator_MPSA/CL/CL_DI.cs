@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
+using System.Xml.Serialization;
 namespace Simulator_MPSA.CL
 {
     // -------------------------------------------------------------------------------------------------
@@ -25,27 +26,62 @@ namespace Simulator_MPSA.CL
             get
             {
                 if (_plcaddr == 0)
-                    _plcaddr = Sett.Instance.BegAddrW + indxW + 1;
+                {
+                    switch (_buffer)
+                    {
+                        case BufType.USO: _plcaddr = Sett.Instance.BegAddrW + indxW + 1; break;
+                        case BufType.A3: _plcaddr = Sett.Instance.iBegAddrA3 + indxW + 1; break;
+                        case BufType.A4: _plcaddr = Sett.Instance.iBegAddrA4 + indxW + 1; break;
 
+                    }
+                }
+                    
+                
                 return _plcaddr;
             }
-            set { _plcaddr = value; OnPropertyChanged("PLCAddr"); }
+
+            set {
+                _plcaddr = value;
+                if ((_plcaddr > Sett.Instance.iBegAddrA3) && (_plcaddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
+                    Buffer = BufType.A3;
+
+                if ((_plcaddr > Sett.Instance.iBegAddrA4) && (_plcaddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                    Buffer = BufType.A4;
+
+                if ((_plcaddr > Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize)))
+                    Buffer = BufType.USO;
+
+                OnPropertyChanged("PLCAddr");
+            }
+        }
+
+        private BufType _buffer = BufType.USO;
+        [XmlIgnore]
+        public BufType Buffer
+        {
+            set { _buffer = value; OnPropertyChanged("Buffer"); }
+            get
+            {
+                return _buffer;
+            }
         }
 
         public int indxArrDI // index in AI
         { set; get; }
         public int indxBitDI
         { set; get; }
-        public int indxW
+        private int indxW
         { set; get; }
         public string TegDI
         { set; get; }
         public string NameDI
         { set; get; }
+        [XmlIgnore]
         public int Nsign
         { set; get; }
         public bool InvertDI
         { set; get; }
+        [XmlIgnore]
         public int DelayDI
         { set; get; }
         public DIStruct()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Xml.Serialization;
 namespace Simulator_MPSA.CL
 {
     /// <summary>
@@ -32,6 +32,7 @@ namespace Simulator_MPSA.CL
             set { _indxAI = value; OnPropertyChanged("indxAI"); }
         }
         private BufType _buffer;
+        [XmlIgnore]
         public BufType Buffer
         {
             get { return _buffer; }
@@ -79,7 +80,7 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// индекс в массиве буфера записи (WB.W)
         /// </summary>
-        public int indxW
+        private int indxW
         {
             get { return _indxW; }
             set { _indxW = value; OnPropertyChanged("indxW"); }

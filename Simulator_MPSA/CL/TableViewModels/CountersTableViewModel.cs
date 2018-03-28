@@ -9,8 +9,8 @@ namespace Simulator_MPSA.CL
     class CountersTableViewModel
     {
         
-        private static USOCounter[] _counters;
-        public static USOCounter[] Counters
+        private static ObservableCollection<USOCounter> _counters = new ObservableCollection<USOCounter>();
+        public static ObservableCollection<USOCounter> Counters
         {
             get { return _counters; }
             set { _counters = value; }
@@ -18,7 +18,10 @@ namespace Simulator_MPSA.CL
 
         public static void Init(USOCounter[] items)
         {
-            _counters = items;
+            _counters.Clear();
+            if (items != null && items.Length > 0)
+                foreach (USOCounter cnt in items)
+                    _counters.Add(cnt);
         }
     }
 }

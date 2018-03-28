@@ -614,5 +614,10 @@ namespace Simulator_MPSA
             AIStruct.items = AITableViewModel.Instance.AIs.ToArray();
         }
 
+        private void OnCounterTableChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            
+        }
+
     }
 }

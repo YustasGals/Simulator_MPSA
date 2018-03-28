@@ -14,7 +14,7 @@ namespace Simulator_MPSA
     class CL_ZD
     {
     }
-    public enum StateZD { Opening, Open, Middle, Closing, Close, Undef };
+    public enum StateZD { Opening, Open, Middle, Closing, Close, Undef, NoVolt };
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public class ZDStruct : INotifyPropertyChanged
@@ -47,7 +47,7 @@ namespace Simulator_MPSA
             get { return _stateZD; }
             set { _stateZD = value; OnPropertyChanged("StateZDRus"); }
         }
-
+        [XmlIgnore]
         public string StateZDRus
         {
             set { }
@@ -103,132 +103,145 @@ namespace Simulator_MPSA
 
             if (ZD_position_ai != null) ZD_position_ai.fValAI = _ZDProc;
 
-            if (volt !=null)
-                volt.ValDI = _En;
-
-            if (_stateZD == StateZD.Close)
-            {
-                //состояние - закрыто
-                if (OKC != null)
-                    OKC.ValDI = true;
-                if (CKC != null)
-                    CKC.ValDI = false;
-
-                //выключить МП после задержки
-                MPDelay -= dt;
-                if ((MPDelay < 0) && (CDC != null))
-                    CDC.ValDI = false;
-            }
-
-            //состояние - открыто
-            if (_stateZD == StateZD.Open)
-            {
-                //состояние - закрыто
-                if (OKC != null)
-                    OKC.ValDI = false;
-                if (CKC != null)
-                    CKC.ValDI = true;
-
-                //выключить МП после задержки
-                MPDelay -= dt;
-                if ((MPDelay < 0) && (ODC != null))
-                    ODC.ValDI = false;
-            }
-
-            //состояние -открывается
-            if (_stateZD == StateZD.Opening)
-            {
-                
-
-                ZDProc += dt / TmoveZD * 100;
-
-                if (ZDProc >= 100f)
-                {
-                    StateZD = StateZD.Open;
-                    ZDProc = 100f;
-
-                    MPDelay = MPDelay_timeout;
-                    //отключить мпо
-                    //    if (ODC != null) ODC.ValDI = false;
-                }
-                else
-                {
-                    //включить МПО
-                    if (ODC != null) ODC.ValDI = true;
-                    //вкл концевики
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = true;
-                }
-            }
-
-            //состояние -закрывается
-            if (_stateZD == StateZD.Closing)
-            {
-                
-
-                ZDProc -= dt / TmoveZD * 100;
-
-                if (ZDProc <= 0f)
-                {
-                    StateZD = StateZD.Close;
-                    ZDProc = 0f;
-                    MPDelay = MPDelay_timeout;
-                    //отключить мпз
-                    //  if (CDC != null) CDC.ValDI = false;
-                }
-                else
-                {
-                    //включить МПЗ
-                    if (CDC != null) CDC.ValDI = true;
-                    //вкл концевики
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = true;
-                }
-            }
-
-            if (_stateZD == StateZD.Middle)
-            {
-                //отключить МП
-                if (CDC != null) CDC.ValDI = false;
-                if (ODC != null) ODC.ValDI = false;
-            }
-
-            //команда открыть
-            if ((DOB != null) && (DOB.ValDO))
-            {
-                //если закрыта или в промежутке
-                if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
-                {
-                    //вкл мпо
-                    StateZD = StateZD.Opening;                 
-                                       
-                }
-            }
-
-            //команда закрыть
-            if ((DKB != null) && (DKB.ValDO))
-            {
-                //если открыта или в промежутке
-                if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
-                {                   
-                    StateZD = StateZD.Closing;
-                }
-            }
-
-            //команда стоп
-            if ((DCB != null) && (DCB.ValDO))
+            //нет напряжения на секции шин
+            if (BS != null && BS.ValDI)
             {
                 if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
-                StateZD = StateZD.Middle;
-                //  {
-                //отключить МП
+                    StateZD = StateZD.Middle;
+
+                if (OKC != null) OKC.ValDI = false;
+                if (CKC != null) CKC.ValDI = false;
                 if (ODC != null) ODC.ValDI = false;
                 if (CDC != null) CDC.ValDI = false;
+                if (volt != null) volt.ValDI = false;
+                if (MC != null) MC.ValDI = false;
+            }
+            else
+            {
+                if (_stateZD == StateZD.Close)
+                {
+                    //состояние - закрыто
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = false;
 
+                    //выключить МП после задержки
+                    MPDelay -= dt;
+                    if ((MPDelay < 0) && (CDC != null))
+                        CDC.ValDI = false;
+                }
+
+                //состояние - открыто
+                if (_stateZD == StateZD.Open)
+                {
+                    //состояние - закрыто
+                    if (OKC != null)
+                        OKC.ValDI = false;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+
+                    //выключить МП после задержки
+                    MPDelay -= dt;
+                    if ((MPDelay < 0) && (ODC != null))
+                        ODC.ValDI = false;
+                }
+
+                //состояние -открывается
+                if (_stateZD == StateZD.Opening)
+                {
+
+
+                    ZDProc += dt / TmoveZD * 100;
+
+                    if (ZDProc >= 100f)
+                    {
+                        StateZD = StateZD.Open;
+                        ZDProc = 100f;
+
+                        MPDelay = MPDelay_timeout;
+                        //отключить мпо
+                        //    if (ODC != null) ODC.ValDI = false;
+                    }
+                    else
+                    {
+                        //включить МПО
+                        if (ODC != null) ODC.ValDI = true;
+                        //вкл концевики
+                        if (OKC != null)
+                            OKC.ValDI = true;
+                        if (CKC != null)
+                            CKC.ValDI = true;
+                    }
+                }
+
+                //состояние -закрывается
+                if (_stateZD == StateZD.Closing)
+                {
+
+
+                    ZDProc -= dt / TmoveZD * 100;
+
+                    if (ZDProc <= 0f)
+                    {
+                        StateZD = StateZD.Close;
+                        ZDProc = 0f;
+                        MPDelay = MPDelay_timeout;
+                        //отключить мпз
+                        //  if (CDC != null) CDC.ValDI = false;
+                    }
+                    else
+                    {
+                        //включить МПЗ
+                        if (CDC != null) CDC.ValDI = true;
+                        //вкл концевики
+                        if (OKC != null)
+                            OKC.ValDI = true;
+                        if (CKC != null)
+                            CKC.ValDI = true;
+                    }
+                }
+
+                if (_stateZD == StateZD.Middle)
+                {
+                    //отключить МП
+                    if (CDC != null) CDC.ValDI = false;
+                    if (ODC != null) ODC.ValDI = false;
+                }
+
+                //команда открыть
+                if ((DOB != null) && (DOB.ValDO))
+                {
+                    //если закрыта или в промежутке
+                    if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
+                    {
+                        //вкл мпо
+                        StateZD = StateZD.Opening;
+
+                    }
+                }
+
+                //команда закрыть
+                if ((DKB != null) && (DKB.ValDO))
+                {
+                    //если открыта или в промежутке
+                    if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
+                    {
+                        StateZD = StateZD.Closing;
+                    }
+                }
+
+                //команда стоп
+                if ((DCB != null) && (DCB.ValDO))
+                {
+                    if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
+                        StateZD = StateZD.Middle;
+                    //  {
+                    //отключить МП
+                    if (ODC != null) ODC.ValDI = false;
+                    if (CDC != null) CDC.ValDI = false;
+
+                }
             }
  
         }
@@ -480,6 +493,33 @@ namespace Simulator_MPSA
         }
         public bool ODCState { get { if (ODC != null) return ODC.ValDI; else return false; } set { } }
 
+
+        /// <summary>
+        /// наличие напряжения на секции шин
+        /// </summary>
+        private DIStruct BS;
+        public int _bsindex;
+        public int BSIndex
+        {
+            get { return _bsindex; }
+            set
+            {
+                _bsindex = value;
+                if (_bsindex > -1)
+                    BS = DIStruct.FindByIndex(_bsindex);
+
+            }
+        }
+        public string BSName
+        {
+            set { }
+            get
+            {
+                if (BS != null)
+                    return BS.NameDI;
+                else return "сигнал не назначен";
+            }
+        }
         /// <summary>
         /// сигнал от МПЗ
         /// </summary>
