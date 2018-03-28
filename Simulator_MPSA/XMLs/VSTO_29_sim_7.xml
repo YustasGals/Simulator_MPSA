@@ -8083,7 +8083,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>16514</PLCAddr>
       <indxArrDI>808</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -8423,7 +8423,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>16516</PLCAddr>
       <indxArrDI>842</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -8433,7 +8433,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>16516</PLCAddr>
       <indxArrDI>843</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -8963,7 +8963,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>16658</PLCAddr>
       <indxArrDI>896</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -8973,7 +8973,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>16658</PLCAddr>
       <indxArrDI>897</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -9923,7 +9923,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>16793</PLCAddr>
       <indxArrDI>992</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -10723,7 +10723,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>16956</PLCAddr>
       <indxArrDI>1072</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -11863,7 +11863,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>17207</PLCAddr>
       <indxArrDI>1186</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -11873,7 +11873,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>17207</PLCAddr>
       <indxArrDI>1187</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -12623,7 +12623,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>17297</PLCAddr>
       <indxArrDI>1262</indxArrDI>
       <indxBitDI>1</indxBitDI>
@@ -17283,7 +17283,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>18091</PLCAddr>
       <indxArrDI>1728</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -17293,7 +17293,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>18091</PLCAddr>
       <indxArrDI>1729</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -17353,7 +17353,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>18091</PLCAddr>
       <indxArrDI>1735</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -17363,7 +17363,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>18091</PLCAddr>
       <indxArrDI>1736</indxArrDI>
       <indxBitDI>7</indxBitDI>
@@ -24939,7 +24939,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>144</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25335,7 +25335,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>180</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -26303,7 +26303,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>268</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23571</PLCAddr>
@@ -26600,7 +26600,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>295</indxArrDO>
       <indxBitDO>8</indxBitDO>
       <PLCAddr>23621</PLCAddr>
@@ -26611,7 +26611,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>296</indxArrDO>
       <indxBitDO>7</indxBitDO>
       <PLCAddr>23621</PLCAddr>
@@ -26655,7 +26655,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>300</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23621</PLCAddr>
@@ -27359,7 +27359,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>364</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23721</PLCAddr>
@@ -28063,7 +28063,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>428</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23771</PLCAddr>
@@ -28767,7 +28767,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>492</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23821</PLCAddr>
@@ -28789,7 +28789,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>494</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <PLCAddr>23821</PLCAddr>
@@ -29471,7 +29471,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>556</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>23921</PLCAddr>
@@ -29559,7 +29559,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>564</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23922</PLCAddr>
@@ -29713,7 +29713,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>578</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23971</PLCAddr>
@@ -29779,7 +29779,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>584</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23971</PLCAddr>
@@ -30175,7 +30175,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>620</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>24021</PLCAddr>
@@ -30241,7 +30241,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>626</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>24022</PLCAddr>
@@ -30263,7 +30263,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>628</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>24022</PLCAddr>
@@ -35454,12 +35454,12 @@
       <PLCAddr>16894</PLCAddr>
       <TegAI>PT141</TegAI>
       <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-      <ValACD>12533</ValACD>
+      <ValACD>11883</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>8</fValAI>
+      <fValAI>7.39069128</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -35469,12 +35469,12 @@
       <PLCAddr>16895</PLCAddr>
       <TegAI>PT142</TegAI>
       <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-      <ValACD>12533</ValACD>
+      <ValACD>11893</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>8</fValAI>
+      <fValAI>7.4</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -35484,12 +35484,12 @@
       <PLCAddr>16896</PLCAddr>
       <TegAI>PT143</TegAI>
       <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-      <ValACD>12533</ValACD>
+      <ValACD>11893</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>8</fValAI>
+      <fValAI>7.4</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -35499,12 +35499,12 @@
       <PLCAddr>16897</PLCAddr>
       <TegAI>PT144</TegAI>
       <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-      <ValACD>12533</ValACD>
+      <ValACD>11893</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>15</maxPhis>
-      <fValAI>8</fValAI>
+      <fValAI>7.4</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42656,12 +42656,12 @@
       <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15294</PLCAddr>
       <NameAI>Задвижка 3М-1. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -42670,12 +42670,12 @@
       <PLCDestType>ADC</PLCDestType>
       <PLCAddr>15299</PLCAddr>
       <NameAI>Задвижка 3М-2. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43442,14 +43442,14 @@
     <KLStruct>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Open</State>
+      <State>Close</State>
       <Description>Заслонка подачи воздуха к осушителю МНА 003.2</Description>
       <Group>Group</Group>
       <DOBindxArrDO>578</DOBindxArrDO>
       <DKBindxArrDO>584</DKBindxArrDO>
       <OKCindxArrDI>1186</OKCindxArrDI>
       <CKCindxArrDI>1187</CKCindxArrDI>
-      <KLProc>100</KLProc>
+      <KLProc>0</KLProc>
     </KLStruct>
     <KLStruct>
       <TmoveKL>3</TmoveKL>
@@ -43610,14 +43610,14 @@
     <KLStruct>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Close</State>
+      <State>Open</State>
       <Description>Проходной регулирующий клапан КР1 системы оборотного охлаждения</Description>
       <Group>Group</Group>
       <DOBindxArrDO>374</DOBindxArrDO>
       <DKBindxArrDO>375</DKBindxArrDO>
       <OKCindxArrDI>843</OKCindxArrDI>
       <CKCindxArrDI>842</CKCindxArrDI>
-      <KLProc>0</KLProc>
+      <KLProc>100</KLProc>
     </KLStruct>
   </KLs>
   <MPNAs>
@@ -44006,6 +44006,8 @@
       <En>true</En>
       <Description>Пуско-резервный маслонасос МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>493</ABBindxArrDO>
       <ABOindxArrDO>492</ABOindxArrDO>
       <ECindxArrDI>1005</ECindxArrDI>
@@ -44023,6 +44025,8 @@
       <En>true</En>
       <Description>Пуско-резервный маслонасос МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>557</ABBindxArrDO>
       <ABOindxArrDO>556</ABOindxArrDO>
       <ECindxArrDI>1133</ECindxArrDI>
@@ -44040,6 +44044,8 @@
       <En>true</En>
       <Description>Пуско-резервный маслонасос МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>621</ABBindxArrDO>
       <ABOindxArrDO>620</ABOindxArrDO>
       <ECindxArrDI>1261</ECindxArrDI>
@@ -44057,6 +44063,8 @@
       <En>true</En>
       <Description>Пуско-резервный маслонасос МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>685</ABBindxArrDO>
       <ABOindxArrDO>684</ABOindxArrDO>
       <ECindxArrDI>1389</ECindxArrDI>
@@ -44074,6 +44082,8 @@
       <En>true</En>
       <Description>Насос Н1-1 системы рабочего масла МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>Исчезновение напряжения на СШ ВРУ АВОА МНА №003.1</BusSectionName>
       <ABBindxArrDO>145</ABBindxArrDO>
       <ABOindxArrDO>144</ABOindxArrDO>
       <ECindxArrDI>225</ECindxArrDI>
@@ -44091,6 +44101,8 @@
       <En>true</En>
       <Description>Насос Н2-1 системы рабочего масла МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>181</ABBindxArrDO>
       <ABOindxArrDO>180</ABOindxArrDO>
       <ECindxArrDI>325</ECindxArrDI>
@@ -44108,6 +44120,8 @@
       <En>true</En>
       <Description>Насос Н3-1 системы смазочного масла МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>147</ABBindxArrDO>
       <ABOindxArrDO>146</ABOindxArrDO>
       <ECindxArrDI>227</ECindxArrDI>
@@ -44125,6 +44139,8 @@
       <En>true</En>
       <Description>Насос Н4-1 системы смазочного масла МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>183</ABBindxArrDO>
       <ABOindxArrDO>182</ABOindxArrDO>
       <ECindxArrDI>327</ECindxArrDI>
@@ -44142,6 +44158,8 @@
       <En>true</En>
       <Description>Насос Н1-2 системы рабочего масла МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>177</ABBindxArrDO>
       <ABOindxArrDO>176</ABOindxArrDO>
       <ECindxArrDI>321</ECindxArrDI>
@@ -44159,6 +44177,8 @@
       <En>true</En>
       <Description>Насос Н2-2 системы рабочего масла МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>149</ABBindxArrDO>
       <ABOindxArrDO>148</ABOindxArrDO>
       <ECindxArrDI>229</ECindxArrDI>
@@ -44176,6 +44196,8 @@
       <En>true</En>
       <Description>Насос Н3-2 системы смазочного масла МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>179</ABBindxArrDO>
       <ABOindxArrDO>178</ABOindxArrDO>
       <ECindxArrDI>323</ECindxArrDI>
@@ -44193,6 +44215,8 @@
       <En>true</En>
       <Description>Насос Н4-2 системы смазочного масла МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>151</ABBindxArrDO>
       <ABOindxArrDO>150</ABOindxArrDO>
       <ECindxArrDI>231</ECindxArrDI>
@@ -44210,6 +44234,8 @@
       <En>true</En>
       <Description>Насос Н1-3 системы рабочего масла МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>209</ABBindxArrDO>
       <ABOindxArrDO>208</ABOindxArrDO>
       <ECindxArrDI>417</ECindxArrDI>
@@ -44227,6 +44253,8 @@
       <En>true</En>
       <Description>Насос Н2-3 системы рабочего масла МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>245</ABBindxArrDO>
       <ABOindxArrDO>244</ABOindxArrDO>
       <ECindxArrDI>485</ECindxArrDI>
@@ -44244,6 +44272,8 @@
       <En>true</En>
       <Description>Насос Н3-3 системы смазочного масла МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>211</ABBindxArrDO>
       <ABOindxArrDO>210</ABOindxArrDO>
       <ECindxArrDI>419</ECindxArrDI>
@@ -44261,6 +44291,8 @@
       <En>true</En>
       <Description>Насос Н4-3 системы смазочного масла МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>247</ABBindxArrDO>
       <ABOindxArrDO>246</ABOindxArrDO>
       <ECindxArrDI>487</ECindxArrDI>
@@ -44278,6 +44310,8 @@
       <En>true</En>
       <Description>Насос Н1-4 системы рабочего масла МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>241</ABBindxArrDO>
       <ABOindxArrDO>240</ABOindxArrDO>
       <ECindxArrDI>481</ECindxArrDI>
@@ -44295,6 +44329,8 @@
       <En>true</En>
       <Description>Насос Н2-4 системы рабочего масла МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>213</ABBindxArrDO>
       <ABOindxArrDO>212</ABOindxArrDO>
       <ECindxArrDI>421</ECindxArrDI>
@@ -44312,6 +44348,8 @@
       <En>true</En>
       <Description>Насос Н3-4 системы смазочного масла МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>243</ABBindxArrDO>
       <ABOindxArrDO>242</ABOindxArrDO>
       <ECindxArrDI>483</ECindxArrDI>
@@ -44329,6 +44367,8 @@
       <En>true</En>
       <Description>Насос Н4-4 системы смазочного масла МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>215</ABBindxArrDO>
       <ABOindxArrDO>214</ABOindxArrDO>
       <ECindxArrDI>423</ECindxArrDI>
@@ -44340,37 +44380,221 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Index>81</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>81</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16894</PLCAddr>
+            <TegAI>PT141</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
+            <ValACD>11883</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.39069128</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</AIName>
+          <ValueSpd>0.02</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>82</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>82</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16895</PLCAddr>
+            <TegAI>PT142</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</AIName>
+          <ValueSpd>0.02</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>83</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>83</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16896</PLCAddr>
+            <TegAI>PT143</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</AIName>
+          <ValueSpd>0.02</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>84</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>84</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16897</PLCAddr>
+            <TegAI>PT144</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</AIName>
+          <ValueSpd>0.02</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
       <En>true</En>
       <Description>Насос №1 системы затвора ТУ МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>837</BusSecIndex>
+      <BusSectionName>Наличие напряжения на 1СШ ЗЩСУ-1</BusSectionName>
       <ABBindxArrDO>481</ABBindxArrDO>
       <ABOindxArrDO>480</ABOindxArrDO>
       <ECindxArrDI>993</ECindxArrDI>
       <valueEC>0</valueEC>
       <MPCindxArrDI>992</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Index>81</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>81</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16894</PLCAddr>
+            <TegAI>PT141</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
+            <ValACD>11883</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.39069128</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</AIName>
+          <ValueSpd>0.01</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>82</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>82</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16895</PLCAddr>
+            <TegAI>PT142</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</AIName>
+          <ValueSpd>0.01</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>83</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>83</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16896</PLCAddr>
+            <TegAI>PT143</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</AIName>
+          <ValueSpd>0.01</ValueSpd>
+        </AnalogIOItem>
+        <AnalogIOItem>
+          <Index>84</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>7.4</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>84</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>16897</PLCAddr>
+            <TegAI>PT144</TegAI>
+            <NameAI>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
+            <ValACD>11893</ValACD>
+            <minACD>4000</minACD>
+            <maxACD>20000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>15</maxPhis>
+            <fValAI>7.4</fValAI>
+          </AI>
+          <AIName>МНА 003.1. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</AIName>
+          <ValueSpd>0.01</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
       <En>true</En>
       <Description>Насос №2 системы затвора ТУ МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>933</BusSecIndex>
+      <BusSectionName>Наличие напряжения на 2СШ ЗЩСУ-1</BusSectionName>
       <ABBindxArrDO>529</ABBindxArrDO>
       <ABOindxArrDO>528</ABOindxArrDO>
       <ECindxArrDI>1073</ECindxArrDI>
       <valueEC>0</valueEC>
       <MPCindxArrDI>1072</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -44380,6 +44604,8 @@
       <En>true</En>
       <Description>Насос №1 системы затвора ТУ МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>837</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>545</ABBindxArrDO>
       <ABOindxArrDO>544</ABOindxArrDO>
       <ECindxArrDI>1121</ECindxArrDI>
@@ -44397,6 +44623,8 @@
       <En>true</En>
       <Description>Насос №2 системы затвора ТУ МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>933</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>593</ABBindxArrDO>
       <ABOindxArrDO>592</ABOindxArrDO>
       <ECindxArrDI>1201</ECindxArrDI>
@@ -44414,6 +44642,8 @@
       <En>true</En>
       <Description>Насос №1 системы затвора ТУ МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>933</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>609</ABBindxArrDO>
       <ABOindxArrDO>608</ABOindxArrDO>
       <ECindxArrDI>1249</ECindxArrDI>
@@ -44431,6 +44661,8 @@
       <En>true</En>
       <Description>Насос №2 системы затвора ТУ МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>837</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>657</ABBindxArrDO>
       <ABOindxArrDO>656</ABOindxArrDO>
       <ECindxArrDI>1329</ECindxArrDI>
@@ -44448,6 +44680,8 @@
       <En>true</En>
       <Description>Насос №1 системы затвора ТУ МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>933</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>673</ABBindxArrDO>
       <ABOindxArrDO>672</ABOindxArrDO>
       <ECindxArrDI>1377</ECindxArrDI>
@@ -44465,6 +44699,8 @@
       <En>true</En>
       <Description>Насос №2 системы затвора ТУ МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>837</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>721</ABBindxArrDO>
       <ABOindxArrDO>720</ABOindxArrDO>
       <ECindxArrDI>1457</ECindxArrDI>
@@ -44482,6 +44718,8 @@
       <En>true</En>
       <Description>Питание блока взрывозащиты ЭД МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>503</ABBindxArrDO>
       <ABOindxArrDO>502</ABOindxArrDO>
       <ECindxArrDI>1015</ECindxArrDI>
@@ -44499,6 +44737,8 @@
       <En>true</En>
       <Description>Питание блока взрывозащиты ЭД МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>567</ABBindxArrDO>
       <ABOindxArrDO>566</ABOindxArrDO>
       <ECindxArrDI>1143</ECindxArrDI>
@@ -44516,6 +44756,8 @@
       <En>true</En>
       <Description>Питание блока взрывозащиты ЭД МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>631</ABBindxArrDO>
       <ABOindxArrDO>630</ABOindxArrDO>
       <ECindxArrDI>1271</ECindxArrDI>
@@ -44533,6 +44775,8 @@
       <En>true</En>
       <Description>Питание блока взрывозащиты ЭД МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>695</ABBindxArrDO>
       <ABOindxArrDO>694</ABOindxArrDO>
       <ECindxArrDI>1399</ECindxArrDI>
@@ -44550,6 +44794,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура А МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>483</ABBindxArrDO>
       <ABOindxArrDO>482</ABOindxArrDO>
       <ECindxArrDI>995</ECindxArrDI>
@@ -44567,6 +44813,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура В МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>531</ABBindxArrDO>
       <ABOindxArrDO>530</ABOindxArrDO>
       <ECindxArrDI>1075</ECindxArrDI>
@@ -44584,6 +44832,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура А МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>547</ABBindxArrDO>
       <ABOindxArrDO>546</ABOindxArrDO>
       <ECindxArrDI>1123</ECindxArrDI>
@@ -44601,6 +44851,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура В МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>595</ABBindxArrDO>
       <ABOindxArrDO>594</ABOindxArrDO>
       <ECindxArrDI>1203</ECindxArrDI>
@@ -44618,6 +44870,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура А МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>611</ABBindxArrDO>
       <ABOindxArrDO>610</ABOindxArrDO>
       <ECindxArrDI>1251</ECindxArrDI>
@@ -44635,6 +44889,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура В МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>659</ABBindxArrDO>
       <ABOindxArrDO>658</ABOindxArrDO>
       <ECindxArrDI>1331</ECindxArrDI>
@@ -44652,6 +44908,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура А МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>675</ABBindxArrDO>
       <ABOindxArrDO>674</ABOindxArrDO>
       <ECindxArrDI>1379</ECindxArrDI>
@@ -44669,6 +44927,8 @@
       <En>true</En>
       <Description>Подпорный вентилятор контура В МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>723</ABBindxArrDO>
       <ABOindxArrDO>722</ABOindxArrDO>
       <ECindxArrDI>1459</ECindxArrDI>
@@ -44686,6 +44946,8 @@
       <En>true</En>
       <Description>Вентилятор системы осушки воздуха МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>485</ABBindxArrDO>
       <ABOindxArrDO>484</ABOindxArrDO>
       <ECindxArrDI>997</ECindxArrDI>
@@ -44703,6 +44965,8 @@
       <En>true</En>
       <Description>Вентилятор системы осушки воздуха МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>549</ABBindxArrDO>
       <ABOindxArrDO>548</ABOindxArrDO>
       <ECindxArrDI>1125</ECindxArrDI>
@@ -44720,6 +44984,8 @@
       <En>true</En>
       <Description>Вентилятор системы осушки воздуха МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>613</ABBindxArrDO>
       <ABOindxArrDO>612</ABOindxArrDO>
       <ECindxArrDI>1253</ECindxArrDI>
@@ -44737,6 +45003,8 @@
       <En>true</En>
       <Description>Вентилятор системы осушки воздуха МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>677</ABBindxArrDO>
       <ABOindxArrDO>676</ABOindxArrDO>
       <ECindxArrDI>1381</ECindxArrDI>
@@ -44754,6 +45022,8 @@
       <En>true</En>
       <Description>Осушитель контура А МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>487</ABBindxArrDO>
       <ABOindxArrDO>486</ABOindxArrDO>
       <ECindxArrDI>999</ECindxArrDI>
@@ -44771,6 +45041,8 @@
       <En>true</En>
       <Description>Осушитель контура В МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>533</ABBindxArrDO>
       <ABOindxArrDO>532</ABOindxArrDO>
       <ECindxArrDI>1077</ECindxArrDI>
@@ -44788,6 +45060,8 @@
       <En>true</En>
       <Description>Осушитель контура А МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>551</ABBindxArrDO>
       <ABOindxArrDO>550</ABOindxArrDO>
       <ECindxArrDI>1127</ECindxArrDI>
@@ -44805,6 +45079,8 @@
       <En>true</En>
       <Description>Осушитель контура В МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>597</ABBindxArrDO>
       <ABOindxArrDO>596</ABOindxArrDO>
       <ECindxArrDI>1205</ECindxArrDI>
@@ -44822,6 +45098,8 @@
       <En>true</En>
       <Description>Осушитель контура А МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>615</ABBindxArrDO>
       <ABOindxArrDO>614</ABOindxArrDO>
       <ECindxArrDI>1255</ECindxArrDI>
@@ -44839,6 +45117,8 @@
       <En>true</En>
       <Description>Осушитель контура В МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>661</ABBindxArrDO>
       <ABOindxArrDO>660</ABOindxArrDO>
       <ECindxArrDI>1333</ECindxArrDI>
@@ -44856,6 +45136,8 @@
       <En>true</En>
       <Description>Осушитель контура А МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>679</ABBindxArrDO>
       <ABOindxArrDO>678</ABOindxArrDO>
       <ECindxArrDI>1383</ECindxArrDI>
@@ -44873,6 +45155,8 @@
       <En>true</En>
       <Description>Осушитель контура В МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>725</ABBindxArrDO>
       <ABOindxArrDO>724</ABOindxArrDO>
       <ECindxArrDI>1461</ECindxArrDI>
@@ -44890,6 +45174,8 @@
       <En>true</En>
       <Description>Нагреватель системы осушки воздуха МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>509</ABBindxArrDO>
       <ABOindxArrDO>508</ABOindxArrDO>
       <ECindxArrDI>1017</ECindxArrDI>
@@ -44907,6 +45193,8 @@
       <En>true</En>
       <Description>Нагреватель системы осушки воздуха МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>573</ABBindxArrDO>
       <ABOindxArrDO>572</ABOindxArrDO>
       <ECindxArrDI>1145</ECindxArrDI>
@@ -44924,6 +45212,8 @@
       <En>true</En>
       <Description>Нагреватель системы осушки воздуха МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>637</ABBindxArrDO>
       <ABOindxArrDO>636</ABOindxArrDO>
       <ECindxArrDI>1273</ECindxArrDI>
@@ -44941,6 +45231,8 @@
       <En>true</En>
       <Description>Нагреватель системы осушки воздуха МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>701</ABBindxArrDO>
       <ABOindxArrDO>700</ABOindxArrDO>
       <ECindxArrDI>1401</ECindxArrDI>
@@ -44958,6 +45250,8 @@
       <En>true</En>
       <Description>Нагреватель на входе подпорной установки МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>489</ABBindxArrDO>
       <ABOindxArrDO>488</ABOindxArrDO>
       <ECindxArrDI>1001</ECindxArrDI>
@@ -44975,6 +45269,8 @@
       <En>true</En>
       <Description>Нагреватель на входе подпорной установки МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>553</ABBindxArrDO>
       <ABOindxArrDO>552</ABOindxArrDO>
       <ECindxArrDI>1129</ECindxArrDI>
@@ -44992,6 +45288,8 @@
       <En>true</En>
       <Description>Нагреватель на входе подпорной установки МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>617</ABBindxArrDO>
       <ABOindxArrDO>616</ABOindxArrDO>
       <ECindxArrDI>1257</ECindxArrDI>
@@ -45009,6 +45307,8 @@
       <En>true</En>
       <Description>Нагреватель на входе подпорной установки МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>681</ABBindxArrDO>
       <ABOindxArrDO>680</ABOindxArrDO>
       <ECindxArrDI>1385</ECindxArrDI>
@@ -45026,6 +45326,8 @@
       <En>true</En>
       <Description>Антиконденсационный подогреватель МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>501</ABBindxArrDO>
       <ABOindxArrDO>500</ABOindxArrDO>
       <ECindxArrDI>1013</ECindxArrDI>
@@ -45043,6 +45345,8 @@
       <En>true</En>
       <Description>Антиконденсационный подогреватель МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>565</ABBindxArrDO>
       <ABOindxArrDO>564</ABOindxArrDO>
       <ECindxArrDI>1141</ECindxArrDI>
@@ -45060,6 +45364,8 @@
       <En>true</En>
       <Description>Антиконденсационный подогреватель МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>629</ABBindxArrDO>
       <ABOindxArrDO>628</ABOindxArrDO>
       <ECindxArrDI>1269</ECindxArrDI>
@@ -45077,6 +45383,8 @@
       <En>true</En>
       <Description>Антиконденсационный подогреватель МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>693</ABBindxArrDO>
       <ABOindxArrDO>692</ABOindxArrDO>
       <ECindxArrDI>1397</ECindxArrDI>
@@ -45094,6 +45402,8 @@
       <En>true</En>
       <Description>Погружной нагреватель маслобака гидромуфты МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>495</ABBindxArrDO>
       <ABOindxArrDO>494</ABOindxArrDO>
       <ECindxArrDI>1007</ECindxArrDI>
@@ -45111,6 +45421,8 @@
       <En>true</En>
       <Description>Погружной нагреватель маслобака гидромуфты МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>559</ABBindxArrDO>
       <ABOindxArrDO>558</ABOindxArrDO>
       <ECindxArrDI>1135</ECindxArrDI>
@@ -45128,14 +45440,16 @@
       <En>true</En>
       <Description>Погружной нагреватель маслобака гидромуфты МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>623</ABBindxArrDO>
       <ABOindxArrDO>622</ABOindxArrDO>
       <ECindxArrDI>1263</ECindxArrDI>
       <valueEC>0</valueEC>
       <MPCindxArrDI>1262</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -45145,6 +45459,8 @@
       <En>true</En>
       <Description>Погружной нагреватель маслобака гидромуфты МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>687</ABBindxArrDO>
       <ABOindxArrDO>686</ABOindxArrDO>
       <ECindxArrDI>1391</ECindxArrDI>
@@ -45162,6 +45478,8 @@
       <En>true</En>
       <Description>ТЭН1-1 АВОА системы рабочего масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>153</ABBindxArrDO>
       <ABOindxArrDO>152</ABOindxArrDO>
       <ECindxArrDI>233</ECindxArrDI>
@@ -45179,6 +45497,8 @@
       <En>true</En>
       <Description>ТЭН1-2 АВОА системы рабочего масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>187</ABBindxArrDO>
       <ABOindxArrDO>186</ABOindxArrDO>
       <ECindxArrDI>331</ECindxArrDI>
@@ -45196,6 +45516,8 @@
       <En>true</En>
       <Description>ТЭН1-3 АВОА системы рабочего масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>217</ABBindxArrDO>
       <ABOindxArrDO>216</ABOindxArrDO>
       <ECindxArrDI>425</ECindxArrDI>
@@ -45213,6 +45535,8 @@
       <En>true</En>
       <Description>ТЭН1-4 АВОА системы рабочего масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>251</ABBindxArrDO>
       <ABOindxArrDO>250</ABOindxArrDO>
       <ECindxArrDI>491</ECindxArrDI>
@@ -45230,6 +45554,8 @@
       <En>true</En>
       <Description>ТЭН2-1 АВОА системы смазочного масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>218</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>185</ABBindxArrDO>
       <ABOindxArrDO>184</ABOindxArrDO>
       <ECindxArrDI>329</ECindxArrDI>
@@ -45247,6 +45573,8 @@
       <En>true</En>
       <Description>ТЭН2-2 АВОА системы смазочного масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>314</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>155</ABBindxArrDO>
       <ABOindxArrDO>154</ABOindxArrDO>
       <ECindxArrDI>235</ECindxArrDI>
@@ -45264,6 +45592,8 @@
       <En>true</En>
       <Description>ТЭН2-3 АВОА системы смазочного масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>410</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>249</ABBindxArrDO>
       <ABOindxArrDO>248</ABOindxArrDO>
       <ECindxArrDI>489</ECindxArrDI>
@@ -45281,6 +45611,8 @@
       <En>true</En>
       <Description>ТЭН2-4 АВОА системы смазочного масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>474</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>219</ABBindxArrDO>
       <ABOindxArrDO>218</ABOindxArrDO>
       <ECindxArrDI>427</ECindxArrDI>
@@ -45298,6 +45630,8 @@
       <En>true</En>
       <Description>Охладитель системы затвора ТУ МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>499</ABBindxArrDO>
       <ABOindxArrDO>498</ABOindxArrDO>
       <ECindxArrDI>1011</ECindxArrDI>
@@ -45315,6 +45649,8 @@
       <En>true</En>
       <Description>Охладитель системы затвора ТУ МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>563</ABBindxArrDO>
       <ABOindxArrDO>562</ABOindxArrDO>
       <ECindxArrDI>1139</ECindxArrDI>
@@ -45332,6 +45668,8 @@
       <En>true</En>
       <Description>Охладитель системы затвора ТУ МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>627</ABBindxArrDO>
       <ABOindxArrDO>626</ABOindxArrDO>
       <ECindxArrDI>1267</ECindxArrDI>
@@ -45349,6 +45687,8 @@
       <En>true</En>
       <Description>Охладитель системы затвора ТУ МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>839</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>691</ABBindxArrDO>
       <ABOindxArrDO>690</ABOindxArrDO>
       <ECindxArrDI>1395</ECindxArrDI>
@@ -45366,6 +45706,8 @@
       <En>true</En>
       <Description>Приточная установка П1.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>368</ABBindxArrDO>
       <ABOindxArrDO>369</ABOindxArrDO>
       <ECindxArrDI>836</ECindxArrDI>
@@ -45383,6 +45725,8 @@
       <En>true</En>
       <Description>Приточная установка П1.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>432</ABBindxArrDO>
       <ABOindxArrDO>433</ABOindxArrDO>
       <ECindxArrDI>932</ECindxArrDI>
@@ -45400,6 +45744,8 @@
       <En>true</En>
       <Description>Вытяжной вентилятор В1.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>367</ABBindxArrDO>
       <ABOindxArrDO>366</ABOindxArrDO>
       <ECindxArrDI>833</ECindxArrDI>
@@ -45417,6 +45763,8 @@
       <En>true</En>
       <Description>Вытяжной вентилятор В1.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>431</ABBindxArrDO>
       <ABOindxArrDO>430</ABOindxArrDO>
       <ECindxArrDI>929</ECindxArrDI>
@@ -45434,6 +45782,8 @@
       <En>true</En>
       <Description>Насос оборотного охлаждения Н1.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>365</ABBindxArrDO>
       <ABOindxArrDO>364</ABOindxArrDO>
       <ECindxArrDI>830</ECindxArrDI>
@@ -45451,6 +45801,8 @@
       <En>true</En>
       <Description>Насос оборотного охлаждения Н1.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>934</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>429</ABBindxArrDO>
       <ABOindxArrDO>428</ABOindxArrDO>
       <ECindxArrDI>926</ECindxArrDI>
@@ -45468,6 +45820,8 @@
       <En>true</En>
       <Description>Насос Н1 резервуара хранения масла</Description>
       <Group>Group</Group>
+      <BusSecIndex>838</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>440</ABBindxArrDO>
       <ABOindxArrDO>439</ABOindxArrDO>
       <ECindxArrDI>943</ECindxArrDI>
@@ -45485,6 +45839,8 @@
       <En>true</En>
       <Description>Насос откачки утечек Н1</Description>
       <Group>Group</Group>
+      <BusSecIndex>1777</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>269</ABBindxArrDO>
       <ABOindxArrDO>268</ABOindxArrDO>
       <ECindxArrDI>546</ECindxArrDI>
@@ -45502,6 +45858,8 @@
       <En>true</En>
       <Description>Насос откачки утечек Н2</Description>
       <Group>Group</Group>
+      <BusSecIndex>1753</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>301</ABBindxArrDO>
       <ABOindxArrDO>300</ABOindxArrDO>
       <ECindxArrDI>642</ECindxArrDI>
@@ -45519,6 +45877,8 @@
       <En>true</En>
       <Description>Хозяйственный насос 1Н</Description>
       <Group>Group</Group>
+      <BusSecIndex>759</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>271</ABBindxArrDO>
       <ABOindxArrDO>270</ABOindxArrDO>
       <ECindxArrDI>549</ECindxArrDI>
@@ -45536,6 +45896,8 @@
       <En>true</En>
       <Description>Хозяйственный насос 2Н</Description>
       <Group>Group</Group>
+      <BusSecIndex>759</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>303</ABBindxArrDO>
       <ABOindxArrDO>302</ABOindxArrDO>
       <ECindxArrDI>645</ECindxArrDI>
@@ -45553,6 +45915,8 @@
       <En>true</En>
       <Description>Хозяйственный насос 3Н</Description>
       <Group>Group</Group>
+      <BusSecIndex>759</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>333</ABBindxArrDO>
       <ABOindxArrDO>332</ABOindxArrDO>
       <ECindxArrDI>734</ECindxArrDI>
@@ -45570,6 +45934,8 @@
       <En>true</En>
       <Description>Насос артскважины Н1</Description>
       <Group>Group</Group>
+      <BusSecIndex>2078</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>928</ABBindxArrDO>
       <ABOindxArrDO>929</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45587,6 +45953,8 @@
       <En>true</En>
       <Description>Насос артскважины Н2</Description>
       <Group>Group</Group>
+      <BusSecIndex>2142</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>960</ABBindxArrDO>
       <ABOindxArrDO>961</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45604,6 +45972,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В1 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45621,6 +45991,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В2 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45638,6 +46010,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В3 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45655,6 +46029,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В4 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45672,6 +46048,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В5 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45689,6 +46067,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В6 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45706,6 +46086,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В7 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45723,6 +46105,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В8 МНА 003.1</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45740,6 +46124,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В1 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45757,6 +46143,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В2 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45774,6 +46162,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В3 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45791,6 +46181,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В4 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45808,6 +46200,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В5 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45825,6 +46219,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В6 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45842,6 +46238,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В7 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45859,6 +46257,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В8 МНА 003.2</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45876,6 +46276,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В1 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45893,6 +46295,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В2 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45910,6 +46314,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В3 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45927,6 +46333,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В4 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45944,6 +46352,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В5 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45961,6 +46371,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В6 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45978,6 +46390,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В7 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -45995,6 +46409,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В8 МНА 003.3</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46012,6 +46428,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В1 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46029,6 +46447,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В2 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46046,6 +46466,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В3 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46063,6 +46485,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В4 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46080,6 +46504,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В5 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46097,6 +46523,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В6 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46114,6 +46542,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В7 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46131,6 +46561,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА В8 МНА 003.4</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46148,6 +46580,8 @@
       <En>false</En>
       <Description>АВОА1 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46165,6 +46599,8 @@
       <En>false</En>
       <Description>АВОА2 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46182,6 +46618,8 @@
       <En>false</En>
       <Description>АВОА3 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46199,6 +46637,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА1 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46216,6 +46656,8 @@
       <En>false</En>
       <Description>Вентилятор В2 АВОА1 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46233,6 +46675,8 @@
       <En>false</En>
       <Description>Вентилятор В3 АВОА1 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46250,6 +46694,8 @@
       <En>false</En>
       <Description>Вентилятор В4 АВОА1 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46267,6 +46713,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА2 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46284,6 +46732,8 @@
       <En>false</En>
       <Description>Вентилятор В2 АВОА2 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46301,6 +46751,8 @@
       <En>false</En>
       <Description>Вентилятор В3 АВОА2 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46318,6 +46770,8 @@
       <En>false</En>
       <Description>Вентилятор В4 АВОА2 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46335,6 +46789,8 @@
       <En>false</En>
       <Description>Вентилятор АВОА3 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46352,6 +46808,8 @@
       <En>false</En>
       <Description>Вентилятор В2 АВОА3 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46369,6 +46827,8 @@
       <En>false</En>
       <Description>Вентилятор В3 АВОА3 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46386,6 +46846,8 @@
       <En>false</En>
       <Description>Вентилятор В4 АВОА3 системы охлаждения э/д МНА</Description>
       <Group>Group</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
       <ABBindxArrDO>-1</ABBindxArrDO>
       <ABOindxArrDO>-1</ABOindxArrDO>
       <ECindxArrDI>-1</ECindxArrDI>
@@ -46398,6 +46860,7 @@
   </VSs>
   <ZDs>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>560</ZD_Pos_index>
@@ -46417,6 +46880,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1540</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1541</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1542</DCindxArrDI>
@@ -46436,6 +46901,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>561</ZD_Pos_index>
@@ -46455,6 +46921,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1547</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1548</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1549</DCindxArrDI>
@@ -46474,6 +46942,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>562</ZD_Pos_index>
@@ -46493,6 +46962,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>1636</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1637</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1638</DCindxArrDI>
@@ -46512,6 +46983,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>563</ZD_Pos_index>
@@ -46531,6 +47003,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>1643</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1644</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1645</DCindxArrDI>
@@ -46550,10 +47024,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <_bsindex>0</_bsindex>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>564</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 3М-1. Положение затвора</PositionAIName>
       <DOBindxArrDO>800</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -46564,11 +47039,13 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1728</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1729</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1732</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1733</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1734</DCindxArrDI>
@@ -46579,8 +47056,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1731</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -46588,10 +47065,11 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <_bsindex>0</_bsindex>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>565</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 3М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>803</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -46602,11 +47080,13 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>1735</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>1736</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>1739</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1740</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1741</DCindxArrDI>
@@ -46617,8 +47097,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1738</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -46626,6 +47106,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>566</ZD_Pos_index>
@@ -46645,6 +47126,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1796</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1797</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1798</DCindxArrDI>
@@ -46664,6 +47147,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>567</ZD_Pos_index>
@@ -46683,6 +47167,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1803</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1804</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>1805</DCindxArrDI>
@@ -46702,6 +47188,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46721,6 +47208,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1844</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1845</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46740,6 +47229,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46759,6 +47249,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1828</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1829</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46778,6 +47270,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46797,6 +47290,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1932</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1933</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46816,6 +47311,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46835,6 +47331,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1940</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1941</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46854,6 +47352,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46873,6 +47372,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1836</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1837</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46892,6 +47393,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46911,6 +47413,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1948</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1949</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46930,6 +47434,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46949,6 +47454,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1924</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1925</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -46968,6 +47475,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -46987,6 +47495,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1956</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1957</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -47006,6 +47516,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47025,6 +47536,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>1852</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1853</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -47044,6 +47557,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47063,6 +47577,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>1964</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1965</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -47082,6 +47598,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47101,6 +47618,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>1860</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>1861</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>-1</DCindxArrDI>
@@ -47120,6 +47639,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47139,6 +47659,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>722</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>723</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>724</DCindxArrDI>
@@ -47158,6 +47680,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47177,6 +47700,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>538</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>539</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>540</DCindxArrDI>
@@ -47196,6 +47721,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>586</ZD_Pos_index>
@@ -47215,6 +47741,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>516</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>517</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>518</DCindxArrDI>
@@ -47234,6 +47762,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>587</ZD_Pos_index>
@@ -47253,6 +47782,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>523</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>524</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>525</DCindxArrDI>
@@ -47272,6 +47803,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>588</ZD_Pos_index>
@@ -47291,6 +47823,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>612</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>613</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>614</DCindxArrDI>
@@ -47310,6 +47844,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>589</ZD_Pos_index>
@@ -47329,6 +47864,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>619</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>620</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>621</DCindxArrDI>
@@ -47348,6 +47885,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>590</ZD_Pos_index>
@@ -47367,6 +47905,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>708</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>709</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>710</DCindxArrDI>
@@ -47386,6 +47926,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>591</ZD_Pos_index>
@@ -47405,6 +47946,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>715</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>716</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>717</DCindxArrDI>
@@ -47424,6 +47967,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47443,6 +47987,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>634</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>635</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>636</DCindxArrDI>
@@ -47462,6 +48008,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47481,6 +48028,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>530</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>531</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>532</DCindxArrDI>
@@ -47500,6 +48049,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47508,9 +48058,9 @@
       <DOBindxArrDO>294</DOBindxArrDO>
       <DOBState>false</DOBState>
       <DKBindxArrDO>295</DKBindxArrDO>
-      <DKBState>true</DKBState>
+      <DKBState>false</DKBState>
       <DCBindxArrDO>296</DCBindxArrDO>
-      <DCBState>false</DCBState>
+      <DCBState>true</DCBState>
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>622</OKCindxArrDI>
@@ -47519,6 +48069,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>626</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>627</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>628</DCindxArrDI>
@@ -47538,6 +48090,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47557,6 +48110,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>554</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>555</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>556</DCindxArrDI>
@@ -47576,6 +48131,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47595,6 +48151,8 @@
       <CKCState>true</CKCState>
       <ODCindxArrDI>650</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>651</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>652</DCindxArrDI>
@@ -47614,6 +48172,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47633,6 +48192,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>804</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>805</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>806</DCindxArrDI>
@@ -47652,7 +48213,8 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Middle</StateZD>
+      <_bsindex>0</_bsindex>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -47668,9 +48230,11 @@
       <OKCindxArrDI>807</OKCindxArrDI>
       <OKCState>true</OKCState>
       <CKCindxArrDI>808</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>811</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>812</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>813</DCindxArrDI>
@@ -47681,7 +48245,7 @@
       <MCState>false</MCState>
       <OPCindxArrDI>810</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>0.879999459</ZDProc>
+      <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
@@ -47690,7 +48254,8 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
-      <StateZD>Open</StateZD>
+      <_bsindex>0</_bsindex>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -47704,11 +48269,13 @@
       <DCBZindxArrDO>0</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>896</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>897</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>900</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>901</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>902</DCindxArrDI>
@@ -47719,8 +48286,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>899</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -47728,6 +48295,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47747,6 +48315,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>907</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>908</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>909</DCindxArrDI>
@@ -47766,6 +48336,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47785,6 +48356,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>914</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>915</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>916</DCindxArrDI>
@@ -47804,6 +48377,7 @@
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
+      <_bsindex>0</_bsindex>
       <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
@@ -47823,6 +48397,8 @@
       <CKCState>false</CKCState>
       <ODCindxArrDI>921</ODCindxArrDI>
       <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
       <CDCindxArrDI>922</CDCindxArrDI>
       <CDCState>false</CDCState>
       <DCindxArrDI>923</DCindxArrDI>
@@ -47867,7 +48443,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>7723</Value>
+      <Value>8906</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>УСО</Name>
     </USOCounter>
@@ -47888,7 +48464,7 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>7469</Value>
+      <Value>8652</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>счетчик сард</Name>
     </USOCounter>
@@ -48042,49 +48618,49 @@
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4840</Value>
+      <Value>6023</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>А5</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4842</Value>
+      <Value>6025</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>А5 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4846</Value>
+      <Value>6029</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>А6</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4820</Value>
+      <Value>6003</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>А6 рез</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4333</Value>
+      <Value>5516</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>САРД осн.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4408</Value>
+      <Value>5591</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>САРД рез.</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>4000</Value>
+      <Value>5183</Value>
       <PLCAddr>29024</PLCAddr>
       <Name>А5 МПСА -- А5 САРД</Name>
     </USOCounter>

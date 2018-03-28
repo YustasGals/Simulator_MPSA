@@ -332,86 +332,86 @@ namespace Simulator_MPSA
             if (_en)
             {
                 // нет напряжения на секции шин
-                if (BS != null)
-                    if (BS.ValDI == false)
-                    {
-                        if (MPC_DI != null) MPC_DI.ValDI = false;
-                        if (EC_DI != null) EC_DI.ValDI = false;
-                        if (PC_DI != null) PC_DI.ValDI = false;
-                        State = VSState.Stop;
-                    }
-
-                //команда включить - включить пускатель
-                if ((ABB!=null)&&(ABB.ValDO))
+                if ((BS != null) && (BS.ValDI == false))
                 {
-                    if ((state == VSState.Stop || state== VSState.Stoping) && (BS!=null && BS.ValDI==true ))
-                    {
-                        if (MPC_DI != null)
-                            MPC_DI.ValDI = true;
-
-                        State = VSState.Work;
-                    }
-                }
-
-                //команда выключить - отключить пускатель
-                if ((ABO != null) && (ABO.ValDO))
-                {
-                    if (State == VSState.Starting || State == VSState.Work)
-                    {
-                        if (MPC_DI != null)
-                            MPC_DI.ValDI = false;
-
-                        State = VSState.Stop;
-
-                        if (PC_DI != null) PC_DI.ValDI = false;
-
-                    }
-                }
-
-           
-
-                if (state == VSState.Work)
-                {
-                    /*if (PC_AI != null)
-                    {
-                        PC_AI.fValAI += (valuePC - PC_AI.fValAI + valuePC/10f) * valuePCspd * dt;
-                        if (PC_AI.fValAI > valuePC)
-                            PC_AI.fValAI = valuePC;
-                    }*/
-                    if (MPC_DI != null) MPC_DI.ValDI = true;
-                    if (controledAIs != null)
-                        foreach (AnalogIOItem analog in controledAIs)
-                        {
-                            if (analog.AI != null)
-                            {
-                                analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
-                                if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
-                            }
-                        }
-                }
-
-                if (state == VSState.Stop)
-                {
-                    /* if (PC_AI != null)
-                     {
-                         PC_AI.fValAI -= (PC_AI.fValAI + valuePC / 10f) * valuePCspd * dt;
-                         if (PC_AI.fValAI <=0)
-                             PC_AI.fValAI = 0;
-                     }*/
-                    //управление всеми аналогами
                     if (MPC_DI != null) MPC_DI.ValDI = false;
-                    if (controledAIs != null)
-                        foreach (AnalogIOItem analog in controledAIs)
-                        {
-                            if (analog.AI != null)
-                            {
-                                analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
-                                if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
-                            }
-                        }
+                    if (EC_DI != null) EC_DI.ValDI = false;
+                    if (PC_DI != null) PC_DI.ValDI = false;
+                    State = VSState.Stop;
                 }
+                else
+                {
+                    //команда включить - включить пускатель
+                    if ((ABB != null) && (ABB.ValDO))
+                    {
+                        if ((state == VSState.Stop || state == VSState.Stoping) && (BS != null && BS.ValDI == true))
+                        {
+                            if (MPC_DI != null)
+                                MPC_DI.ValDI = true;
 
-            }
+                            State = VSState.Work;
+                        }
+                    }
+
+                    //команда выключить - отключить пускатель
+                    if ((ABO != null) && (ABO.ValDO))
+                    {
+                        if (State == VSState.Starting || State == VSState.Work)
+                        {
+                            if (MPC_DI != null)
+                                MPC_DI.ValDI = false;
+
+                            State = VSState.Stop;
+
+                            if (PC_DI != null) PC_DI.ValDI = false;
+
+                        }
+                    }
+
+
+
+                    if (state == VSState.Work)
+                    {
+                        /*if (PC_AI != null)
+                        {
+                            PC_AI.fValAI += (valuePC - PC_AI.fValAI + valuePC/10f) * valuePCspd * dt;
+                            if (PC_AI.fValAI > valuePC)
+                                PC_AI.fValAI = valuePC;
+                        }*/
+                        if (MPC_DI != null) MPC_DI.ValDI = true;
+                        if (controledAIs != null)
+                            foreach (AnalogIOItem analog in controledAIs)
+                            {
+                                if (analog.AI != null)
+                                {
+                                    analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                    if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
+                                }
+                            }
+                    }
+
+                    if (state == VSState.Stop)
+                    {
+                        /* if (PC_AI != null)
+                         {
+                             PC_AI.fValAI -= (PC_AI.fValAI + valuePC / 10f) * valuePCspd * dt;
+                             if (PC_AI.fValAI <=0)
+                                 PC_AI.fValAI = 0;
+                         }*/
+                        //управление всеми аналогами
+                        if (MPC_DI != null) MPC_DI.ValDI = false;
+                        if (controledAIs != null)
+                            foreach (AnalogIOItem analog in controledAIs)
+                            {
+                                if (analog.AI != null)
+                                {
+                                    analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                    if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
+                                }
+                            }
+                    }
+                }//bs
+            }//en
             
 
         }

@@ -66,12 +66,17 @@ namespace Simulator_MPSA.CL
         {
             AIStruct item = e.Item as AIStruct;
 
-            if ((item != null) && (item.NameAI != null))
+            if (item != null)
             {
-                //if (item.NameAI.Contains(_nameFilter)) 
-                if (item.NameAI.ToLower().Contains(NameFilter.ToLower()))
-                    e.Accepted = true;
-                else e.Accepted = false;
+                if (item.NameAI != null)
+                {
+                    if (item.NameAI.ToLower().Contains(NameFilter.ToLower()))
+                        e.Accepted = true;
+                    else e.Accepted = false;
+                }
+                else
+                {
+                }
             }
         }
     }
