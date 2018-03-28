@@ -330,37 +330,19 @@ namespace Simulator_MPSA
             {
                
 
-               /* mbMasterW0 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterW1 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterW2 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-                mbMasterW3 = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));*/
-                //   mbMasterWLast = ModbusIpMaster.CreateIp(new TcpClient(Sett.Instance.HostName, Sett.Instance.MBPort));
-
-                // masterLoop = Task.Factory.StartNew(new Action(Update), cancellationToken);
-                /*   masterLoopR0 = Task.Factory.StartNew(new Action(UpdateR0), cancellationToken);
-                   masterLoopR1 = Task.Factory.StartNew(new Action(UpdateR1), cancellationToken);
-                   masterLoopR2 = Task.Factory.StartNew(new Action(UpdateR2), cancellationToken);
-                   masterLoopR3 = Task.Factory.StartNew(new Action(UpdateR3), cancellationToken);*/
-
-                /*         masterLoopW0 = Task.Factory.StartNew(new Action(UpdateW0), cancellationToken);
-                         masterLoopW1 = Task.Factory.StartNew(new Action(UpdateW1), cancellationToken);
-                         masterLoopW2 = Task.Factory.StartNew(new Action(UpdateW2), cancellationToken);
-                         masterLoopW3 = Task.Factory.StartNew(new Action(UpdateW3), cancellationToken);*/
-                //      masterLoopWLast = Task.Factory.StartNew(new Action(UpdateLast), cancellationToken);
-
                 rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                 rdThread.refMainWindow = this;
 
-                    wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                    wrThread.refMainWindow = this;
+                wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                wrThread.refMainWindow = this;
                 wrThread.Start();
 
                 readingTime = DateTime.Now;
-                    writingTime = DateTime.Now;
-
+                writingTime = DateTime.Now;
+                
                 watchThread = new Thread(new ThreadStart(Watchdog));
                 watchThread.Start();
-
+                
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
@@ -378,7 +360,7 @@ namespace Simulator_MPSA
         private void On_WritingCycleEnd()
         {
             TimeSpan ts = DateTime.Now - writingTime;
-            StatusW.Content = "Время записи: " + ts.ToString("F2");
+            StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
             writingTime = DateTime.Now;
         }
         //--------------------------------------------------------------------

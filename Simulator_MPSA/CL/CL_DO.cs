@@ -47,6 +47,17 @@ namespace Simulator_MPSA.CL
             set { _indxR = value; OnPropertyChanged("indxR"); }
         }
 
+        private int _plcaddr;
+        public int PLCAddr
+        {
+            get {
+                if (_plcaddr == 0)
+                    _plcaddr = Sett.Instance.BegAddrR + _indxR + 1;
+
+                return _plcaddr;
+            }
+            set { _plcaddr = value; OnPropertyChanged("PLCAddr"); }
+        }
 
         private string _TegDO = "";
         public string TegDO

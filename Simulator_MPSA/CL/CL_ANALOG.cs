@@ -54,7 +54,11 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public int PLCAddr
         {
-            get { return _plcAddr; }
+            get {
+                if (_plcAddr == 0)
+                    _plcAddr = indxW + Sett.Instance.BegAddrW + 1;
+                return _plcAddr;
+            }
             set {
                 _plcAddr = value;
 
@@ -147,7 +151,7 @@ namespace Simulator_MPSA.CL
             {
                 df = (fValAI - minPhis) / (maxPhis - minPhis);
             }
-            catch (Exception ex)
+            catch
             {
             }
             float dadc = ((float)maxACD - (float)minACD) * df;

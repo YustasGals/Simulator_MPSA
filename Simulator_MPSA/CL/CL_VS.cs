@@ -91,11 +91,11 @@ namespace Simulator_MPSA
         public bool changedDO;
 
         private int _ecindx = -1;
-        private bool _isECAnalog;
+     
         private float _valueEC;
 
         private int _MPCindxArrDI = -1;
-        private bool _isMPCanalog;
+        
         private float _valueMPC;
 
         /// <summary>
@@ -313,7 +313,7 @@ namespace Simulator_MPSA
             ABOindxArrDO = _ABOindxArrDO;
             ABBindxArrDO = _ABBindxArrDO;
         }
-        float PCOnTimeout = 0.0f;
+       
         /// <summary>
         /// обновление состояния вспомсистемы
         /// </summary>

@@ -18,6 +18,20 @@ namespace Simulator_MPSA.CL
         private bool _valDI;
         public bool ValDI
         { set { _valDI = value; OnPropertyChanged("ValDI"); }  get { return _valDI; } }
+
+        private int _plcaddr;
+        public int PLCAddr
+        {
+            get
+            {
+                if (_plcaddr == 0)
+                    _plcaddr = Sett.Instance.BegAddrW + indxW + 1;
+
+                return _plcaddr;
+            }
+            set { _plcaddr = value; OnPropertyChanged("PLCAddr"); }
+        }
+
         public int indxArrDI // index in AI
         { set; get; }
         public int indxBitDI

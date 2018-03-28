@@ -59,12 +59,14 @@ namespace Simulator_MPSA
 
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
         {
-            for (int i = 0; i < DOStruct.items.Length; i++)
+            foreach(DOStruct _do in DOStruct.items)
             {
-                bool res = GetBit(RB.R[DOStruct.items[i].indxR], DOStruct.items[i].indxBitDO);
-
-
-                DOStruct.items[i].ValDO = DOStruct.items[i].InvertDO ? !res : res;
+                int indx = _do.PLCAddr - Sett.Instance.BegAddrR - 1;
+                if (indx > 0 && indx < RB.R.Length)
+                {
+                    bool res = GetBit(RB.R[_do.indxR], _do.indxBitDO);
+                    _do.ValDO = _do.InvertDO ? !res : res;
+                }
             }
         }
         public bool GetBit(ushort b, int bitNumber)

@@ -150,9 +150,9 @@ namespace Simulator_MPSA.CL
             WB.W_a3_prev = new ushort[WB.W_a3.Length];*/
             WB.InitBuffers(Sett.Instance);
 
-            AIStruct.items = new AIStruct[Sett.Instance.NAI];
+            //AIStruct.items = new AIStruct[Sett.Instance.NAI];
             //ZDs = new ZDStruct[settings.NZD];
-            DOStruct.items = new DOStruct[Sett.Instance.NDO * 32];
+            //DOStruct.items = new DOStruct[Sett.Instance.NDO * 32];
             //ZDs = new ZDStruct[settings.NZD];
             /* KLStruct.KLs = new KLStruct[Sett.Instance.NKL];
              VSStruct.VSs = new VSStruct[Sett.Instance.NVS];

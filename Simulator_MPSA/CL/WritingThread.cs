@@ -11,7 +11,7 @@ using Modbus.Device;
 
 namespace Simulator_MPSA
 {
-    class WritingThread
+    public class WritingThread
     {
         bool paused = false;
         public bool Paused
@@ -19,7 +19,7 @@ namespace Simulator_MPSA
             get { return paused; }
             set { paused = value; }
         }
-        public MainWindow refMainWindow;
+        public MainWindow refMainWindow=null;
 
         DateTime prevCycleTime;
 
@@ -144,10 +144,19 @@ namespace Simulator_MPSA
                 {
                     if (di.En)
                     {
+                        int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
+                        if (indx > 0 && indx < WB.W.Length)
+
                         if (di.InvertDI)
-                            SetBit(ref (WB.W[(di.indxW)]), (di.indxBitDI), !(di.ValDI));
-                        else 
-                            SetBit(ref (WB.W[(di.indxW)]), (di.indxBitDI), (di.ValDI));
+                        {
+                            
+                            SetBit(ref (WB.W[indx]), (di.indxBitDI), !(di.ValDI));
+                        }
+                        else
+                        {
+                    
+                            SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), (di.ValDI));
+                        }
                     }
                 }
 
@@ -176,10 +185,10 @@ namespace Simulator_MPSA
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
                 prevCycleTime = DateTime.Now;
                 //------------------- сигнализируем о завершении цикла ---------------------------------
-             //   if (refMainWindow != null)              
-             //       refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+                if (refMainWindow != null)              
+                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
 
-                Debug.WriteLine("W0 time = " + dt_sec.ToString());
+              //  Debug.WriteLine("W0 time = " + dt_sec.ToString());
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
 
                 isFirstCycle = false;
@@ -214,15 +223,9 @@ namespace Simulator_MPSA
                 {
                     Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                     Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                    try
-                    {
-                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                    }
-                    catch (Exception ex)
-                    {
-                        if (refMainWindow!=null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
-                    }
+                 
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                   
                 }
                 else
                     Debug.WriteLine("skip");
@@ -238,24 +241,18 @@ namespace Simulator_MPSA
                     if (WB.W_a3[i_reg] != WB.W_a3_prev[i_reg])
                     {
                         isChanged = true;
-                        WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                       // break;
+                      //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                        break;
                     }
                 }
 
                 if (isChanged || isFirstCycle)
                 {
 
+                    Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
                     Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
-                    try
-                    {
-                        mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                    }
-                    catch (Exception ex)
-                    {
-                        if (refMainWindow!=null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.delegateDisconnected);
-                    }
+
+                    mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
                 }
                 else
                     Debug.WriteLine("skip");

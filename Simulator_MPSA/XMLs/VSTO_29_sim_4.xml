@@ -52053,17 +52053,9 @@
     <MBPort>502</MBPort>
     <BegAddrW>15099</BegAddrW>
     <BegAddrR>23169</BegAddrR>
-    <NWrTask>4</NWrTask>
     <TPause>50</TPause>
     <NRackBeg>3</NRackBeg>
-    <NRackEnd>29</NRackEnd>
-    <NAI>1024</NAI>
-    <NZD>64</NZD>
-    <NDO>64</NDO>
-    <NKL>64</NKL>
-    <NVS>256</NVS>
-    <NMPNA>16</NMPNA>
-    <NDI>128</NDI>
+    <NRackEnd>29</NRackEnd>   
     <iBegAddrA3>28849</iBegAddrA3>
     <iBegAddrA4>29474</iBegAddrA4>
     <A3BufSize>600</A3BufSize>

@@ -61,7 +61,7 @@ namespace Simulator_MPSA {
             items.Add("HostName", new SettingsItem("IP", "192.168.201.1",typeof(String)));
             items.Add("MBPort", new SettingsItem("Порт", 502,typeof(int)));
             items.Add("TPause", new SettingsItem("TPause", 50, typeof(int)));
-            items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
+           // items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
             items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1, typeof(int)));
             items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1, typeof(int)));
             items.Add("iBegAddrA4", new SettingsItem("iBegAddrA4", 29475 - 1, typeof(int)));
@@ -72,13 +72,13 @@ namespace Simulator_MPSA {
 
             items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
             items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
-            items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
+         /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
             items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
             items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
             items.Add("nZD", new SettingsItem("nZD", 64, typeof(int)));
             items.Add("nKL", new SettingsItem("nKL", 64, typeof(int)));
             items.Add("nVS", new SettingsItem("nVS", 256, typeof(int)));
-            items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));
+            items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));*/
         }
         public string HostName
         {
@@ -100,14 +100,7 @@ namespace Simulator_MPSA {
             get { return (int)items["iBegAddrR"].value; }
             set { items["iBegAddrR"].value = value; }
         }
-        /// <summary>
-        /// количество потоков на запись
-        /// </summary>
-        public int NWrTask
-        {
-            get { return (int)items["nWrTask"].value; }
-            set { items["nWrTask"].value = value; }
-        }
+      
         /// <summary>
         /// задержка мсек
         /// </summary>
@@ -126,41 +119,7 @@ namespace Simulator_MPSA {
             get { return (int)items["iNRackEnd"].value;  }
             set { items["iNRackEnd"].value = value; }
         }
-        public int NAI
-        {
-            get { return (int)items["nAI"].value; }
-            set { items["nAI"].value = value; }
-        }
-        public int NZD
-        {
-            get { return (int)items["nZD"].value; }
-            set { items["nZD"].value = value; }
-        }
-        public int NDO
-        {
-            get { return (int)items["nDO"].value; }
-            set { items["nDO"].value = value; }
-        }
-        public int NKL
-        {
-            get { return (int)items["nKL"].value; }
-            set { items["nKL"].value = value; }
-        }
-        public int NVS
-        {
-            get { return (int)items["nVS"].value; }
-            set { items["nVS"].value = value; }
-        }
-        public int NMPNA
-        {
-            get { return (int)items["nMPNA"].value; }
-            set { items["nMPNA"].value = value; }
-        }
-        public int NDI
-        {
-            get { return (int)items["nDI"].value; }
-            set { items["nDI"].value = value; }
-        }
+    
         public int iBegAddrA3
         {
             get { return (int)items["iBegAddrA3"].value;  }
