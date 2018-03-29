@@ -63,7 +63,8 @@ namespace Simulator_MPSA.CL
         }
 
         public CollectionViewSource viewSource = new CollectionViewSource();
-
+        public string tagFilter = "";
+        public bool hideEmpty=false;
         private string _nameFilter = "";
         public string NameFilter
         {
@@ -93,5 +94,28 @@ namespace Simulator_MPSA.CL
                     e.Accepted = false;
             
         }
+        public void ApplyFilter()
+        {
+
+            viewSource.Filter += new FilterEventHandler(Filter_Func);
+        }
+        private void Filter_Func(object sender, FilterEventArgs e)
+        {
+            DOStruct item = e.Item as DOStruct;
+
+            if (item != null)
+            {
+                if (item.NameDO == "")
+                    e.Accepted = !hideEmpty;
+                else
+                {
+                    if ((item.NameDO.ToLower().Contains(_nameFilter.ToLower())) && (item.TegDO.ToLower().Contains(tagFilter.ToLower())))
+                        e.Accepted = true;
+                    else
+                        e.Accepted = false;
+                }
+            }
+        }
+
     }
 }

@@ -47,6 +47,7 @@ namespace Simulator_MPSA.CL
 
             viewSource.Source = _AIs;
             viewSource.Filter += new FilterEventHandler(Name_Filter);
+            viewSource.IsLiveFilteringRequested = true;
         }
 
         public CollectionViewSource viewSource = new CollectionViewSource();
@@ -58,12 +59,32 @@ namespace Simulator_MPSA.CL
             set
             {
                 _nameFilter = value;
-                viewSource.LiveFilteringProperties.Clear();
-                viewSource.LiveFilteringProperties.Add(_nameFilter);
+             //   ApplyFilter();
             }
         }
+        private string _tagFilter = "";
+        public string TagFilter
+        {
+            get { return _tagFilter; }
+            set
+            {
+                _tagFilter = value;
+            //   ApplyFilter();
+            }
+        }
+
+        public void ApplyFilter()
+        {
+           
+            viewSource.Filter += new FilterEventHandler(Filter_Func);
+        }
+        /// <summary>
+        /// скрывать пустые поля
+        /// </summary>
+        public bool hideEmpty=false;
         private void Name_Filter(object sender, FilterEventArgs e)
         {
+     
             AIStruct item = e.Item as AIStruct;
 
             if (item != null)
@@ -74,9 +95,50 @@ namespace Simulator_MPSA.CL
                         e.Accepted = true;
                     else e.Accepted = false;
                 }
+            }
+        }
+
+        private void Empty_Filter(object sender, FilterEventArgs e)
+        {
+
+            AIStruct item = e.Item as AIStruct;
+
+            if (item != null)
+            {
+                if (item.NameAI == null)
+                    e.Accepted = !hideEmpty;
+                else e.Accepted = true;
+            }
+        }
+
+        private void Tag_Filter(object sender, FilterEventArgs e)
+        {
+            AIStruct item = e.Item as AIStruct;
+
+            if (item != null)
+            {
+                if (item.TegAI != null)
+                {
+                    if (item.TegAI.ToLower().Contains(_tagFilter.ToLower()))
+                        e.Accepted = true;
+                    else e.Accepted = false;
+                }
+            }
+        }
+        private void Filter_Func(object sender, FilterEventArgs e)
+        {
+            AIStruct item = e.Item as AIStruct;
+
+            if (item != null)
+            {
+                if (item.NameAI == "")
+                    e.Accepted = !hideEmpty;
                 else
                 {
-                    e.Accepted = false;
+                    if ((item.NameAI.ToLower().Contains(_nameFilter.ToLower())) && (item.TegAI.ToLower().Contains(_tagFilter.ToLower())))
+                        e.Accepted = true;
+                    else
+                        e.Accepted = false;
                 }
             }
         }

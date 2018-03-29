@@ -85,7 +85,10 @@ namespace Simulator_MPSA.CL
         public int DelayDI
         { set; get; }
         public DIStruct()
-        { }
+        {
+            TegDI = "";
+            NameDI = "";
+        }
         public DIStruct(bool En0 = false, bool ValDI0 = false, int indxArrDI0 = 0, int indxBitDI0 = 0 , int indxW0 = 0, string TegDI0 = "Teg",
                  string NameDI0 = "Name", int Nsign0 = 0 , bool InvertDI0 = false, int DelayDI0 = 0)
         {

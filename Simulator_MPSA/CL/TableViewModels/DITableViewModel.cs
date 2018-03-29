@@ -41,7 +41,7 @@ namespace Simulator_MPSA.CL
             DIs = DIViewModels;
 
             viewSource.Source = _DIs;
-            viewSource.Filter += new FilterEventHandler(DIs_Filter);
+          //viewSource.Filter += new FilterEventHandler(DIs_Filter);
         }
 
         public CollectionViewSource viewSource = new CollectionViewSource();
@@ -52,20 +52,56 @@ namespace Simulator_MPSA.CL
             set
             {
                 _nameFilter = value;
-                viewSource.LiveFilteringProperties.Clear();
-                viewSource.LiveFilteringProperties.Add(_nameFilter);
+              //  viewSource.LiveFilteringProperties.Clear();
+             //   viewSource.LiveFilteringProperties.Add(_nameFilter);
             }
                 }
-        private void DIs_Filter(object sender, FilterEventArgs e)
-        {
-            DIStruct di = e.Item as DIStruct;
-
-            if ((di != null) && (di.NameDI != null))
+        private string _tagFilter="";
+        public string TagFilter
+        { set
             {
+                _tagFilter = value;
+            }
+            get
+            {
+                return _tagFilter;
+            }
+        }
 
-                if (di.NameDI.ToLower().Contains(NameFilter.ToLower()))
-                    e.Accepted = true;
-                else e.Accepted = false;
+        public bool _hideEmpty=false;
+        public bool HideEmpty
+        { set
+            {
+                _hideEmpty = value;
+            }
+            get
+            {
+                return _hideEmpty;
+            }
+        }
+
+
+        public void ApplyFilter()
+        {
+            viewSource.Filter += new FilterEventHandler(Filter_Func);
+           
+        }
+
+        private void Filter_Func(object sender, FilterEventArgs e)
+        {
+            DIStruct item = e.Item as DIStruct;
+
+            if (item != null)
+            {
+                if (item.NameDI == "")
+                    e.Accepted = !_hideEmpty;
+                else
+                {
+                    if ((item.NameDI.ToLower().Contains(_nameFilter.ToLower())) && (item.TegDI.ToLower().Contains(_tagFilter.ToLower())))
+                        e.Accepted = true;
+                    else
+                        e.Accepted = false;
+                }
             }
         }
     }

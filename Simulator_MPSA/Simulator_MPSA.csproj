@@ -182,9 +182,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="XMLs\Simconfig.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="IMG\Simulator_MPSA.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -209,25 +206,10 @@
     <Resource Include="IMG\STOP.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="XMLs\AIsettings.xml" />
-    <Resource Include="XMLs\DIsettings.xml" />
-    <Resource Include="XMLs\DOsettings.xml" />
-    <Resource Include="XMLs\settings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XMLs\ZDsettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XMLs\KLsettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XMLs\VSsettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="XMLs\MPNAsettings.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="XMLs\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

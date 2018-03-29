@@ -476,19 +476,31 @@ namespace Simulator_MPSA
         private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
+            {
                 DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
+                DITableViewModel.Instance.TagFilter = textBoxDITagFilter.Text;
+                DITableViewModel.Instance.ApplyFilter();
+            }
         }
 
         private void textBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
+            {
                 AITableViewModel.Instance.NameFilter = textBoxAIFilter.Text;
+                AITableViewModel.Instance.TagFilter = textBoxAITagFilter.Text;
+                AITableViewModel.Instance.ApplyFilter();
+            }
         }
 
         private void textBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
+            {
                 DOTableViewModel.Instance.NameFilter = textBoxDOFilter.Text;
+                DOTableViewModel.Instance.tagFilter = textBoxDOTagFilter.Text;
+                DOTableViewModel.Instance.ApplyFilter();
+            }
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -619,5 +631,101 @@ namespace Simulator_MPSA
             
         }
 
+        private void hideEmptyAI_Checked(object sender, RoutedEventArgs e)
+        {
+            AITableViewModel.Instance.hideEmpty = true;
+            AITableViewModel.Instance.ApplyFilter();
+        }
+
+        private void hideEmptyAI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            AITableViewModel.Instance.hideEmpty = false;
+            AITableViewModel.Instance.ApplyFilter();
+        }
+        private bool IsConfigMode
+        {
+            get {return MenuItem_config.IsChecked; }
+        }
+        private void MenuItem_toggleConfigMode(object sender, RoutedEventArgs e)
+        {
+            MenuItem_config.IsChecked = !MenuItem_config.IsChecked;
+            if (!MenuItem_config.IsChecked)
+            {
+                DataGridAI_Addr.Visibility = Visibility.Hidden;
+                DataGridAI_Buf.Visibility = Visibility.Hidden;
+                DataGridAI_On.Visibility = Visibility.Hidden;
+                DataGridAI_Type.Visibility = Visibility.Hidden;
+                dataGridAI.IsManipulationEnabled = false;
+                dataGridAI.CanUserAddRows = false;
+                dataGridAI.CanUserDeleteRows = false;
+
+                tabSettings.Visibility = Visibility.Hidden;
+
+                dataGridDI_Addr.Visibility = Visibility.Hidden;
+                dataGridDI_Bit.Visibility = Visibility.Hidden;
+                dataGridDI_Buf.Visibility = Visibility.Hidden;
+                dataGridDI_Invert.Visibility = Visibility.Hidden;
+                dataGridDI_On.Visibility = Visibility.Hidden;
+
+                dataGridDO_Addr.Visibility = Visibility.Hidden;
+                dataGridDO_Bit.Visibility = Visibility.Hidden;
+                dataGridDO_invert.Visibility = Visibility.Hidden;
+                dataGridDO_On.Visibility = Visibility.Hidden;
+
+                dataGridCounters_addr.Visibility = Visibility.Hidden;
+                dataGridCounters_buf.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                DataGridAI_Addr.Visibility = Visibility.Visible;
+                DataGridAI_Buf.Visibility = Visibility.Visible;
+                DataGridAI_On.Visibility = Visibility.Visible;
+                DataGridAI_Type.Visibility = Visibility.Visible;
+                dataGridAI.IsManipulationEnabled = true;
+                dataGridAI.CanUserAddRows = true;
+                dataGridAI.CanUserDeleteRows = true;
+
+                tabSettings.Visibility = Visibility.Visible;
+
+                dataGridDI_Addr.Visibility = Visibility.Visible;
+                dataGridDI_Bit.Visibility = Visibility.Visible;
+                dataGridDI_Buf.Visibility = Visibility.Visible;
+                dataGridDI_Invert.Visibility = Visibility.Visible;
+                dataGridDI_On.Visibility = Visibility.Visible;
+
+                dataGridDO_Addr.Visibility = Visibility.Visible;
+                dataGridDO_Bit.Visibility = Visibility.Visible;
+                dataGridDO_invert.Visibility = Visibility.Visible;
+                dataGridDO_On.Visibility = Visibility.Visible;
+
+                dataGridCounters_addr.Visibility = Visibility.Visible;
+                dataGridCounters_buf.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void hideEmptyDI_Checked(object sender, RoutedEventArgs e)
+        {
+            DITableViewModel.Instance.HideEmpty = true;
+            DITableViewModel.Instance.ApplyFilter();
+        }
+
+        private void hideEmptyDI_Unchecked(object sender, RoutedEventArgs e)
+        {
+            DITableViewModel.Instance.HideEmpty = false;
+            DITableViewModel.Instance.ApplyFilter();
+        }
+
+        private void hideEmptyDO_Checked(object sender, RoutedEventArgs e)
+        {
+            DOTableViewModel.Instance.hideEmpty = true;
+            DOTableViewModel.Instance.ApplyFilter();
+
+        }
+
+        private void hideEmptyDO_Unchecked(object sender, RoutedEventArgs e)
+        {
+            DOTableViewModel.Instance.hideEmpty = false;
+            DOTableViewModel.Instance.ApplyFilter();
+        }
     }
 }

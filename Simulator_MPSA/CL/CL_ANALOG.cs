@@ -85,14 +85,14 @@ namespace Simulator_MPSA.CL
             get { return _indxW; }
             set { _indxW = value; OnPropertyChanged("indxW"); }
         }
-        private string _TegAI;
+        private string _TegAI="";
         public string TegAI
         {
             get { return _TegAI; }
             set { _TegAI = value; OnPropertyChanged("TegAI"); }
         }
 
-        private string _nameai;
+        private string _nameai="";
         public string NameAI
         {
             get {
