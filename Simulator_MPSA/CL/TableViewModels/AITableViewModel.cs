@@ -76,6 +76,7 @@ namespace Simulator_MPSA.CL
                 }
                 else
                 {
+                    e.Accepted = false;
                 }
             }
         }
