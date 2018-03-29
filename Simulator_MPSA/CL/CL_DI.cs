@@ -42,6 +42,7 @@ namespace Simulator_MPSA.CL
 
             set {
                 _plcaddr = value;
+                Buffer = BufType.Undefined;
                 if ((_plcaddr > Sett.Instance.iBegAddrA3) && (_plcaddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                     Buffer = BufType.A3;
 
@@ -88,6 +89,9 @@ namespace Simulator_MPSA.CL
         {
             TegDI = "";
             NameDI = "";
+            InvertDI = false;
+            En = true;
+            InvertDI = false;
         }
         public DIStruct(bool En0 = false, bool ValDI0 = false, int indxArrDI0 = 0, int indxBitDI0 = 0 , int indxW0 = 0, string TegDI0 = "Teg",
                  string NameDI0 = "Name", int Nsign0 = 0 , bool InvertDI0 = false, int DelayDI0 = 0)

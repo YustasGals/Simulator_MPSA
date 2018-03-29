@@ -115,6 +115,7 @@
     <Compile Include="CL\CL_VS.cs" />
     <Compile Include="CL\CL_ZD.cs" />
     <Compile Include="CL\TableViewModels\CountersTableViewModel.cs" />
+    <Compile Include="CL\TableViewModels\DiagTableModel.cs" />
     <Compile Include="CL\TableViewModels\DITableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DOTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />

@@ -158,7 +158,8 @@ namespace Simulator_MPSA
             delegateDisconnected += new DDisconnected(On_Disconnected);
             delegateEndRead += new DEndRead(On_ReadingCycleEnd);
 
-           // myDelegate += new ddd(On_WritingCycleEnd);
+            // myDelegate += new ddd(On_WritingCycleEnd);
+            SetConfigMode(false);
         }
 
 
@@ -247,9 +248,9 @@ namespace Simulator_MPSA
                     dataGridVS.DataContext = VSTableViewModel.Instance;
                     dataGridKL.DataContext = KLTableViewModel.Instance;
                     dataGridMPNA.DataContext = MPNATableViewModel.Instance;
-                    dataGridZD.DataContext = ZDTableViewModel.Instance; 
+                    dataGridZD.DataContext = ZDTableViewModel.Instance;
 
-                    
+                    dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
                 }
              
              //старый способ загрузки
@@ -646,36 +647,10 @@ namespace Simulator_MPSA
         {
             get {return MenuItem_config.IsChecked; }
         }
-        private void MenuItem_toggleConfigMode(object sender, RoutedEventArgs e)
+
+        void SetConfigMode(bool e)
         {
-            MenuItem_config.IsChecked = !MenuItem_config.IsChecked;
-            if (!MenuItem_config.IsChecked)
-            {
-                DataGridAI_Addr.Visibility = Visibility.Hidden;
-                DataGridAI_Buf.Visibility = Visibility.Hidden;
-                DataGridAI_On.Visibility = Visibility.Hidden;
-                DataGridAI_Type.Visibility = Visibility.Hidden;
-                dataGridAI.IsManipulationEnabled = false;
-                dataGridAI.CanUserAddRows = false;
-                dataGridAI.CanUserDeleteRows = false;
-
-                tabSettings.Visibility = Visibility.Hidden;
-
-                dataGridDI_Addr.Visibility = Visibility.Hidden;
-                dataGridDI_Bit.Visibility = Visibility.Hidden;
-                dataGridDI_Buf.Visibility = Visibility.Hidden;
-                dataGridDI_Invert.Visibility = Visibility.Hidden;
-                dataGridDI_On.Visibility = Visibility.Hidden;
-
-                dataGridDO_Addr.Visibility = Visibility.Hidden;
-                dataGridDO_Bit.Visibility = Visibility.Hidden;
-                dataGridDO_invert.Visibility = Visibility.Hidden;
-                dataGridDO_On.Visibility = Visibility.Hidden;
-
-                dataGridCounters_addr.Visibility = Visibility.Hidden;
-                dataGridCounters_buf.Visibility = Visibility.Hidden;
-            }
-            else
+            if (e)
             {
                 DataGridAI_Addr.Visibility = Visibility.Visible;
                 DataGridAI_Buf.Visibility = Visibility.Visible;
@@ -700,7 +675,50 @@ namespace Simulator_MPSA
 
                 dataGridCounters_addr.Visibility = Visibility.Visible;
                 dataGridCounters_buf.Visibility = Visibility.Visible;
+
+                dataGridDiag.CanUserAddRows = true;
+                dataGridDiag.CanUserDeleteRows = true;
+
+                dataGridDiag_Addr.Visibility = Visibility.Visible;
+                dataGridDiag_Bit.Visibility = Visibility.Visible;
             }
+            else
+            {
+                DataGridAI_Addr.Visibility = Visibility.Hidden;
+                DataGridAI_Buf.Visibility = Visibility.Hidden;
+                DataGridAI_On.Visibility = Visibility.Hidden;
+                DataGridAI_Type.Visibility = Visibility.Hidden;
+                dataGridAI.IsManipulationEnabled = false;
+                dataGridAI.CanUserAddRows = false;
+                dataGridAI.CanUserDeleteRows = false;
+
+                tabSettings.Visibility = Visibility.Collapsed;
+
+                dataGridDI_Addr.Visibility = Visibility.Hidden;
+                dataGridDI_Bit.Visibility = Visibility.Hidden;
+                dataGridDI_Buf.Visibility = Visibility.Hidden;
+                dataGridDI_Invert.Visibility = Visibility.Hidden;
+                dataGridDI_On.Visibility = Visibility.Hidden;
+
+                dataGridDO_Addr.Visibility = Visibility.Hidden;
+                dataGridDO_Bit.Visibility = Visibility.Hidden;
+                dataGridDO_invert.Visibility = Visibility.Hidden;
+                dataGridDO_On.Visibility = Visibility.Hidden;
+
+                dataGridCounters_addr.Visibility = Visibility.Hidden;
+                dataGridCounters_buf.Visibility = Visibility.Hidden;
+
+                dataGridDiag.CanUserAddRows = false;
+                dataGridDiag.CanUserDeleteRows = false;
+
+                dataGridDiag_Addr.Visibility = Visibility.Hidden;
+                dataGridDiag_Bit.Visibility = Visibility.Hidden;
+            }
+        }
+        private void MenuItem_toggleConfigMode(object sender, RoutedEventArgs e)
+        {
+            MenuItem_config.IsChecked = !MenuItem_config.IsChecked;
+            SetConfigMode(MenuItem_config.IsChecked);
         }
 
         private void hideEmptyDI_Checked(object sender, RoutedEventArgs e)
@@ -726,6 +744,15 @@ namespace Simulator_MPSA
         {
             DOTableViewModel.Instance.hideEmpty = false;
             DOTableViewModel.Instance.ApplyFilter();
+        }
+
+        private void textBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
+                DiagTableModel.Instance.ApplyFilter();
+            }
         }
     }
 }

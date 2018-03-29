@@ -43,7 +43,7 @@
             </MenuItem>
 
             <MenuItem x:Name="MenuItem_instr" Header="Инструменты" HorizontalAlignment="Right">
-                <MenuItem x:Name="MenuItem_config" Header="Режим конфигуратора" HorizontalAlignment="Right" Click="MenuItem_toggleConfigMode" IsChecked="True"/>
+                <MenuItem x:Name="MenuItem_config" Header="Режим конфигуратора" HorizontalAlignment="Right" Click="MenuItem_toggleConfigMode" IsChecked="False"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
 
@@ -73,7 +73,7 @@
 
         </ToolBar>
 
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2">
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">
             <TabItem Header="Настройки подключения" x:Name="tabSettings">
                 <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True"/>
             </TabItem>
@@ -331,6 +331,44 @@
                             <DataGridTextColumn Header="значение" Binding="{Binding Value}"/>
                         </DataGrid.Columns>
                         </DataGrid>               
+                </Grid>
+            </TabItem>
+            <TabItem Header="Диагностика">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр по имени" Grid.Row="1"/>
+                            <TextBox x:Name="textBoxDiagFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxDiagFilter_KeyDown"/>
+                          
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridDiag" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn x:Name="dataGridDiag_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="dataGridDiag_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding NameDI, UpdateSourceTrigger=PropertyChanged}" />
+                          
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </Grid>
             </TabItem>
         </TabControl>

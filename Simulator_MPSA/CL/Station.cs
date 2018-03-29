@@ -27,7 +27,7 @@ namespace Simulator_MPSA.CL
        public VSStruct[] VSs;
        public ZDStruct[] ZDs;
         public USOCounter[] Counters;
-        
+        public DIStruct[] DiagSignals;
 
         public Station()
         { }
@@ -47,6 +47,7 @@ namespace Simulator_MPSA.CL
             ZDs = ZDTableViewModel.GetArray();
             settings = Sett.Instance;
             Counters = CountersTableViewModel.Counters.ToArray();
+            DiagSignals = DiagTableModel.Instance.DiagRegs.ToArray();
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(filename);
@@ -101,6 +102,9 @@ namespace Simulator_MPSA.CL
                 CountersTableViewModel.Init(station.Counters);
                 foreach (USOCounter counter in CountersTableViewModel.Counters)
                     counter.Refresh();
+
+
+                DiagTableModel.Instance.Init(station.DiagSignals);
 
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;
