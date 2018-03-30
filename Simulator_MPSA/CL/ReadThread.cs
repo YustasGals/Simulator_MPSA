@@ -13,30 +13,43 @@ namespace Simulator_MPSA
     {
         public MainWindow refMainWindow;
        // ModbusIpMaster mbMaster;
-        ModbusIpMaster mbMasterR0;
+        ModbusIpMaster[] mbMasterR = new ModbusIpMaster[2] ;
 
-        Thread thread;
-        TcpClient tcp;
+        Thread[] thread = new Thread[2];
+        TcpClient[] tcp = new TcpClient[2];
 
         public ReadThread(string hostname, int port)
         {
-            tcp = new TcpClient(hostname, port);
+           
+            for (int i = 0; i < 2; i++)
+            {
+                tcp[i] = new TcpClient(hostname, port);
+                mbMasterR[i] = ModbusIpMaster.CreateIp(tcp[i]);
 
-            mbMasterR0 = ModbusIpMaster.CreateIp(tcp);
-            thread = new Thread(new ThreadStart(ThreadJob));
-            thread.Start();
+                if (i==0)
+                thread[i] = new Thread(new ThreadStart(ThreadJob1));
+                else
+                    thread[i] = new Thread(new ThreadStart(ThreadJob2));
+
+                thread[i].Start();
+            }
 
         }
         public void Stop()
         {
-            if (thread != null)
-            thread.Abort();
-            tcp.Close();
+            if (thread[0] != null)
+            thread[0].Abort();
+            tcp[0].Close();
+
+            if (thread[1] != null)
+                thread[1].Abort();
+            tcp[1].Close();
+
 
             refMainWindow = null;
         }
 
-        private void ThreadJob()
+        private void ThreadJob1()
         {
             ushort NReg = 125;
             ushort tbStartAdress = (ushort)Sett.Instance.BegAddrR;
@@ -45,15 +58,36 @@ namespace Simulator_MPSA
 
             while (true)
             {
-                for (ushort i = 0; i < 11; i++)
+                for (ushort i = 0; i < 6; i++)
                 {
-                    data = mbMasterR0.ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i), NReg);
+                    data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i), NReg);
                     data.CopyTo(RB.R, NReg*i);
                 }
                 GetDOfromR();
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);
+            }
+        }
+
+        private void ThreadJob2()
+        {
+             ushort NReg = 125;
+        ushort tbStartAdress = (ushort)Sett.Instance.BegAddrR;
+
+        ushort[] data;
+
+            while (true)
+            {
+                for (ushort i = 6; i< 11; i++)
+                {
+                    data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i), NReg);
+        data.CopyTo(RB.R, NReg* i);
+                }
+    GetDOfromR();
+
+              /*  if (refMainWindow != null)
+                    refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
             }
         }
 

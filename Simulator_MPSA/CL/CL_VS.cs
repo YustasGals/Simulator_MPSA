@@ -122,8 +122,6 @@ namespace Simulator_MPSA
         private float _valueEC;
 
         private int _MPCindxArrDI = -1;
-        
-        private float _valueMPC;
 
         /// <summary>
         /// наличие давления индекс дискретного сигнала
@@ -133,8 +131,6 @@ namespace Simulator_MPSA
         /// наличие давления индекс аналогового сигнала
         /// </summary>
         private int _PCindxArrAI = -1;
-       // private bool _isPCAnalog;
-        private float _valuePC;
 
         private DIStruct MPC_DI = null;
 
