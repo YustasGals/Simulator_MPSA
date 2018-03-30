@@ -1989,7 +1989,7 @@
       <indxBitDI>9</indxBitDI>
       <TegDI>EC180п</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.1 с правой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -1999,7 +1999,7 @@
       <indxBitDI>8</indxBitDI>
       <TegDI>EC180л</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.1 с левой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -2949,7 +2949,7 @@
       <indxBitDI>9</indxBitDI>
       <TegDI>EC280п</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.2 с правой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -2959,7 +2959,7 @@
       <indxBitDI>8</indxBitDI>
       <TegDI>EC280л</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.2 с левой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -3909,7 +3909,7 @@
       <indxBitDI>9</indxBitDI>
       <TegDI>EC380п</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.3 с правой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -3919,7 +3919,7 @@
       <indxBitDI>8</indxBitDI>
       <TegDI>EC380л</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.3 с левой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -4549,7 +4549,7 @@
       <indxBitDI>9</indxBitDI>
       <TegDI>EC480п</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.4 с правой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -4559,7 +4559,7 @@
       <indxBitDI>8</indxBitDI>
       <TegDI>EC480л</TegDI>
       <NameDI>Отказ одного из вентиляторов АВОА МНА № 003.4 с левой стороны</NameDI>
-      <InvertDI>false</InvertDI>
+      <InvertDI>true</InvertDI>
     </DIStruct>
     <DIStruct>
       <En>true</En>
@@ -25301,7 +25301,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>146</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25323,7 +25323,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>148</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25345,7 +25345,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>150</indxArrDO>
       <indxBitDO>9</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25631,7 +25631,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>176</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -25653,7 +25653,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>178</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -25675,7 +25675,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>180</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -25697,7 +25697,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>182</indxArrDO>
       <indxBitDO>9</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -25983,7 +25983,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>208</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23472</PLCAddr>
@@ -26005,7 +26005,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>210</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23472</PLCAddr>
@@ -26027,7 +26027,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>212</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23472</PLCAddr>
@@ -26049,7 +26049,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>214</indxArrDO>
       <indxBitDO>9</indxBitDO>
       <PLCAddr>23472</PLCAddr>
@@ -26335,7 +26335,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>240</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23522</PLCAddr>
@@ -26357,7 +26357,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>242</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23522</PLCAddr>
@@ -26379,7 +26379,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>244</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23522</PLCAddr>
@@ -26401,7 +26401,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>246</indxArrDO>
       <indxBitDO>9</indxBitDO>
       <PLCAddr>23522</PLCAddr>
@@ -29679,7 +29679,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>544</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23921</PLCAddr>
@@ -29877,7 +29877,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>562</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23922</PLCAddr>
@@ -30207,7 +30207,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>592</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23972</PLCAddr>
@@ -30383,7 +30383,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>608</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>24021</PLCAddr>
@@ -30911,7 +30911,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>656</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>24072</PLCAddr>
@@ -31087,7 +31087,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>672</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>24121</PLCAddr>
@@ -31219,7 +31219,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>684</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>24121</PLCAddr>
@@ -31241,7 +31241,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>686</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <PLCAddr>24121</PLCAddr>
@@ -31285,7 +31285,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>690</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>24122</PLCAddr>
@@ -31307,7 +31307,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>692</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>24122</PLCAddr>
@@ -35995,7 +35995,7 @@
       <PLCAddr>17650</PLCAddr>
       <TegAI>PT441</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.1)</NameAI>
-      <ValACD>5280</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -36010,7 +36010,7 @@
       <PLCAddr>17651</PLCAddr>
       <TegAI>PT442</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны гидромуфты (т.2)</NameAI>
-      <ValACD>5280</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -36025,7 +36025,7 @@
       <PLCAddr>17652</PLCAddr>
       <TegAI>PT443</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.1)</NameAI>
-      <ValACD>5280</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -36040,7 +36040,7 @@
       <PLCAddr>17653</PLCAddr>
       <TegAI>PT444</TegAI>
       <NameAI>МНА 003.4. Давление запирающей жидкости к торцевому уплотнению со стороны свободного конца вала (т.2)</NameAI>
-      <ValACD>5280</ValACD>
+      <ValACD>5279</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -40120,7 +40120,7 @@
       <PLCAddr>16921</PLCAddr>
       <TegAI>TT162</TegAI>
       <NameAI>МНА 003.1. Температура воздуха в системе осушки</NameAI>
-      <ValACD>4880</ValACD>
+      <ValACD>4879</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -40135,7 +40135,7 @@
       <PLCAddr>17173</PLCAddr>
       <TegAI>TT262</TegAI>
       <NameAI>МНА 003.2. Температура воздуха в системе осушки</NameAI>
-      <ValACD>4880</ValACD>
+      <ValACD>4879</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -40150,7 +40150,7 @@
       <PLCAddr>17425</PLCAddr>
       <TegAI>TT362</TegAI>
       <NameAI>МНА 003.3. Температура воздуха в системе осушки</NameAI>
-      <ValACD>4880</ValACD>
+      <ValACD>4879</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -40165,7 +40165,7 @@
       <PLCAddr>17677</PLCAddr>
       <TegAI>TT462</TegAI>
       <NameAI>МНА 003.4. Температура воздуха в системе осушки</NameAI>
-      <ValACD>4880</ValACD>
+      <ValACD>4879</ValACD>
       <minACD>4000</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
@@ -43000,12 +43000,12 @@
       <PLCAddr>15284</PLCAddr>
       <TegAI />
       <NameAI>Задвижка 1М-1. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43015,12 +43015,12 @@
       <PLCAddr>15289</PLCAddr>
       <TegAI />
       <NameAI>Задвижка 1М-2. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43030,12 +43030,12 @@
       <PLCAddr>15168</PLCAddr>
       <TegAI />
       <NameAI>Задвижка 2М-1. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43045,12 +43045,12 @@
       <PLCAddr>15173</PLCAddr>
       <TegAI />
       <NameAI>Задвижка 2М-2. Положение затвора</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43450,12 +43450,12 @@
       <PLCAddr>15435</PLCAddr>
       <TegAI />
       <NameAI>026.1.</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43465,12 +43465,12 @@
       <PLCAddr>15440</PLCAddr>
       <TegAI />
       <NameAI>026.1.</NameAI>
-      <ValACD>1000</ValACD>
+      <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>1000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>100</fValAI>
+      <fValAI>0</fValAI>
     </AIStruct>
   </AIs>
   <KLs>
@@ -47869,7 +47869,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>560</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 1М-1. Положение затвора</PositionAIName>
       <DOBindxArrDO>736</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -47897,8 +47897,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1539</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -47910,7 +47910,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>561</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 1М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>739</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -47938,8 +47938,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1546</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -47951,7 +47951,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>562</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 2М-1. Положение затвора</PositionAIName>
       <DOBindxArrDO>768</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -47979,8 +47979,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1635</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -47992,7 +47992,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>563</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>Задвижка 2М-2. Положение затвора</PositionAIName>
       <DOBindxArrDO>771</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -48020,8 +48020,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>1642</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -48717,8 +48717,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>537</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -48894,7 +48894,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>590</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>026.1.</PositionAIName>
       <DOBindxArrDO>320</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -48922,8 +48922,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>707</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -48935,7 +48935,7 @@
       <StateZD>Open</StateZD>
       <En>true</En>
       <ZD_Pos_index>591</ZD_Pos_index>
-      <Position>100</Position>
+      <Position>0</Position>
       <PositionAIName>026.1.</PositionAIName>
       <DOBindxArrDO>323</DOBindxArrDO>
       <DOBState>false</DOBState>
@@ -48963,8 +48963,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>714</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -49004,8 +49004,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>633</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -49127,8 +49127,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>553</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>10</TmoveZD>
       <TscZD>1</TscZD>
@@ -49168,8 +49168,8 @@
       <MCState>false</MCState>
       <OPCindxArrDI>649</OPCindxArrDI>
       <OPCState>false</OPCState>
-      <ZDProc>100</ZDProc>
-      <Percent>100</Percent>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
       <TmoveZD>20</TmoveZD>
       <TscZD>1</TscZD>
@@ -49427,7 +49427,7 @@
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7831</Value>
+      <Value>3340</Value>
       <PLCAddr>15100</PLCAddr>
       <Name>УСО1(1) Модуль А1.00</Name>
     </USOCounter>
@@ -49440,141 +49440,141 @@
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>2071</Value>
+      <En>false</En>
+      <Value>4615</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО1(1) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>1731</Value>
+      <En>false</En>
+      <Value>4267</Value>
       <PLCAddr>15478</PLCAddr>
       <Name>УСО1(1) Модуль А4.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>571</Value>
+      <Value>2650</Value>
       <PLCAddr>15604</PLCAddr>
       <Name>УСО1(2) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>487</Value>
+      <Value>1332</Value>
       <PLCAddr>15730</PLCAddr>
       <Name>УСО1(2) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>487</Value>
+      <Value>1203</Value>
       <PLCAddr>15856</PLCAddr>
       <Name>УСО1(2) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>599</Value>
+      <Value>1315</Value>
       <PLCAddr>15982</PLCAddr>
       <Name>УСО1(2) Модуль А4.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>510</Value>
+      <Value>1325</Value>
       <PLCAddr>16108</PLCAddr>
       <Name>УСО1(3) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>477</Value>
+      <Value>1291</Value>
       <PLCAddr>16234</PLCAddr>
       <Name>УСО1(3) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>592</Value>
+      <Value>1409</Value>
       <PLCAddr>16360</PLCAddr>
       <Name>УСО1(3) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>false</En>
-      <Value>513</Value>
+      <En>true</En>
+      <Value>1769</Value>
       <PLCAddr>16486</PLCAddr>
       <Name>УСО2(1) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>5107</Value>
+      <Value>616</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>Корзина А5 основной канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>2358</Value>
+      <Value>7868</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>Корзина А5 резервный канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4631</Value>
+      <Value>140</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>Корзина А6 основной канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>4618</Value>
+      <Value>127</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>Корзина А6 резервный канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9258</Value>
+      <Value>4767</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>Наличие связи с САРД канал 1</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>399</Value>
+      <Value>999</Value>
       <PLCAddr>16612</PLCAddr>
       <Name>УСО2(1) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>false</En>
-      <Value>62</Value>
+      <Value>659</Value>
       <PLCAddr>16738</PLCAddr>
       <Name>УСО2(2) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>false</En>
-      <Value>466</Value>
+      <En>true</En>
+      <Value>1715</Value>
       <PLCAddr>16864</PLCAddr>
       <Name>УСО2(2) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>false</En>
-      <Value>431</Value>
+      <En>true</En>
+      <Value>1078</Value>
       <PLCAddr>16990</PLCAddr>
       <Name>УСО2(3) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>false</En>
-      <Value>394</Value>
+      <En>true</En>
+      <Value>1000</Value>
       <PLCAddr>17116</PLCAddr>
       <Name>УСО2(3) Модуль А2.00</Name>
     </USOCounter>
@@ -49664,22 +49664,22 @@
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>1980</Value>
+      <En>false</En>
+      <Value>4649</Value>
       <PLCAddr>15351</PLCAddr>
       <Name>УСО1(1) Модуль А2.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>1946</Value>
+      <En>false</En>
+      <Value>4616</Value>
       <PLCAddr>15477</PLCAddr>
       <Name>УСО1(1) Модуль А3.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
-      <En>true</En>
-      <Value>1663</Value>
+      <En>false</En>
+      <Value>4335</Value>
       <PLCAddr>15603</PLCAddr>
       <Name>УСО1(1) Модуль А4.07</Name>
     </USOCounter>
@@ -49840,30 +49840,1861 @@
     <USOCounter>
       <buffer>Undefined</buffer>
       <En>true</En>
-      <Value>4957</Value>
+      <Value>466</Value>
       <PLCAddr>18501</PLCAddr>
       <Name>УСО4 Модуль А2.11</Name>
     </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>65535</Value>
-      <PLCAddr>15224</PLCAddr>
-      <Name>1</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>65535</Value>
-      <PLCAddr>15350</PLCAddr>
-      <Name>2</Name>
-    </USOCounter>
-    <USOCounter>
-      <buffer>USO</buffer>
-      <En>false</En>
-      <Value>65535</Value>
-      <PLCAddr>15476</PLCAddr>
-      <Name>3</Name>
-    </USOCounter>
   </Counters>
+  <DiagSignals>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A105</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15224</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A1.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15350</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A2.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В8 АВОА МНА1 (лев.сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В4 АВОА МНА1 (лев.сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В2 АВОА МНА1 (лев.сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В7 АВОА МНА1 (прав. сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>2</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В5 АВОА МНА1 (прав. сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>1</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В3 АВОА МНА1 (прав. сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В1 АВОА МНА1 (прав. сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15724</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>Связь по интерфейсу с вентилятором В6 АВОА МНА1 (лев.сторона)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.00 SD карта</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.00 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15476</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A3.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.00 SD карта</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.00 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15602</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(1) A4.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.00 SD карта</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15728</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) A1.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15854</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А2 SD карта</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>15980</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А3.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16106</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(2) А4.00 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16232</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А1 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16358</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А2 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16484</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 1(3) А3 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.08</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16610</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А1 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.08</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16736</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(1) А2 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.08</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16862</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А1 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.08</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>16988</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(2) А2 SD Card</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1 CPS</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.00</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.01</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.02</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.03</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>10</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.04</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>9</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.05</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>8</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.06</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>7</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.07</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>6</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.08</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>5</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.09</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>4</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.10</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>3</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1.11</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17114</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI>УСО 2(3) А1 SD карта</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <PLCAddr>17240</PLCAddr>
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>0</indxBitDI>
+      <TegDI />
+      <NameDI />
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+  </DiagSignals>
 </Station>
