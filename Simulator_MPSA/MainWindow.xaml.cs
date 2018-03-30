@@ -105,6 +105,10 @@ namespace Simulator_MPSA
 
         public delegate void DEndWrite();
         public DEndWrite EndCycle;
+        public DEndWrite EndCycle2;
+        public DEndWrite EndCycle3;
+        public DEndWrite EndCycle4;
+        public DEndWrite EndCycle5;
 
         public delegate void DDisconnected();
         public DDisconnected delegateDisconnected;
@@ -155,6 +159,11 @@ namespace Simulator_MPSA
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
             EndCycle += new DEndWrite(On_WritingCycleEnd);
+            EndCycle2 += new DEndWrite(On_WritingCycle2End);
+            EndCycle3 += new DEndWrite(On_WritingCycle3End);
+            EndCycle4 += new DEndWrite(On_WritingCycle4End);
+            EndCycle5 += new DEndWrite(On_WritingCycle5End);
+
             delegateDisconnected += new DDisconnected(On_Disconnected);
             delegateEndRead += new DEndRead(On_ReadingCycleEnd);
 
@@ -166,19 +175,142 @@ namespace Simulator_MPSA
         /// <summary>
         /// время последней записи в ПЛК
         /// </summary>
-        DateTime writingTime;
+        DateTime[] writingTime = new DateTime[5];
 
         /// <summary>
         /// время последнего чтения из ПЛК
         /// </summary>
         DateTime readingTime;
+
+        DateTime prevCycleTime;
+
+        float dt_sec;
         private void Watchdog()
         {
+            prevCycleTime = DateTime.Now;
+            dt_sec = 0f;
             while (true)   
             {
+                //-------- обновление структур --------------------------
+                foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                    zd.UpdateZD(dt_sec);
 
+                foreach (KLStruct kl in KLTableViewModel.KL)
+                    kl.UpdateKL(dt_sec);
+
+                foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
+                    mpna.UpdateMPNA(dt_sec);
+
+                foreach (VSStruct vs in VSTableViewModel.VS)
+                    vs.UpdateVS(dt_sec);
+
+                //--------------- формирование массивов для передачи в ПЛК ---------------------
+                //for (int i = 0; i < AIStruct.items.Length; i++)
+                lock (WB.W)
+                {
+                    foreach (AIStruct ai in AIStruct.items)
+                    {
+                        if (ai.En /* || true */)
+                        {
+
+                            if (ai.PLCDestType == EPLCDestType.ADC)
+                            {
+
+                                if (ai.Buffer == BufType.USO)
+                                    WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW - 1)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
+
+                                if (ai.Buffer == BufType.A3)
+                                    WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1)] = ai.ValACD;
+
+                                if (ai.Buffer == BufType.A4)
+                                    WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1)] = ai.ValACD;
+                            }
+                            else
+                            if (ai.PLCDestType == EPLCDestType.Float)
+                            {
+                                //разибиваем float на 2 word'a
+                                byte[] bytes = BitConverter.GetBytes(ai.fValAI);
+                                ushort w1 = BitConverter.ToUInt16(bytes, 0);
+                                ushort w2 = BitConverter.ToUInt16(bytes, 2);
+
+                                if (ai.Buffer == BufType.USO)
+                                {
+                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW - 1] = w1;
+                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w2;
+                                }
+
+                                if (ai.Buffer == BufType.A3)
+                                {
+                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = w1;
+                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w2;
+                                }
+
+                                if (ai.Buffer == BufType.A4)
+                                {
+                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1] = w1;
+                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w2;
+                                }
+                            }
+                        }//ai.en
+                    }//foreach
+
+                    foreach (DIStruct di in DIStruct.items)
+                    {
+                        if (di.En)
+                        {
+                            /* int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
+                             if (indx > 0 && indx < WB.W.Length)
+                             */
+                            if (di.Buffer == BufType.USO)
+                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                            else
+                            if (di.Buffer == BufType.A3)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                            else
+                            if (di.Buffer == BufType.A4)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                        }
+                    }
+
+                    //записываем счетчики УСО
+                    foreach (USOCounter c in CountersTableViewModel.Counters)
+                    {
+                        c.Update(dt_sec);
+                        if (c.buffer == BufType.USO)
+                            if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
+                            {
+                                WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
+                            }
+
+                        if (c.buffer == BufType.A3)
+                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA3 + 1) && ((c.PLCAddr - Sett.Instance.iBegAddrA3 - 1) < WB.W_a3.Length))
+                            {
+                                WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = c.Value;
+                            }
+                    }
+
+                    foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
+                    {
+                        if (di.En)
+                        {
+                            /* int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
+                             if (indx > 0 && indx < WB.W.Length)
+                             */
+                            if (di.Buffer == BufType.USO)
+                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                            else
+                            if (di.Buffer == BufType.A3)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                            else
+                            if (di.Buffer == BufType.A4)
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                        }
+                    }
+
+                }//lock
+                    
                 //-------------  проверка связи  -----------------------
-                    if ((DateTime.Now - readingTime).TotalSeconds > 3f)
+                if ((DateTime.Now - readingTime).TotalSeconds > 5f)
                     {
                         // wrThread.Stop();
                         // btnPause_Click(null, new RoutedEventArgs());
@@ -186,10 +318,29 @@ namespace Simulator_MPSA
                        btnStop_Click(null, new RoutedEventArgs());
                     }
 
-                System.Threading.Thread.Sleep(Sett.Instance.TPause * 2);
+                //---------- вычисление время с момента предыдущей итерации ----------------
+                dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
+                prevCycleTime = DateTime.Now;
+
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
-       
+        void SetBit(ref ushort b, int bitNumber, bool state)
+        {
+            if (bitNumber < 0 || bitNumber > 15)
+                bitNumber = 0; //throw an Exception or return
+            if (state)
+            {
+                b |= (ushort)(1 << bitNumber);
+            }
+            else
+            {
+                int i = b;
+                i &= ~(1 << bitNumber);
+                b = (ushort)i;
+            }
+        }
+
         void CloseApp()
         {
             System.Windows.Application curApp = System.Windows.Application.Current;
@@ -333,13 +484,14 @@ namespace Simulator_MPSA
 
                 rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                 rdThread.refMainWindow = this;
-
+                
                 wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                 wrThread.refMainWindow = this;
                 wrThread.Start();
 
                 readingTime = DateTime.Now;
-                writingTime = DateTime.Now;
+                for (int i= 0; i<5; i++)
+                writingTime[i] = DateTime.Now;
                 
                 watchThread = new Thread(new ThreadStart(Watchdog));
                 watchThread.Start();
@@ -360,9 +512,41 @@ namespace Simulator_MPSA
         //------------ вызывается каждую итерацию цикла записи ----------------
         private void On_WritingCycleEnd()
         {
-            TimeSpan ts = DateTime.Now - writingTime;
-            StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-            writingTime = DateTime.Now;
+            TimeSpan ts = DateTime.Now - writingTime[0];
+            StatusW1.Content =ts.TotalSeconds.ToString("F2")+" | ";
+            writingTime[0] = DateTime.Now;
+        }
+        DateTime writingTime2;
+        private void On_WritingCycle2End()
+        {
+            TimeSpan ts = DateTime.Now - writingTime[1];
+            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+            StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
+            writingTime[1] = DateTime.Now;
+        }
+        DateTime writingTime3;
+        private void On_WritingCycle3End()
+        {
+            TimeSpan ts = DateTime.Now - writingTime[2];
+            // StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+            StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
+            writingTime[2] = DateTime.Now;
+        }
+        DateTime writingTime4;
+        private void On_WritingCycle4End()
+        {
+            TimeSpan ts = DateTime.Now - writingTime[3];
+            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+            StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
+            writingTime[3] = DateTime.Now;
+        }
+        DateTime writingTime5;
+        private void On_WritingCycle5End()
+        {
+            TimeSpan ts = DateTime.Now - writingTime[4];
+            StatusW5.Content = ts.TotalSeconds.ToString("F2");
+            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+            writingTime[4] = DateTime.Now;
         }
         //--------------------------------------------------------------------
 
@@ -389,7 +573,14 @@ namespace Simulator_MPSA
             btnStop.IsEnabled = false;
             btnPause.IsEnabled = false;
 
-            wrThread.Paused = true;
+            wrThread.Stop();
+            wrThread = null;
+            rdThread.Stop();
+            rdThread = null;
+
+            if (watchThread != null)
+                watchThread.Abort();
+            //wrThread.Paused = true;
             try
             {
                 cancelTokenSrc.Cancel();

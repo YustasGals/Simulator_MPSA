@@ -14,7 +14,7 @@ namespace Simulator_MPSA.CL
     public class USOCounter : BaseViewModel
     {
         private bool _en=true;
-        private ushort _value=0;
+        private float _value=0;
         private int _PLCAddr = 0;
 
         private BufType _buffer;
@@ -37,7 +37,7 @@ namespace Simulator_MPSA.CL
 
         public ushort Value
         {
-            get { return _value; }
+            get { return (ushort)_value; }
             set { _value = value; OnPropertyChanged("Value"); }
         }
         public int PLCAddr

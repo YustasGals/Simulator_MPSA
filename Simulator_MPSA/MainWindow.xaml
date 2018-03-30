@@ -375,7 +375,12 @@
 
         <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
             <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
-            <Label x:Name="StatusW" Content="Время записи:"></Label>
+            <Label Content="Время записи:"></Label>
+            <Label x:Name="StatusW1" Content=""></Label>
+            <Label x:Name="StatusW2" Content=""></Label>
+            <Label x:Name="StatusW3" Content=""></Label>
+            <Label x:Name="StatusW4" Content=""></Label>
+            <Label x:Name="StatusW5" Content=""></Label>
             <Label x:Name="StatusR" Content="Время чтения:"></Label>
         </StatusBar>
     </Grid>
