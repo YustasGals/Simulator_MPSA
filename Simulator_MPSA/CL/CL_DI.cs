@@ -49,7 +49,7 @@ namespace Simulator_MPSA.CL
                 if ((_plcaddr > Sett.Instance.iBegAddrA4) && (_plcaddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
                     Buffer = BufType.A4;
 
-                if ((_plcaddr > Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize)))
+                if ((_plcaddr > Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize+1)))
                     Buffer = BufType.USO;
 
                 OnPropertyChanged("PLCAddr");

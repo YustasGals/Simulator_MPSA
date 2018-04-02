@@ -53,8 +53,16 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Expander>
+        <Expander Header="Настройка аналоговых входов (AI):" Grid.Row="4" Margin="0,5,0,10"  IsExpanded="True">
+            <DataGrid x:Name="AI_outputs" ItemsSource="{Binding ANInputs}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Адрес в ПЛК" Binding="{Binding PLCAddr}"/>
+                    <DataGridTextColumn Header="об/мин в 1%" Binding="{Binding ADCtoRPM}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Expander>
 
 
-        
     </Grid>
 </Window>

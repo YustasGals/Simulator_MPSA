@@ -69,7 +69,7 @@ namespace Simulator_MPSA
             wrThread[2] = new Thread(WriteToPLC3);
             wrThread[3] = new Thread(WriteToPLC4);
             wrThread[4] = new Thread(WriteA3);
-            wrThread[5] = new Thread(WriteA4);
+         //   wrThread[5] = new Thread(WriteA4);
            // wrThread[6] = new Thread(WriteToPLC7);
            // wrThread[7] = new Thread(WriteToPLC8);
 
@@ -301,12 +301,13 @@ namespace Simulator_MPSA
         void WriteA3()
         {
 
-            int destStartAddr = Sett.Instance.iBegAddrA3;
+            int destStartAddr;
             ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
 
             bool isFirstCycle = true;
             while (true)
             {
+                destStartAddr = Sett.Instance.iBegAddrA3;
                 CoilCount = WB.W_a3.Length / NReg;
                 for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
                 {
@@ -334,66 +335,132 @@ namespace Simulator_MPSA
                 }
 
                 isFirstCycle = false;
+
+                destStartAddr = Sett.Instance.iBegAddrA4;
+                CoilCount = WB.W_a4.Length / NReg;
+                for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
+                {
+                    bool isChanged = false;
+                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                    {
+                        if (WB.W_a4[i_reg] != WB.W_a4_prev[i_reg])
+                        {
+                            isChanged = true;
+                            //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                            break;
+                        }
+                    }
+
+                    if (isChanged || isFirstCycle)
+                    {
+
+                        Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
+                        Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
+
+                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }
+                    else
+                        Debug.WriteLine("skip - A4");
+                }
+
+
+                if (refMainWindow != null)
+                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
             }
         }
         void WriteA4()
         {
+
+            int destStartAddr = Sett.Instance.iBegAddrA4;
+            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+
+            bool isFirstCycle = true;
             while (true)
             {
+                CoilCount = WB.W_a4.Length / NReg;
+                for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
+                {
+                    bool isChanged = false;
+                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                    {
+                        if (WB.W_a4[i_reg] != WB.W_a4_prev[i_reg])
+                        {
+                            isChanged = true;
+                            //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                            break;
+                        }
+                    }
+
+                    if (isChanged || isFirstCycle)
+                    {
+
+                        Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
+                        Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
+
+                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                    }
+                    else
+                        Debug.WriteLine("skip - A4");
+                }
+
+                isFirstCycle = false;
+
+             //   if (refMainWindow != null)
+               //     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle6);
             }
         }
-       /* void WriteToPLC(object jobnum)
-        {
+        /* void WriteToPLC(object jobnum)
+         {
 
-          
-            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-           
-            
 
-            int nCoilFirst = (int)jobnum * CoilPerTask;
-            int nCoilLast = ((int)jobnum + 1) * CoilPerTask - 1;
-            if (nCoilLast >= CoilCount)
-                nCoilLast = CoilCount - 1;
+             ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
 
-            for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
-            {
-              
-                mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-            }
-            //------------------------ Запись буфера А3 -------------------------------------------------------
-              destStartAddr = Sett.Instance.iBegAddrA3;
-              CoilCount = WB.W_a3.Length / NReg;
-              for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
-              {
-                  bool isChanged = false;
-                  for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
-                  {
-                      if (WB.W_a3[i_reg] != WB.W_a3_prev[i_reg])
-                      {
-                          isChanged = true;
-                        //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                          break;
-                      }
-                  }
 
-                  if (isChanged || isFirstCycle)
-                  {
 
-                      Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
-                      Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
+             int nCoilFirst = (int)jobnum * CoilPerTask;
+             int nCoilLast = ((int)jobnum + 1) * CoilPerTask - 1;
+             if (nCoilLast >= CoilCount)
+                 nCoilLast = CoilCount - 1;
 
-                      mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                  }
-                  else
-                      Debug.WriteLine("skip");
-              }
-              
-            //------------------- сигнализируем о завершении цикла ---------------------------------
-            if (refMainWindow != null && (int)jobnum==0)
-                refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+             for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+             {
 
-        }*/
-        
-       
+                 mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+             }
+             //------------------------ Запись буфера А3 -------------------------------------------------------
+               destStartAddr = Sett.Instance.iBegAddrA3;
+               CoilCount = WB.W_a3.Length / NReg;
+               for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
+               {
+                   bool isChanged = false;
+                   for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                   {
+                       if (WB.W_a3[i_reg] != WB.W_a3_prev[i_reg])
+                       {
+                           isChanged = true;
+                         //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                           break;
+                       }
+                   }
+
+                   if (isChanged || isFirstCycle)
+                   {
+
+                       Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
+                       Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
+
+                       mbMasterW0.WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                   }
+                   else
+                       Debug.WriteLine("skip");
+               }
+
+             //------------------- сигнализируем о завершении цикла ---------------------------------
+             if (refMainWindow != null && (int)jobnum==0)
+                 refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+
+         }*/
+
+
     }
 }

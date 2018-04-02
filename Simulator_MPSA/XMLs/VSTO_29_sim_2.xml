@@ -2103,7 +2103,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>210</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -2113,7 +2113,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>211</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -2123,7 +2123,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>212</indxArrDI>
       <indxBitDI>11</indxBitDI>
@@ -2133,7 +2133,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>213</indxArrDI>
       <indxBitDI>10</indxBitDI>
@@ -2143,7 +2143,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>214</indxArrDI>
       <indxBitDI>9</indxBitDI>
@@ -2153,7 +2153,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>15651</PLCAddr>
       <indxArrDI>215</indxArrDI>
       <indxBitDI>8</indxBitDI>
@@ -25279,7 +25279,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>144</indxArrDO>
       <indxBitDO>15</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25301,7 +25301,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>146</indxArrDO>
       <indxBitDO>13</indxBitDO>
       <PLCAddr>23372</PLCAddr>
@@ -25675,7 +25675,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>180</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>23422</PLCAddr>
@@ -43480,12 +43480,12 @@
       <PLCAddr>15661</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В1. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>32000</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>1.165549E-15</fValAI>
+      <fValAI>50</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43495,12 +43495,12 @@
       <PLCAddr>15664</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В2. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>25600</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>40</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43510,12 +43510,12 @@
       <PLCAddr>15667</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В3. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>22400</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>35</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43525,12 +43525,12 @@
       <PLCAddr>15670</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В4. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>12800</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>20</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43540,12 +43540,12 @@
       <PLCAddr>15673</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В5. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>23680</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>37</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43555,12 +43555,12 @@
       <PLCAddr>15676</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В6. Частота вращения</NameAI>
-      <ValACD>0</ValACD>
+      <ValACD>28800</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>100</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>45</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -43570,6 +43570,36 @@
       <PLCAddr>15679</PLCAddr>
       <TegAI />
       <NameAI>МНА 003.1. АВОА В7. Частота вращения</NameAI>
+      <ValACD>36480</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>57</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>599</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15682</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.1. АВОА В8. Частота вращения</NameAI>
+      <ValACD>40960</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>64</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>600</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15787</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В1. Частота вращения</NameAI>
       <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
@@ -43580,11 +43610,11 @@
     <AIStruct>
       <DelayAI>0</DelayAI>
       <En>true</En>
-      <indxAI>599</indxAI>
+      <indxAI>601</indxAI>
       <PLCDestType>ADC</PLCDestType>
-      <PLCAddr>15682</PLCAddr>
+      <PLCAddr>15790</PLCAddr>
       <TegAI />
-      <NameAI>МНА 003.1. АВОА В8. Частота вращения</NameAI>
+      <NameAI>МНА 003.2  АВОА В2. Частота вращения</NameAI>
       <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
@@ -43594,12 +43624,327 @@
     </AIStruct>
     <AIStruct>
       <DelayAI>0</DelayAI>
-      <En>false</En>
-      <indxAI>600</indxAI>
+      <En>true</En>
+      <indxAI>602</indxAI>
       <PLCDestType>ADC</PLCDestType>
-      <PLCAddr>15100</PLCAddr>
+      <PLCAddr>15793</PLCAddr>
       <TegAI />
-      <NameAI />
+      <NameAI>МНА 003.2. АВОА В3. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>603</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15796</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В4. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>604</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15799</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В5. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>605</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15802</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В6. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>606</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15805</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В7. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>607</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15808</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.2. АВОА В8. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>608</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15913</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В1. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>609</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15916</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В2. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>610</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15919</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В3. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>611</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15922</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В4. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>612</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15925</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В5. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>613</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15928</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В6. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>614</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15931</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В7. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>615</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>15934</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.3. АВОА В8. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>616</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16039</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В1. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>617</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16042</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В2. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>618</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16045</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В3. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>619</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16048</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В4. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>620</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16051</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В5. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>621</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16054</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В6. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>622</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16057</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В7. Частота вращения</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>64000</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>100</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>true</En>
+      <indxAI>623</indxAI>
+      <PLCDestType>ADC</PLCDestType>
+      <PLCAddr>16060</PLCAddr>
+      <TegAI />
+      <NameAI>МНА 003.4. АВОА В8. Частота вращения</NameAI>
       <ValACD>0</ValACD>
       <minACD>0</minACD>
       <maxACD>64000</maxACD>
@@ -43624,14 +43969,14 @@
     <KLStruct>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Close</State>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-Р с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>131</DOBindxArrDO>
       <DKBindxArrDO>130</DKBindxArrDO>
       <OKCindxArrDI>211</OKCindxArrDI>
       <CKCindxArrDI>210</CKCindxArrDI>
-      <KLProc>0</KLProc>
+      <KLProc>100</KLProc>
     </KLStruct>
     <KLStruct>
       <TmoveKL>3</TmoveKL>
@@ -43708,26 +44053,26 @@
     <KLStruct>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Close</State>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-С с правой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>133</DOBindxArrDO>
       <DKBindxArrDO>132</DKBindxArrDO>
       <OKCindxArrDI>213</OKCindxArrDI>
       <CKCindxArrDI>212</CKCindxArrDI>
-      <KLProc>0</KLProc>
+      <KLProc>100</KLProc>
     </KLStruct>
     <KLStruct>
       <TmoveKL>3</TmoveKL>
       <En>true</En>
-      <State>Close</State>
+      <State>Open</State>
       <Description>МНА 003.1. Жалюзи АВОА-С с левой стороны</Description>
       <Group>Group</Group>
       <DOBindxArrDO>135</DOBindxArrDO>
       <DKBindxArrDO>134</DKBindxArrDO>
       <OKCindxArrDI>215</OKCindxArrDI>
       <CKCindxArrDI>214</CKCindxArrDI>
-      <KLProc>0</KLProc>
+      <KLProc>100</KLProc>
     </KLStruct>
     <KLStruct>
       <TmoveKL>3</TmoveKL>
@@ -47402,12 +47747,12 @@
             <PLCAddr>15661</PLCAddr>
             <TegAI />
             <NameAI>МНА 003.1. АВОА В1. Частота вращения</NameAI>
-            <ValACD>0</ValACD>
+            <ValACD>32000</ValACD>
             <minACD>0</minACD>
             <maxACD>64000</maxACD>
             <minPhis>0</minPhis>
             <maxPhis>100</maxPhis>
-            <fValAI>1.165549E-15</fValAI>
+            <fValAI>50</fValAI>
           </AI>
           <AIName>МНА 003.1. АВОА В1. Частота вращения</AIName>
           <ValueSpd>0.2</ValueSpd>
@@ -47417,7 +47762,7 @@
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
       <SetRPM_Addr>23391</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Value>50</SetRPM_Value>
       <isAVOA>true</isAVOA>
       <En>true</En>
       <Description>Вентилятор АВОА В1 МНА 003.1</Description>
@@ -47430,18 +47775,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>593</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>593</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15664</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В2. Частота вращения</NameAI>
+            <ValACD>25600</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>40</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В2. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23392</SetRPM_Addr>
+      <SetRPM_Value>40</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В2 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47452,18 +47822,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>594</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>594</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15667</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В3. Частота вращения</NameAI>
+            <ValACD>22400</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>35</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В3. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23393</SetRPM_Addr>
+      <SetRPM_Value>35</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В3 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47474,18 +47869,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>595</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>595</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15670</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В4. Частота вращения</NameAI>
+            <ValACD>12800</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>20</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В4. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
-      <isAVOA>false</isAVOA>
-      <En>false</En>
+      <SetRPM_Addr>23394</SetRPM_Addr>
+      <SetRPM_Value>20</SetRPM_Value>
+      <isAVOA>true</isAVOA>
+      <En>true</En>
       <Description>Вентилятор АВОА В4 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47496,18 +47916,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>596</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>596</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15673</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В5. Частота вращения</NameAI>
+            <ValACD>23680</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>37</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В5. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23395</SetRPM_Addr>
+      <SetRPM_Value>37</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В5 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47518,18 +47963,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>597</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>597</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15676</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В6. Частота вращения</NameAI>
+            <ValACD>28800</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>45</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В6. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23396</SetRPM_Addr>
+      <SetRPM_Value>45</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В6 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47540,18 +48010,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>598</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>598</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15679</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В7. Частота вращения</NameAI>
+            <ValACD>36480</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>57</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В7. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23397</SetRPM_Addr>
+      <SetRPM_Value>57</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В7 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47562,18 +48057,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>599</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>599</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15682</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.1. АВОА В8. Частота вращения</NameAI>
+            <ValACD>40960</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>64</fValAI>
+          </AI>
+          <AIName>МНА 003.1. АВОА В8. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
-      <SetRPM_Value>0</SetRPM_Value>
+      <SetRPM_Addr>23398</SetRPM_Addr>
+      <SetRPM_Value>64</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В8 МНА 003.1</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47584,18 +48104,43 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>-1</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>600</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>600</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15787</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В1. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В1. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23441</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В1 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47611,13 +48156,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>601</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>601</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15790</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2  АВОА В2. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2  АВОА В2. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23442</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В2 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47633,13 +48203,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>602</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>602</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15793</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В3. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В3. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23443</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В3 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47655,13 +48250,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>603</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>603</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15796</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В4. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В4. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23444</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В4 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47677,13 +48297,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>604</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>604</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15799</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В5. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В5. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23445</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В5 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47699,13 +48344,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>605</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>605</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15802</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В6. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В6. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23446</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В6 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47721,13 +48391,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>606</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>606</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15805</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В7. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В7. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23447</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В7 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -47743,13 +48438,38 @@
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
+      <controledAIs>
+        <AnalogIOItem>
+          <Name>частота вращения</Name>
+          <Index>607</Index>
+          <IsOK>false</IsOK>
+          <ValueNom>0</ValueNom>
+          <AI>
+            <DelayAI>0</DelayAI>
+            <En>true</En>
+            <indxAI>607</indxAI>
+            <PLCDestType>ADC</PLCDestType>
+            <PLCAddr>15808</PLCAddr>
+            <TegAI />
+            <NameAI>МНА 003.2. АВОА В8. Частота вращения</NameAI>
+            <ValACD>0</ValACD>
+            <minACD>0</minACD>
+            <maxACD>64000</maxACD>
+            <minPhis>0</minPhis>
+            <maxPhis>100</maxPhis>
+            <fValAI>0</fValAI>
+          </AI>
+          <AIName>МНА 003.2. АВОА В8. Частота вращения</AIName>
+          <ValueSpd>0.1</ValueSpd>
+        </AnalogIOItem>
+      </controledAIs>
       <changedDI>false</changedDI>
       <VSProc>0</VSProc>
       <TmoveVS>3</TmoveVS>
-      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Addr>23448</SetRPM_Addr>
       <SetRPM_Value>0</SetRPM_Value>
       <isAVOA>true</isAVOA>
-      <En>false</En>
+      <En>true</En>
       <Description>Вентилятор АВОА В8 МНА 003.2</Description>
       <Group>Group</Group>
       <BusSecIndex>-1</BusSecIndex>
@@ -50010,427 +50730,427 @@
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>9305</Value>
+      <Value>2829</Value>
       <PLCAddr>15100</PLCAddr>
       <Name>УСО1(1) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4592</Value>
+      <Value>8117</Value>
       <PLCAddr>15226</PLCAddr>
       <Name>УСО1(1) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7574</Value>
+      <Value>1098</Value>
       <PLCAddr>15352</PLCAddr>
       <Name>УСО1(1) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7219</Value>
+      <Value>743</Value>
       <PLCAddr>15478</PLCAddr>
       <Name>УСО1(1) Модуль А4.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>5594</Value>
+      <Value>9119</Value>
       <PLCAddr>15604</PLCAddr>
       <Name>УСО1(2) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4267</Value>
+      <Value>7792</Value>
       <PLCAddr>15730</PLCAddr>
       <Name>УСО1(2) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4133</Value>
+      <Value>7658</Value>
       <PLCAddr>15856</PLCAddr>
       <Name>УСО1(2) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4240</Value>
+      <Value>7765</Value>
       <PLCAddr>15982</PLCAddr>
       <Name>УСО1(2) Модуль А4.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4245</Value>
+      <Value>7770</Value>
       <PLCAddr>16108</PLCAddr>
       <Name>УСО1(3) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4200</Value>
+      <Value>7725</Value>
       <PLCAddr>16234</PLCAddr>
       <Name>УСО1(3) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4298</Value>
+      <Value>7823</Value>
       <PLCAddr>16360</PLCAddr>
       <Name>УСО1(3) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7734</Value>
+      <Value>1258</Value>
       <PLCAddr>16486</PLCAddr>
       <Name>УСО2(1) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>6581</Value>
+      <Value>105</Value>
       <PLCAddr>28850</PLCAddr>
       <Name>Корзина А5 основной канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>3832</Value>
+      <Value>7357</Value>
       <PLCAddr>29379</PLCAddr>
       <Name>Корзина А5 резервный канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>6105</Value>
+      <Value>9630</Value>
       <PLCAddr>29475</PLCAddr>
       <Name>Корзина А6 основной канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>6092</Value>
+      <Value>9617</Value>
       <PLCAddr>30004</PLCAddr>
       <Name>Корзина А6 резервный канал</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>731</Value>
+      <Value>4256</Value>
       <PLCAddr>29012</PLCAddr>
       <Name>Наличие связи с САРД канал 1</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3884</Value>
+      <Value>7409</Value>
       <PLCAddr>16612</PLCAddr>
       <Name>УСО2(1) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3539</Value>
+      <Value>7064</Value>
       <PLCAddr>16738</PLCAddr>
       <Name>УСО2(2) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>5051</Value>
+      <Value>8576</Value>
       <PLCAddr>16864</PLCAddr>
       <Name>УСО2(2) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4408</Value>
+      <Value>7933</Value>
       <PLCAddr>16990</PLCAddr>
       <Name>УСО2(3) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4327</Value>
+      <Value>7852</Value>
       <PLCAddr>17116</PLCAddr>
       <Name>УСО2(3) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3354</Value>
+      <Value>6879</Value>
       <PLCAddr>17242</PLCAddr>
       <Name>УСО2(4) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3647</Value>
+      <Value>7172</Value>
       <PLCAddr>17368</PLCAddr>
       <Name>УСО2(4) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3949</Value>
+      <Value>7474</Value>
       <PLCAddr>17494</PLCAddr>
       <Name>УСО2(5) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3905</Value>
+      <Value>7430</Value>
       <PLCAddr>17620</PLCAddr>
       <Name>УСО2(5) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3420</Value>
+      <Value>6945</Value>
       <PLCAddr>17746</PLCAddr>
       <Name>УСО3 Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3457</Value>
+      <Value>6982</Value>
       <PLCAddr>17872</PLCAddr>
       <Name>УСО3 Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3420</Value>
+      <Value>6945</Value>
       <PLCAddr>17998</PLCAddr>
       <Name>УСО3 Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3535</Value>
+      <Value>7060</Value>
       <PLCAddr>18124</PLCAddr>
       <Name>УСО3 Модуль А4.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>4897</Value>
+      <Value>8422</Value>
       <PLCAddr>18250</PLCAddr>
       <Name>УСО4 Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>5040</Value>
+      <Value>8565</Value>
       <PLCAddr>18376</PLCAddr>
       <Name>УСО4 Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A4</buffer>
       <En>true</En>
-      <Value>3521</Value>
+      <Value>7046</Value>
       <PLCAddr>29637</PLCAddr>
       <Name>Наличие связи с САРД канал 2</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>5638</Value>
+      <Value>9163</Value>
       <PLCAddr>15225</PLCAddr>
       <Name>УСО1(1) Модуль А1.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7386</Value>
+      <Value>910</Value>
       <PLCAddr>15351</PLCAddr>
       <Name>УСО1(1) Модуль А2.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7358</Value>
+      <Value>882</Value>
       <PLCAddr>15477</PLCAddr>
       <Name>УСО1(1) Модуль А3.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7065</Value>
+      <Value>589</Value>
       <PLCAddr>15603</PLCAddr>
       <Name>УСО1(1) Модуль А4.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3158</Value>
+      <Value>6683</Value>
       <PLCAddr>15729</PLCAddr>
       <Name>УСО1(2) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3115</Value>
+      <Value>6640</Value>
       <PLCAddr>15855</PLCAddr>
       <Name>УСО1(2) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3092</Value>
+      <Value>6617</Value>
       <PLCAddr>15981</PLCAddr>
       <Name>УСО1(2) Модуль А3.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3189</Value>
+      <Value>6714</Value>
       <PLCAddr>16107</PLCAddr>
       <Name>УСО1(2) Модуль А4.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3166</Value>
+      <Value>6691</Value>
       <PLCAddr>16233</PLCAddr>
       <Name>УСО1(3) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3133</Value>
+      <Value>6658</Value>
       <PLCAddr>16359</PLCAddr>
       <Name>УСО1(3) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3121</Value>
+      <Value>6646</Value>
       <PLCAddr>16485</PLCAddr>
       <Name>УСО1(3) Модуль А3.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3103</Value>
+      <Value>6628</Value>
       <PLCAddr>16611</PLCAddr>
       <Name>УСО2(1) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3226</Value>
+      <Value>6751</Value>
       <PLCAddr>16737</PLCAddr>
       <Name>УСО2(1) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3197</Value>
+      <Value>6722</Value>
       <PLCAddr>16863</PLCAddr>
       <Name>УСО2(2) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3160</Value>
+      <Value>6685</Value>
       <PLCAddr>16989</PLCAddr>
       <Name>УСО2(2) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3126</Value>
+      <Value>6651</Value>
       <PLCAddr>17115</PLCAddr>
       <Name>УСО2(3) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3088</Value>
+      <Value>6613</Value>
       <PLCAddr>17241</PLCAddr>
       <Name>УСО2(3) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3046</Value>
+      <Value>6571</Value>
       <PLCAddr>17367</PLCAddr>
       <Name>УСО2(4) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3019</Value>
+      <Value>6544</Value>
       <PLCAddr>17493</PLCAddr>
       <Name>УСО2(4) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3191</Value>
+      <Value>6716</Value>
       <PLCAddr>17619</PLCAddr>
       <Name>УСО2(5) Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3166</Value>
+      <Value>6691</Value>
       <PLCAddr>17745</PLCAddr>
       <Name>УСО2(5) Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3142</Value>
+      <Value>6667</Value>
       <PLCAddr>17871</PLCAddr>
       <Name>УСО3 Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3107</Value>
+      <Value>6632</Value>
       <PLCAddr>17997</PLCAddr>
       <Name>УСО3 Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3090</Value>
+      <Value>6615</Value>
       <PLCAddr>18123</PLCAddr>
       <Name>УСО3 Модуль А3.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3041</Value>
+      <Value>6566</Value>
       <PLCAddr>18249</PLCAddr>
       <Name>УСО3 Модуль А4.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3027</Value>
+      <Value>6552</Value>
       <PLCAddr>18375</PLCAddr>
       <Name>УСО4 Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>Undefined</buffer>
       <En>true</En>
-      <Value>6431</Value>
+      <Value>9956</Value>
       <PLCAddr>18501</PLCAddr>
       <Name>УСО4 Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>9747</Value>
+      <Value>3271</Value>
       <PLCAddr>28875</PLCAddr>
       <Name>УСО5</Name>
     </USOCounter>

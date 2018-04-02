@@ -141,7 +141,12 @@ namespace Simulator_MPSA {
             set { items["A4BufSize"].value = value; }
         }
         //размер буффера УСО
-        public int USOBufferSize { get { return (NRackEnd - NRackBeg + 1) * 126; } }
+        public int USOBufferSize { get
+            {
+                 return (NRackEnd - NRackBeg + 1) * 126;
+               // return WB.W.Length;
+            }
+        }
     }
     class SettingsViewModel : BaseViewModel
     {

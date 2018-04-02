@@ -8,7 +8,21 @@ using System.Collections.ObjectModel;
 
 namespace Simulator_MPSA.CL
 {
-   
+   public class ANInput
+    {
+        public string Name
+        { set; get; }
+        public int PLCAddr
+            { get; set;}
+        public int ADCtoRPM
+        { get; set; }
+        public ANInput(string name, int plcaddr)
+        {
+            Name = name;
+            PLCAddr= plcaddr;
+            ADCtoRPM = 640;
+        }
+    }
     
 
    
@@ -38,6 +52,12 @@ namespace Simulator_MPSA.CL
             set { _analogs = value; }
         }
 
+        private ObservableCollection<ANInput> _aninputs;
+        public ObservableCollection<ANInput> ANInputs
+        {
+            get { return _aninputs; }
+            set { _aninputs = value; }
+        }
         /// <summary>
         /// тип (KLStruct, VSStruct, задвижка, магистралка...)
         /// </summary>
@@ -77,6 +97,13 @@ namespace Simulator_MPSA.CL
             if (vs.controledAIs != null)
                 _analogs = new ObservableCollection<AnalogIOItem>(vs.controledAIs);
             else _analogs = new ObservableCollection<AnalogIOItem>();
+
+            if (vs.isAVOA)
+            {
+                ANInputs = new ObservableCollection<ANInput>();
+                ANInputs.Add(new ANInput("Задание частоты вращения", vs.SetRPM_Addr));
+                ANInputs[0].ADCtoRPM = vs.ADCtoRPM;
+            }
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -184,6 +211,12 @@ namespace Simulator_MPSA.CL
                     temp.controledAIs = _analogs.ToArray();
                 else
                     temp.controledAIs = null;
+
+                if (ANInputs != null && ANInputs.Count > 0)
+                {
+                    temp.SetRPM_Addr = ANInputs[0].PLCAddr;
+                    temp.ADCtoRPM = ANInputs[0].ADCtoRPM;
+                }
             }
             if (type == typeof(KLStruct))
             {

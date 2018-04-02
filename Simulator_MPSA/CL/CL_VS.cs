@@ -219,8 +219,8 @@ namespace Simulator_MPSA
             {
                     //if (MPC_DI != null)
                     //    return MPC_DI.NameDI;
-                    if (_MPCindxArrDI > -1)
-                        return DIStruct.items[_MPCindxArrDI].NameDI;
+                    if (MPC_DI != null)
+                        return MPC_DI.NameDI;
                     else
                     return "сигнал не назначен";
             }
@@ -255,6 +255,21 @@ namespace Simulator_MPSA
         public float VSProc;
         public int TmoveVS;
 
+        /// <summary>
+        /// адрес задания частоты в контроллере
+        /// </summary>
+        public int SetRPM_Addr=-1;
+
+        /// <summary>
+        /// задание частоты %*640
+        /// </summary>
+        public int SetRPM_Value;
+        /// <summary>
+        /// обрабатывать по алгоритму АВОА
+        /// </summary>
+        public bool isAVOA=false;
+
+        public int ADCtoRPM = 640;
         /// <summary>
         /// состояние вспомсистемы
         /// </summary>
@@ -314,6 +329,7 @@ namespace Simulator_MPSA
             PCindxArrDI = _PCindxArrDI;
             ABOindxArrDO = _ABOindxArrDO;
             ABBindxArrDO = _ABBindxArrDO;
+            BusSecIndex = _bussec_index;
         }
        
         /// <summary>
@@ -337,10 +353,11 @@ namespace Simulator_MPSA
                 }
                 else
                 {
+                    if (EC_DI != null) EC_DI.ValDI = true;
                     //команда включить - включить пускатель
-                    if ((ABB != null) && (ABB.ValDO))
+                    if ((ABB != null) && (ABB.ValDO) || (isAVOA && SetRPM_Value>0))
                     {
-                        if ((state == VSState.Stop || state == VSState.Stoping) && (BS != null && BS.ValDI == true))
+                        if ((state == VSState.Stop || state == VSState.Stoping))
                         {
                             if (MPC_DI != null)
                                 MPC_DI.ValDI = true;
@@ -350,7 +367,7 @@ namespace Simulator_MPSA
                     }
 
                     //команда выключить - отключить пускатель
-                    if ((ABO != null) && (ABO.ValDO))
+                    if ((ABO != null) && (ABO.ValDO) || (isAVOA && SetRPM_Value == 0))
                     {
                         if (State == VSState.Starting || State == VSState.Work)
                         {
@@ -374,18 +391,35 @@ namespace Simulator_MPSA
                             if (PC_AI.fValAI > valuePC)
                                 PC_AI.fValAI = valuePC;
                         }*/
+                        if (PC_DI != null) PC_DI.ValDI = true;
                         if (MPC_DI != null) MPC_DI.ValDI = true;
                         if (controledAIs != null)
                             foreach (AnalogIOItem analog in controledAIs)
                             {
                                 if (analog.AI != null)
                                 {
-                                    analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
-                                    if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
+                                    if (isAVOA)
+                                    {
+                                        analog.AI.fValAI += (SetRPM_Value - analog.AI.fValAI + SetRPM_Value / 20f) * dt * analog.ValueSpd;
+                                        if (analog.AI.fValAI > SetRPM_Value) analog.AI.fValAI = SetRPM_Value;
+                                    }
+                                    else
+                                    {
+                                        analog.AI.fValAI += (analog.ValueNom - analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                        if (analog.AI.fValAI > analog.ValueNom) analog.AI.fValAI = analog.ValueNom;
+                                    }
                                 }
                             }
                     }
 
+                    if (isAVOA)
+                    {
+                        int indxR = SetRPM_Addr - Sett.Instance.BegAddrR -1;
+                        if (indxR >=0 && indxR < RB.R.Length)
+                        {
+                            SetRPM_Value = RB.R[indxR]/ADCtoRPM;
+                        }
+                    }
                     if (state == VSState.Stop)
                     {
                         /* if (PC_AI != null)
@@ -395,19 +429,32 @@ namespace Simulator_MPSA
                                  PC_AI.fValAI = 0;
                          }*/
                         //управление всеми аналогами
+                        if (PC_DI != null) PC_DI.ValDI = false;
                         if (MPC_DI != null) MPC_DI.ValDI = false;
                         if (controledAIs != null)
                             foreach (AnalogIOItem analog in controledAIs)
                             {
                                 if (analog.AI != null)
                                 {
-                                    analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
-                                    if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
+                                    if (isAVOA)
+                                    {
+                                        analog.AI.fValAI -= (analog.AI.fValAI +1) * dt * analog.ValueSpd;
+                                        if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
+                                    }
+                                    else
+                                    {
+                                        analog.AI.fValAI -= (analog.AI.fValAI + analog.ValueNom / 20f) * dt * analog.ValueSpd;
+                                        if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;
+                                    }
                                 }
                             }
                     }
                 }//bs
-            }//en
+            }
+            else
+            {
+                if (EC_DI != null) EC_DI.ValDI = false;
+            }
             
 
         }

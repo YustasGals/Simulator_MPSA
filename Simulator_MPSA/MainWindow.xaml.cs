@@ -109,6 +109,7 @@ namespace Simulator_MPSA
         public DEndWrite EndCycle3;
         public DEndWrite EndCycle4;
         public DEndWrite EndCycle5;
+        public DEndWrite EndCycle6;
 
         public delegate void DDisconnected();
         public DDisconnected delegateDisconnected;
@@ -163,6 +164,8 @@ namespace Simulator_MPSA
             EndCycle3 += new DEndWrite(On_WritingCycle3End);
             EndCycle4 += new DEndWrite(On_WritingCycle4End);
             EndCycle5 += new DEndWrite(On_WritingCycle5End);
+            EndCycle6 += new DEndWrite(On_WritingCycle6End);
+
 
             delegateDisconnected += new DDisconnected(On_Disconnected);
             delegateEndRead += new DEndRead(On_ReadingCycleEnd);
@@ -175,7 +178,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// время последней записи в ПЛК
         /// </summary>
-        DateTime[] writingTime = new DateTime[5];
+        DateTime[] writingTime = new DateTime[6];
 
         /// <summary>
         /// время последнего чтения из ПЛК
@@ -268,7 +271,7 @@ namespace Simulator_MPSA
                                 SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                         }
                     }
 
@@ -287,6 +290,11 @@ namespace Simulator_MPSA
                             {
                                 WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = c.Value;
                             }
+                        if (c.buffer == BufType.A4)
+                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA4 + 1) && ((c.PLCAddr - Sett.Instance.iBegAddrA4 - 1) < WB.W_a4.Length))
+                            {
+                                WB.W_a4[c.PLCAddr - Sett.Instance.iBegAddrA4 - 1] = c.Value;
+                            }
                     }
 
                     foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
@@ -303,7 +311,7 @@ namespace Simulator_MPSA
                                 SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                         }
                     }
 
@@ -321,7 +329,7 @@ namespace Simulator_MPSA
                 //---------- вычисление время с момента предыдущей итерации ----------------
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
                 prevCycleTime = DateTime.Now;
-
+                Debug.WriteLine("Main time: "+dt_sec.ToString("F2"));
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -490,7 +498,7 @@ namespace Simulator_MPSA
                 wrThread.Start();
 
                 readingTime = DateTime.Now;
-                for (int i= 0; i<5; i++)
+                for (int i= 0; i<6; i++)
                 writingTime[i] = DateTime.Now;
                 
                 watchThread = new Thread(new ThreadStart(Watchdog));
@@ -516,7 +524,7 @@ namespace Simulator_MPSA
             StatusW1.Content =ts.TotalSeconds.ToString("F2")+" | ";
             writingTime[0] = DateTime.Now;
         }
-        DateTime writingTime2;
+    
         private void On_WritingCycle2End()
         {
             TimeSpan ts = DateTime.Now - writingTime[1];
@@ -524,7 +532,7 @@ namespace Simulator_MPSA
             StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[1] = DateTime.Now;
         }
-        DateTime writingTime3;
+      
         private void On_WritingCycle3End()
         {
             TimeSpan ts = DateTime.Now - writingTime[2];
@@ -532,7 +540,7 @@ namespace Simulator_MPSA
             StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[2] = DateTime.Now;
         }
-        DateTime writingTime4;
+     
         private void On_WritingCycle4End()
         {
             TimeSpan ts = DateTime.Now - writingTime[3];
@@ -540,13 +548,21 @@ namespace Simulator_MPSA
             StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[3] = DateTime.Now;
         }
-        DateTime writingTime5;
+      
         private void On_WritingCycle5End()
         {
             TimeSpan ts = DateTime.Now - writingTime[4];
             StatusW5.Content = ts.TotalSeconds.ToString("F2");
             //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
             writingTime[4] = DateTime.Now;
+        }
+
+        private void On_WritingCycle6End()
+        {
+            TimeSpan ts = DateTime.Now - writingTime[5];
+            StatusW6.Content = ts.TotalSeconds.ToString("F2");
+            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+            writingTime[6] = DateTime.Now;
         }
         //--------------------------------------------------------------------
 
@@ -852,6 +868,8 @@ namespace Simulator_MPSA
                 dataGridAI.CanUserDeleteRows = true;
 
                 tabSettings.Visibility = Visibility.Visible;
+                tabDiagMod.Visibility = Visibility.Visible;
+                tabDiagUSO.Visibility = Visibility.Visible;
 
                 dataGridDI_Addr.Visibility = Visibility.Visible;
                 dataGridDI_Bit.Visibility = Visibility.Visible;
@@ -884,6 +902,8 @@ namespace Simulator_MPSA
                 dataGridAI.CanUserDeleteRows = false;
 
                 tabSettings.Visibility = Visibility.Collapsed;
+                tabDiagMod.Visibility = Visibility.Collapsed;
+                tabDiagUSO.Visibility = Visibility.Collapsed;
 
                 dataGridDI_Addr.Visibility = Visibility.Hidden;
                 dataGridDI_Bit.Visibility = Visibility.Hidden;

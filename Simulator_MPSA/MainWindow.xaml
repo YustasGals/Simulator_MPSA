@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Симулятор полевых сигналов МПСА v1.0.001" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
+        Title="Симулятор полевых сигналов МПСА v1.0.002" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -319,7 +319,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Диагностика связи">
+            <TabItem Header="Диагностика связи" x:Name="tabDiagUSO">
                 <Grid>
 
                     <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
@@ -333,7 +333,7 @@
                         </DataGrid>               
                 </Grid>
             </TabItem>
-            <TabItem Header="Диагностика">
+            <TabItem Header="Диагностика" x:Name="tabDiagMod">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -381,6 +381,7 @@
             <Label x:Name="StatusW3" Content=""></Label>
             <Label x:Name="StatusW4" Content=""></Label>
             <Label x:Name="StatusW5" Content=""></Label>
+            <Label x:Name="StatusW6" Content=""></Label>
             <Label x:Name="StatusR" Content="Время чтения:"></Label>
         </StatusBar>
     </Grid>
