@@ -26,7 +26,7 @@ using System.Data;
 using Simulator_MPSA.CL;
 using System.Windows.Forms;
 using System.ComponentModel;
-
+using Simulator_MPSA.Scripting;
 namespace Simulator_MPSA
 {
     //тип буфера
@@ -207,6 +207,9 @@ namespace Simulator_MPSA
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateVS(dt_sec);
 
+                if (ScriptInfo.Items != null)
+                    foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
+                        script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
                 //for (int i = 0; i < AIStruct.items.Length; i++)
                 lock (WB.W)
@@ -1017,7 +1020,7 @@ namespace Simulator_MPSA
 
         private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
         {
-            ScriptEditor editor = new ScriptEditor();
+            ScriptEditor editor = new ScriptEditor(dataGridScript.SelectedItem as Scripting.ScriptInfo);
             editor.Show();
         }
     }

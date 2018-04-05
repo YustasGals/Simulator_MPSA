@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using Simulator_MPSA.Scripting;
 namespace Simulator_MPSA
 {
     /// <summary>
@@ -19,20 +19,24 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class ScriptEditor : Window
     {
+        ScriptInfo script;
         public ScriptEditor(Scripting.ScriptInfo script)
         {
-            Editor.Text = script.ScriptTxt;
             InitializeComponent();
+
+            this.script = script;
+            Editor.Text = script.ScriptTxt;
+
         }
 
         private void On_ButtonClose(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void On_ButtonApply(object sender, RoutedEventArgs e)
         {
-
+            script.ScriptTxt = Editor.Text;
         }
     }
 }

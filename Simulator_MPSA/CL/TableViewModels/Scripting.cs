@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 
 using LuaInterface;
 using LuaInterface.Exceptions;
-
+using System.Xml.Serialization;
 namespace Simulator_MPSA.Scripting
 {
     /// <summary>
@@ -63,8 +63,16 @@ namespace Simulator_MPSA.Scripting
             if (di != null)
                 di.ValDI = value;
         }
-        
+        bool GetDO(int index)
+        {
+            DOStruct d = DOStruct.FindByIndex(index);
+            if (d != null)
+                return d.ValDO;
+            else return false;
+        }
     }
+
+    [Serializable]
     public class ScriptInfo
     {
         /// <summary>
@@ -111,6 +119,7 @@ namespace Simulator_MPSA.Scripting
         public ScriptInfo()
         {
             lua["Utils"] = new Utils();
+            ScriptTxt = "";
         }
         public void Prepare()
         {
@@ -122,7 +131,6 @@ namespace Simulator_MPSA.Scripting
         public static void Init()
         {
             _items = new ObservableCollection<ScriptInfo>();
-            _items.Add(new ScriptInfo());
         }
     }
 }

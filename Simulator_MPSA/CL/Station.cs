@@ -123,8 +123,8 @@ namespace Simulator_MPSA.CL
                     di.PLCAddr = di.PLCAddr;
 
                 Scripting.ScriptInfo.Init();
-                if (scripts != null && scripts.Count()>0)
-                foreach (Scripting.ScriptInfo scr in scripts)
+                if (station.scripts != null && station.scripts.Length>0)
+                foreach (Scripting.ScriptInfo scr in station.scripts)
                     Scripting.ScriptInfo.Items.Add(scr);
 
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
