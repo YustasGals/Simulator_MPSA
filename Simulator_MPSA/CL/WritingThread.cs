@@ -96,9 +96,13 @@ namespace Simulator_MPSA
 
             for (int i = 0; i < NMasters; i++)
             {
-                tcp[i].Close();
                 if (wrThread[i] != null)
                     wrThread[i].Abort();
+            }
+
+            for (int i = 0; i < NMasters; i++)
+            {
+                tcp[i].Close();
             }
         }
 
@@ -158,6 +162,8 @@ namespace Simulator_MPSA
                 //----------------------- Вызов делегата --------------------------------------------------------
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         void WriteToPLC2()
@@ -205,6 +211,7 @@ namespace Simulator_MPSA
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle2);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         void WriteToPLC3()
@@ -250,6 +257,7 @@ namespace Simulator_MPSA
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
         void WriteToPLC4()
@@ -295,6 +303,8 @@ namespace Simulator_MPSA
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
 
@@ -362,53 +372,13 @@ namespace Simulator_MPSA
                     else
                         Debug.WriteLine("skip - A4");
                 }
-
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
             }
         }
-        void WriteA4()
-        {
-
-            int destStartAddr = Sett.Instance.iBegAddrA4;
-            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
-
-            bool isFirstCycle = true;
-            while (true)
-            {
-                CoilCount = WB.W_a4.Length / NReg;
-                for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
-                {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
-                    {
-                        if (WB.W_a4[i_reg] != WB.W_a4_prev[i_reg])
-                        {
-                            isChanged = true;
-                            //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                            break;
-                        }
-                    }
-
-                    if (isChanged || isFirstCycle)
-                    {
-
-                        Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
-
-                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
-                    }
-                    else
-                        Debug.WriteLine("skip - A4");
-                }
-
-                isFirstCycle = false;
-
-             //   if (refMainWindow != null)
-               //     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle6);
-            }
-        }
+  
         /* void WriteToPLC(object jobnum)
          {
 

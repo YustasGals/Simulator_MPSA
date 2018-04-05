@@ -28,12 +28,14 @@ namespace Simulator_MPSA.CL
        public ZDStruct[] ZDs;
         public USOCounter[] Counters;
         public DIStruct[] DiagSignals;
+        public Scripting.ScriptInfo[] scripts;
 
         public Station()
         { }
 
         public StationSaveResult Save(string filename)
         {
+            DIStruct.items = DITableViewModel.Instance.DIs.ToArray();
             DIs = DIStruct.items;
             DOs = DOStruct.items;
 
@@ -48,6 +50,10 @@ namespace Simulator_MPSA.CL
             settings = Sett.Instance;
             Counters = CountersTableViewModel.Counters.ToArray();
             DiagSignals = DiagTableModel.Instance.DiagRegs.ToArray();
+
+            scripts = Scripting.ScriptInfo.Items.ToArray();
+
+
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(filename);
@@ -67,14 +73,22 @@ namespace Simulator_MPSA.CL
                 Station station = (Station)xml.Deserialize(stream);
                 //  reader.Dispose();
                 stream.Dispose();
+                Sett.Instance = station.settings;
+
 
                 DIStruct.items = station.DIs;
-                DOStruct.items = station.DOs;
+                foreach (DIStruct di in DIStruct.items)
+                    di.PLCAddr = di.PLCAddr;
 
+                DOStruct.items = station.DOs;
+                foreach (DOStruct d in DOStruct.items)
+                    d.PLCAddr = d.PLCAddr;
                 
                 AIStruct.items = station.AIs;
+                foreach (AIStruct ai in AIStruct.items)
+                    ai.PLCAddr = ai.PLCAddr;
+                
 
-                Sett.Instance = station.settings;
 
                 //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
                 //foreach (AIStruct ai in AIStruct.items)
@@ -105,6 +119,13 @@ namespace Simulator_MPSA.CL
 
 
                 DiagTableModel.Instance.Init(station.DiagSignals);
+                foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
+                    di.PLCAddr = di.PLCAddr;
+
+                Scripting.ScriptInfo.Init();
+                if (scripts != null && scripts.Count()>0)
+                foreach (Scripting.ScriptInfo scr in scripts)
+                    Scripting.ScriptInfo.Items.Add(scr);
 
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;

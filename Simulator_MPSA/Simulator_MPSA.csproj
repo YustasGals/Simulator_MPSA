@@ -71,6 +71,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="LuaInterface">
+      <HintPath>Properties\LuaInterface.dll</HintPath>
+    </Reference>
     <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
       <Private>True</Private>
@@ -121,10 +124,14 @@
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
+    <Compile Include="CL\TableViewModels\Scripting.cs" />
     <Compile Include="CL\TableViewModels\SetupTableModel.cs" />
     <Compile Include="CL\Station.cs" />
     <Compile Include="CL\USOCounter.cs" />
     <Compile Include="CL\WritingThread.cs" />
+    <Compile Include="ScriptEditor.xaml.cs">
+      <DependentUpon>ScriptEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SetupDialog.xaml.cs">
       <DependentUpon>SetupDialog.xaml</DependentUpon>
     </Compile>
@@ -147,6 +154,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ScriptEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SetupDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

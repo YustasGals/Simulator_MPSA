@@ -410,6 +410,8 @@ namespace Simulator_MPSA
                     dataGridZD.DataContext = ZDTableViewModel.Instance;
 
                     dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
+
+                    dataGridScript.ItemsSource = Scripting.ScriptInfo.Items;
                 }
              
              //старый способ загрузки
@@ -888,6 +890,16 @@ namespace Simulator_MPSA
                 dataGridDiag.CanUserAddRows = true;
                 dataGridDiag.CanUserDeleteRows = true;
 
+                dataGridZD.CanUserAddRows = true;
+                dataGridZD.CanUserDeleteRows = true;
+
+                dataGridKL.CanUserAddRows = true;
+                dataGridKL.CanUserDeleteRows = true;
+
+                dataGridDI.CanUserAddRows = true;
+                dataGridDI.CanUserDeleteRows = true;
+
+
                 dataGridDiag_Addr.Visibility = Visibility.Visible;
                 dataGridDiag_Bit.Visibility = Visibility.Visible;
             }
@@ -900,6 +912,15 @@ namespace Simulator_MPSA
                 dataGridAI.IsManipulationEnabled = false;
                 dataGridAI.CanUserAddRows = false;
                 dataGridAI.CanUserDeleteRows = false;
+
+                dataGridZD.CanUserAddRows = false;
+                dataGridZD.CanUserDeleteRows = false;
+
+                dataGridKL.CanUserAddRows = false;
+                dataGridKL.CanUserDeleteRows = false;
+
+                dataGridDI.CanUserAddRows = false;
+                dataGridDI.CanUserDeleteRows = false;
 
                 tabSettings.Visibility = Visibility.Collapsed;
                 tabDiagMod.Visibility = Visibility.Collapsed;
@@ -964,6 +985,40 @@ namespace Simulator_MPSA
                 DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
                 DiagTableModel.Instance.ApplyFilter();
             }
+        }
+
+        private void MenuItem_toggleMPNA(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showMPNA.IsChecked = !MenuItem_showMPNA.IsChecked;
+            if (!MenuItem_showMPNA.IsChecked)
+                tabMPNA.Visibility = Visibility.Collapsed;
+            else
+                tabMPNA.Visibility = Visibility.Visible;
+        }
+
+        private void MenuItem_toggleKL(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showKL.IsChecked = !MenuItem_showKL.IsChecked;
+            if (!MenuItem_showKL.IsChecked)
+                tabKL.Visibility = Visibility.Collapsed;
+            else
+                tabKL.Visibility = Visibility.Visible;
+        }
+
+        private void MenuItem_toggleVS(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showVS.IsChecked = !MenuItem_showVS.IsChecked;
+
+            if (!MenuItem_showVS.IsChecked)
+                tabVS.Visibility = Visibility.Collapsed;
+            else
+                tabVS.Visibility = Visibility.Visible;
+        }
+
+        private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
+        {
+            ScriptEditor editor = new ScriptEditor();
+            editor.Show();
         }
     }
 }

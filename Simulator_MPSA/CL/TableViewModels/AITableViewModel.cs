@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+
 namespace Simulator_MPSA.CL
 {
     class AITableViewModel : BaseViewModel
@@ -38,7 +40,7 @@ namespace Simulator_MPSA.CL
 
         public void Init(AIStruct[] table)
         {
-            AIStruct[] AIViewModels = new AIStruct[table.Length];
+        //    AIStruct[] AIViewModels = new AIStruct[table.Length];
             _AIs.Clear();
             //_AIs = new ObservableCollection<AIStruct>();
             foreach (AIStruct ai in table)
@@ -48,6 +50,12 @@ namespace Simulator_MPSA.CL
             viewSource.Source = _AIs;
             viewSource.Filter += new FilterEventHandler(Name_Filter);
             viewSource.IsLiveFilteringRequested = true;
+
+            _AIs.CollectionChanged += OnCollectionChanged;
+        }
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            AIStruct.items = _AIs.ToArray();
         }
 
         public CollectionViewSource viewSource = new CollectionViewSource();

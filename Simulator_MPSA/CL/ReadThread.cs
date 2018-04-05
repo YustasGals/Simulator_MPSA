@@ -17,10 +17,11 @@ namespace Simulator_MPSA
 
         Thread[] thread = new Thread[2];
         TcpClient[] tcp = new TcpClient[2];
-
+        ushort NReg = 125;
+        int coilCount;
         public ReadThread(string hostname, int port)
         {
-           
+            coilCount = RB.R.Length / NReg + 1;
             for (int i = 0; i < 2; i++)
             {
                 tcp[i] = new TcpClient(hostname, port);
@@ -51,14 +52,14 @@ namespace Simulator_MPSA
 
         private void ThreadJob1()
         {
-            ushort NReg = 125;
+            
             ushort tbStartAdress = (ushort)Sett.Instance.BegAddrR;
 
             ushort[] data;
 
             while (true)
             {
-                for (ushort i = 0; i < 6; i++)
+                for (ushort i = 0; i < coilCount/2; i++)
                 {
                     data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i), NReg);
                     data.CopyTo(RB.R, NReg*i);
@@ -67,6 +68,7 @@ namespace Simulator_MPSA
 
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
 
@@ -79,15 +81,16 @@ namespace Simulator_MPSA
 
             while (true)
             {
-                for (ushort i = 6; i< 11; i++)
+                for (int i = coilCount / 2 + 1; i< coilCount-1; i++)
                 {
                     data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i), NReg);
         data.CopyTo(RB.R, NReg* i);
                 }
     GetDOfromR();
 
-              /*  if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
+                /*  if (refMainWindow != null)
+                      refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
+                System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
 

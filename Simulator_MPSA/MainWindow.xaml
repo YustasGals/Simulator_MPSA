@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Симулятор полевых сигналов МПСА v1.0.002" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
+        Title="Симулятор полевых сигналов МПСА v1.0.003" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -42,8 +42,11 @@
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" />
             </MenuItem>
 
-            <MenuItem x:Name="MenuItem_instr" Header="Инструменты" HorizontalAlignment="Right">
-                <MenuItem x:Name="MenuItem_config" Header="Режим конфигуратора" HorizontalAlignment="Right" Click="MenuItem_toggleConfigMode" IsChecked="False"/>
+            <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">
+                <MenuItem x:Name="MenuItem_config" Header="Режим конфигуратора" HorizontalAlignment="Left" Click="MenuItem_toggleConfigMode" IsChecked="False"/>
+                <MenuItem x:Name="MenuItem_showMPNA" Header="МНА/ПНА" HorizontalAlignment="Left" Click="MenuItem_toggleMPNA" IsChecked="true"/>
+                <MenuItem x:Name="MenuItem_showKL" Header="Клапаны" HorizontalAlignment="Left" Click="MenuItem_toggleKL" IsChecked="True"/>
+                <MenuItem x:Name="MenuItem_showVS" Header="Вспомсистемы" HorizontalAlignment="Left" Click="MenuItem_toggleVS" IsChecked="True"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
 
@@ -126,7 +129,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Дискретные входы">
+            <TabItem Header="Дискретные сигналы">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -170,7 +173,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Дискретные выходы">
+            <TabItem Header="Дискретные команды">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -230,9 +233,9 @@
                         </DataGrid.ContextMenu>
                         
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" />
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  />
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZDRus}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
@@ -241,7 +244,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Клапаны">
+            <TabItem x:Name="tabKL" Header="Клапаны">
                 <Grid >
                     <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.ContextMenu>
@@ -254,16 +257,31 @@
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="true"/>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
+                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" />
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"  IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Вспомсистемы">
+            <TabItem x:Name="tabScript" Header="Мат. модель">
+                <Grid >
+                    <DataGrid x:Name="dataGridScript" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabVS" Header="Вспомсистемы">
                 <Grid >
                     
                     <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" Margin="0,0,0,0">
@@ -307,7 +325,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Магистральные агрегаты">
+            <TabItem x:Name="tabMPNA" Header="Магистральные агрегаты">
                 <Grid >
                     <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>

@@ -56,6 +56,9 @@ namespace Simulator_MPSA {
         [NonSerialized()]
         public Dictionary<string, SettingsItem> items = new Dictionary<string, SettingsItem>();
 
+        public bool ShowTab_MPNA = true;
+        public bool ShowTab_VS = true;
+        public bool ShowTab_KL = true;
         public Sett()
         {
             items.Add("HostName", new SettingsItem("IP", "192.168.201.1",typeof(String)));
