@@ -277,6 +277,7 @@
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding ErrorText}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

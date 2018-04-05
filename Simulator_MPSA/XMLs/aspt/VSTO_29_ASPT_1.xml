@@ -1763,7 +1763,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13169</PLCAddr>
       <indxArrDI>176</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -1773,7 +1773,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>13169</PLCAddr>
       <indxArrDI>177</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -1853,7 +1853,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13169</PLCAddr>
       <indxArrDI>185</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -1863,7 +1863,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>13169</PLCAddr>
       <indxArrDI>186</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -1943,7 +1943,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13170</PLCAddr>
       <indxArrDI>194</indxArrDI>
       <indxBitDI>13</indxBitDI>
@@ -1953,7 +1953,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>13170</PLCAddr>
       <indxArrDI>195</indxArrDI>
       <indxBitDI>12</indxBitDI>
@@ -2033,7 +2033,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13170</PLCAddr>
       <indxArrDI>203</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -2723,7 +2723,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13295</PLCAddr>
       <indxArrDI>272</indxArrDI>
       <indxBitDI>15</indxBitDI>
@@ -2733,7 +2733,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>13295</PLCAddr>
       <indxArrDI>273</indxArrDI>
       <indxBitDI>14</indxBitDI>
@@ -2813,7 +2813,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13295</PLCAddr>
       <indxArrDI>281</indxArrDI>
       <indxBitDI>6</indxBitDI>
@@ -2823,7 +2823,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>true</ValDI>
+      <ValDI>false</ValDI>
       <PLCAddr>13295</PLCAddr>
       <indxArrDI>282</indxArrDI>
       <indxBitDI>5</indxBitDI>
@@ -2993,7 +2993,7 @@
     </DIStruct>
     <DIStruct>
       <En>true</En>
-      <ValDI>false</ValDI>
+      <ValDI>true</ValDI>
       <PLCAddr>13296</PLCAddr>
       <indxArrDI>299</indxArrDI>
       <indxBitDI>4</indxBitDI>
@@ -4129,7 +4129,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>4</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>16001</PLCAddr>
@@ -4481,7 +4481,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>36</indxArrDO>
       <indxBitDO>11</indxBitDO>
       <PLCAddr>16031</PLCAddr>
@@ -5097,7 +5097,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>92</indxArrDO>
       <indxBitDO>3</indxBitDO>
       <PLCAddr>16091</PLCAddr>
@@ -5119,7 +5119,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>false</ValDO>
+      <ValDO>true</ValDO>
       <indxArrDO>94</indxArrDO>
       <indxBitDO>1</indxBitDO>
       <PLCAddr>16091</PLCAddr>
@@ -5416,7 +5416,7 @@
     </DOStruct>
     <DOStruct>
       <En>true</En>
-      <ValDO>true</ValDO>
+      <ValDO>false</ValDO>
       <indxArrDO>121</indxArrDO>
       <indxBitDO>6</indxBitDO>
       <PLCAddr>16121</PLCAddr>
@@ -5872,12 +5872,12 @@
       <PLCAddr>13081</PLCAddr>
       <TegAI>PT701</TegAI>
       <NameAI>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.1</NameAI>
-      <ValACD>4001</ValACD>
+      <ValACD>11680</ValACD>
       <minACD>4001</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>2.5</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>1.2</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>14</DelayAI>
@@ -5887,12 +5887,12 @@
       <PLCAddr>13207</PLCAddr>
       <TegAI>PT702</TegAI>
       <NameAI>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.2</NameAI>
-      <ValACD>4001</ValACD>
+      <ValACD>11680</ValACD>
       <minACD>4001</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>2.5</maxPhis>
-      <fValAI>0</fValAI>
+      <fValAI>1.2</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>15</DelayAI>
@@ -5962,12 +5962,12 @@
       <PLCAddr>13084</PLCAddr>
       <TegAI>PT707</TegAI>
       <NameAI>Давление на выходе бака дозатора Б.1</NameAI>
-      <ValACD>4007</ValACD>
+      <ValACD>4128</ValACD>
       <minACD>4001</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>2.5</maxPhis>
-      <fValAI>0.001</fValAI>
+      <fValAI>0.01987652</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>20</DelayAI>
@@ -5977,12 +5977,12 @@
       <PLCAddr>13210</PLCAddr>
       <TegAI>PT708</TegAI>
       <NameAI>Давление на выходе бака дозатора Б.2</NameAI>
-      <ValACD>4007</ValACD>
+      <ValACD>4373</ValACD>
       <minACD>4001</minACD>
       <maxACD>20000</maxACD>
       <minPhis>0</minPhis>
       <maxPhis>2.5</maxPhis>
-      <fValAI>0.001</fValAI>
+      <fValAI>0.05826055</fValAI>
     </AIStruct>
     <AIStruct>
       <DelayAI>21</DelayAI>
@@ -6177,12 +6177,12 @@
             <PLCAddr>13081</PLCAddr>
             <TegAI>PT701</TegAI>
             <NameAI>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.1</NameAI>
-            <ValACD>4001</ValACD>
+            <ValACD>11680</ValACD>
             <minACD>4001</minACD>
             <maxACD>20000</maxACD>
             <minPhis>0</minPhis>
             <maxPhis>2.5</maxPhis>
-            <fValAI>0</fValAI>
+            <fValAI>1.2</fValAI>
           </AI>
           <AIName>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.1</AIName>
           <ValueSpd>0.2</ValueSpd>
@@ -6206,8 +6206,8 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>203</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -6224,12 +6224,12 @@
             <PLCAddr>13207</PLCAddr>
             <TegAI>PT702</TegAI>
             <NameAI>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.2</NameAI>
-            <ValACD>4001</ValACD>
+            <ValACD>11680</ValACD>
             <minACD>4001</minACD>
             <maxACD>20000</maxACD>
             <minPhis>0</minPhis>
             <maxPhis>2.5</maxPhis>
-            <fValAI>0</fValAI>
+            <fValAI>1.2</fValAI>
           </AI>
           <AIName>Давление на выходе насоса подачи воды в сеть пеноту-шения Н1.2</AIName>
           <ValueSpd>0.4</ValueSpd>
@@ -6253,8 +6253,8 @@
       <valueEC>0</valueEC>
       <MPCindxArrDI>299</MPCindxArrDI>
       <PCindxArrDI>-1</PCindxArrDI>
-      <State>Stop</State>
-      <StateRUS>Остановлен</StateRUS>
+      <State>Work</State>
+      <StateRUS>В работе</StateRUS>
     </VSStruct>
     <VSStruct>
       <changedDO>false</changedDO>
@@ -6354,7 +6354,7 @@
   <ZDs>
     <ZDStruct>
       <_bsindex>0</_bsindex>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -6368,9 +6368,9 @@
       <DCBZindxArrDO>-1</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>176</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>177</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>178</ODCindxArrDI>
       <ODCState>false</ODCState>
       <BSIndex>0</BSIndex>
@@ -6388,14 +6388,14 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>20</TmoveZD>
+      <TmoveZD>5</TmoveZD>
       <TscZD>1</TscZD>
-      <Description>Задвижка Б1-1</Description>
+      <Description>Задвижка B16</Description>
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
       <_bsindex>0</_bsindex>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -6409,9 +6409,9 @@
       <DCBZindxArrDO>-1</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>185</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>186</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>187</ODCindxArrDI>
       <ODCState>false</ODCState>
       <BSIndex>0</BSIndex>
@@ -6429,14 +6429,14 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>20</TmoveZD>
+      <TmoveZD>5</TmoveZD>
       <TscZD>1</TscZD>
-      <Description>Задвижка Б1-2</Description>
+      <Description>Задвижка Б19</Description>
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
       <_bsindex>0</_bsindex>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -6450,9 +6450,9 @@
       <DCBZindxArrDO>-1</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>272</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>273</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>274</ODCindxArrDI>
       <ODCState>false</ODCState>
       <BSIndex>0</BSIndex>
@@ -6470,14 +6470,14 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>20</TmoveZD>
+      <TmoveZD>5</TmoveZD>
       <TscZD>1</TscZD>
-      <Description>Задвижка Б2-1</Description>
+      <Description>Задвижка Б18</Description>
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
       <_bsindex>0</_bsindex>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -6491,9 +6491,9 @@
       <DCBZindxArrDO>-1</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>281</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>282</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>283</ODCindxArrDI>
       <ODCState>false</ODCState>
       <BSIndex>0</BSIndex>
@@ -6511,14 +6511,14 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>20</TmoveZD>
+      <TmoveZD>5</TmoveZD>
       <TscZD>1</TscZD>
-      <Description>Задвижка Б2-2</Description>
+      <Description>Задвижка Б20</Description>
       <Group>Group</Group>
     </ZDStruct>
     <ZDStruct>
       <_bsindex>0</_bsindex>
-      <StateZD>Open</StateZD>
+      <StateZD>Close</StateZD>
       <En>true</En>
       <ZD_Pos_index>-1</ZD_Pos_index>
       <Position>0</Position>
@@ -6532,9 +6532,9 @@
       <DCBZindxArrDO>-1</DCBZindxArrDO>
       <ChangedDO>false</ChangedDO>
       <OKCindxArrDI>194</OKCindxArrDI>
-      <OKCState>false</OKCState>
+      <OKCState>true</OKCState>
       <CKCindxArrDI>195</CKCindxArrDI>
-      <CKCState>true</CKCState>
+      <CKCState>false</CKCState>
       <ODCindxArrDI>196</ODCindxArrDI>
       <ODCState>false</ODCState>
       <BSIndex>0</BSIndex>
@@ -6552,9 +6552,9 @@
       <ZDProc>0</ZDProc>
       <Percent>0</Percent>
       <ChangedDI>false</ChangedDI>
-      <TmoveZD>20</TmoveZD>
+      <TmoveZD>5</TmoveZD>
       <TscZD>1</TscZD>
-      <Description>Задвижка 351-1</Description>
+      <Description>Задвижка AB1</Description>
       <Group>Group</Group>
     </ZDStruct>
   </ZDs>
@@ -6562,84 +6562,84 @@
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>3955</Value>
+      <Value>631</Value>
       <PLCAddr>12700</PLCAddr>
       <Name>УСО1(1) Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>9792</Value>
+      <Value>6468</Value>
       <PLCAddr>12825</PLCAddr>
       <Name>УСО1(1) Модуль А1.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>9411</Value>
+      <Value>6087</Value>
       <PLCAddr>12826</PLCAddr>
       <Name>УСО1(1) Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>8980</Value>
+      <Value>5656</Value>
       <PLCAddr>12952</PLCAddr>
       <Name>УСО1(1) Модуль А3.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>8731</Value>
+      <Value>5407</Value>
       <PLCAddr>13078</PLCAddr>
       <Name>УСО2 Модуль А1.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>8412</Value>
+      <Value>5088</Value>
       <PLCAddr>12951</PLCAddr>
       <Name>УСО1(1) Модуль А2.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>8743</Value>
+      <Value>5419</Value>
       <PLCAddr>13077</PLCAddr>
       <Name>УСО1(1) Модуль А3.07</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>7394</Value>
+      <Value>4070</Value>
       <PLCAddr>13204</PLCAddr>
       <Name>УСО2 Модуль А2.00</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>6737</Value>
+      <Value>3413</Value>
       <PLCAddr>13203</PLCAddr>
       <Name>УСО2 Модуль А1.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>USO</buffer>
       <En>true</En>
-      <Value>6823</Value>
+      <Value>3499</Value>
       <PLCAddr>13329</PLCAddr>
       <Name>УСО2 Модуль А2.11</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>5257</Value>
+      <Value>1933</Value>
       <PLCAddr>11501</PLCAddr>
       <Name> Ethernet NOE3 УСО ЦП ОСН - BMX А3 NOE1</Name>
     </USOCounter>
     <USOCounter>
       <buffer>A3</buffer>
       <En>true</En>
-      <Value>5174</Value>
+      <Value>1850</Value>
       <PLCAddr>11502</PLCAddr>
       <Name> Ethernet NOE3 УСО ЦП РЕЗ - BMX А3 NOE2</Name>
     </USOCounter>
@@ -7668,10 +7668,67 @@
   </DiagSignals>
   <scripts>
     <ScriptInfo>
-      <Name>test</Name>
-      <En>false</En>
+      <Name>pt707</Name>
+      <En>true</En>
       <Ready>false</Ready>
-      <ScriptTxt>Utils:SetDI(0,true)</ScriptTxt>
+      <ScriptTxt>function Init()
+pt707 = 20
+pt708 = 21
+
+pt701 = 14
+pt702 = 15
+end
+
+function DecreasePT707()
+ if Utils:GetAI(pt707 ) &gt; 0.02 then
+  Utils:SetAI(pt707 , Utils:GetAI(pt707 ) * 0.99)
+ end
+end
+function DecreasePT708()
+ if Utils:GetAI(pt708 ) &gt; 0.02 then
+  Utils:SetAI(pt708 , Utils:GetAI(pt708 ) * 0.99)
+ end
+end
+function Update()
+zd16 = 0
+  if Utils:GetZDProc(zd16)&gt;20 then
+    Utils:SetAI(pt707 , Utils:GetAI(pt701 ))
+  else
+    DecreasePT707()
+  end
+zd18 = 2
+if Utils:GetZDProc(zd18)&gt;20 then
+    Utils:SetAI(pt708 , Utils:GetAI(pt702 ))
+  else
+    DecreasePT708()
+  end
+end</ScriptTxt>
+      <ErrorText>Update ok;</ErrorText>
+    </ScriptInfo>
+    <ScriptInfo>
+      <Name>Дозаторы</Name>
+      <En>true</En>
+      <Ready>false</Ready>
+      <ScriptTxt>function Update()
+pt707 = 20
+ if Utils:GetAI(pt707)&gt;0.1 then
+  Utils:SetDI(404, false)
+  Utils:SetDI(405, true)
+ else
+  Utils:SetDI(404, true)
+  Utils:SetDI(405, false)
+ end
+
+pt708 = 21
+ if Utils:GetAI(pt708 )&gt;0.1 then
+  Utils:SetDI(406, false)
+  Utils:SetDI(407, true)
+ else
+  Utils:SetDI(406, true)
+  Utils:SetDI(407, false)
+ end
+end</ScriptTxt>
+      <ErrorText>Update ok;</ErrorText>
     </ScriptInfo>
   </scripts>
 </Station>

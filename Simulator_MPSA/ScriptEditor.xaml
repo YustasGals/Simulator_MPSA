@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulator_MPSA"
         mc:Ignorable="d"
-        Title="Редактирование скрипта" Height="300" Width="378.178">
-    <Grid>
+        Title="Редактирование скрипта" Height="273.102" Width="886.11" SizeToContent="Manual">
+    <Grid Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" MinHeight="240"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="0" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14"/>
-        <Button x:Name="ButtonApply" Content="Закрыть" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Bottom" Width="75" Height="20" Margin="0,5,10,5" Click="On_ButtonClose"/>
-        <Button x:Name="ButtonClose" Content="Применить" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Bottom" Width="75" Height="20" Margin="127,5,95,5" Click="On_ButtonApply"/>
+        <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="0" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="ButtonApply" Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,10,5" Click="On_ButtonClose" Grid.Row="1"/>
+        <Button x:Name="ButtonClose" Content="Применить" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,90,5" Click="On_ButtonApply" Grid.Row="1"/>
 
     </Grid>
 </Window>

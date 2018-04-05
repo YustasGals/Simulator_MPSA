@@ -207,7 +207,7 @@ namespace Simulator_MPSA
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateVS(dt_sec);
 
-                if (ScriptInfo.Items != null)
+                if (ScriptInfo.Items != null)                    
                     foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
                         script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
