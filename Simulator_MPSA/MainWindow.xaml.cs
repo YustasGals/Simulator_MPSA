@@ -188,11 +188,12 @@ namespace Simulator_MPSA
         DateTime prevCycleTime;
 
         float dt_sec;
+        bool mainCycleEnabled = true;
         private void Watchdog()
         {
             prevCycleTime = DateTime.Now;
             dt_sec = 0f;
-            while (true)   
+            while (mainCycleEnabled)   
             {
                 //-------- обновление структур --------------------------
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
@@ -201,11 +202,13 @@ namespace Simulator_MPSA
                 foreach (KLStruct kl in KLTableViewModel.KL)
                     kl.UpdateKL(dt_sec);
 
+                foreach (VSStruct vs in VSTableViewModel.VS)
+                    vs.UpdateVS(dt_sec);
+
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
                     mpna.UpdateMPNA(dt_sec);
 
-                foreach (VSStruct vs in VSTableViewModel.VS)
-                    vs.UpdateVS(dt_sec);
+
 
                 if (ScriptInfo.Items != null)                    
                     foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
@@ -1022,6 +1025,17 @@ namespace Simulator_MPSA
         {
             ScriptEditor editor = new ScriptEditor(dataGridScript.SelectedItem as Scripting.ScriptInfo);
             editor.Show();
+        }
+
+        private void ScriptMenu_RunClick(object sender, RoutedEventArgs e)
+        {
+            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
+
+            if (script != null)
+            {
+                script.Prepare();
+                script.Run(0);
+            }
         }
     }
 }

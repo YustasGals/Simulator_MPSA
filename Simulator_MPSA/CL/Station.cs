@@ -35,7 +35,7 @@ namespace Simulator_MPSA.CL
 
         public StationSaveResult Save(string filename)
         {
-            DIStruct.items = DITableViewModel.Instance.DIs.ToArray();
+            DIStruct.items = DITableViewModel.Instance.DIs;
             DIs = DIStruct.items;
             DOs = DOStruct.items;
 

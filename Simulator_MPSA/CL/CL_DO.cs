@@ -20,11 +20,31 @@ namespace Simulator_MPSA.CL
             get { return _En; }
             set { _En = value; OnPropertyChanged("En"); }
         }
+
+        /// <summary>
+        /// включить принудительную запись, игнорировать значения полученные из ПЛК
+        /// </summary>
+        public bool Forced
+        { set; get; }
+
+        public bool ForcedValue
+        {
+            set { _ValDO = value; }
+            get { return _ValDO; }
+        }
+
         private bool _ValDO;
         public bool ValDO
         {
             get { return _ValDO; }
-            set { _ValDO = value; OnPropertyChanged("ValDO"); }
+            set
+            {
+                if (!Forced)
+                {
+                    _ValDO = value;
+                    OnPropertyChanged("ForcedValue");
+                }
+            }
         }
         private int _indxArrDO;
         public int indxArrDO

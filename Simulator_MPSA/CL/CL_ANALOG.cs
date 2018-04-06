@@ -49,6 +49,28 @@ namespace Simulator_MPSA.CL
             set { _plcDestType = value; OnPropertyChanged("PLCDestType"); }
         }
 
+        /// <summary>
+        /// включить принудительную запись, игнорировать значение от алгоритмов и скриптов
+        /// </summary>
+        public bool Forced
+        { set; get; }
+
+        /// <summary>
+        /// Property для ввода значения из DataGrid
+        /// </summary>
+        public float ForcedValue
+        {
+            set
+            {
+                _fValAI = value;
+                RefreshADC();
+            }
+            get
+            {
+                return _fValAI;
+            }
+        }
+
         private int _plcAddr=0;
         /// <summary>
         /// MODBUS адрес
@@ -139,9 +161,12 @@ namespace Simulator_MPSA.CL
             get { return _fValAI; }
             set
             {
-                _fValAI = value;
-                RefreshADC();
-                OnPropertyChanged("fValAI");
+                if (!Forced)
+                {
+                    _fValAI = value;
+                    RefreshADC();
+                    OnPropertyChanged("ForcedValue");
+                }
             }
         }
 
@@ -163,11 +188,13 @@ namespace Simulator_MPSA.CL
         public int DelayAI;
 
         public AIStruct() {
+            Forced = false;
         }
         public AIStruct(bool En0 = false, int indxAI0 = 0, int indxW0 = 0, string TegAI0 = "Teg",
                  string NameAI0 = "Name", ushort ValACD0 = 4000, ushort minACD0 = 4000, ushort maxACD0 = 20000,
                  float minPhis0 = 0.0F, float maxPhis0 = 100.0F, float fValAI0 = 0.0F, int DelayAI0 = 0)
         {
+            Forced = false;
             En = En0;
             indxAI = indxAI0;
             indxW = indxW0;

@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Симулятор полевых сигналов МПСА v1.0.003" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
+        Title="Симулятор полевых сигналов МПСА v1.0.004" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -124,7 +124,8 @@
                             <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD}" />
                             <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
-                            <DataGridTextColumn Header="Инж. знач" Binding="{Binding fValAI}" />
+                            <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -162,7 +163,8 @@
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
                             <DataGridTextColumn x:Name="dataGridDI_Buf" Header="буфер" Binding="{Binding Buffer, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn x:Name="dataGridDI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn x:Name="dataGridDI_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
@@ -207,7 +209,8 @@
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
                             <DataGridTextColumn x:Name="dataGridDO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />                            
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}" />
@@ -272,6 +275,8 @@
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
+                                <Separator/>
+                                <MenuItem x:Name="ScriptMenu_run" Header="Выполнить однократно" Click="ScriptMenu_RunClick" />
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>

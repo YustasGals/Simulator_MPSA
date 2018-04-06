@@ -46,35 +46,47 @@ namespace Simulator_MPSA.Scripting
 
         public void SetAI(int index, float value)
         {
-            AIStruct ai = AIStruct.FindByIndex(index);
-            if (ai != null)
-                ai.fValAI = value;
+            //AIStruct ai = AIStruct.FindByIndex(index);
+            //if (ai != null)
+            //    ai.fValAI = value;
+            if (index < AIStruct.items.Length)
+                AIStruct.items[index].fValAI = value;
         }
         public float GetAI(int index)
         {
-            AIStruct ai = AIStruct.FindByIndex(index);
-            if (ai != null)
-                return ai.fValAI;
+            //  AIStruct ai = AIStruct.FindByIndex(index);
+            //  if (ai != null)
+            //      return ai.fValAI;
+            //  else return 0;
+            if (index < AIStruct.items.Length)
+                return AIStruct.items[index].fValAI;
             else return 0;
         }
         public void ChangeAI(int index,  float delta)
         {
-            AIStruct ai = AIStruct.FindByIndex(index);
-            if (ai != null)
-                ai.fValAI += delta;
+            //AIStruct ai = AIStruct.FindByIndex(index);
+            //if (ai != null)
+            //    ai.fValAI += delta;
+            if (index < AIStruct.items.Length)
+                AIStruct.items[index].fValAI += delta;
         }
 
         public void SetDI(int index, bool value)
         {
-            DIStruct di = DIStruct.FindByIndex(index);
-            if (di != null)
-                di.ValDI = value;
+            //  DIStruct di = DIStruct.FindByIndex(index);
+            //  if (di != null)
+            //      di.ValDI = value;
+            if (index < DIStruct.items.Length)
+                DIStruct.items[index].ValDI = value;
         }
         public bool GetDO(int index)
         {
-            DOStruct d = DOStruct.FindByIndex(index);
-            if (d != null)
-                return d.ValDO;
+            //DOStruct d = DOStruct.FindByIndex(index);
+            // if (d != null)
+            //     return d.ValDO;
+            // else return false;
+            if (index < DOStruct.items.Length)
+                return DOStruct.items[index].ValDO;
             else return false;
         }
         public void Test()
@@ -120,11 +132,16 @@ namespace Simulator_MPSA.Scripting
         private string _errorText = "";
         public string ErrorText
         { set { _errorText = value; OnPropertyChanged("ErrorText");  } get { return _errorText; } }
+
+        /// <summary>
+        /// флаг обозначает что при следующем вызове Run будет вызвана функци Init из скрипта
+        /// </summary>
         private bool needInit = true;
         Lua lua = new Lua();
         private Utils utils = new Utils();
         LuaFunction funcInit;
         LuaFunction funcUpdate;
+
         public void Run(float dt)
         {
             if (En)
@@ -136,12 +153,14 @@ namespace Simulator_MPSA.Scripting
                     string err = "";
 
                     lua["dt"] = dt;
+                    
                     lua.DoString(ScriptTxt);
                     if (needInit)
                     {
-                        
+                        //lua.LoadString(ScriptTxt, "");
                         needInit = false;
                         funcInit = lua.GetFunction("Init");
+                        funcUpdate = lua.GetFunction("Update");
                         if (funcInit == null)
                         {
                             err += "Функция Init не определена; ";
@@ -152,14 +171,14 @@ namespace Simulator_MPSA.Scripting
                             err += "Init ok; ";
                         }
                     }
-                    funcUpdate = lua.GetFunction("Update");
+                   // funcUpdate = lua.GetFunction("Update");
                     if (funcUpdate == null)
                     {
                         err += "Функция Update не определена";
                     }
                     else
                     {
-                        lua.GetFunction("Update").Call();
+                        funcUpdate.Call();
                         err += "Update ok;";
                     }
                     ErrorText = err;
@@ -172,7 +191,7 @@ namespace Simulator_MPSA.Scripting
 
                 }
             }
-
+            
         }
         public ScriptInfo()
         {
@@ -182,6 +201,7 @@ namespace Simulator_MPSA.Scripting
         }
         public void Prepare()
         {
+            needInit = true;
         }
         private static ObservableCollection<ScriptInfo> _items = new ObservableCollection<ScriptInfo>();
         public static ObservableCollection<ScriptInfo> Items

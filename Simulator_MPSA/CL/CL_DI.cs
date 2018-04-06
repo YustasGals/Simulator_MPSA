@@ -18,7 +18,33 @@ namespace Simulator_MPSA.CL
 
         private bool _valDI;
         public bool ValDI
-        { set { _valDI = value; OnPropertyChanged("ValDI"); }  get { return _valDI; } }
+        {
+            set
+            {
+                if (!Forced)
+                {
+                    _valDI = value;
+                    OnPropertyChanged("ForcedValue");
+                }
+            }
+            get
+            { return _valDI; }
+        }
+
+        /// <summary>
+        /// принудительная запись значения
+        /// </summary>
+        public bool ForcedValue
+        {
+            get { return _valDI; }
+            set { _valDI = value; }
+        }
+
+        /// <summary>
+        /// включить принудительную запись значения из таблицы, игнорировать алгоритмы и скрипты
+        /// </summary>
+        public bool Forced
+        { set; get; }
 
         private int _plcaddr;
         public int PLCAddr
@@ -92,6 +118,7 @@ namespace Simulator_MPSA.CL
             InvertDI = false;
             En = true;
             InvertDI = false;
+            Forced = false;
         }
         public DIStruct(bool En0 = false, bool ValDI0 = false, int indxArrDI0 = 0, int indxBitDI0 = 0 , int indxW0 = 0, string TegDI0 = "Teg",
                  string NameDI0 = "Name", int Nsign0 = 0 , bool InvertDI0 = false, int DelayDI0 = 0)

@@ -19,8 +19,8 @@ namespace Simulator_MPSA.CL
                 return _instance;
             }
         }
-        private ObservableCollection<DIStruct> _DIs = new ObservableCollection<DIStruct>();
-        public ObservableCollection<DIStruct> DIs
+        private DIStruct[] _DIs;
+        public DIStruct[] DIs
         {
             get { return _DIs;  }
             set { _DIs = value; /*OnPropertyChanged("DIs"); */}
@@ -28,24 +28,15 @@ namespace Simulator_MPSA.CL
 
         private DITableViewModel()
         {
-            _DIs = new ObservableCollection<DIStruct>();
-            _DIs.Add(new DIStruct());
+            _DIs = new DIStruct[0];
+          
         }
 
         public void Init(DIStruct[] table)
         {
-            /*DIStruct[] DIViewModels = new DIStruct[table.Length];
-            for (int i = 0; i < table.Length; i++)
-            {
-                DIViewModels[i] =table[i];
-            }
-            */
-            _DIs = new ObservableCollection<DIStruct>();
-            foreach (DIStruct di in table)
-                DIs.Add(di);
-            // DIs = DIViewModels;
 
-            DIs.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(On_CollectionChanged);
+            DIs = table;
+           // DIs.CollectionChanged += new System.Collections.Specialized.NotifyCollectionChangedEventHandler(On_CollectionChanged);
             viewSource.Source = _DIs;
           //viewSource.Filter += new FilterEventHandler(DIs_Filter);
         }
