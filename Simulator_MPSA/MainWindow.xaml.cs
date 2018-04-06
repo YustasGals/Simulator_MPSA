@@ -27,6 +27,8 @@ using Simulator_MPSA.CL;
 using System.Windows.Forms;
 using System.ComponentModel;
 using Simulator_MPSA.Scripting;
+using Microsoft.Win32;
+
 namespace Simulator_MPSA
 {
     //тип буфера
@@ -171,7 +173,13 @@ namespace Simulator_MPSA
             delegateEndRead += new DEndRead(On_ReadingCycleEnd);
 
             // myDelegate += new ddd(On_WritingCycleEnd);
-            SetConfigMode(false);
+
+            string userRoot = "HKEY_CURRENT_USER";
+            string subkey = "software\\NA\\Simulator";
+            string keyName = userRoot +"\\"+ subkey;
+                int ConfMode = (int)Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\NA\\Simulator", "ConfigMode", 0);
+            Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\NA\\Simulator", "ConfigMode", ConfMode);
+            SetConfigMode(ConfMode != 0);
         }
 
 
@@ -370,7 +378,7 @@ namespace Simulator_MPSA
         {
             Station station = new Station();
 
-            OpenFileDialog dialog = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.Filter = "XML Files (*.xml)|*.xml";
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
@@ -418,6 +426,12 @@ namespace Simulator_MPSA
                     dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
 
                     dataGridScript.ItemsSource = Scripting.ScriptInfo.Items;
+
+                    MenuItem_showMPNA.IsChecked = Station.instance.ShowMPNA;
+                    if (!MenuItem_showMPNA.IsChecked)
+                        tabMPNA.Visibility = Visibility.Collapsed;
+                    else
+                        tabMPNA.Visibility = Visibility.Visible;
                 }
              
              //старый способ загрузки
@@ -438,7 +452,7 @@ namespace Simulator_MPSA
         /// <param name="e"></param>
         private void Menu_SaveSingle(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog dialog = new SaveFileDialog
+            System.Windows.Forms.SaveFileDialog dialog = new System.Windows.Forms.SaveFileDialog
             {
                 InitialDirectory = Directory.GetCurrentDirectory() + "\\XMLs",
                 OverwritePrompt = true,
@@ -858,10 +872,7 @@ namespace Simulator_MPSA
             AITableViewModel.Instance.hideEmpty = false;
             AITableViewModel.Instance.ApplyFilter();
         }
-        private bool IsConfigMode
-        {
-            get {return MenuItem_config.IsChecked; }
-        }
+
 
         void SetConfigMode(bool e)
         {
@@ -953,11 +964,7 @@ namespace Simulator_MPSA
                 dataGridDiag_Bit.Visibility = Visibility.Hidden;
             }
         }
-        private void MenuItem_toggleConfigMode(object sender, RoutedEventArgs e)
-        {
-            MenuItem_config.IsChecked = !MenuItem_config.IsChecked;
-            SetConfigMode(MenuItem_config.IsChecked);
-        }
+
 
         private void hideEmptyDI_Checked(object sender, RoutedEventArgs e)
         {
@@ -1023,8 +1030,14 @@ namespace Simulator_MPSA
 
         private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
         {
-            ScriptEditor editor = new ScriptEditor(dataGridScript.SelectedItem as Scripting.ScriptInfo);
-            editor.Show();
+            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
+
+            if (script != null)
+            {
+                ScriptEditor editor = new ScriptEditor(script);
+                editor.Show();
+            }
+           
         }
 
         private void ScriptMenu_RunClick(object sender, RoutedEventArgs e)
@@ -1034,7 +1047,7 @@ namespace Simulator_MPSA
             if (script != null)
             {
                 script.Prepare();
-                script.Run(0);
+                script.Run(0,true);
             }
         }
     }

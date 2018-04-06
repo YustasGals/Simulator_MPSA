@@ -9309,4 +9309,5 @@ end</ScriptTxt>
       <ErrorText>Update ok;</ErrorText>
     </ScriptInfo>
   </scripts>
+  <ShowMPNA>false</ShowMPNA>
 </Station>

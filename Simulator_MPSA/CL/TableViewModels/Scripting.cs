@@ -115,7 +115,7 @@ namespace Simulator_MPSA.Scripting
         { set; get; }
 
 
-        private string _scripttxt;
+        private string _scripttxt="";
         /// <summary>
         /// текст скрипта
         /// </summary>
@@ -142,9 +142,9 @@ namespace Simulator_MPSA.Scripting
         LuaFunction funcInit;
         LuaFunction funcUpdate;
 
-        public void Run(float dt)
+        public void Run(float dt, bool runOnce=false)
         {
-            if (En)
+            if (En || runOnce)
             {
                 
 

@@ -30,8 +30,18 @@ namespace Simulator_MPSA.CL
         public DIStruct[] DiagSignals;
         public Scripting.ScriptInfo[] scripts;
 
+        public bool ShowMPNA = false;
         public Station()
         { }
+
+        private static Station _instance;
+        [XmlIgnore]
+        public static Station instance
+        {
+            get {
+                return _instance;
+            }
+        }
 
         public StationSaveResult Save(string filename)
         {
@@ -70,21 +80,22 @@ namespace Simulator_MPSA.CL
             try
             {
                 stream = File.OpenRead(filename); 
-                Station station = (Station)xml.Deserialize(stream);
+                //Station station = (Station)xml.Deserialize(stream);
+                _instance = (Station)xml.Deserialize(stream);
                 //  reader.Dispose();
                 stream.Dispose();
-                Sett.Instance = station.settings;
+                Sett.Instance = _instance.settings;
 
 
-                DIStruct.items = station.DIs;
+                DIStruct.items = _instance.DIs;
                 foreach (DIStruct di in DIStruct.items)
                     di.PLCAddr = di.PLCAddr;
 
-                DOStruct.items = station.DOs;
+                DOStruct.items = _instance.DOs;
                 foreach (DOStruct d in DOStruct.items)
                     d.PLCAddr = d.PLCAddr;
                 
-                AIStruct.items = station.AIs;
+                AIStruct.items = _instance.AIs;
                 foreach (AIStruct ai in AIStruct.items)
                     ai.PLCAddr = ai.PLCAddr;
                 
@@ -95,38 +106,39 @@ namespace Simulator_MPSA.CL
                 //    if (ai.PLCAddr == 0)
                 //        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
 
-                KLTableViewModel.Init(station.KLs);
+                KLTableViewModel.Init(_instance.KLs);
                 foreach (KLStruct kl in KLTableViewModel.KL)
                     kl.UpdateRefs();
 
 
-                ZDTableViewModel.Init(station.ZDs);
+                ZDTableViewModel.Init(_instance.ZDs);
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                     zd.UpdateRefs();
 
-                VSTableViewModel.Init(station.VSs);
+                VSTableViewModel.Init(_instance.VSs);
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateRefs();
 
 
-                MPNATableViewModel.Init(station.MPNAs);
+                MPNATableViewModel.Init(_instance.MPNAs);
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
                     mpna.UpdateRefs();
 
-                CountersTableViewModel.Init(station.Counters);
+                CountersTableViewModel.Init(_instance.Counters);
                 foreach (USOCounter counter in CountersTableViewModel.Counters)
                     counter.Refresh();
 
 
-                DiagTableModel.Instance.Init(station.DiagSignals);
+                DiagTableModel.Instance.Init(_instance.DiagSignals);
                 foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     di.PLCAddr = di.PLCAddr;
 
                 Scripting.ScriptInfo.Init();
-                if (station.scripts != null && station.scripts.Length>0)
-                foreach (Scripting.ScriptInfo scr in station.scripts)
+                if (_instance.scripts != null && _instance.scripts.Length>0)
+                foreach (Scripting.ScriptInfo scr in _instance.scripts)
                     Scripting.ScriptInfo.Items.Add(scr);
 
+                
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;
             }

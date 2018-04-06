@@ -61929,4 +61929,5 @@
       <InvertDI>false</InvertDI>
     </DIStruct>
   </DiagSignals>
+  <ShowMPNA>true</ShowMPNA>
 </Station>
