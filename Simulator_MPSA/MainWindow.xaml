@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Симулятор полевых сигналов МПСА v1.0.004" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
+        Title="Симулятор полевых сигналов МПСА v1.0.005" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--

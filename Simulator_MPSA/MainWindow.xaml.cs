@@ -174,12 +174,17 @@ namespace Simulator_MPSA
 
             // myDelegate += new ddd(On_WritingCycleEnd);
 
-            string userRoot = "HKEY_CURRENT_USER";
-            string subkey = "software\\NA\\Simulator";
-            string keyName = userRoot +"\\"+ subkey;
-                int ConfMode = (int)Microsoft.Win32.Registry.GetValue("HKEY_CURRENT_USER\\Software\\NA\\Simulator", "ConfigMode", 0);
-            Microsoft.Win32.Registry.SetValue("HKEY_CURRENT_USER\\Software\\NA\\Simulator", "ConfigMode", ConfMode);
-            SetConfigMode(ConfMode != 0);
+
+            string subkey = @"software\NA\Simulator";
+            //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
+         
+            RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
+            
+
+            int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
+
+            configKey.SetValue("ConfigMode", ConfMode);
+            SetConfigMode(ConfMode !=0);
         }
 
 
