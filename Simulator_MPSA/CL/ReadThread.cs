@@ -81,12 +81,12 @@ namespace Simulator_MPSA
 
             while (true)
             {
-                for (int i = coilCount / 2 + 1; i< coilCount-1; i++)
+                for (int i = coilCount / 2; i< coilCount-1; i++)
                 {
                     data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i), NReg);
-        data.CopyTo(RB.R, NReg* i);
+                    data.CopyTo(RB.R, NReg* i);
                 }
-    GetDOfromR();
+                GetDOfromR();
 
                 /*  if (refMainWindow != null)
                       refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
