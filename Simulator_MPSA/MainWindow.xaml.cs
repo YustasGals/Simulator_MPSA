@@ -1055,5 +1055,21 @@ namespace Simulator_MPSA
                 script.Run(0,true);
             }
         }
+
+        //новая конфигурация
+        private void Menu_New(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Menu_Export(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
+            if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
+                exporter.exportCSV(Station.instance, sfd.FileName);
+            }
+        }
     }
 }

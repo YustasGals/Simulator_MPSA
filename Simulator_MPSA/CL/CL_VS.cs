@@ -69,6 +69,9 @@ namespace Simulator_MPSA
         /// </summary>
         private DOStruct ABB;
         private int _ABBindxArrDO = -1;
+        /// <summary>
+        /// сигнал - команда на включение, индекс в таблице DO
+        /// </summary>
         public int ABBindxArrDO
         {
             get { return _ABBindxArrDO; }
@@ -93,7 +96,9 @@ namespace Simulator_MPSA
         /// </summary>
         private DOStruct ABO;
         private int _ABOindxArrDO = -1;
-
+        /// <summary>
+        /// команда на отключение, индекс в таблице DO
+        /// </summary>
         public int ABOindxArrDO
         {
             get { return _ABOindxArrDO; }

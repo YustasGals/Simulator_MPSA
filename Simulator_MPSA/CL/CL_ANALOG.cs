@@ -38,6 +38,15 @@ namespace Simulator_MPSA.CL
             get { return _buffer; }
             set { _buffer = value; OnPropertyChanged("Buffer"); }
         }
+        private string _OPCtag = "";
+        public string OPCtag
+        {
+            set
+            {
+                _OPCtag = value; OnPropertyChanged("OPCtag");
+            }
+            get { return _OPCtag; }
+        }
 
         private EPLCDestType _plcDestType = EPLCDestType.ADC;
         /// <summary>

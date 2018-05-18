@@ -108,7 +108,14 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\BaseSignal.cs" />
+    <Compile Include="CL\ImportDialog.xaml.cs">
+      <DependentUpon>ImportDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CL\InputOutputItem.cs" />
+    <Compile Include="CL\IO\ImportDialog.xaml.cs">
+      <DependentUpon>ImportDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CL\IO\StationExporter.cs" />
     <Compile Include="CL\MPNA_Logic.cs" />
     <Compile Include="CL\ReadThread.cs" />
     <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
@@ -139,6 +146,14 @@
       <DependentUpon>SetupDialog.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CL\ImportDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CL\IO\ImportDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

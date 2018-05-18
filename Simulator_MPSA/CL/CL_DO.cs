@@ -79,6 +79,15 @@ namespace Simulator_MPSA.CL
             }
             set { _plcaddr = value; OnPropertyChanged("PLCAddr"); }
         }
+        private string _OPCtag = "";
+        public string OPCtag
+        {
+            set
+            {
+                _OPCtag = value; OnPropertyChanged("OPCtag");
+            }
+            get { return _OPCtag; }
+        }
 
         private string _TegDO = "";
         public string TegDO

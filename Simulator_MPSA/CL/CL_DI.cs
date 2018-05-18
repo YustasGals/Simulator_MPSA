@@ -82,6 +82,14 @@ namespace Simulator_MPSA.CL
             }
         }
 
+        private string _OPCtag = "";
+        public string OPCtag
+        {
+            set { _OPCtag = value; OnPropertyChanged("OPCtag");
+            }
+            get { return _OPCtag; }
+        }
+
         private BufType _buffer = BufType.USO;
         [XmlIgnore]
         public BufType Buffer

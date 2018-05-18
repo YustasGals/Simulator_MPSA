@@ -498,7 +498,14 @@ namespace Simulator_MPSA
         /// наличие напряжения на секции шин
         /// </summary>
         private DIStruct BS;
+
+        /// <summary>
+        /// Наличие напряжения на СШ индекс сигнала
+        /// </summary>
         public int _bsindex;
+        /// <summary>
+        /// Наличие напряжения на СШ индекс сигнала
+        /// </summary>
         public int BSIndex
         {
             get { return _bsindex; }

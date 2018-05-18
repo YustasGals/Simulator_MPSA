@@ -154,10 +154,11 @@ namespace Simulator_MPSA.Scripting
 
                     lua["dt"] = dt;
                     
-                    lua.DoString(ScriptTxt);
+                    
                     if (needInit)
                     {
                         //lua.LoadString(ScriptTxt, "");
+                        lua.DoString(ScriptTxt);
                         needInit = false;
                         funcInit = lua.GetFunction("Init");
                         funcUpdate = lua.GetFunction("Update");
