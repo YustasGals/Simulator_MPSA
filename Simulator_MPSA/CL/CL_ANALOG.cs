@@ -185,7 +185,8 @@ namespace Simulator_MPSA.CL
             }
         }
 
-        private bool isChanged;
+        private bool isChanged=true;
+        [XmlIgnore]
         public bool IsChanged
         {
             get { return isChanged; }

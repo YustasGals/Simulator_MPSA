@@ -22,6 +22,8 @@ namespace Simulator_MPSA
         TcpClient[] tcp = new TcpClient[2];
         ushort NReg = 125;
         int coilCount;
+        int NJob; //количество потоков
+        int CoilPerTask;//количество бочек на чтение для одного потока
         public ReadThread(string hostname, int port)
         {
             coilCount = RB.R.Length / NReg + 1;
@@ -29,15 +31,34 @@ namespace Simulator_MPSA
             {
                 tcp[i] = new TcpClient(hostname, port);
                 mbMasterR[i] = ModbusIpMaster.CreateIp(tcp[i]);
-
+                /*
                 if (i==0)
                 thread[i] = new Thread(new ThreadStart(ThreadJob1));
+                else
+                    thread[i] = new Thread(new ThreadStart(ThreadJob2));
+                    */
+            //  thread[i].Start();
+            }
+
+        }
+        public void Start()
+        {
+            //считываем настройки соединения
+            NJob = Sett.Instance.ReadConnectionCount;
+            NReg = (ushort)Sett.Instance.rdCoilSize;
+            coilCount = RB.R.Length / NReg;
+            CoilPerTask = (int)Math.Ceiling((double)coilCount / (double)NJob);
+
+            for (int i = 0; i < NJob; i++)
+            {
+               
+                if (i == 0)
+                    thread[i] = new Thread(new ThreadStart(ThreadJob1));
                 else
                     thread[i] = new Thread(new ThreadStart(ThreadJob2));
 
                 thread[i].Start();
             }
-
         }
         public void Stop()
         {
@@ -62,29 +83,36 @@ namespace Simulator_MPSA
 
             while (true)
             {
-                for (ushort i = 0; i < coilCount/2; i++)
+                try
                 {
-                    data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i + Sett.Instance.IncAddr), NReg);
-                    data.CopyTo(RB.R, NReg*i);
-                }
-                GetDOfromR();
+                    for (ushort i = 0; i < coilCount / NJob; i++)
+                    {
+                        data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i + Sett.Instance.IncAddr), NReg);
+                        data.CopyTo(RB.R, NReg * i);
+                    }
+                    GetDOfromR();
 
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
             }
         }
 
         private void ThreadJob2()
         {
-             ushort NReg = 125;
         ushort tbStartAdress = (ushort)Sett.Instance.BegAddrR;
 
         ushort[] data;
 
             while (true)
             {
-                for (int i = coilCount / 2; i< coilCount-1; i++)
+                try
+                { 
+                for (int i = coilCount / NJob; i< coilCount; i++)
                 {
                     data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i + Sett.Instance.IncAddr), NReg);
                     data.CopyTo(RB.R, NReg* i);
@@ -94,6 +122,10 @@ namespace Simulator_MPSA
                 /*  if (refMainWindow != null)
                       refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
             }
         }
 
@@ -103,7 +135,7 @@ namespace Simulator_MPSA
             foreach(DOStruct _do in DOStruct.items)
             {
                 int indx = _do.PLCAddr - Sett.Instance.BegAddrR;
-                if (indx > 0 && indx < RB.R.Length)
+                if (indx >= 0 && indx < RB.R.Length)
                 {
                     bool res = GetBit(RB.R[indx], _do.indxBitDO);
                     _do.ValDO = _do.InvertDO ? !res : res;

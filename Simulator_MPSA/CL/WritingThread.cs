@@ -147,37 +147,44 @@ namespace Simulator_MPSA
             bool isFirstCycle = true;
             while (true)
             {
-                //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
-                destStartAddr = Sett.Instance.BegAddrW;
-                for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                try
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
                     {
-                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
                         {
-                            isChanged = true;
-                            break;
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
                         }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread 1 - skip");
                     }
-                    if (isChanged || isFirstCycle)
-                    {
-                        Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
-                    }
-                    else
-                        Debug.WriteLine("thread 1 - skip");
+
+
+                    isFirstCycle = false;
+
+                    //----------------------- Вызов делегата --------------------------------------------------------
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                
-             
-                isFirstCycle = false;
-
-                //----------------------- Вызов делегата --------------------------------------------------------
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
-
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                catch (ThreadAbortException abEx)
+                {
+                }
             }
         }
         void WriteToPLC2()
@@ -197,35 +204,42 @@ namespace Simulator_MPSA
             bool isFirstCycle = true;
             while (true)
             {
-                //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
-                destStartAddr = Sett.Instance.BegAddrW;
-
-                for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                try
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
-                    {
-                        if (WB.W[i_reg] != WB.WB_old[i_reg])
-                        {
-                            isChanged = true;
-                            break;
-                        }
-                    }
-                    if (isChanged || isFirstCycle)
-                    {
-                        Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
-                    }
-                    else
-                        Debug.WriteLine("thread 2 - skip");
-                }
-              
-                isFirstCycle = false;
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
 
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle2);
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                    {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
+                        }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread 2 - skip");
+                    }
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle2);
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
             }
         }
         void WriteToPLC3()
@@ -243,35 +257,40 @@ namespace Simulator_MPSA
             bool isFirstCycle = true;
             while (true)
             {
-                //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
-                destStartAddr = Sett.Instance.BegAddrW;
-
-                for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                try
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
                     {
-                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
                         {
-                            isChanged = true;
-                            break;
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
                         }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread 3 - skip");
                     }
-                    if (isChanged || isFirstCycle)
-                    {
-                        Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
-                    }
-                    else
-                        Debug.WriteLine("thread 3 - skip");
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-
-                isFirstCycle = false;
-
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                catch (ThreadAbortException abEx)
+                { }
             }
         }
         void WriteToPLC4()
@@ -289,36 +308,42 @@ namespace Simulator_MPSA
             bool isFirstCycle = true;
             while (true)
             {
-                //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
-                destStartAddr = Sett.Instance.BegAddrW;
-
-                for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                try
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
                     {
-                        if (WB.W[i_reg] != WB.WB_old[i_reg])
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
                         {
-                            isChanged = true;
-                            break;
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
                         }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread 4 - skip");
                     }
-                    if (isChanged || isFirstCycle)
-                    {
-                        Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
-                    }
-                    else
-                        Debug.WriteLine("thread 4 - skip");
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                
-                isFirstCycle = false;
-
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
-
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                catch (ThreadAbortException abEx)
+                {
+                }
             }
         }
 

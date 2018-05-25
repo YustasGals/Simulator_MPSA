@@ -41,7 +41,7 @@ namespace Simulator_MPSA.CL
         public bool ForcedValue
         {
             get { return _valDI; }
-            set { _valDI = value; }
+            set { _valDI = value; IsChanged = true; }
         }
 
         /// <summary>
@@ -120,7 +120,9 @@ namespace Simulator_MPSA.CL
             { return tag; }
         }
 
-        private bool isChanged;
+        
+        private bool isChanged=true;
+        [XmlIgnore]
         public bool IsChanged
         {
             get { return isChanged; }

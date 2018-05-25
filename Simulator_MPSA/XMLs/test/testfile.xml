@@ -7,7 +7,7 @@
       <ForcedValue>false</ForcedValue>
       <Forced>false</Forced>
       <PLCAddr>100</PLCAddr>
-      <OPCtag />
+      <OPCtag>simdevice!bVal1</OPCtag>
       <indxArrDI>0</indxArrDI>
       <indxBitDI>15</indxBitDI>
       <TegDI />
@@ -21,7 +21,7 @@
       <ForcedValue>true</ForcedValue>
       <Forced>false</Forced>
       <PLCAddr>100</PLCAddr>
-      <OPCtag />
+      <OPCtag>simdevice!bVal2</OPCtag>
       <indxArrDI>1</indxArrDI>
       <indxBitDI>14</indxBitDI>
       <TegDI />
@@ -35,7 +35,7 @@
       <ForcedValue>false</ForcedValue>
       <Forced>false</Forced>
       <PLCAddr>100</PLCAddr>
-      <OPCtag />
+      <OPCtag>simdevice!bVal3</OPCtag>
       <indxArrDI>2</indxArrDI>
       <indxBitDI>13</indxBitDI>
       <TegDI />
@@ -450,7 +450,64 @@
       <InvertDI>false</InvertDI>
     </DIStruct>
   </DIs>
-  <DOs />
+  <DOs>
+    <DOStruct>
+      <En>true</En>
+      <Forced>false</Forced>
+      <ForcedValue>false</ForcedValue>
+      <ValDO>false</ValDO>
+      <indxArrDO>0</indxArrDO>
+      <indxBitDO>0</indxBitDO>
+      <PLCAddr>200</PLCAddr>
+      <OPCtag />
+      <TegDO />
+      <NameDO />
+      <Nsign>0</Nsign>
+      <InvertDO>false</InvertDO>
+    </DOStruct>
+    <DOStruct>
+      <En>true</En>
+      <Forced>false</Forced>
+      <ForcedValue>false</ForcedValue>
+      <ValDO>false</ValDO>
+      <indxArrDO>1</indxArrDO>
+      <indxBitDO>0</indxBitDO>
+      <PLCAddr>201</PLCAddr>
+      <OPCtag />
+      <TegDO />
+      <NameDO />
+      <Nsign>0</Nsign>
+      <InvertDO>false</InvertDO>
+    </DOStruct>
+    <DOStruct>
+      <En>true</En>
+      <Forced>false</Forced>
+      <ForcedValue>false</ForcedValue>
+      <ValDO>false</ValDO>
+      <indxArrDO>2</indxArrDO>
+      <indxBitDO>0</indxBitDO>
+      <PLCAddr>202</PLCAddr>
+      <OPCtag />
+      <TegDO />
+      <NameDO />
+      <Nsign>0</Nsign>
+      <InvertDO>false</InvertDO>
+    </DOStruct>
+    <DOStruct>
+      <En>true</En>
+      <Forced>false</Forced>
+      <ForcedValue>false</ForcedValue>
+      <ValDO>false</ValDO>
+      <indxArrDO>3</indxArrDO>
+      <indxBitDO>0</indxBitDO>
+      <PLCAddr>203</PLCAddr>
+      <OPCtag />
+      <TegDO />
+      <NameDO />
+      <Nsign>0</Nsign>
+      <InvertDO>false</InvertDO>
+    </DOStruct>
+  </DOs>
   <AIs>
     <AIStruct>
       <DelayAI>0</DelayAI>
@@ -653,20 +710,23 @@
     <MBPort>502</MBPort>
     <BegAddrW>100</BegAddrW>
     <wrBufSize>20</wrBufSize>
-    <rdBufSize>2</rdBufSize>
-    <BegAddrR>0</BegAddrR>
+    <rdBufSize>4</rdBufSize>
+    <BegAddrR>200</BegAddrR>
     <CoilSize>2</CoilSize>
+    <rdCoilSize>1</rdCoilSize>
     <IncAddr>0</IncAddr>
     <TPause>50</TPause>
     <iBegAddrA3>0</iBegAddrA3>
     <iBegAddrA4>0</iBegAddrA4>
     <A3BufSize>0</A3BufSize>
     <A4BufSize>0</A4BufSize>
-    <UseOPC>false</UseOPC>
-    <UseModbus>true</UseModbus>
-    <OFSServerName>Schneider.Aut</OFSServerName>
+    <UseOPC>true</UseOPC>
+    <UseModbus>false</UseModbus>
+    <OFSServerName>Schneider-Aut.OFS</OFSServerName>
+    <OFSServerPrefix>opcda://localhost/</OFSServerPrefix>
     <StationName />
     <ConnectionCount>1</ConnectionCount>
+    <ReadConnectionCount>2</ReadConnectionCount>
     <UseKS1>false</UseKS1>
     <UseKS2>false</UseKS2>
   </settings>

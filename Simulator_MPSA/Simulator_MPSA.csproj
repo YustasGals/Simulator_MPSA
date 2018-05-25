@@ -85,6 +85,21 @@
       <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="OpcComRcw">
+      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcComRcw.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi.Com, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.Com.dll</HintPath>
+    </Reference>
+    <Reference Include="OpcNetApi.Xml, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.Xml.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -119,6 +134,7 @@
       <DependentUpon>ImportDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\IO\StationExporter.cs" />
+    <Compile Include="CL\OPCThread.cs" />
     <Compile Include="StationSetup.xaml.cs">
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>

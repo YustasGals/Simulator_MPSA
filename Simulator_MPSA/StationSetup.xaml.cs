@@ -19,7 +19,7 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class StationSetup : Window
     {
-
+        public bool accepted = false;
         SetupViewModel viewModel;
         public StationSetup()
         {
@@ -38,6 +38,7 @@ namespace Simulator_MPSA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Sett.Instance = viewModel.settings;
+            accepted = true;
         }
 
         private void bClose_Click(object sender, RoutedEventArgs e)

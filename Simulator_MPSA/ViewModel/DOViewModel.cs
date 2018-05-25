@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Simulator_MPSA.CL;
 namespace Simulator_MPSA.ViewModel
 {
-    class DOViewModel : IViewModel<DOStruct>
+    class DOViewModel : IViewModel<DOStruct>,INotifyPropertyChanged
     {
         private DOStruct _do;
 
@@ -20,11 +21,10 @@ namespace Simulator_MPSA.ViewModel
             set { _do.Forced = value; }
             get { return _do.Forced; }
         }
-
-        public bool ForcedValue
+        public bool En
         {
-            set { _do.ForcedValue = value; }
-            get { return _do.ForcedValue; }
+            set { _do.En = value; }
+            get { return _do.En; }
         }
         public bool ValDO
         {
@@ -77,6 +77,12 @@ namespace Simulator_MPSA.ViewModel
             set { _do.InvertDO = value; }
             get { return _do.InvertDO; }
         }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        protected void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            PropertyChanged(this, args);
+        }
         public DOStruct GetModel()
         {
             return _do;
@@ -98,7 +104,15 @@ namespace Simulator_MPSA.ViewModel
         public void SetModel(DOStruct model)
         {
             _do = model;
+            if (_do != null)
+            _do.PropertyChanged += _do_PropertyChanged;
             //throw new NotImplementedException();
+        }
+
+        private void _do_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(e);
+           // throw new NotImplementedException();
         }
     }
 }

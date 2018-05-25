@@ -30,10 +30,13 @@ namespace Simulator_MPSA.CL
 
         public bool ForcedValue
         {
-            set { _ValDO = value; }
+            set {
+                if (Forced)
+                _ValDO = value;
+            }
             get { return _ValDO; }
         }
-
+        
         private bool _ValDO;
         public bool ValDO
         {
@@ -43,7 +46,8 @@ namespace Simulator_MPSA.CL
                 if (!Forced)
                 {
                     _ValDO = value;
-                    OnPropertyChanged("ForcedValue");
+                 //   OnPropertyChanged("Value");
+                    OnPropertyChanged("ValDO");
                 }
             }
         }
@@ -73,12 +77,14 @@ namespace Simulator_MPSA.CL
         public int PLCAddr
         {
             get {
-                if (_plcaddr == 0)
+               /* if (_plcaddr == 0)
                     _plcaddr = Sett.Instance.BegAddrR + _indxR + 1;
-
+*/
                 return _plcaddr;
             }
-            set { _plcaddr = value; OnPropertyChanged("PLCAddr"); }
+            set {
+                _plcaddr = value;
+                OnPropertyChanged("PLCAddr"); }
         }
         private string _OPCtag = "";
         public string OPCtag

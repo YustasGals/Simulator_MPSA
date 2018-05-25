@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Simulator_MPSA.CL;
-
+using System.ComponentModel;
 namespace Simulator_MPSA.ViewModel
 {
     /// <summary>
     /// View Model для дискретного входного сигнала
     /// </summary>
-    class DIViewModel: IViewModel<DIStruct>
+    class DIViewModel: IViewModel<DIStruct>,INotifyPropertyChanged
     {
         public DIViewModel()
         {
@@ -38,7 +38,14 @@ namespace Simulator_MPSA.ViewModel
             get { return di.Forced; }
             set { di.Forced = value; }
         }
-
+        public string OPCtag
+        {
+            set
+            {
+                di.OPCtag = value; 
+            }
+            get { return di.OPCtag; }
+        }
 
         public DIStruct GetModel()
         {
@@ -48,6 +55,7 @@ namespace Simulator_MPSA.ViewModel
         public void SetModel(DIStruct model)
         {
             di = model;
+            di.PropertyChanged += _do_PropertyChanged;
         }
 
         public string GetName()
@@ -89,6 +97,17 @@ namespace Simulator_MPSA.ViewModel
         {
             get { return di.Buffer; }
             set { di.Buffer = value; }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        protected void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            PropertyChanged(this, args);
+        }
+        private void _do_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(e);
+            // throw new NotImplementedException();
         }
     }
 }

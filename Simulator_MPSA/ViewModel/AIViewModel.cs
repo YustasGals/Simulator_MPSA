@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Simulator_MPSA.CL;
 namespace Simulator_MPSA.ViewModel
 {
-    class AIViewModel : IViewModel<AIStruct>
+    class AIViewModel : IViewModel<AIStruct>, INotifyPropertyChanged
     {
         private AIStruct ai;
 
@@ -134,7 +135,18 @@ namespace Simulator_MPSA.ViewModel
         public void SetModel(AIStruct model)
         {
             ai = model;
+            ai.PropertyChanged += _do_PropertyChanged;
          //   throw new NotImplementedException();
+        }
+        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        protected void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            PropertyChanged(this, args);
+        }
+        private void _do_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(e);
+            // throw new NotImplementedException();
         }
     }
 }

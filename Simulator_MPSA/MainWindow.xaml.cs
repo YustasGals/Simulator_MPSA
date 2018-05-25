@@ -29,6 +29,9 @@ using System.ComponentModel;
 using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
 using Simulator_MPSA.ViewModel;
+using Opc;
+using OpcCom;
+using OpcXml;
 
 namespace Simulator_MPSA
 {
@@ -57,6 +60,11 @@ namespace Simulator_MPSA
     public static class RB
     {
         public static ushort[] R;// = new ushort[(Sett.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+        public static void InitBuffer()
+        {
+            RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+
+        }
     }
     public static class WB
     {
@@ -72,10 +80,9 @@ namespace Simulator_MPSA
         public static ushort[] W_a4;       //буфер записи корзины А3 осн
         public static ushort[] W_a4_prev;  //сохраненное состояние буфера
 
-        public static void InitBuffers(Sett settings)
+        public static void InitBuffers()
         {
-            RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-
+            
             int regCount = Sett.Instance.wrBufSize;
             int coilCount = (int)Math.Ceiling((float)regCount / 120f);
 
@@ -104,7 +111,7 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        Opc.Da.Server srv;
 
         public delegate void DEndWrite();
         public DEndWrite EndCycle;
@@ -123,6 +130,11 @@ namespace Simulator_MPSA
         ViewModelCollection<DIViewModel, DIStruct> divm;
         ViewModelCollection<DOViewModel, DOStruct> dovm;
         ViewModelCollection<AIViewModel, AIStruct> aivm;
+
+        //
+        List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
+        Opc.Da.ItemValue itm;   
+
         public MainWindow()
         {
 
@@ -202,6 +214,8 @@ namespace Simulator_MPSA
 
         float dt_sec;
         bool mainCycleEnabled = true;
+
+
         private void Watchdog()
         {
             prevCycleTime = DateTime.Now;
@@ -344,14 +358,49 @@ namespace Simulator_MPSA
 
                 }//lock
 
-                //-------------  проверка связи  -----------------------
-                if ((DateTime.Now - readingTime).TotalSeconds > 5f)
+                //-------------  проверка связи только при использовании модбаса -----------------------
+                if ((DateTime.Now - readingTime).TotalSeconds > 5f && Sett.Instance.UseModbus)
                 {
                     // wrThread.Stop();
                     // btnPause_Click(null, new RoutedEventArgs());
                     this.Dispatcher.Invoke(delegateDisconnected);
                     btnStop_Click(null, new RoutedEventArgs());
                 }
+               
+                //-------------- OPC ----------------
+          /*      if (Sett.Instance.UseOPC)
+                {
+                    opcitems.Clear();
+                    foreach (DIStruct di in DIStruct.items)
+                        if (di.OPCtag != "" && di.IsChanged)
+                        {
+                             itm = new Opc.Da.ItemValue(di.OPCtag);
+                            itm.Value = di.ValDI ^ di.InvertDI;
+                            opcitems.Add(itm);
+                            di.IsChanged = false;
+                        }
+
+                    foreach (AIStruct ai in AIStruct.items)
+                        if (ai.OPCtag != "" && ai.IsChanged)
+                        {
+                            itm = new Opc.Da.ItemValue(ai.OPCtag);
+                            if (ai.PLCDestType == EPLCDestType.Float)
+                                itm.Value = ai.fValAI;
+                            else
+                                itm.Value = ai.ValACD;
+
+                            opcitems.Add(itm);
+                            ai.IsChanged = false;
+                        }
+                    try
+                    {
+                        srv.Write(opcitems.ToArray());
+                    }
+                    catch (ThreadAbortException abEx)
+                    {
+                        Debug.WriteLine("data wasn't write cause thread aborted");
+                    }
+                }*/
 
                 //---------- вычисление время с момента предыдущей итерации ----------------
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
@@ -410,7 +459,8 @@ namespace Simulator_MPSA
                     DITab.DataContext = divm;
                     AITab.DataContext = aivm;
 
-                    WB.InitBuffers(Sett.Instance);
+                    WB.InitBuffers();
+                    RB.InitBuffer();
 
 
                     dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
@@ -464,6 +514,7 @@ namespace Simulator_MPSA
         WritingThread wrThread;
         ReadThread rdThread;
         Thread watchThread;
+        OPCThread opcThread;
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
@@ -478,32 +529,50 @@ namespace Simulator_MPSA
             cancellationToken = cancelTokenSrc.Token;
             try
             {
+                if (Sett.Instance.UseModbus)
+                {
+                    //потоки на чтение модбас
+                    rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                    rdThread.refMainWindow = this;
+                    rdThread.Start();
 
-
-                rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                rdThread.refMainWindow = this;
-
-                wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                wrThread.refMainWindow = this;
-                wrThread.Start();
-
+                    //потоки на запись модбас
+                    wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                    wrThread.refMainWindow = this;
+                    wrThread.Start();
+                }
                 readingTime = DateTime.Now;
                 for (int i = 0; i < 6; i++)
                     writingTime[i] = DateTime.Now;
 
-                watchThread = new Thread(new ThreadStart(Watchdog));
-                watchThread.Start();
+                if (Sett.Instance.UseOPC)
+                {
+                    opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
+                    opcThread.Start();
+                  /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
+                    srv.Connect();
+                    if (!srv.IsConnected)
+                        throw new Exception("не удалось подключиться к серверу OPC");*/
+                }
+                //запускаем основной поток
+                if (Sett.Instance.UseModbus || Sett.Instance.UseOPC)
+                {
+                    watchThread = new Thread(new ThreadStart(Watchdog));
+                    watchThread.Start();
 
-                statusText.Content = "Запущен";
-                statusText.Background = System.Windows.Media.Brushes.Green;
-                btnStart.IsEnabled = false;
+                    statusText.Content = "Запущен";
+                    statusText.Background = System.Windows.Media.Brushes.Green;
+                    btnStart.IsEnabled = false;
 
-                btnStop.IsEnabled = true;
-                btnPause.IsEnabled = true;
+                    btnStop.IsEnabled = true;
+            
+                }
+                else
+                    throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("Ошибка: " + Environment.NewLine + ex.Message, "Ошибка");
+                System.Windows.MessageBox.Show("Ошибка соединения: " + Environment.NewLine + ex.Message, "Ошибка");
             }
         }
 
@@ -570,7 +639,7 @@ namespace Simulator_MPSA
             readingTime = DateTime.Now;
         }
 
-        private void btnPause_Click(object sender, RoutedEventArgs e)
+       /* private void btnPause_Click(object sender, RoutedEventArgs e)
         {
             statusText.Content = "пауза";
             statusText.Background = System.Windows.Media.Brushes.Blue;
@@ -595,7 +664,7 @@ namespace Simulator_MPSA
             {
                 System.Windows.MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+        }*/
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             statusText.Content = "Остановлен";
@@ -603,13 +672,23 @@ namespace Simulator_MPSA
 
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
-            btnPause.IsEnabled = false;
+         
 
-            wrThread.Stop();
+            if (wrThread!=null) 
+                wrThread.Stop();
             wrThread = null;
-            rdThread.Stop();
+
+            if (rdThread!=null)
+                rdThread.Stop();
+
             rdThread = null;
 
+            if (opcThread != null)
+            {
+                opcThread.Stop();
+            }
+            opcThread = null;
+            
             if (watchThread != null)
                 watchThread.Abort();
 
@@ -683,6 +762,9 @@ namespace Simulator_MPSA
                     rdThread.Stop();
                 if (watchThread != null)
                     watchThread.Abort();
+
+                if (opcThread != null)
+                    opcThread.Stop();
             }
             else
             {
@@ -970,13 +1052,23 @@ namespace Simulator_MPSA
             //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
         }
 
+        StationSetup setupWindow;
         private void MenuItem_Sim_Click(object sender, RoutedEventArgs e)
         {
-            StationSetup setupWindow = new StationSetup();
+            setupWindow = new StationSetup();
             setupWindow.ShowDialog();
-           // setupWindow.Close();
+            setupWindow.Closed += SetupWindow_Closed;
+ 
         }
 
-    
+        private void SetupWindow_Closed(object sender, EventArgs e)
+        {
+            if (setupWindow.accepted)
+            {
+                RB.InitBuffer();
+                WB.InitBuffers();
+            }
+
+        }
     }
 }

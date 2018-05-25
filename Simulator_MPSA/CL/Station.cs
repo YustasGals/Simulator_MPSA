@@ -164,7 +164,7 @@ namespace Simulator_MPSA.CL
                  stream.Dispose();
                 if (reader != null)
                     reader.Dispose();
-                System.Windows.MessageBox.Show("Ошибка чтения" + Environment.NewLine + e.Message,"Ошибка",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("Ошибка чтения XML" + Environment.NewLine + e.Message,"Ошибка",System.Windows.MessageBoxButton.OK,System.Windows.MessageBoxImage.Error);
                 return StationLoadResult.Fail;
                 
             }
@@ -204,7 +204,8 @@ namespace Simulator_MPSA.CL
             WB.WB_old = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];
             WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a3_prev = new ushort[WB.W_a3.Length];*/
-            WB.InitBuffers(Sett.Instance);
+            WB.InitBuffers();
+            RB.InitBuffer();
 
             //AIStruct.items = new AIStruct[Sett.Instance.NAI];
             //ZDs = new ZDStruct[settings.NZD];

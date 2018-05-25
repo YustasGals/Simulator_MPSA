@@ -83,6 +83,9 @@ namespace Simulator_MPSA {
 
             //размер бочки (макс 120)
             items.Add("CoilSize", new SettingsItem("CoiSize", 1, typeof(int)));
+
+            //размер бочки на чтение (макс 125)
+            items.Add("rdCoilSize", new SettingsItem("CoiSize", 1, typeof(int)));
             //   items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
             //   items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
 
@@ -94,13 +97,16 @@ namespace Simulator_MPSA {
             items.Add("UseKS1", new SettingsItem("UseKS1", false, typeof(bool)));
             items.Add("UseKS2", new SettingsItem("UseKS2", false, typeof(bool)));
 
+            items.Add("OFSServerPrefix", new SettingsItem("OFSServerPrefix", "opcda://localhost/", typeof(string)));
             items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider.Aut", typeof(string)));
             items.Add("StationName", new SettingsItem("StationName", "", typeof(string)));
 
             //количество потоков на запись для буфера УСО
             items.Add("ConnectionCount", new SettingsItem("Количество подключений",4, typeof(int)));
 
-           
+            //количество потоков на чтение для буфера УСО
+            items.Add("ReadConnectionCount", new SettingsItem("Количество подключений", 2, typeof(int)));
+
             /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
                items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
                items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
@@ -145,8 +151,8 @@ namespace Simulator_MPSA {
         {
             get { return (int)items["rdBufSize"].value; }
             set {
-                int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
-                items["rdBufSize"].value = coilCount*CoilSize;
+                int coilCount = (int)Math.Ceiling((double)value / (double)rdCoilSize);
+                items["rdBufSize"].value = coilCount*rdCoilSize;
                 OnPropertyChanged("rdBufSize");
             }
         }
@@ -177,8 +183,27 @@ namespace Simulator_MPSA {
                                  else
                                      items["CoilSize"].value = value;
                 //обновить значения
-                rdBufSize = rdBufSize;
                 wrBufSize = wrBufSize;
+            }
+        }
+
+        /// <summary>
+        /// размер бочки макс 120 регистров
+        /// </summary>
+        public int rdCoilSize
+        {
+            get { return (int)items["rdCoilSize"].value; }
+            set
+            {
+                if (value < 1)
+                    items["rdCoilSize"].value = 1;
+                else
+                         if (value > 125)
+                    items["rdCoilSize"].value = 125;
+                else
+                    items["rdCoilSize"].value = value;
+                //обновить значения
+                rdBufSize = rdBufSize; 
             }
         }
 
@@ -222,12 +247,22 @@ namespace Simulator_MPSA {
         public int A3BufSize
         {
             get { return (int)items["A3BufSize"].value;  }
-            set { items["A3BufSize"].value = value; }
+            set {
+                int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
+                items["A3BufSize"].value = coilCount*CoilSize;
+                OnPropertyChanged("A3BufSize");
+
+            }
         }
         public int A4BufSize
         {
             get { return (int)items["A4BufSize"].value; }
-            set { items["A4BufSize"].value = value; }
+            set
+            {
+                int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
+                items["A4BufSize"].value = coilCount * CoilSize;
+                OnPropertyChanged("A4BufSize");
+            }
         }
         
         public bool UseOPC
@@ -249,6 +284,14 @@ namespace Simulator_MPSA {
             get { return (string)items["OFSServerName"].value; }
             set { items["OFSServerName"].value = (string)value; }
         }
+
+        
+        public string OFSServerPrefix
+        {
+            get { return (string)items["OFSServerPrefix"].value; }
+            set { items["OFSServerPrefix"].value = (string)value; }
+        }
+
         public string StationName
         {
             get { return (string)items["StationName"].value; }
@@ -264,6 +307,19 @@ namespace Simulator_MPSA {
                     if (value<1)
                         items["ConnectionCount"].value = (int)1;
                 else items["ConnectionCount"].value = (int)value;
+            }
+        }
+
+        public int ReadConnectionCount
+        {
+            get { return (int)items["ReadConnectionCount"].value; }
+            set
+            {
+                if (value > 4) items["ReadConnectionCount"].value = (int)4;
+                else
+                    if (value < 1)
+                    items["ReadConnectionCount"].value = (int)1;
+                else items["ReadConnectionCount"].value = (int)value;
             }
         }
 
