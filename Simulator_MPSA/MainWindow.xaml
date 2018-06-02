@@ -5,7 +5,7 @@
         xmlns:Data="clr-namespace:Modbus.Data;assembly=NModbus4" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:System="clr-namespace:System;assembly=mscorlib" mc:Ignorable="d" x:Class="Simulator_MPSA.MainWindow"
-        Title="Симулятор полевых сигналов МПСА v1.0.005" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
+        Title="Симулятор полевых сигналов МПСА" Height="600" Width="1200" Icon="IMG/Simulator_MPSA.ico" Closing="Window_Closing" >
     <Window.Resources>
         <XmlDataProvider x:Key="settingsXDP" Source="XMLs/settings.xml" XPath="clS" />
         <!--
@@ -38,11 +38,14 @@
                 <MenuItem Header="Новый" Click="Menu_New"/>
                 <MenuItem Header="Открыть" Click="Menu_OpenAll"/>
                 <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
-                <MenuItem Header="Экспорт в csv" Click="Menu_Export"/>
+                <MenuItem Header="Импорт из csv" Click="Menu_Import"/>
+                <MenuItem Header="Экспорт в csv" Click="Menu_Export"/>                
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" />
             </MenuItem>
-
+            <MenuItem Header="Симулятор">
+                <MenuItem x:Name="MenuItem_Sim" Header="Настройки станции" Click="MenuItem_Sim_Click"/>
+            </MenuItem>
             <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">               
                 <MenuItem x:Name="MenuItem_showMPNA" Header="МНА/ПНА" HorizontalAlignment="Left" Click="MenuItem_toggleMPNA" IsChecked="true"/>
                 <MenuItem x:Name="MenuItem_showKL" Header="Клапаны" HorizontalAlignment="Left" Click="MenuItem_toggleKL" IsChecked="True"/>
@@ -159,7 +162,7 @@
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridDI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}" />

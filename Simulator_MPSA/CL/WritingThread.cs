@@ -150,7 +150,7 @@ namespace Simulator_MPSA
                     {
                         Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                         Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("thread 1 - skip");
@@ -201,7 +201,7 @@ namespace Simulator_MPSA
                     {
                         Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                         Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("thread 2 - skip");
@@ -247,7 +247,7 @@ namespace Simulator_MPSA
                     {
                         Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                         Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("thread 3 - skip");
@@ -293,7 +293,7 @@ namespace Simulator_MPSA
                     {
                         Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
                         Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
-                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                        mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("thread 4 - skip");
@@ -338,7 +338,7 @@ namespace Simulator_MPSA
                         Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
                         Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
 
-                       mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                       mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("skip - A3");
@@ -367,7 +367,7 @@ namespace Simulator_MPSA
                         Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
                         Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
 
-                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i), data);
+                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
                     }
                     else
                         Debug.WriteLine("skip - A4");

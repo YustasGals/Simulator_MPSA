@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Collections.ObjectModel;
+
 namespace Simulator_MPSA.CL
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public class DIStruct : INotifyPropertyChanged 
     {
-        public static DIStruct[] items = new DIStruct[0];
+        public static ObservableCollection<DIStruct> items = new ObservableCollection<DIStruct>();
         public bool En
         { set; get; }
 
@@ -107,10 +109,23 @@ namespace Simulator_MPSA.CL
         { set; get; }
         private int indxW
         { set; get; }
+
+        private string tag = "";
         public string TegDI
-        { set; get; }
+        { set
+            { tag = value; }
+            get
+            { return tag; }
+        }
+
+        private string name = "";
         public string NameDI
-        { set; get; }
+        {
+            set
+            { name = value; }
+            get
+            { return name; }
+        }
         [XmlIgnore]
         public int Nsign
         { set; get; }
@@ -144,7 +159,7 @@ namespace Simulator_MPSA.CL
         }
         public static DIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
                 if (items[i].indxArrDI == index)
                 {
                     return items[i];
@@ -153,7 +168,7 @@ namespace Simulator_MPSA.CL
         }
         public static string GetNameByIndex(int index)
         {
-            if (index > 0 && index < items.Length)
+            if (index > 0 && index < items.Count)
                 return items[index].NameDI;
             else return "сигнал не определен";
         }

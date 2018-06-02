@@ -116,6 +116,10 @@
       <DependentUpon>ImportDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\IO\StationExporter.cs" />
+    <Compile Include="StationSetup.xaml.cs">
+      <DependentUpon>StationSetup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="CL\MPNA_Logic.cs" />
     <Compile Include="CL\ReadThread.cs" />
     <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
@@ -129,7 +133,6 @@
     <Compile Include="CL\CL_ZD.cs" />
     <Compile Include="CL\TableViewModels\CountersTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DiagTableModel.cs" />
-    <Compile Include="CL\TableViewModels\DITableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DOTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
@@ -138,6 +141,8 @@
     <Compile Include="CL\TableViewModels\SetupTableModel.cs" />
     <Compile Include="CL\Station.cs" />
     <Compile Include="CL\USOCounter.cs" />
+    <Compile Include="CL\ViewModelCollection.cs" />
+    <Compile Include="ViewModel\DIViewModel.cs" />
     <Compile Include="CL\WritingThread.cs" />
     <Compile Include="ScriptEditor.xaml.cs">
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
@@ -177,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SetupDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StationSetup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

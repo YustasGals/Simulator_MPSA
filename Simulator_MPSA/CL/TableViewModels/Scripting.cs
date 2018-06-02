@@ -76,7 +76,7 @@ namespace Simulator_MPSA.Scripting
             //  DIStruct di = DIStruct.FindByIndex(index);
             //  if (di != null)
             //      di.ValDI = value;
-            if (index < DIStruct.items.Length)
+            if (index < DIStruct.items.Count)
                 DIStruct.items[index].ValDI = value;
         }
         public bool GetDO(int index)

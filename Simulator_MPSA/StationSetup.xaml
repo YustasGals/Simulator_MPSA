@@ -1,0 +1,84 @@
+﻿<Window x:Class="Simulator_MPSA.StationSetup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Simulator_MPSA"
+        mc:Ignorable="d"
+        Title="Настройки станции" Height="560" Width="360" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="67*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Наименование" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="93"/>
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.StationName}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Адрес буфера чтения из УСО" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.BegAddrW}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Адрес буфера записи в УСО" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.BegAddrR}" VerticalAlignment="Top" Width="115"/>
+
+        <CheckBox Content="Использовать ModBus" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseModbus}"/>
+
+        <Label Content="Номер первой корзины" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.NRackBeg}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Номер последней корзины" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.NRackEnd}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Начальный адрес буфера КС осн" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.iBegAddrA3}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Размер буфера КС осн" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.A3BufSize}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Начальный адрес буфера КС рез" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.iBegAddrA4}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Размер буфера КС рез" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.A4BufSize}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="IP адрес" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.HostName}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Порт" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="11" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.MBPort}" VerticalAlignment="Top" Width="115"/>
+
+        <Label Content="Корректировка адреса" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.IncAddr}" VerticalAlignment="Top" Width="115"/>
+
+        <CheckBox Content="Использовать OPC" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseOPC}"/>
+
+        <Label Content="Сервер OFS" Grid.Row="14" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.OFSServerName}" VerticalAlignment="Top" Width="115"/>
+        
+        <Label Content="Задержка цикла, мсек" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+        <TextBox Grid.Row="15" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.TPause}" VerticalAlignment="Top" Width="115"/>
+
+
+        <Button Content="Применить" HorizontalAlignment="Left" Margin="10,9,0,-5" Grid.Row="16" VerticalAlignment="Top" Width="189" Click="Button_Click"/>
+        <Button x:Name="bClose" Content="Закрыть" Grid.Column="1" HorizontalAlignment="Left" Margin="10,10,0,0" Grid.Row="16" VerticalAlignment="Top" Width="108" Click="bClose_Click"/>
+
+    </Grid>
+</Window>

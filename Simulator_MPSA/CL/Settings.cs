@@ -75,13 +75,20 @@ namespace Simulator_MPSA {
 
             items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
             items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
-         /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
-            items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
-            items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
-            items.Add("nZD", new SettingsItem("nZD", 64, typeof(int)));
-            items.Add("nKL", new SettingsItem("nKL", 64, typeof(int)));
-            items.Add("nVS", new SettingsItem("nVS", 256, typeof(int)));
-            items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));*/
+
+            items.Add("IncAddr", new SettingsItem("IncAddr", 0, typeof(int)));  //прибавлять единицу к адресам modbus?
+            items.Add("UseModbus", new SettingsItem("UseModbus", true, typeof(bool)));
+            items.Add("UseOPC", new SettingsItem("UseOPC", false, typeof(bool)));
+
+            items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider.Aut", typeof(string)));
+            items.Add("StationName", new SettingsItem("StationName", "", typeof(string)));
+            /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
+               items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
+               items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
+               items.Add("nZD", new SettingsItem("nZD", 64, typeof(int)));
+               items.Add("nKL", new SettingsItem("nKL", 64, typeof(int)));
+               items.Add("nVS", new SettingsItem("nVS", 256, typeof(int)));
+               items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));*/
         }
         public string HostName
         {
@@ -103,7 +110,15 @@ namespace Simulator_MPSA {
             get { return (int)items["iBegAddrR"].value; }
             set { items["iBegAddrR"].value = value; }
         }
-      
+
+        /// <summary>
+        /// инкремент адреса модбас, для плк quantum надо прибавлять единицу чтобы попасть в нужный, для m580 не надо
+        /// </summary>
+        public int IncAddr
+        {
+            get { return (int)items["IncAddr"].value; }
+            set { items["IncAddr"].value = value; }
+        }
         /// <summary>
         /// задержка мсек
         /// </summary>
@@ -149,6 +164,31 @@ namespace Simulator_MPSA {
                  return (NRackEnd - NRackBeg + 1) * 126;
                // return WB.W.Length;
             }
+        }
+        
+        public bool UseOPC
+        {
+            get { return (bool)items["UseOPC"].value; }
+            set { items["UseOPC"].value = (object)value; }
+          //  get { return _useOPC; }
+          //  set { _useOPC = value; }
+        }
+        
+        public bool UseModbus
+        {
+            get { return (bool)items["UseModbus"].value; }
+            set { items["UseModbus"].value = (object)value; }
+        }
+
+        public string OFSServerName
+        {
+            get { return (string)items["OFSServerName"].value; }
+            set { items["OFSServerName"].value = (string)value; }
+        }
+        public string StationName
+        {
+            get { return (string)items["StationName"].value; }
+            set { items["StationName"].value = (string)value; }
         }
     }
     class SettingsViewModel : BaseViewModel

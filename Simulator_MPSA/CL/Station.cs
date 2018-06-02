@@ -6,18 +6,22 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using System.Xml;
 using System.IO;
+using System.Globalization;
+using System.Collections.ObjectModel;
+
 namespace Simulator_MPSA.CL
 {
     public enum StationLoadResult { OK, Fail};
     public enum StationSaveResult { OK, Fail };
 
+    enum PageType {DI, DO, AI, AO, DiagDI, Counters, Scripts, ZD, VS, KL, MPNA,Nothing };
     /// <summary>
     /// Класс для загрузки/сохранения таблиц сигналов
     /// </summary>
     [Serializable]
     public class Station
     {
-       public DIStruct[] DIs;
+       public ObservableCollection<DIStruct> DIs;
        public DOStruct[] DOs;
        public AIStruct[] AIs;
 
@@ -29,6 +33,7 @@ namespace Simulator_MPSA.CL
         public USOCounter[] Counters;
         public DIStruct[] DiagSignals;
         public Scripting.ScriptInfo[] scripts;
+        PageType currentPage;
 
         public bool ShowMPNA = false;
         public Station()
@@ -45,7 +50,7 @@ namespace Simulator_MPSA.CL
 
         public StationSaveResult Save(string filename)
         {
-            DIStruct.items = DITableViewModel.Instance.DIs;
+            //DIStruct.items = DITableViewModel.Instance.DIs;
             DIs = DIStruct.items;
             DOs = DOStruct.items;
 
@@ -86,8 +91,10 @@ namespace Simulator_MPSA.CL
                 stream.Dispose();
                 Sett.Instance = _instance.settings;
 
-
-                DIStruct.items = _instance.DIs;
+                DIStruct.items.Clear();
+                foreach (DIStruct item in _instance.DIs)
+                    DIStruct.items.Add(item);
+               // DIStruct.items = _instance.DIs;
                 foreach (DIStruct di in DIStruct.items)
                     di.PLCAddr = di.PLCAddr;
 
@@ -247,7 +254,7 @@ namespace Simulator_MPSA.CL
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DIStruct.items = (DIStruct[])xml.Deserialize(reader);
+               // DIStruct.items = (ObservableCollection<DIStruct>)xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DIsettings.xml loaded.");
             }
@@ -434,5 +441,401 @@ namespace Simulator_MPSA.CL
         // ---------------------------------------------------------------------
         // ---------------------------------------------------------------------
 
+    }
+    public class CSVWorker
+    {
+        /// <summary>
+        /// разделитель таблиц
+        /// </summary>
+        static string pageSeparator = "--EndPage--";
+        /// <summary>
+        /// разделитель списка аналогов
+        /// </summary>
+        static string aiSeparator = "--EndOfAI--";
+        /// <summary>
+        /// разделитель скриптов
+        /// </summary>
+        static string scriptSeparator = "---EndOfScript---";
+        static char separator = '\t';
+
+        static string pageHeaderDI = "----------- Дискретные входы (DI)-------------------------------------";
+        static string pageHeaderDO = "----------- Дискретные выходы (DO) ----------------------------------";
+        static string pageHeaderAI = "------------Аналоговые входы (AI) -----------------";
+        static string pageHeaderZD = "----------- Настройки задвижек ----------------";
+        static string pageHeaderVS = "----------- Настройки вспомсистем ---------------";
+        static string pageHeaderKL = "----------- Настройки клапанов -----------";
+        static string pageHeaderMPNA = "----------- Настройки МПНА ------------------";
+        static string pageHeaderDiagDI = "----------- Сигналы диагностики (DI) -------------";
+        static string pageHeaderCounters = "----------- Счетчики -------------";
+        static string pageHeaderScripts = "----------- Скрипты ------------";
+        /// <summary>
+        /// экспорт в CSV - файл
+        /// </summary>
+        /// <param name="station"></param>
+        /// <param name="filename"></param>
+        public static void exportCSV(Station station, string filename)
+        {
+            if (station == null || filename == null) return;
+
+            System.IO.StreamWriter writer = new System.IO.StreamWriter(filename, false, Encoding.Unicode);
+            
+            CultureInfo culture = new CultureInfo("ru-RU");
+            //CultureInfo ruProvider = new CultureInfo("ru-RU");
+            //  System.Windows.Forms.MessageBox.Show("export");
+            writer.WriteLine(pageHeaderDI);
+            writer.WriteLine("Вкл." + separator + "Индекс" + separator + "OPC тэг" + separator +
+                                "Адрес ModBus" + separator +
+                                "Бит" + separator + "Принуд." + separator + "Принуд. знач" + separator +
+                                "Значение" + separator + "Инвертировать" + separator + "Тэг" + separator + "Описание");
+            if ((station.DIs != null) && (station.DIs.Count() > 0))
+            {
+
+                foreach (DIStruct di in DIStruct.items)
+                    writer.WriteLine(di.En.ToString(culture) + separator +
+                                        di.indxArrDI.ToString(culture) + separator +
+                                        di.OPCtag.ToString(culture) + separator +
+                                        di.PLCAddr.ToString(culture) + separator +
+                                        di.indxBitDI.ToString(culture) + separator +
+                                        di.Forced.ToString(culture) + separator +
+                                        di.ForcedValue.ToString(culture) + separator +
+                                        di.ValDI.ToString(culture) + separator +
+                                        di.InvertDI.ToString(culture) + separator +
+                                        di.TegDI.ToString(culture) + separator+
+                                        di.NameDI.ToString(culture));
+
+            }
+            writer.WriteLine(pageSeparator);
+
+
+            writer.WriteLine(pageHeaderDO);
+            writer.WriteLine("Вкл" + separator +
+                             "Индекс" + separator +
+                             "OPC тэг" + separator +
+                             "Адрес ModBus" + separator +
+                             "Бит" + separator +
+                             "Принуд." + separator +
+                             "Принуд. знач." + separator +
+                             "Значение" + separator +
+                             "Инвертировать" + separator +
+                             "Тэг" + separator +
+                             "Описание" + separator
+                             );
+            if (station.DOs != null && station.DOs.Count() > 0)
+            {
+                foreach (DOStruct dos in station.DOs)
+                {
+                    writer.WriteLine(dos.En.ToString(culture) + separator +
+                                        dos.indxArrDO.ToString(culture) + separator +
+                                        dos.OPCtag.ToString(culture) + separator +
+                                        dos.PLCAddr.ToString(culture) + separator +
+                                        dos.indxBitDO.ToString(culture) + separator +
+                                        dos.Forced.ToString(culture) + separator +
+                                        dos.ForcedValue.ToString(culture) + separator +
+                                        dos.ValDO.ToString(culture) + separator +
+                                        dos.InvertDO.ToString(culture) + separator +
+                                        dos.TegDO.ToString(culture) + separator +
+                                        dos.NameDO.ToString(culture) + separator);
+                }
+            }
+            writer.WriteLine(pageSeparator);
+
+            writer.WriteLine(pageHeaderAI);
+
+            writer.WriteLine("Вкл" + separator +
+                                "Индекс" + separator +
+                                "OPC тэг" + separator +
+                                "Адрес ModBus" + separator +
+                                "Тип" + separator +
+                                "Принудительно" + separator +
+                                "Принуд. значение" + separator +
+                                "Значение физ." + separator +
+                                "АЦП мин." + separator +
+                                "АЦП макс." + separator +
+                                "Физ мин." + separator +
+                                "Физ макс." + separator +
+                                "Тэг" + separator +
+                                "Описание"
+                                );
+            if (station.AIs != null && station.AIs.Count() > 0)
+            {
+                foreach (AIStruct ai in station.AIs)
+                {
+                    writer.WriteLine(ai.En.ToString(culture) + separator +
+                                        ai.indxAI.ToString(culture) + separator +
+                                        ai.OPCtag.ToString(culture) + separator +
+                                        ai.PLCAddr.ToString(culture) + separator +
+                                        ai.PLCDestType.ToString() + separator +
+                                        ai.Forced.ToString(culture) + separator +
+                                        ai.ForcedValue.ToString(culture) + separator +
+                                        ai.fValAI.ToString(culture) + separator +
+                                        ai.minACD.ToString(culture) + separator +
+                                        ai.maxACD.ToString(culture) + separator +
+                                        ai.minPhis.ToString(culture) + separator +
+                                        ai.maxPhis.ToString(culture) + separator +
+                                        ai.TegAI.ToString(culture) + separator +
+                                        ai.NameAI.ToString(culture)
+                                        );
+                }
+                writer.WriteLine(pageSeparator);
+            }
+                writer.WriteLine();
+                writer.WriteLine("Вкл" + separator +
+                                    "КВО" + separator +
+                                    "КВЗ" + separator +
+                                    "МПО" + separator +
+                                    "МПЗ" + separator +
+                                    "%открытия индекс" + separator +
+                                    "авария привода" + separator +
+                                    "время хода, сек" + separator +
+                                    "Муфта" + separator +
+                                    "состояине" + separator +
+                                    "наличие напряжения" + separator +
+                                    "Наличие напряжения на СШ" + separator +
+                                    "команда - открыть" + separator +
+                                    "команда - закрыть" + separator +
+                                    "команда - остановить" + separator +
+                                    "команда - стоп закрытия" + separator +
+                                    "Наименование");
+                if (station.ZDs != null && station.ZDs.Count() > 0)
+                {
+
+                    foreach (ZDStruct zd in station.ZDs)
+                    {
+                        writer.WriteLine(zd.En.ToString(culture) + separator +
+                                            zd.OKCindxArrDI.ToString(culture) + separator +
+                                            zd.CKCindxArrDI.ToString(culture) + separator +
+                                            zd.ODCindxArrDI.ToString(culture) + separator +
+                                            zd.CDCindxArrDI.ToString(culture) + separator +
+                                            zd.ZD_Pos_index.ToString(culture) + separator +
+                                            zd.OPCindxArrDI.ToString(culture) + separator +
+                                            zd.TmoveZD.ToString(culture) + separator +
+                                            zd.MCindxArrDI.ToString(culture) + separator +
+                                            zd.StateZD.ToString() + separator +
+                                            zd.VoltindxArrDI.ToString() + separator +
+                                            zd.BSIndex.ToString(culture) + separator +
+                                            zd.DOBindxArrDO.ToString() + separator +
+                                            zd.DKBindxArrDO.ToString() + separator +
+                                            zd.DCBindxArrDO.ToString() + separator +
+                                            zd.DCBZindxArrDO.ToString() + separator +
+                                            zd.Description);
+                    }
+                }
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderKL);
+                writer.WriteLine("Вкл." + separator +
+                                    "Открыт" + separator +
+                                    "Закрыт" + separator +
+                                    "Открыть" + separator +
+                                    "Закрыть" + separator +
+                                    "%открытия" + separator +
+                                    "состояние" + separator +
+                                    "Наименование");
+                if (station.KLs != null && station.KLs.Count() > 0)
+                {
+                    foreach (KLStruct kl in station.KLs)
+                    {
+                        writer.WriteLine(kl.En.ToString(culture) + separator +
+                                            kl.OKCindxArrDI.ToString(culture) + separator +
+                                            kl.CKCindxArrDI.ToString(culture) + separator +
+                                            kl.DOBindxArrDO.ToString(culture) + separator +
+                                            kl.DKBindxArrDO.ToString(culture) + separator +
+                                            kl.KLProc.ToString(culture) + separator +
+                                            kl.State.ToString() + separator +
+                                            kl.Description);
+                    }
+                }
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderVS);
+                writer.WriteLine("Вкл." + separator + "Команда-вкл" + separator +
+                                    "Команда - откл." + separator + "Напряжение на СШ" + separator +
+                                    "Напряжение" + separator + "МП" + separator +
+                                    "Состояине" + separator + "АВОА" + separator +
+                                    "коэф задания частоты" + separator +
+                                    "Адрес ModBus задания частоты" + separator +
+                                    "Описание"
+                                    );
+                if (station.VSs != null && station.VSs.Count() > 0)
+                {
+                    foreach (VSStruct vs in station.VSs)
+                    {
+                        writer.WriteLine(vs.En.ToString(culture) + separator +
+                                            vs.ABBindxArrDO.ToString(culture) + separator +
+                                            vs.ABOindxArrDO.ToString(culture) + separator +
+                                            vs.BusSecIndex.ToString(culture) + separator +
+                                            vs.ECindxArrDI.ToString(culture) + separator +
+                                            vs.MPCindxArrDI.ToString(culture) + separator +
+                                            vs.State.ToString() + separator +
+                                            vs.isAVOA.ToString() + separator +
+                                            vs.SetRPM_Value.ToString() + separator +
+                                            vs.SetRPM_Addr.ToString() + separator +
+                                            vs.Description);
+                        writer.WriteLine("--- VS AI ----");
+                        writer.WriteLine("Индекс в таблице AI" + separator + "Номинальное значение" + separator + "Интенсивность изменения");
+                        if (vs.controledAIs != null && vs.controledAIs.Count() > 0)
+                            foreach (AnalogIOItem io in vs.controledAIs)
+                                writer.WriteLine(io.Index.ToString(culture) + separator +
+                                                    io.ValueNom.ToString(culture) + separator +
+                                                    io.ValueSpd.ToString(culture));
+
+                        writer.WriteLine(aiSeparator);
+                    }
+                }
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderMPNA);
+                writer.WriteLine("Вкл" + separator + "Исправность цепей вкл." + separator +
+                                    "Исправность цепей выкл.1" + separator +
+                                    "Исправность цепей выкл.2" + separator +
+                                    "вв включен 1" + separator + "ВВ включен 2" + separator +
+                                    "вв выключен 1" + separator + "ВВ выключен 2" + separator +
+                                    "команда - включить" + separator +
+                                    "команда - откл.1" + separator + "команда - откл.2" + separator +
+                                    "Состояние" + separator +
+                                    "ECx" + separator + "Наименование"
+                                    );
+                if (station.MPNAs != null && station.MPNAs.Count() > 0)
+                    foreach (MPNAStruct mpna in station.MPNAs)
+                    {
+                        writer.WriteLine(mpna.En.ToString(culture) + separator +
+                                            mpna.ECBindxArrDI.ToString() + separator +
+                                            mpna.ECO11indxArrDI.ToString(culture) + separator +
+                                            mpna.ECO12indxArrDI.ToString(culture) + separator +
+                                            mpna.MBC11indxArrDI.ToString(culture) + separator +
+                                            mpna.MBC12indxArrDI.ToString(culture) + separator +
+                                            mpna.MBC21indxArrDI.ToString(culture) + separator +
+                                            mpna.MBC22indxArrDI.ToString(culture) + separator +
+                                            mpna.ABBindxArrDO.ToString(culture) + separator +
+                                            mpna.ABOindxArrDO.ToString(culture) + separator +
+                                            mpna.ABO2indxArrDO.ToString(culture) + separator +
+                                            mpna.State.ToString() + separator +
+                                            mpna.ECxindxArrDI.ToString() + separator +
+                                            mpna.Description
+                                            );
+                        writer.WriteLine("--- MPNA AI ----");
+                        writer.WriteLine("Индекс в таблице AI" + separator + "Номинальное значение" + separator + "Интенсивность изменения");
+                        if (mpna.controledAIs != null && mpna.controledAIs.Count() > 0)
+                            foreach (AnalogIOItem io in mpna.controledAIs)
+                                writer.WriteLine(io.Index.ToString(culture) + separator +
+                                                    io.ValueNom.ToString(culture) + separator +
+                                                    io.ValueSpd.ToString(culture));
+
+                        writer.WriteLine(aiSeparator);
+                    }
+
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderDiagDI);
+
+                writer.WriteLine("Вкл" + separator +
+                                    "Адрес ModBus" + separator +
+                                    "Бит" + separator +
+                                    "Описание");
+                if (station.DiagSignals != null && station.DiagSignals.Count() > 0)
+                {
+                    foreach (DIStruct di in station.DiagSignals)
+                    {
+                        writer.WriteLine(di.En.ToString() + separator +
+                                            di.PLCAddr.ToString() + separator +
+                                            di.indxBitDI.ToString() + separator +
+                                            di.NameDI);
+                    }
+                }
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderCounters);
+
+                writer.WriteLine("Вкл." + separator + "адрес ModBus");
+
+                if (station.Counters != null && station.Counters.Count() > 0)
+                    foreach (USOCounter cnt in station.Counters)
+                        writer.WriteLine(cnt.En.ToString(culture) + separator +
+                                            cnt.PLCAddr.ToString(culture));
+                writer.WriteLine(pageSeparator);
+
+                writer.WriteLine(pageHeaderScripts);
+                if (station.scripts != null && station.scripts.Count() > 0)
+                    foreach (Scripting.ScriptInfo scr in station.scripts)
+                    {
+                        writer.WriteLine(scr.En.ToString() + separator + scr.Name + separator);
+                        writer.Write(scr.ScriptTxt + Environment.NewLine);
+                        writer.WriteLine(scriptSeparator);
+                    }
+                writer.WriteLine(pageSeparator);
+
+
+
+            writer.Close();
+            System.Windows.Forms.MessageBox.Show("Экспорт завершен успешно");
+        }
+
+        static void ReadTableDI(StreamReader reader)
+        {
+            string line;
+            CultureInfo culture = new CultureInfo("ru-RU");
+            //считываем страницу DI
+            try
+            {
+                reader.ReadLine();//пропускаем строку с заголовками
+                List<DIStruct> listDI = new List<DIStruct>();
+                while (!reader.EndOfStream)
+                {
+                    line = reader.ReadLine();
+
+                    if (!line.Contains(pageSeparator))
+                    {
+                        string[] values = line.Split('\t');
+                        if (values.Count() < 11)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                        }
+                        DIStruct di = new DIStruct();
+                        di.En = bool.Parse(values[0]);
+                        di.indxArrDI = int.Parse(values[1]);
+                        di.OPCtag = values[2];
+                        di.PLCAddr = int.Parse(values[3]);
+                        di.indxBitDI = int.Parse(values[4]);
+                        
+                        di.Forced = bool.Parse(values[5]);
+                        di.ForcedValue = bool.Parse(values[6]);
+                        di.ValDI = bool.Parse(values[7]);
+                        di.InvertDI = bool.Parse(values[8]);
+                        di.TegDI = values[9];
+
+                        if (values.Length>10)
+                            di.NameDI = values[10];
+
+                        listDI.Add(di);
+                    }
+                    else break;
+                }
+                DIStruct.items.Clear();
+                foreach (DIStruct di in listDI)
+                    DIStruct.items.Add(di);
+
+                //DITableViewModel.Instance.Init(DIStruct.items);
+            //    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DI:\n\r" + ex.Message);
+            }
+        }
+        public static void importCSV(string filename)
+        {
+            if (filename == null) return;
+
+            System.IO.StreamReader reader = new System.IO.StreamReader(filename);
+            
+            string line = "";
+
+            while (!reader.EndOfStream)
+            {
+                line = reader.ReadLine();
+                if (line.Contains(pageHeaderDI))
+                    ReadTableDI(reader);
+            }
+        }
     }
 }

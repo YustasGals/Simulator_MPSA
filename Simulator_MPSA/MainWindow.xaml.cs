@@ -28,6 +28,7 @@ using System.Windows.Forms;
 using System.ComponentModel;
 using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
+using Simulator_MPSA.ViewModel;
 
 namespace Simulator_MPSA
 {
@@ -146,7 +147,12 @@ namespace Simulator_MPSA
             //    DOs[i] = new DOStruct();
 
             // dataGridDI.DataContext = new DITableViewModel();
-           dataGridDI.ItemsSource=  DITableViewModel.Instance.viewSource.View;
+            //dataGridDI.ItemsSource=  DITableViewModel.Instance.viewSource.View;
+            //dataGridDI.DataContext = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+            ViewModelCollection<DIViewModel, DIStruct> divm= new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+            dataGridDI.DataContext = divm;
+            //dataGridDI.ItemsSource = divm.ViewSource.View;
+            
             // for (int i = 0; i < DIs.Length; i++)
             //     DIs[i] = new DIStruct();
             dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
@@ -239,13 +245,13 @@ namespace Simulator_MPSA
                             {
 
                                 if (ai.Buffer == BufType.USO)
-                                    WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW - 1)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
+                                    WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
 
                                 if (ai.Buffer == BufType.A3)
-                                    WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1)] = ai.ValACD;
+                                    WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3)] = ai.ValACD;
 
                                 if (ai.Buffer == BufType.A4)
-                                    WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1)] = ai.ValACD;
+                                    WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4)] = ai.ValACD;
                             }
                             else
                             if (ai.PLCDestType == EPLCDestType.Float)
@@ -257,20 +263,20 @@ namespace Simulator_MPSA
 
                                 if (ai.Buffer == BufType.USO)
                                 {
-                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW - 1] = w1;
-                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w2;
+                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w1;
+                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW+1] = w2;
                                 }
 
                                 if (ai.Buffer == BufType.A3)
                                 {
-                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = w1;
-                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w2;
+                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w1;
+                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3+1] = w2;
                                 }
 
                                 if (ai.Buffer == BufType.A4)
                                 {
-                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 - 1] = w1;
-                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w2;
+                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w1;
+                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4+1] = w2;
                                 }
                             }
                         }//ai.en
@@ -284,13 +290,13 @@ namespace Simulator_MPSA
                              if (indx > 0 && indx < WB.W.Length)
                              */
                             if (di.Buffer == BufType.USO)
-                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A3)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                         }
                     }
 
@@ -299,20 +305,20 @@ namespace Simulator_MPSA
                     {
                         c.Update(dt_sec);
                         if (c.buffer == BufType.USO)
-                            if (c.PLCAddr >= Sett.Instance.BegAddrW + 1)
+                            if (c.PLCAddr >= Sett.Instance.BegAddrW)
                             {
-                                WB.W[c.PLCAddr - Sett.Instance.BegAddrW - 1] = c.Value;
+                                WB.W[c.PLCAddr - Sett.Instance.BegAddrW] = c.Value;
                             }
 
                         if (c.buffer == BufType.A3)
-                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA3 + 1) && ((c.PLCAddr - Sett.Instance.iBegAddrA3 - 1) < WB.W_a3.Length))
+                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA3) && ((c.PLCAddr - Sett.Instance.iBegAddrA3) < WB.W_a3.Length))
                             {
-                                WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3 - 1] = c.Value;
+                                WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3] = c.Value;
                             }
                         if (c.buffer == BufType.A4)
-                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA4 + 1) && ((c.PLCAddr - Sett.Instance.iBegAddrA4 - 1) < WB.W_a4.Length))
+                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA4) && ((c.PLCAddr - Sett.Instance.iBegAddrA4) < WB.W_a4.Length))
                             {
-                                WB.W_a4[c.PLCAddr - Sett.Instance.iBegAddrA4 - 1] = c.Value;
+                                WB.W_a4[c.PLCAddr - Sett.Instance.iBegAddrA4] = c.Value;
                             }
                     }
 
@@ -324,13 +330,13 @@ namespace Simulator_MPSA
                              if (indx > 0 && indx < WB.W.Length)
                              */
                             if (di.Buffer == BufType.USO)
-                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A3)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
                             if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4 - 1]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                         }
                     }
 
@@ -412,8 +418,10 @@ namespace Simulator_MPSA
 
                     dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
 
-                    DITableViewModel.Instance.Init(DIStruct.items);
-                    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+                    // DITableViewModel.Instance.Init(DIStruct.items);
+                    dataGridDI.DataContext = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+
+                    //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
 
                     dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
                     // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
@@ -712,9 +720,15 @@ namespace Simulator_MPSA
         {
             if (e.Key == Key.Return)
             {
-                DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
-                DITableViewModel.Instance.TagFilter = textBoxDITagFilter.Text;
-                DITableViewModel.Instance.ApplyFilter();
+                //DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
+                // DITableViewModel.Instance.TagFilter = textBoxDITagFilter.Text;
+                //  DITableViewModel.Instance.ApplyFilter();
+                ViewModelCollection<DIViewModel, DIStruct> context = (dataGridDI.DataContext as ViewModelCollection<DIViewModel, DIStruct>);
+                context.NameFilter = textBoxDIFilter.Text;
+                context.tagFilter = textBoxDITagFilter.Text;
+                context.ApplyFilter();
+
+               // dataGridDI.ItemsSource = context.viewSource.View;
             }
         }
 
@@ -973,14 +987,14 @@ namespace Simulator_MPSA
 
         private void hideEmptyDI_Checked(object sender, RoutedEventArgs e)
         {
-            DITableViewModel.Instance.HideEmpty = true;
-            DITableViewModel.Instance.ApplyFilter();
+           // DITableViewModel.Instance.HideEmpty = true;
+          //  DITableViewModel.Instance.ApplyFilter();
         }
 
         private void hideEmptyDI_Unchecked(object sender, RoutedEventArgs e)
         {
-            DITableViewModel.Instance.HideEmpty = false;
-            DITableViewModel.Instance.ApplyFilter();
+          //  DITableViewModel.Instance.HideEmpty = false;
+          //  DITableViewModel.Instance.ApplyFilter();
         }
 
         private void hideEmptyDO_Checked(object sender, RoutedEventArgs e)
@@ -1065,11 +1079,30 @@ namespace Simulator_MPSA
         private void Menu_Export(object sender, RoutedEventArgs e)
         {
             System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
+            sfd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
-                exporter.exportCSV(Station.instance, sfd.FileName);
+               // Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
+                CSVWorker.exportCSV(Station.instance, sfd.FileName);
             }
+        }
+
+        private void Menu_Import(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+            ofd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
+            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                CSVWorker.importCSV(ofd.FileName);
+            }
+            //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+        }
+
+        private void MenuItem_Sim_Click(object sender, RoutedEventArgs e)
+        {
+            StationSetup setupWindow = new StationSetup();
+            setupWindow.ShowDialog();
+           // setupWindow.Close();
         }
     }
 }

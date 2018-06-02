@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Station xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <DIs>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <ForcedValue>false</ForcedValue>
+      <Forced>false</Forced>
+      <PLCAddr>15146</PLCAddr>
+      <OPCtag />
+      <indxArrDI>0</indxArrDI>
+      <indxBitDI>15</indxBitDI>
+      <TegDI>MBC101-1</TegDI>
+      <NameDI>МНА №003.1. ВВ включен (сигнал 1)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <ForcedValue>true</ForcedValue>
+      <Forced>false</Forced>
+      <PLCAddr>15146</PLCAddr>
+      <OPCtag />
+      <indxArrDI>1</indxArrDI>
+      <indxBitDI>14</indxBitDI>
+      <TegDI>MBC102-1</TegDI>
+      <NameDI>МНА №003.1. ВВ отключен (сигнал 1)</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>false</ValDI>
+      <ForcedValue>false</ForcedValue>
+      <Forced>false</Forced>
+      <PLCAddr>15146</PLCAddr>
+      <OPCtag />
+      <indxArrDI>2</indxArrDI>
+      <indxBitDI>13</indxBitDI>
+      <TegDI />
+      <NameDI>Резерв</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <ForcedValue>true</ForcedValue>
+      <Forced>false</Forced>
+      <PLCAddr>15146</PLCAddr>
+      <OPCtag />
+      <indxArrDI>3</indxArrDI>
+      <indxBitDI>12</indxBitDI>
+      <TegDI>EC101D</TegDI>
+      <NameDI>МНА №003.1. Неисправность датчика частоты вращения выходного вала ЭД</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+    <DIStruct>
+      <En>true</En>
+      <ValDI>true</ValDI>
+      <ForcedValue>true</ForcedValue>
+      <Forced>false</Forced>
+      <PLCAddr>15146</PLCAddr>
+      <OPCtag />
+      <indxArrDI>4</indxArrDI>
+      <indxBitDI>11</indxBitDI>
+      <TegDI>EC121</TegDI>
+      <NameDI>МНА №003.1. Неисправность датчика частоты вращения выходного вала гидромуфты</NameDI>
+      <InvertDI>false</InvertDI>
+    </DIStruct>
+  </DIs>
+  <DOs />
+  <AIs>
+    <AIStruct>
+      <DelayAI>0</DelayAI>
+      <En>false</En>
+      <indxAI>0</indxAI>
+      <OPCtag />
+      <PLCDestType>ADC</PLCDestType>
+      <Forced>false</Forced>
+      <ForcedValue>0</ForcedValue>
+      <PLCAddr>15100</PLCAddr>
+      <TegAI />
+      <NameAI>empty</NameAI>
+      <ValACD>0</ValACD>
+      <minACD>0</minACD>
+      <maxACD>0</maxACD>
+      <minPhis>0</minPhis>
+      <maxPhis>0</maxPhis>
+      <fValAI>0</fValAI>
+    </AIStruct>
+  </AIs>
+  <KLs>
+    <KLStruct>
+      <TmoveKL>5</TmoveKL>
+      <En>false</En>
+      <State>Close</State>
+      <DOBindxArrDO>0</DOBindxArrDO>
+      <DKBindxArrDO>0</DKBindxArrDO>
+      <OKCindxArrDI>0</OKCindxArrDI>
+      <CKCindxArrDI>0</CKCindxArrDI>
+      <KLProc>0</KLProc>
+    </KLStruct>
+  </KLs>
+  <MPNAs>
+    <MPNAStruct>
+      <_En>false</_En>
+      <State>Stop</State>
+      <StateRus>остановлен</StateRus>
+      <ABBindxArrDO>-1</ABBindxArrDO>
+      <ABOindxArrDO>-1</ABOindxArrDO>
+      <ABO2indxArrDO>-1</ABO2indxArrDO>
+      <MBC12indxArrDI>-1</MBC12indxArrDI>
+      <MBC22indxArrDI>-1</MBC22indxArrDI>
+      <ECBindxArrDI>-1</ECBindxArrDI>
+      <ECO12indxArrDI>-1</ECO12indxArrDI>
+      <CTindxArrDI>-1</CTindxArrDI>
+      <MBC11indxArrDI>-1</MBC11indxArrDI>
+      <MBC21indxArrDI>-1</MBC21indxArrDI>
+      <ECxindxArrDI>-1</ECxindxArrDI>
+      <ECO11indxArrDI>-1</ECO11indxArrDI>
+      <ECindxArrDI>-1</ECindxArrDI>
+      <En>false</En>
+    </MPNAStruct>
+  </MPNAs>
+  <settings>
+    <ShowTab_MPNA>true</ShowTab_MPNA>
+    <ShowTab_VS>true</ShowTab_VS>
+    <ShowTab_KL>true</ShowTab_KL>
+    <HostName>192.168.201.1</HostName>
+    <MBPort>502</MBPort>
+    <BegAddrW>15099</BegAddrW>
+    <BegAddrR>23169</BegAddrR>
+    <IncAddr>0</IncAddr>
+    <TPause>50</TPause>
+    <NRackBeg>3</NRackBeg>
+    <NRackEnd>29</NRackEnd>
+    <iBegAddrA3>28849</iBegAddrA3>
+    <iBegAddrA4>29474</iBegAddrA4>
+    <A3BufSize>600</A3BufSize>
+    <A4BufSize>600</A4BufSize>
+  </settings>
+  <VSs>
+    <VSStruct>
+      <changedDO>false</changedDO>
+      <changedDI>false</changedDI>
+      <VSProc>0</VSProc>
+      <TmoveVS>0</TmoveVS>
+      <SetRPM_Addr>-1</SetRPM_Addr>
+      <SetRPM_Value>0</SetRPM_Value>
+      <isAVOA>false</isAVOA>
+      <ADCtoRPM>640</ADCtoRPM>
+      <En>false</En>
+      <Description>Empty</Description>
+      <Group>NoGroup</Group>
+      <BusSecIndex>-1</BusSecIndex>
+      <BusSectionName>сигнал не назначен</BusSectionName>
+      <ABBindxArrDO>-1</ABBindxArrDO>
+      <ABOindxArrDO>-1</ABOindxArrDO>
+      <ECindxArrDI>-1</ECindxArrDI>
+      <valueEC>0</valueEC>
+      <MPCindxArrDI>-1</MPCindxArrDI>
+      <PCindxArrDI>-1</PCindxArrDI>
+      <State>Stop</State>
+      <StateRUS>Остановлен</StateRUS>
+    </VSStruct>
+  </VSs>
+  <ZDs>
+    <ZDStruct>
+      <_bsindex>0</_bsindex>
+      <StateZD>Close</StateZD>
+      <En>false</En>
+      <ZD_Pos_index>0</ZD_Pos_index>
+      <Position>0</Position>
+      <PositionAIName>сигнал не назначен</PositionAIName>
+      <DOBindxArrDO>0</DOBindxArrDO>
+      <DOBState>false</DOBState>
+      <DKBindxArrDO>0</DKBindxArrDO>
+      <DKBState>false</DKBState>
+      <DCBindxArrDO>0</DCBindxArrDO>
+      <DCBState>false</DCBState>
+      <DCBZindxArrDO>0</DCBZindxArrDO>
+      <ChangedDO>false</ChangedDO>
+      <OKCindxArrDI>0</OKCindxArrDI>
+      <OKCState>false</OKCState>
+      <CKCindxArrDI>0</CKCindxArrDI>
+      <CKCState>false</CKCState>
+      <ODCindxArrDI>0</ODCindxArrDI>
+      <ODCState>false</ODCState>
+      <BSIndex>0</BSIndex>
+      <BSName>сигнал не назначен</BSName>
+      <CDCindxArrDI>0</CDCindxArrDI>
+      <CDCState>false</CDCState>
+      <DCindxArrDI>0</DCindxArrDI>
+      <DCState>false</DCState>
+      <VoltindxArrDI>0</VoltindxArrDI>
+      <VoltState>false</VoltState>
+      <MCindxArrDI>0</MCindxArrDI>
+      <MCState>false</MCState>
+      <OPCindxArrDI>0</OPCindxArrDI>
+      <OPCState>false</OPCState>
+      <ZDProc>0</ZDProc>
+      <Percent>0</Percent>
+      <ChangedDI>false</ChangedDI>
+      <TmoveZD>10</TmoveZD>
+      <TscZD>1</TscZD>
+      <Description>Задвижка</Description>
+      <Group />
+    </ZDStruct>
+  </ZDs>
+  <Counters />
+  <DiagSignals />
+  <scripts />
+  <ShowMPNA>false</ShowMPNA>
+</Station>

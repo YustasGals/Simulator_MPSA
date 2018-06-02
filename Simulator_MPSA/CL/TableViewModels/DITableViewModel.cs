@@ -42,7 +42,7 @@ namespace Simulator_MPSA.CL
         }
         private void On_CollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
-            DIStruct.items = _DIs.ToArray();
+      //      DIStruct.items = _DIs.ToArray();
         }
 
 

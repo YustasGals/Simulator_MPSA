@@ -61,7 +61,7 @@ namespace Simulator_MPSA
             {
                 for (ushort i = 0; i < coilCount/2; i++)
                 {
-                    data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i), NReg);
+                    data = mbMasterR[0].ReadHoldingRegisters(1, (ushort)(tbStartAdress + NReg * i + Sett.Instance.IncAddr), NReg);
                     data.CopyTo(RB.R, NReg*i);
                 }
                 GetDOfromR();
@@ -83,7 +83,7 @@ namespace Simulator_MPSA
             {
                 for (int i = coilCount / 2; i< coilCount-1; i++)
                 {
-                    data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i), NReg);
+                    data = mbMasterR[1].ReadHoldingRegisters(1, (ushort) (tbStartAdress + NReg* i + Sett.Instance.IncAddr), NReg);
                     data.CopyTo(RB.R, NReg* i);
                 }
                 GetDOfromR();
@@ -98,7 +98,7 @@ namespace Simulator_MPSA
         {
             foreach(DOStruct _do in DOStruct.items)
             {
-                int indx = _do.PLCAddr - Sett.Instance.BegAddrR - 1;
+                int indx = _do.PLCAddr - Sett.Instance.BegAddrR;
                 if (indx > 0 && indx < RB.R.Length)
                 {
                     bool res = GetBit(RB.R[indx], _do.indxBitDO);
