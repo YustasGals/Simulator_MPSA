@@ -25,6 +25,8 @@ namespace Simulator_MPSA.CL
             {
                 if (!Forced)
                 {
+                    if (_valDI != value) isChanged = true;
+
                     _valDI = value;
                     OnPropertyChanged("ForcedValue");
                 }
@@ -57,9 +59,9 @@ namespace Simulator_MPSA.CL
                 {
                     switch (_buffer)
                     {
-                        case BufType.USO: _plcaddr = Sett.Instance.BegAddrW + indxW + 1; break;
-                        case BufType.A3: _plcaddr = Sett.Instance.iBegAddrA3 + indxW + 1; break;
-                        case BufType.A4: _plcaddr = Sett.Instance.iBegAddrA4 + indxW + 1; break;
+                        case BufType.USO: _plcaddr = Sett.Instance.BegAddrW + indxW; break;
+                        case BufType.A3: _plcaddr = Sett.Instance.iBegAddrA3 + indxW; break;
+                        case BufType.A4: _plcaddr = Sett.Instance.iBegAddrA4 + indxW; break;
 
                     }
                 }
@@ -71,13 +73,13 @@ namespace Simulator_MPSA.CL
             set {
                 _plcaddr = value;
                 Buffer = BufType.Undefined;
-                if ((_plcaddr > Sett.Instance.iBegAddrA3) && (_plcaddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
+                if ((_plcaddr >= Sett.Instance.iBegAddrA3) && (_plcaddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                     Buffer = BufType.A3;
 
-                if ((_plcaddr > Sett.Instance.iBegAddrA4) && (_plcaddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                if ((_plcaddr >= Sett.Instance.iBegAddrA4) && (_plcaddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
                     Buffer = BufType.A4;
 
-                if ((_plcaddr > Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize+1)))
+                if ((_plcaddr >= Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)))
                     Buffer = BufType.USO;
 
                 OnPropertyChanged("PLCAddr");
@@ -118,6 +120,13 @@ namespace Simulator_MPSA.CL
             { return tag; }
         }
 
+        private bool isChanged;
+        public bool IsChanged
+        {
+            get { return isChanged; }
+            set { isChanged = value; }
+        }
+
         private string name = "";
         public string NameDI
         {
@@ -129,8 +138,17 @@ namespace Simulator_MPSA.CL
         [XmlIgnore]
         public int Nsign
         { set; get; }
+        private bool invert;
+
         public bool InvertDI
-        { set; get; }
+        {
+            set
+            {
+                if (invert != value) isChanged = true;
+                invert = value;
+            }
+            get { return invert; }
+        }
         [XmlIgnore]
         public int DelayDI
         { set; get; }

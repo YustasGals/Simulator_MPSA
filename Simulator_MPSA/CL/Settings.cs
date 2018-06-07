@@ -18,7 +18,7 @@ namespace Simulator_MPSA {
         }
     }
     [Serializable()]
-    public class Sett
+    public class Sett: BaseViewModel
     {
         /* string HostName = "192.168.201.1"; // IP adress CPU
          int MBPort = 502; // Modbus TCP port adress
@@ -67,21 +67,40 @@ namespace Simulator_MPSA {
            // items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
             items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1, typeof(int)));
             items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1, typeof(int)));
-            items.Add("iBegAddrA4", new SettingsItem("iBegAddrA4", 29475 - 1, typeof(int)));
 
-            items.Add("iBegAddrA3", new SettingsItem("iBegAddrA3", 28850-1,typeof(int)));
+            //параметры буфера КС 1
+            items.Add("iBegAddrA3", new SettingsItem("iBegAddrA3", 28850 - 1, typeof(int)));
             items.Add("A3BufSize", new SettingsItem("A3BufSize", 600, typeof(int)));
+            //параметры буфера КС 2
+            items.Add("iBegAddrA4", new SettingsItem("iBegAddrA4", 29475 - 1, typeof(int)));
             items.Add("A4BufSize", new SettingsItem("A4BufSize", 600, typeof(int)));
 
-            items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
-            items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
+            //количество регистров на запись
+            items.Add("wrBufSize", new SettingsItem("wrBufSize", 1, typeof(int)));
+
+            //количество регистров на чтение
+            items.Add("rdBufSize", new SettingsItem("wrBufSize", 1, typeof(int)));
+
+            //размер бочки (макс 120)
+            items.Add("CoilSize", new SettingsItem("CoiSize", 1, typeof(int)));
+            //   items.Add("iNRackBeg", new SettingsItem("iNRackBeg", 3, typeof(int)));
+            //   items.Add("iNRackEnd", new SettingsItem("iNRackEnd", 29, typeof(int)));
 
             items.Add("IncAddr", new SettingsItem("IncAddr", 0, typeof(int)));  //прибавлять единицу к адресам modbus?
             items.Add("UseModbus", new SettingsItem("UseModbus", true, typeof(bool)));
             items.Add("UseOPC", new SettingsItem("UseOPC", false, typeof(bool)));
 
+            //имитировать контроллеры связи
+            items.Add("UseKS1", new SettingsItem("UseKS1", false, typeof(bool)));
+            items.Add("UseKS2", new SettingsItem("UseKS2", false, typeof(bool)));
+
             items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider.Aut", typeof(string)));
             items.Add("StationName", new SettingsItem("StationName", "", typeof(string)));
+
+            //количество потоков на запись для буфера УСО
+            items.Add("ConnectionCount", new SettingsItem("Количество подключений",4, typeof(int)));
+
+           
             /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
                items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));
                items.Add("nDO", new SettingsItem("nDO", 64, typeof(int)));
@@ -105,10 +124,62 @@ namespace Simulator_MPSA {
             get { return (int)items["iBegAddrW"].value; }
             set { items["iBegAddrW"].value = value; }
         }
+        /// <summary>
+        /// количество регистров на запись
+        /// </summary>
+        public int wrBufSize
+        {
+            get { return (int)items["wrBufSize"].value; }
+            set
+            {
+                int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
+                items["wrBufSize"].value = coilCount*CoilSize;
+                OnPropertyChanged("wrBufSize");
+            }
+        }
+
+        /// <summary>
+        /// количество регистров на чтение
+        /// </summary>
+        public int rdBufSize
+        {
+            get { return (int)items["rdBufSize"].value; }
+            set {
+                int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
+                items["rdBufSize"].value = coilCount*CoilSize;
+                OnPropertyChanged("rdBufSize");
+            }
+        }
+
+        /// <summary>
+        /// начальный адрес чтения из плк
+        /// </summary>
         public int BegAddrR
         {
             get { return (int)items["iBegAddrR"].value; }
-            set { items["iBegAddrR"].value = value; }
+            set {
+                items["iBegAddrR"].value = value;
+            }
+        }
+
+        /// <summary>
+        /// размер бочки макс 120 регистров
+        /// </summary>
+        public int CoilSize
+        {
+            get { return (int)items["CoilSize"].value; }
+            set {
+                if (value<1)
+                    items["CoilSize"].value = 1;
+                     else
+                         if (value>120)
+                             items["CoilSize"].value = 120;
+                                 else
+                                     items["CoilSize"].value = value;
+                //обновить значения
+                rdBufSize = rdBufSize;
+                wrBufSize = wrBufSize;
+            }
         }
 
         /// <summary>
@@ -127,7 +198,7 @@ namespace Simulator_MPSA {
             get { return (int)items["TPause"].value;  }
             set { items["TPause"].value = value; }
         }
-        public int NRackBeg
+      /*  public int NRackBeg
         {
             get { return (int)items["iNRackBeg"].value;  }
             set { items["iNRackBeg"].value = value; }
@@ -136,7 +207,7 @@ namespace Simulator_MPSA {
         {
             get { return (int)items["iNRackEnd"].value;  }
             set { items["iNRackEnd"].value = value; }
-        }
+        }*/
     
         public int iBegAddrA3
         {
@@ -157,13 +228,6 @@ namespace Simulator_MPSA {
         {
             get { return (int)items["A4BufSize"].value; }
             set { items["A4BufSize"].value = value; }
-        }
-        //размер буффера УСО
-        public int USOBufferSize { get
-            {
-                 return (NRackEnd - NRackBeg + 1) * 126;
-               // return WB.W.Length;
-            }
         }
         
         public bool UseOPC
@@ -189,6 +253,30 @@ namespace Simulator_MPSA {
         {
             get { return (string)items["StationName"].value; }
             set { items["StationName"].value = (string)value; }
+        }
+
+        public int ConnectionCount
+        {
+            get { return (int)items["ConnectionCount"].value; }
+            set {
+                if (value>4) items["ConnectionCount"].value = (int)4;
+                    else
+                    if (value<1)
+                        items["ConnectionCount"].value = (int)1;
+                else items["ConnectionCount"].value = (int)value;
+            }
+        }
+
+        public bool UseKS1
+        {
+            get { return (bool)items["UseKS1"].value; }
+            set { items["UseKS1"].value = (bool)value; }
+        }
+
+        public bool UseKS2
+        {
+            get { return (bool)items["UseKS2"].value; }
+            set { items["UseKS2"].value = (bool)value; }
         }
     }
     class SettingsViewModel : BaseViewModel

@@ -74,6 +74,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="KopiLua, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\downloads\LuaInterface-master\Run\Release\KopiLua.dll</HintPath>
+    </Reference>
     <Reference Include="LuaInterface">
       <HintPath>Properties\LuaInterface.dll</HintPath>
     </Reference>
@@ -107,7 +111,6 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CL\BaseSignal.cs" />
     <Compile Include="CL\ImportDialog.xaml.cs">
       <DependentUpon>ImportDialog.xaml</DependentUpon>
     </Compile>
@@ -170,7 +173,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CL\Depoller.cs" />
     <Compile Include="CL\TableViewModels\VSTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\ZDTableViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">

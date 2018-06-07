@@ -95,13 +95,13 @@ namespace Simulator_MPSA.CL
             set {
                 _plcAddr = value;
 
-                if ((_plcAddr > Sett.Instance.iBegAddrA3) && (_plcAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
+                if ((_plcAddr >= Sett.Instance.iBegAddrA3) && (_plcAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                     Buffer = BufType.A3;
 
-                if ((_plcAddr > Sett.Instance.iBegAddrA4) && (_plcAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                if ((_plcAddr >= Sett.Instance.iBegAddrA4) && (_plcAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
                     Buffer = BufType.A4;
 
-                if ((_plcAddr > Sett.Instance.BegAddrW) && (_plcAddr < (Sett.Instance.BegAddrW + Sett.Instance.USOBufferSize)))
+                if ((_plcAddr >= Sett.Instance.BegAddrW) && (_plcAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)))
                     Buffer = BufType.USO;
             }
         }
@@ -139,7 +139,11 @@ namespace Simulator_MPSA.CL
             get {
                 return _valADC;  
             }
-            set { _valADC = value; OnPropertyChanged("ValACD"); }
+            set {
+                isChanged = true;
+                _valADC = value;
+                OnPropertyChanged("ValACD");
+            }
         }
         private ushort _minACD;
         public ushort minACD
@@ -174,12 +178,19 @@ namespace Simulator_MPSA.CL
                 if (!Forced)
                 {
                     _fValAI = value;
+                    IsChanged = true;
                     RefreshADC();
                     OnPropertyChanged("ForcedValue");
                 }
             }
         }
 
+        private bool isChanged;
+        public bool IsChanged
+        {
+            get { return isChanged; }
+            set { isChanged = value; }
+        }
         private void RefreshADC()
         {
             float df = 0f;

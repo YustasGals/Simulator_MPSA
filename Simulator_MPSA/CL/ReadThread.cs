@@ -9,6 +9,9 @@ using System.Threading;
 using Simulator_MPSA.CL;
 namespace Simulator_MPSA
 {
+    /// <summary>
+    /// Класс управляет потоками чтения из ПЛК и записывает данные в массив DOStruct.items
+    /// </summary>
     class ReadThread
     {
         public MainWindow refMainWindow;
@@ -96,6 +99,7 @@ namespace Simulator_MPSA
 
         void GetDOfromR() // копирование значения сигналов DO из массива для чтения ЦПУ
         {
+            if (DOStruct.items != null && DOStruct.items.Count>0)
             foreach(DOStruct _do in DOStruct.items)
             {
                 int indx = _do.PLCAddr - Sett.Instance.BegAddrR;

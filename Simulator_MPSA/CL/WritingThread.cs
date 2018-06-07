@@ -7,6 +7,9 @@ using System.Threading;
 
 namespace Simulator_MPSA
 {
+    /// <summary>
+    /// класс управляет потоками на запись
+    /// </summary>
     public class WritingThread
     {
         bool paused = false;
@@ -68,24 +71,33 @@ namespace Simulator_MPSA
             wrThread[1] = new Thread(WriteToPLC2);
             wrThread[2] = new Thread(WriteToPLC3);
             wrThread[3] = new Thread(WriteToPLC4);
+
             wrThread[4] = new Thread(WriteA3);
-         //   wrThread[5] = new Thread(WriteA4);
+       //     wrThread[5] = new Thread(WriteA4);
            // wrThread[6] = new Thread(WriteToPLC7);
            // wrThread[7] = new Thread(WriteToPLC8);
 
-            NReg = 120; // количество регистров на запись не более 120
-            CoilCount = WB.W.Length / NReg; /* / Sett.Instance.NWrTask;*/   //количество бочек по 120 регистров которые записываются в данном потоке
-            CoilPerTask = (int)Math.Ceiling((double)CoilCount/(double)NJob);
+           
+
           //  destStartAddr = Sett.Instance.BegAddrW; //адрес в ПЛК 
         }
 
         public void Start()
         {
-            for (int i = 0; i < NMasters; i++)
+            NReg = Sett.Instance.CoilSize; // количество регистров на запись не более 120
+            NJob = Sett.Instance.ConnectionCount;
+            CoilCount = WB.W.Length / NReg; /* / Sett.Instance.NWrTask;*/   //количество бочек по 120 регистров которые записываются в данном потоке
+            CoilPerTask = (int)Math.Ceiling((double)CoilCount / (double)NJob);
+
+            if (Sett.Instance.UseModbus)
+            for (int i = 0; i < NJob; i++)
             {
                 if (wrThread[i] != null)
                     wrThread[i].Start();
             }
+
+            if (Sett.Instance.UseKS1)
+                wrThread[4].Start();
             
         }
 
@@ -125,8 +137,10 @@ namespace Simulator_MPSA
             ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
 
 
-
+            //номер первой бочки из общего числа регистров
             int nCoilFirst = (jobnum * CoilPerTask);
+
+            //номер последней бочки из общего числа регистров
             int nCoilLast = (jobnum + 1) * CoilPerTask - 1;
             if (nCoilLast >= CoilCount)
                 nCoilLast = CoilCount - 1;

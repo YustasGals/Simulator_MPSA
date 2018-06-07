@@ -74,9 +74,9 @@ namespace Simulator_MPSA
 
         public static void InitBuffers(Sett settings)
         {
-            RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
 
-            int regCount = (Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126;
+            int regCount = Sett.Instance.wrBufSize;
             int coilCount = (int)Math.Ceiling((float)regCount / 120f);
 
             int regCountRounded = coilCount * 120;
@@ -209,27 +209,32 @@ namespace Simulator_MPSA
             while (mainCycleEnabled)
             {
                 //-------- обновление структур --------------------------
+                if (ZDTableViewModel.ZDs != null && ZDTableViewModel.ZDs.Count>0)
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                     zd.UpdateZD(dt_sec);
 
+                if (KLTableViewModel.KL != null && KLTableViewModel.KL.Count>0)
                 foreach (KLStruct kl in KLTableViewModel.KL)
                     kl.UpdateKL(dt_sec);
 
+                if (VSTableViewModel.VS != null && VSTableViewModel.VS.Count>0)
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateVS(dt_sec);
 
+                if (MPNATableViewModel.MPNAs!=null && MPNATableViewModel.MPNAs.Count > 0)
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
                     mpna.UpdateMPNA(dt_sec);
 
 
 
-                if (ScriptInfo.Items != null)
+                if (ScriptInfo.Items != null && ScriptInfo.Items.Count>0)
                     foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
                         script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
                 //for (int i = 0; i < AIStruct.items.Length; i++)
                 lock (WB.W)
                 {
+                    if (AIStruct.items != null && AIStruct.items.Count>0)
                     foreach (AIStruct ai in AIStruct.items)
                     {
                         if (ai.En /* || true */)
@@ -276,6 +281,7 @@ namespace Simulator_MPSA
                         }//ai.en
                     }//foreach
 
+                    if (DIStruct.items != null && DIStruct.items.Count>0)
                     foreach (DIStruct di in DIStruct.items)
                     {
                         if (di.En)
@@ -295,6 +301,7 @@ namespace Simulator_MPSA
                     }
 
                     //записываем счетчики УСО
+                    if (CountersTableViewModel.Counters != null && CountersTableViewModel.Counters.Count>0)
                     foreach (USOCounter c in CountersTableViewModel.Counters)
                     {
                         c.Update(dt_sec);
@@ -316,6 +323,7 @@ namespace Simulator_MPSA
                             }
                     }
 
+                    if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
                     foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     {
                         if (di.En)
@@ -957,6 +965,8 @@ namespace Simulator_MPSA
             {
                 CSVWorker.importCSV(ofd.FileName);
             }
+            isConfigLoaded = true;
+            System.Windows.Forms.MessageBox.Show("Импорт завершен");
             //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
         }
 

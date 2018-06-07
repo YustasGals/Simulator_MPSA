@@ -343,7 +343,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Диагностика связи" x:Name="tabDiagUSO">
+            <TabItem Header="Счетчики связи" x:Name="tabDiagUSO">
                 <Grid>
 
                     <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
@@ -357,7 +357,7 @@
                         </DataGrid>               
                 </Grid>
             </TabItem>
-            <TabItem Header="Диагностика" x:Name="tabDiagMod">
+            <TabItem Header="Сигналы диагностики" x:Name="tabDiagMod">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>

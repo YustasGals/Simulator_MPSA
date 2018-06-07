@@ -25,14 +25,14 @@ namespace Simulator_MPSA.CL
        public ObservableCollection<DOStruct> DOs;
        public ObservableCollection<AIStruct> AIs;
 
-       public KLStruct[] KLs;
-       public MPNAStruct[] MPNAs;
+       public ObservableCollection<KLStruct> KLs;
+       public ObservableCollection<MPNAStruct>  MPNAs;
        public Sett settings;
-       public VSStruct[] VSs;
-       public ZDStruct[] ZDs;
-        public USOCounter[] Counters;
-        public DIStruct[] DiagSignals;
-        public Scripting.ScriptInfo[] scripts;
+       public ObservableCollection<VSStruct> VSs;
+       public ObservableCollection<ZDStruct> ZDs;
+        public ObservableCollection<USOCounter> Counters;
+        public ObservableCollection<DIStruct> DiagSignals;
+        public ObservableCollection<Scripting.ScriptInfo> scripts;
         PageType currentPage;
 
         public bool ShowMPNA = false;
@@ -57,16 +57,16 @@ namespace Simulator_MPSA.CL
             //AIStruct.items = AIStruct.items;
             AIs = AIStruct.items;
 
-            KLs = KLTableViewModel.GetArray();
-            MPNAs = MPNATableViewModel.GetArray();
+            KLs = KLTableViewModel.KL;
+            MPNAs = MPNATableViewModel.MPNAs;
             //settings = Sett.
-            VSs = VSTableViewModel.GetArray();
-            ZDs = ZDTableViewModel.GetArray();
+            VSs = VSTableViewModel.VS;
+            ZDs = ZDTableViewModel.ZDs;
             settings = Sett.Instance;
-            Counters = CountersTableViewModel.Counters.ToArray();
-            DiagSignals = DiagTableModel.Instance.DiagRegs.ToArray();
+            Counters = CountersTableViewModel.Counters;
+            DiagSignals = DiagTableModel.Instance.DiagRegs;
 
-            scripts = Scripting.ScriptInfo.Items.ToArray();
+            scripts = Scripting.ScriptInfo.Items;
 
 
 
@@ -122,35 +122,35 @@ namespace Simulator_MPSA.CL
                 //    if (ai.PLCAddr == 0)
                 //        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
 
-                KLTableViewModel.Init(_instance.KLs);
+                KLTableViewModel.Init(_instance.KLs.ToArray());
                 foreach (KLStruct kl in KLTableViewModel.KL)
                     kl.UpdateRefs();
 
 
-                ZDTableViewModel.Init(_instance.ZDs);
+                ZDTableViewModel.Init(_instance.ZDs.ToArray());
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                     zd.UpdateRefs();
 
-                VSTableViewModel.Init(_instance.VSs);
+                VSTableViewModel.Init(_instance.VSs.ToArray());
                 foreach (VSStruct vs in VSTableViewModel.VS)
                     vs.UpdateRefs();
 
 
-                MPNATableViewModel.Init(_instance.MPNAs);
+                MPNATableViewModel.Init(_instance.MPNAs.ToArray());
                 foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
                     mpna.UpdateRefs();
 
-                CountersTableViewModel.Init(_instance.Counters);
+                CountersTableViewModel.Counters = (_instance.Counters);
                 foreach (USOCounter counter in CountersTableViewModel.Counters)
                     counter.Refresh();
 
 
-                DiagTableModel.Instance.Init(_instance.DiagSignals);
+                DiagTableModel.Instance.Init(_instance.DiagSignals.ToArray());
                 foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     di.PLCAddr = di.PLCAddr;
 
                 Scripting.ScriptInfo.Init();
-                if (_instance.scripts != null && _instance.scripts.Length>0)
+                if (_instance.scripts != null && _instance.scripts.Count>0)
                 foreach (Scripting.ScriptInfo scr in _instance.scripts)
                     Scripting.ScriptInfo.Items.Add(scr);
 
@@ -779,6 +779,10 @@ namespace Simulator_MPSA.CL
             System.Windows.Forms.MessageBox.Show("Экспорт завершен успешно");
         }
 
+        /// <summary>
+        /// Чтение из CSV таблицы DI
+        /// </summary>
+        /// <param name="reader"></param>
         static void ReadTableDI(StreamReader reader)
         {
             string line;
