@@ -79,11 +79,8 @@
 
         </ToolBar>
 
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">
-            <TabItem Header="Настройки подключения" x:Name="tabSettings">
-                <DataGrid x:Name="dataGridSettings" ItemsSource="{Binding Items}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="True"/>
-            </TabItem>
-            <TabItem Header="Аналоговые параметры">
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">            
+            <TabItem x:Name="AITab" Header="Аналоговые параметры">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -106,14 +103,14 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Фильтр по имени" Grid.Row="1"/>
-                            <TextBox x:Name="textBoxAIFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxAIFilter_KeyDown"/>
+                            <TextBox x:Name="textBoxAIFilter" Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding NameFilter}"/>
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
-                            <TextBox x:Name="textBoxAITagFilter" Grid.Row="1" Grid.Column="3" Width="100" KeyDown="textBoxAIFilter_KeyDown"/>
-                            <CheckBox x:Name="hideEmptyAI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="hideEmptyAI_Checked" Unchecked="hideEmptyAI_Unchecked"/>
+                            <TextBox x:Name="textBoxAITagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
+                            <CheckBox x:Name="hideEmptyAI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridAI" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false">
+                    <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="False" CanUserDeleteRows="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En}"/>
                             <DataGridTextColumn x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" />
@@ -133,7 +130,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Дискретные сигналы">
+            <TabItem x:Name="DITab" Header="Дискретные сигналы">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -155,14 +152,14 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Фильтр по имени" Grid.Row="1"/>
-                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxDIFilter_KeyDown"/>
+                            <TextBox x:Name="textBoxDIFilter" Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding NameFilter}"/>
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
-                            <TextBox x:Name="textBoxDITagFilter" Grid.Row="1" Grid.Column="3" Width="100" KeyDown="textBoxDIFilter_KeyDown"/>
-                            <CheckBox x:Name="hideEmptyDI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="hideEmptyDI_Checked" Unchecked="hideEmptyDI_Unchecked"/>
+                            <TextBox x:Name="textBoxDITagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
+                            <CheckBox x:Name="hideEmptyDI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}" />
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="False" CanUserDeleteRows="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}" />
@@ -178,7 +175,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Дискретные команды">
+            <TabItem x:Name="DOTab" Header="Дискретные команды">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -200,15 +197,15 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Label Content="Фильтр по имени" Grid.Row="1"/>
-                            <TextBox x:Name="textBoxDOFilter" Grid.Row="1" Grid.Column="1" Width="200" KeyDown="textBoxDOFilter_KeyDown"/>
+                            <TextBox x:Name="textBoxDOFilter" Grid.Row="1" Grid.Column="1" Width="200"  Text="{Binding NameFilter}" />
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
-                            <TextBox x:Name="textBoxDOTagFilter" Grid.Row="1" Grid.Column="3" Width="100" KeyDown="textBoxDOFilter_KeyDown"/>
-                            <CheckBox x:Name="hideEmptyDO" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Checked="hideEmptyDO_Checked" Unchecked="hideEmptyDO_Unchecked"/>
+                            <TextBox x:Name="textBoxDOTagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
+                            <CheckBox x:Name="hideEmptyDO" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
 
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue"  ItemsSource="{Binding  ViewSource.View}" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="False" CanUserDeleteRows="False">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class DOStruct : BaseViewModel
     {
-        public static DOStruct[] items = new DOStruct[0];
+        public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
         private bool _En;
         public bool En
         {
@@ -141,7 +142,7 @@ namespace Simulator_MPSA.CL
         }
         public static DOStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
                 if (items[i].indxArrDO == index)
                 {
                     return items[i];
@@ -152,7 +153,7 @@ namespace Simulator_MPSA.CL
 
         public static string GetNameByIndex(int index)
         {
-            if (index > 0 && index < items.Length)
+            if (index > 0 && index < items.Count)
                 return items[index].NameDO;
             else return "сигнал не определен";
         }

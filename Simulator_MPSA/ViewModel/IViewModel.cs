@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.ViewModel
 {
     /// <summary>
     /// Универсальный интерфейс реализуемый ViewModel сотрудника и компании
@@ -13,7 +13,7 @@ namespace Simulator_MPSA.CL
     /// 2. Получение экземпляра Model через ViewModel
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    interface IViewModel<T>
+    public interface IViewModel<T>
     {
         T GetModel();
         void SetModel(T model);

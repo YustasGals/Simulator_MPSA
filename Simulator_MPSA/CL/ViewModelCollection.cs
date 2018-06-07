@@ -16,7 +16,7 @@ namespace Simulator_MPSA.CL
    /// </summary>
    /// <typeparam name="TViewModel">Тип ViewModel элемента коллекции </typeparam>
    /// <typeparam name="TModel">Тип Model элемента коллекции </typeparam>
-    class ViewModelCollection<TViewModel, TModel>
+    public class ViewModelCollection<TViewModel, TModel>
         where TViewModel:class, IViewModel<TModel>, new()
         where TModel:class, new()
     {
@@ -45,7 +45,7 @@ namespace Simulator_MPSA.CL
                 FetchFromModel();
             }
             viewSource.Source = VMCollection;
-            viewSource.Filter += new FilterEventHandler(Name_Filter);
+           // viewSource.Filter += new FilterEventHandler(Name_Filter);
         }
 
         public ObservableCollection<TModel> modelCollection;
@@ -126,8 +126,25 @@ namespace Simulator_MPSA.CL
         public CollectionViewSource ViewSource
         { get { return viewSource; } }
 
-        public string tagFilter = "";
-        public bool hideEmpty = false;
+        private string tagFilter = "";
+        public string TagFilter
+        {
+            get { return tagFilter; }
+            set { tagFilter = value; ApplyFilter(); }
+        }
+        private bool _hideEmpty = false;
+
+        public bool HideEmpty
+        {
+            get {
+                return _hideEmpty;
+            }
+            set {
+                _hideEmpty = value;
+                ApplyFilter();
+            }
+        }
+      
         private string _nameFilter = "";
         public string NameFilter
         {
@@ -135,11 +152,12 @@ namespace Simulator_MPSA.CL
             set
             {
                 _nameFilter = value;
-                viewSource.LiveFilteringProperties.Clear();
-                viewSource.LiveFilteringProperties.Add(_nameFilter);
+                ApplyFilter();
+                /*viewSource.LiveFilteringProperties.Clear();
+                viewSource.LiveFilteringProperties.Add(_nameFilter);*/
             }
         }
-        private void Name_Filter(object sender, FilterEventArgs e)
+        /*private void Name_Filter(object sender, FilterEventArgs e)
         {
             IViewModel<TViewModel> item = e.Item as IViewModel<TViewModel>;
 
@@ -156,10 +174,10 @@ namespace Simulator_MPSA.CL
                 else
                     e.Accepted = false;
 
-        }
+        }*/
         public void ApplyFilter()
         {
-
+ 
             viewSource.Filter += new FilterEventHandler(Filter_Func);
         }
         private void Filter_Func(object sender, FilterEventArgs e)
@@ -169,7 +187,7 @@ namespace Simulator_MPSA.CL
             if (item != null)
             {
                 if (item.GetName() == "")
-                    e.Accepted = !hideEmpty;
+                    e.Accepted = !_hideEmpty;
                 else
                 {
                     if ((item.GetName().ToLower().Contains(_nameFilter.ToLower())) && (item.GetTag().ToLower().Contains(tagFilter.ToLower())))

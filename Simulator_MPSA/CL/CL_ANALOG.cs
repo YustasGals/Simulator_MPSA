@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class AIStruct : BaseViewModel
     {
-        public static AIStruct[] items = new AIStruct[0];
+        public static ObservableCollection<AIStruct> items = new ObservableCollection<AIStruct>();
         private bool _En;
         public bool En
         {
@@ -219,7 +220,7 @@ namespace Simulator_MPSA.CL
         }
         public static AIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Length; i++)
+            for (int i = 0; i < items.Count; i++)
                 if (items[i].indxAI == index)
                 {
                     return items[i];
@@ -228,7 +229,7 @@ namespace Simulator_MPSA.CL
         }
         public static string GetNameByIndex(int index)
         {
-            if (index > 0 && index < items.Length)
+            if (index > 0 && index < items.Count)
                 return items[index].NameAI;
             else return "сигнал не определен";
         }

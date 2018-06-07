@@ -49,7 +49,7 @@ namespace Simulator_MPSA.Scripting
             //AIStruct ai = AIStruct.FindByIndex(index);
             //if (ai != null)
             //    ai.fValAI = value;
-            if (index < AIStruct.items.Length)
+            if (index < AIStruct.items.Count)
                 AIStruct.items[index].fValAI = value;
         }
         public float GetAI(int index)
@@ -58,7 +58,7 @@ namespace Simulator_MPSA.Scripting
             //  if (ai != null)
             //      return ai.fValAI;
             //  else return 0;
-            if (index < AIStruct.items.Length)
+            if (index < AIStruct.items.Count)
                 return AIStruct.items[index].fValAI;
             else return 0;
         }
@@ -67,7 +67,7 @@ namespace Simulator_MPSA.Scripting
             //AIStruct ai = AIStruct.FindByIndex(index);
             //if (ai != null)
             //    ai.fValAI += delta;
-            if (index < AIStruct.items.Length)
+            if (index < AIStruct.items.Count)
                 AIStruct.items[index].fValAI += delta;
         }
 
@@ -85,7 +85,7 @@ namespace Simulator_MPSA.Scripting
             // if (d != null)
             //     return d.ValDO;
             // else return false;
-            if (index < DOStruct.items.Length)
+            if (index < DOStruct.items.Count)
                 return DOStruct.items[index].ValDO;
             else return false;
         }

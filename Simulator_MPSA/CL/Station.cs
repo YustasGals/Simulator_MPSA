@@ -22,8 +22,8 @@ namespace Simulator_MPSA.CL
     public class Station
     {
        public ObservableCollection<DIStruct> DIs;
-       public DOStruct[] DOs;
-       public AIStruct[] AIs;
+       public ObservableCollection<DOStruct> DOs;
+       public ObservableCollection<AIStruct> AIs;
 
        public KLStruct[] KLs;
        public MPNAStruct[] MPNAs;
@@ -54,7 +54,7 @@ namespace Simulator_MPSA.CL
             DIs = DIStruct.items;
             DOs = DOStruct.items;
 
-            AIStruct.items = AITableViewModel.Instance.AIs.ToArray();
+            //AIStruct.items = AIStruct.items;
             AIs = AIStruct.items;
 
             KLs = KLTableViewModel.GetArray();
@@ -98,14 +98,23 @@ namespace Simulator_MPSA.CL
                 foreach (DIStruct di in DIStruct.items)
                     di.PLCAddr = di.PLCAddr;
 
-                DOStruct.items = _instance.DOs;
+                DOStruct.items.Clear();
+                foreach (DOStruct d in _instance.DOs)
+                    DOStruct.items.Add(d);
+
                 foreach (DOStruct d in DOStruct.items)
                     d.PLCAddr = d.PLCAddr;
-                
-                AIStruct.items = _instance.AIs;
+
+                AIStruct.items.Clear();
+                foreach (AIStruct ai in _instance.AIs)
+                {
+                    AIStruct.items.Add(ai);                   
+                }
+
                 foreach (AIStruct ai in AIStruct.items)
+                {
                     ai.PLCAddr = ai.PLCAddr;
-                
+                }
 
 
                 //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
@@ -220,7 +229,7 @@ namespace Simulator_MPSA.CL
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                AIStruct.items = (AIStruct[])xml.Deserialize(reader);
+                AIStruct.items = (ObservableCollection<AIStruct>)xml.Deserialize(reader);
                 reader.Dispose();
 
                 System.Windows.Forms.MessageBox.Show("AIsettings.xml loaded.");
@@ -287,7 +296,7 @@ namespace Simulator_MPSA.CL
             try
             {
                 reader = new System.IO.StreamReader(Sxml);
-                DOStruct.items = (DOStruct[])xml.Deserialize(reader);
+                DOStruct.items = (ObservableCollection<DOStruct>)xml.Deserialize(reader);
                 reader.Dispose();
                 System.Windows.Forms.MessageBox.Show("DOsettings.xml loaded.");
             }

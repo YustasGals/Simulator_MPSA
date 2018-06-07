@@ -104,7 +104,7 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class MainWindow : Window
     {
- 
+
 
         public delegate void DEndWrite();
         public DEndWrite EndCycle;
@@ -120,45 +120,39 @@ namespace Simulator_MPSA
         public delegate void DEndRead();
         public DEndRead delegateEndRead;
 
+        ViewModelCollection<DIViewModel, DIStruct> divm;
+        ViewModelCollection<DOViewModel, DOStruct> dovm;
+        ViewModelCollection<AIViewModel, AIStruct> aivm;
         public MainWindow()
         {
-          
+
             InitializeComponent();
 
 
 
-            //Debug.WriteLine("------------------------------------------------------------------");
-            //string sAttr, sAllAtr;
-            //sAttr = ConfigurationManager.AppSettings.Get("Key0");
-            //Debug.WriteLine("Key0 = " + sAttr);
-            //ConfigurationManager.AppSettings.Set("Key0", "777");
-            //sAllAtr = ConfigurationManager.AppSettings.ToString();
-            //Debug.Write("AllAtr = " + sAllAtr + " \n");
-            //sAttr = ConfigurationManager.AppSettings.Get("Key0");
-            //Debug.WriteLine("Key0 = " + sAttr);
-            //Debug.WriteLine("------------------------------------------------------------------");
-            //NameValueCollection sAll; sAll = ConfigurationManager.AppSettings;
-            //foreach (string s in sAll.AllKeys) Debug.WriteLine("Key: " + s + " Value: " + sAll.Get(s));
-            //Debug.WriteLine("------------------------------------------------------------------");
-
             //начальная инициализация структур и моделей
-            dataGridDO.DataContext = new DOTableViewModel();
+            // dataGridDO.DataContext = new DOTableViewModel();
             //  for (int i = 0; i < DOs.Length; i++)
             //    DOs[i] = new DOStruct();
 
-            // dataGridDI.DataContext = new DITableViewModel();
-            //dataGridDI.ItemsSource=  DITableViewModel.Instance.viewSource.View;
-            //dataGridDI.DataContext = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
-            ViewModelCollection<DIViewModel, DIStruct> divm= new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
-            dataGridDI.DataContext = divm;
+            divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+            // dataGridDI.DataContext = divm;
+            DITab.DataContext = divm;
+            hideEmptyDI.DataContext = divm;
             //dataGridDI.ItemsSource = divm.ViewSource.View;
-            
-            // for (int i = 0; i < DIs.Length; i++)
-            //     DIs[i] = new DIStruct();
-            dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
+
+
+            aivm = new ViewModelCollection<AIViewModel, AIStruct>(AIStruct.items);
+            hideEmptyAI.DataContext = aivm;
+            AITab.DataContext = aivm;
+
+
+            dovm = new ViewModelCollection<DOViewModel, DOStruct>(DOStruct.items);
+            hideEmptyDO.DataContext = dovm;
+            DOTab.DataContext = dovm;
             //for (int i = 0; i < AIs.Length; i++)
             //      AIs[i] = new AIStruct();
-            dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
+            //   dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
             dataGridZD.DataContext = ZDTableViewModel.Instance;
             dataGridVS.DataContext = VSTableViewModel.Instance;
             dataGridKL.DataContext = KLTableViewModel.Instance;
@@ -183,14 +177,14 @@ namespace Simulator_MPSA
 
             string subkey = @"software\NA\Simulator";
             //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
-         
+
             RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
-            
+
 
             int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
 
             configKey.SetValue("ConfigMode", ConfMode);
-            SetConfigMode(ConfMode !=0);
+            SetConfigMode(ConfMode != 0);
         }
 
 
@@ -212,7 +206,7 @@ namespace Simulator_MPSA
         {
             prevCycleTime = DateTime.Now;
             dt_sec = 0f;
-            while (mainCycleEnabled)   
+            while (mainCycleEnabled)
             {
                 //-------- обновление структур --------------------------
                 foreach (ZDStruct zd in ZDTableViewModel.ZDs)
@@ -229,7 +223,7 @@ namespace Simulator_MPSA
 
 
 
-                if (ScriptInfo.Items != null)                    
+                if (ScriptInfo.Items != null)
                     foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
                         script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
@@ -264,19 +258,19 @@ namespace Simulator_MPSA
                                 if (ai.Buffer == BufType.USO)
                                 {
                                     WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w1;
-                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW+1] = w2;
+                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW + 1] = w2;
                                 }
 
                                 if (ai.Buffer == BufType.A3)
                                 {
                                     WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w1;
-                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3+1] = w2;
+                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 + 1] = w2;
                                 }
 
                                 if (ai.Buffer == BufType.A4)
                                 {
                                     WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w1;
-                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4+1] = w2;
+                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 + 1] = w2;
                                 }
                             }
                         }//ai.en
@@ -341,20 +335,20 @@ namespace Simulator_MPSA
                     }
 
                 }//lock
-                    
+
                 //-------------  проверка связи  -----------------------
                 if ((DateTime.Now - readingTime).TotalSeconds > 5f)
-                    {
-                        // wrThread.Stop();
-                        // btnPause_Click(null, new RoutedEventArgs());
-                        this.Dispatcher.Invoke(delegateDisconnected);
-                       btnStop_Click(null, new RoutedEventArgs());
-                    }
+                {
+                    // wrThread.Stop();
+                    // btnPause_Click(null, new RoutedEventArgs());
+                    this.Dispatcher.Invoke(delegateDisconnected);
+                    btnStop_Click(null, new RoutedEventArgs());
+                }
 
                 //---------- вычисление время с момента предыдущей итерации ----------------
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
                 prevCycleTime = DateTime.Now;
-                Debug.WriteLine("Main time: "+dt_sec.ToString("F2"));
+                Debug.WriteLine("Main time: " + dt_sec.ToString("F2"));
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
             }
         }
@@ -385,6 +379,11 @@ namespace Simulator_MPSA
         }
 
         bool isConfigLoaded = false;
+        /// <summary>
+        /// Загрузка конфигурации станции из единого xml
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Menu_OpenAll(object sender, RoutedEventArgs e)
         {
             Station station = new Station();
@@ -393,43 +392,21 @@ namespace Simulator_MPSA
             dialog.Filter = "XML Files (*.xml)|*.xml";
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
+
+            DITab.DataContext = null;
+            AITab.DataContext = null;
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
                     isConfigLoaded = true;
-                    /* AIStruct.items = station.AIs;
-                     DIStruct.items = station.DIs;
-                     DOStruct.items = station.DOs;
-
-                     VSStruct.VSs = station.VSs;
-                     KLStruct.KLs = station.KLs;
-                     MPNAStruct.MPNAs = station.MPNAs;*/
-                   // Sett.Instance = station.settings;
-
-                    /* RB.R = new ushort[(Sett.Instance.NRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-                     WB.W = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126]; // =3402 From IOScaner CPU
-                     WB.WB_old  = new ushort[(Sett.Instance.NRackEnd - Sett.Instance.NRackBeg + 1) * 126];*/
+                    DITab.DataContext = divm;
+                    AITab.DataContext = aivm;
 
                     WB.InitBuffers(Sett.Instance);
-                    AITableViewModel.Instance.Init(AIStruct.items);
 
-                    if (AITableViewModel.Instance.AIs == null)
-                        AITableViewModel.Instance.AIs.CollectionChanged +=new NotifyCollectionChangedEventHandler(OnAITableChanged);
-
-                    dataGridAI.ItemsSource = AITableViewModel.Instance.viewSource.View;
-
-                    // DITableViewModel.Instance.Init(DIStruct.items);
-                    dataGridDI.DataContext = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
-
-                    //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
 
                     dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
-                    // dataGridDI.DataContext = new DITableViewModel(DIStruct.items);
 
-                    DOTableViewModel.Instance.Init(DOStruct.items);
-                    dataGridDO.ItemsSource = DOTableViewModel.Instance.viewSource.View;  
-                    
-                    dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
 
                     dataGridVS.DataContext = VSTableViewModel.Instance;
                     dataGridKL.DataContext = KLTableViewModel.Instance;
@@ -446,17 +423,6 @@ namespace Simulator_MPSA
                     else
                         tabMPNA.Visibility = Visibility.Visible;
                 }
-             
-             //старый способ загрузки
-           /* LoadSettings();
-            LoadSettDI();
-            LoadSettDO();
-            LoadSettAI();
-
-            LoadSettKL();
-            LoadSettVS();
-            LoadSettZD();
-            LoadSettMPNA();*/
         }
         /// <summary>
         /// сохранение в один xml
@@ -473,34 +439,15 @@ namespace Simulator_MPSA
             };
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Station s = new Station();                
+                Station s = new Station();
                 s.settings = Sett.Instance;
-                
+
                 s.Save(dialog.FileName);
             }
 
 
         }
-        /// <summary>
-        /// сохранение в раздельные xml
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Menu_SaveAll(object sender, RoutedEventArgs e)
-        {
-            if (System.Windows.MessageBox.Show("Внимание! Все таблицы будут сохранены в файлы по умолчанию.", "Предупреждение", MessageBoxButton.OKCancel, MessageBoxImage.Warning) == MessageBoxResult.OK)
-            {
-               Station.SaveSettings();
-                Station.SaveSettAI();
-                Station.SaveSettDI();
-                Station.SaveSettDO();
-                Station.SaveSettZD();
-                Station.SaveSettKL();
-                Station.SaveSettVS();
-                Station.SaveSettMPNA();
-            }
-        }
-
+      
         /// <summary>
         /// Токен отмены
         /// </summary>
@@ -514,41 +461,41 @@ namespace Simulator_MPSA
         {
             if (!isConfigLoaded)
             {
-                System.Windows.MessageBox.Show("Конфигурация не загружена!","Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+                System.Windows.MessageBox.Show("Конфигурация не загружена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            
+
             cancelTokenSrc = new CancellationTokenSource();
             cancellationToken = cancelTokenSrc.Token;
             try
             {
-               
+
 
                 rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                 rdThread.refMainWindow = this;
-                
+
                 wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                 wrThread.refMainWindow = this;
                 wrThread.Start();
 
                 readingTime = DateTime.Now;
-                for (int i= 0; i<6; i++)
-                writingTime[i] = DateTime.Now;
-                
+                for (int i = 0; i < 6; i++)
+                    writingTime[i] = DateTime.Now;
+
                 watchThread = new Thread(new ThreadStart(Watchdog));
                 watchThread.Start();
-                
+
                 statusText.Content = "Запущен";
                 statusText.Background = System.Windows.Media.Brushes.Green;
                 btnStart.IsEnabled = false;
-                
+
                 btnStop.IsEnabled = true;
                 btnPause.IsEnabled = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                System.Windows.MessageBox.Show("Ошибка: " +Environment.NewLine + ex.Message, "Ошибка");
+                System.Windows.MessageBox.Show("Ошибка: " + Environment.NewLine + ex.Message, "Ошибка");
             }
         }
 
@@ -556,10 +503,10 @@ namespace Simulator_MPSA
         private void On_WritingCycleEnd()
         {
             TimeSpan ts = DateTime.Now - writingTime[0];
-            StatusW1.Content =ts.TotalSeconds.ToString("F2")+" | ";
+            StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[0] = DateTime.Now;
         }
-    
+
         private void On_WritingCycle2End()
         {
             TimeSpan ts = DateTime.Now - writingTime[1];
@@ -567,7 +514,7 @@ namespace Simulator_MPSA
             StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[1] = DateTime.Now;
         }
-      
+
         private void On_WritingCycle3End()
         {
             TimeSpan ts = DateTime.Now - writingTime[2];
@@ -575,7 +522,7 @@ namespace Simulator_MPSA
             StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[2] = DateTime.Now;
         }
-     
+
         private void On_WritingCycle4End()
         {
             TimeSpan ts = DateTime.Now - writingTime[3];
@@ -583,7 +530,7 @@ namespace Simulator_MPSA
             StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[3] = DateTime.Now;
         }
-      
+
         private void On_WritingCycle5End()
         {
             TimeSpan ts = DateTime.Now - writingTime[4];
@@ -603,7 +550,7 @@ namespace Simulator_MPSA
 
         private void On_Disconnected()
         {
-            btnStop_Click(null,null);
+            btnStop_Click(null, null);
             System.Windows.MessageBox.Show("Соединение разорвано!");
         }
 
@@ -655,31 +602,31 @@ namespace Simulator_MPSA
             rdThread.Stop();
             rdThread = null;
 
-            if (watchThread!=null)
-            watchThread.Abort();
+            if (watchThread != null)
+                watchThread.Abort();
 
-        
+
             try
             {
                 cancelTokenSrc.Cancel();
-               // wrThread = null;
+                // wrThread = null;
             }
             catch (Exception ex)
             {
-                System.Windows.MessageBox.Show(ex.Message,"Ошибка",MessageBoxButton.OK,MessageBoxImage.Error);
+                System.Windows.MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-           // foreach (AIStruct ai in AIStruct.items)
-           //     ai.fValAI = 0f;
+            // foreach (AIStruct ai in AIStruct.items)
+            //     ai.fValAI = 0f;
 
             //foreach (DIStruct di in DIStruct.items)
-           //     di.ValDI = false;
+            //     di.ValDI = false;
 
             foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                 zd.Reset();
 
             //foreach (MPNAStruct mna in MPNATableViewModel.MPNAs)
-                
+
             //TODO: добавить сброс остальных систем
         }
 
@@ -690,7 +637,7 @@ namespace Simulator_MPSA
 
         SetupDialog dialog;
 
-     
+
         private void dataGridMPNA_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if ((dialog != null) && (dialog.IsLoaded))
@@ -714,43 +661,9 @@ namespace Simulator_MPSA
             w.ShowDialog();
         }
 
-       
+    
 
-        private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                //DITableViewModel.Instance.NameFilter = textBoxDIFilter.Text;
-                // DITableViewModel.Instance.TagFilter = textBoxDITagFilter.Text;
-                //  DITableViewModel.Instance.ApplyFilter();
-                ViewModelCollection<DIViewModel, DIStruct> context = (dataGridDI.DataContext as ViewModelCollection<DIViewModel, DIStruct>);
-                context.NameFilter = textBoxDIFilter.Text;
-                context.tagFilter = textBoxDITagFilter.Text;
-                context.ApplyFilter();
-
-               // dataGridDI.ItemsSource = context.viewSource.View;
-            }
-        }
-
-        private void textBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                AITableViewModel.Instance.NameFilter = textBoxAIFilter.Text;
-                AITableViewModel.Instance.TagFilter = textBoxAITagFilter.Text;
-                AITableViewModel.Instance.ApplyFilter();
-            }
-        }
-
-        private void textBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                DOTableViewModel.Instance.NameFilter = textBoxDOFilter.Text;
-                DOTableViewModel.Instance.tagFilter = textBoxDOTagFilter.Text;
-                DOTableViewModel.Instance.ApplyFilter();
-            }
-        }
+     
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -870,26 +783,9 @@ namespace Simulator_MPSA
             }
         }
         #endregion
-        private void OnAITableChanged(object sender, NotifyCollectionChangedEventArgs args)
-        {
-            AIStruct.items = AITableViewModel.Instance.AIs.ToArray();
-        }
-
         private void OnCounterTableChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
             
-        }
-
-        private void hideEmptyAI_Checked(object sender, RoutedEventArgs e)
-        {
-            AITableViewModel.Instance.hideEmpty = true;
-            AITableViewModel.Instance.ApplyFilter();
-        }
-
-        private void hideEmptyAI_Unchecked(object sender, RoutedEventArgs e)
-        {
-            AITableViewModel.Instance.hideEmpty = false;
-            AITableViewModel.Instance.ApplyFilter();
         }
 
 
@@ -901,11 +797,8 @@ namespace Simulator_MPSA
                 DataGridAI_Buf.Visibility = Visibility.Visible;
                 DataGridAI_On.Visibility = Visibility.Visible;
                 DataGridAI_Type.Visibility = Visibility.Visible;
-                dataGridAI.IsManipulationEnabled = true;
-                dataGridAI.CanUserAddRows = true;
-                dataGridAI.CanUserDeleteRows = true;
 
-                tabSettings.Visibility = Visibility.Visible;
+              
                 tabDiagMod.Visibility = Visibility.Visible;
                 tabDiagUSO.Visibility = Visibility.Visible;
 
@@ -932,10 +825,6 @@ namespace Simulator_MPSA
                 dataGridKL.CanUserAddRows = true;
                 dataGridKL.CanUserDeleteRows = true;
 
-                dataGridDI.CanUserAddRows = true;
-                dataGridDI.CanUserDeleteRows = true;
-
-
                 dataGridDiag_Addr.Visibility = Visibility.Visible;
                 dataGridDiag_Bit.Visibility = Visibility.Visible;
             }
@@ -945,9 +834,7 @@ namespace Simulator_MPSA
                 DataGridAI_Buf.Visibility = Visibility.Hidden;
                 DataGridAI_On.Visibility = Visibility.Hidden;
                 DataGridAI_Type.Visibility = Visibility.Hidden;
-                dataGridAI.IsManipulationEnabled = false;
-                dataGridAI.CanUserAddRows = false;
-                dataGridAI.CanUserDeleteRows = false;
+
 
                 dataGridZD.CanUserAddRows = false;
                 dataGridZD.CanUserDeleteRows = false;
@@ -955,10 +842,9 @@ namespace Simulator_MPSA
                 dataGridKL.CanUserAddRows = false;
                 dataGridKL.CanUserDeleteRows = false;
 
-                dataGridDI.CanUserAddRows = false;
-                dataGridDI.CanUserDeleteRows = false;
+               
 
-                tabSettings.Visibility = Visibility.Collapsed;
+             //   tabSettings.Visibility = Visibility.Collapsed;
                 tabDiagMod.Visibility = Visibility.Collapsed;
                 tabDiagUSO.Visibility = Visibility.Collapsed;
 
@@ -984,31 +870,7 @@ namespace Simulator_MPSA
             }
         }
 
-
-        private void hideEmptyDI_Checked(object sender, RoutedEventArgs e)
-        {
-           // DITableViewModel.Instance.HideEmpty = true;
-          //  DITableViewModel.Instance.ApplyFilter();
-        }
-
-        private void hideEmptyDI_Unchecked(object sender, RoutedEventArgs e)
-        {
-          //  DITableViewModel.Instance.HideEmpty = false;
-          //  DITableViewModel.Instance.ApplyFilter();
-        }
-
-        private void hideEmptyDO_Checked(object sender, RoutedEventArgs e)
-        {
-            DOTableViewModel.Instance.hideEmpty = true;
-            DOTableViewModel.Instance.ApplyFilter();
-
-        }
-
-        private void hideEmptyDO_Unchecked(object sender, RoutedEventArgs e)
-        {
-            DOTableViewModel.Instance.hideEmpty = false;
-            DOTableViewModel.Instance.ApplyFilter();
-        }
+      
 
         private void textBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
@@ -1104,5 +966,7 @@ namespace Simulator_MPSA
             setupWindow.ShowDialog();
            // setupWindow.Close();
         }
+
+    
     }
 }

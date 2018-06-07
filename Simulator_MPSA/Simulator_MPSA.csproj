@@ -119,10 +119,11 @@
     <Compile Include="StationSetup.xaml.cs">
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\AIViewModel.cs" />
+    <Compile Include="ViewModel\DOViewModel.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="CL\MPNA_Logic.cs" />
     <Compile Include="CL\ReadThread.cs" />
-    <Compile Include="CL\TableViewModels\AITableViewModel.cs" />
     <Compile Include="CL\BaseViewModel.cs" />
     <Compile Include="CL\CL_ANALOG.cs" />
     <Compile Include="CL\CL_DI.cs" />
@@ -133,7 +134,6 @@
     <Compile Include="CL\CL_ZD.cs" />
     <Compile Include="CL\TableViewModels\CountersTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DiagTableModel.cs" />
-    <Compile Include="CL\TableViewModels\DOTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
