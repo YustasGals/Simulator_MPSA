@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
     class CL_DO
@@ -15,6 +16,12 @@ namespace Simulator_MPSA.CL
     public class DOStruct : BaseViewModel
     {
         public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
+
+ //       private void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+   //     {
+       
+  //      }
+
         private bool _En;
         public bool En
         {
@@ -28,6 +35,9 @@ namespace Simulator_MPSA.CL
         public bool Forced
         { set; get; }
 
+        /// <summary>
+        /// Запись и чтение через UI
+        /// </summary>
         public bool ForcedValue
         {
             set {
@@ -38,6 +48,10 @@ namespace Simulator_MPSA.CL
         }
         
         private bool _ValDO;
+
+        /// <summary>
+        /// Запись и чтение в логике
+        /// </summary>
         public bool ValDO
         {
             get { return _ValDO; }
@@ -55,7 +69,11 @@ namespace Simulator_MPSA.CL
         public int indxArrDO
         {
             get { return _indxArrDO; }
-            set { _indxArrDO = value; OnPropertyChanged("indxArrDO"); }
+            set {
+                _indxArrDO = value;
+     //           OnIndexChanged(this, new IndexChangedEventArgs(value));
+                OnPropertyChanged("indxArrDO");
+            }
         }
 
 
@@ -164,6 +182,7 @@ namespace Simulator_MPSA.CL
             else return "сигнал не определен";
         }
 
+   //     public EventHandler OnIndexChanged = delegate { };
 
     }
 

@@ -1070,5 +1070,25 @@ namespace Simulator_MPSA
             }
 
         }
+
+        /// <summary>
+        /// Поверх всех окон вкл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Checked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
+
+        /// <summary>
+        /// поверх всех окон выкл
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_Unchecked(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
     }
 }

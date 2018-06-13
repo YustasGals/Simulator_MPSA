@@ -8,6 +8,7 @@ using System.Xml;
 using System.IO;
 using System.Globalization;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Simulator_MPSA.CL
 {
@@ -488,8 +489,9 @@ namespace Simulator_MPSA.CL
             if (station == null || filename == null) return;
 
             System.IO.StreamWriter writer = new System.IO.StreamWriter(filename, false, Encoding.Unicode);
-            
-            CultureInfo culture = new CultureInfo("ru-RU");
+
+            //CultureInfo culture = new CultureInfo("ru-RU");
+            CultureInfo culture = new CultureInfo("en-US");
             //CultureInfo ruProvider = new CultureInfo("ru-RU");
             //  System.Windows.Forms.MessageBox.Show("export");
             writer.WriteLine(pageHeaderDI);
@@ -787,7 +789,8 @@ namespace Simulator_MPSA.CL
         static void ReadTableDI(StreamReader reader)
         {
             string line;
-            CultureInfo culture = new CultureInfo("ru-RU");
+            // CultureInfo culture = new CultureInfo("ru-RU");
+            CultureInfo culture = new CultureInfo("en-US");
             //считываем страницу DI
             try
             {
@@ -810,20 +813,27 @@ namespace Simulator_MPSA.CL
                         di.OPCtag = values[2];
                         di.PLCAddr = int.Parse(values[3]);
                         di.indxBitDI = int.Parse(values[4]);
-                        
+
                         di.Forced = bool.Parse(values[5]);
                         di.ForcedValue = bool.Parse(values[6]);
                         di.ValDI = bool.Parse(values[7]);
                         di.InvertDI = bool.Parse(values[8]);
+
+                        if (values.Length>9)
                         di.TegDI = values[9];
 
-                        if (values.Length>10)
+                        if (values.Length > 10)
                             di.NameDI = values[10];
 
                         listDI.Add(di);
                     }
-                    else break;
+                    else
+                    {
+                        Debug.WriteLine("Обнаружен конец таблицы");
+                        break;
+                    }
                 }
+                Debug.WriteLine(listDI.Count.ToString() + " successfuly parsed");
                 DIStruct.items.Clear();
                 foreach (DIStruct di in listDI)
                     DIStruct.items.Add(di);
@@ -836,6 +846,131 @@ namespace Simulator_MPSA.CL
                 System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DI:\n\r" + ex.Message);
             }
         }
+        static void ReadTableDO(StreamReader reader)
+        {
+            string line;
+            //CultureInfo culture = new CultureInfo("ru-RU");
+            CultureInfo culture = new CultureInfo("en-US");
+            //считываем страницу DI
+            try
+            {
+                reader.ReadLine();//пропускаем строку с заголовками
+                List<DOStruct> items = new List<DOStruct>();
+                while (!reader.EndOfStream)
+                {
+                    line = reader.ReadLine();
+
+                    if (!line.Contains(pageSeparator))
+                    {
+                        string[] values = line.Split('\t');
+                        if (values.Count() < 11)
+                        {
+                            System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                        }
+                        DOStruct item = new DOStruct();
+                        item.En = bool.Parse(values[0]);
+                        item.indxArrDO = int.Parse(values[1]);
+                        item.OPCtag = values[2];
+                        item.PLCAddr = int.Parse(values[3]);
+                        item.indxBitDO = int.Parse(values[4]);
+
+                        item.Forced = bool.Parse(values[5]);
+                        item.ForcedValue = bool.Parse(values[6]);
+                        item.ValDO = bool.Parse(values[7]);
+                        item.InvertDO = bool.Parse(values[8]);
+
+                        if (values.Length>9)
+                            item.TegDO = values[9];
+
+                        if (values.Length > 10)
+                            item.NameDO = values[10];
+
+                        items.Add(item);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Обнаружен конец таблицы");
+                        break;
+                    }
+                }
+                Debug.WriteLine(items.Count.ToString() + " successfuly parsed");
+                DOStruct.items.Clear();
+                foreach (DOStruct item in items)
+                    DOStruct.items.Add(item);
+
+                //DITableViewModel.Instance.Init(DIStruct.items);
+                //    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DO:\n\r" + ex.Message);
+            }
+        }
+        static void ReadTableAI(StreamReader reader)
+        {
+            string line;
+            //CultureInfo culture = new CultureInfo("ru-RU");
+            CultureInfo culture = new CultureInfo("en-US");
+            //считываем страницу DI
+            try
+            {
+                reader.ReadLine();//пропускаем строку с заголовками
+                List<AIStruct> items = new List<AIStruct>();
+                while (!reader.EndOfStream)
+                {
+                    line = reader.ReadLine();
+
+                    if (!line.Contains(pageSeparator))
+                    {
+                        string[] values = line.Split('\t');
+                        if (values.Count() < 11)
+                        {
+                            continue;
+                          //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                        }
+                        AIStruct item = new AIStruct();
+                        item.En = bool.Parse(values[0]);
+                        item.indxAI = int.Parse(values[1]);
+                        item.OPCtag = values[2];
+                        item.PLCAddr = int.Parse(values[3]);
+                        item.PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType),values[4]);
+
+                        item.Forced = bool.Parse(values[5]);
+                        item.ForcedValue = float.Parse(values[6],culture);
+                        item.fValAI = float.Parse(values[7], culture);
+                        item.minACD = ushort.Parse(values[8], culture);
+                        item.maxACD = ushort.Parse(values[9], culture);
+                        item.minPhis = float.Parse(values[10], culture);
+                        item.maxPhis = float.Parse(values[11], culture);
+                       
+
+                        if (values.Length > 11)
+                            item.TegAI = values[12];
+
+                        if (values.Length > 12)
+                            item.NameAI = values[13];
+
+                        items.Add(item);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Обнаружен конец таблицы");
+                        break;
+                    }
+                }
+                Debug.WriteLine(items.Count.ToString() + " successfuly parsed");
+                AIStruct.items.Clear();
+                foreach (AIStruct item in items)
+                    AIStruct.items.Add(item);
+
+                //DITableViewModel.Instance.Init(DIStruct.items);
+                //    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы AI:\n\r" + ex.Message);
+            }
+        }
         public static void importCSV(string filename)
         {
             if (filename == null) return;
@@ -843,12 +978,28 @@ namespace Simulator_MPSA.CL
             System.IO.StreamReader reader = new System.IO.StreamReader(filename);
             
             string line = "";
-
+            Debug.WriteLine("Import started");
             while (!reader.EndOfStream)
             {
                 line = reader.ReadLine();
                 if (line.Contains(pageHeaderDI))
+                {
+                    Debug.WriteLine("обнаружена таблица DI");
                     ReadTableDI(reader);
+
+                }
+
+                if (line.Contains(pageHeaderDO))
+                {
+                    Debug.WriteLine("Обнаружена таблица DO");
+                    ReadTableDO(reader);
+                }
+
+                if (line.Contains(pageHeaderAI))
+                {
+                    Debug.WriteLine("Обнаружена таблица AI");
+                    ReadTableAI(reader);
+                }
             }
         }
     }

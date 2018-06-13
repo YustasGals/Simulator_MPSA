@@ -126,6 +126,7 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CL\Signal\AOStruct.cs" />
     <Compile Include="CL\ImportDialog.xaml.cs">
       <DependentUpon>ImportDialog.xaml</DependentUpon>
     </Compile>
@@ -135,6 +136,7 @@
     </Compile>
     <Compile Include="CL\IO\StationExporter.cs" />
     <Compile Include="CL\OPCThread.cs" />
+    <Compile Include="CL\Signal\IndexChangedEventArgs.cs" />
     <Compile Include="StationSetup.xaml.cs">
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>
@@ -143,10 +145,10 @@
     <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="CL\MPNA_Logic.cs" />
     <Compile Include="CL\ReadThread.cs" />
-    <Compile Include="CL\BaseViewModel.cs" />
-    <Compile Include="CL\CL_ANALOG.cs" />
-    <Compile Include="CL\CL_DI.cs" />
-    <Compile Include="CL\CL_DO.cs" />
+    <Compile Include="CL\Signal\BaseViewModel.cs" />
+    <Compile Include="CL\Signal\CL_ANALOG.cs" />
+    <Compile Include="CL\Signal\CL_DI.cs" />
+    <Compile Include="CL\Signal\CL_DO.cs" />
     <Compile Include="CL\CL_KL.cs" />
     <Compile Include="CL\CL_MPNA.cs" />
     <Compile Include="CL\CL_VS.cs" />
