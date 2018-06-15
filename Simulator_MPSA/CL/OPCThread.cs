@@ -8,7 +8,7 @@ using Opc;
 using OpcCom;
 using OpcXml;
 using Opc.Da;
-
+using System.Diagnostics;
 namespace Simulator_MPSA.CL
 {
 
@@ -27,7 +27,11 @@ namespace Simulator_MPSA.CL
         string fullServerName;
         int i;
         private DOStruct[] arrayDO;         //массив сигналов DO считываемых по OPC
+        private AOStruct[] arrayAO;         //массив сигналов AO считываемых по OPC
+
         private Item[] opcDOItemsForRead;   //массив opc элементов соответствующих DO
+        private Item[] opcAOItemsForRead;   //массив opc элементов соответствующих AO
+
         private ItemValueResult[] readResult; //массив результатов чтения opc элементов
         /// <summary>
         /// 
@@ -46,17 +50,30 @@ namespace Simulator_MPSA.CL
             //получение списка сигналов DO которые будут читаться по OPC
             foreach (DOStruct d in DOStruct.items)
             {
-                if (d.OPCtag != "")
+                if (d.OPCtag != "" && d.En)
+                {
                     listDO.Add(d);
+                    itm.Add(new Item(new ItemIdentifier(d.OPCtag)));
+                }
             }
-
-            arrayDO = listDO.ToArray();
-
-            foreach (DOStruct d in listDO)
-            {
-                itm.Add(new Item(new ItemIdentifier(d.OPCtag)));
-            }
+           
+            arrayDO = listDO.ToArray();            
             opcDOItemsForRead = itm.ToArray();
+
+            itm = new List<Item>();
+            //формирование списка сигналов AO для чтения по OPC 
+            List<AOStruct> listAO = new List<AOStruct>();
+            foreach (AOStruct item in AOStruct.items)
+                if (item.OPCtag != "" && item.En)
+                {
+                    listAO.Add(item);
+                    itm.Add(new Item(new ItemIdentifier(item.OPCtag)));
+                }
+            arrayAO = listAO.ToArray();
+            opcAOItemsForRead = itm.ToArray();
+
+            Debug.WriteLine("DO items: "+opcDOItemsForRead.Length.ToString());
+            Debug.WriteLine("AO items: " + opcAOItemsForRead.Length.ToString());
         }
 
 
@@ -79,7 +96,7 @@ namespace Simulator_MPSA.CL
                 //-------------- OPC ----------------
                 opcitems.Clear();
                 foreach (DIStruct di in DIStruct.items)
-                    if (di.OPCtag != "" && di.IsChanged)
+                    if (di.OPCtag != "" && di.IsChanged && di.En)
                     {
                         itm = new Opc.Da.ItemValue(di.OPCtag);
                         itm.Value = di.ValDI ^ di.InvertDI;
@@ -88,7 +105,7 @@ namespace Simulator_MPSA.CL
                     }
 
                 foreach (AIStruct ai in AIStruct.items)
-                    if (ai.OPCtag != "" && ai.IsChanged)
+                    if (ai.OPCtag != "" && ai.IsChanged && ai.En)
                     {
                         itm = new Opc.Da.ItemValue(ai.OPCtag);
                         if (ai.PLCDestType == EPLCDestType.Float)
@@ -101,23 +118,59 @@ namespace Simulator_MPSA.CL
                     }
                 try
                 {
+                    // Записываем сигналы DI AI
                     srv.Write(opcitems.ToArray());
-                     readResult = srv.Read(opcDOItemsForRead);
 
-                    for (int i = 0; i < readResult.Length; i++)
+                    //читаем сигналы DO для которых задан тег
+                    if (opcDOItemsForRead.Length > 0)
                     {
-                        try
+                        readResult = srv.Read(opcDOItemsForRead);
+
+                        for (int i = 0; i < readResult.Length; i++)
                         {
-                            arrayDO[i].ValDO = (bool)readResult[i].Value;
+                            try
+                            {
+                                arrayDO[i].ValDO = (bool)readResult[i].Value;
+                            }
+                            catch (Exception ex)
+                            {
+                            }
                         }
-                        catch (Exception ex)
+                    }
+
+                    //читаем сигналы AO для которых задан тег
+                    if (opcAOItemsForRead.Length > 0)
+                    {
+                        readResult = srv.Read(opcAOItemsForRead);
+                        for (int i = 0; i < readResult.Length; i++)
                         {
+                            try
+                            {
+                                if (arrayAO[i].PLCDestType == EPLCDestType.ADC)
+                                {
+                                    object val = readResult[i].Value;
+                                    if (val is short)
+                                         arrayAO[i].ValACD = (ushort)((Int16)readResult[i].Value);
+                                    if (val is ushort)
+                                         arrayAO[i].ValACD = (ushort)((UInt16)readResult[i].Value);
+                                }                                    
+                                else
+                                    arrayAO[i].fVal = (float)readResult[i].Value;
+                            }
+                            catch (Exception ex)
+                            {
+                            }
                         }
+                        Debug.WriteLine(opcAOItemsForRead.Length.ToString() + " AO tags read");
                     }
                 }
                 catch (ThreadAbortException abEx)
                 {
                     //     Debug.WriteLine("data wasn't write cause thread aborted");
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
                 }
 
                 Thread.Sleep(period);

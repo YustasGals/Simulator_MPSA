@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Simulator_MPSA.CL.Signal
 {
-    class IndexChangedEventArgs:EventArgs
+    public class IndexChangedEventArgs:EventArgs
     {
         public IndexChangedEventArgs(int index)
         {
             newIndex = index;
         }
-        int newIndex;
+        public int newIndex;
     }
 }

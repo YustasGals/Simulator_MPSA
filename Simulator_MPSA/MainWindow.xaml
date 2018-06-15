@@ -54,6 +54,7 @@
                 <MenuItem x:Name="Menu_StayOnTop" Header="Поверх всех окон" IsCheckable="true" Checked="MenuItem_Checked" Unchecked="MenuItem_Unchecked"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
+            <MenuItem x:Name="MenuItem_test" Header="Test" Click="MenuItem_test_Click"/>
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
@@ -79,7 +80,7 @@
         </ToolBar>
 
         <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">            
-            <TabItem x:Name="AITab" Header="Аналоговые параметры">
+            <TabItem x:Name="AITab" Header="Аналоговые сигналы">
                 <Grid >
                     <Grid.RowDefinitions>
                         <RowDefinition Height="auto"/>
@@ -109,10 +110,10 @@
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="False" CanUserDeleteRows="False">
+                    <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En}"/>
-                            <DataGridTextColumn x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                             <DataGridTextColumn x:Name="DataGridAI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" />
                             <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn x:Name="DataGridAI_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}"/>
@@ -126,6 +127,56 @@
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="AOTab" Header="Аналоговые команды">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Expander Grid.Row="0" Header="Фильтры/поиск" IsExpanded="True">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="110"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+
+
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Content="Фильтр по имени" Grid.Row="1"/>
+                            <TextBox Grid.Row="1" Grid.Column="1" Width="200" Text="{Binding NameFilter}"/>
+                            <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
+                            <TextBox  Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
+                            <CheckBox x:Name="AOHideEmpty"  Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
+                        </Grid>
+
+                    </Expander>
+                    <DataGrid x:Name="dataGridAO" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="True" CanUserDeleteRows="True">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn x:Name="DataGridAO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                            <DataGridTextColumn x:Name="DataGridAO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="DataGridAO_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}"/>
+                            <DataGridTextColumn Header="Тэг" Binding="{Binding TagName, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Физ. мин" Binding="{Binding minACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
+                            <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
+                            <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -159,10 +210,10 @@
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="False" CanUserDeleteRows="False">
+                    <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="true" CanUserDeleteRows="true">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True"/>
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue}" />
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
                             <DataGridTextColumn x:Name="dataGridDI_Buf" Header="буфер" Binding="{Binding Buffer, UpdateSourceTrigger=PropertyChanged}"  />
@@ -206,10 +257,10 @@
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue"  ItemsSource="{Binding  ViewSource.View}" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="False" CanUserDeleteRows="False">
+                    <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue"  ItemsSource="{Binding  ViewSource.View}" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="True" CanUserDeleteRows="True">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
                             <DataGridTextColumn x:Name="dataGridDO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />

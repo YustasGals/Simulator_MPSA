@@ -15,6 +15,7 @@ namespace Simulator_MPSA.ViewModel
         public DIViewModel()
         {
             di = new DIStruct();
+            di.PropertyChanged += _do_PropertyChanged;
         }
         private DIStruct di;
         public bool En

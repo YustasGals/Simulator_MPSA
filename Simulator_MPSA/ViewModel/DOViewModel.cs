@@ -14,6 +14,7 @@ namespace Simulator_MPSA.ViewModel
         public DOViewModel()
         {
             _do = new DOStruct();
+            _do.PropertyChanged += _do_PropertyChanged;
         }
 
         public bool Forced

@@ -5,12 +5,73 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL.Signal;
+using System.Diagnostics;
 
 namespace Simulator_MPSA.CL
 {
-    class AOStruct:BaseViewModel
+    public class AOStruct:BaseViewModel
     {
-        public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
+        
+        public static ObservableCollection<AOStruct> items = new ObservableCollection<AOStruct>();
+
+       private static bool _enableAutoIndex;
+        
+        public static bool EnableAutoIndex
+        {
+            get { return _enableAutoIndex; }
+            set
+            {
+                if (value && !_enableAutoIndex)
+                {
+                    items.CollectionChanged += Items_CollectionChanged;
+                    _enableAutoIndex = true;
+                }
+
+                if (!value && _enableAutoIndex)
+                {
+                    items.CollectionChanged -= Items_CollectionChanged;
+                    _enableAutoIndex = false;
+                }
+            }
+
+        }
+
+        private static void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    for (int i = 0; i < e.NewItems.Count; i++)
+                        (e.NewItems[0] as AOStruct).indx = items.Count-1;
+                    break;
+
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    //пересчитываем индексы всех сигналов кроме удаляемых
+                    /*   for (int i = 0; i < items.Count;)
+                       {
+                           if (!e.OldItems.Contains(items[i]))
+                           {
+                               items[i].indx = i;
+                               i++;
+                           }
+                       }*/
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        items[i].indx = i;
+                    }
+
+                        break;
+            }
+            Debug.WriteLine("AO count: " + items.Count.ToString());
+        }
+
+        
+        public AOStruct()
+        {
+            Forced = false;
+        }
+
         private bool _En;
         public bool En
         {
@@ -24,18 +85,165 @@ namespace Simulator_MPSA.CL
         public bool Forced
         { set; get; }
 
-        float valAO;
+        private string _OPCtag = "";
+        /// <summary>
+        /// тег для чтения по OPC
+        /// </summary>
+        public string OPCtag
+        {
+            set
+            {
+                _OPCtag = value; OnPropertyChanged("OPCtag");
+            }
+            get { return _OPCtag; }
+        }
+
+
+        private EPLCDestType _plcDestType=EPLCDestType.ADC;
+        /// <summary>
+        /// тип данных в ПЛК
+        /// </summary>
+        public EPLCDestType PLCDestType
+        {
+            get { return _plcDestType; }
+            set { _plcDestType = value; OnPropertyChanged("PLCDestType"); }
+        }
+
         /// <summary>
         /// Принудительная запись значения
         /// </summary>
-        public float ForcedValue
+        /*public float ForcedValue
         {
             set
             {
                 if (Forced)
-                    valAO = value;
+                    _fVal = value;
             }
-            get { return valAO; }
+            get { return _fVal; }
+        }*/
+
+        public event EventHandler<IndexChangedEventArgs> IndexChanged= delegate { };
+
+        private int _indx; // index in AI
+        /// <summary>
+        /// индекс сигнала должен быть уникальным
+        /// </summary>
+        public int indx
+        {
+            get { return _indx; }
+            set {
+                _indx = value;
+                OnPropertyChanged("indx");
+                IndexChanged(this, new IndexChangedEventArgs(value));
+            }
+        }
+
+
+        private int _plcAddr = 0;
+        /// <summary>
+        /// MODBUS адрес
+        /// </summary>
+        public int PLCAddr
+        {
+            get
+            {
+                return _plcAddr;
+            }
+            set
+            {
+                _plcAddr = value;
+            }
+        }
+
+
+        private string _name = "";
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set { _name = value; OnPropertyChanged("Name"); }
+        }
+
+        private ushort _valADC;
+        /// <summary>
+        /// значение вычитываемое из ПЛК
+        /// </summary>
+        public ushort ValACD
+        {
+            get
+            {
+                return _valADC;
+            }
+            set
+            {
+                _valADC = value;
+                OnPropertyChanged("ValACD");
+                if (!Forced)
+                {                    
+                    RefreshValue();
+                }
+            }
+        }
+        private ushort _minACD;
+        public ushort minACD
+        {
+            get { return _minACD; }
+            set { _minACD = value; OnPropertyChanged("minACD"); RefreshValue(); }
+        }
+        private ushort _maxACD;
+        public ushort maxACD
+        {
+            get { return _maxACD; }
+            set { _maxACD = value; OnPropertyChanged("maxACD"); RefreshValue(); }
+        }
+        private float _minPhis;
+        public float minPhis
+        {
+            get { return _minPhis; }
+            set { _minPhis = value; OnPropertyChanged("minPhis"); RefreshValue(); }
+        }
+        private float _maxPhis;
+        public float maxPhis
+        {
+            get { return _maxPhis; }
+            set { _maxPhis = value; OnPropertyChanged("maxPhis"); RefreshValue(); }
+        }
+        private float _fVal;
+        public float fVal
+        {
+            get { return _fVal; }
+            set
+            {
+                if (!Forced)
+                {
+                    _fVal = value;
+                    OnPropertyChanged("ForcedValue");
+                }
+            }
+        }
+
+        private void RefreshValue()
+        {
+            float df = 0f;
+            try
+            {
+                df = ((float)ValACD - (float)minACD) / ((float)maxACD - (float)minACD);
+            }
+            catch
+            {
+            }
+            //int res = (int)dadc + minACD;
+            //ValACD = (ushort)res;
+            fVal = (maxPhis - minPhis) * df + minPhis;
+        }
+
+        private string _TagName = "";
+        public string TagName
+        {
+            get { return _TagName; }
+            set { _TagName = value; OnPropertyChanged("TagName"); }
         }
     }
 }

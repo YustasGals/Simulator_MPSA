@@ -37,7 +37,7 @@ namespace Simulator_MPSA.CL
             VMCollection = new ObservableCollection<TViewModel>();
             VMCollection.CollectionChanged += ViewModelCollection_CollectionChanged;
 
-
+            
             modelCollection = models;
             if (modelCollection != null)
             {
@@ -45,6 +45,7 @@ namespace Simulator_MPSA.CL
                 FetchFromModel();
             }
             viewSource.Source = VMCollection;
+
            // viewSource.Filter += new FilterEventHandler(Name_Filter);
         }
 
@@ -55,7 +56,7 @@ namespace Simulator_MPSA.CL
         /// </summary>
         void FetchFromModel()
         {
-            VMCollection.CollectionChanged -= ViewModelCollection_CollectionChanged;
+        //    VMCollection.CollectionChanged -= ViewModelCollection_CollectionChanged;
 
             VMCollection.Clear();
             if (modelCollection != null)
@@ -65,7 +66,7 @@ namespace Simulator_MPSA.CL
                 vm.SetModel(c);
                 VMCollection.Add(vm);
             }
-            VMCollection.CollectionChanged += ViewModelCollection_CollectionChanged;
+       //     VMCollection.CollectionChanged += ViewModelCollection_CollectionChanged;
         }
         /// <summary>
         /// Обработка события при изменении коллекции модели представления
@@ -117,6 +118,11 @@ namespace Simulator_MPSA.CL
                     FetchFromModel();
 
                     break;
+
+                case NotifyCollectionChangedAction.Reset:
+                    VMCollection.Clear();
+                    break;
+
             }
 
             VMCollection.CollectionChanged += ViewModelCollection_CollectionChanged;

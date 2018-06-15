@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +19,50 @@ namespace Simulator_MPSA.CL
     {
         public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
 
- //       private void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-   //     {
-       
-  //      }
+        public static event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
+
+        private static bool _enableAutoIndex;
+
+        public static bool EnableAutoIndex
+        {
+            get { return _enableAutoIndex; }
+            set
+            {
+                if (value && !_enableAutoIndex)
+                {
+                    items.CollectionChanged += Items_CollectionChanged;
+                    _enableAutoIndex = true;
+                }
+
+                if (!value && _enableAutoIndex)
+                {
+                    items.CollectionChanged -= Items_CollectionChanged;
+                    _enableAutoIndex = false;
+                }
+            }
+
+        }
+
+        private static void Items_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    for (int i = 0; i < e.NewItems.Count; i++)
+                        (e.NewItems[0] as DOStruct).indxArrDO = items.Count - 1;
+                    break;
+
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        items[i].indxArrDO = i;
+                    }
+
+                    break;
+            }
+            Debug.WriteLine("DO count: " + items.Count.ToString());
+
+        }
 
         private bool _En;
         public bool En

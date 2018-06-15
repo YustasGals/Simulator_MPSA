@@ -52,12 +52,13 @@ namespace Simulator_MPSA.CL
             set { _analogs = value; }
         }
 
-        private ObservableCollection<ANInput> _aninputs;
-        public ObservableCollection<ANInput> ANInputs
+        private InputOutputItem[] _analogCommands;
+        public InputOutputItem[] AnalogCommands
         {
-            get { return _aninputs; }
-            set { _aninputs = value; }
+            get { return _analogCommands; }
+            set { _analogCommands = value; }
         }
+
         /// <summary>
         /// тип (KLStruct, VSStruct, задвижка, магистралка...)
         /// </summary>
@@ -98,12 +99,14 @@ namespace Simulator_MPSA.CL
                 _analogs = new ObservableCollection<AnalogIOItem>(vs.controledAIs);
             else _analogs = new ObservableCollection<AnalogIOItem>();
 
-            if (vs.isAVOA)
-            {
-                ANInputs = new ObservableCollection<ANInput>();
-                ANInputs.Add(new ANInput("Задание частоты вращения", vs.SetRPM_Addr));
-                ANInputs[0].ADCtoRPM = vs.ADCtoRPM;
-            }
+            /* if (vs.isAVOA)
+             {
+                 ANInputs = new ObservableCollection<ANInput>();
+                 ANInputs.Add(new ANInput("Задание частоты вращения", vs.SetRPM_Addr));
+                 ANInputs[0].ADCtoRPM = vs.ADCtoRPM;
+             }*/
+            AnalogCommands = new InputOutputItem[1];
+            AnalogCommands[0] = new InputOutputItem("Уставка", vs.AnCmdIndex, vs.AnCmdName);
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -212,11 +215,12 @@ namespace Simulator_MPSA.CL
                 else
                     temp.controledAIs = null;
 
-                if (ANInputs != null && ANInputs.Count > 0)
-                {
-                    temp.SetRPM_Addr = ANInputs[0].PLCAddr;
-                    temp.ADCtoRPM = ANInputs[0].ADCtoRPM;
-                }
+                /* if (ANInputs != null && ANInputs.Count > 0)
+                 {
+                     temp.SetRPM_Addr = ANInputs[0].PLCAddr;
+                     temp.ADCtoRPM = ANInputs[0].ADCtoRPM;
+                 }*/
+                temp.AnCmdIndex = AnalogCommands[0].Index;
             }
             if (type == typeof(KLStruct))
             {

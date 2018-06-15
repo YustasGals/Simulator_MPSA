@@ -151,6 +151,53 @@ namespace Simulator_MPSA
         /// </summary>
         public AnalogIOItem[] controledAIs;
 
+        private int _anCmdIndex;
+
+        /// <summary>
+        /// Индекс уставки в таблице AO
+        /// </summary>
+        public int AnCmdIndex
+        {
+            set
+            {
+                _anCmdIndex = value;
+                if (AOStruct.items.Count > value)
+                {
+                    analogCommand = AOStruct.items[value];
+                    analogCommand.IndexChanged += AnalogCommand_IndexChanged;
+                }
+            }
+            get { return _anCmdIndex; }
+        }
+
+        /// <summary>
+        /// Отслеживание изменения индекса в таблице AO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AnalogCommand_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+        {
+            _anCmdIndex = e.newIndex;
+        }
+
+
+        /// <summary>
+        /// аналоговый вход - уставка
+        /// </summary>
+        public AOStruct analogCommand;
+
+        [XmlIgnore]
+        public string AnCmdName
+        {
+            set { }
+            get
+            {
+                if (analogCommand != null)
+                    return analogCommand.Name;
+                else
+                    return "Сигнал не определен";
+            }
+        }
         /// <summary>
         /// индекс сигнала напряжения в таблице DI, AI
         /// </summary>

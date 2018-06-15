@@ -25,8 +25,8 @@ namespace Simulator_MPSA.CL
        public ObservableCollection<DIStruct> DIs;
        public ObservableCollection<DOStruct> DOs;
        public ObservableCollection<AIStruct> AIs;
-
-       public ObservableCollection<KLStruct> KLs;
+        public ObservableCollection<AOStruct> AOs;
+        public ObservableCollection<KLStruct> KLs;
        public ObservableCollection<MPNAStruct>  MPNAs;
        public Sett settings;
        public ObservableCollection<VSStruct> VSs;
@@ -58,6 +58,8 @@ namespace Simulator_MPSA.CL
             //AIStruct.items = AIStruct.items;
             AIs = AIStruct.items;
 
+            AOs = AOStruct.items;
+
             KLs = KLTableViewModel.KL;
             MPNAs = MPNATableViewModel.MPNAs;
             //settings = Sett.
@@ -86,16 +88,16 @@ namespace Simulator_MPSA.CL
             try
             {
                 stream = File.OpenRead(filename); 
-                //Station station = (Station)xml.Deserialize(stream);
+
                 _instance = (Station)xml.Deserialize(stream);
-                //  reader.Dispose();
+
                 stream.Dispose();
                 Sett.Instance = _instance.settings;
 
                 DIStruct.items.Clear();
                 foreach (DIStruct item in _instance.DIs)
                     DIStruct.items.Add(item);
-               // DIStruct.items = _instance.DIs;
+
                 foreach (DIStruct di in DIStruct.items)
                     di.PLCAddr = di.PLCAddr;
 
@@ -116,6 +118,15 @@ namespace Simulator_MPSA.CL
                 {
                     ai.PLCAddr = ai.PLCAddr;
                 }
+
+
+                AOStruct.items.Clear();
+                foreach (AOStruct item in _instance.AOs)
+                {
+                    AOStruct.items.Add(item);
+                }
+
+
 
 
                 //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
@@ -472,6 +483,7 @@ namespace Simulator_MPSA.CL
         static string pageHeaderDI = "----------- Дискретные входы (DI)-------------------------------------";
         static string pageHeaderDO = "----------- Дискретные выходы (DO) ----------------------------------";
         static string pageHeaderAI = "------------Аналоговые входы (AI) -----------------";
+        static string pageHeaderAO = "------------Аналоговые входы (AO) -----------------";
         static string pageHeaderZD = "----------- Настройки задвижек ----------------";
         static string pageHeaderVS = "----------- Настройки вспомсистем ---------------";
         static string pageHeaderKL = "----------- Настройки клапанов -----------";
@@ -588,9 +600,52 @@ namespace Simulator_MPSA.CL
                                         ai.NameAI.ToString(culture)
                                         );
                 }
-                writer.WriteLine(pageSeparator);
+               
             }
-                writer.WriteLine();
+            writer.WriteLine(pageSeparator);
+
+            writer.WriteLine(pageHeaderAO);
+            writer.WriteLine("Вкл" + separator +
+                                "Индекс" + separator +
+                                "OPC тэг" + separator +
+                                "Адрес ModBus" + separator +
+                                "Тип" + separator +
+                                "Принудительно" + separator +
+                                "Принуд. значение" + separator +
+                                "Значение физ." + separator +
+                                "АЦП мин." + separator +
+                                "АЦП макс." + separator +
+                                "Физ мин." + separator +
+                                "Физ макс." + separator +
+                                "Тэг" + separator +
+                                "Описание"
+                                );
+
+            if (station.AOs != null && station.AOs.Count() > 0)
+            {
+                foreach (AOStruct item in station.AOs)
+                {
+                    writer.WriteLine(item.En.ToString(culture) + separator +
+                                        item.indx.ToString(culture) + separator +
+                                        item.OPCtag.ToString(culture) + separator +
+                                        item.PLCAddr.ToString(culture) + separator +
+                                        item.PLCDestType.ToString() + separator +
+                                        item.Forced.ToString(culture) + separator +
+                                        //item.ForcedValue.ToString(culture) + separator +
+                                        item.fVal.ToString(culture) + separator +
+                                        item.minACD.ToString(culture) + separator +
+                                        item.maxACD.ToString(culture) + separator +
+                                        item.minPhis.ToString(culture) + separator +
+                                        item.maxPhis.ToString(culture) + separator +
+                                        item.TagName.ToString(culture) + separator +
+                                        item.Name.ToString(culture)
+                                        );
+                }
+                
+            }
+            writer.WriteLine(pageSeparator);
+
+            writer.WriteLine();
                 writer.WriteLine("Вкл" + separator +
                                     "КВО" + separator +
                                     "КВЗ" + separator +
@@ -786,8 +841,9 @@ namespace Simulator_MPSA.CL
         /// Чтение из CSV таблицы DI
         /// </summary>
         /// <param name="reader"></param>
-        static void ReadTableDI(StreamReader reader)
+        static void ReadTableDI(StreamReader reader, out int count)
         {
+            count = 0;
             string line;
             // CultureInfo culture = new CultureInfo("ru-RU");
             CultureInfo culture = new CultureInfo("en-US");
@@ -833,7 +889,9 @@ namespace Simulator_MPSA.CL
                         break;
                     }
                 }
-                Debug.WriteLine(listDI.Count.ToString() + " successfuly parsed");
+                
+                count = listDI.Count;
+                Debug.WriteLine(count.ToString() + " successfuly parsed");
                 DIStruct.items.Clear();
                 foreach (DIStruct di in listDI)
                     DIStruct.items.Add(di);
@@ -846,8 +904,15 @@ namespace Simulator_MPSA.CL
                 System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DI:\n\r" + ex.Message);
             }
         }
-        static void ReadTableDO(StreamReader reader)
+
+        /// <summary>
+        /// чтение таблицы сигналов DO
+        /// </summary>
+        /// <param name="reader">поток</param>
+        /// <param name="count">количество прочитанных элементов</param>
+        static void ReadTableDO(StreamReader reader, out int count)
         {
+            count = 0;
             string line;
             //CultureInfo culture = new CultureInfo("ru-RU");
             CultureInfo culture = new CultureInfo("en-US");
@@ -893,7 +958,9 @@ namespace Simulator_MPSA.CL
                         break;
                     }
                 }
-                Debug.WriteLine(items.Count.ToString() + " successfuly parsed");
+
+                count = items.Count;
+                Debug.WriteLine(count.ToString() + " successfuly parsed");
                 DOStruct.items.Clear();
                 foreach (DOStruct item in items)
                     DOStruct.items.Add(item);
@@ -906,8 +973,14 @@ namespace Simulator_MPSA.CL
                 System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DO:\n\r" + ex.Message);
             }
         }
-        static void ReadTableAI(StreamReader reader)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reader"></param>
+        static void ReadTableAI(StreamReader reader, out int count)
         {
+            count = 0;
             string line;
             //CultureInfo culture = new CultureInfo("ru-RU");
             CultureInfo culture = new CultureInfo("en-US");
@@ -958,7 +1031,8 @@ namespace Simulator_MPSA.CL
                         break;
                     }
                 }
-                Debug.WriteLine(items.Count.ToString() + " successfuly parsed");
+                count = items.Count;
+                Debug.WriteLine(count.ToString() + " successfuly parsed");
                 AIStruct.items.Clear();
                 foreach (AIStruct item in items)
                     AIStruct.items.Add(item);
@@ -971,6 +1045,76 @@ namespace Simulator_MPSA.CL
                 System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы AI:\n\r" + ex.Message);
             }
         }
+
+        static void ReadTableAO(StreamReader reader, out int count)
+        {
+            count = 0;
+            string line;
+            //CultureInfo culture = new CultureInfo("ru-RU");
+            CultureInfo culture = new CultureInfo("en-US");
+            //считываем страницу DI
+            AOStruct.items.Clear();
+            try
+            {
+                reader.ReadLine();//пропускаем строку с заголовками
+            //    List<AOStruct> items = new List<AOStruct>();
+                while (!reader.EndOfStream)
+                {
+                    line = reader.ReadLine();
+
+                    if (!line.Contains(pageSeparator))
+                    {
+                        string[] values = line.Split('\t');
+                        if (values.Count() < 11)
+                        {
+                            continue;
+                            //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                        }
+                        AOStruct item = new AOStruct();
+                        item.En = bool.Parse(values[0]);
+                        item.indx = int.Parse(values[1]);
+                        item.OPCtag = values[2];
+                        item.PLCAddr = int.Parse(values[3]);
+                        item.PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]);
+
+                        item.Forced = bool.Parse(values[5]);
+                        //item.ForcedValue = float.Parse(values[6], culture);
+                        item.fVal = float.Parse(values[6], culture);
+                        item.minACD = ushort.Parse(values[7], culture);
+                        item.maxACD = ushort.Parse(values[8], culture);
+                        item.minPhis = float.Parse(values[9], culture);
+                        item.maxPhis = float.Parse(values[10], culture);
+
+
+                        if (values.Length > 10)
+                            item.TagName = values[11];
+
+                        if (values.Length > 11)
+                            item.Name = values[12];
+
+                    //    items.Add(item);
+                        AOStruct.items.Add(item);
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Обнаружен конец таблицы");
+                        break;
+                    }
+                }
+                count = AOStruct.items.Count;
+                Debug.WriteLine(count.ToString() + " successfuly parsed");
+  
+                    
+
+                //DITableViewModel.Instance.Init(DIStruct.items);
+                //    dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы AO:\n\r" + ex.Message);
+            }
+        }
+
         public static void importCSV(string filename)
         {
             if (filename == null) return;
@@ -979,28 +1123,51 @@ namespace Simulator_MPSA.CL
             
             string line = "";
             Debug.WriteLine("Import started");
+
+            string logText = "";
+            int count=0;
+
             while (!reader.EndOfStream)
             {
                 line = reader.ReadLine();
                 if (line.Contains(pageHeaderDI))
                 {
                     Debug.WriteLine("обнаружена таблица DI");
-                    ReadTableDI(reader);
-
+                    ReadTableDI(reader, out count);
+                    logText += "сигналы DI: " + count.ToString() + Environment.NewLine;
                 }
+
+               
 
                 if (line.Contains(pageHeaderDO))
                 {
                     Debug.WriteLine("Обнаружена таблица DO");
-                    ReadTableDO(reader);
+                    ReadTableDO(reader, out count);
+                    logText += "сигналы DO: " + count.ToString() + Environment.NewLine;
                 }
+                
+                
 
                 if (line.Contains(pageHeaderAI))
                 {
                     Debug.WriteLine("Обнаружена таблица AI");
-                    ReadTableAI(reader);
+                    ReadTableAI(reader, out count);
+                    logText += "сигналы AI: " + count.ToString() + Environment.NewLine;
                 }
+
+                
+
+                if (line.Contains(pageHeaderAO))
+                {
+                    // Debug.WriteLine();
+                    ReadTableAO(reader, out count);
+                    logText += "сигналы AO: " + count.ToString() + Environment.NewLine;
+                }
+
+                
             }
+
+            System.Windows.Forms.MessageBox.Show("Импорт завершен:\n\r"+logText);
         }
     }
 }

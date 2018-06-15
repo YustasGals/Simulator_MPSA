@@ -130,6 +130,7 @@ namespace Simulator_MPSA
         ViewModelCollection<DIViewModel, DIStruct> divm;
         ViewModelCollection<DOViewModel, DOStruct> dovm;
         ViewModelCollection<AIViewModel, AIStruct> aivm;
+        ViewModelCollection<AOViewModel, AOStruct> aovm;
 
         //
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
@@ -140,35 +141,47 @@ namespace Simulator_MPSA
 
             InitializeComponent();
 
-
-
-            //начальная инициализация структур и моделей
-            // dataGridDO.DataContext = new DOTableViewModel();
-            //  for (int i = 0; i < DOs.Length; i++)
-            //    DOs[i] = new DOStruct();
-
+            
+            
+ 
+            //-- Таблица DI --
             divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
-            // dataGridDI.DataContext = divm;
+
             DITab.DataContext = divm;
             hideEmptyDI.DataContext = divm;
-            //dataGridDI.ItemsSource = divm.ViewSource.View;
 
+            DIStruct.EnableAutoIndex = true;
 
+            //-- Таблица AI --
             aivm = new ViewModelCollection<AIViewModel, AIStruct>(AIStruct.items);
             hideEmptyAI.DataContext = aivm;
             AITab.DataContext = aivm;
 
+            AIStruct.EnableAutoIndex = true;
 
+            //-- Таблица DO --
             dovm = new ViewModelCollection<DOViewModel, DOStruct>(DOStruct.items);
             hideEmptyDO.DataContext = dovm;
             DOTab.DataContext = dovm;
-            //for (int i = 0; i < AIs.Length; i++)
-            //      AIs[i] = new AIStruct();
-            //   dataGridSettings.DataContext = new SettingsTableViewModel(Sett.Instance);
+
+            DOStruct.EnableAutoIndex = true;
+
+            //-- Таблица AO --
+            aovm = new ViewModelCollection<AOViewModel, AOStruct>(AOStruct.items);
+            AOTab.DataContext = aovm;
+            AOHideEmpty.DataContext = aovm;
+            AOStruct.EnableAutoIndex = true;
+
+            //------
+
             dataGridZD.DataContext = ZDTableViewModel.Instance;
             dataGridVS.DataContext = VSTableViewModel.Instance;
             dataGridKL.DataContext = KLTableViewModel.Instance;
             dataGridMPNA.DataContext = MPNATableViewModel.Instance;
+
+ 
+            ScriptInfo.Init();
+            dataGridScript.ItemsSource = ScriptInfo.Items;
 
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
@@ -450,14 +463,19 @@ namespace Simulator_MPSA
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
 
-            DITab.DataContext = null;
-            AITab.DataContext = null;
+          //  DITab.DataContext = null;
+          //  AITab.DataContext = null;
+          //  DOTab.DataContext = null;
+          //  AOTab.DataContext = null;
+
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
-                    isConfigLoaded = true;
-                    DITab.DataContext = divm;
-                    AITab.DataContext = aivm;
+                //    isConfigLoaded = true;
+            //        DITab.DataContext = divm;
+            //        AITab.DataContext = aivm;
+            //        DOTab.DataContext = dovm;
+            //        AOTab.DataContext = aovm;
 
                     WB.InitBuffers();
                     RB.InitBuffer();
@@ -518,12 +536,12 @@ namespace Simulator_MPSA
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            if (!isConfigLoaded)
+          /*  if (!isConfigLoaded)
             {
                 System.Windows.MessageBox.Show("Конфигурация не загружена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
+            */
 
             cancelTokenSrc = new CancellationTokenSource();
             cancellationToken = cancelTokenSrc.Token;
@@ -1025,6 +1043,20 @@ namespace Simulator_MPSA
         //новая конфигурация
         private void Menu_New(object sender, RoutedEventArgs e)
         {
+            ZDTableViewModel.ZDs.Clear();
+            VSTableViewModel.VS.Clear();
+            KLTableViewModel.KL.Clear();
+            MPNATableViewModel.MPNAs.Clear();
+
+            ScriptInfo.Items.Clear();
+
+            DIStruct.items.Clear();
+            DOStruct.items.Clear();
+            AIStruct.items.Clear();
+            AOStruct.items.Clear();
+
+            CountersTableViewModel.Counters.Clear();
+            DiagTableModel.Instance.DiagRegs.Clear();
 
         }
 
@@ -1047,8 +1079,7 @@ namespace Simulator_MPSA
             {
                 CSVWorker.importCSV(ofd.FileName);
             }
-            isConfigLoaded = true;
-            System.Windows.Forms.MessageBox.Show("Импорт завершен");
+         //   isConfigLoaded = true;
             //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
         }
 
@@ -1089,6 +1120,11 @@ namespace Simulator_MPSA
         private void MenuItem_Unchecked(object sender, RoutedEventArgs e)
         {
             this.Topmost = false;
+        }
+
+        private void MenuItem_test_Click(object sender, RoutedEventArgs e)
+        {
+            AOStruct.items.Add(new AOStruct());
         }
     }
 }

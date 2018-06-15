@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,58 @@ namespace Simulator_MPSA.CL
     public class AIStruct : BaseViewModel
     {
         public static ObservableCollection<AIStruct> items = new ObservableCollection<AIStruct>();
+
+        private static bool _enableAutoIndex;
+
+        public static bool EnableAutoIndex
+        {
+            get { return _enableAutoIndex; }
+            set
+            {
+                if (value && !_enableAutoIndex)
+                {
+                    items.CollectionChanged += Items_CollectionChanged;
+                    _enableAutoIndex = true;
+                }
+
+                if (!value && _enableAutoIndex)
+                {
+                    items.CollectionChanged -= Items_CollectionChanged;
+                    _enableAutoIndex = false;
+                }
+            }
+
+        }
+
+        private static void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    for (int i = 0; i < e.NewItems.Count; i++)
+                        (e.NewItems[0] as AIStruct).indxAI = items.Count - 1;
+                    break;
+
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    //пересчитываем индексы всех сигналов кроме удаляемых
+                    /*   for (int i = 0; i < items.Count;)
+                       {
+                           if (!e.OldItems.Contains(items[i]))
+                           {
+                               items[i].indx = i;
+                               i++;
+                           }
+                       }*/
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        items[i].indxAI = i;
+                    }
+
+                    break;
+            }
+           Debug.WriteLine("AI count: " + items.Count.ToString());
+        }
+
         private bool _En;
         public bool En
         {

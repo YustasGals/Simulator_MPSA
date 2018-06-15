@@ -141,6 +141,7 @@
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\AIViewModel.cs" />
+    <Compile Include="ViewModel\AOViewModel.cs" />
     <Compile Include="ViewModel\DOViewModel.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
     <Compile Include="CL\MPNA_Logic.cs" />

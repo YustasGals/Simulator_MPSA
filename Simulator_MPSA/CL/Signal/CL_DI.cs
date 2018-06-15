@@ -7,6 +7,9 @@ using System.Runtime.InteropServices;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.Collections.ObjectModel;
+using Simulator_MPSA.CL.Signal;
+using System.Collections.Specialized;
+using System.Diagnostics;
 
 namespace Simulator_MPSA.CL
 {
@@ -15,6 +18,62 @@ namespace Simulator_MPSA.CL
     public class DIStruct : INotifyPropertyChanged 
     {
         public static ObservableCollection<DIStruct> items = new ObservableCollection<DIStruct>();
+
+
+        public static event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
+
+        private static bool _enableAutoIndex;
+
+        public static bool EnableAutoIndex
+        {
+            get { return _enableAutoIndex; }
+            set
+            {
+                if (value && !_enableAutoIndex)
+                {
+                    items.CollectionChanged += Items_CollectionChanged;
+                    _enableAutoIndex = true;
+                }
+
+                if (!value && _enableAutoIndex)
+                {
+                    items.CollectionChanged -= Items_CollectionChanged;
+                    _enableAutoIndex = false;
+                }
+            }
+
+        }
+
+        private static void Items_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            switch (e.Action)
+            {
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
+                    for (int i = 0; i < e.NewItems.Count; i++)
+                        (e.NewItems[0] as DIStruct).indxArrDI = items.Count - 1;
+                    break;
+
+                case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
+                    //пересчитываем индексы всех сигналов кроме удаляемых
+                    /*   for (int i = 0; i < items.Count;)
+                       {
+                           if (!e.OldItems.Contains(items[i]))
+                           {
+                               items[i].indx = i;
+                               i++;
+                           }
+                       }*/
+                    for (int i = 0; i < items.Count; i++)
+                    {
+                        items[i].indxArrDI = i;
+                    }
+
+                    break;
+            }
+            Debug.WriteLine("DI count: " + items.Count.ToString());
+
+        }
+
         public bool En
         { set; get; }
 
@@ -105,8 +164,24 @@ namespace Simulator_MPSA.CL
             }
         }
 
-        public int indxArrDI // index in AI
-        { set; get; }
+        
+        private int _indxArrDI;
+        public int indxArrDI 
+        {
+            set
+            {
+                _indxArrDI = value;
+                
+                //сообщаем об изменении индекса наверх
+                OnPropertyChanged("indxArrDI");
+
+                //сообщаем об изменении индекса подписчикам
+                IndexChanged(this, new IndexChangedEventArgs(value));
+            }
+            get { return _indxArrDI; }
+        }
+
+
         public int indxBitDI
         { set; get; }
         private int indxW

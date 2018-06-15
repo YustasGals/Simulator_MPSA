@@ -14,6 +14,7 @@ namespace Simulator_MPSA.ViewModel
         public AIViewModel()
         {
             ai = new AIStruct();
+            ai.PropertyChanged += _do_PropertyChanged;
         }
 
         public BufType Buffer
