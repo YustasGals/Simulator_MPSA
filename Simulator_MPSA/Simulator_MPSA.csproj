@@ -137,6 +137,9 @@
     <Compile Include="CL\IO\StationExporter.cs" />
     <Compile Include="CL\OPCThread.cs" />
     <Compile Include="CL\Signal\IndexChangedEventArgs.cs" />
+    <Compile Include="Log.xaml.cs">
+      <DependentUpon>Log.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StationSetup.xaml.cs">
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>
@@ -181,6 +184,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CL\IO\ImportDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Log.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,18 +265,44 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\close.png" />
-    <Resource Include="IMG\open.png" />
+    <Resource Include="IMG\open.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="IMG\PAUSE.png" />
-    <Resource Include="IMG\save.png" />
     <Resource Include="IMG\saveAll.png" />
-    <Resource Include="IMG\START.png" />
-    <Resource Include="IMG\STOP.png" />
+    <Resource Include="IMG\START.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\STOP.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="XMLs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\LIST.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\save.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\pin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\save-as.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

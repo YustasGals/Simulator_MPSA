@@ -20,12 +20,13 @@ namespace Simulator_MPSA
 
         Thread[] thread = new Thread[2];
         TcpClient[] tcp = new TcpClient[2];
-        ushort NReg = 125;
+        ushort NReg=0;// = 125;
         int coilCount;
         int NJob; //количество потоков
         int CoilPerTask;//количество бочек на чтение для одного потока
         public ReadThread(string hostname, int port)
         {
+            NReg = (ushort)Sett.Instance.rdCoilSize;
             coilCount = RB.R.Length / NReg + 1;
             for (int i = 0; i < 2; i++)
             {
@@ -139,6 +140,29 @@ namespace Simulator_MPSA
                 {
                     bool res = GetBit(RB.R[indx], _do.indxBitDO);
                     _do.ValDO = _do.InvertDO ? !res : res;
+                }
+            }
+
+            foreach (AOStruct item in AOStruct.items)
+            {
+                int index = item.PLCAddr - Sett.Instance.BegAddrR;
+
+                if (index >= 0 && index < RB.R.Length)
+                {                    
+
+                    if (item.PLCDestType == EPLCDestType.ADC)
+                        item.ValACD = RB.R[index];
+                    else
+                    {
+                        byte[] bytes = new byte[4];
+                        bytes[0] = (byte)(RB.R[index] & 0xFF);
+                        bytes[1] = (byte)((RB.R[index] >> 8) & 0xFF);
+
+                        bytes[2] = (byte)(RB.R[index + 1] & 0xff);
+                        bytes[3] = (byte)((RB.R[index + 1] >> 8) & 0xff);
+
+                        item.fVal = BitConverter.ToSingle(bytes,0);
+                    }
                 }
             }
         }

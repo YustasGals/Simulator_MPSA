@@ -63,7 +63,8 @@ namespace Simulator_MPSA.CL
 
                         break;
             }
-            Debug.WriteLine("AO count: " + items.Count.ToString());
+            //  Debug.WriteLine("AO count: " + items.Count.ToString());
+            LogViewModel.Instance.WriteLine("Изменение таблицы AO");
         }
 
         

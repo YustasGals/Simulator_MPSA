@@ -28,7 +28,7 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="36"/>
+            <RowDefinition Height="48"/>
             <RowDefinition />
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -54,16 +54,19 @@
                 <MenuItem x:Name="Menu_StayOnTop" Header="Поверх всех окон" IsCheckable="true" Checked="MenuItem_Checked" Unchecked="MenuItem_Unchecked"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_about" Header="О программе" HorizontalAlignment="Right" Click="MenuItem_about_Click" />
-            <MenuItem x:Name="MenuItem_test" Header="Test" Click="MenuItem_test_Click"/>
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
             <Button x:Name="btnOpen" Click="Menu_OpenAll" ToolTip="Открыть">
                 <Image Source="IMG/open.png" />
             </Button>
-            <Separator />
-            <Button x:Name="btnSave" Click="Menu_SaveSingle" ToolTip="Сохранить">
+
+            <Button x:Name="btnSave" Click="Menu_SaveCurrent" ToolTip="Сохранить" IsEnabled="false">
                 <Image Source="IMG/save.png" />
+            </Button>
+            
+            <Button x:Name="btnSaveAs" Click="Menu_SaveSingle" ToolTip="Сохранить как" IsEnabled="false">
+                <Image Source="IMG/save-as.png" />
             </Button>
         
             <Separator />
@@ -71,11 +74,14 @@
                 <Image Source="IMG/START.png" />
             </Button>
            
-            <Separator />
             <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="остановка со сбросом" IsEnabled="False">
                 <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Separator />
+            <Button x:Name="btnLog" Click="btnLog_Click" ToolTip="Открыть лог" IsEnabled="True">
+                <Image Source="IMG/LIST.png" AutomationProperties.HelpText="Стоп" />
+            </Button>
+
 
         </ToolBar>
 

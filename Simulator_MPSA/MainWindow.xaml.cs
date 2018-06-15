@@ -141,8 +141,9 @@ namespace Simulator_MPSA
 
             InitializeComponent();
 
-            
-            
+
+            RB.InitBuffer();
+            WB.InitBuffers();
  
             //-- Таблица DI --
             divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
@@ -380,40 +381,7 @@ namespace Simulator_MPSA
                     btnStop_Click(null, new RoutedEventArgs());
                 }
                
-                //-------------- OPC ----------------
-          /*      if (Sett.Instance.UseOPC)
-                {
-                    opcitems.Clear();
-                    foreach (DIStruct di in DIStruct.items)
-                        if (di.OPCtag != "" && di.IsChanged)
-                        {
-                             itm = new Opc.Da.ItemValue(di.OPCtag);
-                            itm.Value = di.ValDI ^ di.InvertDI;
-                            opcitems.Add(itm);
-                            di.IsChanged = false;
-                        }
-
-                    foreach (AIStruct ai in AIStruct.items)
-                        if (ai.OPCtag != "" && ai.IsChanged)
-                        {
-                            itm = new Opc.Da.ItemValue(ai.OPCtag);
-                            if (ai.PLCDestType == EPLCDestType.Float)
-                                itm.Value = ai.fValAI;
-                            else
-                                itm.Value = ai.ValACD;
-
-                            opcitems.Add(itm);
-                            ai.IsChanged = false;
-                        }
-                    try
-                    {
-                        srv.Write(opcitems.ToArray());
-                    }
-                    catch (ThreadAbortException abEx)
-                    {
-                        Debug.WriteLine("data wasn't write cause thread aborted");
-                    }
-                }*/
+       
 
                 //---------- вычисление время с момента предыдущей итерации ----------------
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
@@ -463,19 +431,32 @@ namespace Simulator_MPSA
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
 
-          //  DITab.DataContext = null;
-          //  AITab.DataContext = null;
-          //  DOTab.DataContext = null;
-          //  AOTab.DataContext = null;
+            DITab.DataContext = null;
+            AITab.DataContext = null;
+            DOTab.DataContext = null;
+            AOTab.DataContext = null;
+
+            AIStruct.EnableAutoIndex = false;
+            AOStruct.EnableAutoIndex = false;
+            DIStruct.EnableAutoIndex = false;
+            DOStruct.EnableAutoIndex = false;
 
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
+                    currentFileName = dialog.FileName;
+                    btnSave.IsEnabled = true;
+                    btnSaveAs.IsEnabled = true;
                 //    isConfigLoaded = true;
-            //        DITab.DataContext = divm;
-            //        AITab.DataContext = aivm;
-            //        DOTab.DataContext = dovm;
-            //        AOTab.DataContext = aovm;
+                    DITab.DataContext = divm;
+                    AITab.DataContext = aivm;
+                    DOTab.DataContext = dovm;
+                    AOTab.DataContext = aovm;
+
+                    AIStruct.EnableAutoIndex = true;
+                    AOStruct.EnableAutoIndex = true;
+                    DIStruct.EnableAutoIndex = true;
+                    DOStruct.EnableAutoIndex = true;
 
                     WB.InitBuffers();
                     RB.InitBuffer();
@@ -523,7 +504,22 @@ namespace Simulator_MPSA
 
 
         }
-      
+
+        /// <summary>
+        /// сохранить текущий
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Menu_SaveCurrent(object sender, RoutedEventArgs e)
+        {
+            if (currentFileName != "")
+            {
+                Station s = new Station();
+                //   s.settings = Sett.Instance;
+                s.Save(currentFileName);
+                LogViewModel.Instance.WriteLine("Файл конфигурации сохранен : "+currentFileName);
+            }
+        }
         /// <summary>
         /// Токен отмены
         /// </summary>
@@ -594,6 +590,7 @@ namespace Simulator_MPSA
             }
         }
 
+        #region WriteReadCycleEnd
         //------------ вызывается каждую итерацию цикла записи ----------------
         private void On_WritingCycleEnd()
         {
@@ -641,6 +638,14 @@ namespace Simulator_MPSA
             //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
             writingTime[6] = DateTime.Now;
         }
+
+        private void On_ReadingCycleEnd()
+        {
+            TimeSpan ts = DateTime.Now - readingTime;
+            StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
+            readingTime = DateTime.Now;
+        }
+        #endregion
         //--------------------------------------------------------------------
 
         private void On_Disconnected()
@@ -650,39 +655,8 @@ namespace Simulator_MPSA
         }
 
         //---------------------------- 
-        private void On_ReadingCycleEnd()
-        {
-            TimeSpan ts = DateTime.Now - readingTime;
-            StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
-            readingTime = DateTime.Now;
-        }
 
-       /* private void btnPause_Click(object sender, RoutedEventArgs e)
-        {
-            statusText.Content = "пауза";
-            statusText.Background = System.Windows.Media.Brushes.Blue;
 
-            btnStart.IsEnabled = true;
-            btnStop.IsEnabled = false;
-            btnPause.IsEnabled = false;
-
-            wrThread.Stop();
-            wrThread = null;
-            rdThread.Stop();
-            rdThread = null;
-
-            if (watchThread != null)
-                watchThread.Abort();
-            //wrThread.Paused = true;
-            try
-            {
-                cancelTokenSrc.Cancel();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }*/
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             statusText.Content = "Остановлен";
@@ -1058,6 +1032,9 @@ namespace Simulator_MPSA
             CountersTableViewModel.Counters.Clear();
             DiagTableModel.Instance.DiagRegs.Clear();
 
+            currentFileName = "";
+            btnSave.IsEnabled = false;
+            btnSaveAs.IsEnabled = false;
         }
 
         private void Menu_Export(object sender, RoutedEventArgs e)
@@ -1073,17 +1050,28 @@ namespace Simulator_MPSA
 
         private void Menu_Import(object sender, RoutedEventArgs e)
         {
+            DIStruct.EnableAutoIndex = false;
+            DOStruct.EnableAutoIndex = false;
+            AOStruct.EnableAutoIndex = false;
+            AIStruct.EnableAutoIndex = false;
+
             System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
             ofd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 CSVWorker.importCSV(ofd.FileName);
             }
-         //   isConfigLoaded = true;
-            //dataGridDI.ItemsSource = DITableViewModel.Instance.viewSource.View;
+
+            DIStruct.EnableAutoIndex = true;
+            DOStruct.EnableAutoIndex = true;
+            AOStruct.EnableAutoIndex = true;
+            AIStruct.EnableAutoIndex = true;
+
         }
 
         StationSetup setupWindow;
+        private string currentFileName="";
+
         private void MenuItem_Sim_Click(object sender, RoutedEventArgs e)
         {
             setupWindow = new StationSetup();
@@ -1121,10 +1109,16 @@ namespace Simulator_MPSA
         {
             this.Topmost = false;
         }
-
-        private void MenuItem_test_Click(object sender, RoutedEventArgs e)
+        
+        private void btnLog_Click(object sender, RoutedEventArgs e)
         {
-            AOStruct.items.Add(new AOStruct());
+            Log logWindow;
+
+            logWindow = new Log();
+
+            logWindow.Show();
         }
+
+
     }
 }

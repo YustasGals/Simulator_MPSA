@@ -114,6 +114,7 @@ namespace Simulator_MPSA {
                items.Add("nKL", new SettingsItem("nKL", 64, typeof(int)));
                items.Add("nVS", new SettingsItem("nVS", 256, typeof(int)));
                items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));*/
+               
         }
         public string HostName
         {
@@ -141,6 +142,7 @@ namespace Simulator_MPSA {
                 int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
                 items["wrBufSize"].value = coilCount*CoilSize;
                 OnPropertyChanged("wrBufSize");
+                WB.InitBuffers();
             }
         }
 
@@ -154,6 +156,7 @@ namespace Simulator_MPSA {
                 int coilCount = (int)Math.Ceiling((double)value / (double)rdCoilSize);
                 items["rdBufSize"].value = coilCount*rdCoilSize;
                 OnPropertyChanged("rdBufSize");
+                RB.InitBuffer();
             }
         }
 
@@ -251,6 +254,7 @@ namespace Simulator_MPSA {
                 int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
                 items["A3BufSize"].value = coilCount*CoilSize;
                 OnPropertyChanged("A3BufSize");
+                WB.InitBuffers();
 
             }
         }
@@ -262,6 +266,7 @@ namespace Simulator_MPSA {
                 int coilCount = (int)Math.Ceiling((double)value / (double)CoilSize);
                 items["A4BufSize"].value = coilCount * CoilSize;
                 OnPropertyChanged("A4BufSize");
+                WB.InitBuffers();
             }
         }
         

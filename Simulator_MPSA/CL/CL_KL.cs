@@ -59,7 +59,7 @@ namespace Simulator_MPSA
 
 
         private DOStruct DOB = null;
-        private int _DOBindxArrDO;
+        private int _DOBindxArrDO=-1;
         /// <summary>
         /// для вывода состояиня в datagrid
         /// </summary>
@@ -97,7 +97,7 @@ namespace Simulator_MPSA
         }
 
         private DOStruct DKB = null;
-        private int _DKBindxArrDO;
+        private int _DKBindxArrDO=-1;
         public bool DKBState
         {
             get
@@ -138,7 +138,7 @@ namespace Simulator_MPSA
 
 
         private DIStruct OKC = null;
-        private int _OKCindxArrDI=0;
+        private int _OKCindxArrDI=-1;
         public bool OKCState
         {
             get
@@ -175,7 +175,7 @@ namespace Simulator_MPSA
         }
 
         private DIStruct CKC = null;
-        private int _CKCindxArrDI = 0;
+        private int _CKCindxArrDI = -1;
         public bool CKCState
         {
             get

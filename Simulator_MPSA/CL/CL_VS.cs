@@ -151,7 +151,7 @@ namespace Simulator_MPSA
         /// </summary>
         public AnalogIOItem[] controledAIs;
 
-        private int _anCmdIndex;
+        private int _anCmdIndex=-1;
 
         /// <summary>
         /// Индекс уставки в таблице AO
@@ -161,10 +161,11 @@ namespace Simulator_MPSA
             set
             {
                 _anCmdIndex = value;
-                if (AOStruct.items.Count > value)
+                if (value>0 && value <AOStruct.items.Count )
                 {
                     analogCommand = AOStruct.items[value];
                     analogCommand.IndexChanged += AnalogCommand_IndexChanged;
+
                 }
             }
             get { return _anCmdIndex; }

@@ -20,19 +20,19 @@ namespace Simulator_MPSA
     public class ZDStruct : INotifyPropertyChanged
     {
         private bool _En = false; // наличие в обработке задвижки
-        private int _DOBindxArrDO = 0;
-        private int _DKBindxArrDO = 0;
-        private int _DCBindxArrDO = 0;
-        private int _DCBZindxArrDO = 0;
+        private int _DOBindxArrDO = -1;
+        private int _DKBindxArrDO = -1;
+        private int _DCBindxArrDO = -1;
+        private int _DCBZindxArrDO = -1;
         private bool _changedDO = false; // наличие изменений во входных сигналах блока
-        private int _OKCindxArrDI = 0;
-        private int _CKCindxArrDI = 0;
-        private int _ODCindxArrDI = 0;
-        private int _CDCindxArrDI = 0;
-        private int _DCindxArrDI = 0;
-        private int _VoltindxArrDI = 0;
-        private int _MCindxArrDI = 0;
-        private int _OPCindxArrDI = 0;
+        private int _OKCindxArrDI = -1;
+        private int _CKCindxArrDI = -1;
+        private int _ODCindxArrDI = -1;
+        private int _CDCindxArrDI = -1;
+        private int _DCindxArrDI = -1;
+        private int _VoltindxArrDI = -1;
+        private int _MCindxArrDI = -1;
+        private int _OPCindxArrDI = -1;
         private float _ZDProc = 0.0f; // процент открытия задвижки
         private bool _changedDI = false; // наличие изменений в выходных сигналах блока
         private float _TmoveZD = 10; // время полного хода звдвижки, сек
@@ -502,7 +502,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// Наличие напряжения на СШ индекс сигнала
         /// </summary>
-        public int _bsindex;
+        public int _bsindex=-1;
         /// <summary>
         /// Наличие напряжения на СШ индекс сигнала
         /// </summary>
