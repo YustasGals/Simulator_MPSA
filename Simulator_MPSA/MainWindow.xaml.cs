@@ -210,7 +210,7 @@ namespace Simulator_MPSA
             int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
 
             configKey.SetValue("ConfigMode", ConfMode);
-            SetConfigMode(ConfMode != 0);
+            SetConfigMode(/*ConfMode != 0*/true);
         }
 
 
@@ -408,6 +408,8 @@ namespace Simulator_MPSA
 
         void CloseApp()
         {
+
+
             System.Windows.Application curApp = System.Windows.Application.Current;
             curApp.Shutdown();
         }
@@ -446,7 +448,7 @@ namespace Simulator_MPSA
                 {
                     currentFileName = dialog.FileName;
                     btnSave.IsEnabled = true;
-                    btnSaveAs.IsEnabled = true;
+                  //  btnSaveAs.IsEnabled = true;
                 //    isConfigLoaded = true;
                     DITab.DataContext = divm;
                     AITab.DataContext = aivm;
@@ -474,11 +476,42 @@ namespace Simulator_MPSA
 
                     dataGridScript.ItemsSource = Scripting.ScriptInfo.Items;
 
-                    MenuItem_showMPNA.IsChecked = Station.instance.ShowMPNA;
+                    MenuItem_showMPNA.IsChecked = Sett.Instance.ShowTab_MPNA;
                     if (!MenuItem_showMPNA.IsChecked)
                         tabMPNA.Visibility = Visibility.Collapsed;
                     else
                         tabMPNA.Visibility = Visibility.Visible;
+
+                    MenuItem_showCounters.IsChecked = Sett.Instance.ShowTab_Counter;
+                    if (!MenuItem_showCounters.IsChecked)
+                        tabDiagUSO.Visibility = Visibility.Collapsed;
+                    else
+                        tabDiagUSO.Visibility = Visibility.Visible;
+
+
+                    MenuItem_showDiag.IsChecked = Sett.Instance.ShowTab_Diag;
+                    if (!MenuItem_showCounters.IsChecked)
+                        tabDiagMod.Visibility = Visibility.Collapsed;
+                    else
+                        tabDiagMod.Visibility = Visibility.Visible;
+
+                    MenuItem_showKL.IsChecked = Sett.Instance.ShowTab_KL;
+                    if (!MenuItem_showKL.IsChecked)
+                        tabKL.Visibility = Visibility.Collapsed;
+                    else
+                        tabKL.Visibility = Visibility.Visible;
+
+                    MenuItem_showVS.IsChecked = Sett.Instance.ShowTab_VS;
+                    if (!MenuItem_showVS.IsChecked)
+                        tabVS.Visibility = Visibility.Collapsed;
+                    else
+                        tabVS.Visibility = Visibility.Visible;
+
+                    MenuItem_showZD.IsChecked = Sett.Instance.ShowTab_ZD;
+                    if (!MenuItem_showZD.IsChecked)
+                        tabZD.Visibility = Visibility.Collapsed;
+                    else
+                        tabZD.Visibility = Visibility.Visible;
                 }
         }
         /// <summary>
@@ -500,9 +533,10 @@ namespace Simulator_MPSA
                 s.settings = Sett.Instance;
 
                 s.Save(dialog.FileName);
+
+                currentFileName = dialog.FileName;
+                btnSave.IsEnabled = true;
             }
-
-
         }
 
         /// <summary>
@@ -517,7 +551,7 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
-                LogViewModel.Instance.WriteLine("Файл конфигурации сохранен : "+currentFileName);
+                LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
             }
         }
         /// <summary>
@@ -757,6 +791,9 @@ namespace Simulator_MPSA
 
                 if (opcThread != null)
                     opcThread.Stop();
+
+                if (logWindow != null)
+                    logWindow.Close();
             }
             else
             {
@@ -876,7 +913,7 @@ namespace Simulator_MPSA
             if (e)
             {
                 DataGridAI_Addr.Visibility = Visibility.Visible;
-                DataGridAI_Buf.Visibility = Visibility.Visible;
+        //        DataGridAI_Buf.Visibility = Visibility.Visible;
                 DataGridAI_On.Visibility = Visibility.Visible;
                 DataGridAI_Type.Visibility = Visibility.Visible;
 
@@ -886,7 +923,7 @@ namespace Simulator_MPSA
 
                 dataGridDI_Addr.Visibility = Visibility.Visible;
                 dataGridDI_Bit.Visibility = Visibility.Visible;
-                dataGridDI_Buf.Visibility = Visibility.Visible;
+             //   dataGridDI_Buf.Visibility = Visibility.Visible;
                 dataGridDI_Invert.Visibility = Visibility.Visible;
                 dataGridDI_On.Visibility = Visibility.Visible;
 
@@ -913,7 +950,7 @@ namespace Simulator_MPSA
             else
             {
                 DataGridAI_Addr.Visibility = Visibility.Hidden;
-                DataGridAI_Buf.Visibility = Visibility.Hidden;
+         //       DataGridAI_Buf.Visibility = Visibility.Hidden;
                 DataGridAI_On.Visibility = Visibility.Hidden;
                 DataGridAI_Type.Visibility = Visibility.Hidden;
 
@@ -932,7 +969,7 @@ namespace Simulator_MPSA
 
                 dataGridDI_Addr.Visibility = Visibility.Hidden;
                 dataGridDI_Bit.Visibility = Visibility.Hidden;
-                dataGridDI_Buf.Visibility = Visibility.Hidden;
+          //      dataGridDI_Buf.Visibility = Visibility.Hidden;
                 dataGridDI_Invert.Visibility = Visibility.Hidden;
                 dataGridDI_On.Visibility = Visibility.Hidden;
 
@@ -966,6 +1003,7 @@ namespace Simulator_MPSA
         private void MenuItem_toggleMPNA(object sender, RoutedEventArgs e)
         {
             MenuItem_showMPNA.IsChecked = !MenuItem_showMPNA.IsChecked;
+            Sett.Instance.ShowTab_MPNA = MenuItem_showMPNA.IsChecked;
             if (!MenuItem_showMPNA.IsChecked)
                 tabMPNA.Visibility = Visibility.Collapsed;
             else
@@ -975,6 +1013,8 @@ namespace Simulator_MPSA
         private void MenuItem_toggleKL(object sender, RoutedEventArgs e)
         {
             MenuItem_showKL.IsChecked = !MenuItem_showKL.IsChecked;
+
+            Sett.Instance.ShowTab_KL = MenuItem_showKL.IsChecked;
             if (!MenuItem_showKL.IsChecked)
                 tabKL.Visibility = Visibility.Collapsed;
             else
@@ -985,11 +1025,47 @@ namespace Simulator_MPSA
         {
             MenuItem_showVS.IsChecked = !MenuItem_showVS.IsChecked;
 
+            Sett.Instance.ShowTab_VS = MenuItem_showKL.IsChecked;
             if (!MenuItem_showVS.IsChecked)
                 tabVS.Visibility = Visibility.Collapsed;
             else
                 tabVS.Visibility = Visibility.Visible;
         }
+
+        private void MenuItem_toggleCounters(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showCounters.IsChecked = !MenuItem_showCounters.IsChecked;
+
+            Sett.Instance.ShowTab_Counter = MenuItem_showCounters.IsChecked;
+
+            if (!MenuItem_showCounters.IsChecked)
+                tabDiagUSO.Visibility = Visibility.Collapsed;
+            else
+                tabDiagUSO.Visibility = Visibility.Visible;
+        }
+
+        private void MenuItem_toggleDiags(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showDiag.IsChecked = !MenuItem_showDiag.IsChecked;
+
+            Sett.Instance.ShowTab_Diag = MenuItem_showDiag.IsChecked;
+            if (!MenuItem_showDiag.IsChecked)
+                tabDiagMod.Visibility = Visibility.Collapsed;
+            else
+                tabDiagUSO.Visibility = Visibility.Visible;
+        }
+
+        private void MenuItem_toggleZD(object sender, RoutedEventArgs e)
+        {
+            MenuItem_showZD.IsChecked = !MenuItem_showZD.IsChecked;
+
+            Sett.Instance.ShowTab_ZD = MenuItem_showZD.IsChecked;
+            if (!MenuItem_showZD.IsChecked)
+                tabZD.Visibility = Visibility.Collapsed;
+            else
+                tabZD.Visibility = Visibility.Visible;
+        }
+
 
         private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
         {
@@ -998,7 +1074,7 @@ namespace Simulator_MPSA
             if (script != null)
             {
                 ScriptEditor editor = new ScriptEditor(script);
-                editor.Show();
+                editor.ShowDialog();
             }
            
         }
@@ -1034,7 +1110,9 @@ namespace Simulator_MPSA
 
             currentFileName = "";
             btnSave.IsEnabled = false;
-            btnSaveAs.IsEnabled = false;
+          //  btnSaveAs.IsEnabled = false;
+
+            LogViewModel.WriteLine("Новая конфигурация создана");
         }
 
         private void Menu_Export(object sender, RoutedEventArgs e)
@@ -1109,16 +1187,21 @@ namespace Simulator_MPSA
         {
             this.Topmost = false;
         }
-        
+        Log logWindow;
         private void btnLog_Click(object sender, RoutedEventArgs e)
         {
-            Log logWindow;
+
+            if (logWindow != null)
+                logWindow.Close();
 
             logWindow = new Log();
 
             logWindow.Show();
         }
 
-
+        private void ButtonHelp_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("SimHelp.chm");
+        }
     }
 }

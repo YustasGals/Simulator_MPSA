@@ -161,12 +161,13 @@ namespace Simulator_MPSA
             set
             {
                 _anCmdIndex = value;
-                if (value>0 && value <AOStruct.items.Count )
+                if (value >= 0 && value < AOStruct.items.Count)
                 {
                     analogCommand = AOStruct.items[value];
                     analogCommand.IndexChanged += AnalogCommand_IndexChanged;
-
                 }
+                else
+                    analogCommand = null;
             }
             get { return _anCmdIndex; }
         }
@@ -311,18 +312,15 @@ namespace Simulator_MPSA
         /// <summary>
         /// адрес задания частоты в контроллере
         /// </summary>
-        public int SetRPM_Addr=-1;
+    //    public int SetRPM_Addr=-1;
 
         /// <summary>
         /// задание частоты %*640
         /// </summary>
-        public int SetRPM_Value;
-        /// <summary>
-        /// обрабатывать по алгоритму АВОА
-        /// </summary>
-        public bool isAVOA=false;
+    //    public int SetRPM_Value;
+      
 
-        public int ADCtoRPM = 640;
+     //   public int ADCtoRPM = 640;
         /// <summary>
         /// состояние вспомсистемы
         /// </summary>
@@ -408,7 +406,7 @@ namespace Simulator_MPSA
                 {
                     if (EC_DI != null) EC_DI.ValDI = true;
                     //команда включить - включить пускатель
-                    if ((ABB != null) && (ABB.ValDO) || (isAVOA && SetRPM_Value>0))
+                    if ((ABB != null) && (ABB.ValDO) || (analogCommand!=null && analogCommand.fVal>0))
                     {
                         if ((state == VSState.Stop || state == VSState.Stoping))
                         {
@@ -420,7 +418,7 @@ namespace Simulator_MPSA
                     }
 
                     //команда выключить - отключить пускатель
-                    if ((ABO != null) && (ABO.ValDO) || (isAVOA && SetRPM_Value == 0))
+                    if ((ABO != null) && (ABO.ValDO) || (analogCommand!=null && analogCommand.fVal==0))
                     {
                         if (State == VSState.Starting || State == VSState.Work)
                         {
@@ -451,10 +449,10 @@ namespace Simulator_MPSA
                             {
                                 if (analog.AI != null)
                                 {
-                                    if (isAVOA)
+                                    if (analogCommand!=null)
                                     {
-                                        analog.AI.fValAI += (SetRPM_Value - analog.AI.fValAI + SetRPM_Value / 20f) * dt * analog.ValueSpd;
-                                        if (analog.AI.fValAI > SetRPM_Value) analog.AI.fValAI = SetRPM_Value;
+                                        analog.AI.fValAI += (analogCommand.fVal - analog.AI.fValAI + analogCommand.fVal / 20f) * dt * analog.ValueSpd;
+                                        if (analog.AI.fValAI > analogCommand.fVal) analog.AI.fValAI = analogCommand.fVal;
                                     }
                                     else
                                     {
@@ -465,14 +463,14 @@ namespace Simulator_MPSA
                             }
                     }
 
-                    if (isAVOA)
+                    /*if (isAVOA)
                     {
                         int indxR = SetRPM_Addr - Sett.Instance.BegAddrR -1;
                         if (indxR >=0 && indxR < RB.R.Length)
                         {
                             SetRPM_Value = RB.R[indxR]/ADCtoRPM;
                         }
-                    }
+                    }*/
                     if (state == VSState.Stop)
                     {
                         /* if (PC_AI != null)
@@ -489,7 +487,7 @@ namespace Simulator_MPSA
                             {
                                 if (analog.AI != null)
                                 {
-                                    if (isAVOA)
+                                    if (analogCommand != null)
                                     {
                                         analog.AI.fValAI -= (analog.AI.fValAI +1) * dt * analog.ValueSpd;
                                         if (analog.AI.fValAI < 0) analog.AI.fValAI = 0;

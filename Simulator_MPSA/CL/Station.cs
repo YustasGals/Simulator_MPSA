@@ -36,7 +36,7 @@ namespace Simulator_MPSA.CL
         public ObservableCollection<Scripting.ScriptInfo> scripts;
         PageType currentPage;
 
-        public bool ShowMPNA = false;
+     
         public Station()
         { }
 
@@ -718,9 +718,8 @@ namespace Simulator_MPSA.CL
                 writer.WriteLine("Вкл." + separator + "Команда-вкл" + separator +
                                     "Команда - откл." + separator + "Напряжение на СШ" + separator +
                                     "Напряжение" + separator + "МП" + separator +
-                                    "Состояине" + separator + "АВОА" + separator +
-                                    "коэф задания частоты" + separator +
-                                    "Адрес ModBus задания частоты" + separator +
+                                    "Состояине" + separator +
+                                    "уставка (АО)" + separator +
                                     "Описание"
                                     );
                 if (station.VSs != null && station.VSs.Count() > 0)
@@ -734,9 +733,10 @@ namespace Simulator_MPSA.CL
                                             vs.ECindxArrDI.ToString(culture) + separator +
                                             vs.MPCindxArrDI.ToString(culture) + separator +
                                             vs.State.ToString() + separator +
-                                            vs.isAVOA.ToString() + separator +
-                                            vs.SetRPM_Value.ToString() + separator +
-                                            vs.SetRPM_Addr.ToString() + separator +
+                                            vs.AnCmdIndex.ToString() + separator +
+                                        //    vs.isAVOA.ToString() + separator +
+                                       //     vs.SetRPM_Value.ToString() + separator +
+                                       //     vs.SetRPM_Addr.ToString() + separator +
                                             vs.Description);
                         writer.WriteLine("--- VS AI ----");
                         writer.WriteLine("Индекс в таблице AI" + separator + "Номинальное значение" + separator + "Интенсивность изменения");

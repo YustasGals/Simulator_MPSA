@@ -50,6 +50,9 @@
                 <MenuItem x:Name="MenuItem_showMPNA" Header="МНА/ПНА" HorizontalAlignment="Left" Click="MenuItem_toggleMPNA" IsChecked="true"/>
                 <MenuItem x:Name="MenuItem_showKL" Header="Клапаны" HorizontalAlignment="Left" Click="MenuItem_toggleKL" IsChecked="True"/>
                 <MenuItem x:Name="MenuItem_showVS" Header="Вспомсистемы" HorizontalAlignment="Left" Click="MenuItem_toggleVS" IsChecked="True"/>
+                <MenuItem x:Name="MenuItem_showZD" Header="Задвижки" HorizontalAlignment="Left" Click="MenuItem_toggleZD" IsChecked="True"/>
+                <MenuItem x:Name="MenuItem_showCounters" Header="Счетчики связи" HorizontalAlignment="Left" Click="MenuItem_toggleCounters" IsChecked="True"/>
+                <MenuItem x:Name="MenuItem_showDiag" Header="Сигналы диагностики" HorizontalAlignment="Left" Click="MenuItem_toggleDiags" IsChecked="True"/>
                 <Separator/>
                 <MenuItem x:Name="Menu_StayOnTop" Header="Поверх всех окон" IsCheckable="true" Checked="MenuItem_Checked" Unchecked="MenuItem_Unchecked"/>
             </MenuItem>
@@ -57,6 +60,9 @@
 
         </Menu>
         <ToolBar Grid.Row="1" Grid.ColumnSpan="2">
+            <Button x:Name="btnNew" Click="Menu_New" ToolTip="Новая конфигурация">
+                <Image Source="IMG/new.png" />
+            </Button>
             <Button x:Name="btnOpen" Click="Menu_OpenAll" ToolTip="Открыть">
                 <Image Source="IMG/open.png" />
             </Button>
@@ -65,7 +71,7 @@
                 <Image Source="IMG/save.png" />
             </Button>
             
-            <Button x:Name="btnSaveAs" Click="Menu_SaveSingle" ToolTip="Сохранить как" IsEnabled="false">
+            <Button x:Name="btnSaveAs" Click="Menu_SaveSingle" ToolTip="Сохранить как" IsEnabled="true">
                 <Image Source="IMG/save-as.png" />
             </Button>
         
@@ -80,6 +86,10 @@
             <Separator />
             <Button x:Name="btnLog" Click="btnLog_Click" ToolTip="Открыть лог" IsEnabled="True">
                 <Image Source="IMG/LIST.png" AutomationProperties.HelpText="Стоп" />
+            </Button>
+
+            <Button  ToolTip="Помощь" IsEnabled="True" Click="ButtonHelp_Click">
+                <Image Source="IMG/icons8-help-80.png" AutomationProperties.HelpText="Помощь" />
             </Button>
 
 
@@ -118,21 +128,61 @@
                     </Expander>
                     <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En}"/>
-                            <DataGridTextColumn x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
-                            <DataGridTextColumn x:Name="DataGridAI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" />
-                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="DataGridAI_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}"/>
-                            <DataGridTextColumn x:Name="DataGridAI_Buf" Header="Буфер" Binding="{Binding Buffer}" IsReadOnly="true"/>
+                            <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Включить запись в ПЛК" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn  x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Уникальный номер" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name="DataGridAI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" ToolTipService.ToolTip="Адрес в области MW" >
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Адрес в области MW" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Адрес OPC" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn x:Name="DataGridAI_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="ADC - запись значения АЦП, Float - запись инженерного значения" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameAI, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
                             <DataGridTextColumn Header="Физ. мин" Binding="{Binding minACD, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD}" />
                             <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
+
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}" ToolTipService.ToolTip="Запись через интерфейс">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Запись через интерфейс" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -169,20 +219,54 @@
                     </Expander>
                     <DataGrid x:Name="dataGridAO" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="True" CanUserDeleteRows="True">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="DataGridAO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn x:Name="DataGridAO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Разрешить чтение сигнала из ПЛК" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            
+                            <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Уникальный номер" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            
                             <DataGridTextColumn x:Name="DataGridAO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="DataGridAO_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}"/>
+                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Адрес OPC" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn x:Name="DataGridAO_Type" Header="Тип данных в ПЛК" Binding="{Binding PLCDestType}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="ADC - запись значения АЦП, Float - запись инженерного значения" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TagName, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
                             <DataGridTextColumn Header="Физ. мин" Binding="{Binding minACD, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Запись инженерного значения через интерфейс" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -218,14 +302,40 @@
                     </Expander>
                     <DataGrid x:Name="dataGridDI" Grid.Row="1" ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="true" CanUserDeleteRows="true">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
-                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Включить запись в ПЛК" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" Foreground="Gray">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Уникальный номер" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
-                            <DataGridTextColumn x:Name="dataGridDI_Buf" Header="буфер" Binding="{Binding Buffer, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Включить принудительную запись через интерфейс" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            
                             <DataGridTextColumn x:Name="dataGridDI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
+                            
                             <DataGridTextColumn x:Name="dataGridDI_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Адрес OPC" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameDI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn x:Name="dataGridDI_Invert" Header="Инвертировать" Binding="{Binding InvertDI, UpdateSourceTrigger=PropertyChanged}"/>
@@ -265,13 +375,31 @@
                     </Expander>
                     <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue"  ItemsSource="{Binding  ViewSource.View}" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="True" CanUserDeleteRows="True">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" />
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ValDO, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}"/>
+                            <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Включить чтение из ПЛК" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" Foreground="Gray">
+                                <DataGridTextColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="уникальный номер" />
+                                    </Style>
+                                </DataGridTextColumn.CellStyle>
+                            </DataGridTextColumn>
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}">
+                                <DataGridCheckBoxColumn.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Setter Property="ToolTip" Value="Игнорировать значение из ПЛК" />
+                                    </Style>
+                                </DataGridCheckBoxColumn.CellStyle>
+                            </DataGridCheckBoxColumn>
                             <DataGridTextColumn x:Name="dataGridDO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />                            
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}" />                           
                             <DataGridCheckBoxColumn x:Name="dataGridDO_invert" Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
@@ -280,7 +408,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem Header="Задвижки" >
+            <TabItem x:Name="tabZD" Header="Задвижки" >
                 <Grid >
                     <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.ContextMenu>

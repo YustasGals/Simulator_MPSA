@@ -123,8 +123,8 @@ namespace Simulator_MPSA.ViewModel
         {
             get { return model.fVal; }
             set {
-                if (Forced)
-                model.fVal = value;
+              //  if (Forced)
+                model.ForceValue = value;
             }
         }
 

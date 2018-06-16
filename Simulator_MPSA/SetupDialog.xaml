@@ -17,7 +17,7 @@
         <Expander Header="Настройка выходов (DI):" Grid.Row="1" Margin="0,5,0,0" IsExpanded="True">
             <DataGrid x:Name="dataGrid" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" >
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="False"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" IsReadOnly="True" Foreground="Gray"/>
                 </DataGrid.Columns>
@@ -36,7 +36,7 @@
         <Expander Header="Настройка входов (DO):" Grid.Row="2" Margin="0,5,0,0" IsExpanded="True">
             <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Grid.Row="2" Margin="16,0,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" MinHeight="50">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="False"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" Foreground="Gray"/>
                 </DataGrid.Columns>
@@ -45,7 +45,7 @@
         <Expander Header="Настройка аналоговых выходов (AI):" Grid.Row="3" Margin="0,5,0,10"  IsExpanded="True">
             <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="False"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Номинальное значение" Binding="{Binding ValueNom}"/>
                     <DataGridTextColumn Header="Скорость изменения" Binding="{Binding ValueSpd}"/>
@@ -56,7 +56,7 @@
         <Expander Header="Настройка аналоговых входов (AO):" Grid.Row="4" Margin="0,5,0,10"  IsExpanded="True">
             <DataGrid x:Name="AI_outputs" ItemsSource="{Binding AnalogCommands}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="False"/>
                     <DataGridTextColumn Header="Индекс в таблице AO" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название в таблице сигналов" Binding="{Binding AssignedSignalName}"/>
                 </DataGrid.Columns>

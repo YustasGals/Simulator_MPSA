@@ -27,10 +27,10 @@ namespace Simulator_MPSA.ViewModel
             set { _do.En = value; }
             get { return _do.En; }
         }
-        public bool ValDO
+        public bool ForcedValue
         {
-            set { _do.ValDO = value; }
-            get { return _do.ValDO; }
+            set { _do.ForcedValue = value; }
+            get { return _do.ForcedValue; }
         }
 
         public int indxArrDO

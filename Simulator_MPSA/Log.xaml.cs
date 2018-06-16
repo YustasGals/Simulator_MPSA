@@ -63,10 +63,13 @@ namespace Simulator_MPSA
             }
             get { return logText; }
         }
-
-        public void WriteLine(string line)
+        public static void WriteLine(string line)
+        {
+            Instance.LogText += DateTime.Now.TimeOfDay.ToString() + ": " + line + Environment.NewLine;
+        }
+       /* public void WriteLine(string line)
         {
             LogText += DateTime.Now.TimeOfDay.ToString() + ": " + line + Environment.NewLine;
-        }
+        }*/
     }
 }

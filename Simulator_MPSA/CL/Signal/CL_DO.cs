@@ -61,7 +61,7 @@ namespace Simulator_MPSA.CL
                     break;
             }
             //           Debug.WriteLine("DO count: " + items.Count.ToString());
-            LogViewModel.Instance.WriteLine("Изменение таблицы DO");
+            LogViewModel.WriteLine("Изменение таблицы DO");
 
         }
 

@@ -8,12 +8,42 @@
         Title="Редактирование скрипта" Height="681.102" Width="893.11" SizeToContent="Manual">
     <Grid Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="41" />
             <RowDefinition />
             <RowDefinition Height="30" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="0" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/>
-        <Button x:Name="ButtonClose" Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,10,5" Click="On_ButtonClose" Grid.Row="1"/>
-        <Button x:Name="ButtonApply" Content="Применить" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,90,5" Click="On_ButtonApply" Grid.Row="1"/>
-       
+        <ToolBar Grid.Row="0" Margin="0,0,0,0">
+            
+            <Button x:Name="btnSave"  ToolTip="Сохранить" IsEnabled="True" Click="On_ButtonApply">
+                <Image Source="IMG/save.png" AutomationProperties.HelpText="Стоп" />
+            </Button>
+            
+            
+
+            <Button Command="Cut"  ToolTip="Вырезать" IsEnabled="True">
+                <Image Source="IMG/icons8-cut-80.png" AutomationProperties.HelpText="Вырезать" />
+            </Button>
+            
+            <Button Command="Copy" ToolTip="Копировать" IsEnabled="True">
+                <Image Source="IMG/icons8-copy-80.png" AutomationProperties.HelpText="Копировать" />
+            </Button>
+            
+            <Button Command="Paste" ToolTip="Вставить" IsEnabled="True">
+                <Image Source="IMG/icons8-paste80.png" AutomationProperties.HelpText="Вставить" />
+            </Button>
+            <Separator/>
+            <Button x:Name="btnRun"  ToolTip="Сохранить и выполнить" IsEnabled="True" Click="On_Run">
+                <Image Source="IMG/icons8-next-80.png" AutomationProperties.HelpText="Сохранить и выполнит" />
+            </Button>
+            <Separator/>
+            <Button  ToolTip="Помощь" IsEnabled="True" Click="Button_Click">
+                <Image Source="IMG/icons8-help-80.png" AutomationProperties.HelpText="Помощь" />
+            </Button>
+
+        </ToolBar>
+        <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/>
+        <Button x:Name="ButtonClose" Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,10,5" Click="On_ButtonClose" Grid.Row="2"/>
+        <Button x:Name="ButtonApply" Content="Применить" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,90,5" Click="On_ButtonApply" Grid.Row="2"/>
+
     </Grid>
 </Window>

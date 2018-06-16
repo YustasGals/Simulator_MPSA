@@ -67,7 +67,7 @@ namespace Simulator_MPSA.CL
                     break;
             }
   //         Debug.WriteLine("AI count: " + items.Count.ToString());
-            LogViewModel.Instance.WriteLine("Изменение таблицы AI");
+            LogViewModel.WriteLine("Изменение таблицы AI");
         }
 
         private bool _En;

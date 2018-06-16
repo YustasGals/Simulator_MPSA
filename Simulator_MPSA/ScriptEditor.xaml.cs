@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Simulator_MPSA.Scripting;
+using System.Diagnostics;
 namespace Simulator_MPSA
 {
     /// <summary>
@@ -37,6 +38,18 @@ namespace Simulator_MPSA
         private void On_ButtonApply(object sender, RoutedEventArgs e)
         {
             script.ScriptTxt = Editor.Text;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("SimHelp.chm");
+        }
+
+        private void On_Run(object sender, RoutedEventArgs e)
+        {
+            script.ScriptTxt = Editor.Text;
+            script.Prepare();
+            script.Run(0, true);
         }
     }
 }

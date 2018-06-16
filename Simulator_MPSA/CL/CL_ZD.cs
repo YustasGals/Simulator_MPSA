@@ -512,9 +512,10 @@ namespace Simulator_MPSA
             set
             {
                 _bsindex = value;
-                if (_bsindex > -1)
-                    BS = DIStruct.FindByIndex(_bsindex);
-
+                if (_bsindex >= 0 && _bsindex < DIStruct.items.Count)
+                    BS = DIStruct.items[_bsindex];
+                else
+                    BS = null;
             }
         }
         public string BSName

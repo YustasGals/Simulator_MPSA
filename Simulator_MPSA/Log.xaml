@@ -12,8 +12,8 @@
             <RowDefinition Height="241*"/>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0" Grid.ColumnSpan="2">
-            <Button x:Name="btnLog" Click="btnClear_Click" ToolTip="Открыть лог" IsEnabled="True">
-                <Image Source="IMG/LIST.png" AutomationProperties.HelpText="Стоп" />
+            <Button x:Name="btnLog" Click="btnClear_Click" ToolTip="Очистить лог" IsEnabled="True">
+                <Image Source="IMG/clear.png" AutomationProperties.HelpText="Стоп" />
             </Button>
             <Button x:Name="btnTopmost" Click="btnTopmost_Click" ToolTip="Поверх окон" IsEnabled="True">
                 <Image Source="IMG/pin.png" AutomationProperties.HelpText="Стоп" />

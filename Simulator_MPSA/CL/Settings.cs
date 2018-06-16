@@ -59,27 +59,31 @@ namespace Simulator_MPSA {
         public bool ShowTab_MPNA = true;
         public bool ShowTab_VS = true;
         public bool ShowTab_KL = true;
+        public bool ShowTab_ZD = true;
+        public bool ShowTab_Counter = true;
+        public bool ShowTab_Diag = true;
+        public bool ShowTab_Scripts = true;
         public Sett()
         {
-            items.Add("HostName", new SettingsItem("IP", "192.168.201.1",typeof(String)));
+            items.Add("HostName", new SettingsItem("IP", "127.0.0.1",typeof(String)));
             items.Add("MBPort", new SettingsItem("Порт", 502,typeof(int)));
             items.Add("TPause", new SettingsItem("TPause", 50, typeof(int)));
            // items.Add("nWrTask", new SettingsItem("nWrTask", 4, typeof(int)));
-            items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 23170 - 1, typeof(int)));
-            items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 15100 - 1, typeof(int)));
+            items.Add("iBegAddrR", new SettingsItem("iBegAddrR", 100, typeof(int)));
+            items.Add("iBegAddrW", new SettingsItem("iBegAddrW", 200, typeof(int)));
 
             //параметры буфера КС 1
-            items.Add("iBegAddrA3", new SettingsItem("iBegAddrA3", 28850 - 1, typeof(int)));
-            items.Add("A3BufSize", new SettingsItem("A3BufSize", 600, typeof(int)));
+            items.Add("iBegAddrA3", new SettingsItem("iBegAddrA3", 10, typeof(int)));
+            items.Add("A3BufSize", new SettingsItem("A3BufSize", 1, typeof(int)));
             //параметры буфера КС 2
-            items.Add("iBegAddrA4", new SettingsItem("iBegAddrA4", 29475 - 1, typeof(int)));
-            items.Add("A4BufSize", new SettingsItem("A4BufSize", 600, typeof(int)));
+            items.Add("iBegAddrA4", new SettingsItem("iBegAddrA4", 20, typeof(int)));
+            items.Add("A4BufSize", new SettingsItem("A4BufSize", 1, typeof(int)));
 
             //количество регистров на запись
-            items.Add("wrBufSize", new SettingsItem("wrBufSize", 1, typeof(int)));
+            items.Add("wrBufSize", new SettingsItem("wrBufSize", 10, typeof(int)));
 
             //количество регистров на чтение
-            items.Add("rdBufSize", new SettingsItem("wrBufSize", 1, typeof(int)));
+            items.Add("rdBufSize", new SettingsItem("wrBufSize", 10, typeof(int)));
 
             //размер бочки (макс 120)
             items.Add("CoilSize", new SettingsItem("CoiSize", 1, typeof(int)));
@@ -98,14 +102,14 @@ namespace Simulator_MPSA {
             items.Add("UseKS2", new SettingsItem("UseKS2", false, typeof(bool)));
 
             items.Add("OFSServerPrefix", new SettingsItem("OFSServerPrefix", "opcda://localhost/", typeof(string)));
-            items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider.Aut", typeof(string)));
+            items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider-Aut.OFS", typeof(string)));
             items.Add("StationName", new SettingsItem("StationName", "", typeof(string)));
 
             //количество потоков на запись для буфера УСО
-            items.Add("ConnectionCount", new SettingsItem("Количество подключений",4, typeof(int)));
+            items.Add("ConnectionCount", new SettingsItem("Количество подключений",1, typeof(int)));
 
             //количество потоков на чтение для буфера УСО
-            items.Add("ReadConnectionCount", new SettingsItem("Количество подключений", 2, typeof(int)));
+            items.Add("ReadConnectionCount", new SettingsItem("Количество подключений", 1, typeof(int)));
 
             /*   items.Add("nAI", new SettingsItem("nAI", 1024, typeof(int)));
                items.Add("nDI", new SettingsItem("nDI", 128, typeof(int)));

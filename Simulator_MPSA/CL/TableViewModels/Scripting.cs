@@ -89,9 +89,10 @@ namespace Simulator_MPSA.Scripting
                 return DOStruct.items[index].ValDO;
             else return false;
         }
-        public void Test()
+        public void WriteLog(string text)
         {
-            Debug.WriteLine("hello");
+            //  Debug.WriteLine("hello");
+            LogViewModel.WriteLine(text);
         //    System.Windows.MessageBox.Show("hello");
         }
     }
@@ -197,7 +198,10 @@ namespace Simulator_MPSA.Scripting
         public ScriptInfo()
         {
             lua["Utils"] = utils;
-            ScriptTxt = "";
+            ScriptTxt = "function Init()\n\r" +
+                        "end \n\r" +
+                        "function Update()\n\r" +
+                        "end";
            
         }
         public void Prepare()

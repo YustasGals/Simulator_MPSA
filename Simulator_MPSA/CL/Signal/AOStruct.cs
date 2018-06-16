@@ -64,7 +64,7 @@ namespace Simulator_MPSA.CL
                         break;
             }
             //  Debug.WriteLine("AO count: " + items.Count.ToString());
-            LogViewModel.Instance.WriteLine("Изменение таблицы AO");
+            LogViewModel.WriteLine("Изменение таблицы AO");
         }
 
         
@@ -191,25 +191,33 @@ namespace Simulator_MPSA.CL
         public ushort minACD
         {
             get { return _minACD; }
-            set { _minACD = value; OnPropertyChanged("minACD"); RefreshValue(); }
+            set { _minACD = value; OnPropertyChanged("minACD");
+                if (!Forced)
+                    RefreshValue(); }
         }
         private ushort _maxACD;
         public ushort maxACD
         {
             get { return _maxACD; }
-            set { _maxACD = value; OnPropertyChanged("maxACD"); RefreshValue(); }
+            set { _maxACD = value; OnPropertyChanged("maxACD");
+                if (!Forced)
+                    RefreshValue(); }
         }
         private float _minPhis;
         public float minPhis
         {
             get { return _minPhis; }
-            set { _minPhis = value; OnPropertyChanged("minPhis"); RefreshValue(); }
+            set { _minPhis = value; OnPropertyChanged("minPhis");
+                if (!Forced)
+                    RefreshValue(); }
         }
         private float _maxPhis;
         public float maxPhis
         {
             get { return _maxPhis; }
-            set { _maxPhis = value; OnPropertyChanged("maxPhis"); RefreshValue(); }
+            set { _maxPhis = value; OnPropertyChanged("maxPhis");
+                if (!Forced)
+                    RefreshValue(); }
         }
         private float _fVal;
         public float fVal
@@ -222,6 +230,15 @@ namespace Simulator_MPSA.CL
                     _fVal = value;
                     OnPropertyChanged("ForcedValue");
                 }
+            }
+        }
+
+        public float ForceValue
+        {
+            set
+            {
+                if (Forced)
+                    _fVal = value;
             }
         }
 

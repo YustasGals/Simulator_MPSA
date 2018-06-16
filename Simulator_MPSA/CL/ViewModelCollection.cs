@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows.Data;
 using Simulator_MPSA.ViewModel;
+using System.ComponentModel;
+using System.Windows;
 
 namespace Simulator_MPSA.CL
 {
@@ -16,14 +18,17 @@ namespace Simulator_MPSA.CL
    /// </summary>
    /// <typeparam name="TViewModel">Тип ViewModel элемента коллекции </typeparam>
    /// <typeparam name="TModel">Тип Model элемента коллекции </typeparam>
-    public class ViewModelCollection<TViewModel, TModel>
+    public class ViewModelCollection<TViewModel, TModel>:INotifyPropertyChanged
         where TViewModel:class, IViewModel<TModel>, new()
         where TModel:class, new()
+        
     {
         public ObservableCollection<TViewModel> VMCollection
         { set; get; }
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
+       
+
         protected virtual void OnCollectionChanged(NotifyCollectionChangedAction action)
         {
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(action));
@@ -203,7 +208,8 @@ namespace Simulator_MPSA.CL
                 }
             }
         }
-
+        public event PropertyChangedEventHandler PropertyChanged;
+      
 
 
     }

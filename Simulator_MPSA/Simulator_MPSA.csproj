@@ -243,6 +243,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="SimHelp.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Simulator_MPSA_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -303,6 +306,22 @@
     <Resource Include="IMG\save-as.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\clear.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-copy-80.png" />
+    <Resource Include="IMG\icons8-cut-80.png" />
+    <Resource Include="IMG\icons8-paste80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-help-80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-next-80.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
