@@ -49,7 +49,7 @@ namespace Simulator_MPSA.Scripting
             //AIStruct ai = AIStruct.FindByIndex(index);
             //if (ai != null)
             //    ai.fValAI = value;
-            if (index < AIStruct.items.Count)
+            if (index>=0 && index < AIStruct.items.Count)
                 AIStruct.items[index].fValAI = value;
         }
         public float GetAI(int index)
@@ -58,7 +58,7 @@ namespace Simulator_MPSA.Scripting
             //  if (ai != null)
             //      return ai.fValAI;
             //  else return 0;
-            if (index < AIStruct.items.Count)
+            if (index >= 0 && index < AIStruct.items.Count)
                 return AIStruct.items[index].fValAI;
             else return 0;
         }
@@ -67,7 +67,7 @@ namespace Simulator_MPSA.Scripting
             //AIStruct ai = AIStruct.FindByIndex(index);
             //if (ai != null)
             //    ai.fValAI += delta;
-            if (index < AIStruct.items.Count)
+            if (index >= 0 && index < AIStruct.items.Count)
                 AIStruct.items[index].fValAI += delta;
         }
 
@@ -76,7 +76,7 @@ namespace Simulator_MPSA.Scripting
             //  DIStruct di = DIStruct.FindByIndex(index);
             //  if (di != null)
             //      di.ValDI = value;
-            if (index < DIStruct.items.Count)
+            if (index >= 0 && index < DIStruct.items.Count)
                 DIStruct.items[index].ValDI = value;
         }
         public bool GetDO(int index)
@@ -85,11 +85,11 @@ namespace Simulator_MPSA.Scripting
             // if (d != null)
             //     return d.ValDO;
             // else return false;
-            if (index < DOStruct.items.Count)
+            if (index >= 0 && index < DOStruct.items.Count)
                 return DOStruct.items[index].ValDO;
             else return false;
         }
-        public void WriteLog(string text)
+        public void Print(string text)
         {
             //  Debug.WriteLine("hello");
             LogViewModel.WriteLine(text);

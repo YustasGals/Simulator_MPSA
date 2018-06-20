@@ -73,7 +73,7 @@
 
 
 
-                <CheckBox Content="Использовать буфер КС осн" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseKS1}"/>
+                <CheckBox Content="Использовать дополнительные буферы" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="284" IsChecked="{Binding settings.UseKS}"/>
 
                 <Label Content="Начальный адрес буфера КС осн" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                 <TextBox Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.iBegAddrA3}" VerticalAlignment="Top" Width="115"/>
@@ -81,7 +81,8 @@
                 <Label Content="Размер буфера КС осн" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                 <TextBox Grid.Row="10" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.A3BufSize}" VerticalAlignment="Top" Width="115"/>
 
-                <CheckBox Content="Использовать буфер КС рез" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseKS2}"/>
+                
+                <!--CheckBox Content="Использовать буфер КС рез" Grid.Row="11" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseKS2}"/-->
 
                 <Label Content="Начальный адрес буфера КС рез" Grid.Row="12" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                 <TextBox Grid.Row="12" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.iBegAddrA4}" VerticalAlignment="Top" Width="115"/>

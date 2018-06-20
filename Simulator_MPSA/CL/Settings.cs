@@ -98,8 +98,8 @@ namespace Simulator_MPSA {
             items.Add("UseOPC", new SettingsItem("UseOPC", false, typeof(bool)));
 
             //имитировать контроллеры связи
-            items.Add("UseKS1", new SettingsItem("UseKS1", false, typeof(bool)));
-            items.Add("UseKS2", new SettingsItem("UseKS2", false, typeof(bool)));
+            items.Add("UseKS", new SettingsItem("UseKS", false, typeof(bool)));
+          //  items.Add("UseKS2", new SettingsItem("UseKS2", false, typeof(bool)));
 
             items.Add("OFSServerPrefix", new SettingsItem("OFSServerPrefix", "opcda://localhost/", typeof(string)));
             items.Add("OFSServerName", new SettingsItem("OFS Сервер", "Schneider-Aut.OFS", typeof(string)));
@@ -332,17 +332,17 @@ namespace Simulator_MPSA {
             }
         }
 
-        public bool UseKS1
+        public bool UseKS
         {
-            get { return (bool)items["UseKS1"].value; }
-            set { items["UseKS1"].value = (bool)value; }
+            get { return (bool)items["UseKS"].value; }
+            set { items["UseKS"].value = (bool)value; }
         }
 
-        public bool UseKS2
+       /* public bool UseKS2
         {
             get { return (bool)items["UseKS2"].value; }
             set { items["UseKS2"].value = (bool)value; }
-        }
+        }*/
     }
     class SettingsViewModel : BaseViewModel
     {

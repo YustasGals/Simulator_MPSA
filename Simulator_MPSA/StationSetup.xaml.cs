@@ -38,6 +38,8 @@ namespace Simulator_MPSA
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Sett.Instance = viewModel.settings;
+            RB.InitBuffer();
+            WB.InitBuffers();
             accepted = true;
         }
 

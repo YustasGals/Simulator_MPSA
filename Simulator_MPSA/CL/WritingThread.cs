@@ -72,8 +72,9 @@ namespace Simulator_MPSA
             wrThread[2] = new Thread(WriteToPLC3);
             wrThread[3] = new Thread(WriteToPLC4);
 
-            wrThread[4] = new Thread(WriteA3);
-       //     wrThread[5] = new Thread(WriteA4);
+            ///запись в 2 буфера контроллеров связи
+            wrThread[4] = new Thread(WriteKS);
+           // wrThread[5] = new Thread(WriteA4);
            // wrThread[6] = new Thread(WriteToPLC7);
            // wrThread[7] = new Thread(WriteToPLC8);
 
@@ -96,9 +97,10 @@ namespace Simulator_MPSA
                     wrThread[i].Start();
             }
 
-            if (Sett.Instance.UseKS1)
+            if (Sett.Instance.UseKS)
                 wrThread[4].Start();
-            
+
+
         }
 
         public void Stop()
@@ -347,7 +349,7 @@ namespace Simulator_MPSA
             }
         }
 
-        void WriteA3()
+        void WriteKS()
         {
 
             int destStartAddr;
@@ -417,7 +419,8 @@ namespace Simulator_MPSA
                     refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
             }
         }
-  
+
+    
         /* void WriteToPLC(object jobnum)
          {
 

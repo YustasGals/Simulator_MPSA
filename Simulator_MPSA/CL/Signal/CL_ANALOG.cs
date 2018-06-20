@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL.Signal;
+
 namespace Simulator_MPSA.CL
 {
     /// <summary>
@@ -16,7 +18,15 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class AIStruct : BaseViewModel
     {
+        /// <summary>
+        /// Коллекция связанная с интерфейсом
+        /// </summary>
         public static ObservableCollection<AIStruct> items = new ObservableCollection<AIStruct>();
+
+        /// <summary>
+        /// Копия коллекции для более быстрого доступа по индексу
+        /// </summary>
+        public static AIStruct[] itemArray;
 
         private static bool _enableAutoIndex;
 
@@ -39,6 +49,9 @@ namespace Simulator_MPSA.CL
             }
 
         }
+
+        public event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
+
 
         private static void Items_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
@@ -84,15 +97,20 @@ namespace Simulator_MPSA.CL
         public int indxAI
         {
             get { return _indxAI; }
-            set { _indxAI = value; OnPropertyChanged("indxAI"); }
+            set {
+                _indxAI = value;
+                OnPropertyChanged("indxAI");
+                //сообщаем об изменении индекса подписчикам
+                IndexChanged(this, new IndexChangedEventArgs(value));
+            }
         }
-        private BufType _buffer;
+        //private BufType _buffer;
         [XmlIgnore]
-        public BufType Buffer
+       /* public BufType Buffer
         {
             get { return _buffer; }
             set { _buffer = value; OnPropertyChanged("Buffer"); }
-        }
+        }*/
         private string _OPCtag = "";
         public string OPCtag
         {
@@ -143,23 +161,23 @@ namespace Simulator_MPSA.CL
         {
             get {
                 if (_plcAddr == 0)
-                    _plcAddr = indxW + Sett.Instance.BegAddrW + 1;
+                    _plcAddr = indxW + Sett.Instance.BegAddrW;
                 return _plcAddr;
             }
             set {
                 _plcAddr = value;
 
-                if ((_plcAddr >= Sett.Instance.iBegAddrA3) && (_plcAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
+               /* if ((_plcAddr >= Sett.Instance.iBegAddrA3) && (_plcAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                     Buffer = BufType.A3;
 
                 if ((_plcAddr >= Sett.Instance.iBegAddrA4) && (_plcAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
                     Buffer = BufType.A4;
 
                 if ((_plcAddr >= Sett.Instance.BegAddrW) && (_plcAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)))
-                    Buffer = BufType.USO;
+                    Buffer = BufType.USO;*/
             }
         }
-
+        
         
 
         private int _indxW;

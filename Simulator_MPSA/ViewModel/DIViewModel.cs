@@ -94,11 +94,12 @@ namespace Simulator_MPSA.ViewModel
             get { return di.InvertDI; }
             set { di.InvertDI = value; }
         }
+        /*
         public BufType Buffer
         {
             get { return di.Buffer; }
             set { di.Buffer = value; }
-        }
+        }*/
 
         public event PropertyChangedEventHandler PropertyChanged = delegate { };
         protected void OnPropertyChanged(PropertyChangedEventArgs args)

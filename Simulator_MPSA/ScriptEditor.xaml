@@ -42,8 +42,6 @@
 
         </ToolBar>
         <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/>
-        <Button x:Name="ButtonClose" Content="Закрыть" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,10,5" Click="On_ButtonClose" Grid.Row="2"/>
-        <Button x:Name="ButtonApply" Content="Применить" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Width="75" Height="24" Margin="0,0,90,5" Click="On_ButtonApply" Grid.Row="2"/>
 
     </Grid>
 </Window>

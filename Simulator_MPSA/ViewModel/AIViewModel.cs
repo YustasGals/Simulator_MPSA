@@ -17,11 +17,11 @@ namespace Simulator_MPSA.ViewModel
             ai.PropertyChanged += _do_PropertyChanged;
         }
 
-        public BufType Buffer
+    /*    public BufType Buffer
         {
             get { return ai.Buffer; }
             set { ai.Buffer = value; }
-        }
+        }*/
 
         public EPLCDestType PLCDestType
         {

@@ -82,11 +82,24 @@ namespace Simulator_MPSA.CL
         { get { return _index; }
             set
             {
+                if (_index != value || ai == null)
+                    if (ai != null)
+                        ai.IndexChanged -= Ai_IndexChanged;
                 _index = value;
                 if (_index > -1)
                     ai = AIStruct.FindByIndex(_index);
+
+                if (ai!=null)
+                    ai.IndexChanged += Ai_IndexChanged;
                 OnPropertyChanged("AIName");
             }
+        }
+
+        private void Ai_IndexChanged(object sender, Signal.IndexChangedEventArgs e)
+        {
+            _index = e.newIndex;
+            // throw new NotImplementedException();
+            LogViewModel.WriteLine("\"" + Name + "\": " + "изменен индекс сигнала AI");
         }
 
         /// <summary>

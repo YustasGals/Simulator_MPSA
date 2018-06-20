@@ -17,9 +17,17 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class DOStruct : BaseViewModel
     {
+        /// <summary>
+        /// Коллекция связанная с интерфейсом
+        /// </summary>
         public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
 
-        public static event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
+        /// <summary>
+        /// Копия коллекции для более быстрого доступа по индексу
+        /// </summary>
+        public static DOStruct[] itemArray;
+
+        public event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
 
         private static bool _enableAutoIndex;
 
@@ -116,6 +124,9 @@ namespace Simulator_MPSA.CL
                 _indxArrDO = value;
      //           OnIndexChanged(this, new IndexChangedEventArgs(value));
                 OnPropertyChanged("indxArrDO");
+
+                //сообщаем об изменении индекса подписчикам
+                IndexChanged(this, new IndexChangedEventArgs(value));
             }
         }
 

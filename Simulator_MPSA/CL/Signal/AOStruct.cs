@@ -12,8 +12,15 @@ namespace Simulator_MPSA.CL
 {
     public class AOStruct:BaseViewModel
     {
-        
+        /// <summary>
+        /// Коллекция связанная с интерфейсом
+        /// </summary>
         public static ObservableCollection<AOStruct> items = new ObservableCollection<AOStruct>();
+
+        /// <summary>
+        /// Копия коллекции для более быстрого доступа по индексу
+        /// </summary>
+        public static AOStruct[] itemArray;
 
        private static bool _enableAutoIndex;
         

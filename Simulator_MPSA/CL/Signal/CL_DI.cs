@@ -17,10 +17,20 @@ namespace Simulator_MPSA.CL
     [Serializable]
     public class DIStruct : INotifyPropertyChanged 
     {
+        /// <summary>
+        /// Коллекция связанная с интерфейсом
+        /// </summary>
         public static ObservableCollection<DIStruct> items = new ObservableCollection<DIStruct>();
 
+        /// <summary>
+        /// копия коллекции для быстрого доступа по индексу
+        /// </summary>
+        public static DIStruct[] itemArray;
 
-        public static event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
+        /// <summary>
+        /// Для оповещения агрегатов об изменении индекса
+        /// </summary>
+        public event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
 
         private static bool _enableAutoIndex;
 
@@ -116,13 +126,14 @@ namespace Simulator_MPSA.CL
             {
                 if (_plcaddr == 0)
                 {
-                    switch (_buffer)
+                    _plcaddr = Sett.Instance.BegAddrW + indxW;
+                  /*  switch (_buffer)
                     {
                         case BufType.USO: _plcaddr = Sett.Instance.BegAddrW + indxW; break;
                         case BufType.A3: _plcaddr = Sett.Instance.iBegAddrA3 + indxW; break;
                         case BufType.A4: _plcaddr = Sett.Instance.iBegAddrA4 + indxW; break;
 
-                    }
+                    }*/
                 }
                     
                 
@@ -131,7 +142,7 @@ namespace Simulator_MPSA.CL
 
             set {
                 _plcaddr = value;
-                Buffer = BufType.Undefined;
+             /*   Buffer = BufType.Undefined;
                 if ((_plcaddr >= Sett.Instance.iBegAddrA3) && (_plcaddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)))
                     Buffer = BufType.A3;
 
@@ -139,7 +150,7 @@ namespace Simulator_MPSA.CL
                     Buffer = BufType.A4;
 
                 if ((_plcaddr >= Sett.Instance.BegAddrW) && (_plcaddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)))
-                    Buffer = BufType.USO;
+                    Buffer = BufType.USO;*/
 
                 OnPropertyChanged("PLCAddr");
             }
@@ -153,7 +164,7 @@ namespace Simulator_MPSA.CL
             get { return _OPCtag; }
         }
 
-        private BufType _buffer = BufType.USO;
+       /* private BufType _buffer = BufType.USO;
         [XmlIgnore]
         public BufType Buffer
         {
@@ -162,7 +173,7 @@ namespace Simulator_MPSA.CL
             {
                 return _buffer;
             }
-        }
+        }*/
 
         
         private int _indxArrDI;

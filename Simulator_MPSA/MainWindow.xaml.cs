@@ -63,6 +63,7 @@ namespace Simulator_MPSA
         public static void InitBuffer()
         {
             RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
+            LogViewModel.WriteLine("Размер буфера чтения обновлен: "+RB.R.Count().ToString() +" рег.");
 
         }
     }
@@ -83,18 +84,20 @@ namespace Simulator_MPSA
         public static void InitBuffers()
         {
             
-            int regCount = Sett.Instance.wrBufSize;
-            int coilCount = (int)Math.Ceiling((float)regCount / 120f);
+            //int regCount = Sett.Instance.wrBufSize;
+            //int coilCount = (int)Math.Ceiling((float)regCount / 120f);
 
-            int regCountRounded = coilCount * 120;
-            WB.W = new ushort[regCountRounded]; // =3402 From IOScaner CPU
-            WB.WB_old = new ushort[regCountRounded];
+            //int regCountRounded = coilCount * 120;
+            WB.W = new ushort[Sett.Instance.wrBufSize]; // =3402 From IOScaner CPU
+            WB.WB_old = new ushort[Sett.Instance.wrBufSize];
 
             WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a3_prev = new ushort[WB.W_a3.Length];
 
             WB.W_a4 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a4_prev = new ushort[WB.W_a4.Length];
+
+            LogViewModel.WriteLine("Размеры буферов записи обновлены: " + WB.W.Count().ToString() +"/"+WB.W_a3.Count().ToString()+"/"+WB.W_a4.Count().ToString()+ " рег.");
         }
     }
     public static class DebugInfo
@@ -210,7 +213,7 @@ namespace Simulator_MPSA
             int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
 
             configKey.SetValue("ConfigMode", ConfMode);
-            SetConfigMode(/*ConfMode != 0*/true);
+         //   SetConfigMode(/*ConfMode != 0*/true);
         }
 
 
@@ -271,14 +274,17 @@ namespace Simulator_MPSA
                             if (ai.PLCDestType == EPLCDestType.ADC)
                             {
 
-                                if (ai.Buffer == BufType.USO)
-                                    WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
+                                    // if (ai.Buffer == BufType.USO)
+                                  if (ai.PLCAddr >= Sett.Instance.BegAddrW && ai.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
+                                        WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
 
-                                if (ai.Buffer == BufType.A3)
-                                    WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3)] = ai.ValACD;
+                                    //  if (ai.Buffer == BufType.A3)
+                                  if (ai.PLCAddr >= Sett.Instance.iBegAddrA3 && ai.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
+                                        WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3)] = ai.ValACD;
 
-                                if (ai.Buffer == BufType.A4)
-                                    WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4)] = ai.ValACD;
+                                    //  if (ai.Buffer == BufType.A4)
+                                    if (ai.PLCAddr >= Sett.Instance.iBegAddrA4 && ai.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
+                                        WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4)] = ai.ValACD;
                             }
                             else
                             if (ai.PLCDestType == EPLCDestType.Float)
@@ -288,20 +294,23 @@ namespace Simulator_MPSA
                                 ushort w1 = BitConverter.ToUInt16(bytes, 0);
                                 ushort w2 = BitConverter.ToUInt16(bytes, 2);
 
-                                if (ai.Buffer == BufType.USO)
-                                {
+                                    //  if (ai.Buffer == BufType.USO)
+                                    if (ai.PLCAddr >= Sett.Instance.BegAddrW && ai.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
+                                    {
                                     WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w1;
                                     WB.W[ai.PLCAddr - Sett.Instance.BegAddrW + 1] = w2;
                                 }
 
-                                if (ai.Buffer == BufType.A3)
-                                {
+                                    //  if (ai.Buffer == BufType.A3)
+                                    if (ai.PLCAddr >= Sett.Instance.iBegAddrA3 && ai.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
+                                    {
                                     WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w1;
                                     WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 + 1] = w2;
                                 }
 
-                                if (ai.Buffer == BufType.A4)
-                                {
+                                    //   if (ai.Buffer == BufType.A4)
+                                    if (ai.PLCAddr >= Sett.Instance.iBegAddrA4 && ai.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
+                                    {
                                     WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w1;
                                     WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 + 1] = w2;
                                 }
@@ -314,18 +323,36 @@ namespace Simulator_MPSA
                     {
                         if (di.En)
                         {
-                            /* int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
-                             if (indx > 0 && indx < WB.W.Length)
-                             */
-                            if (di.Buffer == BufType.USO)
-                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
-                            else
-                            if (di.Buffer == BufType.A3)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
-                            else
-                            if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
-                        }
+                                /*int indx = di.PLCAddr - Sett.Instance.BegAddrW;
+                                if (indx > 0 && indx < WB.W.Length)*/
+
+                                /*
+                               if (di.Buffer == BufType.USO)
+                                   SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                               else
+                               if (di.Buffer == BufType.A3)
+                                   SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                               else
+                               if (di.Buffer == BufType.A4)
+                                   SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                   */
+                                if (di.PLCAddr >= Sett.Instance.BegAddrW && di.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
+                                {
+                                    SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
+                                }
+
+                                if (di.PLCAddr >= Sett.Instance.iBegAddrA3 && di.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
+                                {
+                                    SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                }
+
+                                if (di.PLCAddr >= Sett.Instance.iBegAddrA4 && di.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
+                                {
+                                    SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                }
+
+                            }
                     }
 
                     //записываем счетчики УСО
@@ -351,14 +378,13 @@ namespace Simulator_MPSA
                             }
                     }
 
-                    if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
+                    /* Таблицу диагностики временно убираем */
+                    /*if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
                     foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     {
                         if (di.En)
                         {
-                            /* int indx = di.PLCAddr - Sett.Instance.BegAddrW - 1;
-                             if (indx > 0 && indx < WB.W.Length)
-                             */
+                            
                             if (di.Buffer == BufType.USO)
                                 SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                             else
@@ -368,7 +394,7 @@ namespace Simulator_MPSA
                             if (di.Buffer == BufType.A4)
                                 SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                         }
-                    }
+                    }*/
 
                 }//lock
 
@@ -464,7 +490,7 @@ namespace Simulator_MPSA
                     RB.InitBuffer();
 
 
-                    dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
+               //     dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
 
 
                     dataGridVS.DataContext = VSTableViewModel.Instance;
@@ -472,7 +498,7 @@ namespace Simulator_MPSA
                     dataGridMPNA.DataContext = MPNATableViewModel.Instance;
                     dataGridZD.DataContext = ZDTableViewModel.Instance;
 
-                    dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
+            //        dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
 
                     dataGridScript.ItemsSource = Scripting.ScriptInfo.Items;
 
@@ -482,7 +508,7 @@ namespace Simulator_MPSA
                     else
                         tabMPNA.Visibility = Visibility.Visible;
 
-                    MenuItem_showCounters.IsChecked = Sett.Instance.ShowTab_Counter;
+             /*       MenuItem_showCounters.IsChecked = Sett.Instance.ShowTab_Counter;
                     if (!MenuItem_showCounters.IsChecked)
                         tabDiagUSO.Visibility = Visibility.Collapsed;
                     else
@@ -494,7 +520,7 @@ namespace Simulator_MPSA
                         tabDiagMod.Visibility = Visibility.Collapsed;
                     else
                         tabDiagMod.Visibility = Visibility.Visible;
-
+*/
                     MenuItem_showKL.IsChecked = Sett.Instance.ShowTab_KL;
                     if (!MenuItem_showKL.IsChecked)
                         tabKL.Visibility = Visibility.Collapsed;
@@ -603,7 +629,7 @@ namespace Simulator_MPSA
                         throw new Exception("не удалось подключиться к серверу OPC");*/
                 }
                 //запускаем основной поток
-                if (Sett.Instance.UseModbus || Sett.Instance.UseOPC)
+               // if (Sett.Instance.UseModbus || Sett.Instance.UseOPC)
                 {
                     watchThread = new Thread(new ThreadStart(Watchdog));
                     watchThread.Start();
@@ -613,10 +639,12 @@ namespace Simulator_MPSA
                     btnStart.IsEnabled = false;
 
                     btnStop.IsEnabled = true;
+
+                    LogViewModel.WriteLine("Симулятор запущен");
             
                 }
-                else
-                    throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
+            //    else
+           //         throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
             }
             catch (Exception ex)
             {
@@ -693,6 +721,7 @@ namespace Simulator_MPSA
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
+            LogViewModel.WriteLine("Симулятор остановлен");
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
@@ -907,7 +936,7 @@ namespace Simulator_MPSA
             
         }
 
-
+/*
         void SetConfigMode(bool e)
         {
             if (e)
@@ -989,14 +1018,14 @@ namespace Simulator_MPSA
             }
         }
 
-      
+      */
 
         private void textBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
-                DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
-                DiagTableModel.Instance.ApplyFilter();
+           //     DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
+           //     DiagTableModel.Instance.ApplyFilter();
             }
         }
 
@@ -1031,7 +1060,7 @@ namespace Simulator_MPSA
             else
                 tabVS.Visibility = Visibility.Visible;
         }
-
+/*
         private void MenuItem_toggleCounters(object sender, RoutedEventArgs e)
         {
             MenuItem_showCounters.IsChecked = !MenuItem_showCounters.IsChecked;
@@ -1054,7 +1083,7 @@ namespace Simulator_MPSA
             else
                 tabDiagUSO.Visibility = Visibility.Visible;
         }
-
+        */
         private void MenuItem_toggleZD(object sender, RoutedEventArgs e)
         {
             MenuItem_showZD.IsChecked = !MenuItem_showZD.IsChecked;

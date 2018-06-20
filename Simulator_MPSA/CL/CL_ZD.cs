@@ -278,7 +278,7 @@ namespace Simulator_MPSA
             set { _En = value; OnPropertyChanged("En"); }
         }
 
-        private int _ZD_Pos_index;
+        private int _ZD_Pos_index=-1;
         public int ZD_Pos_index
         {
             get { return _ZD_Pos_index; }
