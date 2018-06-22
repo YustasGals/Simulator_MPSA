@@ -227,7 +227,12 @@ namespace Simulator_MPSA
             get { return _KLProc; }
             set { _KLProc = value; OnPropertyChanged("KLProc"); }
         }
-        public int TmoveKL = 5;
+        private int _TmoveKL = 5;
+        public int TmoveKL
+        {
+            get { return _TmoveKL;  }
+            set { _TmoveKL = value; OnPropertyChanged("TmoveKL"); }
+        }
 
         public KLStruct()
         {

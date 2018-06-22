@@ -89,6 +89,13 @@ namespace Simulator_MPSA.Scripting
                 return DOStruct.items[index].ValDO;
             else return false;
         }
+
+        public float GetAO(int index)
+        {
+            if (index >= 0 && index < AOStruct.items.Count)
+                return AOStruct.items[index].fVal;
+            else return 0f;
+        }
         public void Print(string text)
         {
             //  Debug.WriteLine("hello");

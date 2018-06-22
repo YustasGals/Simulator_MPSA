@@ -10,7 +10,7 @@
         <BitmapImage x:Key="logo" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\temp\Simulator_MPSA\Simulator_MPSA\Resources\logo.png"/>
     </Window.Resources>
     <Grid Margin="0,0,4,0" Height="144" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="109" Width="381" FontWeight="Bold"><Run FontWeight="Normal"/><LineBreak/><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot; 2018г."/><LineBreak/><Run FontWeight="Normal" Text="Версия 1.0.006"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="109" Width="381" FontWeight="Bold"><Run FontWeight="Normal"/><LineBreak/><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot; 2018г."/><LineBreak/><Run FontWeight="Normal" Text="Версия 1.1.000"/><LineBreak/><Run/></TextBlock>
         <Button Content="Закрыть" HorizontalAlignment="Left" Margin="308,104,0,0" VerticalAlignment="Top" Width="93" Height="33" FontSize="14" Click="Button_Click"/>
 
     </Grid>

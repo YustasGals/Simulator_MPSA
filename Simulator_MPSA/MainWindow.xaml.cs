@@ -1294,6 +1294,97 @@ namespace Simulator_MPSA
             MPNATableViewModel.MPNAs.Add(new MPNAStruct());
         }
         #endregion
+
+        private void btnCheck_Click(object sender, RoutedEventArgs e)
+        {
+            string report = "";
+
+            if (DIStruct.items != null && DIStruct.items.Count > 0)
+                for (int i = 0; i < DIStruct.items.Count();i++)
+                {
+                    if (DIStruct.items[i].indxArrDI != i)
+                    {
+                        report += "Индексы дискретных сигналов таблицы DI->PLC не последовательны, начиная с элемента: " + i.ToString() + Environment.NewLine;
+                        break;
+                    }
+                }
+
+            if (DOStruct.items != null && DOStruct.items.Count > 0)
+                for (int i = 0; i < DOStruct.items.Count();i++)
+                {
+                    if (DOStruct.items[i].indxArrDO != i)
+                    {
+                        report += "Индексы дискретных сигналов таблицы PLC->DO не последовательны, начиная с элемента: " + i.ToString() + Environment.NewLine;
+                        break;
+                    }
+                }
+
+            if (AOStruct.items != null && AOStruct.items.Count > 0)
+                for (int i = 0; i < AOStruct.items.Count(); i++)
+                {
+                    if (AOStruct.items[i].indx != i)
+                    {
+                        report += "Индексы дискретных сигналов таблицы AO->PLC не последовательны, начиная с элемента: " + i.ToString() + Environment.NewLine;
+                        break;
+                    }
+                }
+
+            if (AIStruct.items != null && AIStruct.items.Count > 0)
+                for (int i = 0; i < AIStruct.items.Count(); i++)
+                {
+                    if (AIStruct.items[i].indxAI != i)
+                    {
+                        report += "Индексы дискретных сигналов таблицы AI->PLC не последовательны, начиная с элемента: " + i.ToString() + Environment.NewLine;
+                        break;
+                    }
+                }
+
+            if (DIStruct.items != null && DIStruct.items.Count > 0)
+                foreach (DIStruct item in DIStruct.items)
+                {
+                    if ((item.PLCAddr < Sett.Instance.BegAddrW || item.PLCAddr >= (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)) &&
+                        (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr>=(Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
+                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                        report += "Адрес сигнала " + "\"" + item.NameDI + "\"" + " не попадает ни в один из буферов записи" + Environment.NewLine;
+                }
+
+            if (DOStruct.items != null && DOStruct.items.Count > 0)
+                foreach (DOStruct item in DOStruct.items)
+                {
+                    if (item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize))
+                        report += "Адрес сигнала " + "\"" + item.NameDO + "\"" + " не попадает в буфер чтения" + Environment.NewLine;
+                }
+
+            if (AIStruct.items != null && AIStruct.items.Count > 0)
+                foreach (AIStruct item in AIStruct.items)
+                {
+                    if ((item.PLCAddr < Sett.Instance.BegAddrW || item.PLCAddr >= (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)) &&
+                        (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr >= (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
+                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                        report += "Адрес сигнала " + "\"" + item.NameAI + "\"" + " не попадает ни в один из буферов записи" + Environment.NewLine;
+                }
+
+            if (AOStruct.items != null && AOStruct.items.Count > 0)
+                foreach (AOStruct item in AOStruct.items)
+                {
+                    if (item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize))
+                        report += "Адрес сигнала " +"\""+ item.Name +"\"" + " не попадает в буфер чтения" + Environment.NewLine;
+                }
+
+            if (report == "")
+                System.Windows.MessageBox.Show("Ошибок не обнаружено");
+            else
+            {
+                System.IO.StreamWriter writer = new System.IO.StreamWriter("checkReport.txt", false);
+                writer.WriteLine(report);
+                writer.Close();
+
+                if (System.Windows.MessageBox.Show("Обнаружены ошибки, открыть отчет?", "", MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+                {
+                    Process.Start("checkReport.txt");
+                }
+            }
+        }
     }
 
     class MainViewModel

@@ -129,8 +129,11 @@
                 </Image>
             </Button>
             <Separator />
+            <Button x:Name="btnCheck" Click="btnCheck_Click" ToolTip="Проверить конфигурацию" IsEnabled="True">
+                <Image Source="IMG/checkmark.png"  />
+            </Button>
             <Button x:Name="btnLog" Click="btnLog_Click" ToolTip="Открыть лог" IsEnabled="True">
-                <Image Source="IMG/LIST.png" AutomationProperties.HelpText="Стоп" />
+                <Image Source="IMG/LIST.png"  />
             </Button>
 
             <Button  ToolTip="Помощь" IsEnabled="True" Click="ButtonHelp_Click">
@@ -606,6 +609,7 @@
                             <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}" /-->
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"  IsReadOnly="True"/>
+                            <DataGridTextColumn Header="время хода" Binding="{Binding TmoveKL}"  IsReadOnly="False"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -689,7 +693,7 @@
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
                             <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" />
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
+                            <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}"/-->
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRUS}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -742,7 +746,7 @@
                             <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
+                            <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/-->
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}" IsReadOnly="True"/>
                         </DataGrid.Columns>
                     </DataGrid>

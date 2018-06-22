@@ -123,32 +123,66 @@ namespace Simulator_MPSA
             }
             else
             {
-                if (_stateZD == StateZD.Close)
+                if (_ZDProc <= 5)
                 {
                     //состояние - закрыто
                     if (OKC != null)
                         OKC.ValDI = true;
                     if (CKC != null)
                         CKC.ValDI = false;
+                }
+                else
+                if (_ZDProc >= 95)
+                {
+                    //состояние - открыто
+                    if (OKC != null)
+                        OKC.ValDI = false;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+                }
+                else
+                {
+                    //состояние - промежуточное
+                    if (OKC != null)
+                        OKC.ValDI = true;
+                    if (CKC != null)
+                        CKC.ValDI = true;
+                }
 
+                if (_stateZD == StateZD.Close)
+                {
+                    //состояние - закрыто
+                    /* if (OKC != null)
+                         OKC.ValDI = true;
+                     if (CKC != null)
+                         CKC.ValDI = false;
+                         */
                     //выключить МП после задержки
-                    MPDelay -= dt;
-                    if ((MPDelay < 0) && (CDC != null))
+                    /* MPDelay -= dt;
+                     if ((MPDelay < 0) && (CDC != null))
+                         CDC.ValDI = false
+                         */
+                         //выключить МПЗ
+                    if ((CDC != null))
                         CDC.ValDI = false;
+                     
                 }
 
                 //состояние - открыто
                 if (_stateZD == StateZD.Open)
                 {
                     //состояние - закрыто
-                    if (OKC != null)
-                        OKC.ValDI = false;
-                    if (CKC != null)
-                        CKC.ValDI = true;
-
+                    /*   if (OKC != null)
+                           OKC.ValDI = false;
+                       if (CKC != null)
+                           CKC.ValDI = true;
+                           */
                     //выключить МП после задержки
-                    MPDelay -= dt;
-                    if ((MPDelay < 0) && (ODC != null))
+                    /* MPDelay -= dt;
+                     if ((MPDelay < 0) && (ODC != null))
+                         ODC.ValDI = false;*/
+                         //выключить МПО
+                    if ((ODC != null))
                         ODC.ValDI = false;
                 }
 
@@ -173,10 +207,10 @@ namespace Simulator_MPSA
                         //включить МПО
                         if (ODC != null) ODC.ValDI = true;
                         //вкл концевики
-                        if (OKC != null)
+                     /*   if (OKC != null)
                             OKC.ValDI = true;
                         if (CKC != null)
-                            CKC.ValDI = true;
+                            CKC.ValDI = true;*/
                     }
                 }
 
@@ -200,10 +234,10 @@ namespace Simulator_MPSA
                         //включить МПЗ
                         if (CDC != null) CDC.ValDI = true;
                         //вкл концевики
-                        if (OKC != null)
+                     /*   if (OKC != null)
                             OKC.ValDI = true;
                         if (CKC != null)
-                            CKC.ValDI = true;
+                            CKC.ValDI = true;*/
                     }
                 }
 
