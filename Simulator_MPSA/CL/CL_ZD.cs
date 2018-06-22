@@ -69,7 +69,12 @@ namespace Simulator_MPSA
         {
 
         }
-
+        private int _index;
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value; OnPropertyChanged("Index"); }
+        }
         /// <summary>
         /// сброс состояния в "закрыто"
         /// </summary>
@@ -607,6 +612,7 @@ namespace Simulator_MPSA
         {
             get { return _MCindxArrDI; }
             set {
+            
                 _MCindxArrDI = value;
                 OnPropertyChanged("MCindxArrDI");
                 MC = DIStruct.FindByIndex(_MCindxArrDI);

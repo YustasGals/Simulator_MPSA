@@ -35,21 +35,31 @@ namespace Simulator_MPSA.CL
         private KLTableViewModel()
         {
             _kl = new ObservableCollection<KLStruct>();
+            _kl.CollectionChanged += CollectionChanged;
             _kl.Add(new KLStruct());
         }
 
         private KLTableViewModel(KLStruct[] kl_arr)
         {
             ObservableCollection<KLStruct> temp = new ObservableCollection<KLStruct>();
+            
             foreach (KLStruct kl in kl_arr)
                 temp.Add(kl);
 
             _kl = temp;
+          //  _kl.CollectionChanged += CollectionChanged;
+        }
+        private static void CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            for (int i = 0; i < _kl.Count(); i++)
+                _kl[i].Index = i;
+            //throw new NotImplementedException();
         }
 
         public static void Init(KLStruct[] kl_arr)
         {
             _instance = new KLTableViewModel(kl_arr);
+            _kl.CollectionChanged += CollectionChanged;
         }
 
         public static KLStruct[] GetArray()

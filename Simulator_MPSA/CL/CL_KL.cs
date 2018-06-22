@@ -42,7 +42,12 @@ namespace Simulator_MPSA
                 }
             }
         }
-
+        private int _index;
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value; OnPropertyChanged("Index"); }
+        }
         private string name;
         public string Description
         {

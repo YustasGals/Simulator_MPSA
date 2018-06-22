@@ -130,10 +130,12 @@ namespace Simulator_MPSA
         public delegate void DEndRead();
         public DEndRead delegateEndRead;
 
-        ViewModelCollection<DIViewModel, DIStruct> divm;
-        ViewModelCollection<DOViewModel, DOStruct> dovm;
-        ViewModelCollection<AIViewModel, AIStruct> aivm;
-        ViewModelCollection<AOViewModel, AOStruct> aovm;
+        MainViewModel mainVM = new MainViewModel();
+
+         ViewModelCollection<DIViewModel, DIStruct> divm;
+         ViewModelCollection<DOViewModel, DOStruct> dovm;
+         ViewModelCollection<AIViewModel, AIStruct> aivm;
+         ViewModelCollection<AOViewModel, AOStruct> aovm;
 
         //
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
@@ -144,12 +146,13 @@ namespace Simulator_MPSA
 
             InitializeComponent();
 
+            DataContext = mainVM;
 
             RB.InitBuffer();
             WB.InitBuffers();
  
             //-- Таблица DI --
-            divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+           divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
 
             DITab.DataContext = divm;
             hideEmptyDI.DataContext = divm;
@@ -345,11 +348,13 @@ namespace Simulator_MPSA
                                 if (di.PLCAddr >= Sett.Instance.iBegAddrA3 && di.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
                                 {
                                     SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
                                 }
 
                                 if (di.PLCAddr >= Sett.Instance.iBegAddrA4 && di.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
                                 {
                                     SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
                                 }
 
                             }
@@ -379,22 +384,31 @@ namespace Simulator_MPSA
                     }
 
                     /* Таблицу диагностики временно убираем */
-                    /*if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
+                    if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
                     foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     {
                         if (di.En)
                         {
-                            
-                            if (di.Buffer == BufType.USO)
-                                SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
-                            else
-                            if (di.Buffer == BufType.A3)
-                                SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
-                            else
-                            if (di.Buffer == BufType.A4)
-                                SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+
+                                if (di.PLCAddr >= Sett.Instance.BegAddrW && di.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
+                                {
+                                    SetBit(ref (WB.W[di.PLCAddr - Sett.Instance.BegAddrW]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
+                                }
+
+                                if (di.PLCAddr >= Sett.Instance.iBegAddrA3 && di.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
+                                {
+                                    SetBit(ref (WB.W_a3[di.PLCAddr - Sett.Instance.iBegAddrA3]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
+                                }
+
+                                if (di.PLCAddr >= Sett.Instance.iBegAddrA4 && di.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
+                                {
+                                    SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
+                                    continue;
+                                }
                         }
-                    }*/
+                    }
 
                 }//lock
 
@@ -459,10 +473,10 @@ namespace Simulator_MPSA
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
 
-            DITab.DataContext = null;
+           /* DITab.DataContext = null;
             AITab.DataContext = null;
             DOTab.DataContext = null;
-            AOTab.DataContext = null;
+            AOTab.DataContext = null;*/
 
             AIStruct.EnableAutoIndex = false;
             AOStruct.EnableAutoIndex = false;
@@ -476,10 +490,10 @@ namespace Simulator_MPSA
                     btnSave.IsEnabled = true;
                   //  btnSaveAs.IsEnabled = true;
                 //    isConfigLoaded = true;
-                    DITab.DataContext = divm;
+                  /*  DITab.DataContext = divm;
                     AITab.DataContext = aivm;
                     DOTab.DataContext = dovm;
-                    AOTab.DataContext = aovm;
+                    AOTab.DataContext = aovm;*/
 
                     AIStruct.EnableAutoIndex = true;
                     AOStruct.EnableAutoIndex = true;
@@ -1232,5 +1246,58 @@ namespace Simulator_MPSA
         {
             Process.Start("SimHelp.chm");
         }
+
+
+        #region ADD_BUTTONS
+        private void Add_AI_Click(object sender, RoutedEventArgs e)
+        {
+            AIStruct.items.Add(new AIStruct());
+        }
+
+        private void Add_AO_Click(object sender, RoutedEventArgs e)
+        {
+            AOStruct.items.Add(new AOStruct());
+        }
+
+        private void Add_DI_Click(object sender, RoutedEventArgs e)
+        {
+            DIStruct.items.Add(new DIStruct());
+        }
+
+        private void Add_DO_Click(object sender, RoutedEventArgs e)
+        {
+            DOStruct.items.Add(new DOStruct());
+        }
+
+        private void Add_ZD_Click(object sender, RoutedEventArgs e)
+        {
+            ZDTableViewModel.ZDs.Add(new ZDStruct());
+        }
+
+        private void Add_KL_Click(object sender, RoutedEventArgs e)
+        {
+            KLTableViewModel.KL.Add(new KLStruct());
+        }
+
+        private void Add_Script_Click(object sender, RoutedEventArgs e)
+        {
+            Scripting.ScriptInfo.Items.Add(new ScriptInfo());
+        }
+
+        private void Add_VS_Click(object sender, RoutedEventArgs e)
+        {
+            VSTableViewModel.VS.Add(new VSStruct());
+        }
+
+        private void Add_MPNA_Click(object sender, RoutedEventArgs e)
+        {
+            MPNATableViewModel.MPNAs.Add(new MPNAStruct());
+        }
+        #endregion
+    }
+
+    class MainViewModel
+    {
+
     }
 }

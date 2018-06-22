@@ -25,6 +25,8 @@ namespace Simulator_MPSA.CL
             }
         }
 
+
+
         public int Count
         {
             get { return VS.Count; }
@@ -32,8 +34,18 @@ namespace Simulator_MPSA.CL
 
         private VSTableViewModel()
         {
-            VS = new ObservableCollection<VSStruct>();
-            VS.Add(new VSStruct());
+            _vs = new ObservableCollection<VSStruct>();
+            _vs.CollectionChanged += VS_CollectionChanged;
+
+            _vs.Add(new VSStruct());
+
+        }
+
+        private static void VS_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            for (int i = 0; i < VS.Count(); i++)
+                _vs[i].Index = i;
+            //throw new NotImplementedException();
         }
 
         private VSTableViewModel(VSStruct[] vs_arr)
@@ -52,6 +64,9 @@ namespace Simulator_MPSA.CL
         public static void Init(VSStruct[] arr)
         {
             instance = new VSTableViewModel(arr);
+            _vs.CollectionChanged += VS_CollectionChanged;
         }
+
+       
     }
 }

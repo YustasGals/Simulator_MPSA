@@ -17,6 +17,12 @@ namespace Simulator_MPSA
         [XmlIgnore]
         public bool changedDO = false; // наличие изменений во входных сигналах блока
 
+        private int _index;
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value; OnPropertyChanged("Index"); }
+        }
         /// <summary>
         /// команда на включение
         /// </summary>

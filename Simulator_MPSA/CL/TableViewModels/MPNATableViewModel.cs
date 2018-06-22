@@ -31,20 +31,31 @@ namespace Simulator_MPSA.CL
         public MPNATableViewModel()
         {
             _mpnas = new ObservableCollection<MPNAStruct>();
+            _mpnas.CollectionChanged += _mpnas_CollectionChanged;
+
             _mpnas.Add(new MPNAStruct());
         }
 
-        public MPNATableViewModel(MPNAStruct[] mnas)
+        private static void _mpnas_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            //  throw new NotImplementedException();
+            for (int i = 0; i < _mpnas.Count(); i++)
+                _mpnas[i].Index = i;
+        }
+
+        private MPNATableViewModel(MPNAStruct[] mnas)
         {
             ObservableCollection<MPNAStruct> temp = new ObservableCollection<MPNAStruct>();
             foreach (MPNAStruct m in mnas)
                 temp.Add(m);
             _mpnas = temp;
+           // _mpnas.CollectionChanged += _mpnas_CollectionChanged;
         }
 
         public static void Init(MPNAStruct[] mnas)
         {
             instance = new MPNATableViewModel(mnas);
+            _mpnas.CollectionChanged += _mpnas_CollectionChanged;
         }
         public static MPNAStruct[] GetArray()
         {

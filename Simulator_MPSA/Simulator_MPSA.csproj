@@ -323,6 +323,21 @@
   <ItemGroup>
     <Resource Include="IMG\icons8-next-80.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\save_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\START_gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="IMG\STOP_gray.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\plus.png" />
+    <Resource Include="IMG\plus_gray.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

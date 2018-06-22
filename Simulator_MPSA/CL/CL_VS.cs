@@ -36,6 +36,12 @@ namespace Simulator_MPSA
             get { return _group; }
             set { _group = value; OnPropertyChanged("Group"); }
         }
+        private int _index=0;
+        public int Index
+        {
+            get { return _index; }
+            set { _index = value; OnPropertyChanged("Index"); }
+        }
 
         /// <summary>
         /// Наличие напряжения на секции шин
@@ -502,6 +508,8 @@ namespace Simulator_MPSA
             ABOindxArrDO = _ABOindxArrDO;
             ABBindxArrDO = _ABBindxArrDO;
             BusSecIndex = _bussec_index;
+
+            AnCmdIndex = _anCmdIndex;
         }
        
         /// <summary>

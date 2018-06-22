@@ -39,19 +39,19 @@
                 <MenuItem Header="Открыть" Click="Menu_OpenAll"/>
                 <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
                 <MenuItem Header="Импорт из csv" Click="Menu_Import"/>
-                <MenuItem Header="Экспорт в csv" Click="Menu_Export"/>                
+                <MenuItem Header="Экспорт в csv" Click="Menu_Export"/>
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" />
             </MenuItem>
             <MenuItem Header="Симулятор">
                 <MenuItem x:Name="MenuItem_Sim" Header="Настройки станции" Click="MenuItem_Sim_Click"/>
             </MenuItem>
-            <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">               
+            <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">
                 <MenuItem x:Name="MenuItem_showMPNA" Header="МНА/ПНА" HorizontalAlignment="Left" Click="MenuItem_toggleMPNA" IsChecked="true"/>
                 <MenuItem x:Name="MenuItem_showKL" Header="Клапаны" HorizontalAlignment="Left" Click="MenuItem_toggleKL" IsChecked="True"/>
                 <MenuItem x:Name="MenuItem_showVS" Header="Вспомсистемы" HorizontalAlignment="Left" Click="MenuItem_toggleVS" IsChecked="True"/>
                 <MenuItem x:Name="MenuItem_showZD" Header="Задвижки" HorizontalAlignment="Left" Click="MenuItem_toggleZD" IsChecked="True"/>
-               <!--
+                <!--
                 <MenuItem x:Name="MenuItem_showCounters" Header="Счетчики связи" HorizontalAlignment="Left" Click="MenuItem_toggleCounters" IsChecked="True"/>
                 <MenuItem x:Name="MenuItem_showDiag" Header="Сигналы диагностики" HorizontalAlignment="Left" Click="MenuItem_toggleDiags" IsChecked="True"/>
                 -->
@@ -70,20 +70,63 @@
             </Button>
 
             <Button x:Name="btnSave" Click="Menu_SaveCurrent" ToolTip="Сохранить" IsEnabled="false">
-                <Image Source="IMG/save.png" />
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                    <Setter Property="Source" Value="IMG/save.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                    <Setter Property="Source" Value="IMG/save_gray.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+                <!--Image Source="IMG/save.png" /-->
+
             </Button>
-            
+
             <Button x:Name="btnSaveAs" Click="Menu_SaveSingle" ToolTip="Сохранить как" IsEnabled="true">
                 <Image Source="IMG/save-as.png" />
             </Button>
-        
+
             <Separator />
-            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Запуск симулятора" AutomationProperties.HelpText="Запуск симулятора">
-                <Image Source="IMG/START.png" />
+            <Button x:Name="btnStart" Click="btnStart_Click" ToolTip="Запуск симулятора" AutomationProperties.HelpText="Запуск симулятора" IsEnabled="True">
+                <!--Image Source="IMG/START.png" /-->
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                    <Setter Property="Source" Value="IMG/START.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                    <Setter Property="Source" Value="IMG/START_gray.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
             </Button>
-           
+
             <Button x:Name="btnStop" Click="btnStop_Click" ToolTip="остановка со сбросом" IsEnabled="False">
-                <Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" />
+                <!--    " Image Source="IMG/STOP.png" AutomationProperties.HelpText="Стоп" /-->
+                <Image>
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                    <Setter Property="Source" Value="IMG/STOP.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                    <Setter Property="Source" Value="IMG/STOP_gray.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
             </Button>
             <Separator />
             <Button x:Name="btnLog" Click="btnLog_Click" ToolTip="Открыть лог" IsEnabled="True">
@@ -97,7 +140,7 @@
 
         </ToolBar>
 
-        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">            
+        <TabControl x:Name="tabControl" Grid.Column="1" Grid.Row="2" SelectedIndex="1">
             <TabItem x:Name="AITab" Header="AI -> PLC">
                 <Grid >
                     <Grid.RowDefinitions>
@@ -112,7 +155,8 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
-                                
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -125,12 +169,29 @@
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
                             <TextBox x:Name="textBoxAITagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
                             <CheckBox x:Name="hideEmptyAI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
+
+                            <Button x:Name="Add_AI" Grid.Row="1" Grid.Column="6" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_AI_Click">
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Source" Value="IMG/plus.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
                         </Grid>
 
                     </Expander>
                     <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En}">
+                            <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Включить запись в ПЛК" />
@@ -167,7 +228,7 @@
                                     </Style>
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
-                            
+
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
@@ -177,7 +238,7 @@
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
 
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}" ToolTipService.ToolTip="Запись через интерфейс">
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}" ToolTipService.ToolTip="Запись через интерфейс">
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Запись через интерфейс" />
@@ -203,7 +264,7 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
-
+                                <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -216,6 +277,22 @@
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
                             <TextBox  Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
                             <CheckBox x:Name="AOHideEmpty"  Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
+                            <Button x:Name="Add_AO" Grid.Row="1" Grid.Column="6" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_AO_Click">
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Source" Value="IMG/plus.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
                         </Grid>
 
                     </Expander>
@@ -228,7 +305,7 @@
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
                             </DataGridCheckBoxColumn>
-                            
+
                             <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -236,7 +313,7 @@
                                     </Style>
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
-                            
+
                             <DataGridTextColumn x:Name="DataGridAO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.CellStyle>
@@ -253,7 +330,7 @@
                                     </Style>
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
-                            
+
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TagName, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
@@ -287,7 +364,8 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
-                                
+                                <ColumnDefinition Width="*"/>
+
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition/>
@@ -299,6 +377,22 @@
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
                             <TextBox x:Name="textBoxDITagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
                             <CheckBox x:Name="hideEmptyDI" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}" />
+                            <Button x:Name="Add_DI" Grid.Row="1" Grid.Column="6" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_DI_Click">
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Source" Value="IMG/plus.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
                         </Grid>
 
                     </Expander>
@@ -318,17 +412,17 @@
                                     </Style>
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
-                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}">
+                            <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Включить принудительную запись через интерфейс" />
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
                             </DataGridCheckBoxColumn>
-                            
+
                             <DataGridTextColumn x:Name="dataGridDI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
-                            
+
                             <DataGridTextColumn x:Name="dataGridDI_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridTextColumn.CellStyle>
@@ -359,6 +453,7 @@
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
 
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
@@ -371,7 +466,22 @@
                             <Label Content="Фильтр по тегам" Grid.Row="1" Grid.Column="2"/>
                             <TextBox x:Name="textBoxDOTagFilter" Grid.Row="1" Grid.Column="3" Width="100" Text="{Binding TagFilter}"/>
                             <CheckBox x:Name="hideEmptyDO" Grid.Row="1" Grid.Column="4" Content="скрывать пустые" Margin="10,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding HideEmpty}"/>
-
+                            <Button x:Name="Add_DO" Grid.Row="1" Grid.Column="6" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_DO_Click">
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                                    <Setter Property="Source" Value="IMG/plus.png"/>
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                                    <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Button>
                         </Grid>
 
                     </Expander>
@@ -392,7 +502,7 @@
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
                             <DataGridCheckBoxColumn Header="Значение" Binding="{Binding ForcedValue, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced}">
+                            <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Игнорировать значение из ПЛК" />
@@ -403,7 +513,7 @@
                             <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}" />                           
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn x:Name="dataGridDO_invert" Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}"/>
 
                         </DataGrid.Columns>
@@ -412,7 +522,27 @@
             </TabItem>
             <TabItem x:Name="tabZD" Header="Задвижки" >
                 <Grid >
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Add_ZD" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_ZD_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                            <Setter Property="Source" Value="IMG/plus.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                            <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="ZDMenu_open" Header="Открыть по месту" Click="ZDMenu_open_Click"/>
@@ -423,22 +553,43 @@
                                 <MenuItem x:Name="ZDMenu_settings" Header="Настройки" Click="ZDMenu_settings_Click" />
                             </ContextMenu>
                         </DataGrid.ContextMenu>
-                        
+
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" />
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}"  />
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZDRus}"  IsReadOnly="True"/>
-                            <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True"/>
+                            <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}"  /-->
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding StateZDRus}"  IsReadOnly="True" Foreground="Gray"/>
+                            <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True" Foreground="Gray"/>
                             <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
-                           
+
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabKL" Header="Клапаны">
                 <Grid >
-                    <DataGrid x:Name="dataGridKL" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Add_KL" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_KL_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                            <Setter Property="Source" Value="IMG/plus.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                            <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <DataGrid x:Name="dataGridKL" Grid.Row="1" ItemsSource="{Binding KL}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="KLMenu_open" Header="Открыть по месту" Click="KLMenu_open_Click"/>
@@ -449,9 +600,10 @@
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}"/>
-                            <DataGridTextColumn Header="Группа" Binding="{Binding Group}" />
+                            <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}" /-->
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}"  IsReadOnly="True"/>
                             <DataGridTextColumn Header="Положение,%" Binding="{Binding KLProc}"  IsReadOnly="True"/>
                         </DataGrid.Columns>
@@ -460,7 +612,28 @@
             </TabItem>
             <TabItem x:Name="tabScript" Header="Мат. модель">
                 <Grid >
-                    <DataGrid x:Name="dataGridScript" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                  
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Button x:Name="Add_Script" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_Script_Click">
+                            <Image>
+                                <Image.Style>
+                                    <Style TargetType="Image">
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                                <Setter Property="Source" Value="IMG/plus.png"/>
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                                <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Image.Style>
+                            </Image>
+                        </Button>
+                        <DataGrid x:Name="dataGridScript" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
@@ -469,7 +642,7 @@
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" />
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding ErrorText}"/>
                         </DataGrid.Columns>
@@ -478,8 +651,28 @@
             </TabItem>
             <TabItem x:Name="tabVS" Header="Вспомсистемы">
                 <Grid >
-                    
-                    <DataGrid x:Name="dataGridVS" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Add_VS" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_VS_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                            <Setter Property="Source" Value="IMG/plus.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                            <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+
+                    <DataGrid x:Name="dataGridVS" Grid.Row="1" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" Margin="0,0,0,0">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="VSMenu_start" Header="Пуск по месту" Click="VSMenu_start_Click"/>
@@ -492,7 +685,9 @@
 
 
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}"/>
+                           
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}"/>
+                            <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" />
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRUS}" IsReadOnly="True">
@@ -522,9 +717,30 @@
             </TabItem>
             <TabItem x:Name="tabMPNA" Header="Магистральные агрегаты">
                 <Grid >
-                    <DataGrid x:Name="dataGridMPNA" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Add_MPNA" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_MPNA_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                            <Setter Property="Source" Value="IMG/plus.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                            <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <DataGrid x:Name="dataGridMPNA" Grid.Row="1" ItemsSource="{Binding MPNAs}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" MouseDoubleClick="dataGridMPNA_MouseDoubleClick" AutoGenerateColumns="False">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En}" IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="True" Foreground="Gray" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/>
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}" IsReadOnly="True"/>
@@ -532,7 +748,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-        <!--    <TabItem Header="Счетчики связи" x:Name="tabDiagUSO">
+            <!--    <TabItem Header="Счетчики связи" x:Name="tabDiagUSO">
                 <Grid>
 
                     <DataGrid x:Name="dataGridCounters" Margin="0,0,0,0" ItemsSource="{Binding Counters}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
@@ -585,7 +801,7 @@
                 </Grid>
             </TabItem>-->
         </TabControl>
-        
+
         <StatusBar x:Name="statusBar" Grid.Row="3" Grid.ColumnSpan="2" >
             <Label x:Name="statusText" Content="" TextOptions.TextFormattingMode="Display" Height="auto" Width="auto" FontSize="14" Background="#FFF0D458"/>
             <Label Content="Время записи:"></Label>

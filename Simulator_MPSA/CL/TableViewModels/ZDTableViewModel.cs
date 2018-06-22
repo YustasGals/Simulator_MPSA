@@ -32,7 +32,17 @@ namespace Simulator_MPSA.CL
         private ZDTableViewModel()
         {
             ZDs = new ObservableCollection<ZDStruct>();
+            _zds.CollectionChanged += _zds_CollectionChanged;
+
             ZDs.Add(new ZDStruct());
+        }
+
+        private static void _zds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            for (int i = 0; i < _zds.Count(); i++)
+                _zds[i].Index = i;
+
+            // throw new NotImplementedException();
         }
 
         private ZDTableViewModel(List<ZDStruct> valves)
@@ -55,6 +65,7 @@ namespace Simulator_MPSA.CL
         public static void Init(ZDStruct[] valves)
         {
             instance = new ZDTableViewModel(valves);
+            _zds.CollectionChanged += _zds_CollectionChanged;
         }
         public static ZDStruct[] GetArray()
         {
