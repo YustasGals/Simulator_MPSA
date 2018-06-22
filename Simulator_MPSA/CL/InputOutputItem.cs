@@ -19,11 +19,27 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public string Name
         { get; set; }
+
+        public int _index;
         /// <summary>
         /// индекс в общей таблице DO или DI
         /// </summary>
-        public int Index
-        { get; set; }
+        public int? Index
+        {
+            get
+            {
+                if (_index >= 0)
+                    return _index;
+                else return null;
+            }
+            set
+            {
+                if (value != null)
+                    _index = (int)value;
+                else
+                    _index = -1;
+            }
+        }
 
         /// <summary>
         /// исправность сигнала
@@ -74,20 +90,31 @@ namespace Simulator_MPSA.CL
         public string Name
         { get; set; }
 
-        private int _index;
+        public int _index;
         /// <summary>
         /// индекс в общей таблице AI
         /// </summary>
-        public int Index
-        { get { return _index; }
+        public int? Index
+        {
+            get
+            {
+                if (_index >= 0)
+                    return _index;
+                else return null;
+            }
             set
             {
                 if (_index != value || ai == null)
                     if (ai != null)
                         ai.IndexChanged -= Ai_IndexChanged;
-                _index = value;
-                if (_index > -1)
+
+                if (value != null)
+                {
+                    _index = (int)value;
                     ai = AIStruct.FindByIndex(_index);
+                }
+                else
+                    _index = -1;
 
                 if (ai!=null)
                     ai.IndexChanged += Ai_IndexChanged;
@@ -130,7 +157,7 @@ namespace Simulator_MPSA.CL
                 if (ai == null)
                 {
                     if (Index > -1)
-                        ai = AIStruct.FindByIndex(Index);
+                        ai = AIStruct.FindByIndex(_index);
                     else
                         ai = new AIStruct();
                 }

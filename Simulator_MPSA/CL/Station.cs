@@ -742,7 +742,7 @@ namespace Simulator_MPSA.CL
                         writer.WriteLine("Индекс в таблице AI" + separator + "Номинальное значение" + separator + "Интенсивность изменения");
                         if (vs.controledAIs != null && vs.controledAIs.Count() > 0)
                             foreach (AnalogIOItem io in vs.controledAIs)
-                                writer.WriteLine(io.Index.ToString(culture) + separator +
+                                writer.WriteLine(io.Index.ToString(/*culture*/) + separator +
                                                     io.ValueNom.ToString(culture) + separator +
                                                     io.ValueSpd.ToString(culture));
 
@@ -784,7 +784,7 @@ namespace Simulator_MPSA.CL
                         writer.WriteLine("Индекс в таблице AI" + separator + "Номинальное значение" + separator + "Интенсивность изменения");
                         if (mpna.controledAIs != null && mpna.controledAIs.Count() > 0)
                             foreach (AnalogIOItem io in mpna.controledAIs)
-                                writer.WriteLine(io.Index.ToString(culture) + separator +
+                                writer.WriteLine(io.Index.ToString(/*culture*/) + separator +
                                                     io.ValueNom.ToString(culture) + separator +
                                                     io.ValueSpd.ToString(culture));
 

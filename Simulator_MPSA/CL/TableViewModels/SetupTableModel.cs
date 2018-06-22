@@ -195,10 +195,10 @@ namespace Simulator_MPSA.CL
             if (type == typeof(VSStruct))
             {
                 VSStruct temp = obj as VSStruct;
-                temp.ECindxArrDI = outputs[0].Index;
-                temp.MPCindxArrDI = outputs[1].Index;
-                temp.PCindxArrDI = outputs[2].Index;
-                temp.BusSecIndex = outputs[3].Index;
+                temp.ECindxArrDI = outputs[0]._index;
+                temp.MPCindxArrDI = outputs[1]._index;
+                temp.PCindxArrDI = outputs[2]._index;
+                temp.BusSecIndex = outputs[3]._index;
              //   temp.PCindxArrAI = Analogs[0].Index;
               /*  temp.valuePC = Analogs[0].ValueNom;
                 temp.valuePCspd = Analogs[0].ValueSpd;
@@ -207,8 +207,8 @@ namespace Simulator_MPSA.CL
                 temp.Group = Group;
                 temp.En = En;
 
-                temp.ABBindxArrDO = inputs[0].Index;
-                temp.ABOindxArrDO = inputs[1].Index;
+                temp.ABBindxArrDO = inputs[0]._index;
+                temp.ABOindxArrDO = inputs[1]._index;
 
                 if (_analogs.Count > 0)
                     temp.controledAIs = _analogs.ToArray();
@@ -220,16 +220,16 @@ namespace Simulator_MPSA.CL
                      temp.SetRPM_Addr = ANInputs[0].PLCAddr;
                      temp.ADCtoRPM = ANInputs[0].ADCtoRPM;
                  }*/
-                temp.AnCmdIndex = AnalogCommands[0].Index;
+                temp.AnCmdIndex = AnalogCommands[0]._index;
             }
             if (type == typeof(KLStruct))
             {
                 KLStruct temp = obj as KLStruct;
-                temp.DOBindxArrDO = inputs[0].Index;
-                temp.DKBindxArrDO = inputs[1].Index;
+                temp.DOBindxArrDO = inputs[0]._index;
+                temp.DKBindxArrDO = inputs[1]._index;
 
-                temp.OKCindxArrDI = outputs[0].Index;
-                temp.CKCindxArrDI = outputs[1].Index;
+                temp.OKCindxArrDI = outputs[0]._index;
+                temp.CKCindxArrDI = outputs[1]._index;
 
                 temp.Description = Name;
                 temp.Group = Group;
@@ -242,21 +242,21 @@ namespace Simulator_MPSA.CL
                 temp.Description = Name;
                 temp.Group = Group;
                 temp.En = En;
-                temp.OKCindxArrDI = outputs[0].Index;
-                temp.CKCindxArrDI = outputs[1].Index;
-                temp.VoltindxArrDI = outputs[2].Index;
-                temp.ODCindxArrDI = outputs[3].Index;
-                temp.CDCindxArrDI = outputs[4].Index;
-                temp.MCindxArrDI = outputs[5].Index;
-                temp.DCindxArrDI = outputs[6].Index;
-                temp.BSIndex = outputs[7].Index;
+                temp.OKCindxArrDI = outputs[0]._index;
+                temp.CKCindxArrDI = outputs[1]._index;
+                temp.VoltindxArrDI = outputs[2]._index;
+                temp.ODCindxArrDI = outputs[3]._index;
+                temp.CDCindxArrDI = outputs[4]._index;
+                temp.MCindxArrDI = outputs[5]._index;
+                temp.DCindxArrDI = outputs[6]._index;
+                temp.BSIndex = outputs[7]._index;
 
-                temp.DOBindxArrDO = inputs[0].Index;
-                temp.DCBindxArrDO = inputs[1].Index;
-                temp.DKBindxArrDO = inputs[2].Index;
-                temp.DCBZindxArrDO = inputs[3].Index;
+                temp.DOBindxArrDO = inputs[0]._index;
+                temp.DCBindxArrDO = inputs[1]._index;
+                temp.DKBindxArrDO = inputs[2]._index;
+                temp.DCBZindxArrDO = inputs[3]._index;
 
-                temp.ZD_Pos_index = _analogs[0].Index;
+                temp.ZD_Pos_index = _analogs[0]._index;
 
                 //TODO: добавить запись настроек аналогов
             }
@@ -267,19 +267,19 @@ namespace Simulator_MPSA.CL
                 agr.Description = Name;
                 agr.Group = Group;
                 agr.En = En;
-                agr.MBC11indxArrDI = outputs[0].Index;
-                agr.MBC12indxArrDI = outputs[1].Index;
-                agr.MBC21indxArrDI = outputs[2].Index;
-                agr.MBC22indxArrDI = outputs[3].Index;
+                agr.MBC11indxArrDI = outputs[0]._index;
+                agr.MBC12indxArrDI = outputs[1]._index;
+                agr.MBC21indxArrDI = outputs[2]._index;
+                agr.MBC22indxArrDI = outputs[3]._index;
 
-                agr.ECBindxArrDI = outputs[4].Index;
-                agr.ECO11indxArrDI = outputs[5].Index;
-                agr.ECO12indxArrDI = outputs[6].Index;
-                agr.ECxindxArrDI = outputs[7].Index;
+                agr.ECBindxArrDI = outputs[4]._index;
+                agr.ECO11indxArrDI = outputs[5]._index;
+                agr.ECO12indxArrDI = outputs[6]._index;
+                agr.ECxindxArrDI = outputs[7]._index;
 
-                agr.ABBindxArrDO = inputs[0].Index;
-                agr.ABOindxArrDO = inputs[1].Index;
-                agr.ABO2indxArrDO = inputs[2].Index;
+                agr.ABBindxArrDO = inputs[0]._index;
+                agr.ABOindxArrDO = inputs[1]._index;
+                agr.ABO2indxArrDO = inputs[2]._index;
 
                 /*  agr.CurrentIndx = Analogs[0].Index;
                   agr.Current_nominal = Analogs[0].ValueNom;
