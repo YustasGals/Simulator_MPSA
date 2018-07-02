@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="241*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0" Grid.ColumnSpan="2">
             <Button x:Name="btnLog" Click="btnClear_Click" ToolTip="Очистить лог" IsEnabled="True">
@@ -20,6 +20,6 @@
             </Button>
             
         </ToolBar>
-        <TextBox Margin="10,5,10,10" Grid.Row="1" TextWrapping="Wrap" Text="{Binding LogText}"/>
+        <TextBox x:Name="TextBox_log" Margin="10,5,10,10" Grid.Row="1" TextWrapping="Wrap" Text="{Binding LogText}" VerticalScrollBarVisibility="Visible" TextChanged="TextBox_TextChanged"/>
     </Grid>
 </Window>

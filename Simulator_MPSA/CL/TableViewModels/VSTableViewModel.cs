@@ -36,9 +36,7 @@ namespace Simulator_MPSA.CL
         {
             _vs = new ObservableCollection<VSStruct>();
             _vs.CollectionChanged += VS_CollectionChanged;
-
-            _vs.Add(new VSStruct());
-
+                      
         }
 
         private static void VS_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

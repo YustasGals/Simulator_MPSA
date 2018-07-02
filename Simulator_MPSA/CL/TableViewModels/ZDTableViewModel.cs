@@ -34,7 +34,7 @@ namespace Simulator_MPSA.CL
             ZDs = new ObservableCollection<ZDStruct>();
             _zds.CollectionChanged += _zds_CollectionChanged;
 
-            ZDs.Add(new ZDStruct());
+          //  ZDs.Add(new ZDStruct());
         }
 
         private static void _zds_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)

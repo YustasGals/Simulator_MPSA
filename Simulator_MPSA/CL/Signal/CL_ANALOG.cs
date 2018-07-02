@@ -28,7 +28,7 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public static AIStruct[] itemArray;
 
-        private static bool _enableAutoIndex;
+        private static bool _enableAutoIndex=false;
 
         public static bool EnableAutoIndex
         {
@@ -160,8 +160,8 @@ namespace Simulator_MPSA.CL
         public int PLCAddr
         {
             get {
-                if (_plcAddr == 0)
-                    _plcAddr = indxW + Sett.Instance.BegAddrW;
+               // if (_plcAddr == 0)
+               //     _plcAddr = indxW + Sett.Instance.BegAddrW;
                 return _plcAddr;
             }
             set {

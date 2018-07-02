@@ -109,7 +109,7 @@ namespace Simulator_MPSA
             if (ZD_position_ai != null) ZD_position_ai.fValAI = _ZDProc;
 
             //нет напряжения на секции шин
-            if (BS != null && BS.ValDI)
+            if (BS != null && BS.ValDI==false)
             {
                 if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
                     StateZD = StateZD.Middle;
@@ -750,6 +750,21 @@ namespace Simulator_MPSA
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+
+        /// <summary>
+        /// Установить/снять напряжение на скеции шин извне
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetBusState(bool value)
+        {
+            if (BS == null)
+            {
+                BS = new DIStruct();
+            }
+            if (BSIndex == -1)
+                BS.ValDI = value;
+        }
+
     }
 
 

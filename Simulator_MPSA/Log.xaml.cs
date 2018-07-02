@@ -36,6 +36,11 @@ namespace Simulator_MPSA
         {
             this.Topmost = !Topmost;    
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox_log.ScrollToEnd();
+        }
     }
 
     public class LogViewModel : BaseViewModel

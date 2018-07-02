@@ -673,6 +673,20 @@ namespace Simulator_MPSA
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+
+        /// <summary>
+        /// Установить/снять напряжение на скеции шин извне
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetBusState(bool value)
+        {
+            if (BS == null)
+            {
+                BS = new DIStruct();
+            }
+            if (BusSecIndex == -1)
+            BS.ValDI = value;
+        }
     }
 
 

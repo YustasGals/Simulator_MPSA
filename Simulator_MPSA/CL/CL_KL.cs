@@ -241,7 +241,8 @@ namespace Simulator_MPSA
 
 
         }//
-
+        bool? bDKB=null;
+        bool? bDOB=null;
         /// <summary>
         /// обновление состояния вспомсистемы
         /// </summary>
@@ -249,8 +250,14 @@ namespace Simulator_MPSA
         /// <returns></returns>
         public void UpdateKL(float dt)
         {
-            //открыть
-            if ((DOB != null) && (DOB.ValDO))
+            if (DOB != null)
+                bDOB = DOB.ValDO;
+
+            if (DKB != null)
+                bDKB = DKB.ValDO;
+
+            //открыть если есть команда 
+            if (bDOB==true)
             {
                 if (State == KLState.Close || State == KLState.Middle)
                 {
@@ -258,8 +265,8 @@ namespace Simulator_MPSA
                 }
             }
 
-            //закрыть
-            if ((DKB != null) && (DKB.ValDO))
+            //закрыть если есть команда, если команда "закрыть" не привязана то закрываем при отсутствии команды "открыть"
+            if (bDKB == true || (bDKB==null && bDOB == false))
             {
                 if (State == KLState.Open || State == KLState.Middle)
                 {

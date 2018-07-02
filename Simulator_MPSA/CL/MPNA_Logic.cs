@@ -32,6 +32,20 @@ namespace Simulator_MPSA
             }
         }
         /// <summary>
+        /// Установить/снять напряжение на скеции шин извне
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetBusState(bool value)
+        {
+            if (BS == null)
+            {
+                BS = new DIStruct();
+            }
+            if (BusSecIndex == -1)
+                BS.ValDI = value;
+        }
+
+        /// <summary>
         /// Обновить состояние агрегата
         /// </summary>
         /// <param name="dt">время между циклами сек </param>

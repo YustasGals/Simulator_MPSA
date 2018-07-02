@@ -22,17 +22,20 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public static ObservableCollection<DIStruct> items = new ObservableCollection<DIStruct>();
 
-        /// <summary>
-        /// копия коллекции для быстрого доступа по индексу
-        /// </summary>
-        public static DIStruct[] itemArray;
+        public static int FindByNsign(int nsign)
+        {
+            foreach (DIStruct item in items)
+                if (item.Nsign == nsign) return item.indxArrDI;
+
+            return -1;
+        }
 
         /// <summary>
         /// Для оповещения агрегатов об изменении индекса
         /// </summary>
         public event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
 
-        private static bool _enableAutoIndex;
+        private static bool _enableAutoIndex=false;
 
         public static bool EnableAutoIndex
         {
@@ -110,7 +113,7 @@ namespace Simulator_MPSA.CL
         public bool ForcedValue
         {
             get { return _valDI; }
-            set { _valDI = value; IsChanged = true; }
+            set { _valDI = value; IsChanged = true; OnPropertyChanged("ForcedValue"); }
         }
 
         /// <summary>
@@ -223,7 +226,7 @@ namespace Simulator_MPSA.CL
             get
             { return name; }
         }
-        [XmlIgnore]
+      //  [XmlIgnore]
         public int Nsign
         { set; get; }
         private bool invert;

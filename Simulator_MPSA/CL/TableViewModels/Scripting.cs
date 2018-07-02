@@ -30,6 +30,39 @@ namespace Simulator_MPSA.Scripting
                 return false;
         }
 
+        /// <summary>
+        /// установить состояние секции шин, если сигнал не подвязан
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        public void SetVSBS(int index, bool value)
+        {
+            if (index < VSTableViewModel.VS.Count)
+                VSTableViewModel.VS[index].SetBusState(value);
+        }
+
+        /// <summary>
+        /// установить состоянии секции шин
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        public void SetZDBS(int index, bool value)
+        {
+            if (index < ZDTableViewModel.ZDs.Count)
+                ZDTableViewModel.ZDs[index].SetBusState(value);
+        }
+
+        /// <summary>
+        /// установить состоянии секции шин, МПНА
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="value"></param>
+        public void SetMPNABS(int index, bool value)
+        {
+            if (index < MPNATableViewModel.MPNAs.Count)
+                MPNATableViewModel.MPNAs[index].SetBusState(value);
+        }
+
         public bool GetMPNAState(int index)
         {
             if (index < MPNATableViewModel.MPNAs.Count)

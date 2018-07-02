@@ -913,13 +913,13 @@ namespace Simulator_MPSA.CL
         static void ReadTableDO(StreamReader reader, out int count)
         {
             count = 0;
-            string line;
-            //CultureInfo culture = new CultureInfo("ru-RU");
-            CultureInfo culture = new CultureInfo("en-US");
+            string line="";
+            CultureInfo culture = new CultureInfo("ru-RU");
+            //CultureInfo culture = new CultureInfo("en-US");
             //считываем страницу DI
             try
             {
-                reader.ReadLine();//пропускаем строку с заголовками
+                line=reader.ReadLine();//пропускаем строку с заголовками
                 List<DOStruct> items = new List<DOStruct>();
                 while (!reader.EndOfStream)
                 {
@@ -928,9 +928,11 @@ namespace Simulator_MPSA.CL
                     if (!line.Contains(pageSeparator))
                     {
                         string[] values = line.Split('\t');
-                        if (values.Count() < 11)
+                        if (values.Count() < 10)
                         {
-                            System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                            //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
+                            //throw new Exception("недостаточно параметров в строке ("+values.Count()+")");
+                            continue;
                         }
                         DOStruct item = new DOStruct();
                         item.En = bool.Parse(values[0]);
@@ -970,7 +972,8 @@ namespace Simulator_MPSA.CL
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DO:\n\r" + ex.Message);
+                System.Windows.Forms.MessageBox.Show("Ошибка импорта таблицы DO:\n\r" + ex.Message + "\n\r" + line);
+                reader.Dispose();
             }
         }
 

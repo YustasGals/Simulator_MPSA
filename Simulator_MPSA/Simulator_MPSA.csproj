@@ -127,6 +127,7 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CL\ExcelImporter\ExcelImporter.cs" />
     <Compile Include="CL\Signal\AOStruct.cs" />
     <Compile Include="CL\ImportDialog.xaml.cs">
       <DependentUpon>ImportDialog.xaml</DependentUpon>

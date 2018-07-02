@@ -22,6 +22,7 @@ using System.Xml;
 //using System.Windows.Forms;
 using System.IO;
 using System.Xml.Serialization;
+
 using System.Data;
 using Simulator_MPSA.CL;
 using System.Windows.Forms;
@@ -29,6 +30,7 @@ using System.ComponentModel;
 using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
 using Simulator_MPSA.ViewModel;
+using Simulator_MPSA.CL.ExcelImporter;
 using Opc;
 using OpcCom;
 using OpcXml;
@@ -487,6 +489,7 @@ namespace Simulator_MPSA
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
                     currentFileName = dialog.FileName;
+                    label_filename.Content = currentFileName;
                     btnSave.IsEnabled = true;
                   //  btnSaveAs.IsEnabled = true;
                 //    isConfigLoaded = true;
@@ -575,6 +578,7 @@ namespace Simulator_MPSA
                 s.Save(dialog.FileName);
 
                 currentFileName = dialog.FileName;
+                label_filename.Content = currentFileName;
                 btnSave.IsEnabled = true;
             }
         }
@@ -944,6 +948,24 @@ namespace Simulator_MPSA
                 }
             }
         }
+
+        private void MPNAMenu_settings_Click(object sender, RoutedEventArgs e)
+        {
+            if ((dialog != null) && (dialog.IsLoaded))
+            {
+                dialog.Activate();
+                //         dialog.Close();
+            }
+            else
+            {
+                MPNAStruct temp = dataGridMPNA.SelectedItem as MPNAStruct;
+                if (temp != null)
+                {
+                    dialog = new SetupDialog(temp);
+                    dialog.Show();
+                }
+            }
+        }
         #endregion
         private void OnCounterTableChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
@@ -1153,8 +1175,9 @@ namespace Simulator_MPSA
 
             currentFileName = "";
             btnSave.IsEnabled = false;
-          //  btnSaveAs.IsEnabled = false;
+            //  btnSaveAs.IsEnabled = false;
 
+            label_filename.Content = "";
             LogViewModel.WriteLine("Новая конфигурация создана");
         }
 
@@ -1383,6 +1406,38 @@ namespace Simulator_MPSA
                 {
                     Process.Start("checkReport.txt");
                 }
+            }
+        }
+
+        private void DIMenu_set_Click(object sender, RoutedEventArgs e)
+        {
+            // <DIViewModel> items = (dataGridDI.SelectedItems as IList<DIViewModel>);
+            List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
+            if (items!=null)
+            foreach (DIViewModel item in items)
+                item.ForcedValue = true;
+        }
+
+        private void DIMenu_reset_click(object sender, RoutedEventArgs e)
+        {
+            //IList<DIViewModel> items = (dataGridDI.SelectedItems as IList<DIViewModel>);
+            List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
+            if (items != null)
+                foreach (DIViewModel item in items)
+                item.ForcedValue = false;
+        }
+        //================================================   ИМПОРТ ИЗ ФАЙЛА ПЕРЕМЕННЫХ ==============================================================================
+
+
+        private void Menu_ImportXLS(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.OpenFileDialog fd = new System.Windows.Forms.OpenFileDialog();
+            if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string conString =ExcelImporter.GetConnectionString(fd.FileName);
+                conString.Replace("\\","\\\\");
+                LogViewModel.WriteLine("Открываю файл переменных: " + conString);
+                ExcelImporter.ReadExcelFile(conString);
             }
         }
     }

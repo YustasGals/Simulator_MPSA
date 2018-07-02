@@ -22,14 +22,17 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public static ObservableCollection<DOStruct> items = new ObservableCollection<DOStruct>();
 
-        /// <summary>
-        /// Копия коллекции для более быстрого доступа по индексу
-        /// </summary>
-        public static DOStruct[] itemArray;
+        public static int FindByNsign(int nsign)
+        {
+            foreach (DOStruct item in items)
+                if (item.Nsign == nsign) return item.indxArrDO;
+
+            return -1;
+        }
 
         public event EventHandler<IndexChangedEventArgs> IndexChanged = delegate { };
 
-        private static bool _enableAutoIndex;
+        private static bool _enableAutoIndex=false;
 
         public static bool EnableAutoIndex
         {
@@ -113,6 +116,7 @@ namespace Simulator_MPSA.CL
                     _ValDO = value;
                  //   OnPropertyChanged("Value");
                     OnPropertyChanged("ValDO");
+                    OnPropertyChanged("ForcedValue");
                 }
             }
         }

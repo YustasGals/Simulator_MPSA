@@ -23,6 +23,14 @@ namespace Simulator_MPSA
             get { return _index; }
             set { _index = value; OnPropertyChanged("Index"); }
         }
+
+        /// <summary>
+        /// наличие напряжения на секции шин
+        /// </summary>
+        private DIStruct BS;
+
+        private int BusSecIndex
+        { set; get; }
         /// <summary>
         /// команда на включение
         /// </summary>
