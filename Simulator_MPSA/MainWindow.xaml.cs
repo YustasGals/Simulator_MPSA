@@ -841,6 +841,9 @@ namespace Simulator_MPSA
 
                 if (logWindow != null)
                     logWindow.Close();
+
+                if (editor != null)
+                    editor.Close();
             }
             else
             {
@@ -1131,15 +1134,20 @@ namespace Simulator_MPSA
                 tabZD.Visibility = Visibility.Visible;
         }
 
-
+        ScriptEditor editor;
         private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
         {
             ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
 
+
             if (script != null)
             {
-                ScriptEditor editor = new ScriptEditor(script);
-                editor.ShowDialog();
+                if (editor != null)
+                    editor.Close();
+
+                editor = new ScriptEditor(script);
+                    
+                editor.Show();
             }
            
         }
@@ -1267,6 +1275,7 @@ namespace Simulator_MPSA
 
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
         {
+            if (Process.GetProcessesByName("hh").Length ==0)
             Process.Start("SimHelp.chm");
         }
 

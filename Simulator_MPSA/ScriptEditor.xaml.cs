@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Simulator_MPSA.Scripting;
 using System.Diagnostics;
+using ICSharpCode.AvalonEdit;
+using System.IO;
+using System.Xml;
+
 namespace Simulator_MPSA
 {
     /// <summary>
@@ -27,7 +31,14 @@ namespace Simulator_MPSA
 
             this.script = script;
             Editor.Text = script.ScriptTxt;
-
+            using (Stream s = File.OpenRead("resources/lua.xshd"))
+            {
+                using (XmlTextReader reader = new XmlTextReader(s))
+                {
+                    Editor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.Xshd.HighlightingLoader.Load
+                        (reader, ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance);
+                }
+            }
         }
 
         private void On_ButtonClose(object sender, RoutedEventArgs e)
@@ -42,7 +53,13 @@ namespace Simulator_MPSA
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("SimHelp.chm");
+            Process[] processes = Process.GetProcessesByName("hh");
+            if (processes.Length > 0)
+                processes[0].Kill();
+
+
+        //    if (Process.GetProcessesByName("hh").Length == 0)
+                Process.Start("SimHelp.chm");
         }
 
         private void On_Run(object sender, RoutedEventArgs e)

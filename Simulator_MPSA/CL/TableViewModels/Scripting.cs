@@ -17,6 +17,7 @@ namespace Simulator_MPSA.Scripting
     /// </summary>
     class Utils
     {
+        public float dt;
         public float GetZDProc(int index)
         {
             return ZDTableViewModel.ZDs[index].ZDProc;
@@ -112,6 +113,17 @@ namespace Simulator_MPSA.Scripting
             if (index >= 0 && index < DIStruct.items.Count)
                 DIStruct.items[index].ValDI = value;
         }
+        public bool GetDI(int index)
+        {
+            //  DIStruct di = DIStruct.FindByIndex(index);
+            //  if (di != null)
+            //      di.ValDI = value;
+            if (index >= 0 && index < DIStruct.items.Count)
+              return  DIStruct.items[index].ValDI;
+            //else
+            return false;
+        }
+
         public bool GetDO(int index)
         {
             //DOStruct d = DOStruct.FindByIndex(index);
@@ -134,6 +146,21 @@ namespace Simulator_MPSA.Scripting
             //  Debug.WriteLine("hello");
             LogViewModel.WriteLine(text);
         //    System.Windows.MessageBox.Show("hello");
+        }
+
+        /// <summary>
+        /// возвращает время в мсек
+        /// </summary>
+        /// <returns></returns>
+        public long GetTime()
+        {
+            DateTime now = DateTime.Now;
+            return (now.Millisecond + now.Second * 1000 + now.Minute * 60000 + now.Hour * 24 * 60 * 1000);
+        }
+
+        public float GetDeltaTime()
+        {
+            return dt;
         }
     }
 
@@ -180,6 +207,7 @@ namespace Simulator_MPSA.Scripting
         private bool needInit = true;
         Lua lua = new Lua();
         private Utils utils = new Utils();
+        private Utils sim = new Utils();
         LuaFunction funcInit;
         LuaFunction funcUpdate;
 
@@ -194,7 +222,7 @@ namespace Simulator_MPSA.Scripting
                     string err = "";
 
                     lua["dt"] = dt;
-                    
+                    utils.dt = dt;
                     
                     if (needInit)
                     {
@@ -238,6 +266,7 @@ namespace Simulator_MPSA.Scripting
         public ScriptInfo()
         {
             lua["Utils"] = utils;
+            lua["Sim"] = utils;
             ScriptTxt = "function Init()\n\r" +
                         "end \n\r" +
                         "function Update()\n\r" +

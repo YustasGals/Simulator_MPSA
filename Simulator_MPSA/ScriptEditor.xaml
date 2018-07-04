@@ -41,7 +41,16 @@
             </Button>
 
         </ToolBar>
-        <TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/>
+        <!--TextBox x:Name="Editor" Margin="5,5,10,10" Grid.Row="1" TextWrapping="Wrap" AcceptsReturn="true" FontFamily="Consolas" FontSize="14" VerticalScrollBarVisibility="Auto"/-->
+        <avalonEdit:TextEditor
 
+    xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
+     Grid.Row="1" 
+    Name="Editor"
+
+    FontFamily="Consolas"
+
+    ShowLineNumbers="true"
+    FontSize="10pt"/>
     </Grid>
 </Window>
