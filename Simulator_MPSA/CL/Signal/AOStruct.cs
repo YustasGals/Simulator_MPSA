@@ -51,6 +51,7 @@ namespace Simulator_MPSA.CL
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as AOStruct).indx = items.Count-1;
+                    LogWriter.AppendLog("Добавлен сигнал AO: "+ (e.NewItems[0] as AOStruct).Name+Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -67,11 +68,12 @@ namespace Simulator_MPSA.CL
                     {
                         items[i].indx = i;
                     }
+                    LogWriter.AppendLog("Удален сигнал AO: " + (e.OldItems[0] as AOStruct).Name+Environment.NewLine);
 
-                        break;
+                    break;
             }
             //  Debug.WriteLine("AO count: " + items.Count.ToString());
-            LogViewModel.WriteLine("Изменение таблицы AO");
+         //   LogViewModel.WriteLine("Изменение таблицы AO");
         }
 
         

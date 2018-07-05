@@ -61,6 +61,7 @@ namespace Simulator_MPSA.CL
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as DOStruct).indxArrDO = items.Count - 1;
+                    LogWriter.AppendLog("Добавлен сигнал DO: "+(e.NewItems[0] as DOStruct).NameDO+Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -68,11 +69,11 @@ namespace Simulator_MPSA.CL
                     {
                         items[i].indxArrDO = i;
                     }
-
+                    LogWriter.AppendLog("Удален сигнал DO: " + (e.OldItems[0] as DOStruct).NameDO+Environment.NewLine);
                     break;
             }
             //           Debug.WriteLine("DO count: " + items.Count.ToString());
-            LogViewModel.WriteLine("Изменение таблицы DO");
+           // LogViewModel.WriteLine("Изменение таблицы DO");
 
         }
 
@@ -97,6 +98,9 @@ namespace Simulator_MPSA.CL
             set {
                 if (Forced)
                 _ValDO = value;
+
+                if (ValueChanged != null)
+                  ValueChanged(this, new EventArgs());
             }
             get { return _ValDO; }
         }
@@ -117,6 +121,9 @@ namespace Simulator_MPSA.CL
                  //   OnPropertyChanged("Value");
                     OnPropertyChanged("ValDO");
                     OnPropertyChanged("ForcedValue");
+
+                    if (ValueChanged != null)
+                        ValueChanged(this, new EventArgs());
                 }
             }
         }
@@ -240,6 +247,10 @@ namespace Simulator_MPSA.CL
             else return "сигнал не определен";
         }
 
+        /// <summary>
+        /// изменение значения
+        /// </summary>
+        public event EventHandler ValueChanged;
    //     public EventHandler OnIndexChanged = delegate { };
 
     }

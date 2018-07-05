@@ -66,7 +66,7 @@ namespace Simulator_MPSA
         {
             RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
             LogViewModel.WriteLine("Размер буфера чтения обновлен: "+RB.R.Count().ToString() +" рег.");
-
+            
         }
     }
     public static class WB
@@ -96,7 +96,7 @@ namespace Simulator_MPSA
             WB.W_a3 = new ushort[Sett.Instance.A3BufSize];
             WB.W_a3_prev = new ushort[WB.W_a3.Length];
 
-            WB.W_a4 = new ushort[Sett.Instance.A3BufSize];
+            WB.W_a4 = new ushort[Sett.Instance.A4BufSize];
             WB.W_a4_prev = new ushort[WB.W_a4.Length];
 
             LogViewModel.WriteLine("Размеры буферов записи обновлены: " + WB.W.Count().ToString() +"/"+WB.W_a3.Count().ToString()+"/"+WB.W_a4.Count().ToString()+ " рег.");
@@ -109,6 +109,15 @@ namespace Simulator_MPSA
         public static ushort usR;
         public static ushort usW;
 
+    }
+    public static class LogWriter
+    {
+        public static MainWindow mw;
+        public static void AppendLog(string line)
+        {
+            if (mw != null)
+                mw.log.AppendText(line);
+        }
     }
 
     /// <summary>
@@ -218,7 +227,8 @@ namespace Simulator_MPSA
             int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
 
             configKey.SetValue("ConfigMode", ConfMode);
-         //   SetConfigMode(/*ConfMode != 0*/true);
+            //   SetConfigMode(/*ConfMode != 0*/true);
+            LogWriter.mw = this;
         }
 
 
@@ -555,6 +565,8 @@ namespace Simulator_MPSA
                         tabZD.Visibility = Visibility.Collapsed;
                     else
                         tabZD.Visibility = Visibility.Visible;
+
+                    LogWriter.AppendLog("Конфигурация загружена");
                 }
         }
         /// <summary>
@@ -595,7 +607,8 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
-                LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
+                //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
+                log.AppendText("Файл конфигурации сохранен : " + currentFileName +Environment.NewLine);
             }
         }
         /// <summary>
@@ -653,12 +666,13 @@ namespace Simulator_MPSA
                     watchThread.Start();
 
                     statusText.Content = "Запущен";
-                    statusText.Background = System.Windows.Media.Brushes.Green;
+                    statusText.Background = System.Windows.Media.Brushes.LightGreen;
                     btnStart.IsEnabled = false;
 
                     btnStop.IsEnabled = true;
 
-                    LogViewModel.WriteLine("Симулятор запущен");
+                   // LogViewModel.WriteLine("Симулятор запущен");
+                    log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") +Environment.NewLine);
             
                 }
             //    else
@@ -739,7 +753,8 @@ namespace Simulator_MPSA
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            LogViewModel.WriteLine("Симулятор остановлен");
+            // LogViewModel.WriteLine("Симулятор остановлен");
+            log.AppendText("Симулятор остановлен"+Environment.NewLine);
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
@@ -782,9 +797,9 @@ namespace Simulator_MPSA
             //foreach (DIStruct di in DIStruct.items)
             //     di.ValDI = false;
 
-            foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+          /*  foreach (ZDStruct zd in ZDTableViewModel.ZDs)
                 zd.Reset();
-
+*/
             //foreach (MPNAStruct mna in MPNATableViewModel.MPNAs)
 
             //TODO: добавить сброс остальных систем
@@ -1186,7 +1201,8 @@ namespace Simulator_MPSA
             //  btnSaveAs.IsEnabled = false;
 
             label_filename.Content = "";
-            LogViewModel.WriteLine("Новая конфигурация создана");
+            //LogViewModel.WriteLine("Новая конфигурация создана");
+            log.AppendText("Новая конфигурация создана"+Environment.NewLine);
         }
 
         private void Menu_Export(object sender, RoutedEventArgs e)
@@ -1445,9 +1461,16 @@ namespace Simulator_MPSA
             {
                 string conString =ExcelImporter.GetConnectionString(fd.FileName);
                 conString.Replace("\\","\\\\");
-                LogViewModel.WriteLine("Открываю файл переменных: " + conString);
+                //LogViewModel.WriteLine("Открываю файл переменных: " + conString);
+                log.AppendText("Открываю файл переменных: " + conString + " ..."+Environment.NewLine);
                 ExcelImporter.ReadExcelFile(conString);
+            
             }
+        }
+
+        private void log_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            log.ScrollToEnd();
         }
     }
 

@@ -60,6 +60,7 @@ namespace Simulator_MPSA.CL
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as AIStruct).indxAI = items.Count - 1;
+                    LogWriter.AppendLog("Добавлен сигнал AI: "+ (e.NewItems[0] as AIStruct).NameAI+Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -72,6 +73,7 @@ namespace Simulator_MPSA.CL
                                i++;
                            }
                        }*/
+                    LogWriter.AppendLog("Добавлен сигнал AI: " + (e.OldItems[0] as AIStruct).NameAI + Environment.NewLine);
                     for (int i = 0; i < items.Count; i++)
                     {
                         items[i].indxAI = i;

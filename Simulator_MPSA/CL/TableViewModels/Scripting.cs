@@ -30,7 +30,7 @@ namespace Simulator_MPSA.Scripting
             else
                 return false;
         }
-
+        /*
         /// <summary>
         /// установить состояние секции шин, если сигнал не подвязан
         /// </summary>
@@ -63,7 +63,7 @@ namespace Simulator_MPSA.Scripting
             if (index < MPNATableViewModel.MPNAs.Count)
                 MPNATableViewModel.MPNAs[index].SetBusState(value);
         }
-
+        */
         public bool GetMPNAState(int index)
         {
             if (index < MPNATableViewModel.MPNAs.Count)
@@ -145,6 +145,7 @@ namespace Simulator_MPSA.Scripting
         {
             //  Debug.WriteLine("hello");
             LogViewModel.WriteLine(text);
+            LogWriter.AppendLog(text + Environment.NewLine);
         //    System.Windows.MessageBox.Show("hello");
         }
 
@@ -231,6 +232,7 @@ namespace Simulator_MPSA.Scripting
                         needInit = false;
                         funcInit = lua.GetFunction("Init");
                         funcUpdate = lua.GetFunction("Update");
+
                         if (funcInit == null)
                         {
                             err += "Функция Init не определена; ";
@@ -271,7 +273,24 @@ namespace Simulator_MPSA.Scripting
                         "end \n\r" +
                         "function Update()\n\r" +
                         "end";
-           
+
+            lua.RegisterFunction("SetDI", utils,typeof(Utils).GetMethod("SetDI"));
+            lua.RegisterFunction("GetDI", utils, typeof(Utils).GetMethod("GetDI"));
+
+            lua.RegisterFunction("SetAI", utils, typeof(Utils).GetMethod("SetAI"));
+            lua.RegisterFunction("GetAI", utils, typeof(Utils).GetMethod("GetAI"));
+            lua.RegisterFunction("ChangeAI", utils, typeof(Utils).GetMethod("ChangeAI"));
+
+            lua.RegisterFunction("GetAO", utils, typeof(Utils).GetMethod("GetAO"));
+            lua.RegisterFunction("GetDO", utils, typeof(Utils).GetMethod("GetDO"));
+
+            lua.RegisterFunction("GetZDProc", utils, typeof(Utils).GetMethod("GetZDProc"));
+            lua.RegisterFunction("GetVSState", utils, typeof(Utils).GetMethod("GetVSState"));
+            lua.RegisterFunction("GetKLState", utils, typeof(Utils).GetMethod("GetKLState"));
+            lua.RegisterFunction("GetMPNAState", utils, typeof(Utils).GetMethod("GetMPNAState"));
+
+
+            lua.RegisterFunction("Print", utils, typeof(Utils).GetMethod("Print"));
         }
         public void Prepare()
         {

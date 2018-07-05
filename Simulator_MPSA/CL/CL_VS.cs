@@ -56,15 +56,40 @@ namespace Simulator_MPSA
                 if (_bussec_index != value || BS == null)
                 {
                     if (BS != null)
+                    {
                         BS.IndexChanged -= BS_IndexChanged;
-
+                        BS.PropertyChanged -= BS_PropertyChanged;
+                    }
                     _bussec_index = value;
                     if (value > -1)
                         BS = DIStruct.FindByIndex(value);
-
+                   
                     if (BS != null)
+                    {
                         BS.IndexChanged += BS_IndexChanged;
+                        BS.PropertyChanged += BS_PropertyChanged;
+                    }
                 }
+            }
+        }
+
+        private void BS_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // throw new NotImplementedException();
+            OnPropertyChanged("BSVoltage");
+        }
+        [XmlIgnore]
+        public bool? BSVoltage
+        {
+            set
+            {
+            }
+            get
+            {
+                if (BS != null)
+                    return BS.ValDI;
+                else
+                    return null;
             }
         }
 
@@ -651,6 +676,13 @@ namespace Simulator_MPSA
         /// </summary>
         public void ManualStart()
         {
+            LogWriter.AppendLog(Description + ": Пуск по месту");
+            //--напряжение на секции шин, сигнал назначен --
+            if (BS != null && BS.ValDI == false)
+            {
+                LogWriter.AppendLog(Description + ": Пуск невозможен, нет напряжения на секции шин (сигнал: "+BS.NameDI+")"+Environment.NewLine);
+            }
+
             if (state == VSState.Stop || state == VSState.Stoping)
             if (MPC_DI != null) MPC_DI.ValDI = true;
             State = VSState.Work;
@@ -661,6 +693,7 @@ namespace Simulator_MPSA
         /// </summary>
         public void ManualStop()
         {
+            LogWriter.AppendLog(Description + ": Стоп по месту");
             if (MPC_DI != null) MPC_DI.ValDI = false;
 
             if (state == VSState.Starting || state == VSState.Work)

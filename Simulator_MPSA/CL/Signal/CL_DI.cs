@@ -64,6 +64,7 @@ namespace Simulator_MPSA.CL
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as DIStruct).indxArrDI = items.Count - 1;
+                    LogWriter.AppendLog("Добавлен сигнал DI: " + (e.NewItems[0] as DIStruct).NameDI + Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -76,6 +77,7 @@ namespace Simulator_MPSA.CL
                                i++;
                            }
                        }*/
+                    LogWriter.AppendLog("Удален сигнал DI: " + (e.OldItems[0] as DIStruct).NameDI + Environment.NewLine);
                     for (int i = 0; i < items.Count; i++)
                     {
                         items[i].indxArrDI = i;
@@ -83,8 +85,6 @@ namespace Simulator_MPSA.CL
 
                     break;
             }
-            //  Debug.WriteLine("DI count: " + items.Count.ToString());
-            LogViewModel.WriteLine("Изменение таблицы DI");
         }
 
         public bool En
@@ -101,6 +101,8 @@ namespace Simulator_MPSA.CL
 
                     _valDI = value;
                     OnPropertyChanged("ForcedValue");
+                    if (ValueChanged != null)
+                      ValueChanged(this, new EventArgs());
                 }
             }
             get
@@ -113,7 +115,15 @@ namespace Simulator_MPSA.CL
         public bool ForcedValue
         {
             get { return _valDI; }
-            set { _valDI = value; IsChanged = true; OnPropertyChanged("ForcedValue"); }
+            set
+            {
+                _valDI = value;
+                IsChanged = true;
+                OnPropertyChanged("ForcedValue");
+
+                if (ValueChanged != null)
+                  ValueChanged(this, new EventArgs());
+            }
         }
 
         /// <summary>
@@ -281,13 +291,16 @@ namespace Simulator_MPSA.CL
                 return items[index].NameDI;
             else return "сигнал не определен";
         }
-
+       // [XmlIgnore]
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+      //  [XmlIgnore]
+        public event EventHandler ValueChanged;
+
 
     }
 
