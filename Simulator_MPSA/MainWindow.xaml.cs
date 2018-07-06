@@ -113,10 +113,12 @@ namespace Simulator_MPSA
     public static class LogWriter
     {
         public static MainWindow mw;
+        static DateTime now;
         public static void AppendLog(string line)
         {
+            now = DateTime.Now;
             if (mw != null)
-                mw.log.AppendText(line);
+                mw.log.AppendText(now.Hour.ToString()+":"+now.Minute.ToString()+":"+now.Second.ToString()+":  "+ line);
         }
     }
 
@@ -566,7 +568,7 @@ namespace Simulator_MPSA
                     else
                         tabZD.Visibility = Visibility.Visible;
 
-                    LogWriter.AppendLog("Конфигурация загружена");
+                    LogWriter.AppendLog("Конфигурация загружена"+Environment.NewLine);
                 }
         }
         /// <summary>

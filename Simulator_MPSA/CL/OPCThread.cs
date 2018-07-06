@@ -170,7 +170,8 @@ namespace Simulator_MPSA.CL
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
+                    //System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
+                    LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
                 }
 
                 Thread.Sleep(period);

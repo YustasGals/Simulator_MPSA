@@ -289,6 +289,8 @@ namespace Simulator_MPSA.Scripting
             lua.RegisterFunction("GetKLState", utils, typeof(Utils).GetMethod("GetKLState"));
             lua.RegisterFunction("GetMPNAState", utils, typeof(Utils).GetMethod("GetMPNAState"));
 
+            lua.RegisterFunction("GetDeltaTime", utils, typeof(Utils).GetMethod("GetDeltaTime"));
+            
 
             lua.RegisterFunction("Print", utils, typeof(Utils).GetMethod("Print"));
         }
