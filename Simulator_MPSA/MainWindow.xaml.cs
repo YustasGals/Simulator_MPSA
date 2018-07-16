@@ -30,7 +30,8 @@ using System.ComponentModel;
 using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
 using Simulator_MPSA.ViewModel;
-using Simulator_MPSA.CL.ExcelImporter;
+using Simulator_MPSA.CL.Signal;
+using Simulator_MPSA.ViewModel;
 using Opc;
 using OpcCom;
 using OpcXml;
@@ -110,17 +111,21 @@ namespace Simulator_MPSA
         public static ushort usW;
 
     }
-    public static class LogWriter
+    static class LogWriter
     {
-        public static MainWindow mw;
+        public static MainWindow refMainWindow;
         static DateTime now;
         public static void AppendLog(string line)
         {
             now = DateTime.Now;
-            if (mw != null)
-                mw.log.AppendText(now.Hour.ToString()+":"+now.Minute.ToString()+":"+now.Second.ToString()+":  "+ line);
+            if (refMainWindow != null)
+            {
+
+                    refMainWindow.log.AppendText(now.Hour.ToString() + ":" + now.Minute.ToString() + ":" + now.Second.ToString() + ":  " + line + Environment.NewLine);
+            }
         }
     }
+
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -136,12 +141,16 @@ namespace Simulator_MPSA
         public DEndWrite EndCycle4;
         public DEndWrite EndCycle5;
         public DEndWrite EndCycle6;
+        public DWriteLog WriteLog;
 
         public delegate void DDisconnected();
         public DDisconnected delegateDisconnected;
 
         public delegate void DEndRead();
         public DEndRead delegateEndRead;
+
+        public delegate void DWriteLog(string text);
+        public DWriteLog delgateWriteLog;
 
         MainViewModel mainVM = new MainViewModel();
 
@@ -160,6 +169,8 @@ namespace Simulator_MPSA
             InitializeComponent();
 
             DataContext = mainVM;
+
+            ScriptInfo.refMainWindow = this;
 
             RB.InitBuffer();
             WB.InitBuffers();
@@ -200,8 +211,8 @@ namespace Simulator_MPSA
             dataGridMPNA.DataContext = MPNATableViewModel.Instance;
 
  
-            ScriptInfo.Init();
-            dataGridScript.ItemsSource = ScriptInfo.Items;
+            ScriptTableViewModel.Init();
+            dataGridScript.ItemsSource = ScriptTableViewModel.Items;
 
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
@@ -212,6 +223,8 @@ namespace Simulator_MPSA
             EndCycle4 += new DEndWrite(On_WritingCycle4End);
             EndCycle5 += new DEndWrite(On_WritingCycle5End);
             EndCycle6 += new DEndWrite(On_WritingCycle6End);
+            WriteLog += new DWriteLog(On_WriteLog);
+            
 
 
             delegateDisconnected += new DDisconnected(On_Disconnected);
@@ -219,7 +232,7 @@ namespace Simulator_MPSA
 
             // myDelegate += new ddd(On_WritingCycleEnd);
 
-
+            
             string subkey = @"software\NA\Simulator";
             //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
 
@@ -230,7 +243,7 @@ namespace Simulator_MPSA
 
             configKey.SetValue("ConfigMode", ConfMode);
             //   SetConfigMode(/*ConfMode != 0*/true);
-            LogWriter.mw = this;
+            LogWriter.refMainWindow = this;
         }
 
 
@@ -275,8 +288,8 @@ namespace Simulator_MPSA
 
 
 
-                if (ScriptInfo.Items != null && ScriptInfo.Items.Count>0)
-                    foreach (Scripting.ScriptInfo script in Scripting.ScriptInfo.Items)
+                if (ScriptTableViewModel.Items != null && ScriptTableViewModel.Items.Count>0)
+                    foreach (ScriptInfo script in ScriptTableViewModel.Items)
                         script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
                 //for (int i = 0; i < AIStruct.items.Length; i++)
@@ -480,35 +493,44 @@ namespace Simulator_MPSA
         /// <param name="e"></param>
         private void Menu_OpenAll(object sender, RoutedEventArgs e)
         {
-            Station station = new Station();
+          
 
             System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.Filter = "XML Files (*.xml)|*.xml";
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
 
-           /* DITab.DataContext = null;
+           DITab.DataContext = null;
             AITab.DataContext = null;
             DOTab.DataContext = null;
-            AOTab.DataContext = null;*/
+            AOTab.DataContext = null;
 
             AIStruct.EnableAutoIndex = false;
             AOStruct.EnableAutoIndex = false;
             DIStruct.EnableAutoIndex = false;
             DOStruct.EnableAutoIndex = false;
 
+        /*    backgroundLoader = new BackgroundWorker();
+            backgroundLoader.DoWork += BackgroundLoader_DoWork;
+            backgroundLoader.RunWorkerCompleted += BackgroundLoader_RunWorkerCompleted;
+*/
+            Station station = new Station();
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                //       station.filename = dialog.FileName;
+                //  waitWindow = new WaitWindow();
+                // waitWindow.Show();
+                // backgroundLoader.RunWorkerAsync(dialog.FileName);
                 if (station.Load(dialog.FileName) == StationLoadResult.OK)
                 {
                     currentFileName = dialog.FileName;
                     label_filename.Content = currentFileName;
                     btnSave.IsEnabled = true;
-                  //  btnSaveAs.IsEnabled = true;
-                //    isConfigLoaded = true;
-                  /*  DITab.DataContext = divm;
+
+                    DITab.DataContext = divm;
                     AITab.DataContext = aivm;
                     DOTab.DataContext = dovm;
-                    AOTab.DataContext = aovm;*/
+                    AOTab.DataContext = aovm;
 
                     AIStruct.EnableAutoIndex = true;
                     AOStruct.EnableAutoIndex = true;
@@ -518,18 +540,12 @@ namespace Simulator_MPSA
                     WB.InitBuffers();
                     RB.InitBuffer();
 
-
-               //     dataGridCounters.ItemsSource = CountersTableViewModel.Counters;
-
-
                     dataGridVS.DataContext = VSTableViewModel.Instance;
                     dataGridKL.DataContext = KLTableViewModel.Instance;
                     dataGridMPNA.DataContext = MPNATableViewModel.Instance;
                     dataGridZD.DataContext = ZDTableViewModel.Instance;
 
-            //        dataGridDiag.ItemsSource = DiagTableModel.Instance.viewSource.View;
-
-                    dataGridScript.ItemsSource = Scripting.ScriptInfo.Items;
+                    dataGridScript.ItemsSource = ScriptTableViewModel.Items;
 
                     MenuItem_showMPNA.IsChecked = Sett.Instance.ShowTab_MPNA;
                     if (!MenuItem_showMPNA.IsChecked)
@@ -537,19 +553,6 @@ namespace Simulator_MPSA
                     else
                         tabMPNA.Visibility = Visibility.Visible;
 
-             /*       MenuItem_showCounters.IsChecked = Sett.Instance.ShowTab_Counter;
-                    if (!MenuItem_showCounters.IsChecked)
-                        tabDiagUSO.Visibility = Visibility.Collapsed;
-                    else
-                        tabDiagUSO.Visibility = Visibility.Visible;
-
-
-                    MenuItem_showDiag.IsChecked = Sett.Instance.ShowTab_Diag;
-                    if (!MenuItem_showCounters.IsChecked)
-                        tabDiagMod.Visibility = Visibility.Collapsed;
-                    else
-                        tabDiagMod.Visibility = Visibility.Visible;
-*/
                     MenuItem_showKL.IsChecked = Sett.Instance.ShowTab_KL;
                     if (!MenuItem_showKL.IsChecked)
                         tabKL.Visibility = Visibility.Collapsed;
@@ -568,9 +571,16 @@ namespace Simulator_MPSA
                     else
                         tabZD.Visibility = Visibility.Visible;
 
-                    LogWriter.AppendLog("Конфигурация загружена"+Environment.NewLine);
+                    LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
                 }
+            }
+
+           
+        
         }
+
+    
+
         /// <summary>
         /// сохранение в один xml
         /// </summary>
@@ -589,6 +599,8 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 s.settings = Sett.Instance;
 
+               
+
                 s.Save(dialog.FileName);
 
                 currentFileName = dialog.FileName;
@@ -596,6 +608,8 @@ namespace Simulator_MPSA
                 btnSave.IsEnabled = true;
             }
         }
+
+
 
         /// <summary>
         /// сохранить текущий
@@ -686,6 +700,10 @@ namespace Simulator_MPSA
             }
         }
 
+        private void On_WriteLog(string text)
+        {
+            LogWriter.AppendLog(text);
+        }
         #region WriteReadCycleEnd
         //------------ вызывается каждую итерацию цикла записи ----------------
         private void On_WritingCycleEnd()
@@ -882,6 +900,10 @@ namespace Simulator_MPSA
             //         (e.Source as VSStruct).ManualStop();
             (dataGridVS.SelectedItem as VSStruct).ManualStart();
         }
+        private void VSMenu_toggle_BS_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridVS.SelectedItem as VSStruct).ToggleBusState();
+        }
 
         private void VSMenu_settings_Click(object sender, RoutedEventArgs e)
         {
@@ -899,6 +921,10 @@ namespace Simulator_MPSA
                     dialog.Show();
                 }
             }
+        }
+        private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            VSMenu_settings_Click(sender, e);
         }
 
         private void ZDMenu_open_Click(object sender, RoutedEventArgs e)
@@ -992,89 +1018,6 @@ namespace Simulator_MPSA
             
         }
 
-/*
-        void SetConfigMode(bool e)
-        {
-            if (e)
-            {
-                DataGridAI_Addr.Visibility = Visibility.Visible;
-        //        DataGridAI_Buf.Visibility = Visibility.Visible;
-                DataGridAI_On.Visibility = Visibility.Visible;
-                DataGridAI_Type.Visibility = Visibility.Visible;
-
-              
-                tabDiagMod.Visibility = Visibility.Visible;
-                tabDiagUSO.Visibility = Visibility.Visible;
-
-                dataGridDI_Addr.Visibility = Visibility.Visible;
-                dataGridDI_Bit.Visibility = Visibility.Visible;
-             //   dataGridDI_Buf.Visibility = Visibility.Visible;
-                dataGridDI_Invert.Visibility = Visibility.Visible;
-                dataGridDI_On.Visibility = Visibility.Visible;
-
-                dataGridDO_Addr.Visibility = Visibility.Visible;
-                dataGridDO_Bit.Visibility = Visibility.Visible;
-                dataGridDO_invert.Visibility = Visibility.Visible;
-                dataGridDO_On.Visibility = Visibility.Visible;
-
-                dataGridCounters_addr.Visibility = Visibility.Visible;
-                dataGridCounters_buf.Visibility = Visibility.Visible;
-
-                dataGridDiag.CanUserAddRows = true;
-                dataGridDiag.CanUserDeleteRows = true;
-
-                dataGridZD.CanUserAddRows = true;
-                dataGridZD.CanUserDeleteRows = true;
-
-                dataGridKL.CanUserAddRows = true;
-                dataGridKL.CanUserDeleteRows = true;
-
-                dataGridDiag_Addr.Visibility = Visibility.Visible;
-                dataGridDiag_Bit.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                DataGridAI_Addr.Visibility = Visibility.Hidden;
-         //       DataGridAI_Buf.Visibility = Visibility.Hidden;
-                DataGridAI_On.Visibility = Visibility.Hidden;
-                DataGridAI_Type.Visibility = Visibility.Hidden;
-
-
-                dataGridZD.CanUserAddRows = false;
-                dataGridZD.CanUserDeleteRows = false;
-
-                dataGridKL.CanUserAddRows = false;
-                dataGridKL.CanUserDeleteRows = false;
-
-               
-
-             //   tabSettings.Visibility = Visibility.Collapsed;
-                tabDiagMod.Visibility = Visibility.Collapsed;
-                tabDiagUSO.Visibility = Visibility.Collapsed;
-
-                dataGridDI_Addr.Visibility = Visibility.Hidden;
-                dataGridDI_Bit.Visibility = Visibility.Hidden;
-          //      dataGridDI_Buf.Visibility = Visibility.Hidden;
-                dataGridDI_Invert.Visibility = Visibility.Hidden;
-                dataGridDI_On.Visibility = Visibility.Hidden;
-
-                dataGridDO_Addr.Visibility = Visibility.Hidden;
-                dataGridDO_Bit.Visibility = Visibility.Hidden;
-                dataGridDO_invert.Visibility = Visibility.Hidden;
-                dataGridDO_On.Visibility = Visibility.Hidden;
-
-                dataGridCounters_addr.Visibility = Visibility.Hidden;
-                dataGridCounters_buf.Visibility = Visibility.Hidden;
-
-                dataGridDiag.CanUserAddRows = false;
-                dataGridDiag.CanUserDeleteRows = false;
-
-                dataGridDiag_Addr.Visibility = Visibility.Hidden;
-                dataGridDiag_Bit.Visibility = Visibility.Hidden;
-            }
-        }
-
-      */
 
         private void textBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
@@ -1175,6 +1118,18 @@ namespace Simulator_MPSA
 
             if (script != null)
             {
+                
+                script.Prepare();
+                script.En = true;
+                //    script.Run(0, true);
+            }
+        }
+        private void ScriptMenu_RunOnceClick(object sender, RoutedEventArgs e)
+        {
+            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
+
+            if (script != null)
+            {
                 script.Prepare();
                 script.Run(0,true);
             }
@@ -1188,7 +1143,7 @@ namespace Simulator_MPSA
             KLTableViewModel.KL.Clear();
             MPNATableViewModel.MPNAs.Clear();
 
-            ScriptInfo.Items.Clear();
+            ScriptTableViewModel.Items.Clear();
 
             DIStruct.items.Clear();
             DOStruct.items.Clear();
@@ -1331,7 +1286,7 @@ namespace Simulator_MPSA
 
         private void Add_Script_Click(object sender, RoutedEventArgs e)
         {
-            Scripting.ScriptInfo.Items.Add(new ScriptInfo());
+            ScriptTableViewModel.Items.Add(new ScriptInfo());
         }
 
         private void Add_VS_Click(object sender, RoutedEventArgs e)
@@ -1474,6 +1429,10 @@ namespace Simulator_MPSA
         {
             log.ScrollToEnd();
         }
+
+
+
+
     }
 
     class MainViewModel

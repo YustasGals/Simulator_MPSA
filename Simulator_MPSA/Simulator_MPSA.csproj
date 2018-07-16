@@ -139,9 +139,9 @@
     <Compile Include="CL\IO\ImportDialog.xaml.cs">
       <DependentUpon>ImportDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CL\IO\StationExporter.cs" />
-    <Compile Include="CL\OPCThread.cs" />
-    <Compile Include="CL\Signal\IndexChangedEventArgs.cs" />
+    <Compile Include="CL\IO\OPCThread.cs" />
+    <Compile Include="CL\Signal\Common\IndexChangedEventArgs.cs" />
+    <Compile Include="CL\TableViewModels\ScriptTableViewModel.cs" />
     <Compile Include="Log.xaml.cs">
       <DependentUpon>Log.xaml</DependentUpon>
     </Compile>
@@ -152,33 +152,36 @@
     <Compile Include="ViewModel\AOViewModel.cs" />
     <Compile Include="ViewModel\DOViewModel.cs" />
     <Compile Include="ViewModel\IViewModel.cs" />
-    <Compile Include="CL\MPNA_Logic.cs" />
-    <Compile Include="CL\ReadThread.cs" />
-    <Compile Include="CL\Signal\BaseViewModel.cs" />
+    <Compile Include="CL\Plant\MPNA_Logic.cs" />
+    <Compile Include="CL\IO\ReadThread.cs" />
+    <Compile Include="CL\Signal\Common\BaseViewModel.cs" />
     <Compile Include="CL\Signal\CL_ANALOG.cs" />
     <Compile Include="CL\Signal\CL_DI.cs" />
     <Compile Include="CL\Signal\CL_DO.cs" />
-    <Compile Include="CL\CL_KL.cs" />
-    <Compile Include="CL\CL_MPNA.cs" />
-    <Compile Include="CL\CL_VS.cs" />
-    <Compile Include="CL\CL_ZD.cs" />
+    <Compile Include="CL\Plant\CL_KL.cs" />
+    <Compile Include="CL\Plant\CL_MPNA.cs" />
+    <Compile Include="CL\Plant\CL_VS.cs" />
+    <Compile Include="CL\Plant\CL_ZD.cs" />
     <Compile Include="CL\TableViewModels\CountersTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\DiagTableModel.cs" />
     <Compile Include="CL\TableViewModels\KLTableViewModel.cs" />
     <Compile Include="CL\TableViewModels\MPNATableViewModel.cs" />
     <Compile Include="CL\Settings.cs" />
-    <Compile Include="CL\TableViewModels\Scripting.cs" />
+    <Compile Include="CL\Scripting\Scripting.cs" />
     <Compile Include="CL\TableViewModels\SetupTableModel.cs" />
     <Compile Include="CL\Station.cs" />
-    <Compile Include="CL\USOCounter.cs" />
-    <Compile Include="CL\ViewModelCollection.cs" />
+    <Compile Include="CL\Plant\USOCounter.cs" />
+    <Compile Include="ViewModel\ViewModelCollection.cs" />
     <Compile Include="ViewModel\DIViewModel.cs" />
-    <Compile Include="CL\WritingThread.cs" />
+    <Compile Include="CL\IO\WritingThread.cs" />
     <Compile Include="ScriptEditor.xaml.cs">
       <DependentUpon>ScriptEditor.xaml</DependentUpon>
     </Compile>
     <Compile Include="SetupDialog.xaml.cs">
       <DependentUpon>SetupDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WaitWindow.xaml.cs">
+      <DependentUpon>WaitWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AboutWindow.xaml">
       <SubType>Designer</SubType>
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StationSetup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WaitWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -351,6 +358,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\icons-hand-with-pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\Jdun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

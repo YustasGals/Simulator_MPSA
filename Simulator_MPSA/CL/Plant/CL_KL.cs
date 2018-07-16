@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using Simulator_MPSA.CL;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL.Signal;
+
 namespace Simulator_MPSA
 {
     class CL_KL

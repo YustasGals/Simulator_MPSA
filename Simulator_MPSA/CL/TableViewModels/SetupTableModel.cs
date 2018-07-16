@@ -86,14 +86,31 @@ namespace Simulator_MPSA.CL
             Group = vs.Group;
 
             outputs = new InputOutputItem[4];
-            outputs[0] = new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, vs.ECName);
-            outputs[1] =  new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, vs.MPCName);
-            outputs[2] = new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, vs.PCNameDI);
-            outputs[3] = new InputOutputItem("Наличие напряжения на СШ", vs.BusSecIndex, vs.BusSectionName);
+
+            string[] names = new string[7];
+            if (vs.EC != null)
+                names[0] = vs.EC.NameDI;
+            if (vs.MPC != null)
+                names[1] = vs.MPC.NameDI;
+            if (vs.PC != null)
+                names[2] = vs.PC.NameDI;
+            if (vs.BS != null)
+                names[3] = vs.BS.NameDI;
+            if (vs.ABB != null)
+                names[4] = vs.ABB.NameDO;
+            if (vs.ABO != null)
+                names[5] = vs.ABO.NameDO;
+            if (vs.AnalogCommand != null)
+                names[6] = vs.AnalogCommand.Name;
+
+            outputs[0] = new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, names[0]);
+            outputs[1] =  new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, names[1]);
+            outputs[2] = new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, names[2]);
+            outputs[3] = new InputOutputItem("Наличие напряжения на СШ", vs.BusSecIndex, names[3]);
 
             inputs = new InputOutputItem[2];
-            inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, vs.ABBName);
-            inputs[1]= new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, vs.ABOName);
+            inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, names[4]);
+            inputs[1]= new InputOutputItem("Команда - стоп", vs.ABOindxArrDO, names[5]);
 
             if (vs.controledAIs != null)
                 _analogs = new ObservableCollection<AnalogIOItem>(vs.controledAIs);
@@ -106,7 +123,7 @@ namespace Simulator_MPSA.CL
                  ANInputs[0].ADCtoRPM = vs.ADCtoRPM;
              }*/
             AnalogCommands = new InputOutputItem[1];
-            AnalogCommands[0] = new InputOutputItem("Уставка", vs.AnCmdIndex, vs.AnCmdName);
+            AnalogCommands[0] = new InputOutputItem("Уставка", vs.AnCmdIndex, names[6]);
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -137,20 +154,37 @@ namespace Simulator_MPSA.CL
             Group = zd.Group;
 
             outputs = new InputOutputItem[8];
-            outputs[0] = new InputOutputItem("КВО", zd.OKCindxArrDI, zd.OKCName);
-            outputs[1] = new InputOutputItem("КВЗ", zd.CKCindxArrDI, zd.CKCName);
-            outputs[2] = new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, zd.VoltName);
-            outputs[3] = new InputOutputItem("МПО", zd.ODCindxArrDI, zd.ODCName);
-            outputs[4] = new InputOutputItem("МПЗ", zd.CDCindxArrDI, zd.CDCName);
-            outputs[5] = new InputOutputItem("Муфта", zd.MCindxArrDI, zd.MCName);
-            outputs[6] = new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, zd.DCName);
-            outputs[7] = new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,zd.BSName);
+
+          //  List<string> names = new List<string>();
+            Dictionary<string, string> names = new Dictionary<string, string>();
+            names.Add("OKC",zd.OKC !=null?      zd.OKC.NameDI: "не определен");
+            names.Add("CKC",zd.CKC != null ?    zd.CKC.NameDI : "не определен");
+            names.Add("Volt",zd.Volt != null ?  zd.Volt.NameDI : "не определен");
+            names.Add("ODC",zd.ODC != null ?    zd.ODC.NameDI : "не определен");
+            names.Add("CDC",zd.CDC != null ?    zd.CDC.NameDI : "не определен");
+            names.Add("MC",zd.MC != null ?      zd.MC.NameDI : "не определен");
+            names.Add("DC", zd.DC != null ?     zd.DC.NameDI : "не определен");
+            names.Add("BS", zd.BS != null ?     zd.BS.NameDI : "не определен");
+
+            names.Add("DOB", zd.DOB != null ? zd.DOB.NameDO : "не определен");
+            names.Add("DCB", zd.DCB != null ? zd.DCB.NameDO : "не определен");
+            names.Add("DKB", zd.DKB != null ? zd.DKB.NameDO : "не определен");
+            names.Add("DCBZ", zd.DCBZ != null ? zd.DCBZ.NameDO : "не определен");
+
+            outputs[0] = new InputOutputItem("КВО", zd.OKCindxArrDI, names["OKC"]);
+            outputs[1] = new InputOutputItem("КВЗ", zd.CKCindxArrDI, names["CKC"]);
+            outputs[2] = new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, names["Volt"]);
+            outputs[3] = new InputOutputItem("МПО", zd.ODCindxArrDI, names["ODC"]);
+            outputs[4] = new InputOutputItem("МПЗ", zd.CDCindxArrDI, names["CDC"]);
+            outputs[5] = new InputOutputItem("Муфта", zd.MCindxArrDI, names["MC"]);
+            outputs[6] = new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, names["DC"]);
+            outputs[7] = new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,names["BS"]);
 
             inputs = new InputOutputItem[4];
-            inputs[0] = new InputOutputItem("команда - открыть", zd.DOBindxArrDO, zd.DOBName);
-            inputs[1] = new InputOutputItem("команда - остановить", zd.DCBindxArrDO, zd.DCBName);
-            inputs[2] = new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, zd.DKBName);
-            inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, zd.DCBZName);
+            inputs[0] = new InputOutputItem("команда - открыть", zd.DOBindxArrDO, names["DOB"]);
+            inputs[1] = new InputOutputItem("команда - остановить", zd.DCBindxArrDO, names["DCB"]);
+            inputs[2] = new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, names["DKB"]);
+            inputs[3] = new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, names["DCBZ"]);
 
 
             _analogs = new ObservableCollection<AnalogIOItem>();

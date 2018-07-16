@@ -10,7 +10,7 @@ using Simulator_MPSA.ViewModel;
 using System.ComponentModel;
 using System.Windows;
 
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.ViewModel
 {
    /// <summary>
    /// Универсальный шаблон ViewModel для отображения коллекций в DataGrid

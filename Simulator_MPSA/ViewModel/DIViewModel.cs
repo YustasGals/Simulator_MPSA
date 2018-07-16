@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Simulator_MPSA.CL;
 using System.ComponentModel;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.ViewModel
 {
     /// <summary>

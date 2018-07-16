@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.Xml.Serialization;
 using System.Windows.Data;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
     class DiagTableModel

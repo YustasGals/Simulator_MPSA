@@ -9,6 +9,7 @@ using LuaInterface;
 using LuaInterface.Exceptions;
 using System.Xml.Serialization;
 using System.Diagnostics;
+using Simulator_MPSA.CL.Signal;
 
 namespace Simulator_MPSA.Scripting
 {
@@ -143,10 +144,8 @@ namespace Simulator_MPSA.Scripting
         }
         public void Print(string text)
         {
-            //  Debug.WriteLine("hello");
-            LogViewModel.WriteLine(text);
-            LogWriter.AppendLog(text + Environment.NewLine);
-        //    System.Windows.MessageBox.Show("hello");
+         //   LogWriter.refMainWindow.Dispatcher.Invoke(LogWriter.refMainWindow.WriteLog,text);
+           // LogWriter.AppendLog(text + Environment.NewLine);
         }
 
         /// <summary>
@@ -163,11 +162,17 @@ namespace Simulator_MPSA.Scripting
         {
             return dt;
         }
+
+     
     }
 
     [Serializable]
     public class ScriptInfo : BaseViewModel
     {
+        /// <summary>
+        /// ссылка на главное окно для вызова делегатов
+        /// </summary>
+        public static MainWindow refMainWindow;
         /// <summary>
         /// 
         /// </summary>
@@ -178,6 +183,16 @@ namespace Simulator_MPSA.Scripting
         public bool En
         { set { _en = value; OnPropertyChanged("En"); }
             get { return _en; }
+        }
+
+        public void Deactivate()
+        {
+            En = false;
+        }
+
+        public void Print(string text)
+        {
+            refMainWindow.Dispatcher.Invoke(refMainWindow.WriteLog, text);
         }
 
         public bool Ready
@@ -292,19 +307,18 @@ namespace Simulator_MPSA.Scripting
             lua.RegisterFunction("GetDeltaTime", utils, typeof(Utils).GetMethod("GetDeltaTime"));
             
 
-            lua.RegisterFunction("Print", utils, typeof(Utils).GetMethod("Print"));
+            lua.RegisterFunction("Print", this, typeof(ScriptInfo).GetMethod("Print"));
+
+            lua.RegisterFunction("Deactivate", this, typeof(ScriptInfo).GetMethod("Deactivate"));
         }
+
+        /// <summary>
+        /// подготовить к выполнению, в следующей итерации будет выполнена функция Init()
+        /// </summary>
         public void Prepare()
         {
             needInit = true;
         }
-        private static ObservableCollection<ScriptInfo> _items = new ObservableCollection<ScriptInfo>();
-        public static ObservableCollection<ScriptInfo> Items
-            { set { _items = value; } get { return _items; } }
-
-        public static void Init()
-        {
-            _items = new ObservableCollection<ScriptInfo>();
-        }
+     
     }
 }

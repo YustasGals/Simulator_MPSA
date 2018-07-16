@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.OleDb;
 using System.Data;
-namespace Simulator_MPSA.CL.ExcelImporter
+using Simulator_MPSA.CL;
+using Simulator_MPSA.CL.Signal;
+namespace Simulator_MPSA
 {
     class ExcelImporter
     {

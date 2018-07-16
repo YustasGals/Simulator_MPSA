@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Simulator_MPSA.CL;
+using Simulator_MPSA.CL.Signal;
+
 namespace Simulator_MPSA
 {
     public enum MPNAState { Work, Starting, Stoping, Stop};

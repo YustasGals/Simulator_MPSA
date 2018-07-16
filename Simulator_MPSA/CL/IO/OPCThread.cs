@@ -9,6 +9,7 @@ using OpcCom;
 using OpcXml;
 using Opc.Da;
 using System.Diagnostics;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
 
@@ -33,6 +34,8 @@ namespace Simulator_MPSA.CL
         private Item[] opcAOItemsForRead;   //массив opc элементов соответствующих AO
 
         private ItemValueResult[] readResult; //массив результатов чтения opc элементов
+
+        private bool isAbortRequested=false;  //требование остановить поток
         /// <summary>
         /// 
         /// </summary>
@@ -171,10 +174,11 @@ namespace Simulator_MPSA.CL
                 catch (Exception ex)
                 {
                     //System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
-                    LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
+                  //  LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
                 }
 
                 Thread.Sleep(period);
+                if (isAbortRequested) return;
             }//loop
         }
 
@@ -187,7 +191,8 @@ namespace Simulator_MPSA.CL
         public void Stop()
         {
             if (thread != null)
-                thread.Abort();
+                isAbortRequested = true;
+         //       thread.Abort();
 
         }
     }

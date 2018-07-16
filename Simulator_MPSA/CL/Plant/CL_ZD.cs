@@ -8,6 +8,7 @@ using Simulator_MPSA.CL;
 using System.Xml;
 using System.Xml.Serialization;
 using System.ComponentModel;
+using Simulator_MPSA.CL.Signal;
 
 namespace Simulator_MPSA
 {
@@ -75,22 +76,7 @@ namespace Simulator_MPSA
             get { return _index; }
             set { _index = value; OnPropertyChanged("Index"); }
         }
-        /// <summary>
-        /// сброс состояния в "закрыто"
-        /// </summary>
-        public void Reset()
-        {
-            if (ODC != null) ODC.ValDI = false;
-            if (CDC != null) CDC.ValDI = false;
 
-            //состояние - закрыто
-            if (OKC != null)
-                OKC.ValDI = true;
-            if (CKC != null)
-                CKC.ValDI = false;
-
-            ZDProc = 0f;
-        }
         /// <summary>
         /// задержка отключения МПО МПЗ после появления сигнала с концевика (открыо закрыто)
         /// </summary>
@@ -109,44 +95,44 @@ namespace Simulator_MPSA
             if (ZD_position_ai != null) ZD_position_ai.fValAI = _ZDProc;
 
             //нет напряжения на секции шин
-            if (BS != null && BS.ValDI==false)
+            if (bs != null && bs.ValDI==false)
             {
                 if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
                     StateZD = StateZD.Middle;
 
-                if (OKC != null) OKC.ValDI = false;
-                if (CKC != null) CKC.ValDI = false;
-                if (ODC != null) ODC.ValDI = false;
-                if (CDC != null) CDC.ValDI = false;
+                if (okc != null) okc.ValDI = false;
+                if (ckc != null) ckc.ValDI = false;
+                if (odc != null) odc.ValDI = false;
+                if (cdc != null) cdc.ValDI = false;
                 if (volt != null) volt.ValDI = false;
-                if (MC != null) MC.ValDI = false;
+                if (mc != null) mc.ValDI = false;
             }
             else
             {
                 if (_ZDProc <= 5)
                 {
                     //состояние - закрыто
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = false;
+                    if (okc != null)
+                        okc.ValDI = true;
+                    if (ckc != null)
+                        ckc.ValDI = false;
                 }
                 else
                 if (_ZDProc >= 95)
                 {
                     //состояние - открыто
-                    if (OKC != null)
-                        OKC.ValDI = false;
-                    if (CKC != null)
-                        CKC.ValDI = true;
+                    if (okc != null)
+                        okc.ValDI = false;
+                    if (ckc != null)
+                        ckc.ValDI = true;
                 }
                 else
                 {
                     //состояние - промежуточное
-                    if (OKC != null)
-                        OKC.ValDI = true;
-                    if (CKC != null)
-                        CKC.ValDI = true;
+                    if (okc != null)
+                        okc.ValDI = true;
+                    if (ckc != null)
+                        ckc.ValDI = true;
                 }
 
                 if (_stateZD == StateZD.Close)
@@ -163,8 +149,8 @@ namespace Simulator_MPSA
                          CDC.ValDI = false
                          */
                          //выключить МПЗ
-                    if ((CDC != null))
-                        CDC.ValDI = false;
+                    if ((cdc != null))
+                        cdc.ValDI = false;
                      
                 }
 
@@ -182,8 +168,8 @@ namespace Simulator_MPSA
                      if ((MPDelay < 0) && (ODC != null))
                          ODC.ValDI = false;*/
                          //выключить МПО
-                    if ((ODC != null))
-                        ODC.ValDI = false;
+                    if ((odc != null))
+                        odc.ValDI = false;
                 }
 
                 //состояние -открывается
@@ -205,7 +191,7 @@ namespace Simulator_MPSA
                     else
                     {
                         //включить МПО
-                        if (ODC != null) ODC.ValDI = true;
+                        if (odc != null) odc.ValDI = true;
                         //вкл концевики
                      /*   if (OKC != null)
                             OKC.ValDI = true;
@@ -232,7 +218,7 @@ namespace Simulator_MPSA
                     else
                     {
                         //включить МПЗ
-                        if (CDC != null) CDC.ValDI = true;
+                        if (cdc != null) cdc.ValDI = true;
                         //вкл концевики
                      /*   if (OKC != null)
                             OKC.ValDI = true;
@@ -244,12 +230,12 @@ namespace Simulator_MPSA
                 if (_stateZD == StateZD.Middle)
                 {
                     //отключить МП
-                    if (CDC != null) CDC.ValDI = false;
-                    if (ODC != null) ODC.ValDI = false;
+                    if (cdc != null) cdc.ValDI = false;
+                    if (odc != null) odc.ValDI = false;
                 }
 
                 //команда открыть
-                if ((DOB != null) && (DOB.ValDO))
+                if ((dob != null) && (dob.ValDO))
                 {
                     //если закрыта или в промежутке
                     if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
@@ -261,7 +247,7 @@ namespace Simulator_MPSA
                 }
 
                 //команда закрыть
-                if ((DKB != null) && (DKB.ValDO))
+                if ((dkb != null) && (dkb.ValDO))
                 {
                     //если открыта или в промежутке
                     if (_stateZD == StateZD.Open || _stateZD == StateZD.Middle)
@@ -271,19 +257,20 @@ namespace Simulator_MPSA
                 }
 
                 //команда стоп
-                if ((DCB != null) && (DCB.ValDO))
+                if ((dcb != null) && (dcb.ValDO))
                 {
                     if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
                         StateZD = StateZD.Middle;
                     //  {
                     //отключить МП
-                    if (ODC != null) ODC.ValDI = false;
-                    if (CDC != null) CDC.ValDI = false;
+                    if (odc != null) odc.ValDI = false;
+                    if (cdc != null) cdc.ValDI = false;
 
                 }
             }
  
         }
+        #region РУЧНОЕ УПРАВЛЕНИЕ
         public void ManualOpen()
         {
             if (_stateZD == StateZD.Close || _stateZD == StateZD.Middle)
@@ -301,23 +288,45 @@ namespace Simulator_MPSA
             if (_stateZD == StateZD.Opening || _stateZD == StateZD.Closing)
                 StateZD = StateZD.Middle;
         }
+       
 
         /// <summary>
         /// переключение режима "дистанционный"
         /// </summary>
         public void ToggleDist()
         {
-            if (DC != null)
-                DC.ValDI = !DC.ValDI;
+            if (dc != null)
+                dc.ValDI = !dc.ValDI;
         }
-
+        /// <summary>
+        /// Установить/снять напряжение на скеции шин извне
+        /// </summary>
+        /// <param name="value"></param>
+        public void SetBusState(bool value)
+        {
+            if (bs == null)
+            {
+                bs = new DIStruct();
+            }
+            if (BSIndex == -1)
+                bs.ValDI = value;
+        }
+        #endregion
+        /// <summary>
+        /// включить задвижку
+        /// </summary>
         public bool En
         {
             get { return _En; }
             set { _En = value; OnPropertyChanged("En"); }
         }
-
+        /// <summary>
+        /// положение затвора, индекс в таблице AIStruct
+        /// </summary>
         private int _ZD_Pos_index=-1;
+        /// <summary>
+        /// положение затвора, индекс в таблице AIStruct
+        /// </summary>
         public int ZD_Pos_index
         {
             get { return _ZD_Pos_index; }
@@ -330,18 +339,7 @@ namespace Simulator_MPSA
         /// </summary>
         private AIStruct ZD_position_ai;
 
-        /// <summary>
-        /// положение затвора, свойство для таблицы
-        /// </summary>
-        public int Position
-        {
-            get {
-                if (ZD_position_ai != null)
-                    return (int)ZD_position_ai.fValAI;
-                return 0;
-            }
-            set { }
-        }
+
 
         public string PositionAIName
         {
@@ -363,9 +361,9 @@ namespace Simulator_MPSA
             set {
                 _DOBindxArrDO = value;
                 OnPropertyChanged("DOBindxArrDO");
-                DOB = DOStruct.FindByIndex(_DOBindxArrDO);
-                if (DOB!=null)
-                    DOB.PropertyChanged += DOB_PropertyChanged;
+                dob = DOStruct.FindByIndex(_DOBindxArrDO);
+                if (dob!=null)
+                    dob.PropertyChanged += DOB_PropertyChanged;
             }
         }
 
@@ -376,16 +374,13 @@ namespace Simulator_MPSA
                 OnPropertyChanged("DOBState");
         }
 
-        private DOStruct DOB;
-        public string DOBName
-            { 
-                get {
-                if (DOB != null)
-                    return DOB.NameDO;
-                else return "сигнал не назначен";
-                    }
-            }
-        public bool DOBState { get { if (DOB != null) return DOB.ValDO; else return false; } set { } }
+        private DOStruct dob;
+        public DOStruct DOB
+        {
+            get { return dob; }
+        }
+
+        public bool DOBState { get { if (dob != null) return dob.ValDO; else return false; } set { } }
         /// <summary>
         /// команда закрыть
         /// </summary>
@@ -395,9 +390,9 @@ namespace Simulator_MPSA
             set {
                 _DKBindxArrDO = value;
                 OnPropertyChanged("DKBindxArrDO");
-                DKB = DOStruct.FindByIndex(_DKBindxArrDO);
-                if (DKB!=null)
-                    DKB.PropertyChanged += DKB_PropertyChanged;
+                dkb = DOStruct.FindByIndex(_DKBindxArrDO);
+                if (dkb!=null)
+                    dkb.PropertyChanged += DKB_PropertyChanged;
             }
         }
 
@@ -408,17 +403,21 @@ namespace Simulator_MPSA
             OnPropertyChanged("DKBState");
         }
 
-        private DOStruct DKB;
+        private DOStruct dkb;
+        public DOStruct DKB
+        {
+            get { return dkb; }
+        }
         public string DKBName
         {
             get
             {
-                if (DKB != null)
-                    return DKB.NameDO;
+                if (dkb != null)
+                    return dkb.NameDO;
                 else return "сигнал не назначен";
             }
         }
-        public bool DKBState { get { if (DKB != null) return DKB.ValDO; else return false; } set { } }
+        public bool DKBState { get { if (dkb != null) return dkb.ValDO; else return false; } set { } }
         /// <summary>
         /// Команда - остановить
         /// </summary>
@@ -428,9 +427,9 @@ namespace Simulator_MPSA
             set {
                 _DCBindxArrDO = value;
                 OnPropertyChanged("DCBindxArrDO");
-                DCB = DOStruct.FindByIndex(_DCBindxArrDO); 
-                if (DCB != null)
-                    DCB.PropertyChanged += DCB_PropertyChanged;
+                dcb = DOStruct.FindByIndex(_DCBindxArrDO); 
+                if (dcb != null)
+                    dcb.PropertyChanged += DCB_PropertyChanged;
             }
         }
 
@@ -441,17 +440,22 @@ namespace Simulator_MPSA
                 OnPropertyChanged("DCBState");
         }
 
-        private DOStruct DCB;
+        private DOStruct dcb;
+        public DOStruct DCB
+        {
+            get { return dcb; }
+        }
+
         public string DCBName
         {
             get
             {
-                if (DCB != null)
-                    return DCB.NameDO;
+                if (dcb != null)
+                    return dcb.NameDO;
                 else return "сигнал не назначен";
             }
         }
-        public bool DCBState { get { if (DCB != null) return DCB.ValDO; else return false; } set { } }
+        public bool DCBState { get { if (dcb != null) return dcb.ValDO; else return false; } set { } }
         /// <summary>
         /// команда стоп закрытия
         /// </summary>
@@ -461,9 +465,9 @@ namespace Simulator_MPSA
             set {
                 _DCBZindxArrDO = value;
                 OnPropertyChanged("DCBZindxArrDO");
-                DCBZ = DOStruct.FindByIndex(_DCBZindxArrDO);
-                if (DCBZ != null)
-                    DCBZ.PropertyChanged += DCBZ_PropertyChanged;
+                dcbz = DOStruct.FindByIndex(_DCBZindxArrDO);
+                if (dcbz != null)
+                    dcbz.PropertyChanged += DCBZ_PropertyChanged;
             }
         }
 
@@ -474,13 +478,17 @@ namespace Simulator_MPSA
                 OnPropertyChanged("DCBZState");
         }
 
-        private DOStruct DCBZ;
+        private DOStruct dcbz;
+        public DOStruct DCBZ
+        {
+            get { return dcbz; }
+        }
         public string DCBZName
         {
             get
             {
-                if (DCBZ != null)
-                    return DCBZ.NameDO;
+                if (dcbz != null)
+                    return dcbz.NameDO;
                 else return "сигнал не назначен";
             }
         }
@@ -500,11 +508,11 @@ namespace Simulator_MPSA
             set {
                 _OKCindxArrDI = value;
                // OnPropertyChanged("DCBZindxArrDO");
-                OKC = DIStruct.FindByIndex(_OKCindxArrDI);
+                okc = DIStruct.FindByIndex(_OKCindxArrDI);
 
                 //подписываем наш метод на событие чтобы видеть изменения дискретов в таблице задвижек
-                if (OKC != null)
-                    OKC.PropertyChanged += OKC_PropertyChanged;
+                if (okc != null)
+                    okc.PropertyChanged += OKC_PropertyChanged;
             }
         }
 
@@ -515,17 +523,19 @@ namespace Simulator_MPSA
         /// <summary>
         /// КВО
         /// </summary>
-        private DIStruct OKC;
-        public string OKCName
+        private DIStruct okc;
+        public DIStruct OKC
+        {
+            get { return okc; }
+        }
+       /* public string OKCName
         {
             get
             {
-                /*if (OKC != null)
-                    return OKC.NameDI;
-                else return "сигнал не назначен";*/
+                
                 return DIStruct.GetNameByIndex(_OKCindxArrDI);
             }
-        }
+        }*/
       
         /// <summary>
         /// концевой выключатель закрытия
@@ -536,9 +546,9 @@ namespace Simulator_MPSA
             set {
                 _CKCindxArrDI = value;
                 //OnPropertyChanged("DCBZindxArrDO");
-                CKC = DIStruct.FindByIndex(_CKCindxArrDI);
-                if (CKC!=null)
-                    CKC.PropertyChanged += CKC_PropertyChanged;
+                ckc = DIStruct.FindByIndex(_CKCindxArrDI);
+                if (ckc!=null)
+                    ckc.PropertyChanged += CKC_PropertyChanged;
             }
         }
 
@@ -551,15 +561,22 @@ namespace Simulator_MPSA
         /// <summary>
         /// КВЗ
         /// </summary>
-        private DIStruct CKC;
-        public string CKCName
+        private DIStruct ckc;
+      /*  public string CKCName
         {
             get
             {
                 return DIStruct.GetNameByIndex(_CKCindxArrDI);
             }
         }
-      
+      */
+      /// <summary>
+      /// КВЗ
+      /// </summary>
+      public DIStruct CKC
+        {
+            get { return ckc; }
+        }
         /// <summary>
         /// сигнал от МПО
         /// </summary>
@@ -569,9 +586,9 @@ namespace Simulator_MPSA
             set {
                 _ODCindxArrDI = value;
                 OnPropertyChanged("ODCindxArrDI");
-                ODC = DIStruct.FindByIndex(_ODCindxArrDI);
-                if (ODC!=null)
-                    ODC.PropertyChanged += ODC_PropertyChanged;
+                odc = DIStruct.FindByIndex(_ODCindxArrDI);
+                if (odc!=null)
+                    odc.PropertyChanged += ODC_PropertyChanged;
             }
         }
 
@@ -584,8 +601,12 @@ namespace Simulator_MPSA
         /// <summary>
         /// МПО
         /// </summary>
-        private DIStruct ODC;
-        public string ODCName
+        private DIStruct odc;
+        public DIStruct ODC
+        {
+            get { return odc; }
+        }
+    /*    public string ODCName
         {
             get
             {
@@ -593,14 +614,18 @@ namespace Simulator_MPSA
                     return ODC.NameDI;
                 else return "сигнал не назначен";
             }
-        }
+        }*/
       //  public bool ODCState { get { if (ODC != null) return ODC.ValDI; else return false; } set { } }
 
 
         /// <summary>
         /// наличие напряжения на секции шин
         /// </summary>
-        private DIStruct BS;
+        private DIStruct bs;
+        public DIStruct BS
+        {
+            get { return bs; }
+        }
 
         /// <summary>
         /// Наличие напряжения на СШ индекс сигнала
@@ -616,9 +641,9 @@ namespace Simulator_MPSA
             {
                 _bsindex = value;
                 if (_bsindex >= 0 && _bsindex < DIStruct.items.Count)
-                    BS = DIStruct.items[_bsindex];
+                    bs = DIStruct.items[_bsindex];
                 else
-                    BS = null;
+                    bs = null;
             }
         }
         [XmlIgnore]
@@ -627,24 +652,23 @@ namespace Simulator_MPSA
             set { }
             get
             {
-                if (BS != null)
-                    return BS.NameDI;
+                if (bs != null)
+                    return bs.NameDI;
                 else return "сигнал не назначен";
             }
         }
         /// <summary>
         /// сигнал от МПЗ
         /// </summary>
-        [XmlIgnore]
         public int CDCindxArrDI
         {
             get { return _CDCindxArrDI; }
             set {
                 _CDCindxArrDI = value;
                 OnPropertyChanged("CDCindxArrDI");
-                CDC = DIStruct.FindByIndex(_CDCindxArrDI);
-                if (CDC!=null)
-                    CDC.PropertyChanged += CDC_PropertyChanged;
+                cdc = DIStruct.FindByIndex(_CDCindxArrDI);
+                if (cdc!=null)
+                    cdc.PropertyChanged += CDC_PropertyChanged;
             }
         }
 
@@ -658,44 +682,51 @@ namespace Simulator_MPSA
         /// <summary>
         /// МПЗ
         /// </summary>
-        private DIStruct CDC;
+        private DIStruct cdc;
+        public DIStruct CDC
+        {
+            get { return cdc; }
+        }
         [XmlIgnore]
         public string CDCName
         {
             get
             {
-                if (CDC != null)
-                    return CDC.NameDI;
+                if (cdc != null)
+                    return cdc.NameDI;
                 else return "сигнал не назначен";
             }
         }
-        public bool CDCState { get { if (CDC != null) return CDC.ValDI; else return false; } set { } }
+        public bool CDCState { get { if (cdc != null) return cdc.ValDI; else return false; } set { } }
 
         /// <summary>
         /// дистанционное управление
         /// </summary>
-        [XmlIgnore]
         public int DCindxArrDI
         {
             get { return _DCindxArrDI; }
             set {
                 _DCindxArrDI = value;
                 OnPropertyChanged("DCindxArrDI");
-                DC = DIStruct.FindByIndex(_DCindxArrDI);
+                dc = DIStruct.FindByIndex(_DCindxArrDI);
             }
         }
-        private DIStruct DC;
+        private DIStruct dc;
+        public DIStruct DC
+        {
+            get { return dc; }
+        }
         [XmlIgnore]
         public string DCName
         {
             get
             {
-                if (DC != null)
-                    return DC.NameDI;
+                if (dc != null)
+                    return dc.NameDI;
                 else return "сигнал не назначен";
             }
         }
-        public bool DCState { get { if (DC != null) return DC.ValDI; else return false; } set { } }
+        public bool DCState { get { if (dc != null) return dc.ValDI; else return false; } set { } }
 
         /// <summary>
         /// наличие напряжения
@@ -710,7 +741,11 @@ namespace Simulator_MPSA
             }
         }
         private DIStruct volt;
-        [XmlIgnore]
+        public DIStruct Volt
+        {
+            get { return volt; }
+        }
+      /*  [XmlIgnore]
         public string VoltName
         {
             get
@@ -719,7 +754,7 @@ namespace Simulator_MPSA
                     return volt.NameDI;
                 else return "сигнал не назначен";
             }
-        }
+        }*/
         public bool VoltState { get { if (volt != null) return volt.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -732,14 +767,19 @@ namespace Simulator_MPSA
             
                 _MCindxArrDI = value;
                 OnPropertyChanged("MCindxArrDI");
-                MC = DIStruct.FindByIndex(_MCindxArrDI);
+                mc = DIStruct.FindByIndex(_MCindxArrDI);
             }
         }
         /// <summary>
         /// авария привода
         /// </summary>
-        private DIStruct MC;
-        public string MCName
+        private DIStruct mc;
+        [XmlIgnore]
+        public DIStruct MC
+        {
+            get { return mc; }
+        }
+        /*public string MCName
         {
             get
             {
@@ -747,7 +787,7 @@ namespace Simulator_MPSA
                     return MC.NameDI;
                 else return "сигнал не назначен";
             }
-        }
+        }*/
        // public bool MCState { get { if (MC != null) return MC.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -759,23 +799,18 @@ namespace Simulator_MPSA
             set {
                 _OPCindxArrDI = value;
                 OnPropertyChanged("OPCindxArrDI");
-                OPC = DIStruct.FindByIndex(_OPCindxArrDI);
+                opc = DIStruct.FindByIndex(_OPCindxArrDI);
             }
         }
         /// <summary>
         /// авария привода
         /// </summary>
-        private DIStruct OPC;
-       /// public bool OPCState { get { if (OPC != null) return OPC.ValDI; else return false; } set { } }
+        private DIStruct opc;
+
         [XmlIgnore]
-        public string OPCName
+        public DIStruct OPC
         {
-            get
-            {
-                if (OPC != null)
-                    return OPC.NameDI;
-                else return "сигнал не назначен";
-            }
+            get { return opc; }
         }
 
         public float ZDProc
@@ -815,7 +850,8 @@ namespace Simulator_MPSA
         }
 
         /// <summary>
-        /// Обновление ссылок на сигналы DI,DO,AI, следует вызывать после загрузки файла настроек
+        /// Обновление ссылок на сигналы DI,DO,AI, следует вызывать после десериализации настроек
+        /// для того чтобы экземпляр класса получил ссылки на объекты
         /// </summary>
         public void UpdateRefs()
         {
@@ -834,26 +870,24 @@ namespace Simulator_MPSA
             ZD_Pos_index = _ZD_Pos_index;
         }
         public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged(string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
+        public void OnPropertyChanged(string prop = "") => PropertyChanged?.Invoke(sender: this, e: new PropertyChangedEventArgs(prop));
 
+
+
+        #region свойства для отображения состояния дискретов в таблице
         /// <summary>
-        /// Установить/снять напряжение на скеции шин извне
+        /// положение затвора, свойство для таблицы
         /// </summary>
-        /// <param name="value"></param>
-        public void SetBusState(bool value)
+        public int Position
         {
-            if (BS == null)
+            get
             {
-                BS = new DIStruct();
+                if (ZD_position_ai != null)
+                    return (int)ZD_position_ai.fValAI;
+                return 0;
             }
-            if (BSIndex == -1)
-                BS.ValDI = value;
+            set { }
         }
-
         /// <summary>
         /// КВО для отображения во view
         /// </summary>
@@ -862,8 +896,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (OKC != null)
-                    return OKC.ValDI;
+                if (okc != null)
+                    return okc.ValDI;
                 else return null;
             }
         }
@@ -875,8 +909,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (CKC != null)
-                    return CKC.ValDI;
+                if (ckc != null)
+                    return ckc.ValDI;
                 else return null;
             }
         }
@@ -888,8 +922,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (ODC != null)
-                    return ODC.ValDI;
+                if (odc != null)
+                    return odc.ValDI;
                 else return null;
             }
         }
@@ -901,8 +935,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (CDC != null)
-                    return CDC.ValDI;
+                if (cdc != null)
+                    return cdc.ValDI;
                 else return null;
             }
         }
@@ -914,8 +948,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DOB != null)
-                    return DOB.ValDO;
+                if (dob != null)
+                    return dob.ValDO;
                 else return null;
             }
         }
@@ -927,8 +961,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DKB != null)
-                    return DKB.ValDO;
+                if (dkb != null)
+                    return dkb.ValDO;
                 else return null;
             }
         }
@@ -941,8 +975,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DCB != null)
-                    return DCB.ValDO;
+                if (dcb != null)
+                    return dcb.ValDO;
                 else return null;
             }
         }
@@ -954,14 +988,14 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DCBZ != null)
-                    return DCBZ.ValDO;
+                if (dcbz != null)
+                    return dcbz.ValDO;
                 else return null;
             }
         }
-
+        #endregion
     }
 
 
-   
+
 }

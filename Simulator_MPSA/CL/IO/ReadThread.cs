@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using Modbus.Device;
 using System.Threading;
-using Simulator_MPSA.CL;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA
 {
     /// <summary>

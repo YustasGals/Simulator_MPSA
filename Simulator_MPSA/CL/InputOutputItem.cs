@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
-
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
     /// <summary>

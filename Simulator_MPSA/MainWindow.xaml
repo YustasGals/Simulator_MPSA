@@ -834,7 +834,8 @@
                             <ContextMenu>
                                 <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
                                 <Separator/>
-                                <MenuItem x:Name="ScriptMenu_run" Header="Выполнить однократно" Click="ScriptMenu_RunClick" />
+                                <MenuItem x:Name="ScriptMenu_run" Header="Инициализировать и запустить" Click="ScriptMenu_RunClick" />
+                                <MenuItem x:Name="ScriptMenu_runOnce" Header="Выполнить однократно" Click="ScriptMenu_RunOnceClick" />
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
@@ -869,11 +870,12 @@
                         </Image>
                     </Button>
 
-                    <DataGrid x:Name="dataGridVS" Grid.Row="1" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" Margin="0,0,0,0">
+                    <DataGrid x:Name="dataGridVS" Grid.Row="1" ItemsSource="{Binding VS}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False" Margin="0,0,0,0" MouseDoubleClick="dataGridVS_MouseDoubleClick">
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="VSMenu_start" Header="Пуск по месту" Click="VSMenu_start_Click"/>
                                 <MenuItem x:Name="VSMenu_stop" Header="Стоп по месту" Click="VSMenu_stop_Click"/>
+                                <MenuItem x:Name="VSMenu_toggleBS" Header="Вкл/откл секцию шин" Click="VSMenu_toggle_BS_Click"/>
                                 <Separator/>
                                 <MenuItem x:Name="VSMenu_settings" Header="Настройки" Click="VSMenu_settings_Click" />
                             </ContextMenu>
@@ -907,6 +909,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
+                          
                             <DataGridTextColumn Header="СШ" Binding="{Binding BSVoltage}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -927,6 +930,98 @@
                                            
                                         </Style.Triggers>
                                         <Setter Property="ToolTip" Value="Наличие напряжения на СШ" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="МП" Binding="{Binding IsMPOn}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Магнитный пускатель" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Напр." Binding="{Binding IsVoltageOk}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Наличие напряжения" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="ABO" Binding="{Binding CmdStart}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Команда на отключение" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="ABB" Binding="{Binding CmdStop}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Команда на включение" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>

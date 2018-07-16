@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Simulator_MPSA.CL;
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.ViewModel
 {
     class AIViewModel : IViewModel<AIStruct>, INotifyPropertyChanged

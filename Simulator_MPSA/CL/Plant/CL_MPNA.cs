@@ -3,6 +3,8 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL.Signal;
+
 namespace Simulator_MPSA
 {
     // -------------------------------------------------------------------------------------------------

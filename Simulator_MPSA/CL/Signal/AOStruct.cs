@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 using Simulator_MPSA.CL.Signal;
 using System.Diagnostics;
 
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.CL.Signal
 {
     public class AOStruct:BaseViewModel
     {

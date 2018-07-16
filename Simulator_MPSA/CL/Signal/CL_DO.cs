@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Simulator_MPSA.CL.Signal;
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.CL.Signal
 {
     class CL_DO
     {

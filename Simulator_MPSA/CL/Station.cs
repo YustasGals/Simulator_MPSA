@@ -9,7 +9,7 @@ using System.IO;
 using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
-
+using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
     public enum StationLoadResult { OK, Fail};
@@ -69,7 +69,7 @@ namespace Simulator_MPSA.CL
             Counters = CountersTableViewModel.Counters;
             DiagSignals = DiagTableModel.Instance.DiagRegs;
 
-            scripts = Scripting.ScriptInfo.Items;
+            scripts = ScriptTableViewModel.Items;
 
 
 
@@ -80,6 +80,17 @@ namespace Simulator_MPSA.CL
             System.Windows.MessageBox.Show("Файл " + filename + " сохранен ");
             return StationSaveResult.OK;
         }
+        public StationLoadResult OpenXML(string filename)
+        {
+
+            XmlSerializer xml = new XmlSerializer(typeof(Station));
+            System.IO.StreamReader reader = null;
+            FileStream stream = null;
+
+            stream = File.OpenRead(filename);
+            return StationLoadResult.OK;
+        }
+
         public StationLoadResult Load(string filename)
         {
             XmlSerializer xml = new XmlSerializer(typeof(Station));
@@ -90,7 +101,7 @@ namespace Simulator_MPSA.CL
                 stream = File.OpenRead(filename); 
 
                 _instance = (Station)xml.Deserialize(stream);
-
+                Debug.WriteLine(DateTime.Now.ToShortTimeString() + ":" + DateTime.Now.Second.ToString() + ":xml открыт");
                 stream.Dispose();
                 Sett.Instance = _instance.settings;
 
@@ -98,16 +109,12 @@ namespace Simulator_MPSA.CL
                 foreach (DIStruct item in _instance.DIs)
                     DIStruct.items.Add(item);
 
-                foreach (DIStruct di in DIStruct.items)
-                    di.PLCAddr = di.PLCAddr;
-
+       
                 DOStruct.items.Clear();
                 foreach (DOStruct d in _instance.DOs)
                     DOStruct.items.Add(d);
 
-                foreach (DOStruct d in DOStruct.items)
-                    d.PLCAddr = d.PLCAddr;
-
+     
                 AIStruct.items.Clear();
                 foreach (AIStruct ai in _instance.AIs)
                 {
@@ -126,13 +133,9 @@ namespace Simulator_MPSA.CL
                     AOStruct.items.Add(item);
                 }
 
+                Debug.WriteLine(DateTime.Now.ToShortTimeString() + ":" + DateTime.Now.Second.ToString() + ":Заполнены массивы сигналов");
 
 
-
-                //при открытии старого файла где не указаны адреса в ПЛК пересчитываем их
-                //foreach (AIStruct ai in AIStruct.items)
-                //    if (ai.PLCAddr == 0)
-                //        ai.PLCAddr = ai.indxW + Sett.Instance.BegAddrW + 1;
 
                 KLTableViewModel.Init(_instance.KLs.ToArray());
                 foreach (KLStruct kl in KLTableViewModel.KL)
@@ -161,12 +164,12 @@ namespace Simulator_MPSA.CL
                 foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                     di.PLCAddr = di.PLCAddr;
 
-                Scripting.ScriptInfo.Init();
+                ScriptTableViewModel.Init();
                 if (_instance.scripts != null && _instance.scripts.Count>0)
                 foreach (Scripting.ScriptInfo scr in _instance.scripts)
-                    Scripting.ScriptInfo.Items.Add(scr);
+                    ScriptTableViewModel.Items.Add(scr);
 
-                
+                Debug.WriteLine(DateTime.Now.ToShortTimeString()+":" + DateTime.Now.Second.ToString() + ": Модели инициализированы");
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
                 return StationLoadResult.OK;
             }

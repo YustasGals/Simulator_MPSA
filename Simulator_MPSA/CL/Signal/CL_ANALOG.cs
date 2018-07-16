@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Simulator_MPSA.CL.Signal;
 
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.CL.Signal
 {
     /// <summary>
     /// тип записываемого значения в плк - единицы ацп, либо float

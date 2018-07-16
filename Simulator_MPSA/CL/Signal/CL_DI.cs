@@ -11,7 +11,7 @@ using Simulator_MPSA.CL.Signal;
 using System.Collections.Specialized;
 using System.Diagnostics;
 
-namespace Simulator_MPSA.CL
+namespace Simulator_MPSA.CL.Signal
 {
     // -------------------------------------------------------------------------------------------------
     [Serializable]

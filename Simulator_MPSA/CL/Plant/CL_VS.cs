@@ -4,14 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
-using Simulator_MPSA.CL;
+using Simulator_MPSA.CL.Signal;
 using System.Xml.Serialization;
+using Simulator_MPSA.CL;
+
 namespace Simulator_MPSA
 {
     public enum VSState {  Stop,   //остановлен
-                    Starting,   //запускается
-                    Stoping,    //останавливается
-                    Work    //в работе
+                 //   Starting,   //запускается
+                 //   Stoping,    //останавливается
+                    Work,    //в работе
                   };
     // -------------------------------------------------------------------------------------------------
     [Serializable]
@@ -46,38 +48,81 @@ namespace Simulator_MPSA
         /// <summary>
         /// Наличие напряжения на секции шин
         /// </summary>
-        private DIStruct BS;
+        private DIStruct bs;
+
+        [XmlIgnore]
+        public DIStruct BS
+        {
+            get { return bs; }
+        }
+
         private int _bussec_index=-1;
         public int BusSecIndex
         {
             get { return _bussec_index; }
             set
             {
-                if (_bussec_index != value || BS == null)
+                if (_bussec_index != value || bs == null)
                 {
-                    if (BS != null)
+                    if (bs != null)
                     {
-                        BS.IndexChanged -= BS_IndexChanged;
-                        BS.PropertyChanged -= BS_PropertyChanged;
+                        bs.IndexChanged -= BS_IndexChanged;
+                        bs.PropertyChanged -= BS_PropertyChanged;
                     }
                     _bussec_index = value;
                     if (value > -1)
-                        BS = DIStruct.FindByIndex(value);
+                        bs = DIStruct.FindByIndex(value);
                    
-                    if (BS != null)
+                    if (bs != null)
                     {
-                        BS.IndexChanged += BS_IndexChanged;
-                        BS.PropertyChanged += BS_PropertyChanged;
+                        bs.IndexChanged += BS_IndexChanged;
+                        bs.PropertyChanged += BS_PropertyChanged;
                     }
                 }
             }
         }
 
+
+       
+        #region Обработчики событий изменения значения сигналов
         private void BS_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             // throw new NotImplementedException();
             OnPropertyChanged("BSVoltage");
         }
+        private void EC_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("IsVoltageOK");
+        }
+        private void MP_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("IsMPOn");
+        }
+        private void ABO_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("CMDStop");
+        }
+        private void ABB_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged("CMDStart");
+        }
+        #endregion
+
+        #region Property для отображения состояния сигналов в DataGrid
+        /// <summary>
+        /// есть напряжение
+        /// </summary>
+        [XmlIgnore]
+        public bool? IsVoltageOk
+        {
+            get
+            {
+                if (ec == null)
+                    return null;
+                else return ec.ValDI;
+            }
+        }
+
         [XmlIgnore]
         public bool? BSVoltage
         {
@@ -86,37 +131,88 @@ namespace Simulator_MPSA
             }
             get
             {
-                if (BS != null)
-                    return BS.ValDI;
+                if (bs != null)
+                    return bs.ValDI;
                 else
                     return null;
             }
         }
 
-        private void BS_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
-        {
-            _bussec_index = e.newIndex;
-            LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения на СШ");
-            //  throw new NotImplementedException();
-        }
-
-        public string BusSectionName
+        /// <summary>
+        /// есть команда на включение
+        /// </summary>
+         [XmlIgnore]
+        public bool? CmdStart
         {
             get
             {
-                if (BS != null)
-                    return BS.NameDI;
+                if (abb == null)
+                    return null;
+                else return abb.ValDO;
+            }
+        }
+        /// <summary>
+        /// есть команда на отключение
+        /// </summary>
+        [XmlIgnore]
+        public bool? CmdStop
+        {
+            get
+            {
+                if (abo == null)
+                    return null;
+                else return abo.ValDO;
+            }
+        }
+
+        /// <summary>
+        /// состояние МП
+        /// </summary>
+        [XmlIgnore]
+        public bool? IsMPOn
+        {
+            get
+            {
+                if (mpc == null)
+                    return null;
+                else
+                    return mpc.ValDI;
+            }
+        }
+        #endregion
+        private void BS_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+        {
+            _bussec_index = e.newIndex;
+           // LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения на СШ");
+           LogWriter.AppendLog("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения на СШ");
+            OnPropertyChanged("BSVoltage");
+            //  throw new NotImplementedException();
+        }
+
+        /*public string BusSectionName
+        {
+            get
+            {
+                if (bs != null)
+                    return bs.NameDI;
                 else return "сигнал не назначен";
             }
             set { }
-        }
+        }*/
 
         // состояния входов-выходов
         /// <summary>
         /// сигнал - оманда на включение
         /// </summary>
-        private DOStruct ABB;
+        private DOStruct abb;
         private int _ABBindxArrDO = -1;
+        [XmlIgnore]
+        public DOStruct ABB
+        {
+            get { return abb; }
+        }
+      
+      
         /// <summary>
         /// сигнал - команда на включение, индекс в таблице DO
         /// </summary>
@@ -124,21 +220,25 @@ namespace Simulator_MPSA
         {
             get { return _ABBindxArrDO; }
             set {
-                if (value != _ABBindxArrDO || ABB == null) //если индекс изменен
+                if (value != _ABBindxArrDO || abb == null) //если индекс изменен
                 {
                     //отписываемся от сигнала если он был
-                    if (ABB != null)
-                        ABB.IndexChanged -= ABB_IndexChanged;
+                    if (abb != null)
+                        abb.IndexChanged -= ABB_IndexChanged;
 
                     
                     _ABBindxArrDO = value;
 
                     //ищем ссылку на новый сигнал по индексу
-                    ABB = DOStruct.FindByIndex(_ABBindxArrDO);
+                    abb = DOStruct.FindByIndex(_ABBindxArrDO);
 
                     //подписываемся на новый сигнал
-                    if (ABB != null)
-                        ABB.IndexChanged += ABB_IndexChanged;
+                    if (abb != null)
+                    {
+                        abb.IndexChanged += ABB_IndexChanged;
+                        abb.PropertyChanged += ABB_PropertyChanged;
+                        OnPropertyChanged("CMDStart");
+                    }
                 }
             }
         }
@@ -155,42 +255,55 @@ namespace Simulator_MPSA
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DO - команда на включение");
         }
 
-        public string ABBName
+       /* public string ABBName
         { get
             {
-                /*if (ABB != null)
-                    return ABB.NameDO;
-                else return "сигнал не назначен";*/
+              
                 if (_ABBindxArrDO > -1 && _ABBindxArrDO < DOStruct.items.Count)
                     return DOStruct.items[_ABBindxArrDO].NameDO;
                 else return "сигнал не назначен";                
             }
-        }
+        }*/
         /// <summary>
         /// сигнал - команда на отключение
         /// </summary>
-        private DOStruct ABO;
+        private DOStruct abo;
+        /// <summary>
+        /// команда на отключение
+        /// </summary>
+        public DOStruct ABO
+        {
+            get { return abo; }
+        }
+       
+        /// <summary>
+        /// индекс команды на отключение в массиве DOStruct.items
+        /// </summary>
         private int _ABOindxArrDO = -1;
         /// <summary>
-        /// команда на отключение, индекс в таблице DO
+        /// команда на отключение, индекс в таблице DOStruct
         /// </summary>
         public int ABOindxArrDO
         {
             get { return _ABOindxArrDO; }
             set
             {
-                if (value != _ABOindxArrDO || ABO == null)
+                if (value != _ABOindxArrDO || abo == null)
                 {
                     _ABOindxArrDO = value;
 
                     //ссылка изменена - отписывается от старого элемента
-                    if (ABO != null)
-                        ABO.IndexChanged -= ABO_IndexChanged;
+                    if (abo != null)
+                        abo.IndexChanged -= ABO_IndexChanged;
                     //находим новый сигнал                   
-                    ABO = DOStruct.FindByIndex(_ABOindxArrDO);
+                    abo = DOStruct.FindByIndex(_ABOindxArrDO);
                     //подписываемся на него
-                    if (ABO != null)
-                        ABO.IndexChanged += ABO_IndexChanged;
+                    if (abo != null)
+                    {
+                        abo.PropertyChanged += ABO_PropertyChanged;
+                        abo.IndexChanged += ABO_IndexChanged;
+                        OnPropertyChanged("CMDStop");
+                    }
                 }
             }
         }
@@ -202,44 +315,73 @@ namespace Simulator_MPSA
             //throw new NotImplementedException();
         }
 
-        public string ABOName
+      /*  public string ABOName
         { get
             {
-                /*if (ABO != null)
-                    return ABO.NameDO;
-                else return "сигнал не назначен";*/
+ 
                 if (_ABOindxArrDO > -1)
                     return DOStruct.items[_ABOindxArrDO].NameDO;
                 else return "сигнал не назначен";
             }
         }
-
+*/
         public bool changedDO;
 
+        /// <summary>
+        /// индекс сигнала "наличие напряжения" в массиве DIstruct.items
+        /// </summary>
         private int _ecindx = -1;
      
-        private float _valueEC;
-
+        /// <summary>
+        /// индекс сигнала "МП" в массиве DIStruct.items
+        /// </summary>
         private int _MPCindxArrDI = -1;
 
         /// <summary>
-        /// наличие давления индекс дискретного сигнала
+        /// наличие давления индекс дискретного сигнала в массиве DIStruct.items
         /// </summary>
         private int _PCindxArrDI = -1;
         /// <summary>
-        /// наличие давления индекс аналогового сигнала
+        /// наличие давления индекс аналогового сигнала в массиве AIStruct.items
         /// </summary>
         private int _PCindxArrAI = -1;
 
-        private DIStruct MPC_DI = null;
 
-        private DIStruct EC_DI = null;
+        /// <summary>
+        /// ссылка на сигнал - МП
+        /// </summary>
+        private DIStruct mpc = null;
+        /// <summary>
+        /// ссылка на сигнал - МП
+        /// </summary>
+        [XmlIgnore]
+        public DIStruct MPC
+        {
+            get { return mpc; }
+        }
+
+        /// <summary>
+        /// ссылка на сигнал - наличие напряжения
+        /// </summary>
+        
+        private DIStruct ec = null;
+        [XmlIgnore]
+        public DIStruct EC
+        {
+            get { return ec; }
+        }
+        
+
 
         /// <summary>
         /// ссылка на сигнал DI наличие давления
         /// </summary>
-        private DIStruct PC_DI = null;
-
+        private DIStruct pc = null;
+        [XmlIgnore]
+        public DIStruct PC
+        {
+            get { return pc; }
+        }
         /// <summary>
         /// ссылка на аналоговый сигнал давления на выходе
         /// </summary>
@@ -288,6 +430,11 @@ namespace Simulator_MPSA
         /// </summary>
         public AOStruct analogCommand;
 
+        public AOStruct AnalogCommand
+        {
+            get { return analogCommand; }
+        }
+        /*
         [XmlIgnore]
         public string AnCmdName
         {
@@ -299,23 +446,27 @@ namespace Simulator_MPSA
                 else
                     return "Сигнал не определен";
             }
-        }
+        }*/
         /// <summary>
         /// индекс сигнала напряжения в таблице DI, AI
         /// </summary>
         public int ECindxArrDI
         { get { return _ecindx; }
             set {
-                if (_ecindx != value || EC_DI ==null)
+                if (_ecindx != value || ec ==null)
                 {
-                    if (EC_DI != null) EC_DI.IndexChanged -= EC_DI_IndexChanged;
+                    if (ec != null) ec.IndexChanged -= EC_DI_IndexChanged;
                     _ecindx = value;
                     
                     OnPropertyChanged("ECindxArrDI");
 
-                    EC_DI = DIStruct.FindByIndex(value);
-                    if (EC_DI != null)
-                        EC_DI.IndexChanged += EC_DI_IndexChanged;
+                    ec = DIStruct.FindByIndex(value);
+                    if (ec != null)
+                    {
+                        ec.IndexChanged += EC_DI_IndexChanged;
+                        ec.PropertyChanged += EC_PropertyChanged;
+                        OnPropertyChanged("IsVoltageOk");
+                    }
 
                 }
             }
@@ -328,15 +479,7 @@ namespace Simulator_MPSA
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения");
         }
 
-        /// <summary>
-        /// Значение напряжения если это аналог
-        /// </summary>
-        public float valueEC
-        {
-            get { return _valueEC; }
-            set { _valueEC = value; OnPropertyChanged("valueEC"); }
 
-        }
         /// <summary>
         /// Индекс сигнала магнитного пускателя в таблице DI
         /// </summary>
@@ -345,15 +488,19 @@ namespace Simulator_MPSA
             get { return _MPCindxArrDI; }
             set
             {
-                if (_MPCindxArrDI != value || MPC_DI == null)
+                if (_MPCindxArrDI != value || mpc == null)
                 {
-                    if (MPC_DI != null)
-                        MPC_DI.IndexChanged -= MPC_DI_IndexChanged;
+                    if (mpc != null)
+                        mpc.IndexChanged -= MPC_DI_IndexChanged;
 
                     _MPCindxArrDI = value; OnPropertyChanged("MPCindxArrDI");
-                    MPC_DI = DIStruct.FindByIndex(_MPCindxArrDI);
-                    if (MPC_DI != null)
-                        MPC_DI.IndexChanged += MPC_DI_IndexChanged;
+                    mpc = DIStruct.FindByIndex(_MPCindxArrDI);
+                    if (mpc != null)
+                    {
+                        mpc.IndexChanged += MPC_DI_IndexChanged;
+                        mpc.PropertyChanged += MP_PropertyChanged;
+                        OnPropertyChanged("IsMPOn");
+                    }
                 }
             }
         }
@@ -372,18 +519,18 @@ namespace Simulator_MPSA
         {
             get { return _PCindxArrDI; }
             set {
-                if (_PCindxArrDI != value || PC_DI == null)
+                if (_PCindxArrDI != value || pc == null)
                 {
                     _PCindxArrDI = value;
 
-                    if (PC_DI != null)
-                        PC_DI.IndexChanged -= PC_DI_IndexChanged;
+                    if (pc != null)
+                        pc.IndexChanged -= PC_DI_IndexChanged;
 
                     OnPropertyChanged("PCindxArrDI");
-                    PC_DI = DIStruct.FindByIndex(value);
+                    pc = DIStruct.FindByIndex(value);
 
-                    if (PC_DI != null)
-                        PC_DI.IndexChanged += PC_DI_IndexChanged;
+                    if (pc != null)
+                        pc.IndexChanged += PC_DI_IndexChanged;
                 }
             }
         }
@@ -399,39 +546,35 @@ namespace Simulator_MPSA
         /// <summary>
         /// Возвращает название присвоенного сигнала наличия напряжения
         /// </summary>
-        public string ECName
+     /*   public string ECName
         {
             get
             {
-               
-                    //if (EC_DI != null)
-                    //    return EC_DI.NameDI;
                     if (_ecindx > -1)
                         return DIStruct.items[_ecindx].NameDI;
-               
 
                 return "сигнал не назначен";
             }
-        }
+        }*/
         /// <summary>
         /// Возвращает название присвоенного сигнала магнитного пускателя
         /// </summary>
-        public string MPCName
+      /*  public string MPCName
         {
             get
             {
                     //if (MPC_DI != null)
                     //    return MPC_DI.NameDI;
-                    if (MPC_DI != null)
-                        return MPC_DI.NameDI;
+                    if (mpc != null)
+                        return mpc.NameDI;
                     else
                     return "сигнал не назначен";
             }
-        }
+        }*/
         /// <summary>
         /// Возвращает название присвоенного сигнала давления на выходе
         /// </summary>
-        public string PCNameAI
+       /* public string PCNameAI
         {
             get
             {
@@ -441,25 +584,19 @@ namespace Simulator_MPSA
             
                 return "сигнал не назначен";
             }
-        }
+        }*//*
         public string PCNameDI
         {
             get
             {
-                /* if (_PCindxArrDI > -1)
-                     if (DIStruct.FindByIndex(_PCindxArrDI) != null)
-                         return DIStruct.FindByIndex(_PCindxArrDI).NameDI;
-                 */
-                if (PC_DI != null)
-                    return PC_DI.NameDI;
+              
+                if (pc != null)
+                    return pc.NameDI;
                 else
                     return "сигнал не назначен";
             }
-        }
+        }*/
 
-        public bool changedDI;
-        public float VSProc;
-        public int TmoveVS;
 
         /// <summary>
         /// адрес задания частоты в контроллере
@@ -477,6 +614,9 @@ namespace Simulator_MPSA
         /// состояние вспомсистемы
         /// </summary>
         private VSState state;
+        /// <summary>
+        /// состояние вспомсистемы
+        /// </summary>
         public VSState State
         { get {
                 return state;
@@ -487,6 +627,10 @@ namespace Simulator_MPSA
                 OnPropertyChanged("StateRUS");
             }
         }
+
+        /// <summary>
+        /// вывод состояния в datagrid на русском языке
+        /// </summary>
         public string StateRUS
         {
             set { }
@@ -502,13 +646,16 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// конструктор по умолчанию
+        /// </summary>
         public VSStruct()
         {
             Description = "Empty";
             Group = "NoGroup";
             ECindxArrDI = -1;
          
-            valueEC = 0.0f;
+        
 
             MPCindxArrDI = -1;
            // isMPCAnalog = false;
@@ -546,42 +693,43 @@ namespace Simulator_MPSA
         {
 
 
-            if (_en)
-            {
+       //     if (_en)
+      //      {
                 // нет напряжения на секции шин
-                if ((BS != null) && (BS.ValDI == false))
+                if (((bs != null) && (bs.ValDI == false)) || IsVoltageOk==false)
                 {
-                    if (MPC_DI != null) MPC_DI.ValDI = false;
-                    if (EC_DI != null) EC_DI.ValDI = false;
-                    if (PC_DI != null) PC_DI.ValDI = false;
+                    if (mpc != null) mpc.ValDI = false;
+                    if (ec != null) ec.ValDI = false;
+                    if (pc != null) pc.ValDI = false;
                     State = VSState.Stop;
                 }
-                else
-                {
-                    if (EC_DI != null) EC_DI.ValDI = true;
+
+                    if (ec != null) ec.ValDI = _en;
+
+
                     //команда включить - включить пускатель
-                    if ((ABB != null) && (ABB.ValDO) || (analogCommand!=null && analogCommand.fVal>0))
+                    if ((CmdStart==true || (analogCommand!=null && analogCommand.fVal>0))&&(IsVoltageOk==true))
                     {
-                        if ((state == VSState.Stop || state == VSState.Stoping))
+                        if (state == VSState.Stop)
                         {
-                            if (MPC_DI != null)
-                                MPC_DI.ValDI = true;
+                            if (mpc != null)
+                                mpc.ValDI = true;
 
                             State = VSState.Work;
                         }
                     }
 
                     //команда выключить - отключить пускатель
-                    if ((ABO != null) && (ABO.ValDO) || (analogCommand!=null && analogCommand.fVal==0))
+                    if (CmdStop==true || (analogCommand!=null && analogCommand.fVal==0))
                     {
-                        if (State == VSState.Starting || State == VSState.Work)
+                        if (State == VSState.Work)
                         {
-                            if (MPC_DI != null)
-                                MPC_DI.ValDI = false;
+                            if (mpc != null)
+                                mpc.ValDI = false;
 
                             State = VSState.Stop;
 
-                            if (PC_DI != null) PC_DI.ValDI = false;
+                            if (pc != null) pc.ValDI = false;
 
                         }
                     }
@@ -596,8 +744,8 @@ namespace Simulator_MPSA
                             if (PC_AI.fValAI > valuePC)
                                 PC_AI.fValAI = valuePC;
                         }*/
-                        if (PC_DI != null) PC_DI.ValDI = true;
-                        if (MPC_DI != null) MPC_DI.ValDI = true;
+                        if (pc != null) pc.ValDI = true;
+                        if (mpc != null) mpc.ValDI = true;
                         if (controledAIs != null)
                             foreach (AnalogIOItem analog in controledAIs)
                             {
@@ -634,8 +782,8 @@ namespace Simulator_MPSA
                                  PC_AI.fValAI = 0;
                          }*/
                         //управление всеми аналогами
-                        if (PC_DI != null) PC_DI.ValDI = false;
-                        if (MPC_DI != null) MPC_DI.ValDI = false;
+                        if (pc != null) pc.ValDI = false;
+                        if (mpc != null) mpc.ValDI = false;
                         if (controledAIs != null)
                             foreach (AnalogIOItem analog in controledAIs)
                             {
@@ -654,12 +802,13 @@ namespace Simulator_MPSA
                                 }
                             }
                     }
-                }//bs
-            }
+            //    }//bs
+       /*     }
             else
             {
                 if (EC_DI != null) EC_DI.ValDI = false;
-            }
+                state = VSState.Stop;
+            }*/
             
 
         }
@@ -669,7 +818,7 @@ namespace Simulator_MPSA
         public void Reset()
         {
             State = VSState.Stop;
-            if (MPC_DI != null) MPC_DI.ValDI = false;
+            if (mpc != null) mpc.ValDI = false;
         }
         /// <summary>
         /// пуск по месту
@@ -678,13 +827,13 @@ namespace Simulator_MPSA
         {
             LogWriter.AppendLog(Description + ": Пуск по месту");
             //--напряжение на секции шин, сигнал назначен --
-            if (BS != null && BS.ValDI == false)
+            if (bs != null && bs.ValDI == false)
             {
-                LogWriter.AppendLog(Description + ": Пуск невозможен, нет напряжения на секции шин (сигнал: "+BS.NameDI+")"+Environment.NewLine);
+                LogWriter.AppendLog(Description + ": Пуск невозможен, нет напряжения на секции шин (сигнал: "+bs.NameDI+")");
             }
 
-            if (state == VSState.Stop || state == VSState.Stoping)
-            if (MPC_DI != null) MPC_DI.ValDI = true;
+            if (state == VSState.Stop)
+            if (mpc != null) mpc.ValDI = true;
             State = VSState.Work;
         }
 
@@ -694,9 +843,9 @@ namespace Simulator_MPSA
         public void ManualStop()
         {
             LogWriter.AppendLog(Description + ": Стоп по месту");
-            if (MPC_DI != null) MPC_DI.ValDI = false;
+            if (mpc != null) mpc.ValDI = false;
 
-            if (state == VSState.Starting || state == VSState.Work)
+            if (state ==  VSState.Work)
                 State = VSState.Stop;
         }
 
@@ -713,13 +862,26 @@ namespace Simulator_MPSA
         /// <param name="value"></param>
         public void SetBusState(bool value)
         {
-            if (BS == null)
+            if (bs == null)
             {
-                BS = new DIStruct();
+                bs = new DIStruct();
             }
             if (BusSecIndex == -1)
-            BS.ValDI = value;
+            bs.ValDI = value;
         }
+
+        /// <summary>
+        /// переключить состояние на секции шин
+        /// </summary>
+        public void ToggleBusState()
+        {
+            if (bs != null)
+            {
+                bs.ValDI = !bs.ValDI;
+            }
+        }
+
+        
     }
 
 
