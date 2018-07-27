@@ -145,7 +145,7 @@
 
 
         </ToolBar>
-        <TabControl x:Name="tabControl"  Grid.Column="1" Grid.Row="2" SelectedIndex="1">
+        <TabControl x:Name="tabControl"  Grid.Column="1" Grid.Row="2" SelectedIndex="0">
             <TabItem x:Name="AITab" Header="AI -> PLC">
                 <Grid >
                     <Grid.RowDefinitions>
@@ -1162,6 +1162,8 @@
             <Label x:Name="StatusR" Content="Время чтения:"></Label>
             <Separator MinWidth="1" MinHeight="0"/>
             <Label x:Name="label_filename"/>
+            <Separator/>
+            <Label x:Name="label_confVersion"/>
         </StatusBar>
         
     </Grid>

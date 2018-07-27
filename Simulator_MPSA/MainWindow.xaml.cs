@@ -31,7 +31,6 @@ using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
 using Simulator_MPSA.ViewModel;
 using Simulator_MPSA.CL.Signal;
-using Simulator_MPSA.ViewModel;
 using Opc;
 using OpcCom;
 using OpcXml;
@@ -218,18 +217,55 @@ namespace Simulator_MPSA
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
-            EndCycle += new DEndWrite(On_WritingCycleEnd);
-            EndCycle2 += new DEndWrite(On_WritingCycle2End);
-            EndCycle3 += new DEndWrite(On_WritingCycle3End);
-            EndCycle4 += new DEndWrite(On_WritingCycle4End);
-            EndCycle5 += new DEndWrite(On_WritingCycle5End);
-            EndCycle6 += new DEndWrite(On_WritingCycle6End);
-            WriteLog += new DWriteLog(On_WriteLog);
+            EndCycle += new DEndWrite(()=> {
+                TimeSpan ts = DateTime.Now - writingTime[0];
+                StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
+                writingTime[0] = DateTime.Now;
+            });
+            EndCycle2 += new DEndWrite(()=> {
+                TimeSpan ts = DateTime.Now - writingTime[1];
+                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+                StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
+                writingTime[1] = DateTime.Now;
+            });
+            EndCycle3 += new DEndWrite(()=> {
+                TimeSpan ts = DateTime.Now - writingTime[2];
+                // StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+                StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
+                writingTime[2] = DateTime.Now;
+            });
+            EndCycle4 += new DEndWrite(()=> {
+                TimeSpan ts = DateTime.Now - writingTime[3];
+                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+                StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
+                writingTime[3] = DateTime.Now;
+            });
+            EndCycle5 += new DEndWrite(() => {
+                TimeSpan ts = DateTime.Now - writingTime[4];
+                StatusW5.Content = ts.TotalSeconds.ToString("F2");
+                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+                writingTime[4] = DateTime.Now;
+            });
+            EndCycle6 += new DEndWrite(()=> {
+                TimeSpan ts = DateTime.Now - writingTime[5];
+                StatusW6.Content = ts.TotalSeconds.ToString("F2");
+                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+                writingTime[6] = DateTime.Now;
+            });
+            WriteLog += new DWriteLog((text)=> { LogWriter.AppendLog(text); });
             
 
 
-            delegateDisconnected += new DDisconnected(On_Disconnected);
-            delegateEndRead += new DEndRead(On_ReadingCycleEnd);
+            delegateDisconnected += new DDisconnected(()=> {
+                btnStop_Click(null, null);
+                System.Windows.MessageBox.Show("Соединение разорвано!");
+            });
+            delegateEndRead += new DEndRead(()=> 
+            {
+                TimeSpan ts = DateTime.Now - readingTime;
+                StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
+                readingTime = DateTime.Now;
+            });
 
             // myDelegate += new ddd(On_WritingCycleEnd);
 
@@ -238,6 +274,7 @@ namespace Simulator_MPSA
             //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
 
             RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
+            string lastFilename = (string)configKey.GetValue("last file", "");
 
 
             int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
@@ -245,6 +282,17 @@ namespace Simulator_MPSA
             configKey.SetValue("ConfigMode", ConfMode);
             //   SetConfigMode(/*ConfMode != 0*/true);
             LogWriter.refMainWindow = this;
+
+
+            if (lastFilename != "" && System.IO.File.Exists(lastFilename))
+            {
+                if (System.Windows.MessageBox.Show("Открыть последний файл конфигурации?"+Environment.NewLine + lastFilename, "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    OpenConfig(lastFilename);
+                    currentFileName = lastFilename;
+                    label_filename.Content = lastFilename;
+                }
+            }
         }
 
 
@@ -487,8 +535,10 @@ namespace Simulator_MPSA
         }
 
         bool isConfigLoaded = false;
+
+
         /// <summary>
-        /// Загрузка конфигурации станции из единого xml
+        /// Загрузка конфигурации станции из единого xml по запросу пользователя
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -500,32 +550,37 @@ namespace Simulator_MPSA
             dialog.Filter = "XML Files (*.xml)|*.xml";
             dialog.FilterIndex = 0;
             dialog.DefaultExt = "xml";
-
-           DITab.DataContext = null;
-            AITab.DataContext = null;
-            DOTab.DataContext = null;
-            AOTab.DataContext = null;
-
-            AIStruct.EnableAutoIndex = false;
-            AOStruct.EnableAutoIndex = false;
-            DIStruct.EnableAutoIndex = false;
-            DOStruct.EnableAutoIndex = false;
-
-        /*    backgroundLoader = new BackgroundWorker();
-            backgroundLoader.DoWork += BackgroundLoader_DoWork;
-            backgroundLoader.RunWorkerCompleted += BackgroundLoader_RunWorkerCompleted;
-*/
-            Station station = new Station();
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                //       station.filename = dialog.FileName;
-                //  waitWindow = new WaitWindow();
-                // waitWindow.Show();
-                // backgroundLoader.RunWorkerAsync(dialog.FileName);
-                if (station.Load(dialog.FileName) == StationLoadResult.OK)
+                OpenConfig(dialog.FileName);
+            }
+
+
+        }
+
+        /// <summary>
+        /// Открытие файла xml конфига
+        /// </summary>
+        /// <param name="filename"></param>
+        private void OpenConfig(string filename)
+        {
+            Station station = new Station();
+
+                DITab.DataContext = null;
+                AITab.DataContext = null;
+                DOTab.DataContext = null;
+                AOTab.DataContext = null;
+
+                AIStruct.EnableAutoIndex = false;
+                AOStruct.EnableAutoIndex = false;
+                DIStruct.EnableAutoIndex = false;
+                DOStruct.EnableAutoIndex = false;
+
+                if (station.Load(filename) == StationLoadResult.OK)
                 {
-                    currentFileName = dialog.FileName;
+                    currentFileName = filename;
                     label_filename.Content = currentFileName;
+                label_confVersion.Content = "Версия файла: " + station.Version;
                     btnSave.IsEnabled = true;
 
                     DITab.DataContext = divm;
@@ -574,13 +629,7 @@ namespace Simulator_MPSA
 
                     LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
                 }
-            }
-
-           
-        
         }
-
-    
 
         /// <summary>
         /// сохранение в один xml
@@ -599,13 +648,11 @@ namespace Simulator_MPSA
             {
                 Station s = new Station();
                 s.settings = Sett.Instance;
-
-               
-
                 s.Save(dialog.FileName);
 
                 currentFileName = dialog.FileName;
                 label_filename.Content = currentFileName;
+                label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 btnSave.IsEnabled = true;
             }
         }
@@ -624,6 +671,7 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
+                label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
                 log.AppendText("Файл конфигурации сохранен : " + currentFileName +Environment.NewLine);
             }
@@ -701,13 +749,13 @@ namespace Simulator_MPSA
             }
         }
 
-        private void On_WriteLog(string text)
+        /*private void On_WriteLog(string text)
         {
             LogWriter.AppendLog(text);
-        }
+        }*/
         #region WriteReadCycleEnd
         //------------ вызывается каждую итерацию цикла записи ----------------
-        private void On_WritingCycleEnd()
+     /*   private void On_WritingCycleEnd()
         {
             TimeSpan ts = DateTime.Now - writingTime[0];
             StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
@@ -717,7 +765,7 @@ namespace Simulator_MPSA
         private void On_WritingCycle2End()
         {
             TimeSpan ts = DateTime.Now - writingTime[1];
-            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+       
             StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[1] = DateTime.Now;
         }
@@ -725,7 +773,7 @@ namespace Simulator_MPSA
         private void On_WritingCycle3End()
         {
             TimeSpan ts = DateTime.Now - writingTime[2];
-            // StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+         
             StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[2] = DateTime.Now;
         }
@@ -733,7 +781,7 @@ namespace Simulator_MPSA
         private void On_WritingCycle4End()
         {
             TimeSpan ts = DateTime.Now - writingTime[3];
-            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+       
             StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
             writingTime[3] = DateTime.Now;
         }
@@ -742,7 +790,7 @@ namespace Simulator_MPSA
         {
             TimeSpan ts = DateTime.Now - writingTime[4];
             StatusW5.Content = ts.TotalSeconds.ToString("F2");
-            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+        
             writingTime[4] = DateTime.Now;
         }
 
@@ -750,7 +798,7 @@ namespace Simulator_MPSA
         {
             TimeSpan ts = DateTime.Now - writingTime[5];
             StatusW6.Content = ts.TotalSeconds.ToString("F2");
-            //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
+        
             writingTime[6] = DateTime.Now;
         }
 
@@ -759,15 +807,15 @@ namespace Simulator_MPSA
             TimeSpan ts = DateTime.Now - readingTime;
             StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
             readingTime = DateTime.Now;
-        }
+        }*/
         #endregion
         //--------------------------------------------------------------------
 
-        private void On_Disconnected()
+    /*    private void On_Disconnected()
         {
             btnStop_Click(null, null);
             System.Windows.MessageBox.Show("Соединение разорвано!");
-        }
+        }*/
 
         //---------------------------- 
 
@@ -880,6 +928,12 @@ namespace Simulator_MPSA
 
                 if (editor != null)
                     editor.Close();
+
+                string subkey = @"software\NA\Simulator";
+               
+                RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
+              //  string lastFilename = (string)configKey.GetValue("last file", "");
+                configKey.SetValue("last file", currentFileName);
             }
             else
             {
@@ -1159,6 +1213,10 @@ namespace Simulator_MPSA
 
             CountersTableViewModel.Counters.Clear();
             DiagTableModel.Instance.DiagRegs.Clear();
+
+            Station s = new Station();
+            s.Version = 0;
+            s = null;
 
             currentFileName = "";
             btnSave.IsEnabled = false;

@@ -34,9 +34,16 @@ namespace Simulator_MPSA.CL
         public ObservableCollection<USOCounter> Counters;
         public ObservableCollection<DIStruct> DiagSignals;
         public ObservableCollection<Scripting.ScriptInfo> scripts;
-        PageType currentPage;
+        
+        /// <summary>
+        /// Версия файла конфигурации
+        /// </summary>
+        public int Version
+        { set
+            { currentConfigVersion = value; } get { return currentConfigVersion; } }
 
-     
+        private static int currentConfigVersion;
+
         public Station()
         { }
 
@@ -71,6 +78,7 @@ namespace Simulator_MPSA.CL
 
             scripts = ScriptTableViewModel.Items;
 
+            ++currentConfigVersion;
 
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
@@ -171,6 +179,7 @@ namespace Simulator_MPSA.CL
 
                 Debug.WriteLine(DateTime.Now.ToShortTimeString()+":" + DateTime.Now.Second.ToString() + ": Модели инициализированы");
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
+
                 return StationLoadResult.OK;
             }
             catch(Exception e)
