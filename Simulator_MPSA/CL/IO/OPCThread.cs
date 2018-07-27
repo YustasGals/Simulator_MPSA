@@ -94,12 +94,14 @@ namespace Simulator_MPSA.CL
                 //
                 return;
             }
+            bool isFirstCycle = true;
+
             while (true)
             {
                 //-------------- OPC ----------------
                 opcitems.Clear();
                 foreach (DIStruct di in DIStruct.items)
-                    if (di.OPCtag != "" && di.IsChanged && di.En)
+                    if ((di.OPCtag != "" && di.IsChanged && di.En)||(isFirstCycle))
                     {
                         itm = new Opc.Da.ItemValue(di.OPCtag);
                         itm.Value = di.ValDI ^ di.InvertDI;
@@ -108,7 +110,7 @@ namespace Simulator_MPSA.CL
                     }
 
                 foreach (AIStruct ai in AIStruct.items)
-                    if (ai.OPCtag != "" && ai.IsChanged && ai.En)
+                    if ((ai.OPCtag != "" && ai.IsChanged && ai.En)|| (isFirstCycle))
                     {
                         itm = new Opc.Da.ItemValue(ai.OPCtag);
                         if (ai.PLCDestType == EPLCDestType.Float)
@@ -176,7 +178,7 @@ namespace Simulator_MPSA.CL
                     //System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
                   //  LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
                 }
-
+                isFirstCycle = false;
                 Thread.Sleep(period);
                 if (isAbortRequested) return;
             }//loop

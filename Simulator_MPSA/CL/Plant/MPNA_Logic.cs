@@ -55,10 +55,13 @@ namespace Simulator_MPSA
         public void UpdateMPNA(float dt)
         {
             //логика отключена - выходим
-            if (!_En) return;
+            if (!_En)
+            {
+                return;
+            }
             //все цепи исправны
-           
-            
+
+
             if (ECB != null) ECB.ValDI = true;
             if (ECO != null) ECO.ValDI = true;
             if (ECO11 != null) ECO11.ValDI = true;

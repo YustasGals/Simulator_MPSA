@@ -35,6 +35,7 @@ using Simulator_MPSA.ViewModel;
 using Opc;
 using OpcCom;
 using OpcXml;
+using System.Windows.Controls;
 
 namespace Simulator_MPSA
 {
@@ -946,6 +947,12 @@ namespace Simulator_MPSA
         {
             (dataGridZD.SelectedItem as ZDStruct).ToggleDist();
         }
+        private void ZDMenu_BS_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ToggleBS();
+        }
+
+
         private void ZDMenu_settings_Click(object sender, RoutedEventArgs e)
         {
             if ((dialog != null) && (dialog.IsLoaded))
@@ -1427,12 +1434,33 @@ namespace Simulator_MPSA
 
         private void log_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            log.ScrollToEnd();
+            try
+            {
+                log.ScrollToEnd();
+            }
+            catch
+            { }
         }
 
 
+        /*
+private void dataGridAI_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+{
+   System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
+   DataGridRow dgr = (DataGridRow)(dg.ItemContainerGenerator.ContainerFromIndex(dg.SelectedIndex));
+   if (e.Key == Key.Delete && !dgr.IsEditing)
+   {
 
+       var result = System.Windows.MessageBox.Show(
+           "About to delete the current row.\n\nProceed?",
+           "Delete",
+           MessageBoxButton.YesNo,
+           MessageBoxImage.Question,
+           MessageBoxResult.No);
+       e.Handled = (result == MessageBoxResult.No);
+   }
 
+}*/
     }
 
     class MainViewModel

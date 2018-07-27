@@ -7,6 +7,8 @@ using System.ComponentModel;
 using Simulator_MPSA.CL.Signal;
 using System.Xml.Serialization;
 using Simulator_MPSA.CL;
+using System.Timers;
+using System.Diagnostics;
 
 namespace Simulator_MPSA
 {
@@ -45,11 +47,22 @@ namespace Simulator_MPSA
             set { _index = value; OnPropertyChanged("Index"); }
         }
 
+
+
         /// <summary>
         /// Наличие напряжения на секции шин
         /// </summary>
         private DIStruct bs;
 
+        /// <summary>
+        /// состояине секции шин с учетом задержек времени
+        /// </summary>
+        private bool corrBSState=false;
+
+        /// <summary>
+        /// предыдущее состояние СШ
+        /// </summary>
+        private bool prevBSState = false;
         [XmlIgnore]
         public DIStruct BS
         {
@@ -346,6 +359,10 @@ namespace Simulator_MPSA
         /// </summary>
         private int _PCindxArrAI = -1;
 
+        /// <summary>
+        /// Стоп по месту
+        /// </summary>
+        private bool flagManualStop = false;
 
         /// <summary>
         /// ссылка на сигнал - МП
@@ -371,6 +388,20 @@ namespace Simulator_MPSA
             get { return ec; }
         }
         
+        private bool? ECValue
+        {
+            get
+            {
+                if (ec != null)
+                    return ec.ValDI;
+                else return null;
+            }
+            set
+            {
+                if (ec != null)
+                    ec.ValDI = (value == true);
+            }
+        }
 
 
         /// <summary>
@@ -434,22 +465,7 @@ namespace Simulator_MPSA
         {
             get { return analogCommand; }
         }
-        /*
-        [XmlIgnore]
-        public string AnCmdName
-        {
-            set { }
-            get
-            {
-                if (analogCommand != null)
-                    return analogCommand.Name;
-                else
-                    return "Сигнал не определен";
-            }
-        }*/
-        /// <summary>
-        /// индекс сигнала напряжения в таблице DI, AI
-        /// </summary>
+
         public int ECindxArrDI
         { get { return _ecindx; }
             set {
@@ -535,6 +551,11 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// изменен индекс сигнала PC
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PC_DI_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
             // throw new NotImplementedException();
@@ -543,73 +564,6 @@ namespace Simulator_MPSA
         }
 
 
-        /// <summary>
-        /// Возвращает название присвоенного сигнала наличия напряжения
-        /// </summary>
-     /*   public string ECName
-        {
-            get
-            {
-                    if (_ecindx > -1)
-                        return DIStruct.items[_ecindx].NameDI;
-
-                return "сигнал не назначен";
-            }
-        }*/
-        /// <summary>
-        /// Возвращает название присвоенного сигнала магнитного пускателя
-        /// </summary>
-      /*  public string MPCName
-        {
-            get
-            {
-                    //if (MPC_DI != null)
-                    //    return MPC_DI.NameDI;
-                    if (mpc != null)
-                        return mpc.NameDI;
-                    else
-                    return "сигнал не назначен";
-            }
-        }*/
-        /// <summary>
-        /// Возвращает название присвоенного сигнала давления на выходе
-        /// </summary>
-       /* public string PCNameAI
-        {
-            get
-            {
-                if (_PCindxArrAI > -1)
-                    if (AIStruct.FindByIndex(_PCindxArrAI) != null)
-                        return AIStruct.FindByIndex(_PCindxArrAI).NameAI;
-            
-                return "сигнал не назначен";
-            }
-        }*//*
-        public string PCNameDI
-        {
-            get
-            {
-              
-                if (pc != null)
-                    return pc.NameDI;
-                else
-                    return "сигнал не назначен";
-            }
-        }*/
-
-
-        /// <summary>
-        /// адрес задания частоты в контроллере
-        /// </summary>
-    //    public int SetRPM_Addr=-1;
-
-        /// <summary>
-        /// задание частоты %*640
-        /// </summary>
-    //    public int SetRPM_Value;
-      
-
-     //   public int ADCtoRPM = 640;
         /// <summary>
         /// состояние вспомсистемы
         /// </summary>
@@ -662,11 +616,26 @@ namespace Simulator_MPSA
       
 
             PCindxArrDI = -1;
-          
-  
-
 
             state = VSState.Stop;
+
+
+
+            bsOnTimer = new Timer(BSOnTime);
+            bsOffTimer = new Timer(BSOffTime);
+            manualStopTimer = new Timer(noVoltTime);
+
+
+            manualStopTimer.Elapsed += (sender, e) => { flagManualStop = false; };
+            manualStopTimer.AutoReset = false;
+
+            bsOffTimer.Elapsed += (sender, e) => { corrBSState = false; };
+            bsOffTimer.AutoReset = false;
+
+            bsOnTimer.Elapsed += (sender, e) => { corrBSState = true; };
+            bsOnTimer.AutoReset = false;
+
+
         }
 
         /// <summary>
@@ -683,32 +652,83 @@ namespace Simulator_MPSA
 
             AnCmdIndex = _anCmdIndex;
         }
-       
+
+        #region ТАЙМЕРЫ
+        /// <summary>
+        /// таймер для кратковременного пропадания напряжения, уставка таймера
+        /// </summary>
+        float noVoltTime = 1000;
+
+        /// <summary>
+        /// время отсутствия напряжения на СШ, уставка таймера
+        /// </summary>
+        double BSOffTime = 200;
+
+        /// <summary>
+        /// время появления напряжения на СШ, уставка таймера
+        /// </summary>
+        double BSOnTime = 200;
+
         /// <summary>
         /// обновление состояния вспомсистемы
         /// </summary>
         /// <param name="dt">задержка между циклами обновления в секундах</param>
         /// <returns></returns>
+        /// 
+        Timer bsOnTimer;
+        Timer bsOffTimer;
+        Timer manualStopTimer;
+
+        #endregion
+
         public void UpdateVS(float dt)
         {
+            //алгоритм отключен
+            if (!_en)
+                return;
+
+            // нет напряжения на секции шин, гасим все дискреты
+            if  (corrBSState == false)
+            {
+
+                if (mpc != null) mpc.ValDI = false;
+                if (ec != null) ec.ValDI = false;
+                if (pc != null) pc.ValDI = false;
+                State = VSState.Stop;
+            }
+            else
+            {
+        //        if (ec != null) ec.ValDI = true;
+            }
+
+    
+            //----------------------- пропадание напряжения на секции шин ------------------------
+
+            //напруга на СШ пропала
+            if (BSVoltage == false && prevBSState == true)
+            {
+                bsOffTimer.Start();
+            //    Debug.WriteLine("Voltage OFF");
+            }
+            //напруга на СШ появилась
+            if (BSVoltage != false && prevBSState == false)
+            {
+                bsOnTimer.Start();
+           //     Debug.WriteLine("Voltage ON");
+
+            }
+            prevBSState = (BSVoltage != false);
 
 
-       //     if (_en)
-      //      {
-                // нет напряжения на секции шин
-                if (((bs != null) && (bs.ValDI == false)) || IsVoltageOk==false)
-                {
-                    if (mpc != null) mpc.ValDI = false;
-                    if (ec != null) ec.ValDI = false;
-                    if (pc != null) pc.ValDI = false;
-                    State = VSState.Stop;
-                }
-
-                    if (ec != null) ec.ValDI = _en;
+            //-------------------------- снятие напряжения при команде "стоп по месту" -----------------------------
+            if (flagManualStop)
+                ECValue = false;
+            else
+                ECValue = corrBSState;
 
 
-                    //команда включить - включить пускатель
-                    if ((CmdStart==true || (analogCommand!=null && analogCommand.fVal>0))&&(IsVoltageOk==true))
+            //команда включить - включить пускатель
+            if ((CmdStart==true || (analogCommand!=null && analogCommand.fVal>0))&&(IsVoltageOk==true))
                     {
                         if (state == VSState.Stop)
                         {
@@ -802,14 +822,6 @@ namespace Simulator_MPSA
                                 }
                             }
                     }
-            //    }//bs
-       /*     }
-            else
-            {
-                if (EC_DI != null) EC_DI.ValDI = false;
-                state = VSState.Stop;
-            }*/
-            
 
         }
         /// <summary>
@@ -845,9 +857,16 @@ namespace Simulator_MPSA
             LogWriter.AppendLog(Description + ": Стоп по месту");
             if (mpc != null) mpc.ValDI = false;
 
-            if (state ==  VSState.Work)
+            if (state == VSState.Work)
                 State = VSState.Stop;
+
+            flagManualStop = true;
+
+            manualStopTimer.Start();
+
         }
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")

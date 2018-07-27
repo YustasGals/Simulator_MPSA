@@ -252,6 +252,9 @@ namespace Simulator_MPSA
         /// <returns></returns>
         public void UpdateKL(float dt)
         {
+            if (!_en)
+                return;
+
             if (DOB != null)
                 bDOB = DOB.ValDO;
 

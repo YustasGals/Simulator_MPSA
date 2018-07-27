@@ -41,7 +41,7 @@ namespace Simulator_MPSA
         private string _description = "Задвижка";  //название задвижки
         private string _group = "";    //название подсистемы в которую входи задвижка
 
-        
+
         private StateZD _stateZD = StateZD.Close;
         public StateZD StateZD
         {
@@ -95,7 +95,7 @@ namespace Simulator_MPSA
             if (ZD_position_ai != null) ZD_position_ai.fValAI = _ZDProc;
 
             //нет напряжения на секции шин
-            if (bs != null && bs.ValDI==false)
+            if (bs != null && bs.ValDI == false)
             {
                 if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
                     StateZD = StateZD.Middle;
@@ -148,10 +148,10 @@ namespace Simulator_MPSA
                      if ((MPDelay < 0) && (CDC != null))
                          CDC.ValDI = false
                          */
-                         //выключить МПЗ
+                    //выключить МПЗ
                     if ((cdc != null))
                         cdc.ValDI = false;
-                     
+
                 }
 
                 //состояние - открыто
@@ -167,7 +167,7 @@ namespace Simulator_MPSA
                     /* MPDelay -= dt;
                      if ((MPDelay < 0) && (ODC != null))
                          ODC.ValDI = false;*/
-                         //выключить МПО
+                    //выключить МПО
                     if ((odc != null))
                         odc.ValDI = false;
                 }
@@ -193,10 +193,10 @@ namespace Simulator_MPSA
                         //включить МПО
                         if (odc != null) odc.ValDI = true;
                         //вкл концевики
-                     /*   if (OKC != null)
-                            OKC.ValDI = true;
-                        if (CKC != null)
-                            CKC.ValDI = true;*/
+                        /*   if (OKC != null)
+                               OKC.ValDI = true;
+                           if (CKC != null)
+                               CKC.ValDI = true;*/
                     }
                 }
 
@@ -220,10 +220,10 @@ namespace Simulator_MPSA
                         //включить МПЗ
                         if (cdc != null) cdc.ValDI = true;
                         //вкл концевики
-                     /*   if (OKC != null)
-                            OKC.ValDI = true;
-                        if (CKC != null)
-                            CKC.ValDI = true;*/
+                        /*   if (OKC != null)
+                               OKC.ValDI = true;
+                           if (CKC != null)
+                               CKC.ValDI = true;*/
                     }
                 }
 
@@ -268,7 +268,7 @@ namespace Simulator_MPSA
 
                 }
             }
- 
+
         }
         #region РУЧНОЕ УПРАВЛЕНИЕ
         public void ManualOpen()
@@ -288,7 +288,12 @@ namespace Simulator_MPSA
             if (_stateZD == StateZD.Opening || _stateZD == StateZD.Closing)
                 StateZD = StateZD.Middle;
         }
-       
+
+        public void ToggleBS()
+        {
+            if (bs != null) bs.ValDI = !bs.ValDI;
+        }
+
 
         /// <summary>
         /// переключение режима "дистанционный"
@@ -323,7 +328,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// положение затвора, индекс в таблице AIStruct
         /// </summary>
-        private int _ZD_Pos_index=-1;
+        private int _ZD_Pos_index = -1;
         /// <summary>
         /// положение затвора, индекс в таблице AIStruct
         /// </summary>
@@ -362,16 +367,9 @@ namespace Simulator_MPSA
                 _DOBindxArrDO = value;
                 OnPropertyChanged("DOBindxArrDO");
                 dob = DOStruct.FindByIndex(_DOBindxArrDO);
-                if (dob!=null)
-                    dob.PropertyChanged += DOB_PropertyChanged;
+                if (dob != null)
+                    dob.ValueChanged += (sender, e) => { OnPropertyChanged("DOBState"); };
             }
-        }
-
-        private void DOB_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            //   throw new NotImplementedException();
-            if (e.PropertyName == "ValDO")
-                OnPropertyChanged("DOBState");
         }
 
         private DOStruct dob;
@@ -391,16 +389,9 @@ namespace Simulator_MPSA
                 _DKBindxArrDO = value;
                 OnPropertyChanged("DKBindxArrDO");
                 dkb = DOStruct.FindByIndex(_DKBindxArrDO);
-                if (dkb!=null)
-                    dkb.PropertyChanged += DKB_PropertyChanged;
+                if (dkb != null)
+                    dkb.ValueChanged += (sender, e) => { OnPropertyChanged("DKBState"); };
             }
-        }
-
-        private void DKB_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            //  throw new NotImplementedException();
-            if (e.PropertyName == "ValDO")
-            OnPropertyChanged("DKBState");
         }
 
         private DOStruct dkb;
@@ -427,18 +418,12 @@ namespace Simulator_MPSA
             set {
                 _DCBindxArrDO = value;
                 OnPropertyChanged("DCBindxArrDO");
-                dcb = DOStruct.FindByIndex(_DCBindxArrDO); 
+                dcb = DOStruct.FindByIndex(_DCBindxArrDO);
                 if (dcb != null)
-                    dcb.PropertyChanged += DCB_PropertyChanged;
+                    dcb.ValueChanged += (sender, e) => { OnPropertyChanged("DCBState"); };
             }
         }
 
-        private void DCB_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            // throw new NotImplementedException();
-            if (e.PropertyName == "ValDO")
-                OnPropertyChanged("DCBState");
-        }
 
         private DOStruct dcb;
         public DOStruct DCB
@@ -467,16 +452,10 @@ namespace Simulator_MPSA
                 OnPropertyChanged("DCBZindxArrDO");
                 dcbz = DOStruct.FindByIndex(_DCBZindxArrDO);
                 if (dcbz != null)
-                    dcbz.PropertyChanged += DCBZ_PropertyChanged;
+                    dcbz.ValueChanged += (sender, e) => { OnPropertyChanged("DCBZState"); };
             }
         }
 
-        private void DCBZ_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            // throw new NotImplementedException();
-            if (e.PropertyName == "ValDO")
-                OnPropertyChanged("DCBZState");
-        }
 
         private DOStruct dcbz;
         public DOStruct DCBZ
@@ -507,19 +486,15 @@ namespace Simulator_MPSA
             get { return _OKCindxArrDI; }
             set {
                 _OKCindxArrDI = value;
-               // OnPropertyChanged("DCBZindxArrDO");
+                // OnPropertyChanged("DCBZindxArrDO");
                 okc = DIStruct.FindByIndex(_OKCindxArrDI);
 
                 //подписываем наш метод на событие чтобы видеть изменения дискретов в таблице задвижек
                 if (okc != null)
-                    okc.PropertyChanged += OKC_PropertyChanged;
+                    okc.ValueChanged += (sender, e) => { OnPropertyChanged("KVO"); };
             }
         }
 
-        private void OKC_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            OnPropertyChanged("KVO");
-        }
         /// <summary>
         /// КВО
         /// </summary>
@@ -528,15 +503,15 @@ namespace Simulator_MPSA
         {
             get { return okc; }
         }
-       /* public string OKCName
-        {
-            get
-            {
-                
-                return DIStruct.GetNameByIndex(_OKCindxArrDI);
-            }
-        }*/
-      
+        /* public string OKCName
+         {
+             get
+             {
+
+                 return DIStruct.GetNameByIndex(_OKCindxArrDI);
+             }
+         }*/
+
         /// <summary>
         /// концевой выключатель закрытия
         /// </summary>
@@ -547,33 +522,20 @@ namespace Simulator_MPSA
                 _CKCindxArrDI = value;
                 //OnPropertyChanged("DCBZindxArrDO");
                 ckc = DIStruct.FindByIndex(_CKCindxArrDI);
-                if (ckc!=null)
-                    ckc.PropertyChanged += CKC_PropertyChanged;
+                if (ckc != null)
+                    ckc.ValueChanged += (sender, e) => { OnPropertyChanged("KVZ"); };
             }
-        }
-
-        private void CKC_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            // throw new NotImplementedException();
-            OnPropertyChanged("KVZ");
         }
 
         /// <summary>
         /// КВЗ
         /// </summary>
         private DIStruct ckc;
-      /*  public string CKCName
-        {
-            get
-            {
-                return DIStruct.GetNameByIndex(_CKCindxArrDI);
-            }
-        }
-      */
-      /// <summary>
-      /// КВЗ
-      /// </summary>
-      public DIStruct CKC
+
+        /// <summary>
+        /// КВЗ
+        /// </summary>
+        public DIStruct CKC
         {
             get { return ckc; }
         }
@@ -587,16 +549,11 @@ namespace Simulator_MPSA
                 _ODCindxArrDI = value;
                 OnPropertyChanged("ODCindxArrDI");
                 odc = DIStruct.FindByIndex(_ODCindxArrDI);
-                if (odc!=null)
-                    odc.PropertyChanged += ODC_PropertyChanged;
+                if (odc != null)
+                    odc.ValueChanged += (sender, e) => { OnPropertyChanged("MPO"); };
             }
         }
 
-        private void ODC_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            // throw new NotImplementedException();
-            OnPropertyChanged("MPO");
-        }
 
         /// <summary>
         /// МПО
@@ -606,16 +563,6 @@ namespace Simulator_MPSA
         {
             get { return odc; }
         }
-    /*    public string ODCName
-        {
-            get
-            {
-                if (ODC != null)
-                    return ODC.NameDI;
-                else return "сигнал не назначен";
-            }
-        }*/
-      //  public bool ODCState { get { if (ODC != null) return ODC.ValDI; else return false; } set { } }
 
 
         /// <summary>
@@ -630,7 +577,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// Наличие напряжения на СШ индекс сигнала
         /// </summary>
-        public int _bsindex=-1;
+        public int _bsindex = -1;
         /// <summary>
         /// Наличие напряжения на СШ индекс сигнала
         /// </summary>
@@ -641,7 +588,10 @@ namespace Simulator_MPSA
             {
                 _bsindex = value;
                 if (_bsindex >= 0 && _bsindex < DIStruct.items.Count)
+                {
                     bs = DIStruct.items[_bsindex];
+                    bs.ValueChanged += (sender, e) => { OnPropertyChanged("BSState"); };
+                }
                 else
                     bs = null;
             }
@@ -667,18 +617,18 @@ namespace Simulator_MPSA
                 _CDCindxArrDI = value;
                 OnPropertyChanged("CDCindxArrDI");
                 cdc = DIStruct.FindByIndex(_CDCindxArrDI);
-                if (cdc!=null)
-                    cdc.PropertyChanged += CDC_PropertyChanged;
+                if (cdc != null)
+                    cdc.ValueChanged += (sender, e) => { OnPropertyChanged("MPZ"); };
             }
         }
-
+        /*
         private void CDC_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            // throw new NotImplementedException();
+           
             if (e.PropertyName=="ValDI")
             OnPropertyChanged("MPZ");
         }
-
+        */
         /// <summary>
         /// МПЗ
         /// </summary>
@@ -745,16 +695,16 @@ namespace Simulator_MPSA
         {
             get { return volt; }
         }
-      /*  [XmlIgnore]
-        public string VoltName
-        {
-            get
-            {
-                if (volt != null)
-                    return volt.NameDI;
-                else return "сигнал не назначен";
-            }
-        }*/
+        /*  [XmlIgnore]
+          public string VoltName
+          {
+              get
+              {
+                  if (volt != null)
+                      return volt.NameDI;
+                  else return "сигнал не назначен";
+              }
+          }*/
         public bool VoltState { get { if (volt != null) return volt.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -764,7 +714,7 @@ namespace Simulator_MPSA
         {
             get { return _MCindxArrDI; }
             set {
-            
+
                 _MCindxArrDI = value;
                 OnPropertyChanged("MCindxArrDI");
                 mc = DIStruct.FindByIndex(_MCindxArrDI);
@@ -788,7 +738,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }*/
-       // public bool MCState { get { if (MC != null) return MC.ValDI; else return false; } set { } }
+        // public bool MCState { get { if (MC != null) return MC.ValDI; else return false; } set { } }
 
         /// <summary>
         /// авария привода
@@ -855,7 +805,7 @@ namespace Simulator_MPSA
         /// </summary>
         public void UpdateRefs()
         {
-            
+
             DOBindxArrDO = _DOBindxArrDO;
             DCBindxArrDO = _DCBindxArrDO;
             DKBindxArrDO = _DKBindxArrDO;
@@ -868,6 +818,7 @@ namespace Simulator_MPSA
             VoltindxArrDI = _VoltindxArrDI;
             MCindxArrDI = _MCindxArrDI;
             ZD_Pos_index = _ZD_Pos_index;
+            BSIndex = _bsindex;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "") => PropertyChanged?.Invoke(sender: this, e: new PropertyChangedEventArgs(prop));
@@ -990,6 +941,19 @@ namespace Simulator_MPSA
             {
                 if (dcbz != null)
                     return dcbz.ValDO;
+                else return null;
+            }
+        }
+        /// <summary>
+        /// наличие напряжения на СШ
+        /// </summary>
+        [XmlIgnore]
+        public bool? BSState
+        {
+            get
+            {
+                if (bs != null)
+                    return bs.ValDI;
                 else return null;
             }
         }

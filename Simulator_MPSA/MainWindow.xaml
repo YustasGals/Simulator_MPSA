@@ -194,7 +194,7 @@
                         </Grid>
 
                     </Expander>
-                    <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true">
+                    <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true" IsManipulationEnabled="True">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.CellStyle>
@@ -560,6 +560,7 @@
                                 <MenuItem x:Name="ZDMenu_close" Header="Закрыть по месту" Click="ZDMenu_close_Click"/>
                                 <MenuItem x:Name="ZDMenu_stop" Header="Стоп по месту" Click="ZDMenu_stop_Click"/>
                                 <MenuItem x:Name="ZDMenu_dist" Header="Дист/местный" Click="ZDMenu_dist_Click"/>
+                                <MenuItem x:Name="ZDMenu_bs" Header="Вкл/откл напряжения на СШ" Click="ZDMenu_BS_Click"/>
                                 <Separator/>
                                 <MenuItem x:Name="ZDMenu_settings" Header="Настройки" Click="ZDMenu_settings_Click" />
                             </ContextMenu>
@@ -573,6 +574,29 @@
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateZDRus}"  IsReadOnly="True" Foreground="Gray"/>
                             <DataGridTextColumn Header="%" Binding="{Binding Percent}"  IsReadOnly="True" Foreground="Gray"/>
                             <DataGridTextColumn Header="время хода" Binding="{Binding TmoveZD}"  IsReadOnly="False"/>
+                            <DataGridTextColumn Header="СШ" Binding="{Binding BSState}"  IsReadOnly="true">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Наличие напряжения на СШ" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="КВО" Binding="{Binding KVO}"  IsReadOnly="true">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
@@ -665,7 +689,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="DOB" Binding="{Binding DOBState}"  IsReadOnly="true">
+                            <DataGridTextColumn Header="Открыть" Binding="{Binding DOBState}"  IsReadOnly="true">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -688,7 +712,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="DKB" Binding="{Binding DKBState}"  IsReadOnly="true">
+                            <DataGridTextColumn Header="Закрыть" Binding="{Binding DKBState}"  IsReadOnly="true">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -711,7 +735,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="DCB" Binding="{Binding DCBState}"  IsReadOnly="true">
+                            <DataGridTextColumn Header="Стоп" Binding="{Binding DCBState}"  IsReadOnly="true">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -734,7 +758,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="DCBZ" Binding="{Binding DCBState}"  IsReadOnly="true">
+                            <DataGridTextColumn Header="Стоп закрытия" Binding="{Binding DCBState}"  IsReadOnly="true">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -979,7 +1003,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="ABO" Binding="{Binding CmdStart}" IsReadOnly="True">
+                            <DataGridTextColumn Header="Стоп" Binding="{Binding CmdStart}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -1002,7 +1026,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="ABB" Binding="{Binding CmdStop}" IsReadOnly="True">
+                            <DataGridTextColumn Header="Пуск" Binding="{Binding CmdStop}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>

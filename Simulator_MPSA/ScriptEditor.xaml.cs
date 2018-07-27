@@ -25,12 +25,15 @@ namespace Simulator_MPSA
     public partial class ScriptEditor : Window
     {
         ScriptInfo script;
+        bool textChanged = false;
         public ScriptEditor(Scripting.ScriptInfo script)
         {
             InitializeComponent();
 
             this.script = script;
             Editor.Text = script.ScriptTxt;
+
+            Editor.TextChanged += Editor_TextChanged;
             using (Stream s = File.OpenRead("resources/lua.xshd"))
             {
                 using (XmlTextReader reader = new XmlTextReader(s))
@@ -67,6 +70,35 @@ namespace Simulator_MPSA
             script.ScriptTxt = Editor.Text;
             script.Prepare();
             script.Run(0, true);
+        }
+
+        private void Editor_TextChanged(object sender, EventArgs e)
+        {
+            if (!textChanged)
+            {
+                editorWindow.Title = editorWindow.Title + " - изменен";
+                textChanged = true;
+            }
+
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (textChanged)
+            {
+                MessageBoxResult res = MessageBox.Show("Текст скрипта был изменен, сохранить изменения?", "Предупреждение", MessageBoxButton.YesNoCancel);
+                switch (res)
+                {
+                    case MessageBoxResult.Yes:
+                        On_ButtonApply(sender, new RoutedEventArgs());
+                        break;
+                    case MessageBoxResult.No:
+                        break;
+                    case MessageBoxResult.Cancel:
+                        e.Cancel = true;
+                        break;
+                }
+            }
         }
     }
 }
