@@ -1003,30 +1003,7 @@
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Header="Стоп" Binding="{Binding CmdStart}" IsReadOnly="True">
-                                <DataGridTextColumn.ElementStyle>
-                                    <Style TargetType="{x:Type TextBlock}">
-                                        <Style.Triggers>
-                                            <Trigger Property="Text" Value="True">
-                                                <Setter Property="Background" Value="Lime"/>
-                                                <Setter Property="Foreground" Value="Lime"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="False">
-                                                <Setter Property="Background" Value="Yellow"/>
-                                                <Setter Property="Foreground" Value="Yellow"/>
-                                            </Trigger>
-                                            <Trigger Property="Text" Value="">
-                                                <Setter Property="Background" Value="Gray"/>
-                                                <Setter Property="Foreground" Value="Gray"/>
-
-                                            </Trigger>
-
-                                        </Style.Triggers>
-                                        <Setter Property="ToolTip" Value="Команда на отключение" />
-                                    </Style>
-                                </DataGridTextColumn.ElementStyle>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Пуск" Binding="{Binding CmdStop}" IsReadOnly="True">
+                            <DataGridTextColumn Header="Пуск" Binding="{Binding CmdStart}" IsReadOnly="True">
                                 <DataGridTextColumn.ElementStyle>
                                     <Style TargetType="{x:Type TextBlock}">
                                         <Style.Triggers>
@@ -1046,6 +1023,29 @@
 
                                         </Style.Triggers>
                                         <Setter Property="ToolTip" Value="Команда на включение" />
+                                    </Style>
+                                </DataGridTextColumn.ElementStyle>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Стоп" Binding="{Binding CmdStop}" IsReadOnly="True">
+                                <DataGridTextColumn.ElementStyle>
+                                    <Style TargetType="{x:Type TextBlock}">
+                                        <Style.Triggers>
+                                            <Trigger Property="Text" Value="True">
+                                                <Setter Property="Background" Value="Lime"/>
+                                                <Setter Property="Foreground" Value="Lime"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="False">
+                                                <Setter Property="Background" Value="Yellow"/>
+                                                <Setter Property="Foreground" Value="Yellow"/>
+                                            </Trigger>
+                                            <Trigger Property="Text" Value="">
+                                                <Setter Property="Background" Value="Gray"/>
+                                                <Setter Property="Foreground" Value="Gray"/>
+
+                                            </Trigger>
+
+                                        </Style.Triggers>
+                                        <Setter Property="ToolTip" Value="Команда на отключение" />
                                     </Style>
                                 </DataGridTextColumn.ElementStyle>
                             </DataGridTextColumn>
@@ -1162,8 +1162,8 @@
             <Label x:Name="StatusR" Content="Время чтения:"></Label>
             <Separator MinWidth="1" MinHeight="0"/>
             <Label x:Name="label_filename"/>
-            <Separator/>
-            <Label x:Name="label_confVersion"/>
+     
+            <!--Label x:Name="label_confVersion"/-->
         </StatusBar>
         
     </Grid>

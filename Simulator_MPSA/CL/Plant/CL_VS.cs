@@ -728,7 +728,7 @@ namespace Simulator_MPSA
 
 
             //команда включить - включить пускатель
-            if ((CmdStart==true || (analogCommand!=null && analogCommand.fVal>0))&&(IsVoltageOk==true))
+            if ((CmdStart==true || (analogCommand!=null && analogCommand.fVal>0))&&(IsVoltageOk!=false))
                     {
                         if (state == VSState.Stop)
                         {

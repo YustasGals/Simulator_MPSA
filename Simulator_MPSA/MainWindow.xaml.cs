@@ -580,7 +580,7 @@ namespace Simulator_MPSA
                 {
                     currentFileName = filename;
                     label_filename.Content = currentFileName;
-                label_confVersion.Content = "Версия файла: " + station.Version;
+             //   label_confVersion.Content = "Версия файла: " + station.Version;
                     btnSave.IsEnabled = true;
 
                     DITab.DataContext = divm;
@@ -652,7 +652,7 @@ namespace Simulator_MPSA
 
                 currentFileName = dialog.FileName;
                 label_filename.Content = currentFileName;
-                label_confVersion.Content = "Версия файла: " + s.Version.ToString();
+            //    label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 btnSave.IsEnabled = true;
             }
         }
@@ -671,7 +671,7 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
-                label_confVersion.Content = "Версия файла: " + s.Version.ToString();
+              //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
                 log.AppendText("Файл конфигурации сохранен : " + currentFileName +Environment.NewLine);
             }
