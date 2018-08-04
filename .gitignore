@@ -16,3 +16,4 @@ Simulator_MPSA/Properties/app.manifest
 *.application
 *.manifest
 *.pfx
+Simulator_MPSA/checkReport.txt

@@ -96,7 +96,7 @@ namespace Simulator_MPSA.CL.Signal
         public bool ForcedValue
         {
             set {
-                if (Forced)
+               // if (Forced)
                 _ValDO = value;
 
                 if (ValueChanged != null)

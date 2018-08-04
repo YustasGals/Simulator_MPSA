@@ -157,7 +157,7 @@ namespace Simulator_MPSA.CL
                                     if (val is short)
                                          arrayAO[i].ValACD = (ushort)((Int16)readResult[i].Value);
                                     if (val is ushort)
-                                         arrayAO[i].ValACD = (ushort)((UInt16)readResult[i].Value);
+                                         arrayAO[i].ValACD = (UInt16)readResult[i].Value;
                                 }                                    
                                 else
                                     arrayAO[i].fVal = (float)readResult[i].Value;

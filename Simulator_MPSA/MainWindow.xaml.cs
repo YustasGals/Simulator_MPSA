@@ -1414,14 +1414,15 @@ namespace Simulator_MPSA
                 {
                     if ((item.PLCAddr < Sett.Instance.BegAddrW || item.PLCAddr >= (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)) &&
                         (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr>=(Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
-                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)) &&
+                        item.OPCtag=="")
                         report += "Адрес сигнала " + "\"" + item.NameDI + "\"" + " не попадает ни в один из буферов записи" + Environment.NewLine;
                 }
 
             if (DOStruct.items != null && DOStruct.items.Count > 0)
                 foreach (DOStruct item in DOStruct.items)
                 {
-                    if (item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize))
+                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag=="")
                         report += "Адрес сигнала " + "\"" + item.NameDO + "\"" + " не попадает в буфер чтения" + Environment.NewLine;
                 }
 
@@ -1430,14 +1431,15 @@ namespace Simulator_MPSA
                 {
                     if ((item.PLCAddr < Sett.Instance.BegAddrW || item.PLCAddr >= (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)) &&
                         (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr >= (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
-                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)))
+                        (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)) &&
+                        item.OPCtag == "")
                         report += "Адрес сигнала " + "\"" + item.NameAI + "\"" + " не попадает ни в один из буферов записи" + Environment.NewLine;
                 }
 
             if (AOStruct.items != null && AOStruct.items.Count > 0)
                 foreach (AOStruct item in AOStruct.items)
                 {
-                    if (item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize))
+                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag=="")
                         report += "Адрес сигнала " +"\""+ item.Name +"\"" + " не попадает в буфер чтения" + Environment.NewLine;
                 }
 
@@ -1500,6 +1502,96 @@ namespace Simulator_MPSA
             { }
         }
 
+        private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                divm.NameFilter = textBoxDIFilter.Text;
+            }
+        }
+
+        private void textBoxDITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                divm.TagFilter = textBoxDITagFilter.Text;
+            }
+        }
+
+        private void textBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                aivm.NameFilter = textBoxAIFilter.Text;
+            }
+        }
+
+        private void textBoxAITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                aivm.TagFilter = textBoxAITagFilter.Text;
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                aovm.NameFilter = textBoxAOFilter.Text;
+            }
+        }
+
+        private void textBoxAOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                aovm.TagFilter = textBoxAOTagFilter.Text;
+            }
+        }
+
+        private void textBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                dovm.NameFilter = textBoxDOFilter.Text;
+            }
+        }
+
+        private void textBoxDOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                dovm.TagFilter = textBoxDOTagFilter.Text;
+            }
+        }
+
+
+
+        /*
+                private void dataGridDI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+                {
+
+                    dataGridDI.SelectionChanged += DataGridDI_SelectionChanged;
+                }
+
+                private void DataGridDI_SelectionChanged(object sender, SelectionChangedEventArgs e)
+                {
+                    dataGridDI.SelectionChanged -= DataGridDI_SelectionChanged;
+
+                    if (dataGridDI.SelectedCells[0].Column.Header == DatagridDI_Val.Header)
+                    {
+                        DIViewModel item = (dataGridDI.SelectedItem as DIViewModel);
+                        if (item != null)
+                            item.ForcedValue = !item.ForcedValue;
+                    }
+
+                }
+
+                private void Cell_Click(object sender, MouseButtonEventArgs e)
+                {
+                    // execute some code
+                }*/
 
         /*
 private void dataGridAI_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
