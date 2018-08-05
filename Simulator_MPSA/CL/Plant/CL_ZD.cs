@@ -762,6 +762,60 @@ namespace Simulator_MPSA
         {
             get { return opc; }
         }
+        /*
+        private int _intrfOKC = -1; //индекс интерфейсного сигнала "открыта"
+        private int _intrfCKC = -1; //индекс интерфейсного сигнала "закрыта"
+        private int _intrfODC = -1; //индекс интерфейсного сигнала "открывается"
+        private int _intrfCDC = -1; //индекс интерфейсного сигнала "закрывается"
+        private int _intrfDC = -1; //индекс интерфейсного сигнала "ду"
+        private int _intrfFault = -1; //индекс интерфейсного сигнала "привод в порядке"
+        */
+
+            /// <summary>
+            /// индекс интерфейсного сигнала "открыта"
+            /// </summary>
+        public int IntrfOKCindx
+        {
+            set; get;
+        }
+        /// <summary>
+        /// индекс интерфейсного сигнала "закрыта"
+        /// </summary>
+        public int IntrfCKCindx
+        {
+            set; get;
+        }
+
+        /// <summary>
+        /// индекс интерфейсного сигнала "открывается"
+        /// </summary>
+        public int IntrfODCindx
+        {
+            set; get;
+        }
+
+        /// <summary>
+        /// индекс интерфейсного сигнала "закрывается"
+        /// </summary>
+        public int IntrfCDCindx
+        {
+            set; get;
+        }
+        /// <summary>
+        /// индекс интерфейсного сигнала "дистанция"
+        /// </summary>
+        public int IntrfDCindx
+        {
+            set; get;
+        }
+
+        /// <summary>
+        /// индекс интерфейсного сигнала "авария"
+        /// </summary>
+        public int IntrfFault
+        {
+            set; get;
+        }
 
         public float ZDProc
         {

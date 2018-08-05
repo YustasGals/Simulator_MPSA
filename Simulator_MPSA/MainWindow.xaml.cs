@@ -293,6 +293,9 @@ namespace Simulator_MPSA
                     label_filename.Content = lastFilename;
                 }
             }
+
+            //по умолчанию отключить колонки с адресами
+            MenuItem_toggleAddr(this,null);
         }
 
 
@@ -1120,30 +1123,56 @@ namespace Simulator_MPSA
             else
                 tabVS.Visibility = Visibility.Visible;
         }
-/*
-        private void MenuItem_toggleCounters(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// отображать колонки с адресами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MenuItem_toggleAddr(object sender, RoutedEventArgs e)
         {
-            MenuItem_showCounters.IsChecked = !MenuItem_showCounters.IsChecked;
+            MenuItem_showAddr.IsChecked = !MenuItem_showAddr.IsChecked;
+            Visibility visibility = MenuItem_showAddr.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+            DataGridAI_Addr.Visibility = visibility;
+            DataGridAI_OPC.Visibility = visibility;
+            DataGridAI_Type.Visibility = visibility;
 
-            Sett.Instance.ShowTab_Counter = MenuItem_showCounters.IsChecked;
+            dataGridDI_Addr.Visibility = visibility;
+            dataGridDI_Bit.Visibility = visibility;
+            dataGridDI_OPC.Visibility = visibility;
 
-            if (!MenuItem_showCounters.IsChecked)
-                tabDiagUSO.Visibility = Visibility.Collapsed;
-            else
-                tabDiagUSO.Visibility = Visibility.Visible;
+            dataGridDO_Addr.Visibility = visibility;
+            dataGridDO_Bit.Visibility = visibility;
+            dataGridDO_OPC.Visibility = visibility;
+
+            DataGridAO_Addr.Visibility = visibility;
+            DataGridAO_OPC.Visibility = visibility;
+            
         }
+        /*
+         * 
+                private void MenuItem_toggleCounters(object sender, RoutedEventArgs e)
+                {
+                    MenuItem_showCounters.IsChecked = !MenuItem_showCounters.IsChecked;
 
-        private void MenuItem_toggleDiags(object sender, RoutedEventArgs e)
-        {
-            MenuItem_showDiag.IsChecked = !MenuItem_showDiag.IsChecked;
+                    Sett.Instance.ShowTab_Counter = MenuItem_showCounters.IsChecked;
 
-            Sett.Instance.ShowTab_Diag = MenuItem_showDiag.IsChecked;
-            if (!MenuItem_showDiag.IsChecked)
-                tabDiagMod.Visibility = Visibility.Collapsed;
-            else
-                tabDiagUSO.Visibility = Visibility.Visible;
-        }
-        */
+                    if (!MenuItem_showCounters.IsChecked)
+                        tabDiagUSO.Visibility = Visibility.Collapsed;
+                    else
+                        tabDiagUSO.Visibility = Visibility.Visible;
+                }
+
+                private void MenuItem_toggleDiags(object sender, RoutedEventArgs e)
+                {
+                    MenuItem_showDiag.IsChecked = !MenuItem_showDiag.IsChecked;
+
+                    Sett.Instance.ShowTab_Diag = MenuItem_showDiag.IsChecked;
+                    if (!MenuItem_showDiag.IsChecked)
+                        tabDiagMod.Visibility = Visibility.Collapsed;
+                    else
+                        tabDiagUSO.Visibility = Visibility.Visible;
+                }
+                */
         private void MenuItem_toggleZD(object sender, RoutedEventArgs e)
         {
             MenuItem_showZD.IsChecked = !MenuItem_showZD.IsChecked;
@@ -1565,6 +1594,8 @@ namespace Simulator_MPSA
                 dovm.TagFilter = textBoxDOTagFilter.Text;
             }
         }
+
+
 
 
 

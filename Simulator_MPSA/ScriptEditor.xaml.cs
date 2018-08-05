@@ -52,6 +52,8 @@ namespace Simulator_MPSA
         private void On_ButtonApply(object sender, RoutedEventArgs e)
         {
             script.ScriptTxt = Editor.Text;
+            editorWindow.Title = "Редактирование скрипта";
+            textChanged = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -76,7 +78,7 @@ namespace Simulator_MPSA
         {
             if (!textChanged)
             {
-                editorWindow.Title = editorWindow.Title + " - изменен";
+                editorWindow.Title = "Редактирование скрипта - изменен";
                 textChanged = true;
             }
 
