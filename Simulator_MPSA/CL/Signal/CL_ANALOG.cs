@@ -80,7 +80,8 @@ namespace Simulator_MPSA.CL.Signal
             LogViewModel.WriteLine("Изменение таблицы AI");
         }
 
-        private bool _En;
+        private bool _En=true;
+        [XmlIgnore]
         public bool En
         {
             get { return _En; }
@@ -143,6 +144,7 @@ namespace Simulator_MPSA.CL.Signal
             {
                 _fValAI = value;
                 RefreshADC();
+                OnPropertyChanged("ForcedValue");
             }
             get
             {
@@ -301,11 +303,8 @@ namespace Simulator_MPSA.CL.Signal
         }
         public static AIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Count; i++)
-                if (items[i].indxAI == index)
-                {
-                    return items[i];
-                }
+            if (index >= 0 && index < items.Count)
+                return items[index];
             return null;
         }
         public static string GetNameByIndex(int index)

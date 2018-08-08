@@ -196,8 +196,13 @@
 
                     </Expander>
                     <DataGrid x:Name="dataGridAI" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="true" CanUserDeleteRows="true" IsManipulationEnabled="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить в просмотр" Click="AIMenu_ADDItem_Click"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                            <!--DataGridCheckBoxColumn x:Name="DataGridAI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.ElementStyle>
                                     <Style TargetType="CheckBox">
                                     </Style>
@@ -207,7 +212,7 @@
                                         <Setter Property="ToolTip" Value="Включить запись в ПЛК" />
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
-                            </DataGridCheckBoxColumn>
+                            </-->
                             <DataGridTextColumn  x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -311,8 +316,13 @@
 
                     </Expander>
                     <DataGrid x:Name="dataGridAO" Grid.Row="1"  ItemsSource="{Binding  ViewSource.View}" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="false" CanUserAddRows="True" CanUserDeleteRows="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить в просмотр" Click="AOMenu_ADDItem_Click"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="DataGridAO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                            <!--DataGridCheckBoxColumn x:Name="DataGridAO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.ElementStyle>
                                     <Style TargetType="CheckBox">
                                     </Style>
@@ -322,7 +332,7 @@
                                         <Setter Property="ToolTip" Value="Разрешить чтение сигнала из ПЛК" />
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
-                            </DataGridCheckBoxColumn>
+                            </-->
 
                             <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
@@ -424,13 +434,14 @@
                             <ContextMenu>
                                 <MenuItem x:Name="DIMenu_set" Header="Записать значение 1" Click="DIMenu_set_Click"/>
                                 <MenuItem x:Name="DIMenu_reset" Header="Записать значение 0" Click="DIMenu_reset_click" />
+                                <MenuItem Header="Добавить в просмотр" Click="DIMenu_ADDItem_Click"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                            <!--DataGridCheckBoxColumn x:Name="dataGridDI_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.ElementStyle>
                                     <Style TargetType="CheckBox">
-                                        <!-- <EventSetter Event="MouseLeftButtonDown" Handler="Cell_Click"/>-->
+                                   
                                     </Style>
                                 </DataGridCheckBoxColumn.ElementStyle>
                                 <DataGridCheckBoxColumn.CellStyle>
@@ -438,7 +449,7 @@
                                         <Setter Property="ToolTip" Value="Включить запись в ПЛК" />
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
-                            </DataGridCheckBoxColumn>
+                            </-->
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDI, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -536,8 +547,13 @@
 
                     </Expander>
                     <DataGrid x:Name="dataGridDO" Grid.Row="1" AlternatingRowBackground="LightBlue"  ItemsSource="{Binding  ViewSource.View}" AlternationCount="2" FontSize="12" AutoGenerateColumns="False"  CanUserAddRows="True" CanUserDeleteRows="True">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Header="Добавить в просмотр" Click="DOMenu_ADDItem_Click"/>
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
+                            <!--DataGridCheckBoxColumn x:Name="dataGridDO_On" Header="Вкл" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.ElementStyle>
                                     <Style TargetType="CheckBox">
                                     </Style>
@@ -547,7 +563,7 @@
                                         <Setter Property="ToolTip" Value="Включить чтение из ПЛК" />
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
-                            </DataGridCheckBoxColumn>
+                            </-->
                             <DataGridTextColumn Header="Индекс сигнала" Binding="{Binding indxArrDO, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
@@ -1173,6 +1189,25 @@
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
+            </TabItem>
+            <TabItem x:Name="tabWatch" Header="Просмотр сигналов">
+                <DataGrid x:Name="dataGridWatch" ItemsSource="{Binding  ViewSource.View}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="true">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Тип сигнала" Binding="{Binding Type}" IsReadOnly="true"/>
+                        <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="true">
+                            
+                        </DataGridTextColumn>
+                        <DataGridTextColumn Header="Значение" Binding="{Binding Value}">
+                            
+                        </DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}" >
+                            <DataGridCheckBoxColumn.ElementStyle>
+                                <Style TargetType="CheckBox">
+                                </Style>
+                            </DataGridCheckBoxColumn.ElementStyle>
+                        </DataGridCheckBoxColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
             </TabItem>
             <!--    <TabItem Header="Счетчики связи" x:Name="tabDiagUSO">
                 <Grid>

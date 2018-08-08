@@ -51,7 +51,7 @@ namespace Simulator_MPSA.CL.Signal
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as AOStruct).indx = items.Count-1;
-                    LogWriter.AppendLog("Добавлен сигнал AO: "+ (e.NewItems[0] as AOStruct).Name+Environment.NewLine);
+                //    LogWriter.AppendLog("Добавлен сигнал AO: "+ (e.NewItems[0] as AOStruct).Name+Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -76,13 +76,13 @@ namespace Simulator_MPSA.CL.Signal
          //   LogViewModel.WriteLine("Изменение таблицы AO");
         }
 
-        
         public AOStruct()
         {
             Forced = false;
         }
 
-        private bool _En;
+        private bool _En=true;
+        [XmlIgnore]
         public bool En
         {
             get { return _En; }
@@ -93,7 +93,18 @@ namespace Simulator_MPSA.CL.Signal
         /// включить принудительную запись, игнорировать значения полученные из ПЛК
         /// </summary>
         public bool Forced
-        { set; get; }
+        {
+            set
+            {
+                _forced = value;
+                OnPropertyChanged("Forced");
+            }
+            get
+            {
+                return _forced;
+            }
+        }
+        private bool _forced;
 
         private string _OPCtag = "";
         /// <summary>
@@ -247,7 +258,10 @@ namespace Simulator_MPSA.CL.Signal
             set
             {
                 if (Forced)
+                {
                     _fVal = value;
+                    OnPropertyChanged("ForcedValue");
+                }
             }
         }
 

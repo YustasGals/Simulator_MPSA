@@ -16,8 +16,9 @@ namespace Simulator_MPSA.CL
     public enum StationSaveResult { OK, Fail };
 
     enum PageType {DI, DO, AI, AO, DiagDI, Counters, Scripts, ZD, VS, KL, MPNA,Nothing };
+
     /// <summary>
-    /// Класс для загрузки/сохранения таблиц сигналов
+    /// Класс для загрузки/сохранения кофигурации станции
     /// </summary>
     [Serializable]
     public class Station
@@ -34,7 +35,7 @@ namespace Simulator_MPSA.CL
         public ObservableCollection<USOCounter> Counters;
         public ObservableCollection<DIStruct> DiagSignals;
         public ObservableCollection<Scripting.ScriptInfo> scripts;
-        
+        public ObservableCollection<WatchItem> WatchTable;
         /// <summary>
         /// Версия файла конфигурации
         /// </summary>
@@ -75,7 +76,7 @@ namespace Simulator_MPSA.CL
             settings = Sett.Instance;
             Counters = CountersTableViewModel.Counters;
             DiagSignals = DiagTableModel.Instance.DiagRegs;
-
+            WatchTable = WatchItem.Items;
             scripts = ScriptTableViewModel.Items;
 
             ++currentConfigVersion;
@@ -140,6 +141,10 @@ namespace Simulator_MPSA.CL
                 {
                     AOStruct.items.Add(item);
                 }
+
+                WatchItem.Items.Clear();
+                foreach (WatchItem item in _instance.WatchTable)
+                    WatchItem.Items.Add(item);
 
                 Debug.WriteLine(DateTime.Now.ToShortTimeString() + ":" + DateTime.Now.Second.ToString() + ":Заполнены массивы сигналов");
 

@@ -159,6 +159,9 @@ namespace Simulator_MPSA
          ViewModelCollection<AIViewModel, AIStruct> aivm;
          ViewModelCollection<AOViewModel, AOStruct> aovm;
 
+        //  WatchTableViewModel watchViewModel;
+        ViewModelCollection<WatchItemViewModel, WatchItem> watchvm;
+
         //
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
         Opc.Da.ItemValue itm;   
@@ -210,6 +213,9 @@ namespace Simulator_MPSA
             dataGridKL.DataContext = KLTableViewModel.Instance;
             dataGridMPNA.DataContext = MPNATableViewModel.Instance;
 
+            //  watchViewModel = new WatchTableViewModel();
+            watchvm = new ViewModelCollection<WatchItemViewModel, WatchItem>(WatchItem.Items);
+            dataGridWatch.DataContext = watchvm;
  
             ScriptTableViewModel.Init();
             dataGridScript.ItemsSource = ScriptTableViewModel.Items;
@@ -1504,6 +1510,14 @@ namespace Simulator_MPSA
                 foreach (DIViewModel item in items)
                 item.ForcedValue = false;
         }
+        private void DIMenu_ADDItem_Click(object sender, RoutedEventArgs e)
+        {
+            List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
+            if (items != null)
+                foreach (DIViewModel item in items)
+                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
+                  //  watchViewModel.Items.Add(new WatchItemViewModel(item.GetModel()));
+        }
         //================================================   ИМПОРТ ИЗ ФАЙЛА ПЕРЕМЕННЫХ ==============================================================================
 
 
@@ -1594,6 +1608,37 @@ namespace Simulator_MPSA
                 dovm.TagFilter = textBoxDOTagFilter.Text;
             }
         }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AIMenu_ADDItem_Click(object sender, RoutedEventArgs e)
+        {
+            List<AIViewModel> items = dataGridAI.SelectedItems.Cast<AIViewModel>().ToList();
+            if (items != null)
+                foreach (AIViewModel item in items)
+                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
+        }
+
+        private void AOMenu_ADDItem_Click(object sender, RoutedEventArgs e)
+        {
+            List<AOViewModel> items = dataGridAO.SelectedItems.Cast<AOViewModel>().ToList();
+            if (items != null)
+                foreach (AOViewModel item in items)
+                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
+        }
+
+        private void DOMenu_ADDItem_Click(object sender, RoutedEventArgs e)
+        {
+            List<DOViewModel> items = dataGridDO.SelectedItems.Cast<DOViewModel>().ToList();
+            if (items != null)
+                foreach (DOViewModel item in items)
+                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
+        }
+
+
 
 
 

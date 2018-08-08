@@ -87,8 +87,8 @@ namespace Simulator_MPSA.CL.Signal
             }
         }
 
-        public bool En
-        { set; get; }
+        [XmlIgnore]
+        public bool En = true;
 
         private bool _valDI;
         public bool ValDI
@@ -130,7 +130,17 @@ namespace Simulator_MPSA.CL.Signal
         /// включить принудительную запись значения из таблицы, игнорировать алгоритмы и скрипты
         /// </summary>
         public bool Forced
-        { set; get; }
+        { set
+            {
+                _forced = value;
+                OnPropertyChanged("Forced");
+            }
+            get
+            {
+                return _forced;
+            }
+        }
+        private bool _forced;
 
         private int _plcaddr;
         public int PLCAddr
@@ -232,7 +242,10 @@ namespace Simulator_MPSA.CL.Signal
         public string NameDI
         {
             set
-            { name = value; }
+            {
+                name = value;
+                OnPropertyChanged("Name");
+            }
             get
             { return name; }
         }
@@ -278,18 +291,15 @@ namespace Simulator_MPSA.CL.Signal
         }
         public static DIStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Count; i++)
-                if (items[i].indxArrDI == index)
-                {
-                    return items[i];
-                }
+            if (index >= 0 && index < items.Count)
+                return items[index];
             return null;
         }
         public static string GetNameByIndex(int index)
         {
             if (index > 0 && index < items.Count)
                 return items[index].NameDI;
-            else return "сигнал не определен";
+            else return "";
         }
        // [XmlIgnore]
         public event PropertyChangedEventHandler PropertyChanged;

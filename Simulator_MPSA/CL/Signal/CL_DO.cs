@@ -77,7 +77,8 @@ namespace Simulator_MPSA.CL.Signal
 
         }
 
-        private bool _En;
+        private bool _En=true;
+        [XmlIgnore]
         public bool En
         {
             get { return _En; }
@@ -88,8 +89,18 @@ namespace Simulator_MPSA.CL.Signal
         /// включить принудительную запись, игнорировать значения полученные из ПЛК
         /// </summary>
         public bool Forced
-        { set; get; }
-
+        {
+            set
+            {
+                _forced = value;
+                OnPropertyChanged("Forced");
+            }
+            get
+            {
+                return _forced;
+            }
+        }
+        private bool _forced;
         /// <summary>
         /// Запись и чтение через UI
         /// </summary>
@@ -101,6 +112,7 @@ namespace Simulator_MPSA.CL.Signal
 
                 if (ValueChanged != null)
                   ValueChanged(this, new EventArgs());
+                OnPropertyChanged("ForcedValue");
             }
             get { return _ValDO; }
         }
@@ -215,7 +227,7 @@ namespace Simulator_MPSA.CL.Signal
         public bool changedDO;
         public DOStruct()
         { }
-        public DOStruct(bool En0 = false, bool ValDO0 = false, int indxArrDO0 = 0, int indxBitDO0 = 0, int indxR0 = 0, string TegDO0 = "Teg",
+        public DOStruct(bool En0 = true, bool ValDO0 = false, int indxArrDO0 = 0, int indxBitDO0 = 0, int indxR0 = 0, string TegDO0 = "Teg",
                  string NameDO0 = "Name", int Nsign0 = 0, bool InvertDO0 = false, bool changedDO0 = false)
         {
             En = En0;
@@ -231,11 +243,8 @@ namespace Simulator_MPSA.CL.Signal
         }
         public static DOStruct FindByIndex(int index)
         {
-            for (int i = 0; i < items.Count; i++)
-                if (items[i].indxArrDO == index)
-                {
-                    return items[i];
-                }
+            if (index >= 0 && index < items.Count)
+                return items[index];
             return null;
 
         }
