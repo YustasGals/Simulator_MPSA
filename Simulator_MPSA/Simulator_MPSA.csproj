@@ -130,6 +130,7 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CL\DIItem.cs" />
     <Compile Include="CL\ExcelImporter\ExcelImporter.cs" />
     <Compile Include="CL\Signal\AOStruct.cs" />
     <Compile Include="CL\ImportDialog.xaml.cs">
@@ -354,6 +355,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="IMG\Jdun.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-minus-gray.png" />
+    <Resource Include="IMG\icons8-minus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -66,9 +66,21 @@ namespace Simulator_MPSA
                 }
             }
         }
+        const int intrfOKC = 0;
+        const int intrfCKC = 1;
+        const int intrfODC = 2;
+        const int intrfCDC = 3;
+        const int intrfDC = 4;
         public ZDStruct()
         {
-
+        //    DIs = new List<DIItem>();
+        //    DIs.Add(new DIItem("RS485. Открыта"));//открыта
+        //    DIs.Add(new DIItem("RS485. Закрыта"));//закрыта
+        //    DIs.Add(new DIItem("RS485. Открывается"));//открывается
+        //    DIs.Add(new DIItem("RS485. Закрывается"));//закрывается
+        //    DIs.Add(new DIItem("RS485. В дистанции"));//закрыта
+        //    DIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
+            
         }
         private int _index;
         public int Index
@@ -106,6 +118,9 @@ namespace Simulator_MPSA
                 if (cdc != null) cdc.ValDI = false;
                 if (volt != null) volt.ValDI = false;
                 if (mc != null) mc.ValDI = false;
+
+                foreach (DIItem c in DIs)
+                    c.SetValue(false);
             }
             else
             {
@@ -116,6 +131,12 @@ namespace Simulator_MPSA
                         okc.ValDI = true;
                     if (ckc != null)
                         ckc.ValDI = false;
+
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfOKC].SetValue(true);
+                        DIs[intrfCKC].SetValue(false);
+                    }
                 }
                 else
                 if (_ZDProc >= 95)
@@ -125,6 +146,12 @@ namespace Simulator_MPSA
                         okc.ValDI = false;
                     if (ckc != null)
                         ckc.ValDI = true;
+
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfOKC].SetValue(false);
+                        DIs[intrfCKC].SetValue(true);
+                    }
                 }
                 else
                 {
@@ -133,43 +160,39 @@ namespace Simulator_MPSA
                         okc.ValDI = true;
                     if (ckc != null)
                         ckc.ValDI = true;
+
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfOKC].SetValue(true);
+                        DIs[intrfCKC].SetValue(true);
+                    }
                 }
 
                 if (_stateZD == StateZD.Close)
                 {
                     //состояние - закрыто
-                    /* if (OKC != null)
-                         OKC.ValDI = true;
-                     if (CKC != null)
-                         CKC.ValDI = false;
-                         */
-                    //выключить МП после задержки
-                    /* MPDelay -= dt;
-                     if ((MPDelay < 0) && (CDC != null))
-                         CDC.ValDI = false
-                         */
+
                     //выключить МПЗ
                     if ((cdc != null))
                         cdc.ValDI = false;
 
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfCDC].SetValue(false);
+                    }
                 }
 
                 //состояние - открыто
                 if (_stateZD == StateZD.Open)
                 {
                     //состояние - закрыто
-                    /*   if (OKC != null)
-                           OKC.ValDI = false;
-                       if (CKC != null)
-                           CKC.ValDI = true;
-                           */
-                    //выключить МП после задержки
-                    /* MPDelay -= dt;
-                     if ((MPDelay < 0) && (ODC != null))
-                         ODC.ValDI = false;*/
-                    //выключить МПО
                     if ((odc != null))
                         odc.ValDI = false;
+
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfODC].SetValue(false);
+                    }
                 }
 
                 //состояние -открывается
@@ -192,6 +215,11 @@ namespace Simulator_MPSA
                     {
                         //включить МПО
                         if (odc != null) odc.ValDI = true;
+
+                        if (DIs != null && DIs.Count >= 6)
+                        {
+                            DIs[intrfODC].SetValue(true);
+                        }
                         //вкл концевики
                         /*   if (OKC != null)
                                OKC.ValDI = true;
@@ -219,6 +247,11 @@ namespace Simulator_MPSA
                     {
                         //включить МПЗ
                         if (cdc != null) cdc.ValDI = true;
+
+                        if (DIs != null && DIs.Count >= 6)
+                        {
+                            DIs[intrfCDC].SetValue(true);
+                        }
                         //вкл концевики
                         /*   if (OKC != null)
                                OKC.ValDI = true;
@@ -232,6 +265,12 @@ namespace Simulator_MPSA
                     //отключить МП
                     if (cdc != null) cdc.ValDI = false;
                     if (odc != null) odc.ValDI = false;
+
+                    if (DIs != null && DIs.Count >= 6)
+                    {
+                        DIs[intrfODC].SetValue(false);
+                        DIs[intrfCDC].SetValue(false);
+                    }
                 }
 
                 //команда открыть
@@ -302,6 +341,11 @@ namespace Simulator_MPSA
         {
             if (dc != null)
                 dc.ValDI = !dc.ValDI;
+
+            if (DIs != null && DIs.Count > 6 && DIs[intrfDC]!=null)
+            {
+                DIs[intrfDC].DI.ValDI = !DIs[intrfDC].DI.ValDI;
+            }
         }
         /// <summary>
         /// Установить/снять напряжение на скеции шин извне
@@ -378,6 +422,7 @@ namespace Simulator_MPSA
             get { return dob; }
         }
 
+        [XmlIgnore]
         public bool DOBState { get { if (dob != null) return dob.ValDO; else return false; } set { } }
         /// <summary>
         /// команда закрыть
@@ -408,6 +453,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        [XmlIgnore]
         public bool DKBState { get { if (dkb != null) return dkb.ValDO; else return false; } set { } }
         /// <summary>
         /// Команда - остановить
@@ -440,6 +486,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        [XmlIgnore]
         public bool DCBState { get { if (dcb != null) return dcb.ValDO; else return false; } set { } }
         /// <summary>
         /// команда стоп закрытия
@@ -647,6 +694,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        [XmlIgnore]
         public bool CDCState { get { if (cdc != null) return cdc.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -676,6 +724,7 @@ namespace Simulator_MPSA
                 else return "сигнал не назначен";
             }
         }
+        [XmlIgnore]
         public bool DCState { get { if (dc != null) return dc.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -705,6 +754,7 @@ namespace Simulator_MPSA
                   else return "сигнал не назначен";
               }
           }*/
+        [XmlIgnore]
         public bool VoltState { get { if (volt != null) return volt.ValDI; else return false; } set { } }
 
         /// <summary>
@@ -762,60 +812,22 @@ namespace Simulator_MPSA
         {
             get { return opc; }
         }
-        /*
-        private int _intrfOKC = -1; //индекс интерфейсного сигнала "открыта"
-        private int _intrfCKC = -1; //индекс интерфейсного сигнала "закрыта"
-        private int _intrfODC = -1; //индекс интерфейсного сигнала "открывается"
-        private int _intrfCDC = -1; //индекс интерфейсного сигнала "закрывается"
-        private int _intrfDC = -1; //индекс интерфейсного сигнала "ду"
-        private int _intrfFault = -1; //индекс интерфейсного сигнала "привод в порядке"
-        */
 
-            /// <summary>
-            /// индекс интерфейсного сигнала "открыта"
-            /// </summary>
-        public int IntrfOKCindx
-        {
-            set; get;
-        }
-        /// <summary>
-        /// индекс интерфейсного сигнала "закрыта"
-        /// </summary>
-        public int IntrfCKCindx
-        {
-            set; get;
-        }
+        #region Интерфейсные сигналы
+        /*  private int _intrfOKC = -1; //индекс интерфейсного сигнала "открыта"
+          private int _intrfCKC = -1; //индекс интерфейсного сигнала "закрыта"
+          private int _intrfODC = -1; //индекс интерфейсного сигнала "открывается"
+          private int _intrfCDC = -1; //индекс интерфейсного сигнала "закрывается"
+          private int _intrfDC = -1; //индекс интерфейсного сигнала "ду"
+          private int _intrfFault = -1; //индекс интерфейсного сигнала "привод в порядке"
+          */
 
         /// <summary>
-        /// индекс интерфейсного сигнала "открывается"
+        /// интерфейсные сигналы
         /// </summary>
-        public int IntrfODCindx
-        {
-            set; get;
-        }
-
-        /// <summary>
-        /// индекс интерфейсного сигнала "закрывается"
-        /// </summary>
-        public int IntrfCDCindx
-        {
-            set; get;
-        }
-        /// <summary>
-        /// индекс интерфейсного сигнала "дистанция"
-        /// </summary>
-        public int IntrfDCindx
-        {
-            set; get;
-        }
-
-        /// <summary>
-        /// индекс интерфейсного сигнала "авария"
-        /// </summary>
-        public int IntrfFault
-        {
-            set; get;
-        }
+        public List<DIItem> DIs
+        { set; get; }
+        #endregion
 
         public float ZDProc
         {
@@ -873,6 +885,10 @@ namespace Simulator_MPSA
             MCindxArrDI = _MCindxArrDI;
             ZD_Pos_index = _ZD_Pos_index;
             BSIndex = _bsindex;
+
+            if (DIs != null)
+                foreach (DIItem c in DIs)
+                    c.Index = c.Index;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "") => PropertyChanged?.Invoke(sender: this, e: new PropertyChangedEventArgs(prop));

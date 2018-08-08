@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Simulator_MPSA.CL;
 namespace Simulator_MPSA
 {
+
+
     /// <summary>
     /// Логика взаимодействия для SetupDialog.xaml
     /// </summary>
@@ -34,6 +36,8 @@ namespace Simulator_MPSA
             this.DataContext = model;
             objectType = typeof(VSStruct);
             Title = "Настройка вспомсистемы";
+
+            SetupBindings();
         }
         public SetupDialog(KLStruct klapan)
         {
@@ -43,7 +47,11 @@ namespace Simulator_MPSA
             this.DataContext = model;
             objectType = typeof(KLStruct);
             Title = "Настройка клапана (заслонки)";
+
+            SetupBindings();
         }
+        public Add commandAdd
+        { set; get; }
         public SetupDialog(ZDStruct zd)
         {
             _object = zd;
@@ -53,7 +61,9 @@ namespace Simulator_MPSA
             objectType = typeof(ZDStruct);
             Title = "Настройка задвижки";
 
+            SetupBindings();
         }
+
         public SetupDialog(MPNAStruct agr)
         {
             _object = agr;
@@ -62,7 +72,36 @@ namespace Simulator_MPSA
             this.DataContext = model;
             objectType = typeof(MPNAStruct);
             Title = "Настройка агрегата МНА/ПНА";
+
+            SetupBindings();
         }
+
+        private void SetupBindings()
+        {
+            commandAdd = new Add();
+            Add_DI.Command = commandAdd;
+            Remove commandRemove = new Remove();
+
+
+            CommandBinding commDIAddBinding = new CommandBinding();
+            commDIAddBinding.Command = commandAdd;
+            commDIAddBinding.CanExecute += (sender, e) => { e.CanExecute = true; };
+            commDIAddBinding.Executed += model.CommDIAddBinding_Executed;
+            dataGrid.CommandBindings.Add(commDIAddBinding);
+
+
+            Rem_DI.Command = commandRemove;
+            CommandBinding commDIRemoveBinding = new CommandBinding();
+            commDIRemoveBinding.Command = commandRemove;
+            commDIRemoveBinding.CanExecute += model.CommDIRemoveBinding_CanExecute;
+            commDIRemoveBinding.Executed += model.CommDIRemoveBinding_Executed;
+            dataGrid.CommandBindings.Add(commDIRemoveBinding);
+
+
+        }
+
+
+
         private void button_OK_Click(object sender, RoutedEventArgs e)
         {
 
@@ -92,5 +131,18 @@ namespace Simulator_MPSA
         {
             this.Close();
         }
+
+
+    }
+
+    public class Add : RoutedCommand
+    {
+        public Add()
+        { }
+    }
+    public class Remove : RoutedCommand
+    {
+        public Remove()
+        { }
     }
 }

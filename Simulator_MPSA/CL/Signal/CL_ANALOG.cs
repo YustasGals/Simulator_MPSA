@@ -23,11 +23,6 @@ namespace Simulator_MPSA.CL.Signal
         /// </summary>
         public static ObservableCollection<AIStruct> items = new ObservableCollection<AIStruct>();
 
-        /// <summary>
-        /// Копия коллекции для более быстрого доступа по индексу
-        /// </summary>
-        public static AIStruct[] itemArray;
-
         private static bool _enableAutoIndex=false;
 
         public static bool EnableAutoIndex

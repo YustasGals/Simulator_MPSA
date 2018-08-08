@@ -20,7 +20,7 @@ namespace Simulator_MPSA.CL
         public string Name
         { get; set; }
 
-        public int _index;
+        public int _index=-1;
         /// <summary>
         /// индекс в общей таблице DO или DI
         /// </summary>

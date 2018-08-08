@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
+using System.Windows;
+using System.Windows.Input;
 
 namespace Simulator_MPSA.CL
 {
@@ -31,11 +33,10 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// выходы системы (DI)
         /// </summary>
-        private InputOutputItem[] outputs;
-        public InputOutputItem[] Outputs
+        //private InputOutputItem[] outputs;
+        public ObservableCollection<InputOutputItem> Outputs
         {
-            get { return outputs; }
-            set { outputs = value; }
+            set; get;
         }
 
         private InputOutputItem[] inputs;
@@ -75,6 +76,18 @@ namespace Simulator_MPSA.CL
         public bool En
         { get; set; }
 
+        private bool showAO = true;
+        private bool showAI = true;
+        public Visibility AOVisible
+        {
+            get
+            { return showAO ? Visibility.Visible : Visibility.Collapsed; }
+        }
+        public Visibility AIVisible
+        {
+            get
+            { return showAI ? Visibility.Visible : Visibility.Collapsed; }
+        }
 
         public SetupTableModel(VSStruct vs)
         {
@@ -85,7 +98,7 @@ namespace Simulator_MPSA.CL
             Name = vs.Description;
             Group = vs.Group;
 
-            outputs = new InputOutputItem[4];
+            Outputs = new ObservableCollection<InputOutputItem>();
 
             string[] names = new string[7];
             if (vs.EC != null)
@@ -103,10 +116,10 @@ namespace Simulator_MPSA.CL
             if (vs.AnalogCommand != null)
                 names[6] = vs.AnalogCommand.Name;
 
-            outputs[0] = new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, names[0]);
-            outputs[1] =  new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, names[1]);
-            outputs[2] = new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, names[2]);
-            outputs[3] = new InputOutputItem("Наличие напряжения на СШ", vs.BusSecIndex, names[3]);
+            Outputs.Add( new InputOutputItem("Наличие напряжения", vs.ECindxArrDI, names[0]));
+            Outputs.Add( new InputOutputItem("Магнитный пускатель", vs.MPCindxArrDI, names[1]));
+            Outputs.Add( new InputOutputItem("Наличие давления на выходе", vs.PCindxArrDI, names[2]));
+            Outputs.Add( new InputOutputItem("Наличие напряжения на СШ", vs.BusSecIndex, names[3]));
 
             inputs = new InputOutputItem[2];
             inputs[0]= new InputOutputItem("Команда - пуск", vs.ABBindxArrDO, names[4]);
@@ -128,6 +141,7 @@ namespace Simulator_MPSA.CL
 
         public SetupTableModel(KLStruct klapan)
         {
+            showAO = false;
             type = typeof(KLStruct);
             obj = klapan;
 
@@ -135,9 +149,9 @@ namespace Simulator_MPSA.CL
             Name = klapan.Description;
             Group = klapan.Group;
 
-            outputs = new InputOutputItem[2];
-            outputs[0] = new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName);
-            outputs[1] = new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName);
+            Outputs = new ObservableCollection<InputOutputItem>();
+            Outputs.Add( new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName));
+            Outputs.Add( new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName));
 
             inputs = new InputOutputItem[2];
             inputs[0] = new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName);
@@ -146,6 +160,7 @@ namespace Simulator_MPSA.CL
 
         public SetupTableModel(ZDStruct zd)
         {
+            showAO = false;
             type = typeof(ZDStruct);
             obj = zd;
 
@@ -153,7 +168,7 @@ namespace Simulator_MPSA.CL
             Name = zd.Description;
             Group = zd.Group;
 
-            outputs = new InputOutputItem[8];
+            Outputs = new ObservableCollection<InputOutputItem>();
 
           //  List<string> names = new List<string>();
             Dictionary<string, string> names = new Dictionary<string, string>();
@@ -171,14 +186,30 @@ namespace Simulator_MPSA.CL
             names.Add("DKB", zd.DKB != null ? zd.DKB.NameDO : "не определен");
             names.Add("DCBZ", zd.DCBZ != null ? zd.DCBZ.NameDO : "не определен");
 
-            outputs[0] = new InputOutputItem("КВО", zd.OKCindxArrDI, names["OKC"]);
-            outputs[1] = new InputOutputItem("КВЗ", zd.CKCindxArrDI, names["CKC"]);
-            outputs[2] = new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, names["Volt"]);
-            outputs[3] = new InputOutputItem("МПО", zd.ODCindxArrDI, names["ODC"]);
-            outputs[4] = new InputOutputItem("МПЗ", zd.CDCindxArrDI, names["CDC"]);
-            outputs[5] = new InputOutputItem("Муфта", zd.MCindxArrDI, names["MC"]);
-            outputs[6] = new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, names["DC"]);
-            outputs[7] = new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,names["BS"]);
+            Outputs.Add(new InputOutputItem("КВО", zd.OKCindxArrDI, names["OKC"]));
+            Outputs.Add(new InputOutputItem("КВЗ", zd.CKCindxArrDI, names["CKC"]));
+            Outputs.Add(new InputOutputItem("Наличие напряжения", zd.VoltindxArrDI, names["Volt"]));
+            Outputs.Add(new InputOutputItem("МПО", zd.ODCindxArrDI, names["ODC"]));
+            Outputs.Add(new InputOutputItem("МПЗ", zd.CDCindxArrDI, names["CDC"]));
+            Outputs.Add(new InputOutputItem("Муфта", zd.MCindxArrDI, names["MC"]));
+            Outputs.Add(new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, names["DC"]));
+            Outputs.Add(new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,names["BS"]));
+
+            if (zd.DIs == null || zd.DIs.Count==0)
+            {
+                    zd.DIs = new List<DIItem>();
+                    zd.DIs.Add(new DIItem("RS485. Открыта"));//открыта
+                    zd.DIs.Add(new DIItem("RS485. Закрыта"));//закрыта
+                    zd.DIs.Add(new DIItem("RS485. Открывается"));//открывается
+                    zd.DIs.Add(new DIItem("RS485. Закрывается"));//закрывается
+                    zd.DIs.Add(new DIItem("RS485. В дистанции"));//закрыта
+                    zd.DIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
+            }
+            foreach (DIItem c in zd.DIs)
+            {
+                Outputs.Add(new InputOutputItem(c.Name, c.Index, c.GetSignalName));
+            }
+            
 
             inputs = new InputOutputItem[4];
             inputs[0] = new InputOutputItem("команда - открыть", zd.DOBindxArrDO, names["DOB"]);
@@ -194,6 +225,7 @@ namespace Simulator_MPSA.CL
 
         public SetupTableModel(MPNAStruct agr)
         {
+            showAO = false;
             type = typeof(MPNAStruct);
             obj = agr;
 
@@ -201,16 +233,16 @@ namespace Simulator_MPSA.CL
             Group = agr.Group;
             En = agr.En;
 
-            outputs = new InputOutputItem[8];
-            outputs[0] = new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name);
-            outputs[1] = new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name);
-            outputs[2] = new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name);
-            outputs[3] = new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name);
-         
-            outputs[4] = new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName);
-            outputs[5] = new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name);
-            outputs[6] = new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name);
-            outputs[7] = new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName);
+            Outputs = new ObservableCollection<InputOutputItem>(); 
+            Outputs.Add(new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name));
+            Outputs.Add(new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name));
+            Outputs.Add(new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name));
+            Outputs.Add(new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name));
+
+            Outputs.Add(new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName));
+            Outputs.Add(new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name));
+            Outputs.Add(new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name));
+            Outputs.Add(new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName));
 
             inputs = new InputOutputItem[3];
             inputs[0] = new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName);
@@ -229,10 +261,10 @@ namespace Simulator_MPSA.CL
             if (type == typeof(VSStruct))
             {
                 VSStruct temp = obj as VSStruct;
-                temp.ECindxArrDI = outputs[0]._index;
-                temp.MPCindxArrDI = outputs[1]._index;
-                temp.PCindxArrDI = outputs[2]._index;
-                temp.BusSecIndex = outputs[3]._index;
+                temp.ECindxArrDI = Outputs[0]._index;
+                temp.MPCindxArrDI = Outputs[1]._index;
+                temp.PCindxArrDI = Outputs[2]._index;
+                temp.BusSecIndex = Outputs[3]._index;
              //   temp.PCindxArrAI = Analogs[0].Index;
               /*  temp.valuePC = Analogs[0].ValueNom;
                 temp.valuePCspd = Analogs[0].ValueSpd;
@@ -262,8 +294,8 @@ namespace Simulator_MPSA.CL
                 temp.DOBindxArrDO = inputs[0]._index;
                 temp.DKBindxArrDO = inputs[1]._index;
 
-                temp.OKCindxArrDI = outputs[0]._index;
-                temp.CKCindxArrDI = outputs[1]._index;
+                temp.OKCindxArrDI = Outputs[0]._index;
+                temp.CKCindxArrDI = Outputs[1]._index;
 
                 temp.Description = Name;
                 temp.Group = Group;
@@ -276,14 +308,14 @@ namespace Simulator_MPSA.CL
                 temp.Description = Name;
                 temp.Group = Group;
                 temp.En = En;
-                temp.OKCindxArrDI = outputs[0]._index;
-                temp.CKCindxArrDI = outputs[1]._index;
-                temp.VoltindxArrDI = outputs[2]._index;
-                temp.ODCindxArrDI = outputs[3]._index;
-                temp.CDCindxArrDI = outputs[4]._index;
-                temp.MCindxArrDI = outputs[5]._index;
-                temp.DCindxArrDI = outputs[6]._index;
-                temp.BSIndex = outputs[7]._index;
+                temp.OKCindxArrDI = Outputs[0]._index;
+                temp.CKCindxArrDI = Outputs[1]._index;
+                temp.VoltindxArrDI = Outputs[2]._index;
+                temp.ODCindxArrDI = Outputs[3]._index;
+                temp.CDCindxArrDI = Outputs[4]._index;
+                temp.MCindxArrDI = Outputs[5]._index;
+                temp.DCindxArrDI = Outputs[6]._index;
+                temp.BSIndex = Outputs[7]._index;
 
                 temp.DOBindxArrDO = inputs[0]._index;
                 temp.DCBindxArrDO = inputs[1]._index;
@@ -292,6 +324,12 @@ namespace Simulator_MPSA.CL
 
                 temp.ZD_Pos_index = _analogs[0]._index;
 
+                if (Outputs.Count > 8)
+                {
+                    temp.DIs = new List<DIItem>();
+                    for (int i = 8; i < Outputs.Count; i++)
+                        temp.DIs.Add(new DIItem(Outputs[i].Name, Outputs[i].Index != null ? (int)Outputs[i].Index : -1));
+                }
                 //TODO: добавить запись настроек аналогов
             }
             if (type == typeof(MPNAStruct))
@@ -301,15 +339,15 @@ namespace Simulator_MPSA.CL
                 agr.Description = Name;
                 agr.Group = Group;
                 agr.En = En;
-                agr.MBC11indxArrDI = outputs[0]._index;
-                agr.MBC12indxArrDI = outputs[1]._index;
-                agr.MBC21indxArrDI = outputs[2]._index;
-                agr.MBC22indxArrDI = outputs[3]._index;
+                agr.MBC11indxArrDI = Outputs[0]._index;
+                agr.MBC12indxArrDI = Outputs[1]._index;
+                agr.MBC21indxArrDI = Outputs[2]._index;
+                agr.MBC22indxArrDI = Outputs[3]._index;
 
-                agr.ECBindxArrDI = outputs[4]._index;
-                agr.ECO11indxArrDI = outputs[5]._index;
-                agr.ECO12indxArrDI = outputs[6]._index;
-                agr.ECxindxArrDI = outputs[7]._index;
+                agr.ECBindxArrDI = Outputs[4]._index;
+                agr.ECO11indxArrDI = Outputs[5]._index;
+                agr.ECO12indxArrDI = Outputs[6]._index;
+                agr.ECxindxArrDI = Outputs[7]._index;
 
                 agr.ABBindxArrDO = inputs[0]._index;
                 agr.ABOindxArrDO = inputs[1]._index;
@@ -328,5 +366,23 @@ namespace Simulator_MPSA.CL
                     agr.controledAIs = null;
             }
         }
+
+        public void CommDIAddBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+            Outputs.Add(new InputOutputItem());
+        }
+
+        public void CommDIRemoveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+        {
+
+            Outputs.RemoveAt(Outputs.Count - 1);
+        }
+
+        public void CommDIRemoveBinding_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+
+            e.CanExecute = (Outputs.Count > 14);
+        }
+
     }
 }

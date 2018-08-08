@@ -249,6 +249,10 @@
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
 
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}" ToolTipService.ToolTip="Запись через интерфейс">
+                                <DataGridCheckBoxColumn.ElementStyle>
+                                    <Style TargetType="CheckBox">
+                                    </Style>
+                                </DataGridCheckBoxColumn.ElementStyle>
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Запись через интерфейс" />
@@ -354,6 +358,10 @@
                             <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}">
+                                <DataGridCheckBoxColumn.ElementStyle>
+                                    <Style TargetType="CheckBox">
+                                    </Style>
+                                </DataGridCheckBoxColumn.ElementStyle>
                                 <DataGridCheckBoxColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Запись инженерного значения через интерфейс" />
