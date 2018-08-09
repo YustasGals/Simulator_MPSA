@@ -1194,9 +1194,11 @@
                 <DataGrid x:Name="dataGridWatch" ItemsSource="{Binding  ViewSource.View}" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="true">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Тип сигнала" Binding="{Binding Type}" IsReadOnly="true"/>
-                        <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="true">
-                            
-                        </DataGridTextColumn>
+                        
+                        <DataGridTextColumn Header="Индекс" Binding="{Binding Index}" IsReadOnly="true"/>
+                        <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="false"/>
+                        <DataGridTextColumn Header="Тэг" Binding="{Binding TagName}" IsReadOnly="false"/>
+
                         <DataGridTextColumn Header="Значение" Binding="{Binding Value}">
                             
                         </DataGridTextColumn>
@@ -1207,6 +1209,11 @@
                             </DataGridCheckBoxColumn.ElementStyle>
                         </DataGridCheckBoxColumn>
                     </DataGrid.Columns>
+                    <DataGrid.RowStyle>
+                        <Style TargetType="DataGridRow">
+                            <Setter Property="ToolTip" Value="{Binding ToolTip}" />
+                        </Style>
+                    </DataGrid.RowStyle>
                 </DataGrid>
             </TabItem>
             <!--    <TabItem Header="Счетчики связи" x:Name="tabDiagUSO">

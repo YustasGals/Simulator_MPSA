@@ -21,7 +21,7 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,0">
-                    <Button x:Name="Add_DI" Grid.Row="1" Grid.Column="6" CommandTarget="{Binding ElementName=dataGrid}" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент">
+                    <Button x:Name="Add_DI" Grid.Row="1" Grid.Column="6" Command="{Binding AddDICommand}" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -37,7 +37,7 @@
                             </Image.Style>
                         </Image>
                     </Button>
-                    <Button x:Name="Rem_DI" Grid.Row="1" Grid.Column="6" Margin="0" CommandTarget="{Binding ElementName=dataGrid}" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент">
+                    <Button x:Name="Rem_DI" Grid.Row="1" Grid.Column="6" Margin="0" Command="{Binding RemDICommand}" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент">
                         <Image>
                             <Image.Style>
                                 <Style TargetType="Image">
@@ -55,13 +55,18 @@
                     </Button>
 
                 </StackPanel>
-            <DataGrid x:Name="dataGrid" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" CanUserAddRows="false" CanUserDeleteRows="False" >
+            <DataGrid x:Name="DG_outputs" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" CanUserAddRows="false" CanUserDeleteRows="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="false"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" IsReadOnly="True" Foreground="Gray"/>
                 </DataGrid.Columns>
-            </DataGrid>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
             </Grid>
         </Expander>
 
@@ -81,6 +86,11 @@
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" Foreground="Gray"/>
                 </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
             </DataGrid>
         </Expander>
         <Expander x:Name="AIBlock" Visibility="{Binding AIVisible}" Header="Настройка аналоговых выходов (AI):" Grid.Row="3" Margin="0,5,0,10"  IsExpanded="True">
@@ -92,6 +102,11 @@
                     <DataGridTextColumn Header="Скорость изменения" Binding="{Binding ValueSpd}"/>
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AIName}" Foreground="Gray"/>
                 </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
             </DataGrid>
         </Expander>
         <Expander x:Name="AOBlock" Visibility="{Binding AOVisible}" Header="Настройка аналоговых входов (AO):" Grid.Row="4" Margin="0,5,0,10"  IsExpanded="True">
@@ -101,6 +116,11 @@
                     <DataGridTextColumn Header="Индекс в таблице AO" Binding="{Binding Index}"/>
                     <DataGridTextColumn Header="Название в таблице сигналов" Binding="{Binding AssignedSignalName}"/>
                 </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
             </DataGrid>
         </Expander>
 

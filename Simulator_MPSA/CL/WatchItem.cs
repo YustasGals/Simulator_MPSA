@@ -69,6 +69,31 @@ namespace Simulator_MPSA.CL
             signalType = ESignalType.AO;
             signal.PropertyChanged += Signal_PropertyChanged;
         }
+        public WatchItem(int index, ESignalType type)
+        {
+            this.index = index;
+            this.signalType = type;
+            switch (type)
+            {
+                case ESignalType.DI:
+                    DIStruct signaldi = DIStruct.FindByIndex(index);                   
+                    signaldi.PropertyChanged += Signal_PropertyChanged;
+                    break;
+                case ESignalType.AI:
+                    AIStruct signalai = AIStruct.FindByIndex(index);
+                    signalai.PropertyChanged += Signal_PropertyChanged;
+                    break;
+                case ESignalType.DO:
+                    DOStruct signaldo = DOStruct.FindByIndex(index);
+                    signaldo.PropertyChanged += Signal_PropertyChanged;
+                    break;
+                case ESignalType.AO:
+                    AOStruct signalao = AOStruct.FindByIndex(index);
+                    signalao.PropertyChanged += Signal_PropertyChanged;
+                    break;
+            }
+        }
+
         public WatchItem()
         { }
     }

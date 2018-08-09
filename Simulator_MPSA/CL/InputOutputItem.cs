@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
+   
     /// <summary>
     /// класс дискретного сигнала
     /// используется для отображения в таблице настроек
@@ -19,6 +20,11 @@ namespace Simulator_MPSA.CL
         /// </summary>
         public string Name
         { get; set; }
+
+        /// <summary>
+        /// из таблицы DI или DO
+        /// </summary>
+        public ESignalType signalType=ESignalType.Nothing;
 
         public int _index=-1;
         /// <summary>
@@ -42,13 +48,6 @@ namespace Simulator_MPSA.CL
         }
 
         /// <summary>
-        /// исправность сигнала
-        /// </summary>
-        public bool IsOK
-        { get; set; }
-
-
-        /// <summary>
         /// название сигнала в таблице DI, DO, необходимо для отображения в таблицах настроек
         /// </summary>
         private string _assignedsignalName;
@@ -63,12 +62,22 @@ namespace Simulator_MPSA.CL
         }
         public InputOutputItem() { }
 
-        public InputOutputItem(string name, int index, string assignedSignalName, bool isOk = true)
+        public InputOutputItem(string name, DIStruct signal)
+        {
+            throw new NotImplementedException();
+        }
+
+        public InputOutputItem(string name, DOStruct signal)
+        {
+            throw new NotImplementedException();
+        }
+
+        public InputOutputItem(string name, int index, string assignedSignalName, ESignalType type)
         {
             Name = name;
             Index = index;
             _assignedsignalName = assignedSignalName;
-            IsOK = isOk;
+            this.signalType = type;
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")

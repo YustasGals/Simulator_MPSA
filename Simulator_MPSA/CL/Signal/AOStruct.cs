@@ -81,6 +81,15 @@ namespace Simulator_MPSA.CL.Signal
             Forced = false;
         }
 
+        public static AOStruct FindByIndex(int index)
+        {
+            if (index >= 0 && index < items.Count)
+                return items[index];
+            //else
+            return null;
+           // throw new NotImplementedException();
+        }
+
         private bool _En=true;
         [XmlIgnore]
         public bool En

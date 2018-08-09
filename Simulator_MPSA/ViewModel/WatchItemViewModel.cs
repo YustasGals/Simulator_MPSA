@@ -227,6 +227,32 @@ namespace Simulator_MPSA.ViewModel
             }
         }
 
+        public string ToolTip
+        {
+            get
+            {
+                try
+                {
+                    switch (model.SignalType)
+                    {
+                        case ESignalType.AI:
+                            AIStruct ai = AIStruct.FindByIndex(model.index);
+                            string tooltip = "мин АЦП: " + ai.minACD.ToString() + "; макс АЦП: " + ai.maxACD.ToString() + "; мин инж: " + ai.minPhis.ToString() + "; макс инж: " + ai.maxPhis.ToString();
+                            return tooltip;
+                        case ESignalType.DI: return "";
+                        case ESignalType.AO: return "";
+                        case ESignalType.DO: return "";
+
+                    }
+                }
+                catch (Exception e)
+                { }
+                return "";
+            }
+
+            set { }
+        }
+
         public string Type
         {
             get
@@ -247,6 +273,39 @@ namespace Simulator_MPSA.ViewModel
                 return "";
             }
             set { }
+        }
+
+        public int Index
+        {
+            get
+            {
+                return model.index;
+            }
+            set { }
+        }
+
+        public string TagName
+        {
+            get
+            {
+                try
+                {
+                    switch (model.SignalType)
+                    {
+                        case ESignalType.AI: return AIStruct.items[model.index].TegAI;
+                        case ESignalType.DI: return DIStruct.items[model.index].TegDI;
+                        case ESignalType.AO: return AOStruct.items[model.index].TagName;
+                        case ESignalType.DO: return DOStruct.items[model.index].TegDO;
+
+                    }
+                }
+                catch (Exception e)
+                { }
+                return "";
+            }
+            set
+            {
+            }
         }
     }
 }

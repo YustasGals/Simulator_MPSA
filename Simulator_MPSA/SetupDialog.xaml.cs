@@ -37,7 +37,7 @@ namespace Simulator_MPSA
             objectType = typeof(VSStruct);
             Title = "Настройка вспомсистемы";
 
-            SetupBindings();
+      //      SetupBindings();
         }
         public SetupDialog(KLStruct klapan)
         {
@@ -48,10 +48,10 @@ namespace Simulator_MPSA
             objectType = typeof(KLStruct);
             Title = "Настройка клапана (заслонки)";
 
-            SetupBindings();
+      //      SetupBindings();
         }
-        public Add commandAdd
-        { set; get; }
+    //    public Add commandAdd
+     //   { set; get; }
         public SetupDialog(ZDStruct zd)
         {
             _object = zd;
@@ -61,7 +61,7 @@ namespace Simulator_MPSA
             objectType = typeof(ZDStruct);
             Title = "Настройка задвижки";
 
-            SetupBindings();
+     //       SetupBindings();
         }
 
         public SetupDialog(MPNAStruct agr)
@@ -73,33 +73,8 @@ namespace Simulator_MPSA
             objectType = typeof(MPNAStruct);
             Title = "Настройка агрегата МНА/ПНА";
 
-            SetupBindings();
+       //     SetupBindings();
         }
-
-        private void SetupBindings()
-        {
-            commandAdd = new Add();
-            Add_DI.Command = commandAdd;
-            Remove commandRemove = new Remove();
-
-
-            CommandBinding commDIAddBinding = new CommandBinding();
-            commDIAddBinding.Command = commandAdd;
-            commDIAddBinding.CanExecute += (sender, e) => { e.CanExecute = true; };
-            commDIAddBinding.Executed += model.CommDIAddBinding_Executed;
-            dataGrid.CommandBindings.Add(commDIAddBinding);
-
-
-            Rem_DI.Command = commandRemove;
-            CommandBinding commDIRemoveBinding = new CommandBinding();
-            commDIRemoveBinding.Command = commandRemove;
-            commDIRemoveBinding.CanExecute += model.CommDIRemoveBinding_CanExecute;
-            commDIRemoveBinding.Executed += model.CommDIRemoveBinding_Executed;
-            dataGrid.CommandBindings.Add(commDIRemoveBinding);
-
-
-        }
-
 
 
         private void button_OK_Click(object sender, RoutedEventArgs e)
@@ -125,6 +100,7 @@ namespace Simulator_MPSA
 
             this.DataContext = model;
          //   model = new SetupTableModel(_object as model.)
+    //     DG_outputs.SelectedItems
         }
 
         private void button_cancel_Click(object sender, RoutedEventArgs e)
@@ -132,17 +108,13 @@ namespace Simulator_MPSA
             this.Close();
         }
 
-
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            //List<DIViewModel> items = dataGridDO.SelectedItems.Cast<DOViewModel>().ToList();
+            //if (items != null)
+            //    foreach (DOViewModel item in items)
+            //        WatchItem.Items.Add(new WatchItem(item.GetModel()));
+        }
     }
 
-    public class Add : RoutedCommand
-    {
-        public Add()
-        { }
-    }
-    public class Remove : RoutedCommand
-    {
-        public Remove()
-        { }
-    }
 }
