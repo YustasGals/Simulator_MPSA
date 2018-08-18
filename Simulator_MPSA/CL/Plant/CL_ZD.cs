@@ -9,12 +9,11 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.ComponentModel;
 using Simulator_MPSA.CL.Signal;
+using System.Timers;
 
 namespace Simulator_MPSA
 {
-    class CL_ZD
-    {
-    }
+
     public enum StateZD { Opening, Open, Middle, Closing, Close, Undef, NoVolt };
     // -------------------------------------------------------------------------------------------------
     [Serializable]
@@ -66,21 +65,69 @@ namespace Simulator_MPSA
                 }
             }
         }
-        const int intrfOKC = 0;
-        const int intrfCKC = 1;
+        /// <summary>
+        /// индекс сигнала открыта
+        /// </summary>
+        const int intrfOKC = 0; 
+
+        /// <summary>
+        /// индекс сигнала "закрыта"
+        /// </summary>
+        const int intrfCKC = 1; 
+
+        /// <summary>
+        /// индекс сигнала "открывается"
+        /// </summary>
         const int intrfODC = 2;
+
+        /// <summary>
+        /// индекс сигнала "закрывается"
+        /// </summary>
         const int intrfCDC = 3;
+
+        /// <summary>
+        /// индекс сигнала "в Дист"
+        /// </summary>
         const int intrfDC = 4;
+
+        /// <summary>
+        /// индекс сигнала "наличие связи"
+        /// </summary>
+        const int intrfLink = 5;
+
         public ZDStruct()
         {
-        //    DIs = new List<DIItem>();
-        //    DIs.Add(new DIItem("RS485. Открыта"));//открыта
-        //    DIs.Add(new DIItem("RS485. Закрыта"));//закрыта
-        //    DIs.Add(new DIItem("RS485. Открывается"));//открывается
-        //    DIs.Add(new DIItem("RS485. Закрывается"));//закрывается
-        //    DIs.Add(new DIItem("RS485. В дистанции"));//закрыта
-        //    DIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
-            
+            //    DIs = new List<DIItem>();
+            //    DIs.Add(new DIItem("RS485. Открыта"));//открыта
+            //    DIs.Add(new DIItem("RS485. Закрыта"));//закрыта
+            //    DIs.Add(new DIItem("RS485. Открывается"));//открывается
+            //    DIs.Add(new DIItem("RS485. Закрывается"));//закрывается
+            //    DIs.Add(new DIItem("RS485. В дистанции"));//закрыта
+            //    DIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
+            MPOffTimer.AutoReset = false;
+            MPOffTimer.Elapsed += (sender, e) => 
+            {
+                if (CustomDIs != null && CustomDIs.Count >= 6)
+                {
+                    //выключить МПЗ
+                    if ((cdc != null))
+                        cdc.ValDI = false;
+
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
+                    {
+                        CustomDIs[intrfCDC].SetValue(false);
+                    }
+
+                    //выключаем МПО
+                    if ((odc != null))
+                        odc.ValDI = false;
+
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
+                    {
+                        CustomDIs[intrfODC].SetValue(false);
+                    }
+                }
+            };
         }
         private int _index;
         public int Index
@@ -90,10 +137,15 @@ namespace Simulator_MPSA
         }
 
         /// <summary>
-        /// задержка отключения МПО МПЗ после появления сигнала с концевика (открыо закрыто)
+        /// таймер отключения МП после достижения концевика
         /// </summary>
-        const float MPDelay_timeout = 1f;
-        float MPDelay = 0f;
+        
+        Timer MPOffTimer = new Timer(1);
+        /// <summary>
+        /// Задвижка в дистанции
+        /// </summary>
+        EBool isDist  = new EBool(true);
+
         /// <summary>
         /// обновить состояние задвижки
         /// </summary>
@@ -119,12 +171,13 @@ namespace Simulator_MPSA
                 if (volt != null) volt.ValDI = false;
                 if (mc != null) mc.ValDI = false;
 
-                foreach (DIItem c in DIs)
+                foreach (DIItem c in CustomDIs)
                     c.SetValue(false);
+
             }
             else
             {
-                if (_ZDProc <= 5)
+                if (_ZDProc <= 1)
                 {
                     //состояние - закрыто
                     if (okc != null)
@@ -132,14 +185,16 @@ namespace Simulator_MPSA
                     if (ckc != null)
                         ckc.ValDI = false;
 
-                    if (DIs != null && DIs.Count >= 6)
+             
+
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfOKC].SetValue(true);
-                        DIs[intrfCKC].SetValue(false);
+                        CustomDIs[intrfOKC].SetValue(true);
+                        CustomDIs[intrfCKC].SetValue(false);
                     }
                 }
                 else
-                if (_ZDProc >= 95)
+                if (_ZDProc >= 99)
                 {
                     //состояние - открыто
                     if (okc != null)
@@ -147,10 +202,12 @@ namespace Simulator_MPSA
                     if (ckc != null)
                         ckc.ValDI = true;
 
-                    if (DIs != null && DIs.Count >= 6)
+            
+
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfOKC].SetValue(false);
-                        DIs[intrfCKC].SetValue(true);
+                        CustomDIs[intrfOKC].SetValue(false);
+                        CustomDIs[intrfCKC].SetValue(true);
                     }
                 }
                 else
@@ -161,10 +218,10 @@ namespace Simulator_MPSA
                     if (ckc != null)
                         ckc.ValDI = true;
 
-                    if (DIs != null && DIs.Count >= 6)
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfOKC].SetValue(true);
-                        DIs[intrfCKC].SetValue(true);
+                        CustomDIs[intrfOKC].SetValue(true);
+                        CustomDIs[intrfCKC].SetValue(true);
                     }
                 }
 
@@ -176,22 +233,22 @@ namespace Simulator_MPSA
                     if ((cdc != null))
                         cdc.ValDI = false;
 
-                    if (DIs != null && DIs.Count >= 6)
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfCDC].SetValue(false);
+                        CustomDIs[intrfCDC].SetValue(false);
                     }
                 }
 
                 //состояние - открыто
                 if (_stateZD == StateZD.Open)
                 {
-                    //состояние - закрыто
+                    //выключаем МПО
                     if ((odc != null))
                         odc.ValDI = false;
 
-                    if (DIs != null && DIs.Count >= 6)
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfODC].SetValue(false);
+                        CustomDIs[intrfODC].SetValue(false);
                     }
                 }
 
@@ -207,7 +264,9 @@ namespace Simulator_MPSA
                         StateZD = StateZD.Open;
                         ZDProc = 100f;
 
-                        MPDelay = MPDelay_timeout;
+                        
+                        MPOffTimer.Start();
+                     
                         //отключить мпо
                         //    if (ODC != null) ODC.ValDI = false;
                     }
@@ -216,9 +275,9 @@ namespace Simulator_MPSA
                         //включить МПО
                         if (odc != null) odc.ValDI = true;
 
-                        if (DIs != null && DIs.Count >= 6)
+                        if (CustomDIs != null && CustomDIs.Count >= 6)
                         {
-                            DIs[intrfODC].SetValue(true);
+                            CustomDIs[intrfODC].SetValue(true);
                         }
                         //вкл концевики
                         /*   if (OKC != null)
@@ -239,7 +298,7 @@ namespace Simulator_MPSA
                     {
                         StateZD = StateZD.Close;
                         ZDProc = 0f;
-                        MPDelay = MPDelay_timeout;
+                        MPOffTimer.Start();
                         //отключить мпз
                         //  if (CDC != null) CDC.ValDI = false;
                     }
@@ -248,9 +307,9 @@ namespace Simulator_MPSA
                         //включить МПЗ
                         if (cdc != null) cdc.ValDI = true;
 
-                        if (DIs != null && DIs.Count >= 6)
+                        if (CustomDIs != null && CustomDIs.Count >= 6)
                         {
-                            DIs[intrfCDC].SetValue(true);
+                            CustomDIs[intrfCDC].SetValue(true);
                         }
                         //вкл концевики
                         /*   if (OKC != null)
@@ -266,10 +325,10 @@ namespace Simulator_MPSA
                     if (cdc != null) cdc.ValDI = false;
                     if (odc != null) odc.ValDI = false;
 
-                    if (DIs != null && DIs.Count >= 6)
+                    if (CustomDIs != null && CustomDIs.Count >= 6)
                     {
-                        DIs[intrfODC].SetValue(false);
-                        DIs[intrfCDC].SetValue(false);
+                        CustomDIs[intrfODC].SetValue(false);
+                        CustomDIs[intrfCDC].SetValue(false);
                     }
                 }
 
@@ -300,13 +359,24 @@ namespace Simulator_MPSA
                 {
                     if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
                         StateZD = StateZD.Middle;
-                    //  {
+
                     //отключить МП
                     if (odc != null) odc.ValDI = false;
                     if (cdc != null) cdc.ValDI = false;
 
                 }
-            }
+
+                //---- установка значения в дистанции --
+                if (dc != null)
+                    dc.ValDI = isDist.Value;
+                else
+                    isDist.Value = false;
+
+                if (CustomDIs != null && CustomDIs.Count >= 6 && CustomDIs[intrfDC] != null && CustomDIs[intrfLink].GetValue()==true)
+                {
+                    CustomDIs[intrfDC].DI.ValDI = isDist.Value;
+                }
+            }//novolt
 
         }
         #region РУЧНОЕ УПРАВЛЕНИЕ
@@ -339,13 +409,7 @@ namespace Simulator_MPSA
         /// </summary>
         public void ToggleDist()
         {
-            if (dc != null)
-                dc.ValDI = !dc.ValDI;
-
-            if (DIs != null && DIs.Count > 6 && DIs[intrfDC]!=null)
-            {
-                DIs[intrfDC].DI.ValDI = !DIs[intrfDC].DI.ValDI;
-            }
+            isDist.Value = !isDist.Value;                      
         }
         /// <summary>
         /// Установить/снять напряжение на скеции шин извне
@@ -386,7 +450,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// положение затвора ссылка на аналоговый сигнал
         /// </summary>
-        private AIStruct ZD_position_ai;
+        internal AIStruct ZD_position_ai;
 
 
 
@@ -825,8 +889,19 @@ namespace Simulator_MPSA
         /// <summary>
         /// интерфейсные сигналы
         /// </summary>
-        public List<DIItem> DIs
-        { set; get; }
+        public List<DIItem> CustomDIs
+        {
+            set
+            {
+                _customDIs = value;
+            }
+            get
+            {
+                return _customDIs;
+            }
+        }
+        private List<DIItem> _customDIs = new List<DIItem>();
+
         #endregion
 
         public float ZDProc
@@ -886,9 +961,10 @@ namespace Simulator_MPSA
             ZD_Pos_index = _ZD_Pos_index;
             BSIndex = _bsindex;
 
-            if (DIs != null)
-                foreach (DIItem c in DIs)
+            if (CustomDIs != null)
+                foreach (DIItem c in CustomDIs)
                     c.Index = c.Index;
+
         }
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "") => PropertyChanged?.Invoke(sender: this, e: new PropertyChangedEventArgs(prop));

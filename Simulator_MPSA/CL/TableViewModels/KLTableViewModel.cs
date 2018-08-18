@@ -21,6 +21,19 @@ namespace Simulator_MPSA.CL
             
         }
 
+        private AddPlantToWatch _addCmd = new AddKLToWatch();
+        public AddPlantToWatch AddToWatch
+        {
+            get
+            {
+                return _addCmd;
+            }
+
+            set
+            {
+
+            }
+        }
 
         private static ObservableCollection<KLStruct> _kl;
         public static ObservableCollection<KLStruct> KL

@@ -302,69 +302,20 @@ namespace Simulator_MPSA
             }
         }
 
+        /// <summary>
+        /// список аналогов которые управляются агрегатом
+        /// </summary>
         public AnalogIOItem[] controledAIs;
-        /*
-        /// <summary>
-        /// сила тока, индекс в массиве AIStruct
-        /// </summary>
-        private int _current_indexArrAi;
-        private AIStruct current;
-        public int CurrentIndx
-        {
-            get { return _current_indexArrAi; }
-            set { _current_indexArrAi = value; OnPropertyChanged("CurrentIndx"); current = AIStruct.FindByIndex(_current_indexArrAi); }
-        }
-        public string TokName
-        {
-            get { if (current != null) return current.NameAI; else return "сигнал не назначен"; }
-        }
-        //рабочая сила тока
-        public float Current_nominal
-        {
-            set; get;
-        }
-
-        //скорость изменеия силы тока  А/сек
-        public float Current_spd
-        {
-            set; get;
-        }
 
         /// <summary>
-        /// частота вращения, аналоговый сигнал
+        /// список ссылок на дискретные сигналы относящиеся к агрегату, не участвуют в алгоритмах
         /// </summary>
-        private int _RPMindxArrAI;
-        private AIStruct RPM;
-        public int RPMindxArrAI
+        public List<DIItem> CustomDIs
         {
-            get { return _RPMindxArrAI; }
-            set { _RPMindxArrAI = value; RPM = AIStruct.FindByIndex(_RPMindxArrAI); OnPropertyChanged("RPM"); }
+            get { return _customDIs; }
+            set { _customDIs = value; }
         }
-        public string RPMSignalName
-        {
-            get
-            {
-                if (RPM != null) return RPM.NameAI;
-                else return "сигнал не назначен";
-            }
-        }
-        //номинальая частота вращения
-        public float RPM_nominal
-        {
-            get; set;
-        }
-
-        //скорость изменения частоты вращения  об/мин / сек
-        public float RPM_spd
-        {
-            get; set;
-        }
-
-
-        public float MPNAProc = 0.0f; // процент включенности МПНА
-
-        public int Tmove = 1; // время включения , сек
-               */
+        private List<DIItem> _customDIs = new List<DIItem>();
         
         public bool En
         {
@@ -396,6 +347,8 @@ namespace Simulator_MPSA
         {
             ABB = DOStruct.FindByIndex(_ABBindxArrDO);
             ABO = DOStruct.FindByIndex(_ABOindxArrDO);
+            ABO2 = DOStruct.FindByIndex(_ABO2indxArrDO);
+
             MBC12 = DIStruct.FindByIndex(_MBC12indxArrDI);
             MBC22 = DIStruct.FindByIndex(_MBC22indxArrDI);
             ECB = DIStruct.FindByIndex(_ECBindxArrDI);
@@ -408,6 +361,61 @@ namespace Simulator_MPSA
             EC = DIStruct.FindByIndex(_ECindxArrDI);
             /*current = AIStruct.FindByIndex(_current_indexArrAi);
             RPM = AIStruct.FindByIndex(_RPMindxArrAI);*/
+        }
+        /// <summary>
+        /// Вернуть список всех дискретных сигналов агрегата
+        /// </summary>
+        /// <returns></returns>
+        public List<DIStruct> GetDIs()
+        {
+            List<DIStruct> result = new List<DIStruct>();
+
+            if (MBC12!=null)
+            result.Add(MBC12);
+
+            if (MBC22 != null)
+                result.Add(MBC22);
+
+            if (ECB != null)
+                result.Add(ECB);
+
+            if (ECO != null)
+            result.Add(ECO);
+
+            if (MBC11 != null)
+                result.Add(MBC11);
+
+            if (MBC21 != null)
+                result.Add(MBC21);
+
+            if (ECx != null)
+                result.Add(ECx);
+
+            if (ECO11 != null)
+                result.Add(ECO11);
+
+            if (EC != null)
+                result.Add(EC);
+
+            return result;
+        }
+        /// <summary>
+        /// вернуть список всех дискретных команда агрегата
+        /// </summary>
+        /// <returns></returns>
+        public List<DOStruct> GetDOs()
+        {
+            List<DOStruct> result = new List<DOStruct>();
+            if (ABB != null)
+                result.Add(ABB);
+
+            if (ABO != null)
+                result.Add(ABO);
+
+            if (ABO2 != null)
+                result.Add(ABO2);
+
+            return result;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

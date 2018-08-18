@@ -10,8 +10,9 @@
         <BitmapImage x:Key="logo" CreateOptions="IgnoreImageCache" CacheOption="OnLoad" UriSource="C:\temp\Simulator_MPSA\Simulator_MPSA\Resources\logo.png"/>
     </Window.Resources>
     <Grid Margin="0,0,4,0" Height="144" VerticalAlignment="Top">
-        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="109" Width="381" FontWeight="Bold"><Run FontWeight="Normal"/><LineBreak/><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot; 2018г."/><LineBreak/><Run FontWeight="Normal" Text="Версия 1.1 24.07.2018"/><LineBreak/><Run/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="65" Width="381" FontWeight="Bold"><Run FontWeight="Normal" Text="Симулятор полевых сигналов МПСА"/><LineBreak/><Run FontWeight="Normal" Text="АО &quot;Нефтеавтоматика&quot;"/><LineBreak/><Run/></TextBlock>
         <Button Content="Закрыть" HorizontalAlignment="Left" Margin="308,104,0,0" VerticalAlignment="Top" Width="93" Height="33" FontSize="14" Click="Button_Click"/>
+        <TextBox x:Name="infoBox" HorizontalAlignment="Left" Height="40" Margin="10,59,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="391"/>
 
     </Grid>
 </Window>

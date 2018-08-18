@@ -19,6 +19,20 @@ namespace Simulator_MPSA.CL
                 return instance;
             }
         }
+        private AddPlantToWatch _addCmd = new AddZDToWatch();
+        public AddPlantToWatch AddToWatch
+        {
+            get
+            {
+                return _addCmd;
+            }
+
+            set
+            {
+
+            }
+        }
+
         public static ObservableCollection<ZDStruct> ZDs
         {
             get { return _zds; }

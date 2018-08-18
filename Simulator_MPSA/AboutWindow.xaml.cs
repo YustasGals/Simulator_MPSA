@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -22,6 +23,10 @@ namespace Simulator_MPSA
         public AboutWindow()
         {
             InitializeComponent();
+
+            var version = Assembly.GetExecutingAssembly().GetName().Version;
+            var buildDate = new DateTime(2000, 1, 1).AddDays(version.Build).AddSeconds(version.Revision * 2);
+            infoBox.Text = "Версия: " + version.ToString() + Environment.NewLine + "Дата сборки " + buildDate.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

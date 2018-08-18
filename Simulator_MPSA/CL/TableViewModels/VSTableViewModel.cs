@@ -8,7 +8,7 @@ using System.ComponentModel;
 
 namespace Simulator_MPSA.CL
 {
-    public class VSTableViewModel
+    class VSTableViewModel
     {
         private static ObservableCollection<VSStruct> _vs;
         public static ObservableCollection<VSStruct> VS
@@ -25,7 +25,19 @@ namespace Simulator_MPSA.CL
             }
         }
 
+        private AddPlantToWatch _addCmd = new AddVSToWatch();
+        public AddPlantToWatch AddToWatch
+        {
+            get
+            {
+                return _addCmd;
+            }
 
+            set
+            {
+
+            }
+        }
 
         public int Count
         {

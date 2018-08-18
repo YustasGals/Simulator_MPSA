@@ -79,7 +79,7 @@ namespace Simulator_MPSA
                 {
                     if (bs != null)
                     {
-                        bs.IndexChanged -= BS_IndexChanged;
+                     //   bs.IndexChanged -= BS_IndexChanged;
                         bs.PropertyChanged -= BS_PropertyChanged;
                     }
                     _bussec_index = value;
@@ -88,14 +88,25 @@ namespace Simulator_MPSA
                    
                     if (bs != null)
                     {
-                        bs.IndexChanged += BS_IndexChanged;
+                  //      bs.IndexChanged += BS_IndexChanged;
                         bs.PropertyChanged += BS_PropertyChanged;
                     }
                 }
             }
         }
 
+        private List<DIItem> _CustomDIs = new List<DIItem>();
 
+        /// <summary>
+        /// ссылки на дискретные сигналы, относящиеся к вспомсистеме но не участвующие в алгоритмах
+        /// </summary>
+        internal List<DIItem> CustomDIs
+        {
+            get
+            { return _CustomDIs; }
+            set
+            { _CustomDIs = value; }
+        }
        
         #region Обработчики событий изменения значения сигналов
         private void BS_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -111,10 +122,10 @@ namespace Simulator_MPSA
         {
             OnPropertyChanged("IsMPOn");
         }
-        private void ABO_PropertyChanged(object sender, PropertyChangedEventArgs e)
+       /* private void ABO_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged("CMDStop");
-        }
+        }*/
         private void ABB_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged("CMDStart");
@@ -193,14 +204,13 @@ namespace Simulator_MPSA
             }
         }
         #endregion
-        private void BS_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+       /* private void BS_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
             _bussec_index = e.newIndex;
-           // LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения на СШ");
+          
            LogWriter.AppendLog("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения на СШ");
             OnPropertyChanged("BSVoltage");
-            //  throw new NotImplementedException();
-        }
+        }*/
 
         /*public string BusSectionName
         {
@@ -236,8 +246,8 @@ namespace Simulator_MPSA
                 if (value != _ABBindxArrDO || abb == null) //если индекс изменен
                 {
                     //отписываемся от сигнала если он был
-                    if (abb != null)
-                        abb.IndexChanged -= ABB_IndexChanged;
+                   // if (abb != null)
+                   //     abb.IndexChanged -= ABB_IndexChanged;
 
                     
                     _ABBindxArrDO = value;
@@ -248,7 +258,7 @@ namespace Simulator_MPSA
                     //подписываемся на новый сигнал
                     if (abb != null)
                     {
-                        abb.IndexChanged += ABB_IndexChanged;
+                    //    abb.IndexChanged += ABB_IndexChanged;
                         abb.PropertyChanged += ABB_PropertyChanged;
                         OnPropertyChanged("CMDStart");
                     }
@@ -261,12 +271,11 @@ namespace Simulator_MPSA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ABB_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+   /*     private void ABB_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
-            // throw new NotImplementedException();
             _ABBindxArrDO = e.newIndex;
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DO - команда на включение");
-        }
+        }*/
 
        /* public string ABBName
         { get
@@ -286,7 +295,20 @@ namespace Simulator_MPSA
         /// </summary>
         public DOStruct ABO
         {
-            get { return abo; }
+            get
+            {
+                if (abo != null)
+                    return abo;
+                else return null;
+                /*else
+                    if (_ABOindxArrDO >= 0 && _ABOindxArrDO < DOStruct.items.Count)
+                {
+                    abo = DOStruct.items[_ABOindxArrDO];
+                    return abo;
+                }
+                return null;
+                      */
+            }
         }
        
         /// <summary>
@@ -301,32 +323,31 @@ namespace Simulator_MPSA
             get { return _ABOindxArrDO; }
             set
             {
-                if (value != _ABOindxArrDO || abo == null)
-                {
+
                     _ABOindxArrDO = value;
 
                     //ссылка изменена - отписывается от старого элемента
-                    if (abo != null)
-                        abo.IndexChanged -= ABO_IndexChanged;
+                  //  if (abo != null)
+                   //     abo.IndexChanged -= ABO_IndexChanged;
                     //находим новый сигнал                   
                     abo = DOStruct.FindByIndex(_ABOindxArrDO);
                     //подписываемся на него
                     if (abo != null)
                     {
-                        abo.PropertyChanged += ABO_PropertyChanged;
-                        abo.IndexChanged += ABO_IndexChanged;
+                        abo.PropertyChanged += delegate { OnPropertyChanged("CMDStop"); };
+                    ///    abo.IndexChanged += ABO_IndexChanged;
                         OnPropertyChanged("CMDStop");
                     }
-                }
+
             }
         }
-
+        /*
         private void ABO_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
             _ABOindxArrDO = e.newIndex;
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DO - команда на отключение");
-            //throw new NotImplementedException();
-        }
+          
+        }*/
 
       /*  public string ABOName
         { get
@@ -429,13 +450,13 @@ namespace Simulator_MPSA
             {
                 if (_anCmdIndex != value || analogCommand == null)
                 {
-                    if (analogCommand != null)
-                        analogCommand.IndexChanged -= AnalogCommand_IndexChanged;
+                 //   if (analogCommand != null)
+                  //      analogCommand.IndexChanged -= AnalogCommand_IndexChanged;
                     _anCmdIndex = value;
                     if (value >= 0 && value < AOStruct.items.Count)
                     {
                         analogCommand = AOStruct.items[value];
-                        analogCommand.IndexChanged += AnalogCommand_IndexChanged;
+                    //    analogCommand.IndexChanged += AnalogCommand_IndexChanged;
                     }
                     else
                         analogCommand = null;
@@ -449,11 +470,11 @@ namespace Simulator_MPSA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AnalogCommand_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+       /* private void AnalogCommand_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
             _anCmdIndex = e.newIndex;
             LogViewModel.WriteLine("\""+Description + "\": "+"изменен индекс сигнала АО");
-        }
+        }*/
 
 
         /// <summary>
@@ -471,7 +492,7 @@ namespace Simulator_MPSA
             set {
                 if (_ecindx != value || ec ==null)
                 {
-                    if (ec != null) ec.IndexChanged -= EC_DI_IndexChanged;
+                   // if (ec != null) ec.IndexChanged -= EC_DI_IndexChanged;
                     _ecindx = value;
                     
                     OnPropertyChanged("ECindxArrDI");
@@ -479,7 +500,7 @@ namespace Simulator_MPSA
                     ec = DIStruct.FindByIndex(value);
                     if (ec != null)
                     {
-                        ec.IndexChanged += EC_DI_IndexChanged;
+                       // ec.IndexChanged += EC_DI_IndexChanged;
                         ec.PropertyChanged += EC_PropertyChanged;
                         OnPropertyChanged("IsVoltageOk");
                     }
@@ -488,12 +509,12 @@ namespace Simulator_MPSA
             }
         }
 
-        private void EC_DI_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
+       /* private void EC_DI_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
-            //    throw new NotImplementedException();
+         
             _ecindx = e.newIndex;
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие напряжения");
-        }
+        }*/
 
 
         /// <summary>
@@ -506,26 +527,26 @@ namespace Simulator_MPSA
             {
                 if (_MPCindxArrDI != value || mpc == null)
                 {
-                    if (mpc != null)
-                        mpc.IndexChanged -= MPC_DI_IndexChanged;
+                   /* if (mpc != null)
+                        mpc.IndexChanged -= MPC_DI_IndexChanged;*/
 
                     _MPCindxArrDI = value; OnPropertyChanged("MPCindxArrDI");
                     mpc = DIStruct.FindByIndex(_MPCindxArrDI);
                     if (mpc != null)
                     {
-                        mpc.IndexChanged += MPC_DI_IndexChanged;
+                      //  mpc.IndexChanged += MPC_DI_IndexChanged;
                         mpc.PropertyChanged += MP_PropertyChanged;
                         OnPropertyChanged("IsMPOn");
                     }
                 }
             }
         }
-
+        /*
         private void MPC_DI_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
             _MPCindxArrDI = e.newIndex;
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - сигнал МП");
-        }
+        }*/
 
 
         /// <summary>
@@ -539,14 +560,14 @@ namespace Simulator_MPSA
                 {
                     _PCindxArrDI = value;
 
-                    if (pc != null)
+                   /* if (pc != null)
                         pc.IndexChanged -= PC_DI_IndexChanged;
-
+                        */
                     OnPropertyChanged("PCindxArrDI");
                     pc = DIStruct.FindByIndex(value);
 
-                    if (pc != null)
-                        pc.IndexChanged += PC_DI_IndexChanged;
+                  /*  if (pc != null)
+                        pc.IndexChanged += PC_DI_IndexChanged;*/
                 }
             }
         }
@@ -555,14 +576,15 @@ namespace Simulator_MPSA
         /// изменен индекс сигнала PC
         /// </summary>
         /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="e"></param
+        /*
         private void PC_DI_IndexChanged(object sender, CL.Signal.IndexChangedEventArgs e)
         {
-            // throw new NotImplementedException();
+           
             _PCindxArrDI = e.newIndex;
             LogViewModel.WriteLine("\"" + Description + "\": " + "изменен индекс сигнала DI - наличие давления");
         }
-
+        */
 
         /// <summary>
         /// состояние вспомсистемы

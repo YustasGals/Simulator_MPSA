@@ -35,6 +35,7 @@ using Opc;
 using OpcCom;
 using OpcXml;
 using System.Windows.Controls;
+using System.Runtime.InteropServices;
 
 namespace Simulator_MPSA
 {
@@ -910,6 +911,7 @@ namespace Simulator_MPSA
 
         private void MenuItem_about_Click(object sender, RoutedEventArgs e)
         {
+        
             AboutWindow w = new AboutWindow();
             w.ShowDialog();
         }

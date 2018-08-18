@@ -626,7 +626,7 @@
                             </Image.Style>
                         </Image>
                     </Button>
-                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False">
+                    <DataGrid x:Name="dataGridZD" ItemsSource="{Binding ZDs}" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" CanUserResizeRows="False" AutoGenerateColumns="False" >
                         <DataGrid.ContextMenu>
                             <ContextMenu>
                                 <MenuItem x:Name="ZDMenu_open" Header="Открыть по месту" Click="ZDMenu_open_Click"/>
@@ -634,6 +634,7 @@
                                 <MenuItem x:Name="ZDMenu_stop" Header="Стоп по месту" Click="ZDMenu_stop_Click"/>
                                 <MenuItem x:Name="ZDMenu_dist" Header="Дист/местный" Click="ZDMenu_dist_Click"/>
                                 <MenuItem x:Name="ZDMenu_bs" Header="Вкл/откл напряжения на СШ" Click="ZDMenu_BS_Click"/>
+                                <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                                 <Separator/>
                                 <MenuItem x:Name="ZDMenu_settings" Header="Настройки" Click="ZDMenu_settings_Click" />
                             </ContextMenu>
@@ -894,6 +895,7 @@
                                 <MenuItem x:Name="KLMenu_stop" Header="Стоп по месту" Click="KLMenu_stop_Click"/>
                                 <Separator/>
                                 <MenuItem x:Name="KLMenu_settings" Header="Настройки" Click="KLMenu_settings_Click" />
+                                <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>
@@ -990,6 +992,7 @@
                                 <MenuItem x:Name="VSMenu_toggleBS" Header="Вкл/откл секцию шин" Click="VSMenu_toggle_BS_Click"/>
                                 <Separator/>
                                 <MenuItem x:Name="VSMenu_settings" Header="Настройки" Click="VSMenu_settings_Click" />
+                                <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
 
@@ -1173,6 +1176,7 @@
                         <DataGrid.ContextMenu>
                             <ContextMenu>                               
                                 <MenuItem x:Name="MPNAMenu_settings" Header="Настройки" Click="MPNAMenu_settings_Click" />
+                                <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                             </ContextMenu>
                         </DataGrid.ContextMenu>
                         <DataGrid.Columns>

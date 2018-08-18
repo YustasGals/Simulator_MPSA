@@ -65,7 +65,7 @@ namespace Simulator_MPSA
         }
 
 
-        private DOStruct DOB = null;
+        private DOStruct dob = null;
         private int _DOBindxArrDO=-1;
         /// <summary>
         /// для вывода состояиня в datagrid
@@ -74,8 +74,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DOB != null)
-                    return DOB.ValDO;
+                if (dob != null)
+                    return dob.ValDO;
                 else return false;
             }
         }
@@ -88,7 +88,7 @@ namespace Simulator_MPSA
             set {
                 _DOBindxArrDO = value;
                 OnPropertyChanged("DOBindxArrDI");
-                DOB = DOStruct.FindByIndex(_DOBindxArrDO);
+                dob = DOStruct.FindByIndex(_DOBindxArrDO);
             }
         }
         /// <summary>
@@ -97,23 +97,25 @@ namespace Simulator_MPSA
         public string DOBName
         { get
             {
-                if (DOB != null)
-                    return DOB.NameDO;
+                if (dob != null)
+                    return dob.NameDO;
                 else return "сигнал не назначен"; 
             }
         }
 
-        private DOStruct DKB = null;
+        private DOStruct dkb = null;
         private int _DKBindxArrDO=-1;
         public bool DKBState
         {
             get
             {
-                if (DKB != null)
-                    return DKB.ValDO;
+                if (dkb != null)
+                    return dkb.ValDO;
                 else return false;
             }
         }
+
+        
         /// <summary>
         /// команда "клапан закрыть" индекс сигнала
         /// </summary>
@@ -124,7 +126,7 @@ namespace Simulator_MPSA
             {
                 _DKBindxArrDO = value;
                 OnPropertyChanged("DKBindxArrDI");
-                DKB = DOStruct.FindByIndex(_DKBindxArrDO);
+                dkb = DOStruct.FindByIndex(_DKBindxArrDO);
             }
         }
         /// <summary>
@@ -134,8 +136,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (DKB != null)
-                    return DKB.NameDO;
+                if (dkb != null)
+                    return dkb.NameDO;
                 else return "сигнал не назначен";
             }
         }
@@ -144,14 +146,14 @@ namespace Simulator_MPSA
         public bool changedDO=false;
 
 
-        private DIStruct OKC = null;
+        private DIStruct okc = null;
         private int _OKCindxArrDI=-1;
         public bool OKCState
         {
             get
             {
-                if (OKC != null)
-                    return OKC.ValDI;
+                if (okc != null)
+                    return okc.ValDI;
                 else return false;
             }
         }
@@ -165,7 +167,7 @@ namespace Simulator_MPSA
             {
                 _OKCindxArrDI = value;
                 OnPropertyChanged("OKCindxArrDI");
-                OKC = DIStruct.FindByIndex(_OKCindxArrDI);
+                okc = DIStruct.FindByIndex(_OKCindxArrDI);
             }
         }
         /// <summary>
@@ -175,20 +177,20 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (OKC != null)
-                    return OKC.NameDI;
+                if (okc != null)
+                    return okc.NameDI;
                 else return "сигнал не назначен";
             }
         }
 
-        private DIStruct CKC = null;
+        private DIStruct ckc = null;
         private int _CKCindxArrDI = -1;
         public bool CKCState
         {
             get
             {
-                if (CKC != null)
-                    return CKC.ValDI;
+                if (ckc != null)
+                    return ckc.ValDI;
                 else return false;
             }
         }
@@ -202,7 +204,7 @@ namespace Simulator_MPSA
             {
                 _CKCindxArrDI = value;
                 OnPropertyChanged("CKCindxArrDI");
-                CKC = DIStruct.FindByIndex(_CKCindxArrDI);
+                ckc = DIStruct.FindByIndex(_CKCindxArrDI);
             }
         }
         /// <summary>
@@ -212,8 +214,8 @@ namespace Simulator_MPSA
         {
             get
             {
-                if (CKC != null)
-                    return CKC.NameDI;
+                if (ckc != null)
+                    return ckc.NameDI;
                 else return "сигнал не назначен";
             }
         }
@@ -255,11 +257,11 @@ namespace Simulator_MPSA
             if (!_en)
                 return;
 
-            if (DOB != null)
-                bDOB = DOB.ValDO;
+            if (dob != null)
+                bDOB = dob.ValDO;
 
-            if (DKB != null)
-                bDKB = DKB.ValDO;
+            if (dkb != null)
+                bDKB = dkb.ValDO;
 
             //открыть если есть команда 
             if (bDOB==true)
@@ -282,8 +284,8 @@ namespace Simulator_MPSA
             //состояние - открывается
             if (State == KLState.Opening)
             {
-                if (CKC !=null) CKC.ValDI = true;
-                if (OKC !=null)  OKC.ValDI = true;
+                if (ckc !=null) ckc.ValDI = true;
+                if (okc !=null)  okc.ValDI = true;
 
                 KLProc += dt / TmoveKL * 100;
                 if (KLProc > 100f)
@@ -298,8 +300,8 @@ namespace Simulator_MPSA
             //состояние - закрывается
             if (State == KLState.Closing)
             {
-                if (CKC != null) CKC.ValDI = true;
-                if (OKC != null) OKC.ValDI = true;
+                if (ckc != null) ckc.ValDI = true;
+                if (okc != null) okc.ValDI = true;
 
                 KLProc -= dt / TmoveKL * 100;
                 if (KLProc < 0f)
@@ -312,22 +314,22 @@ namespace Simulator_MPSA
 
             if (State == KLState.Close)
             {
-                if (CKC != null) CKC.ValDI = true;
-                if (OKC != null) OKC.ValDI = false;
+                if (ckc != null) ckc.ValDI = true;
+                if (okc != null) okc.ValDI = false;
                 KLProc = 0f;
             }
 
             if (State == KLState.Open)
             {
-                if (CKC != null) CKC.ValDI = false;
-                if (OKC != null) OKC.ValDI = true;
+                if (ckc != null) ckc.ValDI = false;
+                if (okc != null) okc.ValDI = true;
                 KLProc = 100f;
             }
 
             if (State == KLState.Middle)
             {
-                if (CKC != null) CKC.ValDI = true;
-                if (OKC != null) OKC.ValDI = true;
+                if (ckc != null) ckc.ValDI = true;
+                if (okc != null) okc.ValDI = true;
             }
 
 
@@ -361,6 +363,75 @@ namespace Simulator_MPSA
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
+
+        internal DIStruct OKC
+        {
+            get
+            {
+                if (okc != null)
+                    return okc;
+                else
+                    if (OKCindxArrDI >= 0 && OKCindxArrDI < DIStruct.items.Count)
+                    {
+                        okc = DIStruct.items[OKCindxArrDI];
+                        return okc;
+                    }
+
+                return null;
+            }
+        }
+
+        internal DIStruct CKC
+        {
+            get
+            {
+                if (ckc != null)
+                    return ckc;
+                else
+                    if (CKCindxArrDI >= 0 && CKCindxArrDI < DIStruct.items.Count)
+                {
+                    ckc = DIStruct.items[CKCindxArrDI];
+                    return ckc;
+                }
+
+                return null;
+            }
+        }
+
+        internal DOStruct DOB
+        {
+            get
+            {
+                if (dob != null)
+                    return dob;
+                else
+                    if (DOBindxArrDO >=0 && DOBindxArrDO < DOStruct.items.Count)
+                {
+                    dob = DOStruct.items[DOBindxArrDO];
+                    return dob;
+                }
+
+                return null;
+            }
+        }
+
+        internal DOStruct DKB
+        {
+            get
+            {
+                if (dkb != null)
+                    return dkb;
+                else
+                    if (DKBindxArrDO >= 0 && DKBindxArrDO < DOStruct.items.Count)
+                {
+                    dkb = DOStruct.items[DKBindxArrDO];
+                    return dkb;
+                }
+
+                return null;
+            }
+        }
+
 
     }
 

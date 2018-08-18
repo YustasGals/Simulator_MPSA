@@ -64,12 +64,18 @@ namespace Simulator_MPSA.CL
 
         public InputOutputItem(string name, DIStruct signal)
         {
-            throw new NotImplementedException();
+            this.Name = name;
+            Index = signal.indxArrDI;
+            signalType = ESignalType.DI;
+            AssignedSignalName = signal.NameDI;
         }
 
         public InputOutputItem(string name, DOStruct signal)
         {
-            throw new NotImplementedException();
+            this.Name = name;
+            Index = signal.indxArrDO;
+            signalType = ESignalType.DO;
+            AssignedSignalName = signal.NameDO;
         }
 
         public InputOutputItem(string name, int index, string assignedSignalName, ESignalType type)

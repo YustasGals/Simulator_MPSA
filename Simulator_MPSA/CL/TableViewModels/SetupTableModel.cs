@@ -156,6 +156,10 @@ namespace Simulator_MPSA.CL
                 _analogs = new ObservableCollection<AnalogIOItem>(vs.controledAIs);
             else _analogs = new ObservableCollection<AnalogIOItem>();
 
+            foreach (DIItem c in vs.CustomDIs)
+            {
+                Outputs.Add(new InputOutputItem(c.Name, c.Index, c.GetSignalName, ESignalType.DI));
+            }
             /* if (vs.isAVOA)
              {
                  ANInputs = new ObservableCollection<ANInput>();
@@ -227,19 +231,19 @@ namespace Simulator_MPSA.CL
             Outputs.Add(new InputOutputItem("МПЗ", zd.CDCindxArrDI, names["CDC"], ESignalType.DI));
             Outputs.Add(new InputOutputItem("Муфта", zd.MCindxArrDI, names["MC"], ESignalType.DI));
             Outputs.Add(new InputOutputItem("Дистанционное управление", zd.DCindxArrDI, names["DC"], ESignalType.DI));
-            Outputs.Add(new InputOutputItem("наличие напряжения на СШ",zd.BSIndex,names["BS"], ESignalType.DI));
+            Outputs.Add(new InputOutputItem("Наличие напряжения на СШ",zd.BSIndex,names["BS"], ESignalType.DI));
 
-            if (zd.DIs == null || zd.DIs.Count==0)
+            if (zd.CustomDIs == null || zd.CustomDIs.Count==0)
             {
-                    zd.DIs = new List<DIItem>();
-                    zd.DIs.Add(new DIItem("RS485. Открыта"));//открыта
-                    zd.DIs.Add(new DIItem("RS485. Закрыта"));//закрыта
-                    zd.DIs.Add(new DIItem("RS485. Открывается"));//открывается
-                    zd.DIs.Add(new DIItem("RS485. Закрывается"));//закрывается
-                    zd.DIs.Add(new DIItem("RS485. В дистанции"));//закрыта
-                    zd.DIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
+                    zd.CustomDIs = new List<DIItem>();
+                    zd.CustomDIs.Add(new DIItem("RS485. Открыта"));//открыта
+                    zd.CustomDIs.Add(new DIItem("RS485. Закрыта"));//закрыта
+                    zd.CustomDIs.Add(new DIItem("RS485. Открывается"));//открывается
+                    zd.CustomDIs.Add(new DIItem("RS485. Закрывается"));//закрывается
+                    zd.CustomDIs.Add(new DIItem("RS485. В дистанции"));//закрыта
+                    zd.CustomDIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
             }
-            foreach (DIItem c in zd.DIs)
+            foreach (DIItem c in zd.CustomDIs)
             {
                 Outputs.Add(new InputOutputItem(c.Name, c.Index, c.GetSignalName, ESignalType.DI));
             }
@@ -279,6 +283,12 @@ namespace Simulator_MPSA.CL
             Outputs.Add(new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName, ESignalType.DI));
             Outputs.Add(new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name, ESignalType.DI));
             Outputs.Add(new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name, ESignalType.DI));
+
+            if (agr.CustomDIs.Count > 0)
+            {
+                foreach (DIItem d in agr.CustomDIs)
+                    Outputs.Add(new InputOutputItem(d.Name, d.DI));
+            }
             //Outputs.Add(new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName));
 
             inputs = new ObservableCollection<InputOutputItem>();
@@ -327,6 +337,10 @@ namespace Simulator_MPSA.CL
                      temp.ADCtoRPM = ANInputs[0].ADCtoRPM;
                  }*/
                 temp.AnCmdIndex = AnalogCommands[0]._index;
+
+                for (int i = 4; i < Outputs.Count; i++)
+                    if (Outputs[i].Index !=null)
+                    temp.CustomDIs.Add(new DIItem(Outputs[i].Name, (int)Outputs[i].Index));
             }
             if (type == typeof(KLStruct))
             {
@@ -366,9 +380,9 @@ namespace Simulator_MPSA.CL
 
                 if (Outputs.Count > 8)
                 {
-                    temp.DIs = new List<DIItem>();
+                    temp.CustomDIs = new List<DIItem>();
                     for (int i = 8; i < Outputs.Count; i++)
-                        temp.DIs.Add(new DIItem(Outputs[i].Name, Outputs[i].Index != null ? (int)Outputs[i].Index : -1));
+                        temp.CustomDIs.Add(new DIItem(Outputs[i].Name, Outputs[i].Index != null ? (int)Outputs[i].Index : -1));
                 }
                 //TODO: добавить запись настроек аналогов
             }
@@ -404,6 +418,11 @@ namespace Simulator_MPSA.CL
                     agr.controledAIs = Analogs.ToArray();
                 else
                     agr.controledAIs = null;
+
+                agr.CustomDIs = new List<DIItem>();
+                for (int i = 7; i < Outputs.Count; i++)
+                    if (Outputs[i].Index!=null)
+                    agr.CustomDIs.Add(new DIItem(Outputs[i].Name, (int)Outputs[i].Index));
             }
         }
 

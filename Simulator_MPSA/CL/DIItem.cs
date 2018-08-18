@@ -45,10 +45,10 @@ namespace Simulator_MPSA.CL
             set
             {
                 index = value;
-                if ((value > -1) && (value < DIStruct.items.Count))
+              /*  if ((value > -1) && (value < DIStruct.items.Count))
                 {
                     DI = DIStruct.items[value];
-                }
+                }*/
             }
             get
             {
@@ -57,11 +57,27 @@ namespace Simulator_MPSA.CL
         }
 
         [XmlIgnore]
-        public DIStruct DI;
+        public DIStruct DI
+        {
+            get
+            {
+                if (index>=0 && index < DIStruct.items.Count)
+                    return DIStruct.items[index];
+                else
+                    return null;
+                
+            }
+        }
         public void SetValue(bool value)
         {
             if (DI != null)
                 DI.ValDI = value;
+        }
+        public bool? GetValue()
+        {
+            if (DI != null)
+                return DI.ValDI;
+            else return null; 
         }
 
         /// <summary>

@@ -20,7 +20,19 @@ namespace Simulator_MPSA.CL
             }
             set { instance = value; }
         }
+        private AddPlantToWatch _addCmd = new AddMPNAToWatch();
+        public AddPlantToWatch AddToWatch
+        {
+            get
+            {
+                return _addCmd;
+            }
 
+            set
+            {
+
+            }
+        }
         private static ObservableCollection<MPNAStruct> _mpnas;
         public static ObservableCollection<MPNAStruct> MPNAs
         {
