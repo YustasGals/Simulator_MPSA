@@ -24,6 +24,7 @@ namespace Simulator_MPSA
         int coilCount;
         int NJob; //количество потоков
         int CoilPerTask;//количество бочек на чтение для одного потока
+        bool connectionBroken = false;
         public ReadThread(string hostname, int port)
         {
             NReg = (ushort)Sett.Instance.rdCoilSize;
@@ -50,6 +51,7 @@ namespace Simulator_MPSA
             coilCount = RB.R.Length / NReg;
             CoilPerTask = (int)Math.Ceiling((double)coilCount / (double)NJob);
 
+            connectionBroken = false;
             for (int i = 0; i < NJob; i++)
             {
                
@@ -81,8 +83,8 @@ namespace Simulator_MPSA
             ushort tbStartAdress = (ushort)Sett.Instance.BegAddrR;
 
             ushort[] data;
-
-            while (true)
+           
+            while (!connectionBroken)
             {
                 try
                 {
@@ -100,6 +102,11 @@ namespace Simulator_MPSA
                 catch (ThreadAbortException abEx)
                 {
                 }
+                catch (Exception ex)
+                {
+                   // System.Windows.MessageBox.Show("Ошибка соединения");
+                    connectionBroken = true;
+                }
             }
         }
 
@@ -109,7 +116,7 @@ namespace Simulator_MPSA
 
         ushort[] data;
 
-            while (true)
+            while (!connectionBroken)
             {
                 try
                 { 
@@ -126,6 +133,11 @@ namespace Simulator_MPSA
                 }
                 catch (ThreadAbortException abEx)
                 {
+                }
+                catch (Exception ex)
+                {
+                    // System.Windows.MessageBox.Show("Ошибка соединения");
+                    connectionBroken = true;
                 }
             }
         }

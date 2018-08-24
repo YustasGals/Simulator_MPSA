@@ -133,9 +133,17 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\AddPlantToWatch.cs" />
+    <Compile Include="CL\Commands\ExportAICommand.cs" />
+    <Compile Include="CL\Commands\ExportAOCommand.cs" />
+    <Compile Include="CL\Commands\ExportDICommand.cs" />
+    <Compile Include="CL\Commands\ExportDOCommand.cs" />
+    <Compile Include="CL\Commands\ImportAICommand.cs" />
+    <Compile Include="CL\Commands\ImportAOCommand.cs" />
+    <Compile Include="CL\Commands\ImportDOCommand.cs" />
     <Compile Include="CL\DIItem.cs" />
     <Compile Include="CL\EBool.cs" />
     <Compile Include="CL\ExcelImporter\ExcelImporter.cs" />
+    <Compile Include="CL\Commands\ImportDICommand.cs" />
     <Compile Include="CL\Signal\AOStruct.cs" />
     <Compile Include="CL\ImportDialog.xaml.cs">
       <DependentUpon>ImportDialog.xaml</DependentUpon>

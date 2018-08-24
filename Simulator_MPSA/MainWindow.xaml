@@ -40,8 +40,18 @@
                 <MenuItem Header="Открыть" Click="Menu_OpenAll"/>
                 <MenuItem Header="Сохранить" Click="Menu_SaveSingle" />
                 <MenuItem Header="Импорт из файла переменных" Click="Menu_ImportXLS"/>
-                <MenuItem Header="Импорт из csv" Click="Menu_Import"/>
-                <MenuItem Header="Экспорт в csv" Click="Menu_Export"/>
+                <MenuItem Header="Импорт из csv">
+                    <MenuItem Header="Импорт таблицы DI" x:Name="menuImportDI"/>
+                    <MenuItem Header="Импорт таблицы DO" x:Name="menuImportDO"/>
+                    <MenuItem Header="Импорт таблицы AI" x:Name="menuImportAI"/>
+                    <MenuItem Header="Импорт таблицы AO" x:Name="menuImportAO"/>
+                </MenuItem>
+                <MenuItem Header="Экспорт в csv" >
+                    <MenuItem Header="Экспорт таблицы DI" x:Name="menuExportDI"/>
+                    <MenuItem Header="Экспорт таблицы DO" x:Name="menuExportDO"/>
+                    <MenuItem Header="Экспорт таблицы AI" x:Name="menuExportAI"/>
+                    <MenuItem Header="Экспорт таблицы AO" x:Name="menuExportAO"/>
+                </MenuItem>
                 <Separator />
                 <MenuItem Header="Выход" Click="MenuItem_Click_1" />
             </MenuItem>

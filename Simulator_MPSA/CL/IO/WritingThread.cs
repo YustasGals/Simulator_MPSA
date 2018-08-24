@@ -48,10 +48,9 @@ namespace Simulator_MPSA
         /// </summary>
         int NJob=4;
         int NMasters = 6;
-        /// <summary>
-        /// адрес назначения в ПЛК
-        /// </summary>
-        
+
+        bool connectionBroken = false;
+
 
         public WritingThread(string hostname, int port)
         {
@@ -100,6 +99,7 @@ namespace Simulator_MPSA
             if (Sett.Instance.UseKS)
                 wrThread[4].Start();
 
+            connectionBroken = false;
 
         }
 
@@ -147,7 +147,8 @@ namespace Simulator_MPSA
             if (nCoilLast >= CoilCount)
                 nCoilLast = CoilCount - 1;
             bool isFirstCycle = true;
-            while (true)
+            
+            while (!connectionBroken)
             {
                 try
                 {
@@ -187,6 +188,10 @@ namespace Simulator_MPSA
                 catch (ThreadAbortException abEx)
                 {
                 }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
             }
         }
         void WriteToPLC2()
@@ -204,7 +209,7 @@ namespace Simulator_MPSA
                 nCoilLast = CoilCount - 1;
 
             bool isFirstCycle = true;
-            while (true)
+            while (!connectionBroken)
             {
                 try
                 {
@@ -242,6 +247,10 @@ namespace Simulator_MPSA
                 catch (ThreadAbortException abEx)
                 {
                 }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
             }
         }
         void WriteToPLC3()
@@ -257,7 +266,7 @@ namespace Simulator_MPSA
             if (nCoilLast >= CoilCount)
                 nCoilLast = CoilCount - 1;
             bool isFirstCycle = true;
-            while (true)
+            while (!connectionBroken)
             {
                 try
                 {
@@ -293,6 +302,10 @@ namespace Simulator_MPSA
                 }
                 catch (ThreadAbortException abEx)
                 { }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
             }
         }
         void WriteToPLC4()
@@ -308,7 +321,7 @@ namespace Simulator_MPSA
             if (nCoilLast >= CoilCount)
                 nCoilLast = CoilCount - 1;
             bool isFirstCycle = true;
-            while (true)
+            while (!connectionBroken)
             {
                 try
                 {
@@ -346,6 +359,10 @@ namespace Simulator_MPSA
                 catch (ThreadAbortException abEx)
                 {
                 }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
             }
         }
 
@@ -356,67 +373,74 @@ namespace Simulator_MPSA
             ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
 
             bool isFirstCycle = true;
-            while (true)
+            while (!connectionBroken)
             {
-                destStartAddr = Sett.Instance.iBegAddrA3;
-                CoilCount = WB.W_a3.Length / NReg;
-                for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
+                try
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                    destStartAddr = Sett.Instance.iBegAddrA3;
+                    CoilCount = WB.W_a3.Length / NReg;
+                    for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
                     {
-                        if (WB.W_a3[i_reg] != WB.W_a3_prev[i_reg])
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
                         {
-                            isChanged = true;
-                            //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                            break;
+                            if (WB.W_a3[i_reg] != WB.W_a3_prev[i_reg])
+                            {
+                                isChanged = true;
+                                //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                                break;
+                            }
                         }
+
+                        if (isChanged || isFirstCycle)
+                        {
+
+                            Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
+
+                            mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("skip - A3");
                     }
 
-                    if (isChanged || isFirstCycle)
+                    isFirstCycle = false;
+
+                    destStartAddr = Sett.Instance.iBegAddrA4;
+                    CoilCount = WB.W_a4.Length / NReg;
+                    for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
                     {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W_a4[i_reg] != WB.W_a4_prev[i_reg])
+                            {
+                                isChanged = true;
+                                //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
+                                break;
+                            }
+                        }
 
-                        Array.Copy(WB.W_a3, NReg * Coil_i, WB.W_a3_prev, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W_a3, NReg * Coil_i, data, (0), NReg);
+                        if (isChanged || isFirstCycle)
+                        {
 
-                       mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                            Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
+
+                            mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("skip - A4");
                     }
-                    else
-                        Debug.WriteLine("skip - A3");
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
                 }
-
-                isFirstCycle = false;
-
-                destStartAddr = Sett.Instance.iBegAddrA4;
-                CoilCount = WB.W_a4.Length / NReg;
-                for (int Coil_i = 0; Coil_i < CoilCount; Coil_i++)
+                catch (Exception ex)
                 {
-                    bool isChanged = false;
-                    for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
-                    {
-                        if (WB.W_a4[i_reg] != WB.W_a4_prev[i_reg])
-                        {
-                            isChanged = true;
-                            //  WB.W_a3_prev[i_reg] = WB.W_a3[i_reg];
-                            break;
-                        }
-                    }
-
-                    if (isChanged || isFirstCycle)
-                    {
-
-                        Array.Copy(WB.W_a4, NReg * Coil_i, WB.W_a4_prev, NReg * Coil_i, NReg);
-                        Array.Copy(WB.W_a4, NReg * Coil_i, data, (0), NReg);
-
-                        mbMasterW[4].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
-                    }
-                    else
-                        Debug.WriteLine("skip - A4");
+                    connectionBroken = true;
                 }
-                System.Threading.Thread.Sleep(Sett.Instance.TPause);
-
-                if (refMainWindow != null)
-                    refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
             }
         }
 

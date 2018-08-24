@@ -36,6 +36,7 @@ using OpcCom;
 using OpcXml;
 using System.Windows.Controls;
 using System.Runtime.InteropServices;
+using Simulator_MPSA.CL.Commands;
 
 namespace Simulator_MPSA
 {
@@ -303,6 +304,17 @@ namespace Simulator_MPSA
 
             //по умолчанию отключить колонки с адресами
             MenuItem_toggleAddr(this,null);
+
+            menuImportDI.Command = new ImportDICommand();
+            menuImportAI.Command = new ImportAICommand();
+
+            menuImportDO.Command = new ImportDOCommand();
+            menuImportAO.Command = new ImportAOCommand();
+
+            menuExportDI.Command = new ExportDICommand();
+            menuExportDO.Command = new ExportDOCommand();
+            menuExportAI.Command = new ExportAICommand();
+            menuExportAO.Command = new ExportAOCommand();
         }
 
 
@@ -748,7 +760,10 @@ namespace Simulator_MPSA
 
                    // LogViewModel.WriteLine("Симулятор запущен");
                     log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") +Environment.NewLine);
-            
+                    dataGridAI.CanUserDeleteRows = false;
+                    dataGridDI.CanUserDeleteRows = false;
+                    dataGridDO.CanUserDeleteRows = false;
+                    dataGridAO.CanUserDeleteRows = false;
                 }
             //    else
            //         throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
@@ -876,12 +891,17 @@ namespace Simulator_MPSA
             //foreach (DIStruct di in DIStruct.items)
             //     di.ValDI = false;
 
-          /*  foreach (ZDStruct zd in ZDTableViewModel.ZDs)
-                zd.Reset();
-*/
+            /*  foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                  zd.Reset();
+  */
             //foreach (MPNAStruct mna in MPNATableViewModel.MPNAs)
 
             //TODO: добавить сброс остальных систем
+
+            dataGridAI.CanUserDeleteRows = true;
+            dataGridDI.CanUserDeleteRows = true;
+            dataGridDO.CanUserDeleteRows = true;
+            dataGridAO.CanUserDeleteRows = true;
         }
 
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)
@@ -1275,7 +1295,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void Menu_Import(object sender, RoutedEventArgs e)
+      /*  private void Menu_Import(object sender, RoutedEventArgs e)
         {
             DIStruct.EnableAutoIndex = false;
             DOStruct.EnableAutoIndex = false;
@@ -1295,7 +1315,7 @@ namespace Simulator_MPSA
             AIStruct.EnableAutoIndex = true;
 
         }
-
+        */
         StationSetup setupWindow;
         private string currentFileName="";
 

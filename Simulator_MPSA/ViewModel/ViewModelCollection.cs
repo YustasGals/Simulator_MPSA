@@ -97,6 +97,8 @@ namespace Simulator_MPSA.ViewModel
                     modelCollection.Remove(item);
 
                     break;
+                case NotifyCollectionChangedAction.Reset:
+                    break;
             }
             modelCollection.CollectionChanged += ModelCollectionChanged;
         }
@@ -112,11 +114,11 @@ namespace Simulator_MPSA.ViewModel
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
-                    /*item = (e.NewItems[0] as TModel);
+                    TModel item = (e.NewItems[0] as TModel);
                     TViewModel viewItem = new TViewModel();
                     viewItem.SetModel(item);
-                    VMCollection.Add(viewItem);*/
-                    FetchFromModel();
+                    VMCollection.Add(viewItem);
+                   // FetchFromModel();
 
                     break;
                 case NotifyCollectionChangedAction.Remove:

@@ -69,6 +69,7 @@ namespace Simulator_MPSA
 
                     
                     foreach (DIItem item in zd.CustomDIs)
+                     if (item.DI!=null)
                         WatchItem.Items.Add(new WatchItem(item.DI));
 
                 if (zd.ZD_position_ai != null)
