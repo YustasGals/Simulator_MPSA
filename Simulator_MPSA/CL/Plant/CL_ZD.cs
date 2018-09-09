@@ -140,7 +140,7 @@ namespace Simulator_MPSA
         /// таймер отключения МП после достижения концевика
         /// </summary>
         
-        Timer MPOffTimer = new Timer(1);
+        Timer MPOffTimer = new Timer(100);
         /// <summary>
         /// Задвижка в дистанции
         /// </summary>
@@ -354,17 +354,39 @@ namespace Simulator_MPSA
                     }
                 }
 
-                //команда стоп
-                if ((dcb != null) && (dcb.ValDO))
+                //команда стоп открытия (задвижка с раздельными командами)
+                if ((dcb != null) && (dcb.ValDO) && (dcbz != null) && StateZD == StateZD.Opening)
                 {
-                    if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
-                        StateZD = StateZD.Middle;
-
                     //отключить МП
                     if (odc != null) odc.ValDI = false;
-                    if (cdc != null) cdc.ValDI = false;
 
+                    StateZD = StateZD.Middle;
                 }
+
+                //команда стоп (задвижка с одной командой стоп)
+                if ((dcb != null) && (dcb.ValDO) && (dcbz == null))
+                {
+                    if (StateZD == StateZD.Opening || StateZD == StateZD.Closing)
+                    {
+                        StateZD = StateZD.Middle;
+
+                        //отключить МП
+                        if (odc != null) odc.ValDI = false;
+                        if (cdc != null) cdc.ValDI = false;
+                    }
+                        
+                }
+
+                //команда стоп закрытия
+                if ((dcbz != null) && (dcbz.ValDO))
+                {
+                    if (StateZD == StateZD.Closing)
+                    {
+                        StateZD = StateZD.Middle;
+                        if (cdc != null) cdc.ValDI = false;
+                    }
+                }
+
 
                 //---- установка значения в дистанции --
                 if (dc != null)
