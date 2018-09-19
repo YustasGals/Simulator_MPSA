@@ -110,6 +110,7 @@ namespace Simulator_MPSA.CL
                 stream = File.OpenRead(filename); 
 
                 _instance = (Station)xml.Deserialize(stream);
+                
                 Debug.WriteLine(DateTime.Now.ToShortTimeString() + ":" + DateTime.Now.Second.ToString() + ":xml открыт");
                 stream.Dispose();
                 Sett.Instance = _instance.settings;
@@ -146,6 +147,8 @@ namespace Simulator_MPSA.CL
                 foreach (WatchItem item in _instance.WatchTable)
                     WatchItem.Items.Add(item);
 
+
+
                 Debug.WriteLine(DateTime.Now.ToShortTimeString() + ":" + DateTime.Now.Second.ToString() + ":Заполнены массивы сигналов");
 
 
@@ -171,6 +174,9 @@ namespace Simulator_MPSA.CL
                 CountersTableViewModel.Counters = (_instance.Counters);
                 foreach (USOCounter counter in CountersTableViewModel.Counters)
                     counter.Refresh();
+
+                foreach (WatchItem item in WatchItem.Items)
+                    item.RefreshLink();
 
 
                 DiagTableModel.Instance.Init(_instance.DiagSignals.ToArray());

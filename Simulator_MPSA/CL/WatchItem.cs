@@ -93,7 +93,32 @@ namespace Simulator_MPSA.CL
                     break;
             }
         }
-
+        /// <summary>
+        /// актуализировать привязку
+        /// </summary>
+        public void RefreshLink()
+        {
+            if (index>-1)
+                switch (signalType)
+                {
+                    case ESignalType.DI:
+                        DIStruct signaldi = DIStruct.FindByIndex(index);
+                        signaldi.PropertyChanged += Signal_PropertyChanged;
+                        break;
+                    case ESignalType.AI:
+                        AIStruct signalai = AIStruct.FindByIndex(index);
+                        signalai.PropertyChanged += Signal_PropertyChanged;
+                        break;
+                    case ESignalType.DO:
+                        DOStruct signaldo = DOStruct.FindByIndex(index);
+                        signaldo.PropertyChanged += Signal_PropertyChanged;
+                        break;
+                    case ESignalType.AO:
+                        AOStruct signalao = AOStruct.FindByIndex(index);
+                        signalao.PropertyChanged += Signal_PropertyChanged;
+                        break;
+                }
+        }
         public WatchItem()
         { }
     }
