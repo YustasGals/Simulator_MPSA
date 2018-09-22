@@ -69,7 +69,7 @@ namespace Simulator_MPSA.CL.Commands
                     }
 
                 }
-
+                writer.Close();
                 System.Windows.Forms.MessageBox.Show("Экспорт завершен");
             }//if ok
 

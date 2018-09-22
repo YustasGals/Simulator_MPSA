@@ -59,6 +59,7 @@ namespace Simulator_MPSA.CL.Commands
                                             dos.NameDO.ToString(culture) + separator);
                     }
                 }
+                writer.Close();
                 System.Windows.Forms.MessageBox.Show("Экспорт завершен");
             }//if
 

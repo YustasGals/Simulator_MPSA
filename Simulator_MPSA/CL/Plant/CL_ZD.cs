@@ -147,6 +147,10 @@ namespace Simulator_MPSA
         EBool isDist  = new EBool(true);
 
         /// <summary>
+        /// Предыдущее состояние наличия сигнала на СШ
+        /// </summary>
+        bool preBSState = false;
+        /// <summary>
         /// обновить состояние задвижки
         /// </summary>
         /// <param name="dt">задержка между циклами, сек </param>
@@ -174,9 +178,17 @@ namespace Simulator_MPSA
                 foreach (DIItem c in CustomDIs)
                     c.SetValue(false);
 
+                preBSState = false;
             }
             else
             {
+                //возврат напряжения на СШ, возвращаем линк по интерфейсу
+                if (preBSState==false)
+                {
+                    CustomDIs[intrfLink].SetValue(true);
+                    preBSState = true;
+                }
+
                 if (_ZDProc <= 1)
                 {
                     //состояние - закрыто
@@ -397,6 +409,11 @@ namespace Simulator_MPSA
                 if (CustomDIs != null && CustomDIs.Count >= 6 && CustomDIs[intrfDC] != null && CustomDIs[intrfLink].GetValue()==true)
                 {
                     CustomDIs[intrfDC].DI.ValDI = isDist.Value;
+                }
+
+                if (DC != null)
+                {
+                    DC.ValDI = isDist.Value;
                 }
             }//novolt
 
