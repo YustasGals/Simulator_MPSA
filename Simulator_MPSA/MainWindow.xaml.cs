@@ -1032,6 +1032,12 @@ namespace Simulator_MPSA
         {
             (dataGridZD.SelectedItem as ZDStruct).ToggleDist();
         }
+
+
+        private void ZDMenu_mufta_Click(object sender, RoutedEventArgs e)
+        {
+            (dataGridZD.SelectedItem as ZDStruct).ToggleMufta();
+        }
         private void ZDMenu_BS_Click(object sender, RoutedEventArgs e)
         {
             (dataGridZD.SelectedItem as ZDStruct).ToggleBS();
@@ -1659,6 +1665,7 @@ namespace Simulator_MPSA
                 foreach (DOViewModel item in items)
                     WatchItem.Items.Add(new WatchItem(item.GetModel()));
         }
+
 
 
 

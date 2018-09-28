@@ -643,6 +643,7 @@
                                 <MenuItem x:Name="ZDMenu_close" Header="Закрыть по месту" Click="ZDMenu_close_Click"/>
                                 <MenuItem x:Name="ZDMenu_stop" Header="Стоп по месту" Click="ZDMenu_stop_Click"/>
                                 <MenuItem x:Name="ZDMenu_dist" Header="Дист/местный" Click="ZDMenu_dist_Click"/>
+                                <MenuItem x:Name="ZDMenu_mufta" Header="Муфта вкл/откл" Click="ZDMenu_mufta_Click"/>
                                 <MenuItem x:Name="ZDMenu_bs" Header="Вкл/откл напряжения на СШ" Click="ZDMenu_BS_Click"/>
                                 <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                                 <Separator/>

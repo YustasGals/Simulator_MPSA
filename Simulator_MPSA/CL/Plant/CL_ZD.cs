@@ -183,7 +183,7 @@ namespace Simulator_MPSA
             else
             {
                 //возврат напряжения на СШ, возвращаем линк по интерфейсу
-                if (preBSState==false)
+                if (preBSState==false && CustomDIs.Count>=6)
                 {
                     CustomDIs[intrfLink].SetValue(true);
                     preBSState = true;
@@ -442,6 +442,10 @@ namespace Simulator_MPSA
             if (bs != null) bs.ValDI = !bs.ValDI;
         }
 
+        public void ToggleMufta()
+        {
+            if (MC != null) MC.ValDI = !MC.ValDI;
+        }
 
         /// <summary>
         /// переключение режима "дистанционный"
