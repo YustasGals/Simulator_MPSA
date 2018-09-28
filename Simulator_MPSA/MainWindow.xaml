@@ -1298,6 +1298,9 @@
             <Label x:Name="StatusW4" Content=""></Label>
             <Label x:Name="StatusW5" Content=""></Label>
             <Label x:Name="StatusW6" Content=""></Label>
+            <Label x:Name="StatusW7" Content=""></Label>
+            <Label x:Name="StatusW8" Content=""></Label>
+            <Label x:Name="StatusW9" Content=""></Label>
             <Label x:Name="StatusR" Content="Время чтения:"></Label>
             <Separator MinWidth="1" MinHeight="0"/>
             <Label x:Name="label_filename"/>

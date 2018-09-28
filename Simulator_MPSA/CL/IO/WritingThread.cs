@@ -47,7 +47,7 @@ namespace Simulator_MPSA
         /// количество потоков
         /// </summary>
         int NJob=4;
-        int NMasters = 6;
+        int NMasters = 9;
 
         bool connectionBroken = false;
 
@@ -70,9 +70,12 @@ namespace Simulator_MPSA
             wrThread[1] = new Thread(WriteToPLC2);
             wrThread[2] = new Thread(WriteToPLC3);
             wrThread[3] = new Thread(WriteToPLC4);
-
+            wrThread[4] = new Thread(WriteToPLC5);
+            wrThread[5] = new Thread(WriteToPLC6);
+            wrThread[6] = new Thread(WriteToPLC7);
+            wrThread[7] = new Thread(WriteToPLC8);
             ///запись в 2 буфера контроллеров связи
-            wrThread[4] = new Thread(WriteKS);
+            wrThread[8] = new Thread(WriteKS);
            // wrThread[5] = new Thread(WriteA4);
            // wrThread[6] = new Thread(WriteToPLC7);
            // wrThread[7] = new Thread(WriteToPLC8);
@@ -86,6 +89,8 @@ namespace Simulator_MPSA
         {
             NReg = Sett.Instance.CoilSize; // количество регистров на запись не более 120
             NJob = Sett.Instance.ConnectionCount;
+            if (NJob > 8) NJob = 8;                 //ограничение на 8 основных потоков
+
             CoilCount = WB.W.Length / NReg; /* / Sett.Instance.NWrTask;*/   //количество бочек по 120 регистров которые записываются в данном потоке
             CoilPerTask = (int)Math.Ceiling((double)CoilCount / (double)NJob);
 
@@ -97,7 +102,7 @@ namespace Simulator_MPSA
             }
 
             if (Sett.Instance.UseKS)
-                wrThread[4].Start();
+                wrThread[8].Start();
 
             connectionBroken = false;
 
@@ -181,7 +186,7 @@ namespace Simulator_MPSA
 
                     //----------------------- Вызов делегата --------------------------------------------------------
                     if (refMainWindow != null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle);
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
@@ -240,7 +245,8 @@ namespace Simulator_MPSA
                     isFirstCycle = false;
 
                     if (refMainWindow != null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle2);
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    // refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle2);
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
 
                 }
@@ -297,7 +303,8 @@ namespace Simulator_MPSA
                     isFirstCycle = false;
 
                     if (refMainWindow != null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    // refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
                 catch (ThreadAbortException abEx)
@@ -352,7 +359,241 @@ namespace Simulator_MPSA
                     isFirstCycle = false;
 
                     if (refMainWindow != null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //  refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
+            }
+        }
+        void WriteToPLC5()
+        {
+            int destStartAddr;
+            int jobnum = 4;
+            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+
+
+
+            int nCoilFirst = (jobnum * CoilPerTask);
+            int nCoilLast = (jobnum + 1) * CoilPerTask - 1;
+            if (nCoilLast >= CoilCount)
+                nCoilLast = CoilCount - 1;
+            bool isFirstCycle = true;
+            while (!connectionBroken)
+            {
+                try
+                {
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                    {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
+                        }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread 4 - skip");
+                    }
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //  refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
+            }
+        }
+        void WriteToPLC6()
+        {
+            int destStartAddr;
+            int jobnum = 5;
+            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+
+
+
+            int nCoilFirst = (jobnum * CoilPerTask);
+            int nCoilLast = (jobnum + 1) * CoilPerTask - 1;
+            if (nCoilLast >= CoilCount)
+                nCoilLast = CoilCount - 1;
+            bool isFirstCycle = true;
+            while (!connectionBroken)
+            {
+                try
+                {
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                    {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
+                        }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread - skip");
+                    }
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //  refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
+            }
+        }
+        void WriteToPLC7()
+        {
+            int destStartAddr;
+            int jobnum = 6;
+            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+
+
+
+            int nCoilFirst = (jobnum * CoilPerTask);
+            int nCoilLast = (jobnum + 1) * CoilPerTask - 1;
+            if (nCoilLast >= CoilCount)
+                nCoilLast = CoilCount - 1;
+            bool isFirstCycle = true;
+            while (!connectionBroken)
+            {
+                try
+                {
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                    {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
+                        }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread - skip");
+                    }
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //   refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
+
+                    System.Threading.Thread.Sleep(Sett.Instance.TPause);
+                }
+                catch (ThreadAbortException abEx)
+                {
+                }
+                catch (Exception ex)
+                {
+                    connectionBroken = true;
+                }
+            }
+        }
+        void WriteToPLC8()
+        {
+            int destStartAddr;
+            int jobnum = 7;
+            ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
+
+
+
+            int nCoilFirst = (jobnum * CoilPerTask);
+            int nCoilLast = (jobnum + 1) * CoilPerTask - 1;
+            if (nCoilLast >= CoilCount)
+                nCoilLast = CoilCount - 1;
+            bool isFirstCycle = true;
+            while (!connectionBroken)
+            {
+                try
+                {
+                    //----------------------------- запись в буфер УСО ЦП ---------------------------------------------
+                    destStartAddr = Sett.Instance.BegAddrW;
+
+                    for (int Coil_i = nCoilFirst; Coil_i <= nCoilLast; Coil_i++)
+                    {
+                        bool isChanged = false;
+                        for (int i_reg = NReg * Coil_i; i_reg < NReg * (Coil_i + 1); i_reg++)
+                        {
+                            if (WB.W[i_reg] != WB.WB_old[i_reg])
+                            {
+                                isChanged = true;
+                                break;
+                            }
+                        }
+                        if (isChanged || isFirstCycle)
+                        {
+                            Array.Copy(WB.W, NReg * Coil_i, WB.WB_old, NReg * Coil_i, NReg);
+                            Array.Copy(WB.W, NReg * Coil_i, data, (0), NReg);
+                            mbMasterW[(int)jobnum].WriteMultipleRegisters(1, (ushort)(destStartAddr + NReg * Coil_i + Sett.Instance.IncAddr), data);
+                        }
+                        else
+                            Debug.WriteLine("thread - skip");
+                    }
+
+                    isFirstCycle = false;
+
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //   refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle4);
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
@@ -368,7 +609,7 @@ namespace Simulator_MPSA
 
         void WriteKS()
         {
-
+            int jobnum = 8;
             int destStartAddr;
             ushort[] data = new ushort[NReg];   //буфер для записи одной бочки
 
@@ -435,7 +676,8 @@ namespace Simulator_MPSA
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
 
                     if (refMainWindow != null)
-                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
+                    //   refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
                 }
                 catch (Exception ex)
                 {

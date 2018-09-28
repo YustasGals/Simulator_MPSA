@@ -136,17 +136,20 @@ namespace Simulator_MPSA
     {
         Opc.Da.Server srv;
 
-        public delegate void DEndWrite();
+        public delegate void DEndWrite(int nJob);
         public DEndWrite EndCycle;
-        public DEndWrite EndCycle2;
+        /*public DEndWrite EndCycle2;
         public DEndWrite EndCycle3;
         public DEndWrite EndCycle4;
         public DEndWrite EndCycle5;
-        public DEndWrite EndCycle6;
+        public DEndWrite EndCycle6;*/
         public DWriteLog WriteLog;
 
         public delegate void DDisconnected();
         public DDisconnected delegateDisconnected;
+
+        public delegate void OFSFail();
+        public OFSFail ofsFail;
 
         public delegate void DEndRead();
         public DEndRead delegateEndRead;
@@ -225,11 +228,27 @@ namespace Simulator_MPSA
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
-            EndCycle += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[0];
-                StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[0] = DateTime.Now;
+            EndCycle += new DEndWrite((int njob)=> {
+                TimeSpan ts = DateTime.Now - writingTime[njob];
+
+                switch (njob)
+                {
+                    case 0: StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 1: StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 2: StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 3: StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 4: StatusW5.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 5: StatusW6.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 6: StatusW7.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 7: StatusW8.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+                    case 8: StatusW9.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
+
+                }
+                
+
+                writingTime[njob] = DateTime.Now;
             });
+            /*
             EndCycle2 += new DEndWrite(()=> {
                 TimeSpan ts = DateTime.Now - writingTime[1];
                 //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
@@ -259,14 +278,22 @@ namespace Simulator_MPSA
                 StatusW6.Content = ts.TotalSeconds.ToString("F2");
                 //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
                 writingTime[6] = DateTime.Now;
-            });
+            });*/
+
+            ofsFail += new OFSFail(() =>
+            {
+                btnStop_Click(null, null);
+                System.Windows.MessageBox.Show("Ошибка соединения по протоколу OPC!");
+            }
+            
+            );
             WriteLog += new DWriteLog((text)=> { LogWriter.AppendLog(text); });
             
 
 
             delegateDisconnected += new DDisconnected(()=> {
                 btnStop_Click(null, null);
-                System.Windows.MessageBox.Show("Соединение разорвано!");
+                System.Windows.MessageBox.Show("Ошибка соединения по протоколу Modbus TCP!");
             });
             delegateEndRead += new DEndRead(()=> 
             {
@@ -321,7 +348,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// время последней записи в ПЛК
         /// </summary>
-        DateTime[] writingTime = new DateTime[6];
+        DateTime[] writingTime = new DateTime[9];
 
         /// <summary>
         /// время последнего чтения из ПЛК
@@ -740,6 +767,7 @@ namespace Simulator_MPSA
                 if (Sett.Instance.UseOPC)
                 {
                     opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
+                    opcThread.refMainWindow = this;
                     opcThread.Start();
                   /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
                     srv.Connect();

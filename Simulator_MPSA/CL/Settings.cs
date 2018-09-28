@@ -311,7 +311,7 @@ namespace Simulator_MPSA {
         {
             get { return (int)items["ConnectionCount"].value; }
             set {
-                if (value>4) items["ConnectionCount"].value = (int)4;
+                if (value>8) items["ConnectionCount"].value = (int)8;
                     else
                     if (value<1)
                         items["ConnectionCount"].value = (int)1;
@@ -324,7 +324,7 @@ namespace Simulator_MPSA {
             get { return (int)items["ReadConnectionCount"].value; }
             set
             {
-                if (value > 4) items["ReadConnectionCount"].value = (int)4;
+                if (value > 2) items["ReadConnectionCount"].value = (int)2;
                 else
                     if (value < 1)
                     items["ReadConnectionCount"].value = (int)1;

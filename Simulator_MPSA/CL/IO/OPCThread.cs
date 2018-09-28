@@ -21,6 +21,8 @@ namespace Simulator_MPSA.CL
         Thread thread;
         Opc.Da.Server srv;
 
+        public MainWindow refMainWindow;
+
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
         Opc.Da.ItemValue itm;
 
@@ -87,11 +89,15 @@ namespace Simulator_MPSA.CL
                 srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(fullServerName));
                 srv.Connect();
                 if (!srv.IsConnected)
+                {
                     throw new Exception("не удалось подключиться к серверу OPC");
+                }
+                    
             }
             catch (Exception ex)
             {
-                //
+                if (refMainWindow != null)
+                    refMainWindow.Dispatcher.Invoke(refMainWindow.ofsFail);
                 return;
             }
             bool isFirstCycle = true;
@@ -176,7 +182,9 @@ namespace Simulator_MPSA.CL
                 catch (Exception ex)
                 {
                     //System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
-                  //  LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
+                    //  LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);
+                    if (refMainWindow != null)
+                        refMainWindow.Dispatcher.Invoke(refMainWindow.ofsFail);
                 }
                 isFirstCycle = false;
                 Thread.Sleep(period);
