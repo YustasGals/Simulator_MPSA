@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Simulator_MPSA.CL;
+
+
 namespace Simulator_MPSA
 {
 
@@ -36,7 +38,8 @@ namespace Simulator_MPSA
             this.DataContext = model;
             objectType = typeof(VSStruct);
             Title = "Настройка вспомсистемы";
-
+                      
+            
       //      SetupBindings();
         }
         public SetupDialog(KLStruct klapan)

@@ -1,9 +1,10 @@
-﻿<Window x:Class="Simulator_MPSA.SetupDialog"
+﻿<Window x:Name="SetupWindow" x:Class="Simulator_MPSA.SetupDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Simulator_MPSA"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
         Title="Настройка вспомсистемы" Width="803.5" SizeToContent="Height">
     <Grid Margin="0,0,2,0">
@@ -55,7 +56,7 @@
                     </Button>
 
                 </StackPanel>
-            <DataGrid x:Name="DG_outputs" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" CanUserAddRows="false" CanUserDeleteRows="False" >
+            <DataGrid x:Name="DG_outputs" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" CanUserAddRows="false" CanUserDeleteRows="False" SelectedItem="{Binding SelectedIOitemDI}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="false"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}" />
@@ -63,10 +64,16 @@
                 </DataGrid.Columns>
                     <DataGrid.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                            <!--MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/-->
+                           
+                            <TextBox Text="{Binding NameFilterDI, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView x:Name="SelectDIList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceDI.View}" SelectedItem="{Binding SelectedDI}"/>
+
+
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                 </DataGrid>
+                
             </Grid>
         </Expander>
 
@@ -80,7 +87,7 @@
         <TextBox x:Name="textBox_group" Grid.Row="0" Text="{Binding Path = Group}" Height="23" Margin="120,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.558,0.525" HorizontalAlignment="Left" Width="356"/>
 
         <Expander Header="Настройка входов (DO):" Grid.Row="2" Margin="0,5,0,0" IsExpanded="True">
-            <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Grid.Row="2" Margin="16,0,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" MinHeight="50">
+            <DataGrid x:Name="DG_inputs" ItemsSource="{Binding Inputs}" Grid.Row="2" Margin="16,0,0,0" VerticalAlignment="Top" AutoGenerateColumns="False" MinHeight="50" SelectedItem="{Binding SelectedIOitemDO}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="true"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -89,12 +96,15 @@
                 <DataGrid.ContextMenu>
                     <ContextMenu>
                         <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                            <TextBox Text="{Binding NameFilterDO, UpdateSourceTrigger=PropertyChanged}"/>
+                            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceDO.View}" SelectedItem="{Binding SelectedDO}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
+              
             </DataGrid>
         </Expander>
         <Expander x:Name="AIBlock" Visibility="{Binding AIVisible}" Header="Настройка аналоговых выходов (AI):" Grid.Row="3" Margin="0,5,0,10"  IsExpanded="True">
-            <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
+            <DataGrid x:Name="AI_inputs" ItemsSource="{Binding Analogs}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53" SelectedItem="{Binding SelectedAnalogAI}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="False"/>
                     <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
@@ -104,13 +114,15 @@
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                        
+                        <TextBox Text="{Binding NameFilterAI, UpdateSourceTrigger=PropertyChanged}"/>
+                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceAI.View}" SelectedItem="{Binding SelectedAI}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
         </Expander>
         <Expander x:Name="AOBlock" Visibility="{Binding AOVisible}" Header="Настройка аналоговых входов (AO):" Grid.Row="4" Margin="0,5,0,10"  IsExpanded="True">
-            <DataGrid x:Name="AI_outputs" ItemsSource="{Binding AnalogCommands}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53">
+            <DataGrid x:Name="AI_outputs" ItemsSource="{Binding AnalogCommands}" Margin="16,0,0,0" AutoGenerateColumns="False" MinHeight="53" SelectedItem="{Binding SelectedAnalogAO}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="true"/>
                     <DataGridTextColumn Header="Индекс в таблице AO" Binding="{Binding Index}"/>
@@ -118,7 +130,9 @@
                 </DataGrid.Columns>
                 <DataGrid.ContextMenu>
                     <ContextMenu>
-                        <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
+                        <!--MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/-->
+                        <TextBox Text="{Binding NameFilterAO, UpdateSourceTrigger=PropertyChanged}"/>
+                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceAO.View}" SelectedItem="{Binding SelectedAO}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>

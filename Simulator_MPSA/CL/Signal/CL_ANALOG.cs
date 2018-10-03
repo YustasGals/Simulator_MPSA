@@ -339,7 +339,10 @@ namespace Simulator_MPSA.CL.Signal
             }
             else { }
         }*/
-
+        public override string ToString()
+        {
+            return NameAI;
+        }
     }
     // public AIStruct[] AIs = AIStruct[Sett.nAI] ;
 

@@ -260,8 +260,12 @@ namespace Simulator_MPSA.CL.Signal
         /// изменение значения
         /// </summary>
         public event EventHandler ValueChanged;
-   //     public EventHandler OnIndexChanged = delegate { };
+        //     public EventHandler OnIndexChanged = delegate { };
 
+        public override string ToString()
+        {
+            return NameDO;
+        }
     }
 
 }

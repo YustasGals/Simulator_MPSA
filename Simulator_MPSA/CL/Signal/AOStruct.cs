@@ -295,5 +295,10 @@ namespace Simulator_MPSA.CL.Signal
             get { return _TagName; }
             set { _TagName = value; OnPropertyChanged("TagName"); }
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

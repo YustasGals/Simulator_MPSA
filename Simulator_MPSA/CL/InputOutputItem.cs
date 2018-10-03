@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using Simulator_MPSA.CL.Signal;
 namespace Simulator_MPSA.CL
 {
-   
+
     /// <summary>
     /// класс дискретного сигнала
     /// используется для отображения в таблице настроек
@@ -24,9 +24,9 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// из таблицы DI или DO
         /// </summary>
-        public ESignalType signalType=ESignalType.Nothing;
+        public ESignalType signalType = ESignalType.Nothing;
 
-        public int _index=-1;
+        public int _index = -1;
         /// <summary>
         /// индекс в общей таблице DO или DI
         /// </summary>
@@ -47,6 +47,13 @@ namespace Simulator_MPSA.CL
             }
         }
         */
+        public void SetIndex(int value)
+        {
+            _index = value;
+            OnPropertyChanged("Index");
+
+            UpdateName();
+        }
         public string Index
         {
             get
@@ -61,14 +68,39 @@ namespace Simulator_MPSA.CL
                 {
                     if (!int.TryParse(value, out _index))
                         _index = -1;
-
+                    OnPropertyChanged("Index");
                     //_index = int.Parse(value);
+
+                    UpdateName();
                 }
                 else
                     _index = -1;
             }
         }
 
+        void UpdateName()
+        {
+            switch (signalType)
+            {
+                case ESignalType.AI:
+                    if (AIStruct.items.Count > _index)
+                        AssignedSignalName = AIStruct.items[_index].NameAI;
+                    break;
+                case ESignalType.DI:
+                    if (DIStruct.items.Count > _index)
+                        AssignedSignalName = DIStruct.items[_index].NameDI;
+                    break;
+                case ESignalType.DO:
+                    if (DOStruct.items.Count >_index)
+                        AssignedSignalName = DOStruct.items[_index].NameDO;
+                    break;
+                case ESignalType.AO:
+                    if (AOStruct.items.Count> _index)
+                        AssignedSignalName = AOStruct.items[_index].Name;
+                    break;
+
+            }
+        }
         /// <summary>
         /// название сигнала в таблице DI, DO, необходимо для отображения в таблицах настроек
         /// </summary>
@@ -79,7 +111,7 @@ namespace Simulator_MPSA.CL
             set
             {
                 _assignedsignalName = value;
-                OnPropertyChanged("AssignedSignal");
+                OnPropertyChanged("AssignedSignalName");
             }
         }
         public InputOutputItem() { }
@@ -156,6 +188,7 @@ namespace Simulator_MPSA.CL
                 if (ai!=null)
                     ai.IndexChanged += Ai_IndexChanged;
                 OnPropertyChanged("AIName");
+                OnPropertyChanged("Index");
             }
         }
 

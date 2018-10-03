@@ -9,6 +9,9 @@ using System.Windows;
 using System.Windows.Input;
 using System.Diagnostics;
 using System.Windows.Controls;
+using System.Windows.Data;
+using Simulator_MPSA.CL.Signal;
+
 namespace Simulator_MPSA.CL
 {
    public class ANInput
@@ -31,6 +34,8 @@ namespace Simulator_MPSA.CL
 
     class SetupTableModel
     {
+
+
         /// <summary>
         /// выходы системы (DI)
         /// </summary>
@@ -115,6 +120,24 @@ namespace Simulator_MPSA.CL
             { return showAI ? Visibility.Visible : Visibility.Collapsed; }
         }
 
+        /// <summary>
+        /// инициализация меню выбора сигналов
+        /// </summary>
+        void InitSelectMenu()
+        {
+            viewSourceDI.Source = DIStruct.items;
+            NameFilterDI = Name;
+
+            viewSourceDO.Source = DOStruct.items;
+            NameFilterDO = Name;
+
+            viewSourceAI.Source = AIStruct.items;
+            NameFilterAI = Name;
+
+            viewSourceAO.Source = AOStruct.items;
+            NameFilterAO = Name;
+        }
+
         public SetupTableModel(VSStruct vs)
         {
             type = typeof(VSStruct);
@@ -172,6 +195,8 @@ namespace Simulator_MPSA.CL
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,4);
 
+
+            InitSelectMenu();
         }
 
         public SetupTableModel(KLStruct klapan)
@@ -194,6 +219,8 @@ namespace Simulator_MPSA.CL
 
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,2);
+
+            InitSelectMenu();
         }
 
         public SetupTableModel(ZDStruct zd)
@@ -261,6 +288,8 @@ namespace Simulator_MPSA.CL
 
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,14);
+
+            InitSelectMenu();
         }
 
 
@@ -304,6 +333,8 @@ namespace Simulator_MPSA.CL
 
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,7);
+
+            InitSelectMenu();
         }
 
         public void ApplyChanges()
@@ -425,6 +456,194 @@ namespace Simulator_MPSA.CL
                     agr.CustomDIs.Add(new DIItem(Outputs[i].Name, Outputs[i]._index));
             }
         }
+
+        /// <summary>
+        /// фильтр по имени в контекстном меню
+        /// </summary>
+        private string nameFilter = "";
+        public string NameFilterDI
+        {
+            get
+            {
+                return nameFilter;
+            }
+            set
+            {
+                nameFilter = value;
+                viewSourceDI.Filter += new FilterEventHandler(Filter_Func);           
+            }
+        }
+
+        /// <summary>
+        /// фильтр по имени в контекстном меню
+        /// </summary>
+        public string NameFilterAI
+        {
+            get
+            {
+                return nameFilter;
+            }
+            set
+            {
+                nameFilter = value;
+                viewSourceAI.Filter += new FilterEventHandler(Filter_Func);
+            }
+        }
+        /// <summary>
+        /// фильтр по имени в контекстном меню
+        /// </summary>
+        public string NameFilterDO
+        {
+            get
+            {
+                return nameFilter;
+            }
+            set
+            {
+                nameFilter = value;
+                viewSourceDO.Filter += new FilterEventHandler(Filter_Func);
+            }
+        }
+        /// <summary>
+        /// фильтр по имени в контекстном меню
+        /// </summary>
+        public string NameFilterAO
+        {
+            get
+            {
+                return nameFilter;
+            }
+            set
+            {
+                nameFilter = value;
+                viewSourceAO.Filter += new FilterEventHandler(Filter_Func);
+            }
+        }
+
+        private CollectionViewSource viewSourceDI = new CollectionViewSource();
+        public CollectionViewSource ViewSourceDI
+        { get { return viewSourceDI; } }
+
+        private CollectionViewSource viewSourceDO = new CollectionViewSource();
+        public CollectionViewSource ViewSourceDO
+        { get { return viewSourceDO; } }
+
+        private CollectionViewSource viewSourceAI = new CollectionViewSource();
+        public CollectionViewSource ViewSourceAI
+        { get { return viewSourceAI; } }
+
+        private CollectionViewSource viewSourceAO = new CollectionViewSource();
+        public CollectionViewSource ViewSourceAO
+        { get { return viewSourceAO; } }
+
+
+        private void Filter_Func(object sender, FilterEventArgs e)
+        {
+            string itemName = "";
+
+            if (e.Item is DIStruct)
+                itemName = (e.Item as DIStruct).NameDI;
+
+            if (e.Item is DOStruct)
+                itemName = (e.Item as DOStruct).NameDO;
+
+            if (e.Item is AIStruct)
+                itemName = (e.Item as AIStruct).NameAI;
+
+            if (e.Item is AOStruct)
+                itemName = (e.Item as AOStruct).Name;
+
+
+     
+                if (itemName == "")
+                    e.Accepted = false;
+                else
+                {
+                    if (itemName.ToLower().Contains(nameFilter.ToLower()))
+                        e.Accepted = true;
+                    else
+                        e.Accepted = false;
+                }
+            
+        }
+
+
+        /// <summary>
+        /// элемент выбранный в таблице дискретных сигналов
+        /// </summary>
+        public InputOutputItem SelectedIOitemDI
+        {
+            set; get;
+        }
+        public InputOutputItem SelectedIOitemDO
+        {
+            set; get;
+        }
+        //выбранный сигнал в таблице аналогов
+        public AnalogIOItem SelectedAnalogAI
+        {
+            set; get;
+        }
+
+        public InputOutputItem SelectedAnalogAO
+        {
+            set; get;
+        }
+        //DI сигнал выбранный в контекстном меню
+        private DIStruct _selectedDI;
+        public DIStruct SelectedDI
+        {
+            get { return _selectedDI; }
+            set
+            {
+                //осуществляем связывание
+                _selectedDI = value;
+                if (SelectedIOitemDI != null & _selectedDI != null)
+                    SelectedIOitemDI.SetIndex(_selectedDI.indxArrDI);
+            }
+        }
+
+        //DO сигнал выбранный в контекстном меню
+        private DOStruct _selectedDO;
+        public DOStruct SelectedDO
+        {
+            get { return _selectedDO; }
+            set
+            {
+                //осуществляем связывание
+                _selectedDO = value;
+                if (SelectedIOitemDO != null & _selectedDO != null)
+                    SelectedIOitemDO.SetIndex(_selectedDO.indxArrDO);
+            }
+        }
+        //AI сигнал выбранный в контекстном меню
+        private AIStruct _selectedAI;
+        public AIStruct SelectedAI
+        {
+            get { return _selectedAI; }
+            set
+            {
+                //осуществляем связывание
+                _selectedAI = value;
+                if (SelectedAnalogAI != null & _selectedAI != null)
+                    SelectedAnalogAI.Index = _selectedAI.indxAI;
+            }
+        }
+        //AO сигнал выбранный в контекстном меню
+        private AOStruct _selectedAO;
+        public AOStruct SelectedAO
+        {
+            get { return _selectedAO; }
+            set
+            {
+                //осуществляем связывание
+                _selectedAO = value;
+                if (SelectedAnalogAO != null & _selectedAO != null)
+                    SelectedAnalogAO.SetIndex(_selectedAO.indx);
+            }
+        }
+
+
 
     }
 

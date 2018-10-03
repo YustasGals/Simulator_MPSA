@@ -311,6 +311,10 @@ namespace Simulator_MPSA.CL.Signal
       //  [XmlIgnore]
         public event EventHandler ValueChanged;
 
+        public override string ToString()
+        {
+            return NameDI;
+        }
 
     }
 
