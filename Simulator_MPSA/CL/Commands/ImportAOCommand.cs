@@ -93,7 +93,26 @@ namespace Simulator_MPSA.CL.Commands
                   
                 }
                 count = AOStruct.items.Count;
-               
+
+                //обновление ссылок
+                foreach (KLStruct kl in KLTableViewModel.KL)
+                    kl.UpdateRefs();
+
+                foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                    zd.UpdateRefs();
+
+                foreach (VSStruct vs in VSTableViewModel.VS)
+                    vs.UpdateRefs();
+
+                foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
+                    mpna.UpdateRefs();
+
+                foreach (USOCounter counter in CountersTableViewModel.Counters)
+                    counter.Refresh();
+
+                foreach (WatchItem item in WatchItem.Items)
+                    item.RefreshLink();
+
             }
             catch (Exception ex)
             {

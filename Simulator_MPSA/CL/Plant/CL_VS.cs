@@ -673,6 +673,10 @@ namespace Simulator_MPSA
             BusSecIndex = _bussec_index;
 
             AnCmdIndex = _anCmdIndex;
+
+            if (controledAIs != null && controledAIs.Count() > 0)
+                foreach (AnalogIOItem item in controledAIs)
+                    item.Index = item._index;
         }
 
         #region ТАЙМЕРЫ

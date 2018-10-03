@@ -340,7 +340,7 @@ namespace Simulator_MPSA.CL
 
                 for (int i = 4; i < Outputs.Count; i++)
                     if (Outputs[i].Index !=null)
-                    temp.CustomDIs.Add(new DIItem(Outputs[i].Name, (int)Outputs[i].Index));
+                    temp.CustomDIs.Add(new DIItem(Outputs[i].Name, Outputs[i]._index));
             }
             if (type == typeof(KLStruct))
             {
@@ -382,7 +382,7 @@ namespace Simulator_MPSA.CL
                 {
                     temp.CustomDIs = new List<DIItem>();
                     for (int i = 8; i < Outputs.Count; i++)
-                        temp.CustomDIs.Add(new DIItem(Outputs[i].Name, Outputs[i].Index != null ? (int)Outputs[i].Index : -1));
+                        temp.CustomDIs.Add(new DIItem(Outputs[i].Name,Outputs[i]._index));
                 }
                 //TODO: добавить запись настроек аналогов
             }
@@ -422,7 +422,7 @@ namespace Simulator_MPSA.CL
                 agr.CustomDIs = new List<DIItem>();
                 for (int i = 7; i < Outputs.Count; i++)
                     if (Outputs[i].Index!=null)
-                    agr.CustomDIs.Add(new DIItem(Outputs[i].Name, (int)Outputs[i].Index));
+                    agr.CustomDIs.Add(new DIItem(Outputs[i].Name, Outputs[i]._index));
             }
         }
 
@@ -451,7 +451,7 @@ namespace Simulator_MPSA.CL
                 foreach (InputOutputItem itm in list.Cast<InputOutputItem>())
                 {
                     if (itm.Index!=null)
-                      WatchItem.Items.Add(new WatchItem((int)itm.Index, itm.signalType));
+                      WatchItem.Items.Add(new WatchItem(itm._index, itm.signalType));
 
                 }
             }

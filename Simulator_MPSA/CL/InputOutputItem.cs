@@ -30,7 +30,7 @@ namespace Simulator_MPSA.CL
         /// <summary>
         /// индекс в общей таблице DO или DI
         /// </summary>
-        public int? Index
+        /*public int? Index
         {
             get
             {
@@ -42,6 +42,28 @@ namespace Simulator_MPSA.CL
             {
                 if (value != null)
                     _index = (int)value;
+                else
+                    _index = -1;
+            }
+        }
+        */
+        public string Index
+        {
+            get
+            {
+                if (_index >= 0)
+                    return _index.ToString();
+                else return null;
+            }
+            set
+            {
+                if (value != "")
+                {
+                    if (!int.TryParse(value, out _index))
+                        _index = -1;
+
+                    //_index = int.Parse(value);
+                }
                 else
                     _index = -1;
             }
@@ -65,7 +87,7 @@ namespace Simulator_MPSA.CL
         public InputOutputItem(string name, DIStruct signal)
         {
             this.Name = name;
-            Index = signal.indxArrDI;
+            _index = signal.indxArrDI;
             signalType = ESignalType.DI;
             AssignedSignalName = signal.NameDI;
         }
@@ -73,7 +95,7 @@ namespace Simulator_MPSA.CL
         public InputOutputItem(string name, DOStruct signal)
         {
             this.Name = name;
-            Index = signal.indxArrDO;
+            _index = signal.indxArrDO;
             signalType = ESignalType.DO;
             AssignedSignalName = signal.NameDO;
         }
@@ -81,7 +103,7 @@ namespace Simulator_MPSA.CL
         public InputOutputItem(string name, int index, string assignedSignalName, ESignalType type)
         {
             Name = name;
-            Index = index;
+            _index = index;
             _assignedsignalName = assignedSignalName;
             this.signalType = type;
         }

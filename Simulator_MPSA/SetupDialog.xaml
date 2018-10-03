@@ -58,7 +58,7 @@
             <DataGrid x:Name="DG_outputs" Margin="16,5,0,0" Grid.Row="1" ItemsSource="{Binding Outputs}" AutoGenerateColumns="False" VerticalAlignment="Top" MinHeight="50" CanUserAddRows="false" CanUserDeleteRows="False" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" IsReadOnly="false"/>
-                    <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}"/>
+                    <DataGridTextColumn Header="Индекс в таблице" Binding="{Binding Index}" />
                     <DataGridTextColumn Header="Название сигнала в таблице" Binding="{Binding AssignedSignalName}" IsReadOnly="True" Foreground="Gray"/>
                 </DataGrid.Columns>
                     <DataGrid.ContextMenu>
