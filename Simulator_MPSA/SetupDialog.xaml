@@ -67,7 +67,7 @@
                             <!--MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/-->
                            
                             <TextBox Text="{Binding NameFilterDI, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ListView x:Name="SelectDIList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceDI.View}" SelectedItem="{Binding SelectedDI}"/>
+                            <ListView x:Name="SelectDIList" ScrollViewer.VerticalScrollBarVisibility="Visible" Width="600" MaxHeight="400" ItemsSource="{Binding ViewSourceDI.View}" SelectedItem="{Binding SelectedDI}"/>
 
 
                         </ContextMenu>
@@ -97,7 +97,7 @@
                     <ContextMenu>
                         <MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/>
                             <TextBox Text="{Binding NameFilterDO, UpdateSourceTrigger=PropertyChanged}"/>
-                            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceDO.View}" SelectedItem="{Binding SelectedDO}"/>
+                            <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="600" MaxHeight="400" ItemsSource="{Binding ViewSourceDO.View}" SelectedItem="{Binding SelectedDO}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
               
@@ -116,7 +116,7 @@
                     <ContextMenu>
                         
                         <TextBox Text="{Binding NameFilterAI, UpdateSourceTrigger=PropertyChanged}"/>
-                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceAI.View}" SelectedItem="{Binding SelectedAI}"/>
+                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="600" MaxHeight="400" ItemsSource="{Binding ViewSourceAI.View}" SelectedItem="{Binding SelectedAI}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
@@ -132,7 +132,7 @@
                     <ContextMenu>
                         <!--MenuItem Header="Добавить в просмотр" Command="{Binding AddToWatch}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type ContextMenu}}, Path=PlacementTarget.SelectedItems}"/-->
                         <TextBox Text="{Binding NameFilterAO, UpdateSourceTrigger=PropertyChanged}"/>
-                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="500" MaxHeight="400" ItemsSource="{Binding ViewSourceAO.View}" SelectedItem="{Binding SelectedAO}"/>
+                        <ListView ScrollViewer.VerticalScrollBarVisibility="Visible" Width="600" MaxHeight="400" ItemsSource="{Binding ViewSourceAO.View}" SelectedItem="{Binding SelectedAO}"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
             </DataGrid>
