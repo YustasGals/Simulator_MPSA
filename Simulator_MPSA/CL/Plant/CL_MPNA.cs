@@ -7,6 +7,7 @@ using Simulator_MPSA.CL.Signal;
 
 namespace Simulator_MPSA
 {
+    //---- Вторую часть класса где расписана логика см в файле MPNA_Logic.cs!!!
     // -------------------------------------------------------------------------------------------------
     [Serializable]
     public partial class MPNAStruct : INotifyPropertyChanged

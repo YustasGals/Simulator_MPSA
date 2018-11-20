@@ -26,7 +26,7 @@ namespace Simulator_MPSA
 
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             var buildDate = new DateTime(2000, 1, 1).AddDays(version.Build).AddSeconds(version.Revision * 2);
-            infoBox.Text = "Версия: " + version.ToString() + Environment.NewLine + "Дата сборки " + buildDate.ToString();
+            infoBox.Text = "Версия: " + "1.1.1000" + Environment.NewLine + "Дата сборки " + buildDate.ToString();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

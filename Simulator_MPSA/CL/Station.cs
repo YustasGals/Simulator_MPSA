@@ -10,6 +10,8 @@ using System.Globalization;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using Simulator_MPSA.CL.Signal;
+using System.Windows.Forms;
+
 namespace Simulator_MPSA.CL
 {
     public enum StationLoadResult { OK, Fail};
@@ -37,7 +39,7 @@ namespace Simulator_MPSA.CL
         public ObservableCollection<Scripting.ScriptInfo> scripts;
         public ObservableCollection<WatchItem> WatchTable;
         /// <summary>
-        /// Версия файла конфигурации
+        /// Версия формата файла конфигурации
         /// </summary>
         public int Version
         { set
@@ -59,6 +61,10 @@ namespace Simulator_MPSA.CL
 
         public StationSaveResult Save(string filename)
         {
+            if (currentConfigVersion != 110)
+            {
+               // MessageBox.Show("Чтение прервано:"+Environment.NewLine+"Используется недопустимая версия конфигурации файла");
+            }
             //DIStruct.items = DITableViewModel.Instance.DIs;
             DIs = DIStruct.items;
             DOs = DOStruct.items;
@@ -79,9 +85,7 @@ namespace Simulator_MPSA.CL
             WatchTable = WatchItem.Items;
             scripts = ScriptTableViewModel.Items;
 
-            ++currentConfigVersion;
-
-
+            
             XmlSerializer xml = new XmlSerializer(typeof(Station));
             System.IO.StreamWriter writeStream = new System.IO.StreamWriter(filename);
             xml.Serialize(writeStream, this);

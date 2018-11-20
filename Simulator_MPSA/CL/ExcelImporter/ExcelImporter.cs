@@ -44,19 +44,28 @@ namespace Simulator_MPSA
 
             //   string connectionString = connectionString;
 
-            using (OleDbConnection conn = new OleDbConnection(connectionString))
-            {
-                conn.Open();
+                using (OleDbConnection conn = new OleDbConnection(connectionString))
+                {
+                try
+                {
+                    conn.Open();
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("Ошибка подключения:" + Environment.NewLine + ex.Message);
+                    return;
+                }
 
-                ReadSignals(conn);
-                ReadZD(conn);
-                ReadVS(conn);
-                ReadKL(conn);
+                    ReadSignals(conn);
+                    ReadZD(conn);
+                    ReadVS(conn);
+                    ReadKL(conn);
 
 
-                conn.Close();
-                System.Windows.Forms.MessageBox.Show("импорт завершен");
-            }
+                    conn.Close();
+                    System.Windows.Forms.MessageBox.Show("импорт завершен");
+                }
+ 
 
         //    return ds;
         }

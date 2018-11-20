@@ -138,6 +138,9 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ChangeDevDialog.xaml.cs">
+      <DependentUpon>ChangeDevDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="CL\AddPlantToWatch.cs" />
     <Compile Include="CL\Commands\ExportAICommand.cs" />
     <Compile Include="CL\Commands\ExportAOCommand.cs" />
@@ -204,6 +207,10 @@
     <Compile Include="ViewModel\WatchItemViewModel.cs" />
     <Compile Include="CL\TableViewModels\WatchTableViewModel.cs" />
     <Page Include="AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChangeDevDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -57,6 +57,7 @@
             </MenuItem>
             <MenuItem Header="Симулятор">
                 <MenuItem x:Name="MenuItem_Sim" Header="Настройки станции" Click="MenuItem_Sim_Click"/>
+                <MenuItem x:Name="MenuItem_ChangeDev" Header="Изменить имя устройства OPC" Click="MenuItem_ChangeDev_Click"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">
                 <MenuItem x:Name="MenuItem_showMPNA" Header="МНА/ПНА" HorizontalAlignment="Left" Click="MenuItem_toggleMPNA" IsChecked="true"/>

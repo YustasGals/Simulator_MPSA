@@ -11,6 +11,10 @@ namespace Simulator_MPSA
 {
     public enum MPNAState { Work, Starting, Stoping, Stop};
 
+    /// <summary>
+    /// Часть класса MPNAstruct содержит в себе логику работы МНА
+    /// Остальную часть класса см в файле CL_MPNA
+    /// </summary>
     public partial class MPNAStruct : INotifyPropertyChanged
     {
         private MPNAState _state = MPNAState.Stop;

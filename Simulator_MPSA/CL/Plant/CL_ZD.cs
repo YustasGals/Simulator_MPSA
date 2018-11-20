@@ -403,8 +403,7 @@ namespace Simulator_MPSA
                 //---- установка значения в дистанции --
                 if (dc != null)
                     dc.ValDI = isDist.Value;
-                else
-                    isDist.Value = false;
+
 
                 if (CustomDIs != null && CustomDIs.Count >= 6 && CustomDIs[intrfDC] != null && CustomDIs[intrfLink].GetValue()==true)
                 {

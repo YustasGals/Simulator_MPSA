@@ -1694,6 +1694,12 @@ namespace Simulator_MPSA
                     WatchItem.Items.Add(new WatchItem(item.GetModel()));
         }
 
+        private void MenuItem_ChangeDev_Click(object sender, RoutedEventArgs e)
+        {
+            ChangeDevDialog dialog = new ChangeDevDialog();
+            dialog.ShowDialog();
+        }
+
 
 
 

@@ -126,16 +126,18 @@ namespace Simulator_MPSA.CL
         void InitSelectMenu()
         {
             viewSourceDI.Source = DIStruct.items;
-            NameFilterDI = Name;
-
             viewSourceDO.Source = DOStruct.items;
-            NameFilterDO = Name;
-
             viewSourceAI.Source = AIStruct.items;
-            NameFilterAI = Name;
-
             viewSourceAO.Source = AOStruct.items;
-            NameFilterAO = Name;
+
+            if (Name == null)
+                Name = "";
+                
+                NameFilterDI = Name;              
+                NameFilterDO = Name;              
+                NameFilterAI = Name;       
+                NameFilterAO = Name;
+            
         }
 
         public SetupTableModel(VSStruct vs)
