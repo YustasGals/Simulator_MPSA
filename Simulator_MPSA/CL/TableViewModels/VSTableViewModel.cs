@@ -73,6 +73,11 @@ namespace Simulator_MPSA.CL
         }
         public static void Init(VSStruct[] arr)
         {
+            ObservableCollection<VSStruct> temp = new ObservableCollection<VSStruct>();
+            foreach (VSStruct agr in arr)
+                temp.Add(agr);
+            _vs = temp;
+
             instance = new VSTableViewModel(arr);
             _vs.CollectionChanged += VS_CollectionChanged;
         }

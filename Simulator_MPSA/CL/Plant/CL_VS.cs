@@ -258,8 +258,9 @@ namespace Simulator_MPSA
                     //подписываемся на новый сигнал
                     if (abb != null)
                     {
-                    //    abb.IndexChanged += ABB_IndexChanged;
-                        abb.PropertyChanged += ABB_PropertyChanged;
+                        //    abb.IndexChanged += ABB_IndexChanged;
+                        // abb.PropertyChanged += ABB_PropertyChanged;
+                        abb.PropertyChanged += delegate { OnPropertyChanged("CMDStart"); };
                         OnPropertyChanged("CMDStart");
                     }
                 }

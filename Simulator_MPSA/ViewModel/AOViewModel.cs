@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace Simulator_MPSA.ViewModel
     class AOViewModel : IViewModel<AOStruct>, INotifyPropertyChanged
     {
         private AOStruct model;
-
+        static CultureInfo culture = new CultureInfo("en-US");
         public bool En
         {
             get { return model.En; }
@@ -108,24 +109,52 @@ namespace Simulator_MPSA.ViewModel
             set { model.maxACD = value; }
         }
 
-        public float minPhis
+        public string minPhis
         {
-            get { return model.minPhis; }
-            set { model.minPhis = value; }
+            get { return model.minPhis.ToString(culture); }
+            set
+            {
+                try
+                {
+                    model.minPhis = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch
+                {
+                    model.minPhis = 0;
+                }
+               
+                }
         }
 
-        public float maxPhis
+        public string maxPhis
         {
-            get { return model.maxPhis; }
-            set { model.maxPhis = value; }
+            get { return model.maxPhis.ToString(culture); }
+            set
+            {
+                try
+                {
+                    model.maxPhis = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch
+                {
+                    model.maxPhis = 0;
+                }
+
+            }
         }
 
-        public float ForcedValue
+        public string ForcedValue
         {
-            get { return model.fVal; }
+            get { return model.fVal.ToString(culture); }
             set {
-              //  if (Forced)
-                model.ForceValue = value;
+                try
+                {
+                    model.ForceValue = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch (Exception e)
+                {
+                    model.ForceValue = 0;
+                }
             }
         }
 

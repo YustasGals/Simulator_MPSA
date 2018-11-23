@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace Simulator_MPSA.ViewModel
     class AIViewModel : IViewModel<AIStruct>, INotifyPropertyChanged
     {
         private AIStruct ai;
+        static CultureInfo culture = new CultureInfo("en-US");
 
         public AIViewModel()
         {
@@ -41,10 +43,20 @@ namespace Simulator_MPSA.ViewModel
             set { ai.Forced = value; }
         }
 
-        public float ForcedValue
+        public string ForcedValue
         {
-            get { return ai.ForcedValue; }
-            set { ai.ForcedValue = value; }
+            get { return ai.ForcedValue.ToString(culture); }
+            set
+            {
+                try
+                {
+                    ai.ForcedValue = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch (Exception e)
+                {
+                    ai.ForcedValue = 0;
+                }
+            }
         }
 
         public int PLCAddr
@@ -89,26 +101,46 @@ namespace Simulator_MPSA.ViewModel
             get { return ai.maxACD; }
             set { ai.maxACD = value; }
         }
-        public float minPhis
+        public string minPhis
         {
-            get { return ai.minPhis; }
-            set { ai.minPhis = value; }
+            get { return ai.minPhis.ToString(culture); }
+            set {
+                try
+                {
+                    ai.minPhis = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch (Exception e)
+                {
+                    ai.minPhis = 0f;
+                }
+            }
         }
-        public float maxPhis
+        public string maxPhis
         {
-            get { return ai.maxPhis; }
-            set { ai.maxPhis = value; }
-        }
-
-        public float fValAI
-        {
-            get { return ai.fValAI; }
+            get { return ai.maxPhis.ToString(culture); }
             set
             {
-              ai.fValAI = value;                  
+                try
+                {
+                    ai.maxPhis = float.Parse(value.Replace(',', '.'), culture);
+                }
+                catch (Exception ex)
+                {
+                    ai.maxPhis = 0f;
+                }
             }
         }
 
+   /*     public string fValAI
+        {
+            get { return ai.fValAI.ToString(); }
+            set
+            {
+               ai.fValAI = float.Parse(value.Replace(',', '.'));
+                        
+            }
+        }
+        */
         public string TegAI
         {
             get { return ai.TegAI; }
