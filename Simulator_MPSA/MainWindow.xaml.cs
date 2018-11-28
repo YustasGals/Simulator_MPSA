@@ -134,7 +134,7 @@ namespace Simulator_MPSA
     /// </summary>
     public partial class MainWindow : Window
     {
-        Opc.Da.Server srv;
+      //  Opc.Da.Server srv;
 
         public delegate void DEndWrite(int nJob);
         public DEndWrite EndCycle;
@@ -159,17 +159,20 @@ namespace Simulator_MPSA
 
         MainViewModel mainVM = new MainViewModel();
 
-         ViewModelCollection<DIViewModel, DIStruct> divm;
-         ViewModelCollection<DOViewModel, DOStruct> dovm;
-         ViewModelCollection<AIViewModel, AIStruct> aivm;
-         ViewModelCollection<AOViewModel, AOStruct> aovm;
+        /// <summary>
+        /// DataContext для таблицы DI
+        /// </summary>
+        ViewModelCollection<DIViewModel, DIStruct> divm;
+        ViewModelCollection<DOViewModel, DOStruct> dovm;
+        ViewModelCollection<AIViewModel, AIStruct> aivm;
+        ViewModelCollection<AOViewModel, AOStruct> aovm;
 
         //  WatchTableViewModel watchViewModel;
         ViewModelCollection<WatchItemViewModel, WatchItem> watchvm;
 
         //
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
-        Opc.Da.ItemValue itm;   
+        Opc.Da.ItemValue itm;
 
         public MainWindow()
         {
@@ -182,9 +185,9 @@ namespace Simulator_MPSA
 
             RB.InitBuffer();
             WB.InitBuffers();
- 
+
             //-- Таблица DI --
-           divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
+            divm = new ViewModelCollection<DIViewModel, DIStruct>(DIStruct.items);
 
             DITab.DataContext = divm;
             hideEmptyDI.DataContext = divm;
@@ -221,14 +224,14 @@ namespace Simulator_MPSA
             //  watchViewModel = new WatchTableViewModel();
             watchvm = new ViewModelCollection<WatchItemViewModel, WatchItem>(WatchItem.Items);
             dataGridWatch.DataContext = watchvm;
- 
+
             ScriptTableViewModel.Init();
             dataGridScript.ItemsSource = ScriptTableViewModel.Items;
 
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
-            EndCycle += new DEndWrite((int njob)=> {
+            EndCycle += new DEndWrite((int njob) => {
                 TimeSpan ts = DateTime.Now - writingTime[njob];
 
                 switch (njob)
@@ -244,7 +247,7 @@ namespace Simulator_MPSA
                     case 8: StatusW9.Content = ts.TotalSeconds.ToString("F2") + " | "; break;
 
                 }
-                
+
 
                 writingTime[njob] = DateTime.Now;
             });
@@ -285,17 +288,17 @@ namespace Simulator_MPSA
                 btnStop_Click(null, null);
                 System.Windows.MessageBox.Show("Ошибка соединения по протоколу OPC!");
             }
-            
+
             );
-            WriteLog += new DWriteLog((text)=> { LogWriter.AppendLog(text); });
-            
+            WriteLog += new DWriteLog((text) => { LogWriter.AppendLog(text); });
 
 
-            delegateDisconnected += new DDisconnected(()=> {
+
+            delegateDisconnected += new DDisconnected(() => {
                 btnStop_Click(null, null);
                 System.Windows.MessageBox.Show("Ошибка соединения по протоколу Modbus TCP!");
             });
-            delegateEndRead += new DEndRead(()=> 
+            delegateEndRead += new DEndRead(() =>
             {
                 TimeSpan ts = DateTime.Now - readingTime;
                 StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
@@ -304,7 +307,7 @@ namespace Simulator_MPSA
 
             // myDelegate += new ddd(On_WritingCycleEnd);
 
-            
+
             string subkey = @"software\NA\Simulator";
             //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
 
@@ -321,7 +324,7 @@ namespace Simulator_MPSA
 
             if (lastFilename != "" && System.IO.File.Exists(lastFilename))
             {
-                if (System.Windows.MessageBox.Show("Открыть последний файл конфигурации?"+Environment.NewLine + lastFilename, "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (System.Windows.MessageBox.Show("Открыть последний файл конфигурации?" + Environment.NewLine + lastFilename, "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
                     OpenConfig(lastFilename);
                     currentFileName = lastFilename;
@@ -330,7 +333,7 @@ namespace Simulator_MPSA
             }
 
             //по умолчанию отключить колонки с адресами
-            MenuItem_toggleAddr(this,null);
+            MenuItem_toggleAddr(this, null);
 
             menuImportDI.Command = new ImportDICommand();
             menuImportAI.Command = new ImportAICommand();
@@ -368,89 +371,89 @@ namespace Simulator_MPSA
             while (mainCycleEnabled)
             {
                 //-------- обновление структур --------------------------
-                if (ZDTableViewModel.ZDs != null && ZDTableViewModel.ZDs.Count>0)
-                foreach (ZDStruct zd in ZDTableViewModel.ZDs)
-                    zd.UpdateZD(dt_sec);
+                if (ZDTableViewModel.ZDs != null && ZDTableViewModel.ZDs.Count > 0)
+                    foreach (ZDStruct zd in ZDTableViewModel.ZDs)
+                        zd.UpdateZD(dt_sec);
 
-                if (KLTableViewModel.KL != null && KLTableViewModel.KL.Count>0)
-                foreach (KLStruct kl in KLTableViewModel.KL)
-                    kl.UpdateKL(dt_sec);
+                if (KLTableViewModel.KL != null && KLTableViewModel.KL.Count > 0)
+                    foreach (KLStruct kl in KLTableViewModel.KL)
+                        kl.UpdateKL(dt_sec);
 
-                if (VSTableViewModel.VS != null && VSTableViewModel.VS.Count>0)
-                foreach (VSStruct vs in VSTableViewModel.VS)
-                    vs.UpdateVS(dt_sec);
+                if (VSTableViewModel.VS != null && VSTableViewModel.VS.Count > 0)
+                    foreach (VSStruct vs in VSTableViewModel.VS)
+                        vs.UpdateVS(dt_sec);
 
-                if (MPNATableViewModel.MPNAs!=null && MPNATableViewModel.MPNAs.Count > 0)
-                foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
-                    mpna.UpdateMPNA(dt_sec);
+                if (MPNATableViewModel.MPNAs != null && MPNATableViewModel.MPNAs.Count > 0)
+                    foreach (MPNAStruct mpna in MPNATableViewModel.MPNAs)
+                        mpna.UpdateMPNA(dt_sec);
 
 
 
-                if (ScriptTableViewModel.Items != null && ScriptTableViewModel.Items.Count>0)
+                if (ScriptTableViewModel.Items != null && ScriptTableViewModel.Items.Count > 0)
                     foreach (ScriptInfo script in ScriptTableViewModel.Items)
                         script.Run(dt_sec);
                 //--------------- формирование массивов для передачи в ПЛК ---------------------
                 //for (int i = 0; i < AIStruct.items.Length; i++)
                 lock (WB.W)
                 {
-                    if (AIStruct.items != null && AIStruct.items.Count>0)
-                    foreach (AIStruct ai in AIStruct.items)
-                    {
-                        if (ai.En /* || true */)
+                    if (AIStruct.items != null && AIStruct.items.Count > 0)
+                        foreach (AIStruct ai in AIStruct.items)
                         {
-
-                            if (ai.PLCDestType == EPLCDestType.ADC)
+                            if (ai.En /* || true */)
                             {
 
+                                if (ai.PLCDestType == EPLCDestType.ADC)
+                                {
+
                                     // if (ai.Buffer == BufType.USO)
-                                  if (ai.PLCAddr >= Sett.Instance.BegAddrW && ai.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
+                                    if (ai.PLCAddr >= Sett.Instance.BegAddrW && ai.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
                                         WB.W[(ai.PLCAddr - Sett.Instance.BegAddrW)] = ai.ValACD; // записываем значение АЦП в массив для записи CPU
 
                                     //  if (ai.Buffer == BufType.A3)
-                                  if (ai.PLCAddr >= Sett.Instance.iBegAddrA3 && ai.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
+                                    if (ai.PLCAddr >= Sett.Instance.iBegAddrA3 && ai.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
                                         WB.W_a3[(ai.PLCAddr - Sett.Instance.iBegAddrA3)] = ai.ValACD;
 
                                     //  if (ai.Buffer == BufType.A4)
                                     if (ai.PLCAddr >= Sett.Instance.iBegAddrA4 && ai.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
                                         WB.W_a4[(ai.PLCAddr - Sett.Instance.iBegAddrA4)] = ai.ValACD;
-                            }
-                            else
-                            if (ai.PLCDestType == EPLCDestType.Float)
-                            {
-                                //разибиваем float на 2 word'a
-                                byte[] bytes = BitConverter.GetBytes(ai.fValAI);
-                                ushort w1 = BitConverter.ToUInt16(bytes, 0);
-                                ushort w2 = BitConverter.ToUInt16(bytes, 2);
+                                }
+                                else
+                                if (ai.PLCDestType == EPLCDestType.Float)
+                                {
+                                    //разибиваем float на 2 word'a
+                                    byte[] bytes = BitConverter.GetBytes(ai.fValAI);
+                                    ushort w1 = BitConverter.ToUInt16(bytes, 0);
+                                    ushort w2 = BitConverter.ToUInt16(bytes, 2);
 
                                     //  if (ai.Buffer == BufType.USO)
                                     if (ai.PLCAddr >= Sett.Instance.BegAddrW && ai.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
                                     {
-                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w1;
-                                    WB.W[ai.PLCAddr - Sett.Instance.BegAddrW + 1] = w2;
-                                }
+                                        WB.W[ai.PLCAddr - Sett.Instance.BegAddrW] = w1;
+                                        WB.W[ai.PLCAddr - Sett.Instance.BegAddrW + 1] = w2;
+                                    }
 
                                     //  if (ai.Buffer == BufType.A3)
                                     if (ai.PLCAddr >= Sett.Instance.iBegAddrA3 && ai.PLCAddr < (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize))
                                     {
-                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w1;
-                                    WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 + 1] = w2;
-                                }
+                                        WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3] = w1;
+                                        WB.W_a3[ai.PLCAddr - Sett.Instance.iBegAddrA3 + 1] = w2;
+                                    }
 
                                     //   if (ai.Buffer == BufType.A4)
                                     if (ai.PLCAddr >= Sett.Instance.iBegAddrA4 && ai.PLCAddr < (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize))
                                     {
-                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w1;
-                                    WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 + 1] = w2;
+                                        WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4] = w1;
+                                        WB.W_a4[ai.PLCAddr - Sett.Instance.iBegAddrA4 + 1] = w2;
+                                    }
                                 }
-                            }
-                        }//ai.en
-                    }//foreach
+                            }//ai.en
+                        }//foreach
 
-                    if (DIStruct.items != null && DIStruct.items.Count>0)
-                    foreach (DIStruct di in DIStruct.items)
-                    {
-                        if (di.En)
+                    if (DIStruct.items != null && DIStruct.items.Count > 0)
+                        foreach (DIStruct di in DIStruct.items)
                         {
+                            if (di.En)
+                            {
                                 /*int indx = di.PLCAddr - Sett.Instance.BegAddrW;
                                 if (indx > 0 && indx < WB.W.Length)*/
 
@@ -483,37 +486,37 @@ namespace Simulator_MPSA
                                 }
 
                             }
-                    }
+                        }
 
                     //записываем счетчики УСО
-                    if (CountersTableViewModel.Counters != null && CountersTableViewModel.Counters.Count>0)
-                    foreach (USOCounter c in CountersTableViewModel.Counters)
-                    {
-                        c.Update(dt_sec);
-                        if (c.buffer == BufType.USO)
-                            if (c.PLCAddr >= Sett.Instance.BegAddrW)
-                            {
-                                WB.W[c.PLCAddr - Sett.Instance.BegAddrW] = c.Value;
-                            }
+                    if (CountersTableViewModel.Counters != null && CountersTableViewModel.Counters.Count > 0)
+                        foreach (USOCounter c in CountersTableViewModel.Counters)
+                        {
+                            c.Update(dt_sec);
+                            if (c.buffer == BufType.USO)
+                                if (c.PLCAddr >= Sett.Instance.BegAddrW)
+                                {
+                                    WB.W[c.PLCAddr - Sett.Instance.BegAddrW] = c.Value;
+                                }
 
-                        if (c.buffer == BufType.A3)
-                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA3) && ((c.PLCAddr - Sett.Instance.iBegAddrA3) < WB.W_a3.Length))
-                            {
-                                WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3] = c.Value;
-                            }
-                        if (c.buffer == BufType.A4)
-                            if ((c.PLCAddr >= Sett.Instance.iBegAddrA4) && ((c.PLCAddr - Sett.Instance.iBegAddrA4) < WB.W_a4.Length))
-                            {
-                                WB.W_a4[c.PLCAddr - Sett.Instance.iBegAddrA4] = c.Value;
-                            }
-                    }
+                            if (c.buffer == BufType.A3)
+                                if ((c.PLCAddr >= Sett.Instance.iBegAddrA3) && ((c.PLCAddr - Sett.Instance.iBegAddrA3) < WB.W_a3.Length))
+                                {
+                                    WB.W_a3[c.PLCAddr - Sett.Instance.iBegAddrA3] = c.Value;
+                                }
+                            if (c.buffer == BufType.A4)
+                                if ((c.PLCAddr >= Sett.Instance.iBegAddrA4) && ((c.PLCAddr - Sett.Instance.iBegAddrA4) < WB.W_a4.Length))
+                                {
+                                    WB.W_a4[c.PLCAddr - Sett.Instance.iBegAddrA4] = c.Value;
+                                }
+                        }
 
                     /* Таблицу диагностики временно убираем */
-                    if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count>0)
-                    foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
-                    {
-                        if (di.En)
+                    if (DiagTableModel.Instance.DiagRegs != null && DiagTableModel.Instance.DiagRegs.Count > 0)
+                        foreach (DIStruct di in DiagTableModel.Instance.DiagRegs)
                         {
+                            if (di.En)
+                            {
 
                                 if (di.PLCAddr >= Sett.Instance.BegAddrW && di.PLCAddr < (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize))
                                 {
@@ -532,8 +535,8 @@ namespace Simulator_MPSA
                                     SetBit(ref (WB.W_a4[di.PLCAddr - Sett.Instance.iBegAddrA4]), (di.indxBitDI), di.ValDI ^ di.InvertDI);
                                     continue;
                                 }
+                            }
                         }
-                    }
 
                 }//lock
 
@@ -545,8 +548,8 @@ namespace Simulator_MPSA
                     this.Dispatcher.Invoke(delegateDisconnected);
                     btnStop_Click(null, new RoutedEventArgs());
                 }
-               
-       
+
+
 
                 //---------- вычисление время с момента предыдущей итерации ----------------
                 dt_sec = (float)(DateTime.Now - prevCycleTime).TotalSeconds;
@@ -593,7 +596,7 @@ namespace Simulator_MPSA
         /// <param name="e"></param>
         private void Menu_OpenAll(object sender, RoutedEventArgs e)
         {
-          
+
 
             System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
             dialog.Filter = "XML Files (*.xml)|*.xml";
@@ -615,69 +618,69 @@ namespace Simulator_MPSA
         {
             Station station = new Station();
 
-                DITab.DataContext = null;
-                AITab.DataContext = null;
-                DOTab.DataContext = null;
-                AOTab.DataContext = null;
+            DITab.DataContext = null;
+            AITab.DataContext = null;
+            DOTab.DataContext = null;
+            AOTab.DataContext = null;
 
-                AIStruct.EnableAutoIndex = false;
-                AOStruct.EnableAutoIndex = false;
-                DIStruct.EnableAutoIndex = false;
-                DOStruct.EnableAutoIndex = false;
+            AIStruct.EnableAutoIndex = false;
+            AOStruct.EnableAutoIndex = false;
+            DIStruct.EnableAutoIndex = false;
+            DOStruct.EnableAutoIndex = false;
 
-                if (station.Load(filename) == StationLoadResult.OK)
-                {
-                    currentFileName = filename;
-                    label_filename.Content = currentFileName;
-             //   label_confVersion.Content = "Версия файла: " + station.Version;
-                    btnSave.IsEnabled = true;
+            if (station.Load(filename) == StationLoadResult.OK)
+            {
+                currentFileName = filename;
+                label_filename.Content = currentFileName;
+                //   label_confVersion.Content = "Версия файла: " + station.Version;
+                btnSave.IsEnabled = true;
 
-                    DITab.DataContext = divm;
-                    AITab.DataContext = aivm;
-                    DOTab.DataContext = dovm;
-                    AOTab.DataContext = aovm;
+                DITab.DataContext = divm;
+                AITab.DataContext = aivm;
+                DOTab.DataContext = dovm;
+                AOTab.DataContext = aovm;
 
-                    AIStruct.EnableAutoIndex = true;
-                    AOStruct.EnableAutoIndex = true;
-                    DIStruct.EnableAutoIndex = true;
-                    DOStruct.EnableAutoIndex = true;
+                AIStruct.EnableAutoIndex = true;
+                AOStruct.EnableAutoIndex = true;
+                DIStruct.EnableAutoIndex = true;
+                DOStruct.EnableAutoIndex = true;
 
-                    WB.InitBuffers();
-                    RB.InitBuffer();
+                WB.InitBuffers();
+                RB.InitBuffer();
 
-                    dataGridVS.DataContext = VSTableViewModel.Instance;
-                    dataGridKL.DataContext = KLTableViewModel.Instance;
-                    dataGridMPNA.DataContext = MPNATableViewModel.Instance;
-                    dataGridZD.DataContext = ZDTableViewModel.Instance;
+                dataGridVS.DataContext = VSTableViewModel.Instance;
+                dataGridKL.DataContext = KLTableViewModel.Instance;
+                dataGridMPNA.DataContext = MPNATableViewModel.Instance;
+                dataGridZD.DataContext = ZDTableViewModel.Instance;
 
-                    dataGridScript.ItemsSource = ScriptTableViewModel.Items;
+                dataGridScript.ItemsSource = ScriptTableViewModel.Items;
 
-                    MenuItem_showMPNA.IsChecked = Sett.Instance.ShowTab_MPNA;
-                    if (!MenuItem_showMPNA.IsChecked)
-                        tabMPNA.Visibility = Visibility.Collapsed;
-                    else
-                        tabMPNA.Visibility = Visibility.Visible;
+                MenuItem_showMPNA.IsChecked = Sett.Instance.ShowTab_MPNA;
+                if (!MenuItem_showMPNA.IsChecked)
+                    tabMPNA.Visibility = Visibility.Collapsed;
+                else
+                    tabMPNA.Visibility = Visibility.Visible;
 
-                    MenuItem_showKL.IsChecked = Sett.Instance.ShowTab_KL;
-                    if (!MenuItem_showKL.IsChecked)
-                        tabKL.Visibility = Visibility.Collapsed;
-                    else
-                        tabKL.Visibility = Visibility.Visible;
+                MenuItem_showKL.IsChecked = Sett.Instance.ShowTab_KL;
+                if (!MenuItem_showKL.IsChecked)
+                    tabKL.Visibility = Visibility.Collapsed;
+                else
+                    tabKL.Visibility = Visibility.Visible;
 
-                    MenuItem_showVS.IsChecked = Sett.Instance.ShowTab_VS;
-                    if (!MenuItem_showVS.IsChecked)
-                        tabVS.Visibility = Visibility.Collapsed;
-                    else
-                        tabVS.Visibility = Visibility.Visible;
+                MenuItem_showVS.IsChecked = Sett.Instance.ShowTab_VS;
+                if (!MenuItem_showVS.IsChecked)
+                    tabVS.Visibility = Visibility.Collapsed;
+                else
+                    tabVS.Visibility = Visibility.Visible;
 
-                    MenuItem_showZD.IsChecked = Sett.Instance.ShowTab_ZD;
-                    if (!MenuItem_showZD.IsChecked)
-                        tabZD.Visibility = Visibility.Collapsed;
-                    else
-                        tabZD.Visibility = Visibility.Visible;
+                MenuItem_showZD.IsChecked = Sett.Instance.ShowTab_ZD;
+                if (!MenuItem_showZD.IsChecked)
+                    tabZD.Visibility = Visibility.Collapsed;
+                else
+                    tabZD.Visibility = Visibility.Visible;
 
-                    LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
-                }
+                LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
+            }
         }
 
         /// <summary>
@@ -701,7 +704,7 @@ namespace Simulator_MPSA
 
                 currentFileName = dialog.FileName;
                 label_filename.Content = currentFileName;
-            //    label_confVersion.Content = "Версия файла: " + s.Version.ToString();
+                //    label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 btnSave.IsEnabled = true;
             }
         }
@@ -720,9 +723,9 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
-              //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
+                //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
-                log.AppendText("Файл конфигурации сохранен : " + currentFileName +Environment.NewLine);
+                log.AppendText("Файл конфигурации сохранен : " + currentFileName + Environment.NewLine);
             }
         }
         /// <summary>
@@ -737,12 +740,12 @@ namespace Simulator_MPSA
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-          /*  if (!isConfigLoaded)
-            {
-                System.Windows.MessageBox.Show("Конфигурация не загружена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            */
+            /*  if (!isConfigLoaded)
+              {
+                  System.Windows.MessageBox.Show("Конфигурация не загружена!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                  return;
+              }
+              */
 
             cancelTokenSrc = new CancellationTokenSource();
             cancellationToken = cancelTokenSrc.Token;
@@ -769,13 +772,13 @@ namespace Simulator_MPSA
                     opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
                     opcThread.refMainWindow = this;
                     opcThread.Start();
-                  /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
-                    srv.Connect();
-                    if (!srv.IsConnected)
-                        throw new Exception("не удалось подключиться к серверу OPC");*/
+                    /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
+                      srv.Connect();
+                      if (!srv.IsConnected)
+                          throw new Exception("не удалось подключиться к серверу OPC");*/
                 }
                 //запускаем основной поток
-               // if (Sett.Instance.UseModbus || Sett.Instance.UseOPC)
+                // if (Sett.Instance.UseModbus || Sett.Instance.UseOPC)
                 {
                     watchThread = new Thread(new ThreadStart(Watchdog));
                     watchThread.Start();
@@ -786,15 +789,12 @@ namespace Simulator_MPSA
 
                     btnStop.IsEnabled = true;
 
-                   // LogViewModel.WriteLine("Симулятор запущен");
-                    log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") +Environment.NewLine);
-                    dataGridAI.CanUserDeleteRows = false;
-                    dataGridDI.CanUserDeleteRows = false;
-                    dataGridDO.CanUserDeleteRows = false;
-                    dataGridAO.CanUserDeleteRows = false;
+                    // LogViewModel.WriteLine("Симулятор запущен");
+                    log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") + Environment.NewLine);
+                    IsSimulationActive = true;
                 }
-            //    else
-           //         throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
+                //    else
+                //         throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
             }
             catch (Exception ex)
             {
@@ -808,67 +808,67 @@ namespace Simulator_MPSA
         }*/
         #region WriteReadCycleEnd
         //------------ вызывается каждую итерацию цикла записи ----------------
-     /*   private void On_WritingCycleEnd()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[0];
-            StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
-            writingTime[0] = DateTime.Now;
-        }
+        /*   private void On_WritingCycleEnd()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[0];
+               StatusW1.Content = ts.TotalSeconds.ToString("F2") + " | ";
+               writingTime[0] = DateTime.Now;
+           }
 
-        private void On_WritingCycle2End()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[1];
-       
-            StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
-            writingTime[1] = DateTime.Now;
-        }
+           private void On_WritingCycle2End()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[1];
 
-        private void On_WritingCycle3End()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[2];
-         
-            StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
-            writingTime[2] = DateTime.Now;
-        }
+               StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
+               writingTime[1] = DateTime.Now;
+           }
 
-        private void On_WritingCycle4End()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[3];
-       
-            StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
-            writingTime[3] = DateTime.Now;
-        }
+           private void On_WritingCycle3End()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[2];
 
-        private void On_WritingCycle5End()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[4];
-            StatusW5.Content = ts.TotalSeconds.ToString("F2");
-        
-            writingTime[4] = DateTime.Now;
-        }
+               StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
+               writingTime[2] = DateTime.Now;
+           }
 
-        private void On_WritingCycle6End()
-        {
-            TimeSpan ts = DateTime.Now - writingTime[5];
-            StatusW6.Content = ts.TotalSeconds.ToString("F2");
-        
-            writingTime[6] = DateTime.Now;
-        }
+           private void On_WritingCycle4End()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[3];
 
-        private void On_ReadingCycleEnd()
-        {
-            TimeSpan ts = DateTime.Now - readingTime;
-            StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
-            readingTime = DateTime.Now;
-        }*/
+               StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
+               writingTime[3] = DateTime.Now;
+           }
+
+           private void On_WritingCycle5End()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[4];
+               StatusW5.Content = ts.TotalSeconds.ToString("F2");
+
+               writingTime[4] = DateTime.Now;
+           }
+
+           private void On_WritingCycle6End()
+           {
+               TimeSpan ts = DateTime.Now - writingTime[5];
+               StatusW6.Content = ts.TotalSeconds.ToString("F2");
+
+               writingTime[6] = DateTime.Now;
+           }
+
+           private void On_ReadingCycleEnd()
+           {
+               TimeSpan ts = DateTime.Now - readingTime;
+               StatusR.Content = "Время чтения: " + ts.TotalSeconds.ToString("F2");
+               readingTime = DateTime.Now;
+           }*/
         #endregion
         //--------------------------------------------------------------------
 
-    /*    private void On_Disconnected()
-        {
-            btnStop_Click(null, null);
-            System.Windows.MessageBox.Show("Соединение разорвано!");
-        }*/
+        /*    private void On_Disconnected()
+            {
+                btnStop_Click(null, null);
+                System.Windows.MessageBox.Show("Соединение разорвано!");
+            }*/
 
         //---------------------------- 
 
@@ -876,19 +876,19 @@ namespace Simulator_MPSA
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             // LogViewModel.WriteLine("Симулятор остановлен");
-            log.AppendText("Симулятор остановлен"+Environment.NewLine);
+            log.AppendText("Симулятор остановлен" + Environment.NewLine);
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
             btnStart.IsEnabled = true;
             btnStop.IsEnabled = false;
-         
 
-            if (wrThread!=null) 
+
+            if (wrThread != null)
                 wrThread.Stop();
             wrThread = null;
 
-            if (rdThread!=null)
+            if (rdThread != null)
                 rdThread.Stop();
 
             rdThread = null;
@@ -898,7 +898,7 @@ namespace Simulator_MPSA
                 opcThread.Stop();
             }
             opcThread = null;
-            
+
             if (watchThread != null)
                 watchThread.Abort();
 
@@ -926,10 +926,7 @@ namespace Simulator_MPSA
 
             //TODO: добавить сброс остальных систем
 
-            dataGridAI.CanUserDeleteRows = true;
-            dataGridDI.CanUserDeleteRows = true;
-            dataGridDO.CanUserDeleteRows = true;
-            dataGridAO.CanUserDeleteRows = true;
+            IsSimulationActive = false;
         }
 
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)
@@ -959,14 +956,14 @@ namespace Simulator_MPSA
 
         private void MenuItem_about_Click(object sender, RoutedEventArgs e)
         {
-        
+
             AboutWindow w = new AboutWindow();
             w.ShowDialog();
         }
 
-    
 
-     
+
+
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -989,15 +986,15 @@ namespace Simulator_MPSA
                     editor.Close();
 
                 string subkey = @"software\NA\Simulator";
-               
+
                 RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
-              //  string lastFilename = (string)configKey.GetValue("last file", "");
+                //  string lastFilename = (string)configKey.GetValue("last file", "");
                 configKey.SetValue("last file", currentFileName);
             }
             else
             {
                 e.Cancel = true;
-            }            
+            }
         }
 
         #region context_menus
@@ -1141,7 +1138,7 @@ namespace Simulator_MPSA
         #endregion
         private void OnCounterTableChanged(object sender, NotifyCollectionChangedEventArgs args)
         {
-            
+
         }
 
 
@@ -1149,8 +1146,8 @@ namespace Simulator_MPSA
         {
             if (e.Key == Key.Return)
             {
-           //     DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
-           //     DiagTableModel.Instance.ApplyFilter();
+                //     DiagTableModel.Instance.nameFilter = textBoxDiagFilter.Text;
+                //     DiagTableModel.Instance.ApplyFilter();
             }
         }
 
@@ -1192,49 +1189,25 @@ namespace Simulator_MPSA
         /// <param name="e"></param>
         private void MenuItem_toggleAddr(object sender, RoutedEventArgs e)
         {
-            MenuItem_showAddr.IsChecked = !MenuItem_showAddr.IsChecked;
-            Visibility visibility = MenuItem_showAddr.IsChecked ? Visibility.Visible : Visibility.Collapsed;
-            DataGridAI_Addr.Visibility = visibility;
-            DataGridAI_OPC.Visibility = visibility;
-            DataGridAI_Type.Visibility = visibility;
+            /*    MenuItem_showAddr.IsChecked = !MenuItem_showAddr.IsChecked;
+                Visibility visibility = MenuItem_showAddr.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+                DataGridAI_Addr.Visibility = visibility;
+                DataGridAI_OPC.Visibility = visibility;
+                DataGridAI_Type.Visibility = visibility;
 
-            dataGridDI_Addr.Visibility = visibility;
-            dataGridDI_Bit.Visibility = visibility;
-            dataGridDI_OPC.Visibility = visibility;
+                dataGridDI_Addr.Visibility = visibility;
+                dataGridDI_Bit.Visibility = visibility;
+                dataGridDI_OPC.Visibility = visibility;
 
-            dataGridDO_Addr.Visibility = visibility;
-            dataGridDO_Bit.Visibility = visibility;
-            dataGridDO_OPC.Visibility = visibility;
+                dataGridDO_Addr.Visibility = visibility;
+                dataGridDO_Bit.Visibility = visibility;
+                dataGridDO_OPC.Visibility = visibility;
 
-            DataGridAO_Addr.Visibility = visibility;
-            DataGridAO_OPC.Visibility = visibility;
-            
+                DataGridAO_Addr.Visibility = visibility;
+                DataGridAO_OPC.Visibility = visibility;*/
+
         }
-        /*
-         * 
-                private void MenuItem_toggleCounters(object sender, RoutedEventArgs e)
-                {
-                    MenuItem_showCounters.IsChecked = !MenuItem_showCounters.IsChecked;
 
-                    Sett.Instance.ShowTab_Counter = MenuItem_showCounters.IsChecked;
-
-                    if (!MenuItem_showCounters.IsChecked)
-                        tabDiagUSO.Visibility = Visibility.Collapsed;
-                    else
-                        tabDiagUSO.Visibility = Visibility.Visible;
-                }
-
-                private void MenuItem_toggleDiags(object sender, RoutedEventArgs e)
-                {
-                    MenuItem_showDiag.IsChecked = !MenuItem_showDiag.IsChecked;
-
-                    Sett.Instance.ShowTab_Diag = MenuItem_showDiag.IsChecked;
-                    if (!MenuItem_showDiag.IsChecked)
-                        tabDiagMod.Visibility = Visibility.Collapsed;
-                    else
-                        tabDiagUSO.Visibility = Visibility.Visible;
-                }
-                */
         private void MenuItem_toggleZD(object sender, RoutedEventArgs e)
         {
             MenuItem_showZD.IsChecked = !MenuItem_showZD.IsChecked;
@@ -1258,10 +1231,10 @@ namespace Simulator_MPSA
                     editor.Close();
 
                 editor = new ScriptEditor(script);
-                    
+
                 editor.Show();
             }
-           
+
         }
 
         private void ScriptMenu_RunClick(object sender, RoutedEventArgs e)
@@ -1270,7 +1243,7 @@ namespace Simulator_MPSA
 
             if (script != null)
             {
-                
+
                 script.Prepare();
                 script.En = true;
                 //    script.Run(0, true);
@@ -1283,7 +1256,7 @@ namespace Simulator_MPSA
             if (script != null)
             {
                 script.Prepare();
-                script.Run(0,true);
+                script.Run(0, true);
             }
         }
 
@@ -1315,7 +1288,7 @@ namespace Simulator_MPSA
 
             label_filename.Content = "";
             //LogViewModel.WriteLine("Новая конфигурация создана");
-            log.AppendText("Новая конфигурация создана"+Environment.NewLine);
+            log.AppendText("Новая конфигурация создана" + Environment.NewLine);
         }
 
         private void Menu_Export(object sender, RoutedEventArgs e)
@@ -1324,41 +1297,20 @@ namespace Simulator_MPSA
             sfd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-               // Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
+                // Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
                 CSVWorker.exportCSV(Station.instance, sfd.FileName);
             }
         }
 
-      /*  private void Menu_Import(object sender, RoutedEventArgs e)
-        {
-            DIStruct.EnableAutoIndex = false;
-            DOStruct.EnableAutoIndex = false;
-            AOStruct.EnableAutoIndex = false;
-            AIStruct.EnableAutoIndex = false;
-
-            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-            ofd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
-            if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                CSVWorker.importCSV(ofd.FileName);
-            }
-
-            DIStruct.EnableAutoIndex = true;
-            DOStruct.EnableAutoIndex = true;
-            AOStruct.EnableAutoIndex = true;
-            AIStruct.EnableAutoIndex = true;
-
-        }
-        */
         StationSetup setupWindow;
-        private string currentFileName="";
+        private string currentFileName = "";
 
         private void MenuItem_Sim_Click(object sender, RoutedEventArgs e)
         {
             setupWindow = new StationSetup();
             setupWindow.ShowDialog();
             setupWindow.Closed += SetupWindow_Closed;
- 
+
         }
 
         private void SetupWindow_Closed(object sender, EventArgs e)
@@ -1404,8 +1356,8 @@ namespace Simulator_MPSA
 
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
         {
-            if (Process.GetProcessesByName("hh").Length ==0)
-            Process.Start("SimHelp.chm");
+            if (Process.GetProcessesByName("hh").Length == 0)
+                Process.Start("SimHelp.chm");
         }
 
 
@@ -1456,12 +1408,17 @@ namespace Simulator_MPSA
         }
         #endregion
 
+        /// <summary>
+        /// проверка
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCheck_Click(object sender, RoutedEventArgs e)
         {
             string report = "";
 
             if (DIStruct.items != null && DIStruct.items.Count > 0)
-                for (int i = 0; i < DIStruct.items.Count();i++)
+                for (int i = 0; i < DIStruct.items.Count(); i++)
                 {
                     if (DIStruct.items[i].indxArrDI != i)
                     {
@@ -1471,7 +1428,7 @@ namespace Simulator_MPSA
                 }
 
             if (DOStruct.items != null && DOStruct.items.Count > 0)
-                for (int i = 0; i < DOStruct.items.Count();i++)
+                for (int i = 0; i < DOStruct.items.Count(); i++)
                 {
                     if (DOStruct.items[i].indxArrDO != i)
                     {
@@ -1504,16 +1461,16 @@ namespace Simulator_MPSA
                 foreach (DIStruct item in DIStruct.items)
                 {
                     if ((item.PLCAddr < Sett.Instance.BegAddrW || item.PLCAddr >= (Sett.Instance.BegAddrW + Sett.Instance.wrBufSize)) &&
-                        (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr>=(Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
+                        (item.PLCAddr < Sett.Instance.iBegAddrA3 || item.PLCAddr >= (Sett.Instance.iBegAddrA3 + Sett.Instance.A3BufSize)) &&
                         (item.PLCAddr < Sett.Instance.iBegAddrA4 || item.PLCAddr >= (Sett.Instance.iBegAddrA4 + Sett.Instance.A4BufSize)) &&
-                        item.OPCtag=="")
+                        item.OPCtag == "")
                         report += "Адрес сигнала " + "\"" + item.NameDI + "\"" + " не попадает ни в один из буферов записи" + Environment.NewLine;
                 }
 
             if (DOStruct.items != null && DOStruct.items.Count > 0)
                 foreach (DOStruct item in DOStruct.items)
                 {
-                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag=="")
+                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag == "")
                         report += "Адрес сигнала " + "\"" + item.NameDO + "\"" + " не попадает в буфер чтения" + Environment.NewLine;
                 }
 
@@ -1530,8 +1487,8 @@ namespace Simulator_MPSA
             if (AOStruct.items != null && AOStruct.items.Count > 0)
                 foreach (AOStruct item in AOStruct.items)
                 {
-                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag=="")
-                        report += "Адрес сигнала " +"\""+ item.Name +"\"" + " не попадает в буфер чтения" + Environment.NewLine;
+                    if ((item.PLCAddr < Sett.Instance.BegAddrR || item.PLCAddr >= (Sett.Instance.BegAddrR + Sett.Instance.rdBufSize)) && item.OPCtag == "")
+                        report += "Адрес сигнала " + "\"" + item.Name + "\"" + " не попадает в буфер чтения" + Environment.NewLine;
                 }
 
             if (report == "")
@@ -1542,7 +1499,7 @@ namespace Simulator_MPSA
                 writer.WriteLine(report);
                 writer.Close();
 
-                if (System.Windows.MessageBox.Show("Обнаружены ошибки, открыть отчет?", "", MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+                if (System.Windows.MessageBox.Show("Обнаружены ошибки, открыть отчет?", "", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
                     Process.Start("checkReport.txt");
                 }
@@ -1553,9 +1510,9 @@ namespace Simulator_MPSA
         {
             // <DIViewModel> items = (dataGridDI.SelectedItems as IList<DIViewModel>);
             List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
-            if (items!=null)
-            foreach (DIViewModel item in items)
-                item.ForcedValue = true;
+            if (items != null)
+                foreach (DIViewModel item in items)
+                    item.ForcedValue = true;
         }
 
         private void DIMenu_reset_click(object sender, RoutedEventArgs e)
@@ -1564,16 +1521,9 @@ namespace Simulator_MPSA
             List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
             if (items != null)
                 foreach (DIViewModel item in items)
-                item.ForcedValue = false;
+                    item.ForcedValue = false;
         }
-        private void DIMenu_ADDItem_Click(object sender, RoutedEventArgs e)
-        {
-            List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
-            if (items != null)
-                foreach (DIViewModel item in items)
-                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
-                  //  watchViewModel.Items.Add(new WatchItemViewModel(item.GetModel()));
-        }
+
         //================================================   ИМПОРТ ИЗ ФАЙЛА ПЕРЕМЕННЫХ ==============================================================================
 
 
@@ -1582,12 +1532,12 @@ namespace Simulator_MPSA
             System.Windows.Forms.OpenFileDialog fd = new System.Windows.Forms.OpenFileDialog();
             if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                string conString =ExcelImporter.GetConnectionString(fd.FileName);
-                conString.Replace("\\","\\\\");
+                string conString = ExcelImporter.GetConnectionString(fd.FileName);
+                conString.Replace("\\", "\\\\");
                 //LogViewModel.WriteLine("Открываю файл переменных: " + conString);
-                log.AppendText("Открываю файл переменных: " + conString + " ..."+Environment.NewLine);
+                log.AppendText("Открываю файл переменных: " + conString + " ..." + Environment.NewLine);
                 ExcelImporter.ReadExcelFile(conString);
-            
+
             }
         }
 
@@ -1600,7 +1550,7 @@ namespace Simulator_MPSA
             catch
             { }
         }
-
+        #region СОБЫТИЯ ФИЛЬТРЫ
         private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -1664,10 +1614,19 @@ namespace Simulator_MPSA
                 dovm.TagFilter = textBoxDOTagFilter.Text;
             }
         }
-
+        #endregion
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+        #region ADD ITEM
+        private void DIMenu_ADDItem_Click(object sender, RoutedEventArgs e)
+        {
+            List<DIViewModel> items = dataGridDI.SelectedItems.Cast<DIViewModel>().ToList();
+            if (items != null)
+                foreach (DIViewModel item in items)
+                    WatchItem.Items.Add(new WatchItem(item.GetModel()));
+            //  watchViewModel.Items.Add(new WatchItemViewModel(item.GetModel()));
         }
 
         private void AIMenu_ADDItem_Click(object sender, RoutedEventArgs e)
@@ -1693,16 +1652,100 @@ namespace Simulator_MPSA
                 foreach (DOViewModel item in items)
                     WatchItem.Items.Add(new WatchItem(item.GetModel()));
         }
-
+        #endregion
         private void MenuItem_ChangeDev_Click(object sender, RoutedEventArgs e)
         {
             ChangeDevDialog dialog = new ChangeDevDialog();
             dialog.ShowDialog();
         }
 
+        private void SetOnTop(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
 
+        private void UnsetOnTop(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
 
+        /// <summary>
+        /// скрыть столбцы с адресами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void HideColumns(object sender, RoutedEventArgs e)
+        {
+            DataGridAI_Addr.Visibility = Visibility.Collapsed;
+            DataGridAI_OPC.Visibility = Visibility.Collapsed;
+            DataGridAI_Type.Visibility = Visibility.Collapsed;
 
+            dataGridDI_Addr.Visibility = Visibility.Collapsed;
+            dataGridDI_Bit.Visibility = Visibility.Collapsed;
+            dataGridDI_OPC.Visibility = Visibility.Collapsed;
+
+            dataGridDO_Addr.Visibility = Visibility.Collapsed;
+            dataGridDO_Bit.Visibility = Visibility.Collapsed;
+            dataGridDO_OPC.Visibility = Visibility.Collapsed;
+
+            DataGridAO_Addr.Visibility = Visibility.Collapsed;
+            DataGridAO_OPC.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// показать столбцы с адресами
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ShowColumns(object sender, RoutedEventArgs e)
+        {
+            DataGridAI_Addr.Visibility = Visibility.Visible;
+            DataGridAI_OPC.Visibility = Visibility.Visible;
+            DataGridAI_Type.Visibility = Visibility.Visible;
+
+            dataGridDI_Addr.Visibility = Visibility.Visible;
+            dataGridDI_Bit.Visibility = Visibility.Visible;
+            dataGridDI_OPC.Visibility = Visibility.Visible;
+
+            dataGridDO_Addr.Visibility = Visibility.Visible;
+            dataGridDO_Bit.Visibility = Visibility.Visible;
+            dataGridDO_OPC.Visibility = Visibility.Visible;
+
+            DataGridAO_Addr.Visibility = Visibility.Visible;
+            DataGridAO_OPC.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// блокировка некоторых элементов интерфейса на время работы симулятора
+        /// </summary>
+        bool IsSimulationActive
+        {
+            set
+            {
+                dataGridAI.CanUserDeleteRows = !value;
+                dataGridDI.CanUserDeleteRows = !value;
+                dataGridDO.CanUserDeleteRows = !value;
+                dataGridAO.CanUserDeleteRows = !value;
+
+                menu_import_csv.IsEnabled = !value;
+                menu_import_xlsx.IsEnabled = !value;
+
+                menu_new.IsEnabled = !value;
+                menu_open.IsEnabled = !value;
+
+                btnNew.IsEnabled = !value;
+                btnOpen.IsEnabled = !value;
+
+                DataGridAI_OPC.IsReadOnly = value;
+                DataGridAO_OPC.IsReadOnly = value;
+
+                dataGridDI_OPC.IsReadOnly = value;
+                dataGridDO_OPC.IsReadOnly = value;
+
+                MenuItem_Sim.IsEnabled = !value;
+                MenuItem_ChangeDev.IsEnabled = !value;
+            }
+        }
 
 
 

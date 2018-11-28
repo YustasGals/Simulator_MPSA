@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -26,7 +27,9 @@ namespace Simulator_MPSA
 
             var version = Assembly.GetExecutingAssembly().GetName().Version;
             var buildDate = new DateTime(2000, 1, 1).AddDays(version.Build).AddSeconds(version.Revision * 2);
-            infoBox.Text = "Версия: " + "1.1.1001" + Environment.NewLine + "Дата сборки " + buildDate.ToString();
+
+            ///версия файла задается в настройках проекта, либо файл AssemblyInfo.cs
+            infoBox.Text = "Версия: " + FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).FileVersion + Environment.NewLine;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

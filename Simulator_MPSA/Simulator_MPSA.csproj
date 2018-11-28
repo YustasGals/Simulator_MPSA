@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simulator_MPSA</RootNamespace>
     <AssemblyName>Simulator_MPSA</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -94,20 +94,21 @@
       <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpcComRcw">
-      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcComRcw.dll</HintPath>
+    <Reference Include="OpcComRcw, Version=2.0.105.1, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>D:\downloads\OPC rustam\OpcComRcw.dll</HintPath>
     </Reference>
     <Reference Include="OpcNetApi, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.dll</HintPath>
+      <HintPath>D:\downloads\OPC rustam\OpcNetApi.dll</HintPath>
     </Reference>
     <Reference Include="OpcNetApi.Com, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.Com.dll</HintPath>
+      <HintPath>D:\downloads\OPC rustam\OpcNetApi.Com.dll</HintPath>
     </Reference>
     <Reference Include="OpcNetApi.Xml, Version=2.0.1.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Users\user\Downloads\OPC rustam\OpcNetApi.Xml.dll</HintPath>
+      <HintPath>D:\downloads\OPC rustam\OpcNetApi.Xml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -388,6 +389,12 @@
   <ItemGroup>
     <Resource Include="IMG\icons8-minus-gray.png" />
     <Resource Include="IMG\icons8-minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-bring-to-front-48.png" />
+    <Resource Include="IMG\icons8-select-column-48.png" />
+    <Resource Include="IMG\new_gray.png" />
+    <Resource Include="IMG\open_gray.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
