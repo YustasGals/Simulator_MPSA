@@ -28,7 +28,7 @@ namespace Simulator_MPSA.CL
 
         int period;
         string fullServerName;
-      //  int i;
+        int i;
         private DOStruct[] arrayDO;         //массив сигналов DO считываемых по OPC
         private AOStruct[] arrayAO;         //массив сигналов AO считываемых по OPC
 
@@ -94,7 +94,7 @@ namespace Simulator_MPSA.CL
                 }
                     
             }
-            catch
+            catch (Exception ex)
             {
                 if (refMainWindow != null)
                     refMainWindow.Dispatcher.Invoke(refMainWindow.ofsFail);
@@ -143,7 +143,7 @@ namespace Simulator_MPSA.CL
                             {
                                 arrayDO[i].ValDO = (bool)readResult[i].Value;
                             }
-                            catch
+                            catch (Exception ex)
                             {
                             }
                         }
@@ -168,14 +168,18 @@ namespace Simulator_MPSA.CL
                                 else
                                     arrayAO[i].fVal = (float)readResult[i].Value;
                             }
-                            catch 
+                            catch (Exception ex)
                             {
                             }
                         }
                         Debug.WriteLine(opcAOItemsForRead.Length.ToString() + " AO tags read");
                     }
                 }
-                catch 
+                catch (ThreadAbortException abEx)
+                {
+                    //     Debug.WriteLine("data wasn't write cause thread aborted");
+                }
+                catch (Exception ex)
                 {
                     //System.Windows.Forms.MessageBox.Show("OPC Thread exception:\n\r" + ex.Message);
                     //  LogWriter.AppendLog("Чтение по OPC прервано"+Environment.NewLine);

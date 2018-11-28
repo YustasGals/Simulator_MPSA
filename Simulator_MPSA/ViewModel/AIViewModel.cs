@@ -52,7 +52,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.ForcedValue = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch 
+                catch (Exception e)
                 {
                     ai.ForcedValue = 0;
                 }
@@ -109,7 +109,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.minPhis = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch 
+                catch (Exception e)
                 {
                     ai.minPhis = 0f;
                 }
@@ -124,7 +124,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.maxPhis = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch
+                catch (Exception ex)
                 {
                     ai.maxPhis = 0f;
                 }

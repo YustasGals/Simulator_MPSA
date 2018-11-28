@@ -49,7 +49,7 @@ namespace Simulator_MPSA.CL
             get { return !value && preVal; }
         }
 
-        public EventHandler OnFront = delegate { };
-        public EventHandler OnFall = delegate{};
+        public EventHandler OnFront;
+        public EventHandler OnFall;
     }
 }

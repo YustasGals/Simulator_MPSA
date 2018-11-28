@@ -151,7 +151,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     model.ForceValue = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch
+                catch (Exception e)
                 {
                     model.ForceValue = 0;
                 }

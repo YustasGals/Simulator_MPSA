@@ -113,7 +113,7 @@ namespace Simulator_MPSA.ViewModel
 
                         }
                     }
-                    catch 
+                    catch (Exception ex)
                     {
                         
                     }
@@ -145,7 +145,7 @@ namespace Simulator_MPSA.ViewModel
                     }
 
                 }
-                catch
+                catch(Exception e)
                 {
                     //на случай если элемента не оказалось в массиве
                 }
@@ -198,7 +198,7 @@ namespace Simulator_MPSA.ViewModel
                     }
 
                 }
-                catch
+                catch (Exception e)
                 {
                     //на случай если элемента не оказалось в массиве
                 }
@@ -245,7 +245,7 @@ namespace Simulator_MPSA.ViewModel
 
                     }
                 }
-                catch 
+                catch (Exception e)
                 { }
                 return "";
             }
@@ -268,7 +268,7 @@ namespace Simulator_MPSA.ViewModel
 
                     }
                 }
-                catch
+                catch (Exception e)
                 { }
                 return "";
             }
@@ -299,7 +299,7 @@ namespace Simulator_MPSA.ViewModel
 
                     }
                 }
-                catch 
+                catch (Exception e)
                 { }
                 return "";
             }

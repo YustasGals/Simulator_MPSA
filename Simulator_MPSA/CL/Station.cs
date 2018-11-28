@@ -45,9 +45,6 @@ namespace Simulator_MPSA.CL
         { set
             { currentConfigVersion = value; } get { return currentConfigVersion; } }
 
-        /// <summary>
-        /// не используется
-        /// </summary>
         private static int currentConfigVersion;
 
         public Station()
@@ -100,7 +97,7 @@ namespace Simulator_MPSA.CL
         {
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
-          //  System.IO.StreamReader reader = null;
+            System.IO.StreamReader reader = null;
             FileStream stream = null;
 
             stream = File.OpenRead(filename);

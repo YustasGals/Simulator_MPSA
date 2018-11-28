@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Simulator_MPSA</RootNamespace>
     <AssemblyName>Simulator_MPSA</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -149,7 +149,6 @@
     <Compile Include="CL\Commands\ImportAICommand.cs" />
     <Compile Include="CL\Commands\ImportAOCommand.cs" />
     <Compile Include="CL\Commands\ImportDOCommand.cs" />
-    <Compile Include="CL\Commands\OpenCommand.cs" />
     <Compile Include="CL\DIItem.cs" />
     <Compile Include="CL\EBool.cs" />
     <Compile Include="CL\ExcelImporter\ExcelImporter.cs" />
@@ -384,21 +383,11 @@
     <Resource Include="IMG\icons-hand-with-pen.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="IMG\Jdun.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="IMG\icons8-minus-gray.png" />
     <Resource Include="IMG\icons8-minus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="IMG\icons8-select-column-48.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="IMG\new_gray.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="IMG\open_gray.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
