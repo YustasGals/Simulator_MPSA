@@ -1,0 +1,147 @@
+ ''' <summary>
+  ''' Читает блоки из контроллера
+  ''' </summary>
+  ''' <remarks>
+  ''' В случае ошибки чтения не считывает повторно, а возвращает как есть
+  ''' Нумерация blkStart начинается с 0
+  ''' </remarks>
+  Private Sub ReadBlocks(ByRef msgGrp As PLCMsgGroup, blkStart As Integer, blkCnt As Integer, ByRef OPCSrvr As Opc.Da.Server)
+    Dim opcItm() As Opc.Da.Item = Nothing, res() As Opc.Da.ItemValueResult
+    Dim blkEnd As Integer, blksRead As Integer, blkNum As Integer, errStr As String = "", errCode As UInteger = 0
+    Dim OneMoreRead As Boolean = False
+
+    ' Инициализируем сервер
+    Try
+      If OPCSrvr Is Nothing Then
+        OPCSrvr = New Opc.Da.Server(New OpcCom.Factory(), New Opc.URL("opcda://localhost/" & msgGrp.AddrType(1)))
+        OPCSrvr.Connect()
+      End If
+    Catch ex As Exception
+      dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString &
+                ". Ошибка поключения к OPC Серверу " & msgGrp.AddrType(1) &
+                ". " & ex.Message, Services.MsgTypes.MsgError)
+      AT_CloseOPCServer(OPCSrvr)
+      Return                                                        ' Не удалось инициализировать сервер
+    End Try
+
+    ' Читаем по кругу (при достижении последнего блока, начинаем чтение с первого - кольцевой буфер)
+    blkEnd = blkStart + blkCnt - 1
+
+    Try
+      While blkStart <= blkEnd
+        If m_IsExit Then Return
+
+        blksRead = Math.Min(msgGrp.MaxBlocksPerCycle, blkEnd - blkStart + 1) ' Сколько блоков прочитать
+
+        ' Читаем блоки
+        If OPCSrvr IsNot Nothing Then
+          Try
+            ' Готовим данные
+            If opcItm Is Nothing OrElse opcItm.Length <> blksRead Then
+              ReDim opcItm(blksRead - 1)
+
+              For i = 0 To blksRead - 1
+                opcItm(i) = New Opc.Da.Item
+              Next
+            End If
+
+            For i = 0 To blksRead - 1
+              blkNum = (blkStart + i) Mod msgGrp.BlocksCount
+              opcItm(i).ItemName = msgGrp.AddrType(2) & msgGrp.Blocks(blkNum).BlockVar
+            Next
+
+            Do                                                        ' Может быть несколько попыток чтения
+              If m_IsExit Then Return
+
+              OneMoreRead = False                                     ' В случае определенных ошибок повторяем чтение блоков
+              res = OPCSrvr.Read(opcItm)                              ' Чтение данных из ПЛК
+              If m_IsExit Then Return
+
+              For i = 0 To res.Count - 1
+                blkNum = (blkStart + i) Mod msgGrp.BlocksCount
+
+                If opcItm(i).ItemName = "" Then Continue For
+
+                If res(i).ResultID <> Opc.ResultID.S_OK Then            ' Ошибка чтения
+                  dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString &
+                            ". Ошибка чтения " & res(i).ItemName &
+                            ". " & OPCSrvr.GetErrorText("en-US", res(i).ResultID), Services.MsgTypes.MsgError)
+                  opcItm(i).ItemName = ""
+                ElseIf res(i).Quality.GetCode <> 192 Then               ' Данные с плохим качеством
+                  dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString &
+                            ". Ошибка чтения " & res(i).ItemName &
+                            ". Плохое качество данных. Quality " & res(i).Quality.GetCode, Services.MsgTypes.MsgError)
+                  opcItm(i).ItemName = ""
+                Else                                                    ' Чтение успешно
+                  Dim isChanged As Boolean, isCompleted As Boolean, isCorrect As Boolean
+
+                  isChanged = BlockChanged(msgGrp.Blocks(blkNum).RawMem, res(i).Value)  ' Сравниваем новые и старые данные блока
+
+                  If isChanged Then             ' Новые данные отличаются от текущих
+                    isCorrect = CheckBlock(msgGrp, blkNum, res(i).Value, isCompleted, errStr, errCode)
+
+                    If Not isCorrect Then
+                      If errStr <> "" Then
+                        If errCode <= 10 OrElse msgGrp.Blocks(blkNum).CurrTryNum >= msgGrp.MaxTryNums Then
+                          dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString &
+                                  ". Обнаружена ошибка проверки блока " & msgGrp.Blocks(blkNum).BlockVar &
+                                  ". " & errStr & ". Произведено попыток чтения: " & msgGrp.Blocks(blkNum).CurrTryNum, Services.MsgTypes.MsgError)
+
+                          msgGrp.Blocks(blkNum).CurrTryNum = 0
+                        Else
+                          msgGrp.Blocks(blkNum).CurrTryNum += 1
+
+                          dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString &
+                                  ". Обнаружена ошибка проверки блока " & msgGrp.Blocks(blkNum).BlockVar &
+                                  ". " & errStr & ". Делаем попытку чтения №" & msgGrp.Blocks(blkNum).CurrTryNum, Services.MsgTypes.MsgWarning)
+
+                          OneMoreRead = True
+                          Continue For
+                        End If
+                      End If
+                    Else
+                      ' Сравниваем номера блоков (primary key)
+                      msgGrp.Blocks(blkNum).isNewPK = msgGrp.Blocks(blkNum).PrimaryKey <>
+                                                      ((CUInt(res(i).Value(2)) << 16) Or res(i).Value(1))
+                    End If
+
+                    msgGrp.Blocks(blkNum).RawMem = res(i).Value       ' Считанные данные
+                    msgGrp.Blocks(blkNum).isCorrect = isCorrect
+                    msgGrp.Blocks(blkNum).isCompleted = isCompleted
+                  Else
+                    msgGrp.Blocks(blkNum).isNewPK = False
+                  End If
+
+                  msgGrp.Blocks(blkNum).isChanged = isChanged
+                  opcItm(i).ItemName = ""
+                End If
+              Next
+
+              If OneMoreRead Then Services.WaitForAWhile(msgGrp.SleepTime,, m_IsExit) ' Таймаут между запросами
+            Loop While OneMoreRead                                  ' Делаем новое чтение данных если есть запрос
+
+          Catch ex As Exception                                     ' Скорее всего "упал" OPC сервер
+            dbg.AT_DbgMsg("Группа сообщений " & msgGrp.GrpNum.ToString & ". Ошибка чтения блоков. " & ex.Message, Services.MsgTypes.MsgError)
+            AT_CloseOPCServer(OPCSrvr)                              ' Закрываем OPC сервер
+            Exit While
+          End Try
+        End If
+
+        blkStart += blksRead
+
+        If blkStart <= blkEnd Then Services.WaitForAWhile(msgGrp.SleepTime,, m_IsExit) ' Таймаут между запросами
+      End While
+
+    Finally
+      ' Освобождение памяти
+      If opcItm IsNot Nothing Then
+        For i = 0 To opcItm.Length - 1
+          opcItm(i) = Nothing
+        Next
+
+        opcItm = Nothing
+      End If
+
+      res = Nothing
+    End Try
+  End Sub

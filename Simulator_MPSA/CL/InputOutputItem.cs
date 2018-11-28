@@ -173,7 +173,8 @@ namespace Simulator_MPSA.CL
             }
             set
             {
-                if (_index != value || ai == null)
+                //обновление ссылки на сигнал
+               // if (_index != value || ai == null)
                     if (ai != null)
                         ai.IndexChanged -= Ai_IndexChanged;
 

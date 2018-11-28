@@ -36,7 +36,7 @@ namespace Simulator_MPSA.CL.Commands
                 if (ofd.FileName == null) return;
 
                 System.IO.StreamReader reader = new System.IO.StreamReader(ofd.FileName);
-                int count = 0;
+              //  int count = 0;
                 ReadTableAI(reader);
             }//if OK
 

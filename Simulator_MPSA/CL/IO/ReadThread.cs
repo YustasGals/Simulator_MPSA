@@ -99,12 +99,10 @@ namespace Simulator_MPSA
                         refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
                 catch (Exception ex)
                 {
-                   // System.Windows.MessageBox.Show("Ошибка соединения");
+                    LogWriter.LogWriteLine(ex.Message);
+                    // System.Windows.MessageBox.Show("Ошибка соединения");
                     connectionBroken = true;
                 }
             }
@@ -131,11 +129,9 @@ namespace Simulator_MPSA
                       refMainWindow.Dispatcher.Invoke(refMainWindow.delegateEndRead);*/
                 System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
                 catch (Exception ex)
                 {
+                    LogWriter.LogWriteLine(ex.Message);
                     // System.Windows.MessageBox.Show("Ошибка соединения");
                     connectionBroken = true;
                 }

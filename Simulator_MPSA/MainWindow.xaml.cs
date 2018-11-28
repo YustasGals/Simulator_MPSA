@@ -113,17 +113,29 @@ namespace Simulator_MPSA
         public static ushort usW;
 
     }
+
+    /// <summary>
+    /// запись отладочной информации в журнал, потокобезопасно
+    /// </summary>
     static class LogWriter
     {
-        public static MainWindow refMainWindow;
+        private static MainWindow refMainWindow;
         static DateTime now;
-        public static void AppendLog(string line)
+        public static void Init(MainWindow refWindow)
+        {
+            refMainWindow = refWindow;
+        }
+        /// <summary>
+        /// Записать строку в лог
+        /// </summary>
+        /// <param name="line"></param>
+        public static void LogWriteLine(string line)
         {
             now = DateTime.Now;
             if (refMainWindow != null)
             {
-
-                    refMainWindow.log.AppendText(now.Hour.ToString() + ":" + now.Minute.ToString() + ":" + now.Second.ToString() + ":  " + line + Environment.NewLine);
+                refMainWindow.Dispatcher.Invoke(delegate { refMainWindow.log.AppendText(now.Hour.ToString() + ":" + now.Minute.ToString() + ":" + now.Second.ToString() + ":  " + line + Environment.NewLine); });
+                   
             }
         }
     }
@@ -169,7 +181,7 @@ namespace Simulator_MPSA
 
         //
         List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
-        Opc.Da.ItemValue itm;   
+   //     Opc.Da.ItemValue itm;   
 
         public MainWindow()
         {
@@ -248,38 +260,7 @@ namespace Simulator_MPSA
 
                 writingTime[njob] = DateTime.Now;
             });
-            /*
-            EndCycle2 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[1];
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[1] = DateTime.Now;
-            });
-            EndCycle3 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[2];
-                // StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[2] = DateTime.Now;
-            });
-            EndCycle4 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[3];
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[3] = DateTime.Now;
-            });
-            EndCycle5 += new DEndWrite(() => {
-                TimeSpan ts = DateTime.Now - writingTime[4];
-                StatusW5.Content = ts.TotalSeconds.ToString("F2");
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                writingTime[4] = DateTime.Now;
-            });
-            EndCycle6 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[5];
-                StatusW6.Content = ts.TotalSeconds.ToString("F2");
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                writingTime[6] = DateTime.Now;
-            });*/
-
+           
             ofsFail += new OFSFail(() =>
             {
                 btnStop_Click(null, null);
@@ -287,7 +268,7 @@ namespace Simulator_MPSA
             }
             
             );
-            WriteLog += new DWriteLog((text)=> { LogWriter.AppendLog(text); });
+            WriteLog += new DWriteLog((text)=> { LogWriter.LogWriteLine(text); });
             
 
 
@@ -316,8 +297,8 @@ namespace Simulator_MPSA
 
             configKey.SetValue("ConfigMode", ConfMode);
             //   SetConfigMode(/*ConfMode != 0*/true);
-            LogWriter.refMainWindow = this;
-
+           
+            LogWriter.Init(this);
 
             if (lastFilename != "" && System.IO.File.Exists(lastFilename))
             {
@@ -583,7 +564,7 @@ namespace Simulator_MPSA
             CloseApp();
         }
 
-        bool isConfigLoaded = false;
+        //bool isConfigLoaded = false;
 
 
         /// <summary>
@@ -676,7 +657,7 @@ namespace Simulator_MPSA
                     else
                         tabZD.Visibility = Visibility.Visible;
 
-                    LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
+                    LogWriter.LogWriteLine("Конфигурация загружена" + Environment.NewLine);
                 }
         }
 
@@ -720,9 +701,10 @@ namespace Simulator_MPSA
                 Station s = new Station();
                 //   s.settings = Sett.Instance;
                 s.Save(currentFileName);
-              //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
+                //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
-                log.AppendText("Файл конфигурации сохранен : " + currentFileName +Environment.NewLine);
+                //   log.AppendText();
+                LogWriter.LogWriteLine("Файл конфигурации сохранен : " + currentFileName);
             }
         }
         /// <summary>
@@ -787,11 +769,11 @@ namespace Simulator_MPSA
                     btnStop.IsEnabled = true;
 
                    // LogViewModel.WriteLine("Симулятор запущен");
-                    log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") +Environment.NewLine);
-                    dataGridAI.CanUserDeleteRows = false;
-                    dataGridDI.CanUserDeleteRows = false;
-                    dataGridDO.CanUserDeleteRows = false;
-                    dataGridAO.CanUserDeleteRows = false;
+                    //log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") +Environment.NewLine);
+                    LogWriter.LogWriteLine("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ"));
+
+                    ///ограничение функций на время работы симулятора
+                    DisableEdit();
                 }
             //    else
            //         throw new Exception("Нужно выбрать хотябы один драйвер MBE или OPC");
@@ -876,7 +858,8 @@ namespace Simulator_MPSA
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             // LogViewModel.WriteLine("Симулятор остановлен");
-            log.AppendText("Симулятор остановлен"+Environment.NewLine);
+            //log.AppendText("Симулятор остановлен"+Environment.NewLine);
+            LogWriter.LogWriteLine("Симулятор остановлен");
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
@@ -926,10 +909,8 @@ namespace Simulator_MPSA
 
             //TODO: добавить сброс остальных систем
 
-            dataGridAI.CanUserDeleteRows = true;
-            dataGridDI.CanUserDeleteRows = true;
-            dataGridDO.CanUserDeleteRows = true;
-            dataGridAO.CanUserDeleteRows = true;
+            EnableEdit();
+
         }
 
         private void MenuItem_Click_save(object sender, RoutedEventArgs e)
@@ -1192,9 +1173,9 @@ namespace Simulator_MPSA
         /// <param name="e"></param>
         private void MenuItem_toggleAddr(object sender, RoutedEventArgs e)
         {
-            MenuItem_showAddr.IsChecked = !MenuItem_showAddr.IsChecked;
-            Visibility visibility = MenuItem_showAddr.IsChecked ? Visibility.Visible : Visibility.Collapsed;
-            DataGridAI_Addr.Visibility = visibility;
+         //   MenuItem_showAddr.IsChecked = !MenuItem_showAddr.IsChecked;
+       //     Visibility visibility = MenuItem_showAddr.IsChecked ? Visibility.Visible : Visibility.Collapsed;
+       /*     DataGridAI_Addr.Visibility = visibility;
             DataGridAI_OPC.Visibility = visibility;
             DataGridAI_Type.Visibility = visibility;
 
@@ -1207,7 +1188,7 @@ namespace Simulator_MPSA
             dataGridDO_OPC.Visibility = visibility;
 
             DataGridAO_Addr.Visibility = visibility;
-            DataGridAO_OPC.Visibility = visibility;
+            DataGridAO_OPC.Visibility = visibility;*/
             
         }
         /*
@@ -1701,55 +1682,116 @@ namespace Simulator_MPSA
         }
 
 
+        /// <summary>
+        /// блокировка кнопок на время работы симулятора
+        /// </summary>
+        private void DisableEdit()
+        {
+            ///импорт таблиц 
+            MenuImportCSV.IsEnabled = false;
+            //новая конфига
+            btnNew.IsEnabled = false;
+            MenuNew.IsEnabled = false;
+            //открыть конфиг
+            btnOpen.IsEnabled = false;
+            MenuOpen.IsEnabled = false;
 
+            dataGridAI.CanUserDeleteRows = false;
+            dataGridDI.CanUserDeleteRows = false;
+            dataGridDO.CanUserDeleteRows = false;
+            dataGridAO.CanUserDeleteRows = false;
 
+            //настройки
+            MenuItem_Sim.IsEnabled = false;
+            MenuItem_ChangeDev.IsEnabled = false;
 
+            //запрет на изменение адреса OPC
+            DataGridAI_OPC.IsReadOnly = true;
+            dataGridDI_OPC.IsReadOnly = true;
+            dataGridDO_OPC.IsReadOnly = true;
+            DataGridAO_OPC.IsReadOnly = true;
+        }
 
+        /// <summary>
+        /// Разблокировка кнопок
+        /// </summary>
+        private void EnableEdit()
+        {
+            ///импорт таблиц 
+            MenuImportCSV.IsEnabled = true;
+            //новая конфига
+            btnNew.IsEnabled = true;
+            MenuNew.IsEnabled = true;
+            //открыть конфиг
+            btnOpen.IsEnabled = true;
+            MenuOpen.IsEnabled = true;
 
+            dataGridAI.CanUserDeleteRows = true;
+            dataGridDI.CanUserDeleteRows = true;
+            dataGridDO.CanUserDeleteRows = true;
+            dataGridAO.CanUserDeleteRows = true;
 
-        /*
-                private void dataGridDI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-                {
+            //настройки
+            MenuItem_Sim.IsEnabled = true;
+            MenuItem_ChangeDev.IsEnabled = true;
 
-                    dataGridDI.SelectionChanged += DataGridDI_SelectionChanged;
-                }
+            //снять запрет на изменение адреса OPC
+            DataGridAI_OPC.IsReadOnly = false;
+            dataGridDI_OPC.IsReadOnly = false;
+            dataGridDO_OPC.IsReadOnly = false;
+            DataGridAO_OPC.IsReadOnly = false;
+        }
 
-                private void DataGridDI_SelectionChanged(object sender, SelectionChangedEventArgs e)
-                {
-                    dataGridDI.SelectionChanged -= DataGridDI_SelectionChanged;
+        private void ButtonSwitchColumns_Click(object sender, RoutedEventArgs e)
+        {
 
-                    if (dataGridDI.SelectedCells[0].Column.Header == DatagridDI_Val.Header)
-                    {
-                        DIViewModel item = (dataGridDI.SelectedItem as DIViewModel);
-                        if (item != null)
-                            item.ForcedValue = !item.ForcedValue;
-                    }
+        }
 
-                }
+        private void SetOnTop(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = true;
+        }
 
-                private void Cell_Click(object sender, MouseButtonEventArgs e)
-                {
-                    // execute some code
-                }*/
+        private void UnsetOnTop(object sender, RoutedEventArgs e)
+        {
+            this.Topmost = false;
+        }
 
-        /*
-private void dataGridAI_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-{
-   System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
-   DataGridRow dgr = (DataGridRow)(dg.ItemContainerGenerator.ContainerFromIndex(dg.SelectedIndex));
-   if (e.Key == Key.Delete && !dgr.IsEditing)
-   {
+        private void ButtonHideAddr(object sender, RoutedEventArgs e)
+        {
+            DataGridAI_Addr.Visibility = Visibility.Hidden;
+            DataGridAI_OPC.Visibility = Visibility.Hidden;
+            DataGridAI_Type.Visibility = Visibility.Hidden;
 
-       var result = System.Windows.MessageBox.Show(
-           "About to delete the current row.\n\nProceed?",
-           "Delete",
-           MessageBoxButton.YesNo,
-           MessageBoxImage.Question,
-           MessageBoxResult.No);
-       e.Handled = (result == MessageBoxResult.No);
-   }
+            dataGridDI_Addr.Visibility = Visibility.Hidden;
+            dataGridDI_Bit.Visibility = Visibility.Hidden;
+            dataGridDI_OPC.Visibility = Visibility.Hidden;
 
-}*/
+            dataGridDO_Addr.Visibility = Visibility.Hidden;
+            dataGridDO_Bit.Visibility = Visibility.Hidden;
+            dataGridDO_OPC.Visibility = Visibility.Hidden;
+
+            DataGridAO_Addr.Visibility = Visibility.Hidden;
+            DataGridAO_OPC.Visibility = Visibility.Hidden;
+        }
+
+        private void ButtonShowAddr(object sender, RoutedEventArgs e)
+        {
+            DataGridAI_Addr.Visibility = Visibility.Visible;
+            DataGridAI_OPC.Visibility = Visibility.Visible;
+            DataGridAI_Type.Visibility = Visibility.Visible;
+
+            dataGridDI_Addr.Visibility = Visibility.Visible;
+            dataGridDI_Bit.Visibility = Visibility.Visible;
+            dataGridDI_OPC.Visibility = Visibility.Visible;
+
+            dataGridDO_Addr.Visibility = Visibility.Visible;
+            dataGridDO_Bit.Visibility = Visibility.Visible;
+            dataGridDO_OPC.Visibility = Visibility.Visible;
+
+            DataGridAO_Addr.Visibility = Visibility.Visible;
+            DataGridAO_OPC.Visibility = Visibility.Visible;
+        }
     }
 
     class MainViewModel

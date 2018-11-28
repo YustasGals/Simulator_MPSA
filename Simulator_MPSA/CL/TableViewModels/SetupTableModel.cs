@@ -676,7 +676,7 @@ namespace Simulator_MPSA.CL
 
                 }
             }
-            catch (Exception e)
+            catch 
             {
                 foreach (AnalogIOItem itm in list.Cast<AnalogIOItem>())
                 {

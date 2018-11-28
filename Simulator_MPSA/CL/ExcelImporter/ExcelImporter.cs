@@ -147,7 +147,7 @@ namespace Simulator_MPSA
                         NSign = (int)((double)dt.Rows[i].ItemArray[8]);
                     else NSign = 0;
                 }
-                catch (Exception ex)
+                catch 
                 {
                 }
 
@@ -155,7 +155,7 @@ namespace Simulator_MPSA
                 {
                     tagName = (string)dt.Rows[i].ItemArray[4];
                 }
-                catch (Exception ex)
+                catch
                 {
                     tagName = "";
                 }
@@ -164,7 +164,7 @@ namespace Simulator_MPSA
                 {
                     signalName = (string)dt.Rows[i].ItemArray[5];
                 }
-                catch (Exception ex)
+                catch
                 {
                     signalName = "";
                 }
@@ -504,7 +504,7 @@ namespace Simulator_MPSA
             int shiftDOlink = 4000; //ссылки на DO смещаются на 4000
 
             //наименования используемых таблиц
-            string tableName = "Настр. клапанов";
+            //string tableName = "Настр. клапанов";
             string DITableName = "DI клапанов";
             string DOTableName = "DO клапанов";
 
