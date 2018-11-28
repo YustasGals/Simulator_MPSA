@@ -647,6 +647,7 @@ namespace Simulator_MPSA
             bsOnTimer = new Timer(BSOnTime);
             bsOffTimer = new Timer(BSOffTime);
             manualStopTimer = new Timer(noVoltTime);
+            manualStopTimer.Enabled = false;
 
 
             manualStopTimer.Elapsed += (sender, e) => { flagManualStop = false; };
@@ -678,6 +679,9 @@ namespace Simulator_MPSA
             if (controledAIs != null && controledAIs.Count() > 0)
                 foreach (AnalogIOItem item in controledAIs)
                     item.Index = item._index;
+
+            prevBSState = (BSVoltage != false);
+            corrBSState = (BSVoltage != false);
         }
 
         #region ТАЙМЕРЫ
