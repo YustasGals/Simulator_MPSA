@@ -22,5 +22,53 @@ namespace Simulator_MPSA.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        public string ModbusIPAddr {
+            get {
+                return ((string)(this["ModbusIPAddr"]));
+            }
+            set {
+                this["ModbusIPAddr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("PLC")]
+        public string OPCDevice {
+            get {
+                return ((string)(this["OPCDevice"]));
+            }
+            set {
+                this["OPCDevice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("opcda://localhost/")]
+        public string OPCAddr {
+            get {
+                return ((string)(this["OPCAddr"]));
+            }
+            set {
+                this["OPCAddr"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Schneider-Aut.OFS")]
+        public string OPCServerName {
+            get {
+                return ((string)(this["OPCServerName"]));
+            }
+            set {
+                this["OPCServerName"] = value;
+            }
+        }
     }
 }

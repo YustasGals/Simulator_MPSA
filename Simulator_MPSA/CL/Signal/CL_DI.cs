@@ -64,7 +64,7 @@ namespace Simulator_MPSA.CL.Signal
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as DIStruct).indxArrDI = items.Count - 1;
-                    LogWriter.AppendLog("Добавлен сигнал DI: " + (e.NewItems[0] as DIStruct).NameDI + Environment.NewLine);
+                   // LogWriter.AppendLog("Добавлен сигнал DI: " + (e.NewItems[0] as DIStruct).NameDI);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -77,7 +77,7 @@ namespace Simulator_MPSA.CL.Signal
                                i++;
                            }
                        }*/
-                    LogWriter.AppendLog("Удален сигнал DI: " + (e.OldItems[0] as DIStruct).NameDI + Environment.NewLine);
+                    LogWriter.AppendLog("Удален сигнал DI: " + (e.OldItems[0] as DIStruct).NameDI);
                     for (int i = 0; i < items.Count; i++)
                     {
                         items[i].indxArrDI = i;

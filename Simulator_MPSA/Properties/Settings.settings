@@ -1,7 +1,18 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Simulator_MPSA.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ModbusIPAddr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">127.0.0.1</Value>
+    </Setting>
+    <Setting Name="OPCDevice" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PLC</Value>
+    </Setting>
+    <Setting Name="OPCAddr" Type="System.String" Scope="User">
+      <Value Profile="(Default)">opcda://localhost/</Value>
+    </Setting>
+    <Setting Name="OPCServerName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Schneider-Aut.OFS</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

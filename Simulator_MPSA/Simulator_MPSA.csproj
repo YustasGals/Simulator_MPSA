@@ -139,6 +139,9 @@
     <Compile Include="AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppSettings.xaml.cs">
+      <DependentUpon>AppSettings.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ChangeDevDialog.xaml.cs">
       <DependentUpon>ChangeDevDialog.xaml</DependentUpon>
     </Compile>
@@ -166,9 +169,7 @@
     <Compile Include="CL\Signal\Common\IndexChangedEventArgs.cs" />
     <Compile Include="CL\TableViewModels\ScriptTableViewModel.cs" />
     <Compile Include="CL\WatchItem.cs" />
-    <Compile Include="Log.xaml.cs">
-      <DependentUpon>Log.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="StationSetup.xaml.cs">
       <DependentUpon>StationSetup.xaml</DependentUpon>
     </Compile>
@@ -211,6 +212,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AppSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ChangeDevDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -220,10 +225,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CL\IO\ImportDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Log.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -395,6 +396,9 @@
     <Resource Include="IMG\icons8-select-column-48.png" />
     <Resource Include="IMG\new_gray.png" />
     <Resource Include="IMG\open_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="IMG\icons8-support-48.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

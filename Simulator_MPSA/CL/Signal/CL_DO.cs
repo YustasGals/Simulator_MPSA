@@ -61,7 +61,7 @@ namespace Simulator_MPSA.CL.Signal
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Add:
                     for (int i = 0; i < e.NewItems.Count; i++)
                         (e.NewItems[0] as DOStruct).indxArrDO = items.Count - 1;
-                    LogWriter.AppendLog("Добавлен сигнал DO: "+(e.NewItems[0] as DOStruct).NameDO+Environment.NewLine);
+                   // LogWriter.AppendLog("Добавлен сигнал DO: "+(e.NewItems[0] as DOStruct).NameDO+Environment.NewLine);
                     break;
 
                 case System.Collections.Specialized.NotifyCollectionChangedAction.Remove:
@@ -69,7 +69,7 @@ namespace Simulator_MPSA.CL.Signal
                     {
                         items[i].indxArrDO = i;
                     }
-                    LogWriter.AppendLog("Удален сигнал DO: " + (e.OldItems[0] as DOStruct).NameDO+Environment.NewLine);
+                    LogWriter.AppendLog("Удален сигнал DO: " + (e.OldItems[0] as DOStruct).NameDO);
                     break;
             }
             //           Debug.WriteLine("DO count: " + items.Count.ToString());

@@ -196,7 +196,7 @@ namespace Simulator_MPSA.CL
         {
             _index = e.newIndex;
             // throw new NotImplementedException();
-            LogViewModel.WriteLine("\"" + Name + "\": " + "изменен индекс сигнала AI");
+            //LogViewModel.WriteLine("\"" + Name + "\": " + "изменен индекс сигнала AI");
         }
 
         /// <summary>

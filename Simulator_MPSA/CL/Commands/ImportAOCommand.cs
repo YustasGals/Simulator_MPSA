@@ -35,7 +35,16 @@ namespace Simulator_MPSA.CL.Commands
             {
                 if (ofd.FileName == null) return;
 
-                System.IO.StreamReader reader = new System.IO.StreamReader(ofd.FileName);
+                System.IO.StreamReader reader;
+                try
+                {
+                    reader = new System.IO.StreamReader(ofd.FileName);
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show(exception.Message + Environment.NewLine + "операция прервана", "Ошибка при открытии файла", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 int count = 0;
                 ReadTableAO(reader, out count);
             }//if OK

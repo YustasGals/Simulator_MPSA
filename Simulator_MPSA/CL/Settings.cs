@@ -120,11 +120,13 @@ namespace Simulator_MPSA {
                items.Add("nMPNA", new SettingsItem("nMPNA", 16, typeof(int)));*/
                
         }
+        [Obsolete("Используйте настройки приложения!")]
         public string HostName
         {
             get { return (string)items["HostName"].value; }
             set { items["HostName"].value = value; }
         }
+        [Obsolete("Используйте настройки приложения!")]
         public int MBPort
         {
             get { return (int)items["MBPort"].value; }
@@ -288,13 +290,14 @@ namespace Simulator_MPSA {
             set { items["UseModbus"].value = (object)value; }
         }
 
+        [Obsolete("Используйте настройки приложения!")]
         public string OFSServerName
         {
             get { return (string)items["OFSServerName"].value; }
             set { items["OFSServerName"].value = (string)value; }
         }
 
-        
+        [Obsolete("Используйте настройки приложения!")]
         public string OFSServerPrefix
         {
             get { return (string)items["OFSServerPrefix"].value; }

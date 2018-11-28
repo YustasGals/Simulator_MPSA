@@ -1,41 +1,20 @@
-﻿using System.Configuration; // xml
+﻿
 using System.Collections.Specialized; //xml
-using Modbus.Device;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Sockets;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-//using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Diagnostics; // for DEBUG 
-using System.Xml;
-//using System.Windows.Forms;
 using System.IO;
-using System.Xml.Serialization;
-
 using System.Data;
 using Simulator_MPSA.CL;
-using System.Windows.Forms;
 using System.ComponentModel;
 using Simulator_MPSA.Scripting;
 using Microsoft.Win32;
 using Simulator_MPSA.ViewModel;
 using Simulator_MPSA.CL.Signal;
-using Opc;
-using OpcCom;
-using OpcXml;
-using System.Windows.Controls;
-using System.Runtime.InteropServices;
 using Simulator_MPSA.CL.Commands;
 
 namespace Simulator_MPSA
@@ -61,17 +40,22 @@ namespace Simulator_MPSA
         A4     
     };
 
-
+    /// <summary>
+    /// Буфер чтения из памяти устройства по Modbus
+    /// </summary>
     public static class RB
     {
         public static ushort[] R;// = new ushort[(Sett.iNRackEnd) * 50];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
         public static void InitBuffer()
         {
             RB.R = new ushort[Sett.Instance.rdBufSize];//[(29 - 3 + 1) * 50]    =1450   From IOScaner CPU
-            LogViewModel.WriteLine("Размер буфера чтения обновлен: "+RB.R.Count().ToString() +" рег.");
-            
+            //LogViewModel.WriteLine("Размер буфера чтения обновлен: "+RB.R.Count().ToString() +" рег.");
+            LogWriter.AppendLog("Размер буфера чтения обновлен: " + RB.R.Count().ToString() + " рег.");
         }
     }
+    /// <summary>
+    /// Буфер записи в ПЛК по протоколу Modbus
+    /// </summary>
     public static class WB
     {
         /// <summary>
@@ -102,9 +86,11 @@ namespace Simulator_MPSA
             WB.W_a4 = new ushort[Sett.Instance.A4BufSize];
             WB.W_a4_prev = new ushort[WB.W_a4.Length];
 
-            LogViewModel.WriteLine("Размеры буферов записи обновлены: " + WB.W.Count().ToString() +"/"+WB.W_a3.Count().ToString()+"/"+WB.W_a4.Count().ToString()+ " рег.");
+            // LogViewModel.WriteLine("Размеры буферов записи обновлены: " + WB.W.Count().ToString() +"/"+WB.W_a3.Count().ToString()+"/"+WB.W_a4.Count().ToString()+ " рег.");
+            LogWriter.AppendLog("Размеры буферов записи обновлены: " + WB.W.Count().ToString() + "/" + WB.W_a3.Count().ToString() + "/" + WB.W_a4.Count().ToString() + " рег.");
         }
     }
+
     public static class DebugInfo
     {
         public static ulong RR;
@@ -113,6 +99,10 @@ namespace Simulator_MPSA
         public static ushort usW;
 
     }
+
+    /// <summary>
+    /// Класс позволяет потокобезопасно выводить информацию в журнал сообщений
+    /// </summary>
     static class LogWriter
     {
         public static MainWindow refMainWindow;
@@ -251,37 +241,7 @@ namespace Simulator_MPSA
 
                 writingTime[njob] = DateTime.Now;
             });
-            /*
-            EndCycle2 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[1];
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW2.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[1] = DateTime.Now;
-            });
-            EndCycle3 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[2];
-                // StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW3.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[2] = DateTime.Now;
-            });
-            EndCycle4 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[3];
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                StatusW4.Content = ts.TotalSeconds.ToString("F2") + " | ";
-                writingTime[3] = DateTime.Now;
-            });
-            EndCycle5 += new DEndWrite(() => {
-                TimeSpan ts = DateTime.Now - writingTime[4];
-                StatusW5.Content = ts.TotalSeconds.ToString("F2");
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                writingTime[4] = DateTime.Now;
-            });
-            EndCycle6 += new DEndWrite(()=> {
-                TimeSpan ts = DateTime.Now - writingTime[5];
-                StatusW6.Content = ts.TotalSeconds.ToString("F2");
-                //   StatusW.Content = "Время записи: " + ts.TotalSeconds.ToString("F2");
-                writingTime[6] = DateTime.Now;
-            });*/
+
 
             ofsFail += new OFSFail(() =>
             {
@@ -679,7 +639,7 @@ namespace Simulator_MPSA
                 else
                     tabZD.Visibility = Visibility.Visible;
 
-                LogWriter.AppendLog("Конфигурация загружена" + Environment.NewLine);
+                LogWriter.AppendLog("Конфигурация загружена");
             }
         }
 
@@ -754,12 +714,15 @@ namespace Simulator_MPSA
                 if (Sett.Instance.UseModbus)
                 {
                     //потоки на чтение модбас
-                    rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                    rdThread = new ReadThread(Properties.Settings.Default.ModbusIPAddr, 502);
+                  //  rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                     rdThread.refMainWindow = this;
                     rdThread.Start();
 
                     //потоки на запись модбас
-                    wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                    wrThread = new WritingThread(Properties.Settings.Default.ModbusIPAddr, 502);
+                    
+                    // wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
                     wrThread.refMainWindow = this;
                     wrThread.Start();
                 }
@@ -769,7 +732,8 @@ namespace Simulator_MPSA
 
                 if (Sett.Instance.UseOPC)
                 {
-                    opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
+                    opcThread = new OPCThread(Properties.Settings.Default.OPCAddr + Properties.Settings.Default.OPCServerName, 50);
+                  //  opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
                     opcThread.refMainWindow = this;
                     opcThread.Start();
                     /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
@@ -790,7 +754,8 @@ namespace Simulator_MPSA
                     btnStop.IsEnabled = true;
 
                     // LogViewModel.WriteLine("Симулятор запущен");
-                    log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") + Environment.NewLine);
+                    //  log.AppendText("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") + Environment.NewLine);
+                    LogWriter.AppendLog("Симулятор запущен; " + "Modbus: " + (Sett.Instance.UseModbus ? "ВКЛ" : "ВЫКЛ") + "; OPC: " + (Sett.Instance.UseOPC ? "ВКЛ" : "ВЫКЛ") + Environment.NewLine);
                     IsSimulationActive = true;
                 }
                 //    else
@@ -876,7 +841,8 @@ namespace Simulator_MPSA
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
             // LogViewModel.WriteLine("Симулятор остановлен");
-            log.AppendText("Симулятор остановлен" + Environment.NewLine);
+            //log.AppendText("Симулятор остановлен" + Environment.NewLine);
+            LogWriter.AppendLog("Симулятор остановлен" + Environment.NewLine);
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
@@ -979,8 +945,6 @@ namespace Simulator_MPSA
                 if (opcThread != null)
                     opcThread.Stop();
 
-                if (logWindow != null)
-                    logWindow.Close();
 
                 if (editor != null)
                     editor.Close();
@@ -1288,7 +1252,8 @@ namespace Simulator_MPSA
 
             label_filename.Content = "";
             //LogViewModel.WriteLine("Новая конфигурация создана");
-            log.AppendText("Новая конфигурация создана" + Environment.NewLine);
+            //log.AppendText("Новая конфигурация создана" + Environment.NewLine);
+            LogWriter.AppendLog("Новая конфигурация создана" + Environment.NewLine);
         }
 
         private void Menu_Export(object sender, RoutedEventArgs e)
@@ -1341,17 +1306,6 @@ namespace Simulator_MPSA
         private void MenuItem_Unchecked(object sender, RoutedEventArgs e)
         {
             this.Topmost = false;
-        }
-        Log logWindow;
-        private void btnLog_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (logWindow != null)
-                logWindow.Close();
-
-            logWindow = new Log();
-
-            logWindow.Show();
         }
 
         private void ButtonHelp_Click(object sender, RoutedEventArgs e)
@@ -1407,7 +1361,7 @@ namespace Simulator_MPSA
             MPNATableViewModel.MPNAs.Add(new MPNAStruct());
         }
         #endregion
-
+        #region ПРОВЕРКИ
         /// <summary>
         /// проверка
         /// </summary>
@@ -1505,7 +1459,7 @@ namespace Simulator_MPSA
                 }
             }
         }
-
+        #endregion
         private void DIMenu_set_Click(object sender, RoutedEventArgs e)
         {
             // <DIViewModel> items = (dataGridDI.SelectedItems as IList<DIViewModel>);
@@ -1535,7 +1489,8 @@ namespace Simulator_MPSA
                 string conString = ExcelImporter.GetConnectionString(fd.FileName);
                 conString.Replace("\\", "\\\\");
                 //LogViewModel.WriteLine("Открываю файл переменных: " + conString);
-                log.AppendText("Открываю файл переменных: " + conString + " ..." + Environment.NewLine);
+     
+                LogWriter.AppendLog("Анализ файла переменных: " + conString + " ...");
                 ExcelImporter.ReadExcelFile(conString);
 
             }
@@ -1747,52 +1702,11 @@ namespace Simulator_MPSA
             }
         }
 
-
-
-
-        /*
-                private void dataGridDI_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-                {
-
-                    dataGridDI.SelectionChanged += DataGridDI_SelectionChanged;
-                }
-
-                private void DataGridDI_SelectionChanged(object sender, SelectionChangedEventArgs e)
-                {
-                    dataGridDI.SelectionChanged -= DataGridDI_SelectionChanged;
-
-                    if (dataGridDI.SelectedCells[0].Column.Header == DatagridDI_Val.Header)
-                    {
-                        DIViewModel item = (dataGridDI.SelectedItem as DIViewModel);
-                        if (item != null)
-                            item.ForcedValue = !item.ForcedValue;
-                    }
-
-                }
-
-                private void Cell_Click(object sender, MouseButtonEventArgs e)
-                {
-                    // execute some code
-                }*/
-
-        /*
-private void dataGridAI_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
-{
-   System.Windows.Controls.DataGrid dg = sender as System.Windows.Controls.DataGrid;
-   DataGridRow dgr = (DataGridRow)(dg.ItemContainerGenerator.ContainerFromIndex(dg.SelectedIndex));
-   if (e.Key == Key.Delete && !dgr.IsEditing)
-   {
-
-       var result = System.Windows.MessageBox.Show(
-           "About to delete the current row.\n\nProceed?",
-           "Delete",
-           MessageBoxButton.YesNo,
-           MessageBoxImage.Question,
-           MessageBoxResult.No);
-       e.Handled = (result == MessageBoxResult.No);
-   }
-
-}*/
+        private void MenuItem_AppSettings_Click(object sender, RoutedEventArgs e)
+        {
+            AppSettings dialog = new AppSettings();
+            dialog.ShowDialog();
+        }
     }
 
     class MainViewModel

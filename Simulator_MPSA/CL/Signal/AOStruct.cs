@@ -68,7 +68,7 @@ namespace Simulator_MPSA.CL.Signal
                     {
                         items[i].indx = i;
                     }
-                    LogWriter.AppendLog("Удален сигнал AO: " + (e.OldItems[0] as AOStruct).Name+Environment.NewLine);
+                    LogWriter.AppendLog("Удален сигнал AO: " + (e.OldItems[0] as AOStruct).Name);
 
                     break;
             }

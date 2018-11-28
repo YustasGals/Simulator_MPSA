@@ -86,7 +86,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains("Таблица сигналов"))
                 {
-                    LogViewModel.WriteLine("Таблица сигналов найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица сигналов найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица сигналов найдена, чтение данных...");
                     break;
                 }
             }
@@ -103,7 +104,8 @@ namespace Simulator_MPSA
             //       ds.Tables.Add(dt);
 
             foreach (DataColumn col in dt.Columns)
-                LogViewModel.WriteLine(col.ColumnName);
+                LogWriter.AppendLog(col.ColumnName);
+                //LogViewModel.WriteLine(col.ColumnName);
 
             //--- тип сигнала ai,di,do ---
             string signalType = "";
@@ -233,7 +235,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains("DI задвижек"))
                 {
-                    LogViewModel.WriteLine("Таблица задвижек найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица задвижек найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица задвижек найдена, чтение данных...");
                     break;
                 }
             }
@@ -299,7 +302,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains("DO задвижек"))
                 {
-                    LogViewModel.WriteLine("Таблица DO задвижек найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица DO задвижек найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица DO задвижек найдена, чтение данных...");
                     break;
                 }
             }
@@ -380,7 +384,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains(vsDITableName))
                 {
-                    LogViewModel.WriteLine("Таблица DI вспомсистем найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица DI вспомсистем найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица DI вспомсистем найдена, чтение данных...");
                     break;
                 }
             }
@@ -441,7 +446,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains(vsDOTableName))
                 {
-                    LogViewModel.WriteLine("Таблица DO вспомсистем найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица DO вспомсистем найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица DO вспомсистем найдена, чтение данных...");
                     break;
                 }
             }
@@ -522,7 +528,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains(DITableName))
                 {
-                    LogViewModel.WriteLine("Таблица DI вспомсистем найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица DI вспомсистем найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица DI вспомсистем найдена, чтение данных...");
                     break;
                 }
             }
@@ -583,7 +590,8 @@ namespace Simulator_MPSA
                 sheetName = dr["TABLE_NAME"].ToString();
                 if (sheetName.Contains(DOTableName))
                 {
-                    LogViewModel.WriteLine("Таблица DO вспомсистем найдена, чтение данных...");
+                    //LogViewModel.WriteLine("Таблица DO вспомсистем найдена, чтение данных...");
+                    LogWriter.AppendLog("Таблица DO вспомсистем найдена, чтение данных...");
                     break;
                 }
             }
