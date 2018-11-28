@@ -90,11 +90,11 @@
                 <Label Content="Размер буфера КС рез" Grid.Row="13" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                 <TextBox Grid.Row="13" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.A4BufSize}" VerticalAlignment="Top" Width="115"/>
 
-                <Label Content="IP адрес" Grid.Row="14" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
-                <TextBox Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.HostName}" VerticalAlignment="Top" Width="115"/>
+                <!--Label Content="IP адрес" Grid.Row="14" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+                <TextBox Grid.Row="14" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.HostName}" VerticalAlignment="Top" Width="115"/-->
 
-                <Label Content="Порт" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
-                <TextBox Grid.Row="15" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.MBPort}" VerticalAlignment="Top" Width="115"/>
+                <!--Label Content="Порт" Grid.Row="15" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+                <TextBox Grid.Row="15" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.MBPort}" VerticalAlignment="Top" Width="115"/-->
 
                 <Label Content="Корректировка адреса" Grid.Row="16" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                 <TextBox Grid.Row="16" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.IncAddr}" VerticalAlignment="Top" Width="115"/>
@@ -126,11 +126,11 @@
                     </Grid.RowDefinitions>
                 <CheckBox Content="Использовать OPC" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Height="26" Margin="1,3,0,0" VerticalAlignment="Top" Width="198" IsChecked="{Binding settings.UseOPC}"/>
 
-                    <Label Content="OFSServerPrefix" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
+                    <!--Label Content="OFSServerPrefix" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
                     <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.OFSServerPrefix}" VerticalAlignment="Top" Width="115"/>
 
                     <Label Content="Сервер OFS" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Height="26" Width="205"/>
-                <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.OFSServerName}" VerticalAlignment="Top" Width="115"/>
+                <TextBox Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Height="19" Margin="3,6,0,0" TextWrapping="Wrap" Text="{Binding settings.OFSServerName}" VerticalAlignment="Top" Width="115"/-->
 
 
 

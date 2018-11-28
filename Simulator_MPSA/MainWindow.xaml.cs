@@ -359,7 +359,8 @@ namespace Simulator_MPSA
                     if (AIStruct.items != null && AIStruct.items.Count > 0)
                         foreach (AIStruct ai in AIStruct.items)
                         {
-                            if (ai.En /* || true */)
+                            //записываем в буфер только если тег opc пуст, в противном случае сигнал будет записан по протоколу OPC
+                            if (ai.En && !(ai.OPCtag!="" && Sett.Instance.UseOPC==true))
                             {
 
                                 if (ai.PLCDestType == EPLCDestType.ADC)
@@ -412,7 +413,8 @@ namespace Simulator_MPSA
                     if (DIStruct.items != null && DIStruct.items.Count > 0)
                         foreach (DIStruct di in DIStruct.items)
                         {
-                            if (di.En)
+                            //записываем в буфер только если тег opc пуст, в противном случае сигнал будет записан по протоколу OPC
+                            if (di.En && !(di.OPCtag != "" && Sett.Instance.UseOPC == true))
                             {
                                 /*int indx = di.PLCAddr - Sett.Instance.BegAddrW;
                                 if (indx > 0 && indx < WB.W.Length)*/
@@ -685,7 +687,8 @@ namespace Simulator_MPSA
                 s.Save(currentFileName);
                 //  label_confVersion.Content = "Версия файла: " + s.Version.ToString();
                 //LogViewModel.WriteLine("Файл конфигурации сохранен : "+currentFileName);
-                log.AppendText("Файл конфигурации сохранен : " + currentFileName + Environment.NewLine);
+                // log.AppendText("Файл конфигурации сохранен : " + currentFileName + Environment.NewLine);
+                LogWriter.AppendLog("Файл конфигурации сохранен : " + currentFileName + Environment.NewLine);
             }
         }
         /// <summary>
@@ -1632,19 +1635,19 @@ namespace Simulator_MPSA
         private void HideColumns(object sender, RoutedEventArgs e)
         {
             DataGridAI_Addr.Visibility = Visibility.Collapsed;
-            DataGridAI_OPC.Visibility = Visibility.Collapsed;
+          //  DataGridAI_OPC.Visibility = Visibility.Collapsed;
             DataGridAI_Type.Visibility = Visibility.Collapsed;
 
             dataGridDI_Addr.Visibility = Visibility.Collapsed;
-            dataGridDI_Bit.Visibility = Visibility.Collapsed;
-            dataGridDI_OPC.Visibility = Visibility.Collapsed;
+           // dataGridDI_Bit.Visibility = Visibility.Collapsed;
+           // dataGridDI_OPC.Visibility = Visibility.Collapsed;
 
             dataGridDO_Addr.Visibility = Visibility.Collapsed;
-            dataGridDO_Bit.Visibility = Visibility.Collapsed;
-            dataGridDO_OPC.Visibility = Visibility.Collapsed;
+           // dataGridDO_Bit.Visibility = Visibility.Collapsed;
+           // dataGridDO_OPC.Visibility = Visibility.Collapsed;
 
             DataGridAO_Addr.Visibility = Visibility.Collapsed;
-            DataGridAO_OPC.Visibility = Visibility.Collapsed;
+           // DataGridAO_OPC.Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -1655,19 +1658,19 @@ namespace Simulator_MPSA
         private void ShowColumns(object sender, RoutedEventArgs e)
         {
             DataGridAI_Addr.Visibility = Visibility.Visible;
-            DataGridAI_OPC.Visibility = Visibility.Visible;
+        //    DataGridAI_OPC.Visibility = Visibility.Visible;
             DataGridAI_Type.Visibility = Visibility.Visible;
 
             dataGridDI_Addr.Visibility = Visibility.Visible;
-            dataGridDI_Bit.Visibility = Visibility.Visible;
-            dataGridDI_OPC.Visibility = Visibility.Visible;
+        //    dataGridDI_Bit.Visibility = Visibility.Visible;
+        //    dataGridDI_OPC.Visibility = Visibility.Visible;
 
             dataGridDO_Addr.Visibility = Visibility.Visible;
-            dataGridDO_Bit.Visibility = Visibility.Visible;
-            dataGridDO_OPC.Visibility = Visibility.Visible;
+        //    dataGridDO_Bit.Visibility = Visibility.Visible;
+        //    dataGridDO_OPC.Visibility = Visibility.Visible;
 
             DataGridAO_Addr.Visibility = Visibility.Visible;
-            DataGridAO_OPC.Visibility = Visibility.Visible;
+        //    DataGridAO_OPC.Visibility = Visibility.Visible;
         }
 
         /// <summary>

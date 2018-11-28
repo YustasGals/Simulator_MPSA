@@ -116,5 +116,52 @@ namespace Simulator_MPSA.ViewModel
             OnPropertyChanged(e);
            // throw new NotImplementedException();
         }
+
+        /// <summary>
+        /// универсальное свойство для отображения/записи адреса одним значением
+        /// </summary>
+        public string AddressTag
+        {
+            set
+            {
+                if (value.Substring(0, 3).ToUpper() == "MB:")
+                {
+                    string mbaddr = value.Substring(3);
+                    try
+                    {
+                        if (mbaddr.Contains('.'))
+                        {
+                            int dotindex = mbaddr.IndexOf('.');
+                            string register = mbaddr.Substring(0, dotindex);
+                            string bit = mbaddr.Substring(dotindex + 1);
+                            _do.PLCAddr = int.Parse(register.Trim(' '));
+                            _do.indxBitDO = int.Parse(bit.Trim(' '));
+                        }
+                        else throw new Exception("Неверный формат строки");
+
+                    }
+                    catch
+                    {
+                        System.Windows.MessageBox.Show(Properties.Resources.AddressingHintDiskrete);
+                    }
+                }
+                else if (value.Substring(0, 4).ToUpper() == "OPC:")
+                {
+                    string opcaddr = value.Substring(4);
+                    _do.OPCtag = opcaddr.Trim(' ');
+                }
+                else
+                    System.Windows.MessageBox.Show(Properties.Resources.AddressingHintDiskrete);
+
+
+            }
+            get
+            {
+                if (_do.OPCtag != "")
+                    return "OPC:" + _do.OPCtag;
+                else
+                    return "MB:" + _do.PLCAddr.ToString() + '.' + _do.indxBitDO.ToString();
+            }
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace Simulator_MPSA.CL
                 if (d.OPCtag != "" && d.En)
                 {
                     listDO.Add(d);
-                    itm.Add(new Item(new ItemIdentifier(d.OPCtag)));
+                    itm.Add(new Item(new ItemIdentifier(Properties.Settings.Default.OPCDevice + '!' + d.OPCtag)));
                 }
             }
            
@@ -72,13 +72,16 @@ namespace Simulator_MPSA.CL
                 if (item.OPCtag != "" && item.En)
                 {
                     listAO.Add(item);
-                    itm.Add(new Item(new ItemIdentifier(item.OPCtag)));
+                    itm.Add(new Item(new ItemIdentifier(Properties.Settings.Default.OPCDevice+'!'+ item.OPCtag)));
                 }
             arrayAO = listAO.ToArray();
             opcAOItemsForRead = itm.ToArray();
 
             Debug.WriteLine("DO items: "+opcDOItemsForRead.Length.ToString());
             Debug.WriteLine("AO items: " + opcAOItemsForRead.Length.ToString());
+
+            LogWriter.AppendLog("DO OPC items: " + opcDOItemsForRead.Length.ToString());
+            LogWriter.AppendLog("AO OPC items: " + opcDOItemsForRead.Length.ToString());
         }
 
 
@@ -109,7 +112,7 @@ namespace Simulator_MPSA.CL
                 foreach (DIStruct di in DIStruct.items)
                     if ((di.OPCtag != "" && di.IsChanged && di.En)||(isFirstCycle))
                     {
-                        itm = new Opc.Da.ItemValue(di.OPCtag);
+                        itm = new Opc.Da.ItemValue(Properties.Settings.Default.OPCDevice + '!' + di.OPCtag);
                         itm.Value = di.ValDI ^ di.InvertDI;
                         opcitems.Add(itm);
                         di.IsChanged = false;
@@ -118,7 +121,7 @@ namespace Simulator_MPSA.CL
                 foreach (AIStruct ai in AIStruct.items)
                     if ((ai.OPCtag != "" && ai.IsChanged && ai.En)|| (isFirstCycle))
                     {
-                        itm = new Opc.Da.ItemValue(ai.OPCtag);
+                        itm = new Opc.Da.ItemValue(Properties.Settings.Default.OPCDevice + '!' + ai.OPCtag);
                         if (ai.PLCDestType == EPLCDestType.Float)
                             itm.Value = ai.fValAI;
                         else

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -25,6 +25,43 @@ namespace Simulator_MPSA.ViewModel
             set { ai.Buffer = value; }
         }*/
 
+        /// <summary>
+        /// универсальное свойство для отображения/записи адреса одним значением
+        /// </summary>
+        public string AddressTag
+        {
+            set
+            {
+                if (value.Substring(0, 3).ToUpper() == "MB:")
+                {
+                    string mbaddr = value.Substring(3);
+                    try
+                    {
+                        ai.PLCAddr = int.Parse(mbaddr.Trim(' '));
+                    }
+                    catch
+                    {
+                        System.Windows.MessageBox.Show(Properties.Resources.AddressingHintAnalog);
+                    }
+                }
+                else if (value.Substring(0, 4).ToUpper() == "OPC:")
+                {
+                    string opcaddr = value.Substring(4);
+                    ai.OPCtag = opcaddr.Trim(' ');
+                }
+                else
+                    System.Windows.MessageBox.Show(Properties.Resources.AddressingHintAnalog);
+
+
+            }
+            get
+            {
+                if (ai.OPCtag != "")
+                    return "OPC:" + ai.OPCtag;
+                else
+                    return "MB:" + ai.PLCAddr;
+            }
+        }
         public EPLCDestType PLCDestType
         {
             get { return ai.PLCDestType; }

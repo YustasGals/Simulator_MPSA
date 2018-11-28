@@ -195,6 +195,30 @@ namespace Simulator_MPSA.CL
                 Debug.WriteLine(DateTime.Now.ToShortTimeString()+":" + DateTime.Now.Second.ToString() + ": Модели инициализированы");
                 System.Windows.MessageBox.Show("Файл " + filename + " считан ");
 
+
+                //=============== ПРОВЕРКА НА НАЛИЧИЕ ИМЕНИ УСТРОЙСТВА В ТЕГЕ OPC, ПРИ НАЛИЧИИ УДАЛЯЕМ ИМЯ УСТРОЙСТВА ========
+                int count = 0;
+                foreach (DIStruct item in DIStruct.items)
+                {
+                   item.OPCtag = ClearOPCTag(item.OPCtag, ref count);
+                }
+                foreach (DOStruct item in DOStruct.items)
+                {
+                    item.OPCtag = ClearOPCTag(item.OPCtag, ref count);
+                }
+                foreach (AIStruct item in AIStruct.items)
+                {
+                    item.OPCtag = ClearOPCTag(item.OPCtag, ref count);
+                }
+                foreach (AOStruct item in AOStruct.items)
+                {
+                    item.OPCtag = ClearOPCTag(item.OPCtag, ref count);
+                }
+
+                if (count > 0)
+                {
+                    MessageBox.Show( "Файл конфигурации преобразован к новой версии," + Environment.NewLine + "вы не сможете использовать конфигурацию в более ранних версиях программы! " + Environment.NewLine + "Преобразовано тегов OPC: " + count.ToString(), "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
                 return StationLoadResult.OK;
             }
             catch(Exception e)
@@ -207,6 +231,21 @@ namespace Simulator_MPSA.CL
                 return StationLoadResult.Fail;
                 
             }
+        }
+
+        private string ClearOPCTag(string OPCTag, ref int count)
+        {
+            string newTag;
+            if (OPCTag != "" && OPCTag.Contains('!'))
+            {
+                int index = OPCTag.IndexOf('!');
+                newTag = OPCTag.Remove(0, index+1);
+                count++;
+                return newTag;
+                
+            }
+            else
+                return OPCTag;
         }
 
         #region settings.xml

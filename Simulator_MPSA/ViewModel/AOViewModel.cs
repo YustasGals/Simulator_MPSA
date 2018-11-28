@@ -48,6 +48,43 @@ namespace Simulator_MPSA.ViewModel
             model.PropertyChanged += _do_PropertyChanged;
             //    throw new NotImplementedException();
         }
+        /// <summary>
+        /// универсальное свойство для отображения/записи адреса одним значением
+        /// </summary>
+        public string AddressTag
+        {
+            set
+            {
+                if (value.Substring(0, 3).ToUpper() == "MB:")
+                {
+                    string mbaddr = value.Substring(3);
+                    try
+                    {
+                        model.PLCAddr = int.Parse(mbaddr.Trim(' '));
+                    }
+                    catch
+                    {
+                        System.Windows.MessageBox.Show(Properties.Resources.AddressingHintAnalog);
+                    }
+                }
+                else if (value.Substring(0, 4).ToUpper() == "OPC:")
+                {
+                    string opcaddr = value.Substring(4);
+                    model.OPCtag = opcaddr.Trim(' ');
+                }
+                else
+                    System.Windows.MessageBox.Show(Properties.Resources.AddressingHintAnalog);
+
+
+            }
+            get
+            {
+                if (model.OPCtag != "")
+                    return "OPC:" + model.OPCtag;
+                else
+                    return "MB:" + model.PLCAddr;
+            }
+        }
 
         public int indx
         {

@@ -148,7 +148,9 @@ namespace Simulator_MPSA
             foreach(DOStruct _do in DOStruct.items)
             {
                 int indx = _do.PLCAddr - Sett.Instance.BegAddrR;
-                if (indx >= 0 && indx < RB.R.Length)
+
+                    //вычитываем из модбас буфера только если чтение не производится по OPC
+                    if ((indx >= 0 && indx < RB.R.Length) && !(_do.OPCtag != "" && Sett.Instance.UseOPC == true))
                 {
                     bool res = GetBit(RB.R[indx], _do.indxBitDO);
                     _do.ValDO = _do.InvertDO ? !res : res;
@@ -159,7 +161,8 @@ namespace Simulator_MPSA
             {
                 int index = item.PLCAddr - Sett.Instance.BegAddrR;
 
-                if (index >= 0 && index < RB.R.Length)
+                //вычитываем из модбас буфера только если чтение не производится по OPC
+                if ((index >= 0 && index < RB.R.Length)  && !(item.OPCtag != "" && Sett.Instance.UseOPC == true))
                 {                    
 
                     if (item.PLCDestType == EPLCDestType.ADC)

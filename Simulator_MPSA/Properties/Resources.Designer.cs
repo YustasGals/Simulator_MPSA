@@ -61,6 +61,28 @@ namespace Simulator_MPSA.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Неверный формат строки
+        ///для задания адрсе modbus используйте префикс &quot;MB:&quot; (например &quot;MB:1020&quot;)
+        ///для задания адреса OPC используйте префикс &quot;OPC:&quot; (например &quot;OPC:MyVariable&quot;).
+        /// </summary>
+        public static string AddressingHintAnalog {
+            get {
+                return ResourceManager.GetString("AddressingHintAnalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Неверный формат строки
+        ///для задания адрсе modbus используйте префикс &quot;MB:&quot; (например &quot;MB:1020.1&quot;)
+        ///для задания адреса OPC используйте префикс &quot;OPC:&quot; (например &quot;OPC:MyVariable.15&quot;).
+        /// </summary>
+        public static string AddressingHintDiskrete {
+            get {
+                return ResourceManager.GetString("AddressingHintDiskrete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap logo {

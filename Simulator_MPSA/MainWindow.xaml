@@ -265,7 +265,7 @@
                                     </Style>
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
-                            <DataGridTextColumn x:Name="DataGridAI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr}" ToolTipService.ToolTip="Адрес в области MW" >
+                            <DataGridTextColumn x:Name="DataGridAI_Addr" Header="Адрес в ПЛК" Binding="{Binding AddressTag}" ToolTipService.ToolTip="Адрес в области MW" >
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Адрес в области MW" />
@@ -273,7 +273,7 @@
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn x:Name="DataGridAI_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGridTextColumn x:Name="DataGridAI_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Адрес OPC" />
@@ -387,8 +387,8 @@
                                 </DataGridTextColumn.CellStyle>
                             </DataGridTextColumn>
 
-                            <DataGridTextColumn x:Name="DataGridAO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn x:Name="DataGridAO_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGridTextColumn x:Name="DataGridAO_Addr" Header="Адрес в ПЛК" Binding="{Binding AddressTag, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn x:Name="DataGridAO_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Адрес OPC" />
@@ -522,10 +522,10 @@
                                 </DataGridCheckBoxColumn.CellStyle>
                             </DataGridCheckBoxColumn>
 
-                            <DataGridTextColumn x:Name="dataGridDI_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="dataGridDI_Addr" Header="Адрес в ПЛК" Binding="{Binding AddressTag, UpdateSourceTrigger=PropertyChanged}"  />
 
-                            <DataGridTextColumn x:Name="dataGridDI_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="dataGridDI_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}">
+                            <DataGridTextColumn x:Name="dataGridDI_Bit" Header="Бит" Binding="{Binding indxBitDI, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed" />
+                            <DataGridTextColumn x:Name="dataGridDI_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Адрес OPC" />
@@ -633,9 +633,9 @@
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
                             </DataGridCheckBoxColumn>
-                            <DataGridTextColumn x:Name="dataGridDO_Addr" Header="Адрес в ПЛК" Binding="{Binding PLCAddr, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  />
-                            <DataGridTextColumn x:Name="dataGridDO_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="dataGridDO_Addr" Header="Адрес в ПЛК" Binding="{Binding AddressTag, UpdateSourceTrigger=PropertyChanged}"  />
+                            <DataGridTextColumn x:Name="dataGridDO_Bit" Header="Бит" Binding="{Binding indxBitDO, UpdateSourceTrigger=PropertyChanged}"  Visibility="Collapsed"/>
+                            <DataGridTextColumn x:Name="dataGridDO_OPC" Header="OPC" Binding="{Binding OPCtag, UpdateSourceTrigger=PropertyChanged}" Visibility="Collapsed" />
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameDO, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridCheckBoxColumn x:Name="dataGridDO_invert" Header="Инвертировать" Binding="{Binding InvertDO, UpdateSourceTrigger=PropertyChanged}">
