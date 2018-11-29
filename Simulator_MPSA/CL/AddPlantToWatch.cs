@@ -16,7 +16,7 @@ namespace Simulator_MPSA
         public bool CanExecute(object parameter)
         {
             return true;
-       //     throw new NotImplementedException();
+       
         }
 
         public abstract void Execute(object parameter);

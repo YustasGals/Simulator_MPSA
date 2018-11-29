@@ -220,6 +220,10 @@ namespace Simulator_MPSA
             statusText.Content = "Остановлен";
             statusText.Background = System.Windows.Media.Brushes.Yellow;
 
+            // --------------------- ПРИВЯЗКА КОМАНД  ----------------------------------
+            MenuItem_about.Command = new ShowAboutCommand();
+            menu_import_xlsx.Command = new ExcelImportCommand();
+
             EndCycle += new DEndWrite((int njob) => {
                 TimeSpan ts = DateTime.Now - writingTime[njob];
 
@@ -244,7 +248,7 @@ namespace Simulator_MPSA
 
             ofsFail += new OFSFail(() =>
             {
-                btnStop_Click(null, null);
+                BtnStop_Click(null, null);
                 System.Windows.MessageBox.Show("Ошибка соединения по протоколу OPC!");
             }
 
@@ -254,7 +258,7 @@ namespace Simulator_MPSA
 
 
             delegateDisconnected += new DDisconnected(() => {
-                btnStop_Click(null, null);
+                BtnStop_Click(null, null);
                 System.Windows.MessageBox.Show("Ошибка соединения по протоколу Modbus TCP!");
             });
             delegateEndRead += new DEndRead(() =>
@@ -264,20 +268,6 @@ namespace Simulator_MPSA
                 readingTime = DateTime.Now;
             });
 
-            // myDelegate += new ddd(On_WritingCycleEnd);
-
-
-          //  string subkey = @"software\NA\Simulator";
-            //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
-
-          //  RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
-          //  string lastFilename = (string)configKey.GetValue("last file", "");
-
-
-           // int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
-
-           // configKey.SetValue("ConfigMode", ConfMode);
-            //   SetConfigMode(/*ConfMode != 0*/true);
             LogWriter.refMainWindow = this;
 
 
@@ -507,7 +497,7 @@ namespace Simulator_MPSA
                     // wrThread.Stop();
                     // btnPause_Click(null, new RoutedEventArgs());
                     this.Dispatcher.Invoke(delegateDisconnected);
-                    btnStop_Click(null, new RoutedEventArgs());
+                    BtnStop_Click(null, new RoutedEventArgs());
                 }
 
 
@@ -704,7 +694,7 @@ namespace Simulator_MPSA
         Thread watchThread;
         OPCThread opcThread;
 
-        private void btnStart_Click(object sender, RoutedEventArgs e)
+        private void BtnStart_Click(object sender, RoutedEventArgs e)
         {
             /*  if (!isConfigLoaded)
               {
@@ -779,10 +769,7 @@ namespace Simulator_MPSA
             }
         }
 
-        /*private void On_WriteLog(string text)
-        {
-            LogWriter.AppendLog(text);
-        }*/
+
         #region WriteReadCycleEnd
         //------------ вызывается каждую итерацию цикла записи ----------------
         /*   private void On_WritingCycleEnd()
@@ -839,18 +826,8 @@ namespace Simulator_MPSA
                readingTime = DateTime.Now;
            }*/
         #endregion
-        //--------------------------------------------------------------------
 
-        /*    private void On_Disconnected()
-            {
-                btnStop_Click(null, null);
-                System.Windows.MessageBox.Show("Соединение разорвано!");
-            }*/
-
-        //---------------------------- 
-
-
-        private void btnStop_Click(object sender, RoutedEventArgs e)
+        private void BtnStop_Click(object sender, RoutedEventArgs e)
         {
             // LogViewModel.WriteLine("Симулятор остановлен");
             //log.AppendText("Симулятор остановлен" + Environment.NewLine);
@@ -891,31 +868,15 @@ namespace Simulator_MPSA
                 System.Windows.MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
-            // foreach (AIStruct ai in AIStruct.items)
-            //     ai.fValAI = 0f;
-
-            //foreach (DIStruct di in DIStruct.items)
-            //     di.ValDI = false;
-
-            /*  foreach (ZDStruct zd in ZDTableViewModel.ZDs)
-                  zd.Reset();
-  */
-            //foreach (MPNAStruct mna in MPNATableViewModel.MPNAs)
-
-            //TODO: добавить сброс остальных систем
 
             IsSimulationActive = false;
         }
 
-        private void MenuItem_Click_save(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         SetupDialog dialog;
 
 
-        private void dataGridMPNA_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DataGridMPNA_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if ((dialog != null) && (dialog.IsLoaded))
             {
@@ -930,17 +891,6 @@ namespace Simulator_MPSA
                 }
             }
         }
-
-        private void MenuItem_about_Click(object sender, RoutedEventArgs e)
-        {
-
-            AboutWindow w = new AboutWindow();
-            w.ShowDialog();
-        }
-
-
-
-
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -1009,7 +959,7 @@ namespace Simulator_MPSA
                 }
             }
         }
-        private void dataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void DataGridVS_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             VSMenu_settings_Click(sender, e);
         }
@@ -1115,7 +1065,7 @@ namespace Simulator_MPSA
         }
 
 
-        private void textBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxDiagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1377,7 +1327,7 @@ namespace Simulator_MPSA
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnCheck_Click(object sender, RoutedEventArgs e)
+        private void BtnCheck_Click(object sender, RoutedEventArgs e)
         {
             string report = "";
 
@@ -1488,25 +1438,7 @@ namespace Simulator_MPSA
                     item.ForcedValue = false;
         }
 
-        //================================================   ИМПОРТ ИЗ ФАЙЛА ПЕРЕМЕННЫХ ==============================================================================
-
-
-        private void Menu_ImportXLS(object sender, RoutedEventArgs e)
-        {
-            System.Windows.Forms.OpenFileDialog fd = new System.Windows.Forms.OpenFileDialog();
-            if (fd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                string conString = ExcelImporter.GetConnectionString(fd.FileName);
-                conString.Replace("\\", "\\\\");
-                //LogViewModel.WriteLine("Открываю файл переменных: " + conString);
-     
-                LogWriter.AppendLog("Анализ файла переменных: " + conString + " ...");
-                ExcelImporter.ReadExcelFile(conString);
-
-            }
-        }
-
-        private void log_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void Log_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
             try
             {
@@ -1517,7 +1449,7 @@ namespace Simulator_MPSA
         }
         #region СОБЫТИЯ ФИЛЬТРЫ
         private void 
-            textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+            TextBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1525,7 +1457,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxDITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxDITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1533,7 +1465,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxAIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1541,7 +1473,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxAITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxAITagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1557,7 +1489,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxAOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxAOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1565,7 +1497,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxDOFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -1573,7 +1505,7 @@ namespace Simulator_MPSA
             }
         }
 
-        private void textBoxDOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void TextBoxDOTagFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {

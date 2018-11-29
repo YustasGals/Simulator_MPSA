@@ -142,6 +142,7 @@
       <DependentUpon>ChangeDevDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="CL\AddPlantToWatch.cs" />
+    <Compile Include="CL\Commands\ExcelImportCommand.cs" />
     <Compile Include="CL\Commands\ExportAICommand.cs" />
     <Compile Include="CL\Commands\ExportAOCommand.cs" />
     <Compile Include="CL\Commands\ExportDICommand.cs" />
@@ -149,18 +150,13 @@
     <Compile Include="CL\Commands\ImportAICommand.cs" />
     <Compile Include="CL\Commands\ImportAOCommand.cs" />
     <Compile Include="CL\Commands\ImportDOCommand.cs" />
+    <Compile Include="CL\Commands\ShowAboutCommand.cs" />
     <Compile Include="CL\DIItem.cs" />
     <Compile Include="CL\EBool.cs" />
     <Compile Include="CL\ExcelImporter\ExcelImporter.cs" />
     <Compile Include="CL\Commands\ImportDICommand.cs" />
     <Compile Include="CL\Signal\AOStruct.cs" />
-    <Compile Include="CL\ImportDialog.xaml.cs">
-      <DependentUpon>ImportDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CL\InputOutputItem.cs" />
-    <Compile Include="CL\IO\ImportDialog.xaml.cs">
-      <DependentUpon>ImportDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="CL\IO\OPCThread.cs" />
     <Compile Include="CL\Signal\Common\IndexChangedEventArgs.cs" />
     <Compile Include="CL\TableViewModels\ScriptTableViewModel.cs" />
@@ -213,14 +209,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ChangeDevDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CL\ImportDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CL\IO\ImportDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
