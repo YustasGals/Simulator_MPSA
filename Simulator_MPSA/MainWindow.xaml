@@ -57,7 +57,7 @@
             </MenuItem>
             <MenuItem Header="Симулятор">
                 <MenuItem x:Name="MenuItem_Sim" Header="Настройки станции" Click="MenuItem_Sim_Click"/>
-                <MenuItem x:Name="MenuItem_ChangeDev" Header="Изменить имя устройства OPC" Click="MenuItem_ChangeDev_Click"/>
+                <!--MenuItem x:Name="MenuItem_ChangeDev" Header="Изменить имя устройства OPC" Click="MenuItem_ChangeDev_Click"/-->
                 <MenuItem x:Name="MenuItem_AppSettings" Header="Настройки приложения" Click="MenuItem_AppSettings_Click"/>
             </MenuItem>
             <MenuItem x:Name="MenuItem_instr" Header="Вид" HorizontalAlignment="Right">
@@ -961,51 +961,7 @@
                     </DataGrid>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="tabScript" Header="Мат. модель">
-                <Grid >
-                  
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <Button x:Name="Add_Script" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_Script_Click">
-                            <Image>
-                                <Image.Style>
-                                    <Style TargetType="Image">
-                                        <Style.Triggers>
-                                            <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
-                                                <Setter Property="Source" Value="IMG/plus.png"/>
-                                            </DataTrigger>
-                                            <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
-                                                <Setter Property="Source" Value="IMG/plus_gray.png"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Image.Style>
-                            </Image>
-                        </Button>
-                        <DataGrid x:Name="dataGridScript" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
-                        <DataGrid.ContextMenu>
-                            <ContextMenu>
-                                <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
-                                <Separator/>
-                                <MenuItem x:Name="ScriptMenu_run" Header="Инициализировать и запустить" Click="ScriptMenu_RunClick" />
-                                <MenuItem x:Name="ScriptMenu_runOnce" Header="Выполнить однократно" Click="ScriptMenu_RunOnceClick" />
-                            </ContextMenu>
-                        </DataGrid.ContextMenu>
-                        <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" >
-                                <DataGridCheckBoxColumn.ElementStyle>
-                                    <Style TargetType="CheckBox">
-                                    </Style>
-                                </DataGridCheckBoxColumn.ElementStyle>
-                            </DataGridCheckBoxColumn>
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Состояние" Binding="{Binding ErrorText}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </Grid>
-            </TabItem>
+         
             <TabItem x:Name="tabVS" Header="Вспомсистемы">
                 <Grid >
                     <Grid.RowDefinitions>
@@ -1236,6 +1192,51 @@
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Description}" IsReadOnly="True"/>
                             <!--DataGridTextColumn Header="Группа" Binding="{Binding Group}" IsReadOnly="True"/-->
                             <DataGridTextColumn Header="Состояние" Binding="{Binding StateRus}" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabScript" Header="Мат. модель">
+                <Grid >
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Button x:Name="Add_Script" Grid.Row="0" Grid.Column="0" Margin="0" HorizontalAlignment="Right" Width="30" ToolTip="Добавить элемент" Click="Add_Script_Click">
+                        <Image>
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="True">
+                                            <Setter Property="Source" Value="IMG/plus.png"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled, RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Button}}" Value="False">
+                                            <Setter Property="Source" Value="IMG/plus_gray.png"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                    </Button>
+                    <DataGrid x:Name="dataGridScript" Grid.Row="1" AlternatingRowBackground="LightBlue" AlternationCount="2" FontSize="12" AutoGenerateColumns="False">
+                        <DataGrid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="ScriptMenu_editing" Header="Редактировать" Click="ScriptMenu_EditClick" />
+                                <Separator/>
+                                <MenuItem x:Name="ScriptMenu_run" Header="Инициализировать и запустить" Click="ScriptMenu_RunClick" />
+                                <MenuItem x:Name="ScriptMenu_runOnce" Header="Выполнить однократно" Click="ScriptMenu_RunOnceClick" />
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header="Включить" Binding="{Binding En, UpdateSourceTrigger=PropertyChanged}" >
+                                <DataGridCheckBoxColumn.ElementStyle>
+                                    <Style TargetType="CheckBox">
+                                    </Style>
+                                </DataGridCheckBoxColumn.ElementStyle>
+                            </DataGridCheckBoxColumn>
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Состояние" Binding="{Binding ErrorText}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

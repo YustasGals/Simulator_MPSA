@@ -94,10 +94,6 @@
       <HintPath>..\packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="OpcComRcw, Version=2.0.105.1, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\downloads\OPC rustam\OpcComRcw.dll</HintPath>
-    </Reference>
     <Reference Include="OpcNetApi, Version=2.0.2.0, Culture=neutral, PublicKeyToken=9a40e993cbface53, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>D:\downloads\OPC rustam\OpcNetApi.dll</HintPath>

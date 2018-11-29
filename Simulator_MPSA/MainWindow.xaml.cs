@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Specialized; //xml
+﻿using System.Collections.Specialized; //xml
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -268,27 +267,27 @@ namespace Simulator_MPSA
             // myDelegate += new ddd(On_WritingCycleEnd);
 
 
-            string subkey = @"software\NA\Simulator";
+          //  string subkey = @"software\NA\Simulator";
             //    int ConfMode = (int)Microsoft.Win32.Registry.GetValue(Registry.CurrentUser.OpenSubKey(subkey), "ConfigMode", 0);
 
-            RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
-            string lastFilename = (string)configKey.GetValue("last file", "");
+          //  RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
+          //  string lastFilename = (string)configKey.GetValue("last file", "");
 
 
-            int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
+           // int ConfMode = (int)configKey.GetValue("ConfigMode", 0);
 
-            configKey.SetValue("ConfigMode", ConfMode);
+           // configKey.SetValue("ConfigMode", ConfMode);
             //   SetConfigMode(/*ConfMode != 0*/true);
             LogWriter.refMainWindow = this;
 
 
-            if (lastFilename != "" && System.IO.File.Exists(lastFilename))
+            if (Properties.Settings.Default.LastFileName != "" && System.IO.File.Exists(Properties.Settings.Default.LastFileName))
             {
-                if (System.Windows.MessageBox.Show("Открыть последний файл конфигурации?" + Environment.NewLine + lastFilename, "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                if (System.Windows.MessageBox.Show("Открыть последний файл конфигурации?" + Environment.NewLine + Properties.Settings.Default.LastFileName, "Вопрос", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    OpenConfig(lastFilename);
-                    currentFileName = lastFilename;
-                    label_filename.Content = lastFilename;
+                    OpenConfig(Properties.Settings.Default.LastFileName);
+                    currentFileName = Properties.Settings.Default.LastFileName;
+                    label_filename.Content = Properties.Settings.Default.LastFileName;
                 }
             }
 
@@ -952,11 +951,13 @@ namespace Simulator_MPSA
                 if (editor != null)
                     editor.Close();
 
-                string subkey = @"software\NA\Simulator";
+                // string subkey = @"software\NA\Simulator";
 
-                RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
+                //  RegistryKey configKey = Registry.CurrentUser.CreateSubKey(subkey);
                 //  string lastFilename = (string)configKey.GetValue("last file", "");
-                configKey.SetValue("last file", currentFileName);
+                // configKey.SetValue("last file", currentFileName);
+                Properties.Settings.Default.LastFileName = currentFileName;
+                Properties.Settings.Default.Save();
             }
             else
             {
@@ -1701,7 +1702,7 @@ namespace Simulator_MPSA
                 dataGridDO_OPC.IsReadOnly = value;
 
                 MenuItem_Sim.IsEnabled = !value;
-                MenuItem_ChangeDev.IsEnabled = !value;
+                //MenuItem_ChangeDev.IsEnabled = !value;
             }
         }
 
