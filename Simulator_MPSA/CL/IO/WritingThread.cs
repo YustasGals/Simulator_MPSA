@@ -22,7 +22,7 @@ namespace Simulator_MPSA
 
         DateTime prevCycleTime;
 
-        float dt_sec;
+      //  float dt_sec;
 
 
         ModbusIpMaster[] mbMasterW;
@@ -130,7 +130,7 @@ namespace Simulator_MPSA
             int jobnum = (int)data;
             prevCycleTime = DateTime.Now;
 
-            dt_sec = 0f;
+            //dt_sec = 0f;
             while (true)
             {                       
               //  Debug.WriteLine("W0 time = " + dt_sec.ToString());
@@ -190,10 +190,7 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+                catch
                 {
                     connectionBroken = true;
                 }
@@ -250,10 +247,8 @@ namespace Simulator_MPSA
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
 
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch 
                 {
                     connectionBroken = true;
                 }
@@ -307,9 +302,8 @@ namespace Simulator_MPSA
                     // refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle3);
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                { }
-                catch (Exception ex)
+
+                catch 
                 {
                     connectionBroken = true;
                 }
@@ -365,10 +359,8 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch 
                 {
                     connectionBroken = true;
                 }
@@ -423,10 +415,8 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch
                 {
                     connectionBroken = true;
                 }
@@ -481,10 +471,8 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch 
                 {
                     connectionBroken = true;
                 }
@@ -539,10 +527,8 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch
                 {
                     connectionBroken = true;
                 }
@@ -597,10 +583,8 @@ namespace Simulator_MPSA
 
                     System.Threading.Thread.Sleep(Sett.Instance.TPause);
                 }
-                catch (ThreadAbortException abEx)
-                {
-                }
-                catch (Exception ex)
+
+                catch 
                 {
                     connectionBroken = true;
                 }
@@ -679,7 +663,7 @@ namespace Simulator_MPSA
                         refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle, jobnum);
                     //   refMainWindow.Dispatcher.Invoke(refMainWindow.EndCycle5);
                 }
-                catch (Exception ex)
+                catch 
                 {
                     connectionBroken = true;
                 }

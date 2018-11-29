@@ -160,8 +160,8 @@ namespace Simulator_MPSA
         ViewModelCollection<WatchItemViewModel, WatchItem> watchvm;
 
         //
-        List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
-        Opc.Da.ItemValue itm;
+        //List<Opc.Da.ItemValue> opcitems = new List<Opc.Da.ItemValue>();
+        //Opc.Da.ItemValue itm;
 
         public MainWindow()
         {
@@ -547,7 +547,7 @@ namespace Simulator_MPSA
             CloseApp();
         }
 
-        bool isConfigLoaded = false;
+       // bool isConfigLoaded = false;
 
 
         /// <summary>
@@ -559,10 +559,12 @@ namespace Simulator_MPSA
         {
 
 
-            System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog();
-            dialog.Filter = "XML Files (*.xml)|*.xml";
-            dialog.FilterIndex = 0;
-            dialog.DefaultExt = "xml";
+            System.Windows.Forms.OpenFileDialog dialog = new System.Windows.Forms.OpenFileDialog
+            {
+                Filter = "XML Files (*.xml)|*.xml",
+                FilterIndex = 0,
+                DefaultExt = "xml"
+            };
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 OpenConfig(dialog.FileName);
@@ -659,8 +661,10 @@ namespace Simulator_MPSA
             };
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                Station s = new Station();
-                s.settings = Sett.Instance;
+                Station s = new Station
+                {
+                    settings = Sett.Instance
+                };
                 s.Save(dialog.FileName);
 
                 currentFileName = dialog.FileName;
@@ -716,16 +720,20 @@ namespace Simulator_MPSA
                 if (Sett.Instance.UseModbus)
                 {
                     //потоки на чтение модбас
-                    rdThread = new ReadThread(Properties.Settings.Default.ModbusIPAddr, 502);
-                  //  rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                    rdThread.refMainWindow = this;
+                    rdThread = new ReadThread(Properties.Settings.Default.ModbusIPAddr, 502)
+                    {
+                        //  rdThread = new ReadThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                        refMainWindow = this
+                    };
                     rdThread.Start();
 
                     //потоки на запись модбас
-                    wrThread = new WritingThread(Properties.Settings.Default.ModbusIPAddr, 502);
-                    
-                    // wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
-                    wrThread.refMainWindow = this;
+                    wrThread = new WritingThread(Properties.Settings.Default.ModbusIPAddr, 502)
+                    {
+
+                        // wrThread = new WritingThread(Sett.Instance.HostName, Sett.Instance.MBPort);
+                        refMainWindow = this
+                    };
                     wrThread.Start();
                 }
                 readingTime = DateTime.Now;
@@ -734,9 +742,11 @@ namespace Simulator_MPSA
 
                 if (Sett.Instance.UseOPC)
                 {
-                    opcThread = new OPCThread(Properties.Settings.Default.OPCAddr + Properties.Settings.Default.OPCServerName, 50);
-                  //  opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
-                    opcThread.refMainWindow = this;
+                    opcThread = new OPCThread(Properties.Settings.Default.OPCAddr + Properties.Settings.Default.OPCServerName, 50)
+                    {
+                        //  opcThread = new OPCThread(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName, 50);
+                        refMainWindow = this
+                    };
                     opcThread.Start();
                     /*  srv = new Opc.Da.Server(new OpcCom.Factory(), new Opc.URL(Sett.Instance.OFSServerPrefix + Sett.Instance.OFSServerName));
                       srv.Connect();
@@ -913,8 +923,7 @@ namespace Simulator_MPSA
             }
             else
             {
-                MPNAStruct temp = dataGridMPNA.SelectedItem as MPNAStruct;
-                if (temp != null)
+                if (dataGridMPNA.SelectedItem is MPNAStruct temp)
                 {
                     dialog = new SetupDialog(temp);
                     dialog.Show();
@@ -993,8 +1002,7 @@ namespace Simulator_MPSA
             }
             else
             {
-                VSStruct temp = dataGridVS.SelectedItem as VSStruct;
-                if (temp != null)
+                if (dataGridVS.SelectedItem is VSStruct temp)
                 {
                     dialog = new SetupDialog(temp);
                     dialog.Show();
@@ -1045,8 +1053,7 @@ namespace Simulator_MPSA
             }
             else
             {
-                ZDStruct temp = dataGridZD.SelectedItem as ZDStruct;
-                if (temp != null)
+                if (dataGridZD.SelectedItem is ZDStruct temp)
                 {
                     dialog = new SetupDialog(temp);
                     dialog.Show();
@@ -1077,8 +1084,7 @@ namespace Simulator_MPSA
             }
             else
             {
-                KLStruct temp = dataGridKL.SelectedItem as KLStruct;
-                if (temp != null)
+                if (dataGridKL.SelectedItem is KLStruct temp)
                 {
                     dialog = new SetupDialog(temp);
                     dialog.Show();
@@ -1095,8 +1101,7 @@ namespace Simulator_MPSA
             }
             else
             {
-                MPNAStruct temp = dataGridMPNA.SelectedItem as MPNAStruct;
-                if (temp != null)
+                if (dataGridMPNA.SelectedItem is MPNAStruct temp)
                 {
                     dialog = new SetupDialog(temp);
                     dialog.Show();
@@ -1190,10 +1195,9 @@ namespace Simulator_MPSA
         ScriptEditor editor;
         private void ScriptMenu_EditClick(object sender, RoutedEventArgs e)
         {
-            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
 
 
-            if (script != null)
+            if (dataGridScript.SelectedItem is Scripting.ScriptInfo script)
             {
                 if (editor != null)
                     editor.Close();
@@ -1207,9 +1211,8 @@ namespace Simulator_MPSA
 
         private void ScriptMenu_RunClick(object sender, RoutedEventArgs e)
         {
-            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
 
-            if (script != null)
+            if (dataGridScript.SelectedItem is Scripting.ScriptInfo script)
             {
 
                 script.Prepare();
@@ -1219,9 +1222,8 @@ namespace Simulator_MPSA
         }
         private void ScriptMenu_RunOnceClick(object sender, RoutedEventArgs e)
         {
-            ScriptInfo script = dataGridScript.SelectedItem as Scripting.ScriptInfo;
 
-            if (script != null)
+            if (dataGridScript.SelectedItem is Scripting.ScriptInfo script)
             {
                 script.Prepare();
                 script.Run(0, true);
@@ -1246,8 +1248,10 @@ namespace Simulator_MPSA
             CountersTableViewModel.Counters.Clear();
             DiagTableModel.Instance.DiagRegs.Clear();
 
-            Station s = new Station();
-            s.Version = 0;
+            Station s = new Station
+            {
+                Version = 0
+            };
             s = null;
 
             currentFileName = "";
@@ -1262,12 +1266,14 @@ namespace Simulator_MPSA
 
         private void Menu_Export(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog();
-            sfd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
+            System.Windows.Forms.SaveFileDialog sfd = new System.Windows.Forms.SaveFileDialog
+            {
+                Filter = "текстовый файл с разделителями (.csv)|*.csv"
+            };
             if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 // Simulator_MPSA.CL.IO.StationExporter exporter = new CL.IO.StationExporter();
-                CSVWorker.exportCSV(Station.instance, sfd.FileName);
+                CSVWorker.ExportCSV(Station.Instance, sfd.FileName);
             }
         }
 
@@ -1510,7 +1516,8 @@ namespace Simulator_MPSA
             { }
         }
         #region СОБЫТИЯ ФИЛЬТРЫ
-        private void textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void 
+            textBoxDIFilter_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {

@@ -211,14 +211,17 @@ namespace Simulator_MPSA.CL
             Name = klapan.Description;
             Group = klapan.Group;
 
-            Outputs = new ObservableCollection<InputOutputItem>();
-            Outputs.Add( new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName, ESignalType.DI));
-            Outputs.Add( new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName, ESignalType.DI));
+            Outputs = new ObservableCollection<InputOutputItem>
+            {
+                new InputOutputItem("Открыт", klapan.OKCindxArrDI, klapan.OKCName, ESignalType.DI),
+                new InputOutputItem("Закрыт", klapan.CKCindxArrDI, klapan.CKCName, ESignalType.DI)
+            };
 
-            Inputs = new ObservableCollection<InputOutputItem>();
-            inputs.Add( new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName, ESignalType.DO));
-            inputs.Add( new InputOutputItem("Команда - закрыть", klapan.DKBindxArrDO, klapan.DKBName, ESignalType.DO));
-
+            Inputs = new ObservableCollection<InputOutputItem>
+            {
+                new InputOutputItem("Команда - открыть", klapan.DOBindxArrDO, klapan.DOBName, ESignalType.DO),
+                new InputOutputItem("Команда - закрыть", klapan.DKBindxArrDO, klapan.DKBName, ESignalType.DO)
+            };
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,2);
 
@@ -237,21 +240,23 @@ namespace Simulator_MPSA.CL
 
             Outputs = new ObservableCollection<InputOutputItem>();
 
-          //  List<string> names = new List<string>();
-            Dictionary<string, string> names = new Dictionary<string, string>();
-            names.Add("OKC",zd.OKC !=null?      zd.OKC.NameDI: "не определен");
-            names.Add("CKC",zd.CKC != null ?    zd.CKC.NameDI : "не определен");
-            names.Add("Volt",zd.Volt != null ?  zd.Volt.NameDI : "не определен");
-            names.Add("ODC",zd.ODC != null ?    zd.ODC.NameDI : "не определен");
-            names.Add("CDC",zd.CDC != null ?    zd.CDC.NameDI : "не определен");
-            names.Add("MC",zd.MC != null ?      zd.MC.NameDI : "не определен");
-            names.Add("DC", zd.DC != null ?     zd.DC.NameDI : "не определен");
-            names.Add("BS", zd.BS != null ?     zd.BS.NameDI : "не определен");
+            //  List<string> names = new List<string>();
+            Dictionary<string, string> names = new Dictionary<string, string>
+            {
+                { "OKC", zd.OKC != null ? zd.OKC.NameDI : "не определен" },
+                { "CKC", zd.CKC != null ? zd.CKC.NameDI : "не определен" },
+                { "Volt", zd.Volt != null ? zd.Volt.NameDI : "не определен" },
+                { "ODC", zd.ODC != null ? zd.ODC.NameDI : "не определен" },
+                { "CDC", zd.CDC != null ? zd.CDC.NameDI : "не определен" },
+                { "MC", zd.MC != null ? zd.MC.NameDI : "не определен" },
+                { "DC", zd.DC != null ? zd.DC.NameDI : "не определен" },
+                { "BS", zd.BS != null ? zd.BS.NameDI : "не определен" },
 
-            names.Add("DOB", zd.DOB != null ? zd.DOB.NameDO : "не определен");
-            names.Add("DCB", zd.DCB != null ? zd.DCB.NameDO : "не определен");
-            names.Add("DKB", zd.DKB != null ? zd.DKB.NameDO : "не определен");
-            names.Add("DCBZ", zd.DCBZ != null ? zd.DCBZ.NameDO : "не определен");
+                { "DOB", zd.DOB != null ? zd.DOB.NameDO : "не определен" },
+                { "DCB", zd.DCB != null ? zd.DCB.NameDO : "не определен" },
+                { "DKB", zd.DKB != null ? zd.DKB.NameDO : "не определен" },
+                { "DCBZ", zd.DCBZ != null ? zd.DCBZ.NameDO : "не определен" }
+            };
 
             Outputs.Add(new InputOutputItem("КВО", zd.OKCindxArrDI, names["OKC"], ESignalType.DI));
             Outputs.Add(new InputOutputItem("КВЗ", zd.CKCindxArrDI, names["CKC"], ESignalType.DI));
@@ -264,13 +269,15 @@ namespace Simulator_MPSA.CL
 
             if (zd.CustomDIs == null || zd.CustomDIs.Count==0)
             {
-                    zd.CustomDIs = new List<DIItem>();
-                    zd.CustomDIs.Add(new DIItem("RS485. Открыта"));//открыта
-                    zd.CustomDIs.Add(new DIItem("RS485. Закрыта"));//закрыта
-                    zd.CustomDIs.Add(new DIItem("RS485. Открывается"));//открывается
-                    zd.CustomDIs.Add(new DIItem("RS485. Закрывается"));//закрывается
-                    zd.CustomDIs.Add(new DIItem("RS485. В дистанции"));//закрыта
-                    zd.CustomDIs.Add(new DIItem("RS485. Наличие связи"));//наличие связи
+                zd.CustomDIs = new List<DIItem>
+                {
+                    new DIItem("RS485. Открыта"),//открыта
+                    new DIItem("RS485. Закрыта"),//закрыта
+                    new DIItem("RS485. Открывается"),//открывается
+                    new DIItem("RS485. Закрывается"),//закрывается
+                    new DIItem("RS485. В дистанции"),//закрыта
+                    new DIItem("RS485. Наличие связи")//наличие связи
+                };
             }
             foreach (DIItem c in zd.CustomDIs)
             {
@@ -278,15 +285,19 @@ namespace Simulator_MPSA.CL
             }
 
 
-            inputs = new ObservableCollection<InputOutputItem>();
-            inputs.Add( new InputOutputItem("команда - открыть", zd.DOBindxArrDO, names["DOB"], ESignalType.DO));
-            inputs.Add( new InputOutputItem("команда - остановить", zd.DCBindxArrDO, names["DCB"], ESignalType.DO));
-            inputs.Add( new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, names["DKB"], ESignalType.DO));
-            inputs.Add( new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, names["DCBZ"], ESignalType.DO));
+            inputs = new ObservableCollection<InputOutputItem>
+            {
+                new InputOutputItem("команда - открыть", zd.DOBindxArrDO, names["DOB"], ESignalType.DO),
+                new InputOutputItem("команда - остановить", zd.DCBindxArrDO, names["DCB"], ESignalType.DO),
+                new InputOutputItem("команда - закрыть", zd.DKBindxArrDO, names["DKB"], ESignalType.DO),
+                new InputOutputItem("команда - стоп закрытия", zd.DCBZindxArrDO, names["DCBZ"], ESignalType.DO)
+            };
 
 
-            _analogs = new ObservableCollection<AnalogIOItem>();
-            _analogs.Add( new AnalogIOItem("Положение затвора",zd.ZD_Pos_index, 100,0, zd.PositionAIName));
+            _analogs = new ObservableCollection<AnalogIOItem>
+            {
+                new AnalogIOItem("Положение затвора", zd.ZD_Pos_index, 100, 0, zd.PositionAIName)
+            };
 
             AddDICommand = new AddDICommand(Outputs);
             RemDICommand = new RemoveDICommand(Outputs,14);
@@ -305,15 +316,17 @@ namespace Simulator_MPSA.CL
             Group = agr.Group;
             En = agr.En;
 
-            Outputs = new ObservableCollection<InputOutputItem>(); 
-            Outputs.Add(new InputOutputItem("ВВ включен сигнал 1",agr.MBC11indxArrDI, agr.MBC11Name, ESignalType.DI));
-            Outputs.Add(new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name, ESignalType.DI));
-            Outputs.Add(new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name, ESignalType.DI));
-            Outputs.Add(new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name, ESignalType.DI));
+            Outputs = new ObservableCollection<InputOutputItem>
+            {
+                new InputOutputItem("ВВ включен сигнал 1", agr.MBC11indxArrDI, agr.MBC11Name, ESignalType.DI),
+                new InputOutputItem("ВВ включен сигнал 2", agr.MBC12indxArrDI, agr.MBC12Name, ESignalType.DI),
+                new InputOutputItem("ВВ отключен сигнал 1", agr.MBC21indxArrDI, agr.MBC21Name, ESignalType.DI),
+                new InputOutputItem("ВВ отключен сигнал 2", agr.MBC22indxArrDI, agr.MBC22Name, ESignalType.DI),
 
-            Outputs.Add(new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName, ESignalType.DI));
-            Outputs.Add(new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name, ESignalType.DI));
-            Outputs.Add(new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name, ESignalType.DI));
+                new InputOutputItem("Исправность цепей включения", agr.ECBindxArrDI, agr.ECBName, ESignalType.DI),
+                new InputOutputItem("Исправность цепей отключения 1", agr.ECO11indxArrDI, agr.ECO11Name, ESignalType.DI),
+                new InputOutputItem("Исправность цепей отключения 2", agr.ECO12indxArrDI, agr.ECO12Name, ESignalType.DI)
+            };
 
             if (agr.CustomDIs.Count > 0)
             {
@@ -322,10 +335,12 @@ namespace Simulator_MPSA.CL
             }
             //Outputs.Add(new InputOutputItem("ECx02", agr.ECxindxArrDI, agr.ECxName));
 
-            inputs = new ObservableCollection<InputOutputItem>();
-            inputs.Add( new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName, ESignalType.DO));
-            inputs.Add( new InputOutputItem("Команда на отключение", agr.ABOindxArrDO, agr.ABOName, ESignalType.DO));
-            inputs.Add( new InputOutputItem("Команда на отключение 2", agr.ABO2indxArrDO, agr.ABO2Name, ESignalType.DO));
+            inputs = new ObservableCollection<InputOutputItem>
+            {
+                new InputOutputItem("Команда на включение", agr.ABBindxArrDO, agr.ABBName, ESignalType.DO),
+                new InputOutputItem("Команда на отключение", agr.ABOindxArrDO, agr.ABOName, ESignalType.DO),
+                new InputOutputItem("Команда на отключение 2", agr.ABO2indxArrDO, agr.ABO2Name, ESignalType.DO)
+            };
 
             if (agr.controledAIs != null)
                 _analogs = new ObservableCollection<AnalogIOItem>(agr.controledAIs);
@@ -676,7 +691,7 @@ namespace Simulator_MPSA.CL
 
                 }
             }
-            catch (Exception e)
+            catch
             {
                 foreach (AnalogIOItem itm in list.Cast<AnalogIOItem>())
                 {

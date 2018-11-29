@@ -29,8 +29,10 @@ namespace Simulator_MPSA.CL.Commands
                 AIStruct.items.Clear();
             }
 
-            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-            ofd.Filter = "текстовый файл с разделителями (.csv)|*.csv";
+            System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog
+            {
+                Filter = "текстовый файл с разделителями (.csv)|*.csv"
+            };
             if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if (ofd.FileName == null) return;
@@ -46,7 +48,7 @@ namespace Simulator_MPSA.CL.Commands
                     return;
                 }
 
-                int count = 0;
+           //     int count = 0;
                 ReadTableAI(reader);
             }//if OK
 
@@ -77,23 +79,25 @@ namespace Simulator_MPSA.CL.Commands
                             continue;
                             //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
                         }
-                        AIStruct item = new AIStruct();
-                        item.En = bool.Parse(values[0]);
-                        item.indxAI = int.Parse(values[1]);
-                        item.OPCtag = values[2];
-                        item.PLCAddr = int.Parse(values[3]);
-                        item.PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]);
+                    AIStruct item = new AIStruct
+                    {
+                        En = bool.Parse(values[0]),
+                        indxAI = int.Parse(values[1]),
+                        OPCtag = values[2],
+                        PLCAddr = int.Parse(values[3]),
+                        PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]),
 
-                        item.Forced = bool.Parse(values[5]);
-                        item.ForcedValue = float.Parse(values[6], culture);
-                        item.fValAI = float.Parse(values[7], culture);
-                        item.minACD = ushort.Parse(values[8], culture);
-                        item.maxACD = ushort.Parse(values[9], culture);
-                        item.minPhis = float.Parse(values[10], culture);
-                        item.maxPhis = float.Parse(values[11], culture);
+                        Forced = bool.Parse(values[5]),
+                        ForcedValue = float.Parse(values[6], culture),
+                        fValAI = float.Parse(values[7], culture),
+                        minACD = ushort.Parse(values[8], culture),
+                        maxACD = ushort.Parse(values[9], culture),
+                        minPhis = float.Parse(values[10], culture),
+                        maxPhis = float.Parse(values[11], culture)
+                    };
 
 
-                        if (values.Length > 11)
+                    if (values.Length > 11)
                             item.TegAI = values[12];
 
                         if (values.Length > 12)

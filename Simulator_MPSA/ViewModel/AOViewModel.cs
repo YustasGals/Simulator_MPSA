@@ -86,7 +86,7 @@ namespace Simulator_MPSA.ViewModel
             }
         }
 
-        public int indx
+        public int Indx
         {
             get { return model.indx; }
             set { model.indx = value; }
@@ -134,19 +134,19 @@ namespace Simulator_MPSA.ViewModel
             set { model.ValACD = value; }
         }
 
-        public ushort minACD
+        public ushort MinACD
         {
             get { return model.minACD; }
             set { model.minACD = value; }
         }
 
-        public ushort maxACD
+        public ushort MaxACD
         {
             get { return model.maxACD; }
             set { model.maxACD = value; }
         }
 
-        public string minPhis
+        public string MinPhis
         {
             get { return model.minPhis.ToString(culture); }
             set
@@ -163,7 +163,7 @@ namespace Simulator_MPSA.ViewModel
                 }
         }
 
-        public string maxPhis
+        public string MaxPhis
         {
             get { return model.maxPhis.ToString(culture); }
             set
@@ -188,7 +188,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     model.ForceValue = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch (Exception e)
+                catch 
                 {
                     model.ForceValue = 0;
                 }

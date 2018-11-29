@@ -52,7 +52,7 @@ namespace Simulator_MPSA.CL
 
         private static Station _instance;
         [XmlIgnore]
-        public static Station instance
+        public static Station Instance
         {
             get {
                 return _instance;
@@ -97,10 +97,9 @@ namespace Simulator_MPSA.CL
         {
 
             XmlSerializer xml = new XmlSerializer(typeof(Station));
-            System.IO.StreamReader reader = null;
-            FileStream stream = null;
+        //    System.IO.StreamReader reader = null;
+            FileStream stream = File.OpenRead(filename);
 
-            stream = File.OpenRead(filename);
             return StationLoadResult.OK;
         }
 
@@ -562,7 +561,7 @@ namespace Simulator_MPSA.CL
         /// </summary>
         /// <param name="station"></param>
         /// <param name="filename"></param>
-        public static void exportCSV(Station station, string filename)
+        public static void ExportCSV(Station station, string filename)
         {
             if (station == null || filename == null) return;
 
@@ -929,17 +928,19 @@ namespace Simulator_MPSA.CL
                         {
                             System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
                         }
-                        DIStruct di = new DIStruct();
-                        di.En = bool.Parse(values[0]);
-                        di.indxArrDI = int.Parse(values[1]);
-                        di.OPCtag = values[2];
-                        di.PLCAddr = int.Parse(values[3]);
-                        di.indxBitDI = int.Parse(values[4]);
+                        DIStruct di = new DIStruct
+                        {
+                            En = bool.Parse(values[0]),
+                            indxArrDI = int.Parse(values[1]),
+                            OPCtag = values[2],
+                            PLCAddr = int.Parse(values[3]),
+                            indxBitDI = int.Parse(values[4]),
 
-                        di.Forced = bool.Parse(values[5]);
-                        di.ForcedValue = bool.Parse(values[6]);
-                        di.ValDI = bool.Parse(values[7]);
-                        di.InvertDI = bool.Parse(values[8]);
+                            Forced = bool.Parse(values[5]),
+                            ForcedValue = bool.Parse(values[6]),
+                            ValDI = bool.Parse(values[7]),
+                            InvertDI = bool.Parse(values[8])
+                        };
 
                         if (values.Length>9)
                         di.TegDI = values[9];
@@ -1000,17 +1001,19 @@ namespace Simulator_MPSA.CL
                             //throw new Exception("недостаточно параметров в строке ("+values.Count()+")");
                             continue;
                         }
-                        DOStruct item = new DOStruct();
-                        item.En = bool.Parse(values[0]);
-                        item.indxArrDO = int.Parse(values[1]);
-                        item.OPCtag = values[2];
-                        item.PLCAddr = int.Parse(values[3]);
-                        item.indxBitDO = int.Parse(values[4]);
+                        DOStruct item = new DOStruct
+                        {
+                            En = bool.Parse(values[0]),
+                            indxArrDO = int.Parse(values[1]),
+                            OPCtag = values[2],
+                            PLCAddr = int.Parse(values[3]),
+                            indxBitDO = int.Parse(values[4]),
 
-                        item.Forced = bool.Parse(values[5]);
-                        item.ForcedValue = bool.Parse(values[6]);
-                        item.ValDO = bool.Parse(values[7]);
-                        item.InvertDO = bool.Parse(values[8]);
+                            Forced = bool.Parse(values[5]),
+                            ForcedValue = bool.Parse(values[6]),
+                            ValDO = bool.Parse(values[7]),
+                            InvertDO = bool.Parse(values[8])
+                        };
 
                         if (values.Length>9)
                             item.TegDO = values[9];
@@ -1070,21 +1073,23 @@ namespace Simulator_MPSA.CL
                             continue;
                           //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
                         }
-                        AIStruct item = new AIStruct();
-                        item.En = bool.Parse(values[0]);
-                        item.indxAI = int.Parse(values[1]);
-                        item.OPCtag = values[2];
-                        item.PLCAddr = int.Parse(values[3]);
-                        item.PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType),values[4]);
+                        AIStruct item = new AIStruct
+                        {
+                            En = bool.Parse(values[0]),
+                            indxAI = int.Parse(values[1]),
+                            OPCtag = values[2],
+                            PLCAddr = int.Parse(values[3]),
+                            PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]),
 
-                        item.Forced = bool.Parse(values[5]);
-                        item.ForcedValue = float.Parse(values[6],culture);
-                        item.fValAI = float.Parse(values[7], culture);
-                        item.minACD = ushort.Parse(values[8], culture);
-                        item.maxACD = ushort.Parse(values[9], culture);
-                        item.minPhis = float.Parse(values[10], culture);
-                        item.maxPhis = float.Parse(values[11], culture);
-                       
+                            Forced = bool.Parse(values[5]),
+                            ForcedValue = float.Parse(values[6], culture),
+                            fValAI = float.Parse(values[7], culture),
+                            minACD = ushort.Parse(values[8], culture),
+                            maxACD = ushort.Parse(values[9], culture),
+                            minPhis = float.Parse(values[10], culture),
+                            maxPhis = float.Parse(values[11], culture)
+                        };
+
 
                         if (values.Length > 11)
                             item.TegAI = values[12];
@@ -1139,20 +1144,22 @@ namespace Simulator_MPSA.CL
                             continue;
                             //  System.Windows.Forms.MessageBox.Show("Ошибка чтения файла");
                         }
-                        AOStruct item = new AOStruct();
-                        item.En = bool.Parse(values[0]);
-                        item.indx = int.Parse(values[1]);
-                        item.OPCtag = values[2];
-                        item.PLCAddr = int.Parse(values[3]);
-                        item.PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]);
+                        AOStruct item = new AOStruct
+                        {
+                            En = bool.Parse(values[0]),
+                            indx = int.Parse(values[1]),
+                            OPCtag = values[2],
+                            PLCAddr = int.Parse(values[3]),
+                            PLCDestType = (EPLCDestType)Enum.Parse(typeof(EPLCDestType), values[4]),
 
-                        item.Forced = bool.Parse(values[5]);
-                        //item.ForcedValue = float.Parse(values[6], culture);
-                        item.fVal = float.Parse(values[6], culture);
-                        item.minACD = ushort.Parse(values[7], culture);
-                        item.maxACD = ushort.Parse(values[8], culture);
-                        item.minPhis = float.Parse(values[9], culture);
-                        item.maxPhis = float.Parse(values[10], culture);
+                            Forced = bool.Parse(values[5]),
+                            //item.ForcedValue = float.Parse(values[6], culture);
+                            fVal = float.Parse(values[6], culture),
+                            minACD = ushort.Parse(values[7], culture),
+                            maxACD = ushort.Parse(values[8], culture),
+                            minPhis = float.Parse(values[9], culture),
+                            maxPhis = float.Parse(values[10], culture)
+                        };
 
 
                         if (values.Length > 10)
@@ -1184,7 +1191,7 @@ namespace Simulator_MPSA.CL
             }
         }
 
-        public static void importCSV(string filename)
+        public static void ImportCSV(string filename)
         {
             if (filename == null) return;
 

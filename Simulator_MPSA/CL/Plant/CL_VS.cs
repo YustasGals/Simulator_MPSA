@@ -379,7 +379,7 @@ namespace Simulator_MPSA
         /// <summary>
         /// наличие давления индекс аналогового сигнала в массиве AIStruct.items
         /// </summary>
-        private int _PCindxArrAI = -1;
+      //  private int _PCindxArrAI = -1;
 
         /// <summary>
         /// Стоп по месту
@@ -646,8 +646,10 @@ namespace Simulator_MPSA
 
             bsOnTimer = new Timer(BSOnTime);
             bsOffTimer = new Timer(BSOffTime);
-            manualStopTimer = new Timer(noVoltTime);
-            manualStopTimer.Enabled = false;
+            manualStopTimer = new Timer(noVoltTime)
+            {
+                Enabled = false
+            };
 
 
             manualStopTimer.Elapsed += (sender, e) => { flagManualStop = false; };
@@ -902,8 +904,7 @@ namespace Simulator_MPSA
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(string prop = "")
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         /// <summary>

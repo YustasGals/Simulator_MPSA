@@ -195,9 +195,8 @@ namespace Simulator_MPSA.ViewModel
         }
         private void Filter_Func(object sender, FilterEventArgs e)
         {
-            IViewModel<TModel> item = e.Item as IViewModel<TModel>;
 
-            if (item != null)
+            if (e.Item is IViewModel<TModel> item)
             {
                 if (item.GetName() == "")
                     e.Accepted = !_hideEmpty;

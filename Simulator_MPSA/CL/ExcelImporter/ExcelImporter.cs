@@ -13,12 +13,14 @@ namespace Simulator_MPSA
     {
         public static string GetConnectionString(string filename)
         {
-            Dictionary<string, string> props = new Dictionary<string, string>();
+            Dictionary<string, string> props = new Dictionary<string, string>
+            {
 
-            // XLSX - Excel 2007, 2010, 2012, 2013
-            props["Provider"] = "Microsoft.ACE.OLEDB.12.0;";
-            props["Extended Properties"] = "Excel 12.0 XML";
-            props["Data Source"] = filename;
+                // XLSX - Excel 2007, 2010, 2012, 2013
+                ["Provider"] = "Microsoft.ACE.OLEDB.12.0;",
+                ["Extended Properties"] = "Excel 12.0 XML",
+                ["Data Source"] = filename
+            };
 
             // XLS - Excel 2003 and Older
             //props["Provider"] = "Microsoft.Jet.OLEDB.4.0";
@@ -71,8 +73,10 @@ namespace Simulator_MPSA
         }
         private static void ReadSignals(OleDbConnection conn)
         {
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = conn;
+            OleDbCommand cmd = new OleDbCommand
+            {
+                Connection = conn
+            };
 
             // Get all Sheets in Excel File
             DataTable dtSheet = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
@@ -95,8 +99,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            DataTable dt = new DataTable();
-            dt.TableName = sheetName;
+            DataTable dt = new DataTable
+            {
+                TableName = sheetName
+            };
 
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
             da.Fill(dt);
@@ -151,13 +157,14 @@ namespace Simulator_MPSA
                 }
                 catch (Exception ex)
                 {
+                    LogWriter.AppendLog(ex.Message);
                 }
 
                 try
                 {
                     tagName = (string)dt.Rows[i].ItemArray[4];
                 }
-                catch (Exception ex)
+                catch 
                 {
                     tagName = "";
                 }
@@ -166,18 +173,20 @@ namespace Simulator_MPSA
                 {
                     signalName = (string)dt.Rows[i].ItemArray[5];
                 }
-                catch (Exception ex)
+                catch
                 {
                     signalName = "";
                 }
 
                 if (signalType.ToLower() == "ai" && signalName != "")
                 {
-                    AIStruct ai = new AIStruct();
-                    ai.En = true;
-                    ai.NameAI = signalName;
-                    ai.TegAI = tagName;
-                    ai.PLCAddr = (int)currentAddr - 300000 + 40000;
+                    AIStruct ai = new AIStruct
+                    {
+                        En = true,
+                        NameAI = signalName,
+                        TegAI = tagName,
+                        PLCAddr = (int)currentAddr - 300000 + 40000
+                    };
                     AIStruct.items.Add(ai);
                     //LogViewModel.WriteLine("прочитан сигнал AI: " + ai.NameAI);
 
@@ -185,30 +194,34 @@ namespace Simulator_MPSA
 
                 if (signalType.ToLower() == "di" && signalName != "")
                 {
-                    DIStruct di = new DIStruct();
-                    di.En = true;
+                    DIStruct di = new DIStruct
+                    {
+                        En = true,
 
-                    di.NameDI = signalName;
-                    di.TegDI = tagName;
+                        NameDI = signalName,
+                        TegDI = tagName,
 
-                    di.PLCAddr = (int)currentAddr - 300000 + 40000;
+                        PLCAddr = (int)currentAddr - 300000 + 40000,
 
-                    di.indxBitDI = bit;
+                        indxBitDI = bit,
 
-                    di.Nsign = NSign;
+                        Nsign = NSign
+                    };
                     DIStruct.items.Add(di);
                 }
 
                 if (signalType.ToLower() == "do" && signalName != "")
                 {
-                    DOStruct _do = new DOStruct();
-                    _do.En = true;
-                    _do.TegDO = tagName;
-                    _do.NameDO = signalName;
+                    DOStruct _do = new DOStruct
+                    {
+                        En = true,
+                        TegDO = tagName,
+                        NameDO = signalName,
 
-                    _do.PLCAddr = (int)currentAddr-400000;
-                    _do.indxBitDO = bit;
-                    _do.Nsign = NSign;
+                        PLCAddr = (int)currentAddr - 400000,
+                        indxBitDO = bit,
+                        Nsign = NSign
+                    };
                     DOStruct.items.Add(_do);
                 }
             }
@@ -221,8 +234,10 @@ namespace Simulator_MPSA
         /// <param name="conn"></param>
         private static void ReadZD(OleDbConnection conn)
         {
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = conn;
+            OleDbCommand cmd = new OleDbCommand
+            {
+                Connection = conn
+            };
 
             // Get all Sheets in Excel File
             DataTable dtSheet = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
@@ -243,8 +258,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            DataTable dt = new DataTable();
-            dt.TableName = sheetName;
+            DataTable dt = new DataTable
+            {
+                TableName = sheetName
+            };
 
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
@@ -262,8 +279,10 @@ namespace Simulator_MPSA
                 }
                 else
                 {
-                    zd = new ZDStruct();
-                    zd.Description = (string)dt.Rows[rowindex].ItemArray[0];
+                    zd = new ZDStruct
+                    {
+                        Description = (string)dt.Rows[rowindex].ItemArray[0]
+                    };
                     if (zd.Description.Length < 2) break;
                     zd.En = true;
                     ZDTableViewModel.ZDs.Add(zd);
@@ -311,8 +330,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            dt = new DataTable();
-            dt.TableName = sheetName;
+            dt = new DataTable
+            {
+                TableName = sheetName
+            };
 
             //OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
@@ -370,8 +391,10 @@ namespace Simulator_MPSA
             string vsDITableName = "DI вспомсистем";
             string vsDOTableName = "DO вспомсистем";
 
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = conn;
+            OleDbCommand cmd = new OleDbCommand
+            {
+                Connection = conn
+            };
 
             // Get all Sheets in Excel File
             DataTable dtSheet = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
@@ -392,8 +415,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            DataTable dataTable = new DataTable();
-            dataTable.TableName = sheetName;
+            DataTable dataTable = new DataTable
+            {
+                TableName = sheetName
+            };
 
             OleDbDataAdapter dataAdapter = new OleDbDataAdapter(cmd);
 
@@ -411,8 +436,10 @@ namespace Simulator_MPSA
                 }
                 else
                 {
-                    vs = new VSStruct();
-                    vs.Description = (string)dataTable.Rows[rowindex].ItemArray[0];
+                    vs = new VSStruct
+                    {
+                        Description = (string)dataTable.Rows[rowindex].ItemArray[0]
+                    };
                     if (vs.Description.Length < 2) break;
                     vs.En = true;
                     VSTableViewModel.VS.Add(vs);
@@ -455,8 +482,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            dataTable = new DataTable();
-            dataTable.TableName = sheetName;
+            dataTable = new DataTable
+            {
+                TableName = sheetName
+            };
             dataAdapter.Fill(dataTable);
 
            
@@ -510,12 +539,14 @@ namespace Simulator_MPSA
             int shiftDOlink = 4000; //ссылки на DO смещаются на 4000
 
             //наименования используемых таблиц
-            string tableName = "Настр. клапанов";
+          //  string tableName = "Настр. клапанов";
             string DITableName = "DI клапанов";
             string DOTableName = "DO клапанов";
 
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = conn;
+            OleDbCommand cmd = new OleDbCommand
+            {
+                Connection = conn
+            };
 
             // Get all Sheets in Excel File
             DataTable dtSheet = conn.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
@@ -536,8 +567,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            DataTable dataTable = new DataTable();
-            dataTable.TableName = sheetName;
+            DataTable dataTable = new DataTable
+            {
+                TableName = sheetName
+            };
 
             OleDbDataAdapter dataAdapter = new OleDbDataAdapter(cmd);
 
@@ -555,8 +588,10 @@ namespace Simulator_MPSA
                 }
                 else
                 {
-                    kl = new KLStruct();
-                    kl.Description = (string)dataTable.Rows[rowindex].ItemArray[0];
+                    kl = new KLStruct
+                    {
+                        Description = (string)dataTable.Rows[rowindex].ItemArray[0]
+                    };
                     if (kl.Description.Length < 2) break;
                     kl.En = true;
                     KLTableViewModel.KL.Add(kl);
@@ -599,8 +634,10 @@ namespace Simulator_MPSA
             // Get all rows from the Sheet
             cmd.CommandText = "SELECT * FROM [" + sheetName + "]";
 
-            dataTable = new DataTable();
-            dataTable.TableName = sheetName;
+            dataTable = new DataTable
+            {
+                TableName = sheetName
+            };
             dataAdapter.Fill(dataTable);
 
 

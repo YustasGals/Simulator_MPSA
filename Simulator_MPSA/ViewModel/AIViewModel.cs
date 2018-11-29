@@ -89,7 +89,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.ForcedValue = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch (Exception e)
+                catch
                 {
                     ai.ForcedValue = 0;
                 }
@@ -114,7 +114,7 @@ namespace Simulator_MPSA.ViewModel
             set { ai.En = value; }
         }
         
-        public int indxAI
+        public int IndxAI
         {
             get { return ai.indxAI; }
             set { ai.indxAI = value; }
@@ -128,17 +128,17 @@ namespace Simulator_MPSA.ViewModel
             }
             set { ai.ValACD = value; }
         }
-        public ushort minACD
+        public ushort MinACD
         {
             get { return ai.minACD; }
             set { ai.minACD = value; }
         }
-        public ushort maxACD
+        public ushort MaxACD
         {
             get { return ai.maxACD; }
             set { ai.maxACD = value; }
         }
-        public string minPhis
+        public string MinPhis
         {
             get { return ai.minPhis.ToString(culture); }
             set {
@@ -146,13 +146,13 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.minPhis = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch (Exception e)
+                catch 
                 {
                     ai.minPhis = 0f;
                 }
             }
         }
-        public string maxPhis
+        public string MaxPhis
         {
             get { return ai.maxPhis.ToString(culture); }
             set
@@ -161,7 +161,7 @@ namespace Simulator_MPSA.ViewModel
                 {
                     ai.maxPhis = float.Parse(value.Replace(',', '.'), culture);
                 }
-                catch (Exception ex)
+                catch
                 {
                     ai.maxPhis = 0f;
                 }

@@ -258,7 +258,7 @@
                                     </Style>
                                 </DataGridCheckBoxColumn.CellStyle>
                             </-->
-                            <DataGridTextColumn  x:Name="index" Header="Индекс сигнала" Binding="{Binding indxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
+                            <DataGridTextColumn  x:Name="index" Header="Индекс сигнала" Binding="{Binding IndxAI, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Уникальный номер" />
@@ -292,10 +292,10 @@
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TegAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding NameAI, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
-                            <DataGridTextColumn Header="Физ. мин" Binding="{Binding minACD, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD}" />
-                            <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
-                            <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
+                            <DataGridTextColumn Header="Физ. мин" Binding="{Binding MinACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Физ. макс" Binding="{Binding MaxACD}" />
+                            <DataGridTextColumn Header="Инж. мин" Binding="{Binding MinPhis}" />
+                            <DataGridTextColumn Header="Инж. макс" Binding="{Binding MaxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
 
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}" ToolTipService.ToolTip="Запись через интерфейс">
@@ -379,7 +379,7 @@
                                 </DataGridCheckBoxColumn.CellStyle>
                             </-->
 
-                            <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
+                            <DataGridTextColumn x:Name="indexAO" Header="Индекс сигнала" Binding="{Binding Indx, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True" Foreground="Gray">
                                 <DataGridTextColumn.CellStyle>
                                     <Style TargetType="DataGridCell">
                                         <Setter Property="ToolTip" Value="Уникальный номер" />
@@ -407,10 +407,10 @@
                             <DataGridTextColumn Header="Тэг" Binding="{Binding TagName, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="Наименование" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
                             <DataGridTextColumn Header="АЦП" Binding="{Binding ValACD, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="true" Foreground="Gray"/>
-                            <DataGridTextColumn Header="Физ. мин" Binding="{Binding minACD, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="Физ. макс" Binding="{Binding maxACD, UpdateSourceTrigger=PropertyChanged}" />
-                            <DataGridTextColumn Header="Инж. мин" Binding="{Binding minPhis}" />
-                            <DataGridTextColumn Header="Инж. макс" Binding="{Binding maxPhis}" />
+                            <DataGridTextColumn Header="Физ. мин" Binding="{Binding MinACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Физ. макс" Binding="{Binding MaxACD, UpdateSourceTrigger=PropertyChanged}" />
+                            <DataGridTextColumn Header="Инж. мин" Binding="{Binding MinPhis}" />
+                            <DataGridTextColumn Header="Инж. макс" Binding="{Binding MaxPhis}" />
                             <DataGridTextColumn Header="Инж. знач" Binding="{Binding ForcedValue}" />
                             <DataGridCheckBoxColumn Header="Принудительно" Binding="{Binding Forced, UpdateSourceTrigger=PropertyChanged}">
                                 <DataGridCheckBoxColumn.ElementStyle>
