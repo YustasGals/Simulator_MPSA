@@ -104,6 +104,12 @@ namespace Simulator_MPSA
     /// </summary>
     static class LogWriter
     {
+        delegate void InvokeDelegate(string text);
+
+        static void DelegateMethod(string line)
+        {
+            refMainWindow.log.AppendText(now.Hour.ToString() + ":" + now.Minute.ToString() + ":" + now.Second.ToString() + ":  " + line + Environment.NewLine);
+        }
         public static MainWindow refMainWindow;
         static DateTime now;
         public static void AppendLog(string line)
@@ -112,7 +118,7 @@ namespace Simulator_MPSA
             if (refMainWindow != null)
             {
 
-                    refMainWindow.log.AppendText(now.Hour.ToString() + ":" + now.Minute.ToString() + ":" + now.Second.ToString() + ":  " + line + Environment.NewLine);
+                refMainWindow.Dispatcher.BeginInvoke(new InvokeDelegate(DelegateMethod), line);
             }
         }
     }
